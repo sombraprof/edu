@@ -1,0 +1,11 @@
+{
+  "id": "lesson2",
+  "title": "Introdução ao consumo de APIs REST",
+  "objective": "",
+  "content": [
+    {
+      "type": "html",
+      "html": "﻿<section>\n  <h2>Introdução ao consumo de APIs REST</h2>\n  <p>Implementamos chamadas HTTP com tratamento de erros, loading states e cache básico para uso offline.</p>\n\n  <h3>Fluxo sugerido</h3>\n  <ol>\n    <li>Configurar cliente HTTP (Retrofit, Axios ou Fetch API).</li>\n    <li>Modelar DTOs e mapear para entidades do domínio.</li>\n    <li>Persistir dados relevantes no dispositivo (Room, Core Data ou IndexedDB).</li>\n    <li>Aplicar padrões de revalidação (stale-while-revalidate).</li>\n  </ol>\n\n  <pre><code class=\"language-kotlin\">@GET(\"/courses\")\nsuspend fun findCourses(): List<CourseDto>\n\nclass CourseRepository(\n  private val api: CourseService,\n  private val dao: CourseDao\n) {\n  suspend fun list(): List<Course> {\n    return runCatching { api.findCourses() }\n      .onSuccess { dao.replace(it.toEntities()) }\n      .getOrElse { dao.list().ifEmpty { throw it } }\n  }\n}\n</code></pre>\n</section>\n"
+    }
+  ]
+}

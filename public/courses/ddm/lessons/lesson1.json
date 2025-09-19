@@ -1,0 +1,11 @@
+{
+  "id": "lesson1",
+  "title": "Panorama de plataformas e padrões de UX",
+  "objective": "",
+  "content": [
+    {
+      "type": "html",
+      "html": "﻿<section>\n  <h2>Panorama de plataformas e padrões de UX</h2>\n  <p>Discutimos o ciclo de vida de aplicativos Android e iOS, permissões sensíveis e princípios de design responsivo.</p>\n\n  <h3>Arquitetura em camadas</h3>\n  <ul>\n    <li><strong>Camada de apresentação</strong>: telas, navegação e acessibilidade.</li>\n    <li><strong>Camada de domínio</strong>: regras de negócio e casos de uso reutilizáveis.</li>\n    <li><strong>Camada de dados</strong>: repositórios locais e remotos com sincronização.</li>\n  </ul>\n\n  <pre><code class=\"language-typescript\">interface UserRepository {\n  getUser(id: string): Promise<User>;\n}\n\nclass RemoteUserRepository implements UserRepository {\n  async getUser(id: string) {\n    // Example fetch with cache fallback\n    const response = await fetch(`/api/users/${id}`);\n    return response.json();\n  }\n}\n</code></pre>\n\n  <p>Combine UI nativa com guidelines Material e Human Interface, mantendo consistência de navegação.</p>\n</section>\n"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "lesson2",
+  "title": "Protótipo jogável com Unity",
+  "objective": "",
+  "content": [
+    {
+      "type": "html",
+      "html": "﻿<section>\n  <h2>Protótipo jogável com Unity</h2>\n  <p>Configuramos um projeto 2D na Unity, organizamos a cena principal e importamos sprites. O objetivo é construir um protótipo que mostre claramente o loop central do jogo.</p>\n\n  <h3>Passos principais</h3>\n  <ol>\n    <li>Criar projeto URP 2D, ajustar resolução e sistema de unidades.</li>\n    <li>Organizar os assets em pastas (Sprites, Scripts, UI e Audio).</li>\n    <li>Implementar controlador de personagem, colisões e feedback visual.</li>\n    <li>Medir o tempo médio de cada iteração do gameplay loop.</li>\n  </ol>\n\n  <p>Compartilhe o build WebGL no GitHub Pages e documente decisões de design no README do repositório.</p>\n</section>\n"
+    }
+  ]
+}

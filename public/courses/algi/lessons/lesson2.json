@@ -1,0 +1,20 @@
+{
+  "id": "lesson2",
+  "title": "Variáveis, tipos e leitura de dados",
+  "objective": "Explorar os principais tipos primitivos, o uso de `sizeof` e a leitura de dados com `scanf`.",
+  "content": [
+    {
+      "type": "html",
+      "html": "<h2>Variáveis, tipos e leitura de dados</h2><p>Exploramos os principais tipos primitivos (<code>int</code>, <code>float</code>, <code>char</code>) e como reservar memória com a palavra-chave <code>sizeof</code>. Discutimos ainda diferenças entre representar números inteiros e valores com ponto flutuante.</p><h3>Boas práticas</h3><ol><li>Escolha nomes de variáveis descritivos e consistentes com o problema.</li><li>Inicialize valores para evitar lixo de memória.</li><li>Utilize comentários objetivos para registrar fórmulas ou regras de negócio.</li></ol><h3>Leitura de dados com <code>scanf</code></h3>"
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "code": "#include <stdio.h>\n\nint main(void) {\n  int idade;\n  float nota;\n\n  printf(\"Informe a idade: \");\n  scanf(\"%d\", &idade);\n\n  printf(\"Informe a nota: \");\n  scanf(\"%f\", &nota);\n\n  printf(\"Idade: %d | Nota: %.2f\n\", idade, nota);\n  return 0;\n}"
+    },
+    {
+      "type": "html",
+      "html": "<p>O exercício sugerido consiste em calcular a média ponderada de três avaliações, validando se o resultado é suficiente para aprovação direta.</p>"
+    }
+  ]
+}

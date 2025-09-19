@@ -1,0 +1,251 @@
+<template>
+  <section class="space-y-8">
+    <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="pill-group" role="group" aria-label="Filtro de conteúdo">
+        <button
+          class="pill-item"
+          :class="{ 'pill-item--active': contentFilter === 'all' }"
+          type="button"
+          @click="contentFilter = 'all'"
+        >
+          Tudo
+        </button>
+        <button
+          class="pill-item"
+          :class="{ 'pill-item--active': contentFilter === 'lesson' }"
+          type="button"
+          @click="contentFilter = 'lesson'"
+        >
+          Aulas
+        </button>
+        <button
+          class="pill-item"
+          :class="{ 'pill-item--active': contentFilter === 'exercise' }"
+          type="button"
+          @click="contentFilter = 'exercise'"
+        >
+          Exercícios
+        </button>
+      </div>
+      <div class="pill-group" role="group" aria-label="Modo de visualização">
+        <button
+          class="pill-item"
+          :class="{ 'pill-item--active': viewMode === 'grid' }"
+          type="button"
+          @click="viewMode = 'grid'"
+        >
+          <Grid3x3 class="h-4 w-4" />
+          Grade
+        </button>
+        <button
+          class="pill-item"
+          :class="{ 'pill-item--active': viewMode === 'list' }"
+          type="button"
+          @click="viewMode = 'list'"
+        >
+          <List class="h-4 w-4" />
+          Lista
+        </button>
+      </div>
+    </header>
+
+    <div v-if="displayItems.length" :class="viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : 'space-y-4'">
+      <component
+        v-for="item in displayItems"
+        :key="item.key"
+        :is="item.wrapper"
+        class="card flex h-full flex-col gap-4 p-5"
+        :class="cardClasses(item)"
+        v-bind="item.attrs"
+      >
+        <div class="flex flex-wrap items-center gap-3 text-sm">
+          <span class="chip" :class="typeChipClass(item)">{{ item.type === 'lesson' ? 'Aula' : 'Exercício' }}</span>
+          <span class="chip" :class="statusChipClass(item)">{{ item.available ? 'Disponível' : 'Em breve' }}</span>
+        </div>
+        <div class="space-y-2">
+          <h3 class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">{{ item.title }}</h3>
+          <p v-if="item.description" class="supporting-text">
+            {{ item.description }}
+          </p>
+        </div>
+        <div class="mt-auto flex items-center justify-end">
+          <template v-if="item.available && item.cta">
+            <span class="inline-flex items-center gap-2 text-label-medium font-medium text-[var(--md-sys-color-on-surface-variant)] transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow">
+              <span>{{ item.cta }}</span>
+              <ChevronRight class="h-4 w-4 transition-transform duration-150 group-hover:translate-x-1" />
+            </span>
+          </template>
+          <template v-else-if="!item.available">
+            <span class="text-sm text-[var(--md-sys-color-on-surface-variant)]">Conteúdo em preparação.</span>
+          </template>
+        </div>
+      </component>
+    </div>
+    <div v-else class="card p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]">
+      Nenhum conteúdo encontrado para este filtro.
+      <button class="btn btn-text mt-4" type="button" @click="resetFilters">Limpar filtros</button>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { computed, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { ChevronRight, Grid3x3, List } from 'lucide-vue-next';
+
+interface LessonRef {
+  id: string;
+  title: string;
+  file: string;
+  available?: boolean;
+  description?: string;
+}
+
+interface ExerciseRef {
+  id: string;
+  title: string;
+  description: string;
+  link?: string;
+  available?: boolean;
+}
+
+interface ContentItem {
+  key: string;
+  type: 'lesson' | 'exercise';
+  title: string;
+  description?: string;
+  available: boolean;
+  cta?: string;
+  wrapper: 'router-link' | 'a' | 'div';
+  attrs: Record<string, unknown>;
+}
+
+const route = useRoute();
+const courseId = computed(() => String(route.params.courseId ?? ''));
+const base = import.meta.env.BASE_URL;
+
+const lessons = ref<LessonRef[]>([]);
+const exercises = ref<ExerciseRef[]>([]);
+const contentFilter = ref<'all' | 'lesson' | 'exercise'>('all');
+const viewMode = ref<'grid' | 'list'>('grid');
+
+async function loadLessons(id: string) {
+  try {
+    const res = await fetch(`${base}courses/${id}/lessons.json`);
+    if (!res.ok) throw new Error('lessons.json not found');
+    lessons.value = await res.json();
+  } catch (err) {
+    console.error('[CourseHome] Failed to load lessons.json', err);
+    lessons.value = [];
+  }
+}
+
+async function loadExercises(id: string) {
+  try {
+    const res = await fetch(`${base}courses/${id}/exercises.json`);
+    if (!res.ok) throw new Error('exercises.json not found');
+    const data: ExerciseRef[] = await res.json();
+    exercises.value = data.map((item) => ({
+      ...item,
+      link: item.link && !item.link.startsWith('http') ? `${base}${item.link}` : item.link
+    }));
+  } catch (err) {
+    console.warn('[CourseHome] Exercises not available', err);
+    exercises.value = [];
+  }
+}
+
+function isExternal(url: string) {
+  return /^https?:\/\//i.test(url);
+}
+
+const combinedItems = computed<ContentItem[]>(() => {
+  const id = courseId.value;
+  const items: ContentItem[] = [];
+
+  lessons.value.forEach((lesson) => {
+    const available = lesson.available !== false;
+    const attrs = available
+      ? { to: { name: 'lesson', params: { courseId: id, lessonId: lesson.id } } }
+      : {};
+    items.push({
+      key: `lesson-${lesson.id}`,
+      type: 'lesson',
+      title: lesson.title,
+      description: lesson.description,
+      available,
+      cta: available ? 'Abrir aula' : undefined,
+      wrapper: available ? 'router-link' : 'div',
+      attrs
+    });
+  });
+
+  exercises.value.forEach((exercise) => {
+    const available = exercise.available !== false && Boolean(exercise.link);
+    let attrs: Record<string, unknown> = {};
+    let wrapper: ContentItem['wrapper'] = 'div';
+    if (available && exercise.link) {
+      const external = isExternal(exercise.link);
+      wrapper = 'a';
+      attrs = {
+        href: exercise.link,
+        target: external ? '_blank' : undefined,
+        rel: external ? 'noreferrer' : undefined
+      };
+    }
+    items.push({
+      key: `exercise-${exercise.id}`,
+      type: 'exercise',
+      title: exercise.title,
+      description: exercise.description,
+      available,
+      cta: available ? 'Abrir material' : undefined,
+      wrapper,
+      attrs
+    });
+  });
+
+  return items;
+});
+
+const displayItems = computed(() =>
+  combinedItems.value.filter((item) => contentFilter.value === 'all' || item.type === contentFilter.value)
+);
+
+watch(courseId, (id) => {
+  if (!id) {
+    lessons.value = [];
+    exercises.value = [];
+    return;
+  }
+  loadLessons(id);
+  loadExercises(id);
+}, { immediate: true });
+
+function resetFilters() {
+  contentFilter.value = 'all';
+  viewMode.value = 'grid';
+}
+
+function typeChipClass(item: ContentItem) {
+  return item.type === 'lesson' ? 'chip--lesson' : 'chip--exercise';
+}
+
+function statusChipClass(item: ContentItem) {
+  return item.available ? 'chip--available' : 'chip--upcoming';
+}
+
+function cardClasses(item: ContentItem) {
+  const classes: string[] = [];
+  const interactive = item.available && item.wrapper !== 'div';
+  if (interactive) {
+    classes.push('card--interactive', 'group');
+  } else if (!item.available) {
+    classes.push('card--disabled');
+  }
+  if (viewMode.value === 'list') {
+    classes.push('md:flex-row', 'md:items-center', 'md:justify-between');
+  }
+  return classes.join(' ');
+}
+</script>

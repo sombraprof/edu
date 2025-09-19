@@ -1,0 +1,11 @@
+{
+  "id": "lesson1",
+  "title": "Pipeline de produção e gameplay loop",
+  "objective": "",
+  "content": [
+    {
+      "type": "html",
+      "html": "﻿<section>\n  <h2>Pipeline de produção e gameplay loop</h2>\n  <p>Estruturamos a disciplina apresentando os papéis da equipe, desde o game designer até o time de QA, e o fluxo geral de produção de um jogo digital.</p>\n\n  <h3>Componentes principais</h3>\n  <ul>\n    <li>Regras e mecânicas que definem o comportamento do jogador.</li>\n    <li>Dinâmica de gameplay loop: perceber → analisar → agir → feedback.</li>\n    <li>Ferramentas essenciais: Jira, Figma, motores gráficos e versionamento.</li>\n  </ul>\n\n  <h3>Discussão guiada</h3>\n  <p>Escolha um jogo casual e descreva seu gameplay loop em no máximo 50 palavras. Identifique o ponto de feedback que mantém o engajamento do usuário.</p>\n</section>\n"
+    }
+  ]
+}

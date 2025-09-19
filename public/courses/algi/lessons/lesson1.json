@@ -1,0 +1,177 @@
+{
+  "id": "lesson1",
+  "title": "Introdução à Lógica e Algoritmos",
+  "objective": "O objetivo desta aula é conhecer o plano de ensino e entender a lógica como a base para criar soluções computacionais.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "unit": {
+        "title": "Unidade I – Noções básicas de lógica e de algoritmos",
+        "content": "Apresentação do plano de ensino, ambientação no Moodle, panorama da lógica de programação, conceito de algoritmo e sua importância para a resolução de problemas computacionais."
+      },
+      "cards": [
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Conhecer o funcionamento da disciplina, seus critérios de avaliação e iniciar o entendimento da lógica como ferramenta para soluções computacionais. Identificar o algoritmo como uma sequência estruturada de passos."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva dialogada, apresentação do cronograma e das regras da disciplina, check-in inicial com perguntas sobre expectativas. Dinâmica inicial **\u201cO Algoritmo do Cotidiano\u201d** com mapeamento mental coletivo e discussão orientada."
+        },
+        {
+          "icon": "desktop",
+          "title": "RECURSOS",
+          "content": "Projetor multimídia, computador, Moodle, quadro branco, pincéis e página web da disciplina (\\`aula1.html\\`) como apoio visual."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula de Hoje",
+      "items": [
+        "Apresentação da disciplina, metodologia e critérios de avaliação.",
+        "Discussão: Por que a lógica é a base de tudo em computação?",
+        "Definição, exemplos práticos e características de um bom algoritmo.",
+        "Um método prático para construir algoritmos.",
+        "As diferentes formas de representar um algoritmo.",
+        "Indicação de leituras e recursos para aprofundamento.",
+        "Apresentação da primeira tarefa (TED)."
+      ]
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Objetivos da Disciplina",
+          "content": "<h4>Objetivo Geral:</h4><p>Fornecer os fundamentos teóricos e práticos para construir algoritmos e programas eficientes em linguagem C, aplicando raciocínio lógico, estruturas de controle, tipos de dados e modularização.</p><h4>Objetivos Específicos:</h4><ul><li>Identificar e aplicar conceitos de algoritmos, tipos de dados e estruturas de controle.</li><li>Utilizar variáveis simples e compostas (vetores, matrizes, registros).</li><li>Estruturar programas com funções e procedimentos (modularidade).</li><li>Implementar algoritmos em linguagem C com boas práticas.</li><li>Analisar e testar programas para garantir seu correto funcionamento.</li></ul>"
+        },
+        {
+          "title": "Critérios de Avaliação",
+          "content": "<p>A Nota Final (NF) será a média aritmética simples de três avaliações parciais:</p><div class=\"bg-secondary-container/30 border-l-4 border-secondary p-4 rounded-r-lg text-center font-mono text-lg font-semibold\">NF = (NP1 + NP2 + NP3) / 3</div><h4>Condições para Aprovação:</h4><ul><li>Frequência mínima de <strong>75%</strong>.</li><li>Nota Final (NF) <strong>maior ou igual a 5,0</strong>.</li><li>Nota da NP3 <strong>maior ou igual a 4,0</strong>.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "A Ferramenta Essencial: Lógica",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A <strong>lógica de programação</strong> é a capacidade de organizar o pensamento de forma estruturada para resolver um problema. É a fundação sobre a qual todo o software é construído."
+        },
+        {
+          "type": "paragraph",
+          "text": "Um computador é uma máquina que segue instruções cegamente. Ele não tem intuição ou bom senso. A lógica permite-nos criar instruções perfeitas: exatas, na ordem correta e sem ambiguidades."
+        },
+        {
+          "type": "subBlock",
+          "title": "Argumentação Lógica: Premissas e Conclusão",
+          "items": [
+            "<p>Para um computador, precisamos usar a <strong>lógica formal</strong>. Ela funciona com base em argumentos, onde partimos de fatos (premissas) para chegar a um resultado inevitável (conclusão).</p>",
+            "<ul class=\"list-none bg-secondary-container/20 border border-secondary/30 rounded-lg p-3 mt-2 space-y-2\"><li><strong>Premissa 1:</strong> Todos os homens são mortais.</li><li><strong>Premissa 2:</strong> Sócrates é um homem.</li><li class=\"font-bold border-t border-outline pt-2 mt-2\"><strong>Conclusão:</strong> Portanto, Sócrates é mortal.</li></ul>",
+            "<p class=\"mt-4\">É esse tipo de raciocínio dedutivo, claro e sem margem para erros, que usamos para construir programas confiáveis.</p>"
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Boa Prática: Pense Antes de Codificar",
+          "content": "<p>O erro mais comum de um iniciante é sair a escrever código sem um plano. Gaste tempo a pensar na lógica e a desenhar o seu algoritmo no papel. Um bom planeamento economiza horas de depuração e frustração.</p>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Anatomia de um Algoritmo",
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "Definição e Características",
+          "items": [
+            "<p>Um algoritmo é uma <strong>sequência finita e ordenada de passos claros e eficazes</strong> que resolvem um determinado problema.</p>",
+            "<ul><li><strong>Finitude:</strong> Um algoritmo deve sempre terminar. Um programa que entra em \"loop infinito\" tem um algoritmo falho.</li><li><strong>Clareza (Sem Ambiguidade):</strong> Cada passo deve ter uma única interpretação. \"Aqueça um pouco\" é ambíguo; \"Aqueça a 200°C\" não é.</li><li><strong>Entradas e Saídas:</strong> Um algoritmo recebe dados (entradas) e, após processá-los, produz resultados (saídas).</li><li><strong>Efetividade:</strong> Cada passo deve ser simples e possível de ser executado. \"Adivinhe o número da sorte\" não é um passo efetivo.</li></ul>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Como Construir um Algoritmo: Um Método de 5 Passos",
+      "description": "Criar um algoritmo é um processo metódico. Seguir estes passos garante que você entenda o problema completamente antes de tentar resolvê-lo.",
+      "steps": [
+        { "title": "Compreender o Problema", "content": "Leia o enunciado quantas vezes for necessário. Qual é o objetivo principal? Quais são as regras e restrições?" },
+        { "title": "Definir os Dados de Entrada", "content": "O que eu preciso saber para começar? Liste todas as informações que o algoritmo precisará receber (ex: dois números para somar, uma temperatura para converter)." },
+        { "title": "Definir o Processamento", "content": "Esta é a \"lógica\" do algoritmo. Quais cálculos ou transformações eu preciso fazer com os dados de entrada para chegar ao resultado? (ex: somar os números, aplicar a fórmula de conversão)." },
+        { "title": "Definir os Dados de Saída", "content": "O que eu quero mostrar no final? Qual é a resposta que o problema pede? (ex: o resultado da soma, a temperatura convertida)." },
+        { "title": "Construir e Testar", "content": "Escreva os passos do algoritmo e faça um \"teste de mesa\": simule a execução com exemplos para ver se funciona como esperado, inclusive em casos extremos." }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Formas de Representar um Algoritmo",
+      "description": "Vamos usar o mesmo problema simples para ver como ele é representado em cada formato: <strong>\"Calcular a média de duas notas\"</strong>.",
+      "items": [
+        {
+          "title": "1. Descrição Narrativa",
+          "content": "Usa a linguagem natural para descrever os passos. É fácil de criar, mas pode ser ambígua.",
+          "detail": "<ol><li>Receber a primeira nota.</li><li>Receber a segunda nota.</li><li>Somar as duas notas.</li><li>Dividir o resultado da soma por 2.</li><li>Mostrar o resultado final.</li></ol>"
+        },
+        {
+          "title": "2. Fluxograma",
+          "content": "Usa símbolos gráficos padronizados para representar cada tipo de ação. É muito visual e ajuda a entender o fluxo do programa.",
+          "detail": "<div class=\"flowchart-container\"><div class=\"flowchart-shape flowchart-terminal\">Início</div><div class=\"flowchart-arrow\"></div><div class=\"flowchart-shape flowchart-io\"><span>Leia Nota1, Nota2</span></div><div class=\"flowchart-arrow\"></div><div class=\"flowchart-shape flowchart-process\">Média = (Nota1 + Nota2) / 2</div><div class=\"flowchart-arrow\"></div><div class=\"flowchart-shape flowchart-io\"><span>Escreva Média</span></div><div class=\"flowchart-arrow\"></div><div class=\"flowchart-shape flowchart-terminal\">Fim</div></div>"
+        },
+        {
+          "title": "3. Pseudocódigo (Portugol)",
+          "content": "Uma linguagem intermediária, com regras e palavras-chave, que se aproxima de uma linguagem de programação real. É o método ideal para a transição para o código.",
+          "language": "pseudocodigo",
+          "code": "ALGORITMO \"CalcularMedia\"\nVAR\n  Nota1, Nota2, Media: REAL\nINICIO\n  ESCREVA(\"Digite a primeira nota: \")\n  LEIA(Nota1)\n  ESCREVA(\"Digite a segunda nota: \")\n  LEIA(Nota2)\n  Media <- (Nota1 + Nota2) / 2\n  ESCREVA(\"A média é: \", Media)\nFIM_ALGORITMO"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeos de Apoio",
+      "videos": [
+        { "title": "O que é Algoritmo? Conceitos de Lógica de Programação", "src": "https://www.youtube.com/embed/HKImlW-gP7k" },
+        { "title": "Introdução à Lógica de Programação e Algoritmos", "src": "https://www.youtube.com/embed/27mSuoW2COw" }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Para Ir Além: Leituras e Recursos",
+      "content": "<p>A curiosidade é o motor do aprendizado. Aqui ficam algumas sugestões para aprofundar os conceitos desta aula:</p><h4>Leitura Essencial (Livros)</h4><ul><li>FORBELLONE, A. L. V; EBERSPÄCHER, H. F. Lógica de Programação. Referência clássica da área.</li><li>MANZANO, J. A. N. G; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação de computadores. Outra obra fundamental.</li></ul><h4>Ferramentas e Prática</h4><ul><li><a href=\"https://www.onlinegdb.com/\" target=\"_blank\" rel=\"noopener noreferrer\">OnlineGDB</a>: Ambiente de programação online que usaremos.</li><li><a href=\"https://www.urionlinejudge.com.br/\" target=\"_blank\" rel=\"noopener noreferrer\">URI Online Judge</a>: Plataforma para resolver problemas e treinar sua lógica.</li></ul>"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Próximos Passos e Tarefa (TED)",
+      "content": "<h4>Tarefa para a próxima aula</h4><p>Para exercitar o pensamento lógico, sua primeira tarefa é refletir sobre como a programação pode impactar sua carreira.</p><ol><li>Acesse o Moodle da disciplina.</li><li>Encontre o fórum da \"Aula 1\".</li><li><p>Poste um parágrafo respondendo à pergunta:</p><p>\"Como espero usar programação no meu futuro profissional?\"</p></li></ol>"
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Checklist da Aula",
+      "description": "Antes de encerrar a Aula 1, verifique se você:",
+      "items": [
+        "Entendeu o que é lógica de programação e por que ela é essencial.",
+        "Compreendeu o conceito de algoritmo como uma sequência estruturada de passos.",
+        "Conhece as diferentes formas de representar um algoritmo (narrativa, fluxograma, pseudocódigo).",
+        "Sabe a importância de planejar antes de começar a programar.",
+        "Acessou o Moodle e postou a resposta da TED."
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "📚 Bibliografia de Apoio",
+      "items": [
+        "<strong>FORBELLONE, André Luiz Villar; EBERSPÄCHER, Henri Frederico.</strong> <em>Lógica de Programação.</em> 4. ed. São Paulo: Pearson, 2020.",
+        "<strong>MANZANO, José Augusto N. G.; OLIVEIRA, Jayr Figueiredo de.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Pearson, 2021.",
+        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> 2. ed. São Paulo: Novatec, 2020."
+      ]
+    }
+  ]
+}
