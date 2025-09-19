@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-and-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        # Ensure the workflow runs against the current revision
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        # Install the required Node.js version and enable dependency caching
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        # Use npm ci for reproducible clean installs in CI
+        run: npm ci
+
+      - name: Run Vitest coverage suite
+        # Execute the coverage task that enforces thresholds for CI
+        run: npm run test:coverage
+
+      - name: Upload coverage report
+        # Persist the HTML coverage artifact for later inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html
+          path: coverage/lcov-report
+          if-no-files-found: warn
