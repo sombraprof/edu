@@ -1,6 +1,6 @@
 ﻿<template>
   <button class="btn btn-tonal" @click="toggle()" :aria-label="ariaLabel">
-    <component :is="icon" class="h-4 w-4" />
+    <component :is="icon" :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
     <span class="hidden sm:inline">{{ textLabel }}</span>
   </button>
 </template>

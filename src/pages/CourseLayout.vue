@@ -1,8 +1,8 @@
 ﻿<template>
-  <section class="space-y-10">
-    <div class="card rounded-5xl p-8 md:p-10">
+  <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-10)' }">
+    <div class="card p-8 md:p-10" :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }">
       <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-        <div class="space-y-4">
+        <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }">
           <span class="chip w-fit">Disciplina</span>
           <div>
             <h1 class="text-display-small font-semibold text-[var(--md-sys-color-on-surface)]">{{ meta?.title || 'Disciplina' }}</h1>
@@ -10,7 +10,7 @@
           </div>
           <router-link class="btn btn-text" to="/">Voltar para a página inicial</router-link>
         </div>
-        <div class="surface-tonal rounded-4xl p-5 shadow-elevation-1 md:w-64">
+        <div class="surface-tonal p-5 shadow-elevation-1 md:w-64" :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }">
           <p class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]">Instituição</p>
           <p class="mt-2 text-title-large font-semibold text-[var(--md-sys-color-on-surface)]">{{ meta?.institution }}</p>
         </div>

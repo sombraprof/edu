@@ -7,7 +7,7 @@
     <div class="grid grid-cols-1 gap-8">
       <div v-for="(item, index) in data.items" :key="index" class="card !p-6 flex flex-col">
         <h4 class="text-title-large font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">{{ item.title }}</h4>
-        <p class="text-body-medium text-[var(--md-sys-color-on-surface-variant)] flex-grow">{{ item.content }}</p>
+        <p class="text-body-medium text-[var(--md-sys-color-on-surface-variant)] flex-grow" v-html="item.content"></p>
         
         <div class="mt-4 pt-4 border-t border-[var(--md-sys-color-outline)]">
           <!-- Case 1: Render raw HTML detail -->
@@ -15,7 +15,11 @@
 
           <!-- Case 2: Render styled code block -->
           <div v-if="item.code">
-            <CodeBlock :code="item.code" :language="item.language || 'plaintext'" />
+            <CodeBlock
+              :code="item.code"
+              :language="item.language || 'plaintext'"
+              :plainText="shouldUsePlainText(item.language)"
+            />
           </div>
         </div>
       </div>
@@ -42,6 +46,12 @@ interface RepresentationsData {
 defineProps<{
   data: RepresentationsData;
 }>();
+
+// Function to determine if plain text should be used
+function shouldUsePlainText(language?: string): boolean {
+  // Use plain text for plaintext, pseudocode, or when no language is specified
+  return !language || language === 'plaintext' || language === 'pseudocode' || language === 'text';
+}
 </script>
 
 <style scoped>

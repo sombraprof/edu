@@ -5,7 +5,7 @@
   "content": [
     {
       "type": "html",
-      "html": "﻿<section>\n  <h2>Modelagem com classes e objetos</h2>\n  <p>Reforçamos a importância da abstração para transformar requisitos em classes com responsabilidades claras.</p>\n  <ul>\n    <li>Identifique substantivos relevantes do domínio para definir classes.</li>\n    <li>Separe atributos essenciais de dados calculados.</li>\n    <li>Documente pré e pós-condições dos métodos públicos.</li>\n  </ul>\n  <pre><code class=\"language-typescript\">class Account {\n  private balance: number = 0;\n\n  deposit(amount: number) {\n    if (amount <= 0) throw new Error('Valor inválido');\n    this.balance += amount;\n  }\n\n  withdraw(amount: number) {\n    if (amount > this.balance) throw new Error('Saldo insuficiente');\n    this.balance -= amount;\n  }\n}\n</code></pre>\n</section>\n"
+      "html": "﻿<section>\n  <h2>Modelagem com classes e objetos</h2>\n  <p>Reforçamos a importância da abstração para transformar requisitos em classes com responsabilidades claras.</p>\n  <ul>\n    <li>Identifique substantivos relevantes do domínio para definir classes.</li>\n    <li>Separe atributos essenciais de dados calculados.</li>\n    <li>Documente pré e pós-condições dos métodos públicos.</li>\n  </ul>\n  <pre><code class="language-typescript">class Account {\n  private balance: number = 0;\n\n  deposit(amount: number) {\n    if (amount <= 0) throw new Error('Valor inválido');\n    this.balance += amount;\n  }\n\n  withdraw(amount: number) {\n    if (amount > this.balance) throw new Error('Saldo insuficiente');\n    this.balance -= amount;\n  }\n}\n</code></pre>\n</section>\n"
     }
   ]
 }

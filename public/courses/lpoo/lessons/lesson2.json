@@ -5,7 +5,7 @@
   "content": [
     {
       "type": "html",
-      "html": "﻿<section>\n  <h2>Herança e polimorfismo na prática</h2>\n  <p>Aplicamos hierarquias de classes para reutilizar código e permitir extensões seguras.</p>\n  <h3>Boas práticas</h3>\n  <ul>\n    <li>Prefira composição sempre que a relação “é-um” não for clara.</li>\n    <li>Mantenha métodos sobrescritos focados em comportamento específico.</li>\n    <li>Use interfaces para definir contratos reutilizáveis.</li>\n  </ul>\n  <pre><code class=\"language-java\">abstract class Notification {\n  abstract void send(String message);\n}\n\nclass EmailNotification extends Notification {\n  @Override void send(String message) { /* envia e registra */ }\n}\n\nclass SmsNotification extends Notification {\n  @Override void send(String message) { /* integra com gateway */ }\n}\n</code></pre>\n</section>\n"
+      "html": "﻿<section>\n  <h2>Herança e polimorfismo na prática</h2>\n  <p>Aplicamos hierarquias de classes para reutilizar código e permitir extensões seguras.</p>\n  <h3>Boas práticas</h3>\n  <ul>\n    <li>Prefira composição sempre que a relação “é-um” não for clara.</li>\n    <li>Mantenha métodos sobrescritos focados em comportamento específico.</li>\n    <li>Use interfaces para definir contratos reutilizáveis.</li>\n  </ul>\n  <pre><code class="language-java">abstract class Notification {\n  abstract void send(String message);\n}\n\nclass EmailNotification extends Notification {\n  @Override void send(String message) { /* envia e registra */ }\n}\n\nclass SmsNotification extends Notification {\n  @Override void send(String message) { /* integra com gateway */ }\n}\n</code></pre>\n</section>\n"
     }
   ]
 }

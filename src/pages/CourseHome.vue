@@ -1,5 +1,5 @@
 <template>
-  <section class="space-y-8">
+  <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-8)' }">
     <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="pill-group" role="group" aria-label="Filtro de conteúdo">
         <button
@@ -34,7 +34,7 @@
           type="button"
           @click="viewMode = 'grid'"
         >
-          <Grid3x3 class="h-4 w-4" />
+          <Grid3x3 :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
           Grade
         </button>
         <button
@@ -43,13 +43,13 @@
           type="button"
           @click="viewMode = 'list'"
         >
-          <List class="h-4 w-4" />
+          <List :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
           Lista
         </button>
       </div>
     </header>
 
-    <div v-if="displayItems.length" :class="viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : 'space-y-4'">
+    <div v-if="displayItems.length" :class="viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : ''" :style="viewMode === 'list' ? { display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' } : {}">
       <component
         v-for="item in displayItems"
         :key="item.key"
@@ -58,11 +58,11 @@
         :class="cardClasses(item)"
         v-bind="item.attrs"
       >
-        <div class="flex flex-wrap items-center gap-3 text-sm">
+        <div class="flex flex-wrap items-center gap-3 md-sys-typescale-body-small">
           <span class="chip" :class="typeChipClass(item)">{{ item.type === 'lesson' ? 'Aula' : 'Exercício' }}</span>
           <span class="chip" :class="statusChipClass(item)">{{ item.available ? 'Disponível' : 'Em breve' }}</span>
         </div>
-        <div class="space-y-2">
+        <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
           <h3 class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">{{ item.title }}</h3>
           <p v-if="item.description" class="supporting-text">
             {{ item.description }}
@@ -72,11 +72,11 @@
           <template v-if="item.available && item.cta">
             <span class="inline-flex items-center gap-2 text-label-medium font-medium text-[var(--md-sys-color-on-surface-variant)] transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow">
               <span>{{ item.cta }}</span>
-              <ChevronRight class="h-4 w-4 transition-transform duration-150 group-hover:translate-x-1" />
+              <ChevronRight :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" class="transition-transform duration-150 group-hover:translate-x-1" />
             </span>
           </template>
           <template v-else-if="!item.available">
-            <span class="text-sm text-[var(--md-sys-color-on-surface-variant)]">Conteúdo em preparação.</span>
+            <span class="md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]">Conteúdo em preparação.</span>
           </template>
         </div>
       </component>

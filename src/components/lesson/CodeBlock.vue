@@ -1,16 +1,16 @@
 <template>
-  <div class="code-block group">
-    <div class="flex justify-end items-center py-1 px-2">
-      <button 
-        @click="copyCode" 
+  <div :class="['code-block group', { 'plain-text-mode': plainText }]">
+    <div class="flex justify-end items-center py-2 px-3 bg-[var(--md-sys-color-surface-container-high)] border-b border-[var(--md-sys-color-outline)]">
+      <button
+        @click="copyCode"
         class="btn-icon"
         :aria-label="copied ? 'Copiado!' : 'Copiar código'"
       >
-        <Check v-if="copied" :size="18" class="text-success-500" />
+        <Check v-if="copied" :size="18" />
         <Copy v-else :size="18" />
       </button>
     </div>
-    <pre class="p-4 pt-0 m-0"><code :class="`language-${language}`" ref="codeElement">{{ code }}</code></pre>
+    <pre class="p-4 pt-0 m-0"><code :class="plainText ? 'plain-text' : `language-${language}`" ref="codeElement">{{ code }}</code></pre>
   </div>
 </template>
 
@@ -57,9 +57,10 @@ Prism.languages.pseudocode = Prism.languages.portugol;
 Prism.languages.pseudocodigo = Prism.languages.portugol;
 
 
-const props = defineProps<{ 
+const props = defineProps<{
   code: string;
   language: string;
+  plainText?: boolean;
 }>();
 
 const codeElement = ref<HTMLElement | null>(null);
@@ -75,7 +76,7 @@ const copyCode = () => {
 };
 
 const highlight = () => {
-  if (codeElement.value) {
+  if (codeElement.value && !props.plainText) {
     Prism.highlightElement(codeElement.value);
   }
 };
@@ -103,6 +104,90 @@ watch(() => [props.code, props.language], () => {
   margin: 1.5rem 0;
   box-shadow: var(--shadow-elevation-1);
   border: 1px solid var(--md-sys-color-outline);
+  position: relative;
+}
+
+/* Button container styling */
+.code-block > div:first-child {
+  background-color: var(--md-sys-color-surface-container-high);
+  border-bottom: 1px solid var(--md-sys-color-outline);
+}
+
+/* Button styling */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--md-sys-color-outline);
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  transition: all 200ms ease;
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.btn-icon:hover {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border-color: var(--md-sys-color-primary);
+  box-shadow: var(--shadow-elevation-2);
+  transform: translateY(-1px);
+}
+
+.btn-icon:focus-visible {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+.btn-icon svg {
+  color: currentColor;
+}
+
+/* Plain text styling - no syntax highlighting */
+.plain-text {
+  color: var(--md-sys-color-on-surface) !important;
+  background: transparent !important;
+}
+
+.plain-text * {
+  color: var(--md-sys-color-on-surface) !important;
+  background: transparent !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+}
+
+/* Ensure plain text doesn't inherit Prism styles */
+.code-block .plain-text {
+  all: unset;
+  color: var(--md-sys-color-on-surface);
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Plain text mode - remove borders, shadows and backgrounds */
+.code-block.plain-text-mode {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.code-block.plain-text-mode > div:first-child {
+  display: none !important; /* Hide the button container */
+}
+
+.code-block.plain-text-mode pre {
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
 }
 
 .code-block pre,
@@ -127,26 +212,26 @@ watch(() => [props.code, props.language], () => {
 
 /* Light Theme */
 :root {
-  --prism-color-text: #1c1b1f;
-  --prism-color-comment: #616161;
-  --prism-color-keyword: #880e4f;
-  --prism-color-string: #0d47a1;
-  --prism-color-function: #1565c0;
-  --prism-color-number: #ad1457;
-  --prism-color-operator: #45464f;
-  --prism-color-punctuation: #757575;
+  --prism-color-text: var(--md-sys-color-on-surface);
+  --prism-color-comment: var(--md-sys-color-on-surface-variant);
+  --prism-color-keyword: var(--md-sys-color-primary);
+  --prism-color-string: var(--md-sys-color-secondary);
+  --prism-color-function: var(--md-sys-color-primary);
+  --prism-color-number: var(--md-sys-color-error);
+  --prism-color-operator: var(--md-sys-color-on-surface-variant);
+  --prism-color-punctuation: var(--md-sys-color-outline);
 }
 
 /* Dark Theme */
 html:not(.light) {
-  --prism-color-text: #e2e7f2;
-  --prism-color-comment: #c1c8d8;
-  --prism-color-keyword: #f48fb1;
-  --prism-color-string: #90caf9;
-  --prism-color-function: #bbdefb;
-  --prism-color-number: #f8bbd9;
-  --prism-color-operator: #c1c8d8;
-  --prism-color-punctuation: #a3b1c7;
+  --prism-color-text: var(--md-sys-color-on-surface);
+  --prism-color-comment: var(--md-sys-color-on-surface-variant);
+  --prism-color-keyword: var(--md-sys-color-primary);
+  --prism-color-string: var(--md-sys-color-secondary);
+  --prism-color-function: var(--md-sys-color-primary);
+  --prism-color-number: var(--md-sys-color-error);
+  --prism-color-operator: var(--md-sys-color-on-surface-variant);
+  --prism-color-punctuation: var(--md-sys-color-outline);
 }
 
 /* Token colors */

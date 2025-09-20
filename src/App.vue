@@ -15,7 +15,7 @@
         @click="scrollToTop"
         aria-label="Voltar ao topo"
       >
-        <ArrowUp class="h-4 w-4" />
+        <ArrowUp :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
       </button>
     </transition>
   </div>

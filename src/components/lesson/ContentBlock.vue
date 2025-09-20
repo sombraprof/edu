@@ -10,11 +10,18 @@
         <div v-for="(subItem, subIndex) in item.items" :key="subIndex" class="prose max-w-none mb-2 lesson-content" v-html="subItem"></div>
       </div>
 
-      <Callout 
-        v-if="item.type === 'callout'" 
-        :variant="item.variant" 
-        :title="item.title" 
-        :content="item.content" 
+      <Callout
+        v-if="item.type === 'callout'"
+        :variant="item.variant"
+        :title="item.title"
+        :content="item.content"
+      />
+
+      <CodeBlock
+        v-if="item.type === 'code'"
+        :code="item.code"
+        :language="item.language"
+        :plainText="shouldUsePlainText(item.language)"
       />
     </template>
   </div>
@@ -22,6 +29,7 @@
 
 <script setup lang="ts">
 import Callout from './Callout.vue';
+import CodeBlock from './CodeBlock.vue';
 
 interface ParagraphBlock {
   type: 'paragraph';
@@ -41,10 +49,22 @@ interface CalloutBlock {
   content: string;
 }
 
+interface CodeBlockItem {
+  type: 'code';
+  language: string;
+  code: string;
+}
+
 interface ContentBlockData {
   type: 'contentBlock';
   title: string;
-  content: (ParagraphBlock | SubBlock | CalloutBlock)[];
+  content: (ParagraphBlock | SubBlock | CalloutBlock | CodeBlockItem)[];
+}
+
+// Function to determine if plain text should be used
+function shouldUsePlainText(language?: string): boolean {
+  // Use plain text for plaintext, pseudocode, or when no language is specified
+  return !language || language === 'plaintext' || language === 'pseudocode' || language === 'text';
 }
 
 defineProps<{

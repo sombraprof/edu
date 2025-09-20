@@ -1,14 +1,242 @@
 [
   {
     "id": "lesson1",
-    "title": "Introdução à Lógica e Algoritmos",
+    "title": "Aula 1: Apresentação e Lógica",
     "file": "lesson1.json",
     "available": true
   },
   {
     "id": "lesson2",
-    "title": "Variáveis, tipos e leitura de dados",
+    "title": "Aula 2: Raciocínio Lógico",
     "file": "lesson2.json",
     "available": true
+  },
+  {
+    "id": "lesson3",
+    "title": "Aula 3: Estruturação de Algoritmos",
+    "file": "lesson3.json",
+    "available": true
+  },
+  {
+    "id": "lesson4",
+    "title": "Aula 4: Do Pseudocódigo ao C",
+    "file": "lesson4.json",
+    "available": true
+  },
+  {
+    "id": "lesson5",
+    "title": "Aula 5: Representação Gráfica com Fluxogramas",
+    "file": "lesson5.json",
+    "available": true
+  },
+  {
+    "id": "lesson6",
+    "title": "Aula 6: Variáveis e Constantes",
+    "file": "lesson6.json",
+    "available": true
+  },
+  {
+    "id": "lesson7",
+    "title": "Aula 7: Operadores e Expressões em C",
+    "file": "lesson7.json",
+    "available": true
+  },
+  {
+    "id": "lesson8",
+    "title": "Aula 8: Leitura Múltipla e Saída Formatada",
+    "file": "lesson8.json",
+    "available": true
+  },
+  {
+    "id": "lesson9",
+    "title": "Aula 9: Problemas Sequenciais Aplicados em C",
+    "file": "lesson9.json",
+    "available": true
+  },
+  {
+    "id": "lesson10",
+    "title": "Aula 10: Problemas Sequenciais Compostos em C",
+    "file": "lesson10.json",
+    "available": true
+  },
+  {
+    "id": "lesson11",
+    "title": "Aula 11: Revisão da Unidade III e Mini-teste",
+    "file": "lesson11.json",
+    "available": true
+  },
+  {
+    "id": "lesson12",
+    "title": "Aula 12: Estruturas Condicionais Simples e Compostas (if/else)",
+    "file": "lesson12.json",
+    "available": true
+  },
+  {
+    "id": "lesson13",
+    "title": "Aula 13: Condições Compostas e Encadeadas",
+    "file": "lesson13.json",
+    "available": true
+  },
+  {
+    "id": "lesson14",
+    "title": "Aula 14: Avaliação NP1",
+    "file": "lesson14.json",
+    "available": true
+  },
+  {
+    "id": "lesson15",
+    "title": "Aula 15: Correção da NP1 e Aprofundamento",
+    "file": "lesson15.json",
+    "available": true
+  },
+  {
+    "id": "lesson16",
+    "title": "Aula 16: Atividade Prática (Assíncrona) – Condicionais",
+    "file": "lesson16.json",
+    "available": false
+  },
+  {
+    "id": "lesson17",
+    "title": "Aula 17: Estrutura de Repetição while",
+    "file": "lesson17.json",
+    "available": false
+  },
+  {
+    "id": "lesson18",
+    "title": "Aula 18: Estrutura de Repetição for",
+    "file": "lesson18.json",
+    "available": false
+  },
+  {
+    "id": "lesson19",
+    "title": "Aula 19: for vs while",
+    "file": "lesson19.json",
+    "available": false
+  },
+  {
+    "id": "lesson20",
+    "title": "Aula 20: Estrutura de Repetição do-while",
+    "file": "lesson20.json",
+    "available": false
+  },
+  {
+    "id": "lesson21",
+    "title": "Aula 21: Problemas com Laços e Laços Aninhados",
+    "file": "lesson21.json",
+    "available": false
+  },
+  {
+    "id": "lesson22",
+    "title": "Aula 22: Integração de Condicionais e Laços",
+    "file": "lesson22.json",
+    "available": false
+  },
+  {
+    "id": "lesson23",
+    "title": "Aula 23: Revisão de Estruturas de Controle",
+    "file": "lesson23.json",
+    "available": false
+  },
+  {
+    "id": "lesson24",
+    "title": "Aula 24: Atividade Prática (Assíncrona) – Integração",
+    "file": "lesson24.json",
+    "available": false
+  },
+  {
+    "id": "lesson25",
+    "title": "Aula 25: Introdução a Funções e Modularização",
+    "file": "lesson25.json",
+    "available": false
+  },
+  {
+    "id": "lesson26",
+    "title": "Aula 26: Funções com Parâmetros e Retorno",
+    "file": "lesson26.json",
+    "available": false
+  },
+  {
+    "id": "lesson27",
+    "title": "Aula 27: Programas Modulares com Múltiplas Funções",
+    "file": "lesson27.json",
+    "available": false
+  },
+  {
+    "id": "lesson28",
+    "title": "Aula 28: Boas Práticas em Funções",
+    "file": "lesson28.json",
+    "available": false
+  },
+  {
+    "id": "lesson29",
+    "title": "Aula 29: Avaliação NP2",
+    "file": "lesson29.json",
+    "available": true
+  },
+  {
+    "id": "lesson30",
+    "title": "Aula 30: Introdução a Vetores (Arrays)",
+    "file": "lesson30.json",
+    "available": false
+  },
+  {
+    "id": "lesson31",
+    "title": "Aula 31: Operações sobre Vetores",
+    "file": "lesson31.json",
+    "available": false
+  },
+  {
+    "id": "lesson32",
+    "title": "Aula 32: Busca e Contagem em Vetores",
+    "file": "lesson32.json",
+    "available": false
+  },
+  {
+    "id": "lesson33",
+    "title": "Aula 33: Matrizes (Arrays 2D)",
+    "file": "lesson33.json",
+    "available": false
+  },
+  {
+    "id": "lesson34",
+    "title": "Aula 34: Operações sobre Matrizes",
+    "file": "lesson34.json",
+    "available": false
+  },
+  {
+    "id": "lesson35",
+    "title": "Aula 35: Introdução a Structs (Registros)",
+    "file": "lesson35.json",
+    "available": false
+  },
+  {
+    "id": "lesson36",
+    "title": "Aula 36: Vetores de Structs",
+    "file": "lesson36.json",
+    "available": false
+  },
+  {
+    "id": "lesson37",
+    "title": "Aula 37: Busca e Atualização em Vetores de Structs",
+    "file": "lesson37.json",
+    "available": false
+  },
+  {
+    "id": "lesson38",
+    "title": "Aula 38: Revisão Geral do Semestre",
+    "file": "lesson38.json",
+    "available": false
+  },
+  {
+    "id": "lesson39",
+    "title": "Aula 39: Avaliação NP3",
+    "file": "lesson39.json",
+    "available": true
+  },
+  {
+    "id": "lesson40",
+    "title": "Aula 40: Encerramento e Devolutiva",
+    "file": "lesson40.json",
+    "available": false
   }
 ]

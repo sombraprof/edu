@@ -4,14 +4,14 @@
 
     <div v-if="data.unit" class="card surface-tonal p-6 mb-6">
       <h4 class="text-title-large font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">{{ data.unit.title }}</h4>
-      <p class="text-body-large text-[var(--md-sys-color-on-surface-variant)]">{{ data.unit.content }}</p>
+      <p class="text-body-large text-[var(--md-sys-color-on-surface-variant)]" v-html="data.unit.content"></p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div v-for="(card, index) in data.cards" :key="index" class="card p-6 flex flex-col items-center text-center">
         <component :is="getIconComponent(card.icon)" class="h-12 w-12 mb-4 text-[var(--md-sys-color-primary)]" />
         <h4 class="text-title-large font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">{{ card.title }}</h4>
-        <p class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]">{{ card.content }}</p>
+        <p class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]" v-html="card.content"></p>
       </div>
     </div>
   </div>

@@ -1,0 +1,185 @@
+{
+  "id": "lesson11",
+  "title": "Seleção Múltipla com <code>switch-case</code>",
+  "objective": "Organizando decisões complexas de forma limpa e eficiente.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Estrutura de seleção múltipla <code>switch-case</code>, a importância do <code>break</code> e do <code>default</code>, e a comparação com cadeias de <code>if-else if</code>."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Escrever programas em C que selecionem um entre vários blocos de código com base no valor de uma variável, utilizando <code>switch-case</code> de forma eficiente."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva com exemplos progressivos, demonstração de casos de uso e atividade prática em duplas para criar programas de seleção múltipla."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula de Hoje",
+      "items": [
+        "A transição de programas sequenciais para programas dinâmicos.",
+        "A estrutura <code>if</code>: como executar código apenas se uma condição for verdadeira.",
+        "A estrutura <code>if-else</code>: a bifurcação que permite escolher entre dois caminhos.",
+        "A estrutura <code>else if</code>: criando múltiplos caminhos para decisões complexas.",
+        "Atividade prática em duplas: resolvendo problemas com condicionais.",
+        "Apresentação da tarefa (TED) da Aula 10."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Quando o <code>if-else</code> não é suficiente?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Na última aula, vimos como o <code>else if</code> nos permite criar múltiplos caminhos. No entanto, quando todas as comparações são feitas contra a <strong>mesma variável</strong>, o código pode ficar repetitivo e menos legível."
+        },
+        {
+          "type": "paragraph",
+          "text": "Imagine um menu onde o utilizador digita um número para escolher uma opção. Usar <code>if (opcao == 1)</code>, <code>else if (opcao == 2)</code>, <code>else if (opcao == 3)</code>... funciona, mas não é elegante."
+        },
+        {
+          "type": "paragraph",
+          "text": "O <code>switch-case</code> é uma estrutura de controlo desenhada exatamente para esta situação: selecionar um bloco de código para executar com base no valor de uma única variável ou expressão."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Anatomia do <code>switch-case</code>",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A estrutura <code>switch</code> avalia uma variável e \"salta\" para o <code>case</code> que corresponde ao valor encontrado."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "switch (variavel_ou_expressao) {\n    case valor1:\n        // Bloco de código para o valor1\n        break;\n    case valor2:\n        // Bloco de código para o valor2\n        break;\n    // ... outros cases\n    default:\n        // Bloco de código se nenhum case corresponder\n        break;\n}"
+        },
+        {
+          "type": "subBlock",
+          "title": "Anatomia",
+          "items": [
+            "<ul><li><strong><code>switch (variavel)</code>:</strong> A variável (do tipo <code>int</code> ou <code>char</code>) que será avaliada.</li><li><strong><code>case valor:</code>:</strong> Um rótulo que representa um possível valor para a variável. O valor deve ser uma constante.</li><li><strong><code>break;</code>:</strong> **Essencial!** Interrompe a execução do <code>switch</code>. Sem ele, o código continuaria a executar os <code>case</code>s seguintes (comportamento \"fall-through\").</li><li><strong><code>default:</code>:</strong> Opcional. Funciona como o <code>else</code> final, executando se nenhum dos <code>case</code>s anteriores corresponder ao valor da variável.</li></ul>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo Prático 1: Menu de Opções",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos implementar um menu de opções simples, um dos usos mais comuns para o <code>switch-case</code>."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main() {\n    int opcao;\n\n    printf(\"--- MENU ---\\n\");\n    printf(\"1 - Cadastrar\\n\");\n    printf(\"2 - Listar\\n\");\n    printf(\"3 - Sair\\n\");\n    printf(\"Escolha uma opcao: \");\n    scanf(\"%d\", &opcao);\n\n    switch (opcao) {\n        case 1:\n            printf(\"Voce escolheu a opcao CADASTRAR.\\n\");\n            // Aqui entraria a lógica de cadastro\n            break;\n        case 2:\n            printf(\"Voce escolheu a opcao LISTAR.\\n\");\n            // Aqui entraria a lógica de listagem\n            break;\n        case 3:\n            printf(\"A sair do programa...\\n\");\n            break;\n        default:\n            printf(\"Opcao invalida!\\n\");\n            break;\n    }\n\n    return 0;\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Agrupando <code>case</code>s",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma técnica poderosa é agrupar vários <code>case</code>s para que executem o mesmo bloco de código. Como a execução continua até encontrar um <code>break</code>, podemos omiti-lo para criar este efeito."
+        },
+        {
+          "type": "subBlock",
+          "title": "Exemplo: Dias do Mês",
+          "items": [
+            "<p>Este programa lê o número de um mês e informa quantos dias ele tem (ignorando anos bissextos).</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main() {\n    int mes;\n    printf(\"Digite o numero do mes (1-12): \");\n    scanf(\"%d\", &mes);\n\n    switch (mes) {\n        // Meses com 31 dias\n        case 1:\n        case 3:\n        case 5:\n        case 7:\n        case 8:\n        case 10:\n        case 12:\n            printf(\"Este mes tem 31 dias.\\n\");\n            break;\n\n        // Meses com 30 dias\n        case 4:\n        case 6:\n        case 9:\n        case 11:\n            printf(\"Este mes tem 30 dias.\\n\");\n            break;\n\n        // Caso especial: Fevereiro\n        case 2:\n            printf(\"Este mes tem 28 ou 29 dias.\\n\");\n            break;\n\n        default:\n            printf(\"Mes invalido!\\n\");\n            break;\n    }\n\n    return 0;\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática em Duplas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas, criem um programa que leia um único caractere representando o estado civil de uma pessoa (<code>S</code> para Solteiro, <code>C</code> para Casado, <code>V</code> para Viúvo, <code>D</code> para Divorciado) e imprima o estado civil por extenso."
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Dica",
+          "content": "<p>O <code>switch</code> também funciona com o tipo <code>char</code>. Lembre-se de que os valores dos <code>case</code>s para caracteres devem estar entre aspas simples, como <code>case 'S':</code>.</p>"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Próximos Passos e Tarefa (TED)",
+      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O objetivo é praticar a estrutura de seleção múltipla <code>switch-case</code>.</p><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie um programa em C chamado <code>aula11_dia_semana.c</code>.</li><li>O programa deve ler um número inteiro de 1 a 7.</li><li>Utilizando <code>switch-case</code>, o programa deve exibir o dia da semana correspondente (1 para Domingo, 2 para Segunda, etc.).</li><li>Se o número digitado estiver fora do intervalo de 1 a 7, o programa deve exibir a mensagem \"Dia inválido\" (use o <code>default</code>).</li><li>Poste o ficheiro <code>.c</code> na Atividade da \"Aula 11\" no Moodle.</li></ol>"
+    },
+    {
+      "type": "contentBlock",
+      "title": "💻 Área de Testes Interativa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
+        },
+        {
+          "type": "html",
+          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeos de Apoio",
+      "videos": [
+        {
+          "title": "Entenda <code>switch case</code> em C (PT-BR)",
+          "src": "https://www.youtube.com/embed/w78aBu9cByo"
+        },
+        {
+          "title": "Estrutura de decisão <code>switch-case</code> (C em Português)",
+          "src": "https://www.youtube.com/embed/TWMJkFnLjtw"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "items": [
+        "Explicar quando usar <code>switch-case</code> em vez de <code>if-else</code>.",
+        "Escrever um programa funcional utilizando a sintaxe do <code>switch-case</code>.",
+        "Entender a função crítica da palavra-chave <code>break</code>.",
+        "Utilizar o <code>default</code> para lidar com casos inesperados."
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "📚 Bibliografia de Apoio",
+      "items": [
+        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
+        "<strong>SANTOS, Marcelo Gonçalves dos.</strong> <em>Linguagem de programação.</em> São Paulo: Pearson, 2018."
+      ]
+    }
+  ]
+}

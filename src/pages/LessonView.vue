@@ -1,16 +1,16 @@
 ﻿
 <template>
-  <section class="space-y-6">
-    <nav class="flex items-center gap-2 text-sm">
+  <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }">
+    <nav class="flex items-center gap-2 md-sys-typescale-body-small">
       <router-link class="nav-link" :to="{ name: 'course-home', params: { courseId } }">Voltar para a disciplina</router-link>
-      <ChevronRight class="h-4 w-4 text-[var(--md-sys-color-on-surface-variant)]" />
+      <ChevronRight :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" class="text-[var(--md-sys-color-on-surface-variant)]" />
       <span class="text-[var(--md-sys-color-on-surface-variant)]">{{ lessonTitle }}</span>
     </nav>
 
 
     <!-- New JSON-based rendering -->
-    <article v-if="lessonContent" class="card max-w-none space-y-6 p-8">
-       <header class="space-y-2">
+    <article v-if="lessonContent" class="card max-w-none p-8" :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }">
+       <header :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
         <p class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]/80">Conteúdo da aula</p>
         <h2 class="text-headline-medium font-semibold text-[var(--md-sys-color-on-surface)]">{{ lessonTitle }}</h2>
         <p v-if="lessonContent.objective" class="text-body-large !mt-4">{{ lessonContent.objective }}</p>
@@ -20,7 +20,12 @@
 
       <template v-for="(block, index) in lessonContent.content" :key="index">
         <div v-if="block.type === 'html'" class="prose max-w-none lesson-content" v-html="block.html"></div>
-        <CodeBlock v-if="block.type === 'code'" :code="block.code" :language="block.language" />
+        <CodeBlock
+          v-if="block.type === 'code'"
+          :code="block.code"
+          :language="block.language"
+          :plainText="shouldUsePlainText(block.language)"
+        />
         <LessonPlan v-if="block.type === 'lessonPlan'" :data="block" />
         <ContentBlock v-if="block.type === 'contentBlock'" :data="block" />
         <VideosBlock v-if="block.type === 'videos'" :data="block" />
@@ -36,6 +41,8 @@
         <FlightPlan v-if="block.type === 'flightPlan'" :data="block" />
         <Accordion v-if="block.type === 'accordion'" :data="block" />
         <Representations v-if="block.type === 'representations'" :data="block" />
+        <TruthTable v-if="block.type === 'truthTable'" :title="block.title" :headers="block.headers" :rows="block.rows" />
+        <component v-if="block.type === 'component'" :is="getComponent(block.component)" v-bind="block.props || {}" />
         <!-- Other components will be added here -->
       </template>
     </article>
@@ -73,6 +80,11 @@ import ContentBlock from '@/components/lesson/ContentBlock.vue';
 import VideosBlock from '@/components/lesson/VideosBlock.vue';
 import ChecklistBlock from '@/components/lesson/ChecklistBlock.vue';
 import BibliographyBlock from '@/components/lesson/BibliographyBlock.vue';
+import TruthTable from '@/components/lesson/TruthTable.vue'; // Import TruthTable component
+import Md3Table from '@/components/lesson/Md3Table.vue';
+import Md3LogicOperators from '@/components/lesson/Md3LogicOperators.vue';
+import MemoryDiagram from '@/components/lesson/MemoryDiagram.vue';
+import OrderedList from '@/components/lesson/OrderedList.vue';
 
 interface LessonRef { id: string; title: string; file: string }
 interface LessonContent {
@@ -132,6 +144,24 @@ async function loadLesson() {
 
 onMounted(loadLesson);
 watch([courseId, lessonId], loadLesson);
+
+// Component resolver for dynamic component rendering
+function getComponent(componentName: string) {
+  const components: Record<string, any> = {
+    Md3Table,
+    Md3LogicOperators,
+    MemoryDiagram,
+    OrderedList,
+    // Add more components here as needed
+  };
+  return components[componentName] || null;
+}
+
+// Function to determine if plain text should be used
+function shouldUsePlainText(language?: string): boolean {
+  // Use plain text for plaintext, pseudocode, or when no language is specified
+  return !language || language === 'plaintext' || language === 'pseudocode' || language === 'text';
+}
 
 </script>
 

@@ -1,15 +1,16 @@
 
 <template>
-  <div class="space-y-4 my-8">
+  <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)', marginTop: 'var(--md-sys-spacing-8)', marginBottom: 'var(--md-sys-spacing-8)' }">
     <div v-for="(item, index) in data.items" :key="index" class="card surface-tonal !p-0">
       <button 
         @click="toggle(index)" 
-        class="w-full flex justify-between items-center p-4 text-left font-semibold text-lg text-[var(--md-sys-color-on-surface)]"
+        class="w-full flex justify-between items-center p-4 text-left font-semibold md-sys-typescale-headline-small text-[var(--md-sys-color-on-surface)]"
         :aria-expanded="openIndex === index"
       >
         <span>{{ item.title }}</span>
-        <ChevronDown 
-          class="h-6 w-6 transform transition-transform duration-300 text-[var(--md-sys-color-on-surface-variant)]"
+        <ChevronDown
+          :style="{ height: 'var(--md-sys-icon-size-medium)', width: 'var(--md-sys-icon-size-medium)' }"
+          class="transform transition-transform duration-300 text-[var(--md-sys-color-on-surface-variant)]"
           :class="{ 'rotate-180': openIndex === index }"
         />
       </button>

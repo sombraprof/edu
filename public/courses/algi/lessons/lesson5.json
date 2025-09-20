@@ -1,0 +1,148 @@
+{
+  "id": "lesson5",
+  "title": "Representação Gráfica com Fluxogramas",
+  "objective": "Aprender a representar algoritmos de forma gráfica e compreender como os fluxogramas ajudam na clareza da lógica.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Introdução a fluxogramas, simbologia padrão, conexão entre lógica textual e visual."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Aprender a representar algoritmos de forma gráfica e compreender como os fluxogramas ajudam na clareza da lógica."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Exposição dialogada, exemplos práticos e atividade colaborativa em duplas. TED no Moodle."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula de Hoje",
+      "items": [
+        "Por que usar uma representação visual para algoritmos?",
+        "Apresentação da simbologia padrão dos fluxogramas.",
+        "Construção de um fluxograma passo a passo, incluindo um ponto de decisão.",
+        "Atividade prática em duplas: desenhando fluxogramas para problemas simples.",
+        "Ferramentas úteis para criar fluxogramas digitais.",
+        "Apresentação da tarefa (TED) da Aula 5."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Simbologia Essencial dos Fluxogramas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um fluxograma utiliza símbolos padronizados para representar diferentes tipos de ações ou passos num algoritmo. Conhecer estes símbolos é como aprender o vocabulário básico de uma nova língua."
+        },
+        {
+          "type": "subBlock",
+          "title": "Símbolos",
+          "items": [
+            "<div class=\"flex items-center gap-6\"><div class=\"flowchart-shape flowchart-terminal w-48 flex-shrink-0\">Início / Fim</div><div><h4 class=\"font-bold text-body-large\">Terminal</h4><p style=\"color: var(--md-sys-color-on-surface);\">Representado por uma elipse, marca o ponto de início e de fim do algoritmo. Todo fluxograma deve ter um início e pelo menos um fim.</p></div></div>",
+            "<div class=\"flex items-center gap-6\"><div class=\"flowchart-shape flowchart-process w-48 flex-shrink-0\">Processamento</div><div><h4 class=\"font-bold text-body-large\">Processamento</h4><p style=\"color: var(--md-sys-color-on-surface);\">Representado por um retângulo, indica qualquer tipo de operação, cálculo ou atribuição de valor. Ex: <code>soma = num1 + num2</code>.</p></div></div>",
+            "<div class=\"flex items-center gap-6\"><div class=\"flowchart-shape flowchart-io w-48 flex-shrink-0\"><span>Entrada / Saída</span></div><div><h4 class=\"font-bold text-body-large\">Entrada e Saída</h4><p style=\"color: var(--md-sys-color-on-surface);\">Representado por um paralelogramo, é usado para indicar a entrada de dados (ex: <code class=\"inline-code\">Leia nota1</code>) ou a saída de informações (ex: <code class=\"inline-code\">Escreva media</code>).</p></div></div>",
+            "<div class=\"flex items-center gap-6\"><div class=\"flowchart-shape flowchart-decision w-48 flex-shrink-0\">Decisão?</div><div><h4 class=\"font-bold text-body-large\">Decisão</h4><p style=\"color: var(--md-sys-color-on-surface);\">Representado por um losango, indica um ponto onde o fluxo se divide com base numa condição (ex: <code class=\"inline-code\">media >= 7?</code>). Terá sempre duas saídas: \"Sim\" e \"Não\".</p></div></div>",
+            "<div class=\"flex items-center gap-6\"><div class=\"w-48 flex-shrink-0 flex justify-center\"><div class=\"flowchart-arrow\"></div></div><div><h4 class=\"font-bold text-body-large\">Seta de Fluxo</h4><p style=\"color: var(--md-sys-color-on-surface);\">Indica a direção e a sequência do algoritmo, conectando os símbolos.</p></div></div>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Construindo um Fluxograma: Passo a Passo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Problema: Verificar se um aluno foi aprovado. Regra: Um aluno é aprovado se a sua média for maior ou igual a 7.0. O algoritmo deve ler a média e exibir \"Aprovado\" ou \"Reprovado\"."
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"card p-6 overflow-x-auto\"><div class=\"flowchart-container\"><div class=\"flowchart-shape flowchart-terminal\">Início</div><div class=\"flowchart-arrow\"></div><div class=\"flowchart-shape flowchart-io\"><span>Leia Média</span></div><div class=\"flowchart-arrow\"></div><div class=\"flowchart-shape flowchart-decision\">Média >= 7.0 ?</div><div class=\"flowchart-bifurcation\"><div class=\"flowchart-branch\"><div class=\"flowchart-branch-label\">Sim</div><div class=\"flowchart-shape flowchart-io\"><span>Escreva \"Aprovado\"</span></div></div><div class=\"flowchart-branch\"><div class=\"flowchart-branch-label\">Não</div><div class=\"flowchart-shape flowchart-io\"><span>Escreva \"Reprovado\"</span></div></div></div><div class=\"flowchart-junction-point\"></div><div class=\"flowchart-arrow\"></div><div class=\"flowchart-shape flowchart-terminal\">Fim</div></div></div>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática em Duplas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Agora é a vossa vez! Em duplas, usem uma folha A4 ou um software online para desenhar os fluxogramas para os seguintes problemas:"
+        },
+        {
+          "type": "subBlock",
+          "title": "Problemas para a Atividade:",
+          "items": [
+            "<div class=\"grid md:grid-cols-2 gap-6 mt-4\"><div style=\"background-color: var(--md-sys-color-primary-container); padding: 1.5rem; border-radius: 1rem;\"><h5 style=\"font-weight: 700; color: var(--md-sys-color-on-primary-container); margin-bottom: 0.5rem;\">Problema A: Verificação de Idade</h5><p style=\"color: var(--md-sys-color-on-surface);\">Crie um fluxograma que leia a idade de uma pessoa e exiba \"Maior de idade\" se a idade for 18 ou mais, ou \"Menor de idade\" caso contrário.</p></div><div style=\"background-color: var(--md-sys-color-primary-container); padding: 1.5rem; border-radius: 1rem;\"><h5 style=\"font-weight: 700; color: var(--md-sys-color-on-primary-container); margin-bottom: 0.5rem;\">Problema B: Par ou Ímpar</h5><p style=\"color: var(--md-sys-color-on-surface);\">Crie um fluxograma que leia um número inteiro e verifique se ele é par ou ímpar. (Dica: um número é par se o resto da sua divisão por 2 for igual a 0).</p></div></div>"
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Ferramenta Recomendada",
+          "content": "<p>Para criar fluxogramas digitais de forma fácil e gratuita, recomendamos o <a href=\"https://app.diagrams.net/\" target=\"_blank\" class=\"font-bold underline\">draw.io</a> (agora diagrams.net).</p>"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeos de Apoio",
+      "videos": [
+        {
+          "title": "Algoritmo, Fluxograma e Diagrama de Chapin",
+          "src": "https://www.youtube.com/embed/H08P85hsIxQ"
+        },
+        {
+          "title": "Como usar o Draw IO para criar fluxogramas incríveis",
+          "src": "https://www.youtube.com/embed/yPY75T_iEUA"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Próximos Passos e Tarefa (TED)",
+      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O desafio agora é criar um fluxograma que envolva múltiplas decisões.</p><ol class=\"list-decimal list-inside space-y-2 font-semibold\"><li>Crie um fluxograma (em papel ou no draw.io) para um algoritmo que leia três números diferentes e exiba qual deles é o maior.</li><li>Acesse o Moodle da disciplina e submeta uma foto ou o arquivo do seu fluxograma na \"Aula 5 - TED: Fluxograma com Múltiplas Decisões\".</li></ol><div class=\"mt-6\"><a class=\"btn btn-tonal inline-flex items-center gap-2\" href=\"https://eadsp.unichristus.edu.br\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Acessar Moodle</span></a></div>"
+    },
+    {
+      "type": "contentBlock",
+      "title": "🛠️ Crie seu Fluxograma Online",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use a ferramenta <span style=\"color: var(--md-sys-color-primary);\">draw.io</span>. Clique no botão abaixo para abrir o editor e começar a criar seu fluxograma."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Checklist da Aula 5",
+      "description": "Verifique se você:",
+      "items": [
+        "Entendi os principais símbolos do fluxograma.",
+        "Fiz a atividade prática em dupla.",
+        "Assisti aos vídeos de apoio sobre fluxogramas.",
+        "Concluí e enviei a tarefa (TED) no Moodle."
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "📚 Bibliografia de Apoio",
+      "items": [
+        "<strong>FORBELLONE, A. L. V.; EBERSPÄCHER, H. F.</strong> Lógica de Programação. 3. ed. São Paulo: Pearson, 2018.",
+        "<strong>MANZANO, J. A. N. G.; OLIVEIRA, J. F.</strong> Algoritmos: lógica para desenvolvimento de programação. 28. ed. São Paulo: Érica, 2022.",
+        "<strong>BACKES, A.</strong> Linguagem C: completa e descomplicada. 2. ed. São Paulo: Novatec, 2020."
+      ]
+    }
+  ]
+}

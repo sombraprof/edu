@@ -43,6 +43,9 @@ export default defineConfig(({ command }) => {
     },
     server: {
       port: 5173
-    }
+    },
+    preview: {
+      base: '/edu/',
+    },
   };
 });

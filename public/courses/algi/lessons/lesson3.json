@@ -1,0 +1,121 @@
+{
+  "id": "lesson3",
+  "title": "Aula 3: Estruturação de Algoritmos",
+  "objective": "Desenvolver a capacidade de transformar ideias em sequências lógicas ordenadas, preparando o raciocínio para a implementação em código.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Estruturação de algoritmos, importância da sequência de passos, erros comuns ao organizar instruções e prática de decomposição."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Desenvolver a capacidade de transformar ideias em sequências lógicas ordenadas, preparando o raciocínio para a implementação em código."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva com exemplos visuais, seguida de dinâmica \"Fishbowl\" para construção coletiva de algoritmos e debate crítico."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula de Hoje",
+      "items": [
+        "A importância crítica da ordem e do detalhe nos algoritmos.",
+        "Como transformar uma ideia caótica numa sequência de instruções claras.",
+        "Atividade prática em grupo (Fishbowl) para construir algoritmos do cotidiano.",
+        "Análise dos algoritmos criados: o que funciona e o que pode ser melhorado.",
+        "Apresentação da tarefa (TED) da Aula 3."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "A Ordem dos Fatores Altera (e Muito) o Produto",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um computador não tem \"bom senso\". Ele executa as instruções na ordem exata em que as recebe. Se a ordem estiver errada, o resultado será, na melhor das hipóteses, incorreto e, na pior, um desastre."
+        },
+        {
+          "type": "subBlock",
+          "title": "Exemplo: Calçar Meias e Sapatos",
+          "items": [
+            "<div class=\"grid md:grid-cols-2 gap-8 mt-4\"><div class=\"callout callout-danger\"><h5 class=\"font-bold callout__title mb-2\">Ordem Incorreta</h5><ol class=\"list-decimal list-inside\"><li>Pegar o sapato.</li><li>Calçar o sapato.</li><li>Pegar a meia.</li><li>Calçar a meia. ⬅️ Impossível!</li></ol></div><div class=\"callout callout-success\"><h5 class=\"font-bold callout__title mb-2\">Ordem Correta</h5><ol class=\"list-decimal list-inside\"><li>Pegar a meia.</li><li>Calçar a meia.</li><li>Pegar o sapato.</li><li>Calçar o sapato. ✔️ Sucesso!</li></ol></div></div>",
+            "<p class=\"mt-6\">Esta analogia simples ilustra um princípio fundamental: a <strong>sequência de um algoritmo é sagrada</strong>. Mudar a ordem de duas linhas de código pode mudar completamente o comportamento de um programa.</p>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática: O Desafio do \"Fishbowl\"",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Agora, vamos praticar a criação de algoritmos em grupo. A metodologia \"Fishbowl\" (aquário) funciona da seguinte forma:"
+        },
+        {
+          "type": "subBlock",
+          "title": "Método",
+          "items": [
+            "<div class=\"card p-4\"><ul class=\"list-disc list-inside space-y-2\"><li>Um pequeno grupo de alunos senta-se no centro da sala (o \"aquário\").</li><li>Este grupo recebe um problema e deve discuti-lo e criar um algoritmo no quadro para o resolver.</li><li>Os restantes alunos observam de fora, sem intervir.</li><li>Após um tempo, os grupos trocam. Os observadores entram no \"aquário\" para refinar, corrigir ou criar uma nova solução para o mesmo problema (ou um novo).</li></ul></div>"
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "Problemas para a Atividade:",
+          "items": [
+            "<div class=\"grid md:grid-cols-2 gap-6 mt-4\"><div class=\"callout callout-academic p-6\"><h5 class=\"font-bold mb-2\">Problema A: Trocar uma Lâmpada</h5><p>Crie um algoritmo detalhado para trocar uma lâmpada queimada num candeeiro de teto. Pense em segurança, ferramentas necessárias e possíveis problemas.</p></div><div class=\"callout callout-academic p-6\"><h5 class=\"font-bold mb-2\">Problema B: Fazer Matrícula</h5><p>Crie um algoritmo com os passos que um aluno deve seguir para se matricular numa nova disciplina da faculdade, desde a consulta de horários até à confirmação.</p></div></div>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeos de Apoio",
+      "videos": [
+        {
+          "title": "O que é um Algoritmo? (Curso em Vídeo)",
+          "src": "https://www.youtube.com/embed/8mei6uVttho"
+        },
+        {
+          "title": "Estruturação de Algoritmos (CFBCursos)",
+          "src": "https://www.youtube.com/embed/zyj5vOPA1vA"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Próximos Passos e Tarefa (TED)",
+      "content": "<h4>Objetivo da Tarefa</h4><p class=\"mb-4\">Praticar a criação de algoritmos claros e ordenados para problemas do cotidiano.</p><ol class=\"list-decimal list-inside space-y-2 font-semibold\"><li>Escolha um problema simples do seu dia a dia (ex: preparar um lanche, abastecer o carro).</li><li>Descreva pelo menos 5 passos em ordem lógica para resolvê-lo.</li><li>Destaque uma decisão (SE) que faça sentido no processo.</li><li>Poste no Moodle no espaço da \"Aula 3\".</li></ol><div class=\"mt-6\"><a class=\"btn btn-tonal inline-flex items-center gap-2\" href=\"https://eadsp.unichristus.edu.br\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Acessar Moodle</span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 16 16\" fill=\"none\" class=\"h-4 w-4\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\" /></svg></a></div>"
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Checklist da Aula",
+      "description": "Verifique se você:",
+      "items": [
+        "Entendeu a importância da ordem de execução em algoritmos.",
+        "Praticou a decomposição de problemas em passos lógicos.",
+        "Participou da atividade Fishbowl criando ou analisando algoritmos.",
+        "Postou a TED no Moodle com pelo menos 5 passos lógicos para um problema real."
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "📚 Bibliografia de Apoio",
+      "items": [
+        "<strong>FORBELLONE, A. L. V; EBERSPÄCHER, H. F.</strong> <em>Lógica de Programação</em>. 3. ed. Pearson, 2021.",
+        "<strong>MANZANO, J. A. N. G; OLIVEIRA, J. F.</strong> <em>Algoritmos</em>. Saraiva, 2020.",
+        "<strong>BACKES, André.</strong> <em>Linguagem C: Completa e Descomplicada</em>. Novatec, 2020."
+      ]
+    }
+  ]
+}

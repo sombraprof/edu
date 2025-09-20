@@ -1,12 +1,12 @@
 
 <template>
-  <div class="card rounded-5xl p-10 shadow-elevation-2" :class="variantClasses">
+  <div class="card p-10 shadow-elevation-2" :class="variantClasses" :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }">
     <div class="flex items-start gap-4">
-      <div v-if="icon" class="h-6 w-6 flex-shrink-0" :class="variantTextClasses">
+      <div v-if="icon" :style="{ height: 'var(--md-sys-icon-size-medium)', width: 'var(--md-sys-icon-size-medium)' }" class="flex-shrink-0" :class="variantTextClasses">
         <component :is="icon" />
       </div>
       <div class="flex-grow">
-        <h5 v-if="title" class="font-bold mb-1 text-lg" :class="variantTextClasses">
+        <h5 v-if="title" class="font-bold mb-1 md-sys-typescale-headline-small" :class="variantTextClasses">
           {{ title }}
         </h5>
         <div v-html="content" :class="['prose prose-sm max-w-none', variantTextClasses]"></div>
