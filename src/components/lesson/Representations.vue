@@ -1,6 +1,6 @@
 
 <template>
-  <div class="my-10">
+  <div class="card p-8 my-10">
     <h3 class="text-headline-small font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">{{ data.title }}</h3>
     <p v-if="data.description" class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]" v-html="data.description"></p>
 

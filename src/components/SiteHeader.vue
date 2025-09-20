@@ -7,10 +7,10 @@
           <GraduationCap class="h-5 w-5" />
         </span>
         <span class="hidden flex-col leading-tight sm:flex">
-          <span class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]">Educação Digital</span>
-          <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">EDU · Prof. Tiago Sombra</span>
+          <span class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]">Disciplinas</span>
+          <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">Prof. Tiago Sombra</span>
         </span>
-        <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)] sm:hidden">EDU</span>
+        <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)] sm:hidden">Tiago  Sombra</span>
       </router-link>
       <nav class="hidden items-center gap-2 md:flex">
         <router-link

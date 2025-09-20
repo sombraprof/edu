@@ -96,10 +96,13 @@ const variantTextClasses = computed(() => {
   color: inherit;
   font-weight: 600;
 }
-.prose :where(ul > li::before) {
-  background-color: currentColor !important;
+.prose :where(ul, li) {
+  color: inherit;
 }
-.prose :where(ol > li::before) {
-  color: inherit !important;
+.prose :where(ul > li)::marker {
+  color: currentColor;
+}
+.prose :where(ol > li)::marker {
+  color: currentColor;
 }
 </style>

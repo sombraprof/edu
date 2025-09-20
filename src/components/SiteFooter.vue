@@ -2,7 +2,7 @@
   <footer class="border-t border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface-container)]/88 backdrop-blur">
     <div class="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-8 md:flex-row md:items-center md:justify-between">
       <div class="space-y-2">
-        <p class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]">EDU · Prof. Tiago Sombra</p>
+        <p class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]">Prof. Tiago Sombra</p>
         <p class="supporting-text max-w-xl">
           Conteúdos acadêmicos e listas de exercícios para as disciplinas do professor Tiago Sombra.
         </p>

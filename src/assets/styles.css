@@ -485,6 +485,18 @@ html:not(.light) {
   color: inherit;
 }
 
+.prose :where(ul, li) {
+  color: inherit;
+}
+
+.prose :where(ul > li)::marker {
+  color: currentColor;
+}
+
+.prose :where(ol > li)::marker {
+  color: currentColor;
+}
+
 /* Basic blockquote styling */
 .prose :deep(blockquote) {
   border-left: 4px solid var(--md-sys-color-primary);
