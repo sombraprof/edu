@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
+import Markdown from 'vite-plugin-md';
+import prism from 'markdown-it-prism';
 
 export default defineConfig(({ command }) => {
   const base = command === 'build' ? '/edu/' : '/';
@@ -9,7 +11,17 @@ export default defineConfig(({ command }) => {
   return {
     base,
     plugins: [
-      vue(),
+      vue({
+        include: [/\.vue$/, /\.md$/], // Allow md files to be treated as Vue components
+      }),
+      Markdown({
+        headEnabled: true,
+        frontmatter: true, // Enable frontmatter parsing
+        markdownItSetup(md) {
+          // Enable Prism for syntax highlighting
+          md.use(prism);
+        },
+      }),
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['favicon.svg'],

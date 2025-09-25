@@ -1,0 +1,55 @@
+{
+  "id": "lesson4",
+  "title": "Aula 4: Encapsulamento",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "ementa",
+      "title": "Ementa e Contextualização",
+      "html": "<p> Até agora, nossos atributos e métodos estavam \"abertos\" para o mundo. Mas e se quiséssemos proteger os dados de um objeto contra modificações indevidas? É aqui que entram os <strong>modificadores de acesso</strong> e o <strong>encapsulamento</strong>. O encapsulamento é um dos pilares da POO e consiste em \"esconder\" os detalhes internos de um objeto, expondo apenas uma interface segura para interação. Isso não só aumenta a segurança do software, mas também o torna mais flexível e fácil de manter. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Modificadores de acesso em Java (public, private, protected), encapsulamento, getters e setters, e boas práticas. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO </h3> <p> Controlar a visibilidade de atributos e métodos, e aplicar o encapsulamento para proteger o estado dos objetos. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA </h3> <p> Aula expositiva com analogias, exemplos práticos de código e uma atividade de refatoração para aplicar os conceitos. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "teoria",
+      "title": "🛡️ Protegendo Seus Objetos",
+      "html": "<div data-legacy-card=\"\"> <h3> 1. Modificadores de Acesso </h3> <p> Java oferece quatro níveis de controle de acesso para membros de uma classe (atributos e métodos): </p> <ul> <li> <span>public</span><span>Acessível de qualquer classe, em qualquer pacote. É o nível menos restritivo.</span> </li> <li> <span>protected</span><span>Acessível dentro do mesmo pacote e por subclasses (mesmo em pacotes diferentes).</span> </li> <li> <span>package-private</span><span>(Sem modificador) Acessível apenas por classes dentro do mesmo pacote. É o padrão.</span> </li> <li> <span>private</span><span>Acessível apenas dentro da própria classe. É o nível mais restritivo.</span> </li> </ul> </div> <div data-legacy-card=\"\"> <h3> 2. Encapsulamento: O Princípio da Caixa-Preta </h3> <p> Encapsular significa agrupar os dados (atributos) e os métodos que operam nesses dados dentro de uma única unidade (a classe), e esconder os detalhes da implementação do mundo exterior. A boa prática é declarar os <strong>atributos como <code-text>private</code-text></strong> e fornecer <strong>métodos <code-text>public</code-text></strong> para acessá-los e modificá-los de forma controlada. </p> <p> Pense em um caixa eletrônico: você não tem acesso direto ao dinheiro no cofre (atributo <code-text>private</code-text>). Em vez disso, você usa uma interface pública (a tela e os botões) para realizar operações seguras como <code-text>sacar()</code-text> e <code-text>verificarSaldo()</code-text>. </p> <!-- CORREÇÃO: Imagem substituída por HTML/CSS para representar o diagrama UML --> <div> <div> <div> ContaBancaria </div> <div> <ul> <li> <span>-</span>saldo: double </li> <li> <span>-</span>titular: String </li> </ul> </div> <div> <ul> <li> <span>+</span>depositar(valor: double): void </li> <li> <span>+</span>sacar(valor: double): void </li> <li> <span>+</span>getSaldo(): double </li> </ul> </div> </div> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "pratica",
+      "title": "💻 Exemplos Práticos: Gerenciando uma Conta Bancária",
+      "html": "<div data-legacy-card=\"\"> <h3> Exemplo 1: Classe <code-text>ContaBancaria</code-text> Encapsulada </h3> <p> Note como o <code-text>saldo</code-text> é <code-text>private</code-text>. A única forma de alterá-lo é através dos métodos públicos <code-text>depositar</code-text> e <code-text>sacar</code-text>. </p> <div> <button data-tooltip=\"Copiar código\" aria-label=\"Copiar código\" title=\"Copiar código\"> Copiar </button> <pre><code>\npublic class ContaBancaria { // Attributes are private to protect them from direct external access. private String titular; private double saldo; // A public constructor to initialize the object. public ContaBancaria(String titular) { this.titular = titular; this.saldo = 0.0; // Initial balance is always zero. } // Public method to deposit money. This is a controlled way to modify 'saldo'. public void depositar(double valor) { if (valor &gt; 0) { this.saldo += valor; System.out.println(\"Depósito de R$ \" + valor + \" realizado com sucesso.\"); } else { System.out.println(\"Valor de depósito inválido.\"); } } // Public method to withdraw money. public void sacar(double valor) { if (valor &gt; 0 &amp;&amp; valor &lt;= this.saldo) { this.saldo -= valor; System.out.println(\"Saque de R$ \" + valor + \" realizado com sucesso.\"); } else { System.out.println(\"Saque não permitido. Saldo insuficiente ou valor inválido.\"); } } // Public \"getter\" method to allow read-only access to the balance. public double getSaldo() { return this.saldo; }\n} </code></pre> </div> </div> <div data-legacy-card=\"\"> <h3> Exemplo 2: Usando a Classe Encapsulada </h3> <p> Na classe <code-text>Banco</code-text>, não podemos fazer <code-text>minhaConta.saldo = -500;</code-text>. Somos forçados a usar os métodos seguros. </p> <div> <button data-tooltip=\"Copiar código\" aria-label=\"Copiar código\" title=\"Copiar código\"> Copiar </button> <pre><code>\npublic class Banco { public static void main(String[] args) { ContaBancaria minhaConta = new ContaBancaria(\"Ana Souza\"); System.out.println(\"Saldo inicial: R$ \" + minhaConta.getSaldo()); minhaConta.depositar(500.0); minhaConta.sacar(200.0); // This line would cause a compilation error because 'saldo' is private. // minhaConta.saldo = 1000000; minhaConta.sacar(400.0); // This will fail due to insufficient funds. System.out.println(\"Saldo final: R$ \" + minhaConta.getSaldo()); }\n} </code></pre> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "recursos-auxiliares",
+      "title": "🎥 Vídeos e Links de Apoio",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <!-- CORREÇÃO: Links de vídeo atualizados e container responsivo --> <div> <h3> Encapsulamento em Java (Loiane Groner) </h3> <div> </div> </div> <div> <h3> Getters e Setters em Java (Tutorial Java #84) </h3> <div> </div> </div> </div> <div data-legacy-card=\"\"> <h3> Leituras Recomendadas </h3> <ul> <li> <a href=\"https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html\" target=\"_blank\" rel=\"noopener noreferrer\"> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-bookmark\">📘</span>Controlling Access to Members of a Class (Oracle) </a> <p> A documentação oficial sobre modificadores de acesso. </p> </li> <li> <a href=\"https://www.w3schools.com/java/java_encapsulation.asp\" target=\"_blank\" rel=\"noopener noreferrer\"> Java Encapsulation (Getters and Setters) (W3Schools) </a> <p> Um guia rápido e prático sobre como implementar encapsulamento. </p> </li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "ted",
+      "title": "Atividade Prática (TED): Refatorando a Classe Funcionario",
+      "html": "<p> Vamos refatorar uma classe <code-text>Funcionario</code-text> para aplicar o encapsulamento e garantir a integridade dos seus dados. </p> <ol> <li> <strong>Crie a classe <code-text>Funcionario.java</code-text></strong> com os atributos <code-text>private String nome</code-text> e <code-text>private double salario</code-text>. </li> <li> <strong>Implemente os métodos <code-text>public</code-text> getters e setters</strong> para ambos os atributos: <code-text>getNome()</code-text>, <code-text>setNome(String nome)</code-text>, <code-text>getSalario()</code-text>, <code-text>setSalario(double salario)</code-text>. </li> <li> <strong>Adicione uma regra de negócio no <code-text>setSalario</code-text></strong>: o salário não pode ser definido com um valor menor que o salário mínimo (R$ 1.212,00). Se o valor for inválido, exiba uma mensagem de erro e não altere o salário. </li> <li> <strong>Crie uma classe <code-text>Empresa.java</code-text> com um método <code-text>main</code-text></strong> para testar. Crie um objeto <code-text>Funcionario</code-text>, tente definir um salário válido e um inválido, e exiba os resultados usando os getters. </li> </ol> <div data-legacy-card=\"\"> <h4>Sugestão de Metodologia Ativa</h4> <p> Realize esta atividade em dupla (*pair programming*). Discutam por que a validação no método <code-text>setSalario</code-text> é importante para a consistência do sistema. Como essa abordagem ajuda a evitar bugs no futuro? </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "checklist",
+      "title": "✅Checklist de Aprendizagem da Aula",
+      "html": "<div data-legacy-card=\"\"> <p>Ao final desta aula, você deve ser capaz de:</p> <ul> <li> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Diferenciar os modificadores de acesso <code-text>public</code-text>, <code-text>private</code-text> e <code-text>protected</code-text>. </li> <li> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Explicar o conceito de encapsulamento e sua importância. </li> <li> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Implementar encapsulamento usando atributos privados e métodos getters/setters públicos. </li> <li> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Adicionar regras de validação dentro dos métodos setters para proteger o estado do objeto. </li> </ul> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia de Apoio",
+      "html": "<div data-legacy-card=\"\"> <p> <strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014. </p> <p> <strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015. </p> <p> <strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong> <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013. </p> </div>"
+    }
+  ]
+}

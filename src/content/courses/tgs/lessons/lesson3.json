@@ -1,0 +1,89 @@
+{
+  "id": "lesson3",
+  "title": "Aula 3: Componentes e Características dos Sistemas",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <!-- Conteúdo e Objetivo --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Unidade I – Definição e Tipos de Sistemas </p> <p> Componentes essenciais (entradas, processamento, saídas, feedback), características (propósito, fronteira, ambiente) e tipos de sistemas. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO ESPECÍFICO </h3> <p> Compreender os principais elementos e características que compõem um sistema e sua aplicação em diferentes contextos organizacionais e de TI. </p> </div> <!-- Metodologia e Recursos --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA E RECURSOS </h3> <p> Aula expositiva com exemplos progressivos, utilizando esquemas visuais, tabelas comparativas e estudo de caso para conectar a teoria com a prática. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "pergunta-norteadora",
+      "title": "Pergunta Norteadora",
+      "html": "<p> Como um analista de sistemas pode usar o conceito de entradas, processamento, saídas e feedback para melhorar um processo organizacional? Pense num sistema que usa no seu dia a dia e reflita: o que aconteceria se um desses elementos falhasse? </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "contexto",
+      "title": "⚙️ Decompondo a Máquina: A Anatomia de um Sistema",
+      "html": "<p> Se a Teoria Geral de Sistemas nos deu os \"óculos\" para enxergar o mundo de forma conectada, agora vamos ajustar o foco para entender a anatomia de tudo o que vemos. Todo sistema, de um simples micro-ondas a um complexo sistema de e-commerce, opera sobre os mesmos princípios fundamentais. Ele existe para cumprir um <strong>propósito</strong>, dentro de uma <strong>fronteira</strong> definida, interagindo com o seu <strong>ambiente</strong>. </p> <p> Em Sistemas de Informação, dominar essa anatomia não é apenas teoria, é a base da nossa profissão. Identificar corretamente as <strong>entradas</strong> (o que o sistema recebe), os <strong>processos</strong> (o que ele faz), as <strong>saídas</strong> (o que ele entrega) e o <strong>feedback</strong> (como ele aprende) é o primeiro passo para analisar requisitos, projetar software e garantir que a tecnologia realmente resolva um problema. Um erro nesta fase inicial pode levar a falhas críticas, como sistemas que não atendem às necessidades do utilizador ou não se adaptam às mudanças do negócio. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "caracteristicas-sistemas",
+      "title": "🔭 As Lentes do Analista: Características de Todo o Sistema",
+      "html": "<div data-legacy-grid=\"\"> <!-- Propósito --> <div data-legacy-card=\"\"> <h3> Propósito (ou Objetivo) </h3> <p> Todo o sistema existe por uma razão. É a meta principal que justifica a sua existência e guia as suas ações. <strong>Exemplo:</strong> O propósito de uma aplicação de música é permitir que o utilizador ouça qualquer canção, a qualquer momento. </p> </div> <!-- Ambiente --> <div data-legacy-card=\"\"> <h3>Ambiente</h3> <p> É tudo o que está fora do sistema, mas que o influencia ou é influenciado por ele. <strong>Exemplo:</strong> Para um sistema de transporte urbano, o ambiente inclui os passageiros, o trânsito, o clima e as leis municipais. </p> </div> <!-- Fronteira --> <div data-legacy-card=\"\"> <h3>Fronteira</h3> <p> A linha (física ou conceptual) que separa o sistema do seu ambiente. Define o âmbito do que podemos controlar. <strong>Exemplo:</strong> A fronteira de um sistema de e-commerce termina onde a transportadora (ambiente) assume a entrega. </p> </div> <!-- Subsistemas --> <div data-legacy-card=\"\"> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"puzzle-piece\">🧩</span> <h3>Subsistemas</h3> <p> Sistemas menores que compõem um sistema maior. Cada um tem o seu próprio propósito, mas trabalham juntos para o objetivo geral. <strong>Exemplo:</strong> Num carro, o motor, os travões e o sistema elétrico são subsistemas. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "diagrama-fluxo",
+      "title": "O Ciclo de Vida da Informação em um Sistema",
+      "html": "<img src=\"https://sombraprof.github.io/tgs/imagens/aula_3_imagen_1.png\" alt=\"Diagrama de fluxo mostrando quatro caixas conectadas por setas. A primeira, 'Entrada', aponta para 'Processamento'. 'Processamento' aponta para 'Saída'. Uma seta curva sai de 'Saída' e volta para 'Entrada', rotulada como 'Feedback'.\"> <p> Este diagrama ilustra como os componentes se interligam para formar um ciclo contínuo de operação e melhoria. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "componentes",
+      "title": "🛠️ Os 4 Componentes Essenciais de Todo Sistema",
+      "html": "<div data-legacy-grid=\"\"> <!-- 1. Entradas (Inputs) --> <div data-legacy-card=\"\"> <h3> <span>1.</span> Entradas (Inputs): O Combustível do Sistema </h3> <p> As entradas são todos os recursos que o sistema coleta de seu ambiente para poder operar. São a matéria-prima, os dados brutos, a energia ou os comandos que iniciam uma ação. </p> <div> <p><strong>Exemplos:</strong></p> <ul> <li> <strong>Sistema Hospitalar (ERP):</strong> Dados de cadastro de um novo paciente, resultados de exames. </li> <li> <strong>Sistema de CRM:</strong> Informações de um novo lead, registro de uma ligação de vendas. </li> </ul> </div> </div> <!-- 2. Processamento --> <div data-legacy-card=\"\"> <h3> <span>2.</span> Processamento: O Motor da Transformação </h3> <p> O processamento é o conjunto de ações, regras e algoritmos que transformam as entradas em algo novo e útil. É o \"cérebro\" da operação, onde a mágica acontece. </p> <div> <p><strong>Exemplos:</strong></p> <ul> <li> <strong>Sistema Hospitalar (ERP):</strong> Cruzar dados do paciente com o histórico para sugerir diagnósticos, agendar cirurgia. </li> <li> <strong>Sistema de CRM:</strong> Qualificar o lead com base em seu perfil e interações, gerar um relatório de funil de vendas. </li> </ul> </div> </div> <!-- 3. Saídas (Outputs) --> <div data-legacy-card=\"\"> <h3> <span>3.</span> Saídas (Outputs): O Resultado Final </h3> <p> As saídas são os resultados gerados pelo processamento, que são entregues de volta ao ambiente. É o produto final, o serviço prestado ou a informação gerada. </p> <div> <p><strong>Exemplos:</strong></p> <ul> <li> <strong>Sistema Hospitalar (ERP):</strong> Prontuário eletrônico atualizado, fatura do plano de saúde. </li> <li> <strong>Sistema de CRM:</strong> E-mail de marketing enviado para o lead, dashboard de performance para o gestor. </li> </ul> </div> </div> <!-- 4. Retroalimentação (Feedback) --> <div data-legacy-card=\"\"> <h3> <span>4.</span> Retroalimentação (Feedback): O Mecanismo de Ajuste </h3> <p> O feedback é a informação sobre a saída que retorna ao sistema para avaliar e corrigir seu desempenho. É o que permite que um sistema aprenda, se adapte e melhore continuamente. </p> <div> <p><strong>Exemplos:</strong></p> <ul> <li> <strong>Sistema Hospitalar (ERP):</strong> Alerta de estoque baixo de um medicamento, pesquisa de satisfação do paciente. </li> <li> <strong>Sistema de CRM:</strong> Taxa de abertura de e-mails, motivo de perda de uma venda registrado pelo vendedor. </li> </ul> </div> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "title": "Conexão com a Teoria",
+      "html": "<p> Ludwig von Bertalanffy, o pai da TGS, observou este ciclo em sistemas biológicos. Ele viu que um organismo (sistema) consome nutrientes (entradas), os metaboliza (processamento) para gerar energia (saída) e usa sinais internos (feedback) para manter seu equilíbrio. A genialidade foi perceber que este mesmo modelo se aplica a qualquer sistema, seja ele vivo ou artificial. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "erros-comuns",
+      "title": "🚨 Erros Comuns ao Mapear Sistemas",
+      "html": "<p> Ao analisar um processo, é fácil cair em algumas armadilhas. Fique atento a estes erros comuns: </p> <div data-legacy-grid=\"\"> <!-- Card Erro 1 --> <div data-legacy-card=\"\"> <div> <h3>Esquecer o Feedback</h3> <p> Muitos focam apenas no fluxo linear de entrada-processo-saída e esquecem de mapear como o sistema se monitora e se corrige. Um sistema sem feedback é um sistema \"cego\", incapaz de se adaptar. </p> </div> </div> <!-- Card Erro 2 --> <div data-legacy-card=\"\"> <div> <h3> Confundir Entradas e Processos </h3> <p> Lembre-se que a entrada é o \"o quê\" (o dado, o recurso), enquanto o processo é o \"como\" (a ação, a transformação). \"Dados do cliente\" é uma entrada; \"validar dados do cliente\" é um processo. </p> </div> </div> <!-- Card Erro 3 --> <div data-legacy-card=\"\"> <div> <h3>Definir Fronteiras Vagas</h3> <p> Não saber onde o sistema termina e o ambiente começa gera o \"escopo infinito\". A API de um banco é parte do sistema do banco ou do ambiente para o app que a consome? Definir isso é crucial para o sucesso de um projeto. </p> </div> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "title": "Caso Real: ERP de um Hospital",
+      "html": "<p>Vamos aplicar estes conceitos a um sistema complexo:</p> <ul> <li> <strong>Propósito:</strong> Gerir todas as operações do hospital para garantir o melhor atendimento ao paciente. </li> <li> <strong>Subsistemas:</strong> Agendamento, internamento, farmácia, faturação, processo clínico eletrónico. </li> <li><strong>Entrada:</strong> Registo de um novo paciente.</li> <li> <strong>Processamento:</strong> O sistema verifica a disponibilidade de camas, aloca médicos e agenda exames. </li> <li> <strong>Saída:</strong> A fatura enviada ao plano de saúde e o histórico médico do paciente. </li> <li> <strong>Feedback:</strong> Um alerta de que o estoque de um medicamento está baixo, forçando uma nova compra (ajuste no sistema). </li> </ul>"
+    },
+    {
+      "type": "legacySection",
+      "id": "mapeamento-si",
+      "title": "🔄 Mapeando Componentes: Do Físico ao Digital",
+      "html": "<div data-legacy-card=\"\"> <table> <thead> <tr> <th scope=\"col\">Componente</th> <th scope=\"col\"> Sistema Físico (Micro-ondas) </th> <th scope=\"col\"> Sistema de Informação (App de Música) </th> </tr> </thead> <tbody> <tr> <td>Entrada</td> <td> Comida fria, tempo (2 minutos), potência (alta) </td> <td>Pesquisa por \"Queen\", clique no play</td> </tr> <tr> <td>Processamento</td> <td> Gerar micro-ondas para aquecer a comida </td> <td> Algoritmo procura a música no servidor e faz o streaming </td> </tr> <tr> <td>Saída</td> <td> Comida quente, aviso sonoro de \"pronto\" </td> <td>A música a tocar nos auscultadores</td> </tr> <tr> <td>Feedback</td> <td> O sensor que desliga o aparelho se a porta for aberta </td> <td> O sistema recolhe dados de que ouviu a música inteira e recomenda-a a outros utilizadores </td> </tr> </tbody> </table> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tipos-sistemas-preview",
+      "title": "🗂️ Tipos de Sistemas: Uma Prévia",
+      "html": "<p> Com base nestas características, podemos começar a classificar os sistemas. Veremos isto em detalhe nas próximas aulas, mas aqui fica uma prévia: </p> <div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <strong>Naturais vs. Artificiais:</strong> O corpo humano vs. um software. </div> <div data-legacy-card=\"\"> <strong>Abertos vs. Fechados:</strong> Uma empresa vs. um relógio. </div> <div data-legacy-card=\"\"> <strong>Simples vs. Complexos:</strong> Uma calculadora vs. um sistema de controlo de tráfego aéreo. </div> <div data-legacy-card=\"\"> <strong>Determinísticos vs. Probabilísticos:</strong> Um cálculo matemático vs. a previsão do tempo. </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Análise Crítica de um Sistema",
+      "html": "<div data-legacy-card=\"\"> <p> A sua tarefa é escolher um sistema (físico ou de informação) e fazer uma análise crítica dos seus componentes. </p> <div> <p>Instruções:</p> <ol> <li> Escolha um sistema e descreva o seu <strong>propósito</strong>. </li> <li> Mapeie as suas <strong>Entradas, Processamento, Saídas e Feedback</strong>. </li> <li> <strong>Justifique a importância</strong> de cada um destes quatro componentes para que o sistema atinja o seu propósito. O que falharia se um deles não existisse? </li> <li> (Opcional) Se possível, relacione o sistema escolhido com um sistema de informação organizacional que poderia geri-lo ou interagir com ele. </li> </ol> </div> <p> <strong>Entrega:</strong> Apresente a sua análise por escrito no fórum da disciplina no Moodle. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "quiz",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "html": "<div data-legacy-card=\"\"> <details> <summary> 1. Num sistema de e-commerce, qual das seguintes opções é um exemplo de FEEDBACK? </summary> <div> <ul> <li>a) O clique do utilizador no botão \"comprar\".</li> <li>b) A validação do número do cartão de crédito.</li> <li> c) O e-mail de confirmação de compra enviado ao cliente. </li> <li> <strong>d) O relatório de produtos mais visitados que o sistema gera para o gestor.</strong> </li> </ul> <p> <strong>Resposta correta: d.</strong> O relatório é uma informação sobre as saídas (visitas) que retorna ao sistema (gestores) para ajustar futuras estratégias (processamento). </p> </div> </details> <details> <summary> 2. O conceito de \"melhoria contínua\" em Sistemas de Informação está mais diretamente ligado a qual componente do sistema? </summary> <div> <p> <strong>Resposta:</strong> Ao Feedback. É através do ciclo de feedback que um sistema recolhe dados sobre o seu desempenho, permitindo que os programadores e gestores façam ajustes e melhorias contínuas. </p> </div> </details> <details> <summary> 3. Verdadeiro ou Falso: A palavra-passe que digita numa caixa multibanco é uma SAÍDA do sistema. </summary> <div> <p> <strong>Resposta:</strong> Falso. A palavra-passe é uma ENTRADA, um dado que fornece ao sistema para que ele possa processar (validar) a sua identidade. </p> </div> </details> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia",
+      "html": "<div data-legacy-card=\"\"> <p> <strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021. </p> <p> <strong>SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C.</strong> <em>Sistemas de informações gerenciais.</em> Porto Alegre: Grupo A, 2019. </p> </div>"
+    }
+  ]
+}

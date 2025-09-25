@@ -1,0 +1,259 @@
+[
+  {
+    "id": "lesson1",
+    "title": "Aula 1: Apresentação e Lógica",
+    "file": "lesson1.md",
+    "available": true,
+    "description": "O objetivo desta aula é conhecer o plano de ensino e entender a lógica como a base para criar soluções computacionais."
+  },
+  {
+    "id": "lesson2",
+    "title": "Aula 2: Raciocínio Lógico",
+    "file": "lesson2.md",
+    "available": true,
+    "description": "Desenvolver o raciocínio lógico através de exemplos do cotidiano e introduzir operadores lógicos como base para estruturas de decisão em programação."
+  },
+  {
+    "id": "lesson3",
+    "title": "Aula 3: Estruturação de Algoritmos",
+    "file": "lesson3.md",
+    "available": true,
+    "description": "Desenvolver a capacidade de transformar ideias em sequências lógicas ordenadas, preparando o raciocínio para a implementação em código."
+  },
+  {
+    "id": "lesson4",
+    "title": "Aula 4: Do Pseudocódigo ao C",
+    "file": "lesson4.md",
+    "available": true,
+    "description": "A transição do planeamento em Portugol para a implementação em Linguagem C."
+  },
+  {
+    "id": "lesson5",
+    "title": "Aula 5: Representação Gráfica com Fluxogramas",
+    "file": "lesson5.md",
+    "available": true,
+    "description": "Aprender a representar algoritmos de forma gráfica e compreender como os fluxogramas ajudam na clareza da lógica."
+  },
+  {
+    "id": "lesson6",
+    "title": "Aula 6: Variáveis e Constantes",
+    "file": "lesson6.md",
+    "available": true,
+    "description": "Aprender a armazenar e manipular informações nos nossos programas."
+  },
+  {
+    "id": "lesson7",
+    "title": "Aula 7: Operadores e Expressões em C",
+    "file": "lesson7.md",
+    "available": true,
+    "description": "Aprendendo a realizar cálculos, comparações e a tomar decisões lógicas."
+  },
+  {
+    "id": "lesson8",
+    "title": "Aula 8: Leitura Múltipla e Saída Formatada",
+    "file": "lesson8.md",
+    "available": true,
+    "description": "Consolidando o fluxo sequencial: Entrada → Processamento → Saída"
+  },
+  {
+    "id": "lesson9",
+    "title": "Aula 9: Problemas Sequenciais Aplicados em C",
+    "file": "lesson9.md",
+    "available": true,
+    "description": "Resolvendo problemas do cotidiano com leitura, processamento e saída de dados."
+  },
+  {
+    "id": "lesson10",
+    "title": "Aula 10: Problemas Sequenciais Compostos em C",
+    "file": "lesson10.md",
+    "available": true,
+    "description": "Escrever programas em C que alterem o fluxo do algoritmo com base em condições booleanas, utilizando if e else para decisões simples e compostas."
+  },
+  {
+    "id": "lesson11",
+    "title": "Aula 11: Revisão da Unidade III e Mini-teste",
+    "file": "lesson11.md",
+    "available": true,
+    "description": "Organizando decisões complexas de forma limpa e eficiente."
+  },
+  {
+    "id": "lesson12",
+    "title": "Aula 12: Estruturas Condicionais Simples e Compostas (if/else)",
+    "file": "lesson12.md",
+    "available": true,
+    "description": "Criando múltiplos caminhos para decisões mais complexas e organizadas."
+  },
+  {
+    "id": "lesson13",
+    "title": "Aula 13: Condições Compostas e Encadeadas",
+    "file": "lesson13.md",
+    "available": true,
+    "description": "Formular condições compostas e organizar decisões múltiplas, escrevendo programas claros e corretos para cenários práticos."
+  },
+  {
+    "id": "lesson14",
+    "title": "Aula 14: Avaliação NP1",
+    "file": "lesson14.md",
+    "available": true,
+    "description": "Avaliar o domínio dos conceitos fundamentais de algoritmos e programação em C trabalhados até o momento, medindo a capacidade de aplicar lógica e sintaxe correta para resolver problemas computacionais básicos."
+  },
+  {
+    "id": "lesson15",
+    "title": "Aula 15: Correção da NP1 e Aprofundamento",
+    "file": "lesson15.md",
+    "available": true,
+    "description": "Consolidar pontos críticos identificados na prova e fortalecer a escrita de condições compostas e cadeias de decisão claras."
+  },
+  {
+    "id": "lesson16",
+    "title": "Aula 16: Atividade Prática (Assíncrona) – Condicionais",
+    "file": "lesson16.json",
+    "available": false
+  },
+  {
+    "id": "lesson17",
+    "title": "Aula 17: Estrutura de Repetição while",
+    "file": "lesson17.json",
+    "available": false
+  },
+  {
+    "id": "lesson18",
+    "title": "Aula 18: Estrutura de Repetição for",
+    "file": "lesson18.json",
+    "available": false
+  },
+  {
+    "id": "lesson19",
+    "title": "Aula 19: for vs while",
+    "file": "lesson19.json",
+    "available": false
+  },
+  {
+    "id": "lesson20",
+    "title": "Aula 20: Estrutura de Repetição do-while",
+    "file": "lesson20.json",
+    "available": false
+  },
+  {
+    "id": "lesson21",
+    "title": "Aula 21: Problemas com Laços e Laços Aninhados",
+    "file": "lesson21.json",
+    "available": false
+  },
+  {
+    "id": "lesson22",
+    "title": "Aula 22: Integração de Condicionais e Laços",
+    "file": "lesson22.json",
+    "available": false
+  },
+  {
+    "id": "lesson23",
+    "title": "Aula 23: Revisão de Estruturas de Controle",
+    "file": "lesson23.json",
+    "available": false
+  },
+  {
+    "id": "lesson24",
+    "title": "Aula 24: Atividade Prática (Assíncrona) – Integração",
+    "file": "lesson24.json",
+    "available": false
+  },
+  {
+    "id": "lesson25",
+    "title": "Aula 25: Introdução a Funções e Modularização",
+    "file": "lesson25.json",
+    "available": false
+  },
+  {
+    "id": "lesson26",
+    "title": "Aula 26: Funções com Parâmetros e Retorno",
+    "file": "lesson26.json",
+    "available": false
+  },
+  {
+    "id": "lesson27",
+    "title": "Aula 27: Programas Modulares com Múltiplas Funções",
+    "file": "lesson27.json",
+    "available": false
+  },
+  {
+    "id": "lesson28",
+    "title": "Aula 28: Boas Práticas em Funções",
+    "file": "lesson28.json",
+    "available": false
+  },
+  {
+    "id": "lesson29",
+    "title": "Aula 29: Avaliação NP2",
+    "file": "lesson29.md",
+    "available": true,
+    "description": "Avaliar a capacidade de aplicar <strong>if/else</strong> encadeados, operadores lógicos e estruturas de <strong>repetição</strong> (<code>while</code>, <code>for</code>, <code>do-while</code>), bem como a <strong>modularização com funções</strong> (parâmetros, retorno e boas práticas de escopo/protótipos) em problemas práticos de pequena escala."
+  },
+  {
+    "id": "lesson30",
+    "title": "Aula 30: Introdução a Vetores (Arrays)",
+    "file": "lesson30.json",
+    "available": false
+  },
+  {
+    "id": "lesson31",
+    "title": "Aula 31: Operações sobre Vetores",
+    "file": "lesson31.json",
+    "available": false
+  },
+  {
+    "id": "lesson32",
+    "title": "Aula 32: Busca e Contagem em Vetores",
+    "file": "lesson32.json",
+    "available": false
+  },
+  {
+    "id": "lesson33",
+    "title": "Aula 33: Matrizes (Arrays 2D)",
+    "file": "lesson33.json",
+    "available": false
+  },
+  {
+    "id": "lesson34",
+    "title": "Aula 34: Operações sobre Matrizes",
+    "file": "lesson34.json",
+    "available": false
+  },
+  {
+    "id": "lesson35",
+    "title": "Aula 35: Introdução a Structs (Registros)",
+    "file": "lesson35.json",
+    "available": false
+  },
+  {
+    "id": "lesson36",
+    "title": "Aula 36: Vetores de Structs",
+    "file": "lesson36.json",
+    "available": false
+  },
+  {
+    "id": "lesson37",
+    "title": "Aula 37: Busca e Atualização em Vetores de Structs",
+    "file": "lesson37.json",
+    "available": false
+  },
+  {
+    "id": "lesson38",
+    "title": "Aula 38: Revisão Geral do Semestre",
+    "file": "lesson38.json",
+    "available": false
+  },
+  {
+    "id": "lesson39",
+    "title": "Aula 39: Avaliação NP3",
+    "file": "lesson39.md",
+    "available": true,
+    "description": "Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas."
+  },
+  {
+    "id": "lesson40",
+    "title": "Aula 40: Encerramento e Devolutiva",
+    "file": "lesson40.json",
+    "available": false
+  }
+]

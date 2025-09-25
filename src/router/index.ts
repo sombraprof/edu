@@ -1,8 +1,9 @@
-﻿import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '../pages/Home.vue';
 import CourseLayout from '../pages/CourseLayout.vue';
 import CourseHome from '../pages/CourseHome.vue';
 import LessonView from '../pages/LessonView.vue';
+import ExerciseView from '../pages/ExerciseView.vue';
 
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: Home },
@@ -12,7 +13,8 @@ const routes: RouteRecordRaw[] = [
     props: true,
     children: [
       { path: '', name: 'course-home', component: CourseHome, props: true },
-      { path: 'lesson/:lessonId', name: 'lesson', component: LessonView, props: true }
+      { path: 'lesson/:lessonId', name: 'lesson', component: LessonView, props: true },
+      { path: 'exercise/:exerciseId', name: 'exercise', component: ExerciseView, props: true }
     ]
   },
   // Fallback to home for unknown routes

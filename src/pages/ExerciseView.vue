@@ -1,0 +1,90 @@
+﻿<template>
+  <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }">
+    <nav class="flex items-center gap-2 md-sys-typescale-body-small">
+      <router-link class="btn btn-text" :to="{ name: 'course-home', params: { courseId } }">Voltar para a disciplina</router-link>
+      <ChevronRight :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" class="text-[var(--md-sys-color-on-surface-variant)]" />
+      <span class="text-[var(--md-sys-color-on-surface-variant)]">{{ exerciseTitle }}</span>
+    </nav>
+
+    <article class="card max-w-none p-8">
+      <header :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-3)' }">
+        <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
+          <p class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]/80">Exercício</p>
+          <h2 class="text-headline-medium font-semibold text-[var(--md-sys-color-on-surface)]">{{ exerciseTitle }}</h2>
+          <p v-if="exerciseSummary" class="text-body-large !mt-4">{{ exerciseSummary }}</p>
+        </div>
+      </header>
+      <div class="divider" role="presentation"></div>
+
+      <component v-if="markdownComponent" :is="markdownComponent" class="lesson-content prose max-w-none dark:prose-invert" />
+      <p v-else class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]">
+        Conteúdo deste Exercício ainda não está disponível.
+      </p>
+    </article>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { ChevronRight } from 'lucide-vue-next';
+
+interface ExerciseRef {
+  id: string;
+  title: string;
+  file?: string;
+  link?: string;
+  available?: boolean;
+  description?: string;
+  summary?: string;
+}
+
+const route = useRoute();
+const courseId = computed(() => String(route.params.courseId));
+const exerciseId = computed(() => String(route.params.exerciseId));
+
+const exerciseTitle = ref<string>('');
+const exerciseSummary = ref<string>('');
+const markdownComponent = shallowRef<any | null>(null);
+
+async function loadExercise() {
+  markdownComponent.value = null;
+  exerciseTitle.value = '';
+  exerciseSummary.value = '';
+
+  try {
+    const currentCourse = courseId.value;
+    const currentExercise = exerciseId.value;
+
+    const indexModule = await import(`../content/courses/${currentCourse}/exercises.json`);
+    const index: ExerciseRef[] = indexModule.default;
+    const entry = index.find((item) => item.id === currentExercise);
+    if (!entry) throw new Error(`Exercise ${currentExercise} not found`);
+
+    exerciseTitle.value = entry.title;
+    exerciseSummary.value = entry.summary ?? entry.description ?? '';
+
+    if (entry.file && entry.file.endsWith('.md')) {
+      const path = `../content/courses/${currentCourse}/exercises/${entry.file}`;
+      const loader = async () => {
+        const mod = await import(/* @vite-ignore */ path);
+        exerciseTitle.value = mod.frontmatter?.title ?? entry.title;
+        exerciseSummary.value = mod.frontmatter?.summary ?? mod.frontmatter?.description ?? exerciseSummary.value;
+        return mod.default;
+      };
+      markdownComponent.value = defineAsyncComponent(loader);
+    } else if (entry.link) {
+      window.location.href = entry.link;
+    }
+  } catch (error) {
+    console.error('[ExerciseView] Failed to load exercise:', error);
+    exerciseTitle.value = 'Erro ao carregar exercício';
+    exerciseSummary.value = 'Não foi possível localizar o material solicitado.';
+  }
+}
+
+onMounted(loadExercise);
+watch([courseId, exerciseId], loadExercise);
+</script>
+
+

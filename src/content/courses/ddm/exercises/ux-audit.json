@@ -1,0 +1,13 @@
+{
+  "id": "ux-audit",
+  "title": "Auditoria de UX mobile",
+  "objective": "Mapeie fluxos de um aplicativo existente e proponha melhorias alinhadas às guidelines.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "ux-audit",
+      "title": "Auditoria de UX mobile",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './ux-audit.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

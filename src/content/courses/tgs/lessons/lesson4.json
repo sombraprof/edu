@@ -1,0 +1,67 @@
+{
+  "id": "lesson4",
+  "title": "Aula 4: Tipos de Sistemas: Classificações e Exemplos",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <!-- Conteúdo e Objetivo --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Unidade I – Definição e Tipos de Sistemas </p> <p> Tipos de sistemas: abertos x fechados, estáveis x dinâmicos, permanentes x temporários. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO ESPECÍFICO </h3> <p> Diferenciar os tipos de sistemas a partir de suas características principais e analisar exemplos de sua aplicação prática em diferentes contextos organizacionais. </p> </div> <!-- Metodologia e Recursos --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA E RECURSOS </h3> <p> Estudo de caso em grupo (metodologia ativa) para análise de sistemas reais, com uso de quadro ou lousa digital. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "pergunta-norteadora",
+      "title": "Pergunta Norteadora",
+      "html": "<p> Por que uma rede social como o Instagram precisa se atualizar constantemente, enquanto as regras do xadrez permanecem as mesmas por séculos? O que isso nos diz sobre os diferentes tipos de sistemas? </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "contexto",
+      "title": "🗂️ Por que Classificar Sistemas?",
+      "html": "<p> Depois de entendermos a anatomia de um sistema, o próximo passo é aprender a classificá-lo. Assim como um biólogo classifica os seres vivos para entender seus comportamentos e relações, um analista de sistemas classifica os sistemas para prever seu comportamento, entender suas necessidades e escolher a melhor abordagem para projetá-los ou gerenciá-los. A TGS de Bertalanffy nos deu a base para entender as organizações como sistemas abertos, e essa classificação é a ferramenta que usamos para modelá-los. </p> <p> Saber se um sistema de informação, como um ERP ou um CRM, é <strong>aberto</strong> ou <strong>fechado</strong>, <strong>dinâmico</strong> ou <strong>estável</strong>, nos ajuda a tomar decisões cruciais. Um sistema dinâmico, por exemplo, exigirá uma arquitetura de software flexível e escalável, enquanto um sistema estável pode priorizar a segurança e a robustez. Esta aula nos dará as ferramentas para fazer essa diferenciação. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "classificacao",
+      "title": "Tabela Comparativa de Tipos de Sistemas",
+      "html": "<div data-legacy-card=\"\"> <table> <thead> <tr> <th scope=\"col\">Critério</th> <th scope=\"col\">Tipo 1</th> <th scope=\"col\"> Característica Principal e Exemplos </th> <th scope=\"col\">Tipo 2</th> <th scope=\"col\"> Característica Principal e Exemplos </th> </tr> </thead> <tbody> <tr> <td> Interação com o Ambiente </td> <td>Aberto</td> <td> Troca constante de energia e informação com o ambiente. É adaptativo. <br><em>Ex: Uma empresa (social), o Google Search (SI), um ecossistema (natural).</em> </td> <td>Fechado</td> <td> Interação mínima ou nula com o ambiente. Comportamento previsível. <br><em>Ex: Um relógio de corda (físico), uma reação química isolada (natural).</em> </td> </tr> <tr> <td> Resposta à Mudança </td> <td>Dinâmico</td> <td> Muda constantemente em resposta a estímulos. É flexível e evolutivo. <br><em>Ex: O app da Uber (SI), o clima (natural), o mercado de ações (social).</em> </td> <td>Estável (ou Estático)</td> <td> Resiste a mudanças e busca manter o equilíbrio (homeostase). <br><em>Ex: As regras do xadrez (social), um sistema de controle de versão como o Git (SI).</em> </td> </tr> <tr> <td> Duração no Tempo </td> <td>Permanente</td> <td> Projetado para existir por um longo e indeterminado período. <br><em>Ex: Uma universidade (social), um sistema operacional como o Windows (SI).</em> </td> <td>Temporário</td> <td> Criado com um propósito específico e um ciclo de vida definido. <br><em>Ex: Um projeto de software (SI), a organização de um evento (social).</em> </td> </tr> </tbody> </table> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "aplicacao-si",
+      "title": "📌 Aplicação em Sistemas de Informação",
+      "html": "<!-- Container para o estilo de caixa (fundo, sombra, padding) --> <div data-legacy-card=\"\"> <!-- Container para o conteúdo com estilos manuais --> <div> <p> A classificação de um sistema não é um exercício puramente acadêmico; ela tem implicações diretas no design e na arquitetura de software. </p> <ul> <li> <strong>Sistemas Abertos e Dinâmicos</strong> (ex: redes sociais, e-commerce) exigem <strong>alta escalabilidade e interoperabilidade</strong>. A arquitetura de microsserviços e o uso intensivo de APIs são abordagens comuns, pois permitem que partes do sistema evoluam de forma independente e se conectem facilmente a serviços externos. A segurança precisa lidar com inúmeras interações externas. </li> <li> <strong>Sistemas Fechados e Estáveis</strong> (ex: sistema de controle de um avião, software de uma urna eletrônica) priorizam <strong>segurança, confiabilidade e robustez</strong>. A arquitetura tende a ser mais monolítica e controlada, com testes exaustivos para garantir um comportamento previsível e sem falhas. A interoperabilidade é limitada e rigidamente controlada. </li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "erros-comuns",
+      "title": "🚨 Erros Comuns na Classificação",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <div> <h3> Confusão entre Aberto e Fechado em Software </h3> <p> Nenhum software é 100% fechado; ele sempre roda em um ambiente (sistema operacional). A classificação depende do <strong>grau</strong> de interação. Um sistema de backoffice com poucas integrações é \"relativamente fechado\" em comparação com uma API pública. </p> </div> </div> <div data-legacy-card=\"\"> <div> <h3> Assumir que todo sistema dinâmico é caótico </h3> <p> Sistemas dinâmicos mudam, mas isso não significa que não tenham regras. O algoritmo do Google Search é extremamente dinâmico, mas opera com base em regras de ranqueamento muito bem definidas. </p> </div> </div> <div data-legacy-card=\"\"> <div> <h3> Não identificar a mudança de classificação </h3> <p> Um sistema pode mudar sua natureza ao longo do tempo. Um projeto de software (temporário) pode se tornar um produto de sucesso que exige manutenção contínua (permanente). </p> </div> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "metodologia-ativa",
+      "title": "Metodologia Ativa: Estudo de Caso em Grupo",
+      "html": "<p> Agora é a hora de aplicar o conhecimento! Vamos nos dividir em grupos para analisar sistemas do mundo real. </p> <div data-legacy-card=\"\"> <p>Passo a Passo da Atividade:</p> <ol> <li><strong>Formem grupos</strong> de 3 a 4 pessoas.</li> <li> <strong>Escolham um sistema</strong> para analisar a partir das opções: <strong>sistema bancário</strong>, <strong>sistema de uma escola/faculdade</strong>, <strong>aplicativo de delivery</strong> ou <strong>sistema de transporte público</strong>. </li> <li> <strong>Classifiquem o sistema escolhido</strong> usando os três critérios que aprendemos. </li> <li> <strong>Preparem uma justificativa clara</strong> para cada classificação, usando exemplos práticos. </li> <li> <strong>Apresentem para a turma:</strong> Cada grupo terá um tempo para apresentar sua análise e conclusões. </li> </ol> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Análise Comparativa",
+      "html": "<div data-legacy-card=\"\"> <p> Para a próxima aula, você deverá fazer uma análise comparativa de dois sistemas com naturezas distintas. </p> <div> <p>Instruções:</p> <ol> <li> Escolha dois sistemas que você usa: um que seja <strong>aberto e dinâmico</strong> (ex: uma rede social) e outro que seja mais <strong>fechado e estável</strong> (ex: um editor de texto offline). </li> <li> Para cada um, classifique-o e justifique sua escolha com exemplos. </li> <li> Compare os dois, destacando como suas naturezas diferentes impactam a sua experiência como usuário. </li> <li> (Opcional) Crie um mini-diagrama ou tabela para ilustrar sua comparação. </li> <li> (Reflexão) Se você fosse projetar um novo recurso para o sistema dinâmico, que cuidados teria que tomar em relação à arquitetura e ao banco de dados? </li> </ol> </div> <p> <strong>Entrega:</strong> Poste seu relato escrito no fórum da disciplina no Moodle. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "quiz",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "html": "<div data-legacy-card=\"\"> <details> <summary> 1. Uma organização empresarial é um exemplo clássico de qual tipo de sistema? </summary> <div> <p> <strong>Resposta:</strong> Aberto e Dinâmico. Aberto porque interage constantemente com clientes, fornecedores e o mercado. Dinâmico porque precisa se adaptar às mudanças para sobreviver e crescer. </p> </div> </details> <details> <summary> 2. O sistema de regras de um jogo de tabuleiro, como o Banco Imobiliário, é melhor classificado como: </summary> <div> <p> <strong>Resposta:</strong> Estável. As regras são fixas e não mudam durante o jogo, garantindo o equilíbrio e a previsibilidade. </p> </div> </details> <details> <summary> 3. Verdadeiro ou Falso: Um projeto para desenvolver um novo aplicativo para a Copa do Mundo de 2026 é um exemplo de sistema permanente. </summary> <div> <p> <strong>Resposta:</strong> Falso. É um sistema temporário, pois tem um objetivo claro e um prazo definido para terminar (o fim do evento). </p> </div> </details> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia",
+      "html": "<div data-legacy-card=\"\"> <p> <strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021. </p> <p> <strong>LAUDON, Kenneth C.; LAUDON, Jane P.</strong> <em>Sistemas de Informação Gerenciais.</em> 11. ed. São Paulo: Pearson Prentice Hall, 2014. </p> <p> <strong>PALMISANO, Angelo; ROSINI, Alessandro Marco.</strong> <em>Administração de sistemas de informação e a gestão do conhecimento.</em> 2. ed. São Paulo: Cengage Learning, 2012. </p> <p> <strong>BERTALANFFY, Ludwig von.</strong> <em>Teoria Geral dos Sistemas.</em> Petrópolis: Vozes, 2008. </p> <p> <strong>CHIAVENATO, Idalberto.</strong> <em>Introdução à teoria geral da administração.</em> 9. ed. Barueri: Manole, 2014. </p> </div>"
+    }
+  ]
+}

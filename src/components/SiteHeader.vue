@@ -12,7 +12,7 @@
         </span>
         <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)] sm:hidden">Tiago  Sombra</span>
       </router-link>
-      <nav class="hidden items-center gap-2 md:flex">
+      <nav class="flex items-center gap-2">
         <router-link
           v-if="navAction"
           class="nav-link"
@@ -24,8 +24,7 @@
           <span>{{ navAction.label }}</span>
         </router-link>
         <ThemeToggle />
-      </nav>
-      <ThemeToggle class="md:hidden" />
+      </nav>
     </div>
   </header>
 </template>
@@ -40,7 +39,7 @@ import { GraduationCap, Grid3x3, ArrowLeft } from 'lucide-vue-next';
 const route = useRoute();
 
 const navAction = computed(() => {
-  if (route.name === 'lesson') {
+  if (route.name === 'lesson' || route.name === 'exercise') {
     const courseId = route.params.courseId ? String(route.params.courseId) : null;
     if (courseId) {
       return {
@@ -62,3 +61,5 @@ const navAction = computed(() => {
   return null;
 });
 </script>
+
+

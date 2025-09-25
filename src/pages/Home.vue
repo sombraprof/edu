@@ -3,7 +3,7 @@
     <header class="card p-6 md:p-8" :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }">
       <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div class="max-w-2xl" :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-3)' }">
-          <span class="chip w-fit">Trilhas universitárias</span>
+          <span class="chip w-fit">Disciplinas</span>
           <h1 class="text-display-small font-semibold text-[var(--md-sys-color-on-surface)]">Escolha sua disciplina</h1>
           <p class="supporting-text text-body-large">
             Materiais, exercícios e referências de todas as turmas do professor Tiago Sombra em um único lugar. Use a busca para encontrar rapidamente a disciplina desejada.
@@ -59,8 +59,8 @@
               </label>
             </div>
             <div class="flex flex-wrap items-center gap-3 md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]">
-              <span class="chip">Busca ativa: {{ q || '—' }}</span>
-              <span class="chip">Instituição: {{ inst || 'Todas' }}</span>
+              <span class="chip">Busca ativa: {{ q || '-' }}</span>
+              <span class="chip">instituição: {{ inst || 'Todas' }}</span>
               <button class="btn btn-text" type="button" @click="clearFilters">Limpar filtros</button>
             </div>
           </div>
@@ -147,3 +147,5 @@ function clearFilters() {
   height: 0;
 }
 </style>
+
+

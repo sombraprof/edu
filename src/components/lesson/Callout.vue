@@ -1,4 +1,4 @@
-
+﻿
 <template>
   <div class="card p-10 shadow-elevation-2" :class="variantClasses" :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }">
     <div class="flex items-start gap-4">
@@ -19,11 +19,13 @@
 import { computed } from 'vue';
 import { Info, CheckCircle2, AlertTriangle, BookOpen } from 'lucide-vue-next';
 
-const props = defineProps<{
-  variant: 'info' | 'academic' | 'good-practice' | 'warning' | 'error';
+const props = withDefaults(defineProps<{
+  variant?: 'info' | 'academic' | 'good-practice' | 'warning' | 'error';
   title?: string;
   content: string;
-}>();
+}>(), {
+  variant: 'info'
+});
 
 const icon = computed(() => {
   switch (props.variant) {
@@ -106,3 +108,5 @@ const variantTextClasses = computed(() => {
   color: currentColor;
 }
 </style>
+
+

@@ -1,0 +1,79 @@
+{
+  "id": "lesson10",
+  "title": "Aula 10: Monetização",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Introdução à C# na Unity: sintaxe, variáveis, controle de fluxo, <em>MonoBehaviour</em> e integração com a cena (scripts como componentes). </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO </h3> <p> Compreender a estrutura de scripts e escrever código básico que lê entrada (teclado/joystick) e move um objeto na cena. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA </h3> <p> Aula prática com desafios graduais, mentoria curta e revisão por pares (ABP – resolução de problemas). </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "intro",
+      "title": "Do bloco ao cérebro: por que C#?",
+      "html": "<p> Se o GDD é a planta e o ProBuilder é a alvenaria, o <strong>C#</strong> é a “eletricidade” que anima seus GameObjects. Nesta unidade, scripts viram o cérebro da cena: reagem a input, movem, verificam colisões e disparam a lógica do jogo. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "csharp-anatomia",
+      "title": "C# Essencial & Anatomia de um Script",
+      "html": "<div data-legacy-card=\"\"> <!-- Essencial --> <article> <h3>C# em 5 minutos</h3> <div> <button onclick=\"copiarCodigo(this,'csharp-essencial')\"> Copiar </button> <pre><code id=\"csharp-essencial\">// C# essentials for Unity\nint lives = 3;\nfloat speed = 6.5f; // floats use 'f'\nbool isGrounded = false;\nstring playerName = \"Ayla\"; // Arrays &amp; Lists\nint[] checkpoints = {0,1,2};\nusing System.Collections.Generic;\nList&lt;string&gt; inventory = new List&lt;string&gt;(); // Method sample\nvoid Heal(int amount){ /* ... */ } </code></pre> </div> </article> <!-- Anatomia --> <article> <h3> Anatomia de um Script Unity </h3> <div> <button onclick=\"copiarCodigo(this,'anatomia-script')\"> Copiar </button> <pre><code id=\"anatomia-script\">using UnityEngine; public class MeuPrimeiroScript : MonoBehaviour\n{ void Start() { // Runs once when the object is enabled } void Update() { // Runs every frame (read input, simple logic) }\n} </code></pre> </div> <ul> <li> <strong>using UnityEngine;</strong> dá acesso a <code>GameObject</code>, <code>Transform</code> etc. </li> <li> Classe deve bater com o nome do arquivo e herdar de <code>MonoBehaviour</code>. </li> <li> <code>Start()</code> para inicialização; <code>Update()</code> para lógica por frame. </li> </ul> </article> </div> <div data-legacy-card=\"\"> <p>Hello, Console!</p> <pre><code>using UnityEngine;\npublic class Hello : MonoBehaviour\n{ void Start(){ Debug.Log(\"Hello from Start()!\"); }\n} </code></pre> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "ciclo",
+      "title": "Ciclo de Vida (MonoBehaviour)",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <div> <h4>Awake / Start</h4> <ul> <li><code>Awake</code>: cache de referências.</li> <li><code>Start</code>: roda após o objeto ser habilitado.</li> </ul> </div> <div> <h4>Update</h4> <p>Ler input e lógica por frame. Evite tarefas pesadas aqui.</p> </div> <div> <h4>FixedUpdate</h4> <p> Física com <code>Rigidbody</code>/<code>Rigidbody2D</code> (passo fixo). </p> </div> </div> <div data-legacy-card=\"\"> <p>Dica</p> <p> Leia input em <code>Update()</code>; aplique forças/velocidade em <code>FixedUpdate()</code> para consistência. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "variaveis-controle",
+      "title": "Variáveis, Tipos & Estruturas de Controle",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <table> <thead> <tr> <th>Tipo</th> <th>Para que serve</th> <th>Exemplo</th> </tr> </thead> <tbody> <tr> <td><strong>int</strong></td> <td>Inteiros</td> <td><code>int vida = 100;</code></td> </tr> <tr> <td><strong>float</strong></td> <td>Decimais (use <code>f</code>)</td> <td><code>float velocidade = 5.5f;</code></td> </tr> <tr> <td><strong>bool</strong></td> <td>Verdadeiro/Falso</td> <td><code>bool temChave = false;</code></td> </tr> <tr> <td><strong>string</strong></td> <td>Texto</td> <td><code>string nome = \"Herói\";</code></td> </tr> <tr> <td><strong>Vector3</strong></td> <td>Posição/direção 3D</td> <td><code>new Vector3(0,1,0)</code></td> </tr> <tr> <td><strong>GameObject</strong></td> <td>Referência a objetos</td> <td><code>GameObject porta;</code></td> </tr> </tbody> </table> </div> <div data-legacy-card=\"\"> <h4>Public vs. [SerializeField]</h4> <p> Para aparecer no Inspector, use <code>public</code> ou <code>[SerializeField]</code> em variável privada (boa prática para encapsular). </p> </div> <div data-legacy-card=\"\"> <div> <h3> if / else &amp; switch </h3> <pre><code>if (vida &lt;= 0){ /* Game Over */ }\nelse if (vida &lt; 25){ /* alerta */ } switch(currentState){ case GameState.Menu: /* ... */ break; case GameState.Play: /* ... */ break; default: break;\n} </code></pre> </div> <div> <h3>Loops</h3> <pre><code>for (int i=0;i&lt;5;i++){ /* ... */ } // repete 5x\nwhile(!isGrounded){ /* ... */ break; } // cuidado com loops infinitos </code></pre> </div> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "lab-mov",
+      "title": "Laboratório: Movimento por Entrada Horizontal",
+      "html": "<!-- Opção 0: Transform.Translate (Gemini) --> <article> <h3> Opção 0 — Movimento simples (Transform.Translate) </h3> <p> Ideal para começar. Útil em objetos sem física. </p> <div> <button onclick=\"copiarCodigo(this,'mov-simples')\"> Copiar </button> <pre><code id=\"mov-simples\">using UnityEngine; public class MovimentoSimples : MonoBehaviour\n{ public float velocidade = 5f; void Update() { float h = Input.GetAxis(\"Horizontal\"); // -1 .. 1 Vector3 dir = Vector3.right * h; transform.Translate(dir * velocidade * Time.deltaTime); }\n} </code></pre> </div> </article> <!-- Opção A: 2D Rigidbody2D --> <article> <h3> Opção A — 2D (Rigidbody2D) </h3> <ol> <li> Adicione <strong>Rigidbody2D</strong> (Dynamic) e um <strong>Collider2D</strong>. </li> <li>Crie <strong>Player2DMove.cs</strong> e anexe ao objeto.</li> </ol> <div> <button onclick=\"copiarCodigo(this,'mov-2d')\"> Copiar </button> <pre><code id=\"mov-2d\">using UnityEngine; [RequireComponent(typeof(Rigidbody2D))]\npublic class Player2DMove : MonoBehaviour\n{ [SerializeField] float speed = 6f; Rigidbody2D rb; float moveX; void Awake(){ rb = GetComponent&lt;Rigidbody2D&gt;(); } void Update(){ moveX = Input.GetAxisRaw(\"Horizontal\"); } // read input void FixedUpdate() // apply physics { Vector2 vel = rb.velocity; vel.x = moveX * speed; rb.velocity = vel; }\n} </code></pre> </div> </article> <!-- Opção B: 3D CharacterController --> <article> <h3> Opção B — 3D (CharacterController) </h3> <div> <button onclick=\"copiarCodigo(this,'mov-3d')\"> Copiar </button> <pre><code id=\"mov-3d\">using UnityEngine; [RequireComponent(typeof(CharacterController))]\npublic class Player3DMove : MonoBehaviour\n{ [SerializeField] float speed = 6.5f; [SerializeField] float gravity = -9.81f; CharacterController controller; Vector3 velocity; float moveX; void Awake(){ controller = GetComponent&lt;CharacterController&gt;(); } void Update() { moveX = Input.GetAxisRaw(\"Horizontal\"); Vector3 move = new Vector3(moveX, 0f, 0f); controller.Move(move * speed * Time.deltaTime); if(controller.isGrounded &amp;&amp; velocity.y &lt; 0f) velocity.y = -2f; velocity.y += gravity * Time.deltaTime; controller.Move(velocity * Time.deltaTime); }\n} </code></pre> </div> </article> <!-- Bônus: Novo Input System --> <article> <h3> Bônus — Novo Input System (ação “move”) </h3> <ol> <li>Instale o pacote <strong>Input System</strong> e ative-o.</li> <li>Crie uma ação <code>move</code> (Value/Vector2) e vincule.</li> </ol> <div> <button onclick=\"copiarCodigo(this,'mov-newinput')\"> Copiar </button> <pre><code id=\"mov-newinput\">using UnityEngine;\nusing UnityEngine.InputSystem; [RequireComponent(typeof(Rigidbody2D))]\npublic class Player2D_NewInput : MonoBehaviour\n{ [SerializeField] float speed = 6f; [SerializeField] InputAction moveAction; // bind to \"move\" Vector2 Rigidbody2D rb; Vector2 move; void Awake(){ rb = GetComponent&lt;Rigidbody2D&gt;(); } void OnEnable(){ moveAction.Enable(); } void OnDisable(){ moveAction.Disable(); } void Update(){ move = moveAction.ReadValue&lt;Vector2&gt;(); } void FixedUpdate(){ rb.velocity = new Vector2(move.x * speed, rb.velocity.y); }\n} </code></pre> </div> </article>"
+    },
+    {
+      "type": "legacySection",
+      "id": "exercicios",
+      "title": "Exercícios Guiados",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3>E1 — Warm-up</h3> <p> Imprima no console o nome do jogador ao iniciar e ao apertar Espaço. </p> <pre><code>// void Start(){ Debug.Log(playerName); }\n// void Update(){ if(Input.GetKeyDown(KeyCode.Space)) Debug.Log(playerName); }</code></pre> </div> <div data-legacy-card=\"\"> <h3>E2 — Clamp</h3> <p>Limite X do Player entre -8 e 8.</p> <pre><code>// transform.position = new Vector3(Mathf.Clamp(x, -8f, 8f), y, z);</code></pre> </div> <div data-legacy-card=\"\"> <h3>E3 — Gizmo</h3> <p> Desenhe um gizmo sob o Player para visualizar o chão. </p> <pre><code>void OnDrawGizmosSelected(){ Gizmos.color = Color.green; Gizmos.DrawWireCube(transform.position + Vector3.down*0.6f, new Vector3(1.2f,0.2f,0.2f));\n}</code></pre> </div> </div> <div data-legacy-card=\"\"> <p>Checklist de Boas Práticas</p> <ul> <li> Input em <code>Update()</code> • Física em <code>FixedUpdate()</code>. </li> <li> Use <code>[SerializeField]</code> para tunar valores no Inspector. </li> <li> Cacheie componentes em <code>Awake()</code>/<code>Start()</code>. </li> <li> Logue estados com <code>Debug.Log</code> e itere em pequenos passos. </li> </ul> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "debug",
+      "title": "Debugging rápido com Console",
+      "html": "<p> Use <code>Debug.Log()</code> para inspecionar valores e fluxo. Janela: <em>Window &gt; General &gt; Console</em>. Ex.: <code>Debug.Log(\"Input: \" + h);</code> </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "ted",
+      "title": "📝 TED — Movimento Horizontal",
+      "html": "<p> Crie um script que mova um objeto com base na entrada horizontal e publique no Moodle. </p> <ol> <li> Escolha <strong>Opção 0</strong> (simples), <strong>Opção A (2D)</strong>, <strong>Opção B (3D)</strong> ou <strong>Bônus</strong> (Input System). </li> <li> Inclua: nome do script, código principal e explicação (2–4 linhas) de como lê o input e aplica o movimento. </li> <li> ⭐ Extra: vídeo curto (10–20s) mostrando o objeto em movimento. </li> </ol> <div data-legacy-card=\"\"> <p> <strong>Rubrica (0–10):</strong> compila (2), lê input corretamente (3), movimento estável (3), clareza do post (2). </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "videos-aula10",
+      "title": "🎬 Vídeos recomendados (Aula 10)",
+      "html": "<div data-legacy-card=\"\"> <!-- Playlist: Movimento de Objetos no Unity (PT-BR) --> <article> <div> </div> <div> <h3> Movimento de Objetos (Unity) </h3> <p> Série em português cobrindo movimento e manipulação de GameObjects. </p> </div> </article> <!-- Vídeo: Unity para iniciantes (visão geral + scripts básicos) --> <article> <div> </div> <div> <h3>Unity para Iniciantes</h3> <p> Introdução rápida à Unity; ponte para criação de scripts C# no editor. </p> </div> </article> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "recursos",
+      "title": "📚 Recursos",
+      "html": "<div data-legacy-card=\"\"> <div> <h3> Documentação Unity &amp; Cursos </h3> <ul> <li> <a target=\"_blank\" rel=\"noopener\" href=\"https://docs.unity3d.com/Manual/CreatingAndUsingScripts.html\">Criando e usando scripts</a> </li> <li> <a target=\"_blank\" rel=\"noopener\" href=\"https://docs.unity3d.com/ScriptReference/MonoBehaviour.html\">MonoBehaviour &amp; ciclo de vida</a> </li> <li> <a target=\"_blank\" rel=\"noopener\" href=\"https://docs.unity3d.com/ScriptReference/Input.GetAxis.html\">Input.GetAxis (Manager clássico)</a> </li> <li> <a target=\"_blank\" rel=\"noopener\" href=\"https://docs.unity3d.com/ScriptReference/Rigidbody2D.html\">Rigidbody2D</a> </li> <li> <a target=\"_blank\" rel=\"noopener\" href=\"https://docs.unity3d.com/ScriptReference/CharacterController.Move.html\">CharacterController.Move</a> </li> <li> <a target=\"_blank\" rel=\"noopener\" href=\"https://learn.unity.com/course/create-with-code\">Unity Learn — Create with Code</a> </li> <li> <a target=\"_blank\" rel=\"noopener\" href=\"https://docs.unity3d.com/Packages/com.unity.inputsystem@latest\">Novo Input System (pacote)</a> </li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia",
+      "html": "<div data-legacy-card=\"\"> <p> ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019. </p> <p> ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021. </p> </div>"
+    }
+  ]
+}

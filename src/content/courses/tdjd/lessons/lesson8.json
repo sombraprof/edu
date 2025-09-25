@@ -1,0 +1,85 @@
+{
+  "id": "lesson8",
+  "title": "Aula 8: IA e Comportamentos",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Level design com ProBuilder: criação de estruturas, colisores, navegação e espaços interativos. Teste e refinamento de layouts. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO </h3> <p> Desenvolver habilidades na construção de ambientes 3D com ProBuilder, aplicando princípios de usabilidade e teste iterativo de cenário. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA </h3> <p> Aula prática com orientação por desafios (metodologia ativa: hands-on com feedback em tempo real). </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "introducao",
+      "title": "Arquitetura da Diversão: Introdução ao Level Design",
+      "html": "<div data-legacy-card=\"\"> <p> Na aula anterior, aprendemos a conceituar um jogo com o GDD e a criar formas básicas com ProBuilder. Hoje, vamos aprofundar o uso dessa ferramenta para praticar o <strong>Level Design</strong> — a arte e a ciência de criar os ambientes, fases e missões de um jogo. </p> <blockquote> \"Um bom level design guia o jogador sutilmente, fazendo-o sentir-se inteligente e poderoso. Ele não apenas cria um espaço, mas também dita o ritmo da experiência.\" </blockquote> <p> O objetivo é ir além da simples construção de \"caixas\". Vamos aprender a pensar como arquitetos de experiências, usando o ProBuilder para criar espaços que contam histórias, propõem desafios e, acima de tudo, são divertidos de navegar. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "principios-ld",
+      "title": "💡Princípios do Bom Level Design",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h4>Fluxo do Jogador</h4> <p> Guiar o jogador de forma intuitiva pelo cenário, usando luz, cor e composição para indicar o caminho. </p> </div> <div data-legacy-card=\"\"> <h4>Pontos de Interesse</h4> <p> Criar marcos visuais (landmarks) que ajudam na orientação e despertam a curiosidade para a exploração. </p> </div> <div data-legacy-card=\"\"> <h4>Ritmo e Cadência</h4> <p> Alternar entre momentos de alta tensão (combate, puzzles difíceis) e de calma (exploração, narrativa). </p> </div> <div data-legacy-card=\"\"> <h4>Risco vs. Recompensa</h4> <p> Oferecer desafios opcionais mais difíceis que recompensam o jogador com itens ou segredos valiosos. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "principios-ld",
+      "title": "💡Princípios do Bom Level Design (Aprofundada)",
+      "html": "<div data-legacy-grid=\"\"> <!-- Fluxo --> <div data-legacy-card=\"\"> <h4>Fluxo do Jogador</h4> <p> O <strong>fluxo</strong> é a sensação de progressão natural pelo cenário. O level design deve usar <em>pistas visuais</em> (luz, cor, contraste, sons) para guiar o jogador sem precisar de setas ou tutoriais explícitos. <br><br> <em>Exemplo:</em> Em <strong>Portal (2007)</strong>, as áreas brancas indicam onde o jogador pode abrir portais, guiando a progressão intuitivamente. </p> </div> <!-- Pontos de Interesse --> <div data-legacy-card=\"\"> <h4> Pontos de Interesse (Landmarks) </h4> <p> Os <em>landmarks</em> funcionam como faróis no espaço: uma torre, uma montanha, uma estátua. Eles ajudam na <strong>orientação espacial</strong> e despertam curiosidade. <br><br> <em>Exemplo:</em> Em <strong>Shadow of the Colossus (2005)</strong>, os colossos visíveis à distância orientam e atraem o jogador. </p> </div> <!-- Ritmo e Cadência --> <div data-legacy-card=\"\"> <h4>Ritmo e Cadência</h4> <p> Alternar <strong>momentos de tensão e de respiro</strong> é essencial. Bons níveis criam uma “montanha-russa” de emoções. O jogador não pode estar sempre em combate intenso, nem só explorando calmamente. <br><br> <em>Exemplo:</em> Em <strong>Half-Life 2 (2004)</strong>, os corredores apertados criam tensão que se abre em arenas com maior liberdade. </p> </div> <!-- Risco vs Recompensa --> <div data-legacy-card=\"\"> <h4>Risco vs. Recompensa</h4> <p> Jogadores gostam de <strong>escolhas significativas</strong>. Um caminho arriscado pode oferecer recompensas extras, criando valor na exploração. <br><br> <em>Exemplo:</em> Em <strong>Dark Souls (2011)</strong>, enfrentar inimigos mais fortes pode render atalhos, itens raros ou um sentimento de conquista. </p> </div> </div> <!-- Complemento teórico --> <div role=\"note\" data-legacy-card=\"\"> <h4> Citação Relevante </h4> <p> \"Um bom level design é invisível: ele guia, ensina e emociona sem que o jogador perceba que está sendo conduzido.\" <span>— Adaptado de Jesse Schell, <em>The Art of Game Design</em></span> </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "historia-ld",
+      "title": "História e Referências do Level Design",
+      "html": "<div data-legacy-card=\"\"> <p> O conceito de <strong>level design</strong> evoluiu junto com a própria indústria de jogos. Nos anos 80, títulos como <em>Super Mario Bros.</em> (1985) já usavam o design de níveis para ensinar regras sem precisar de tutoriais escritos: </p> <blockquote> \"O primeiro nível de Mario é um tutorial invisível — cada obstáculo ensina uma nova habilidade ao jogador.\" </blockquote> <p> A partir dos anos 90, jogos em 3D como <em>Doom</em> (1993) e <em>Half-Life</em> (1998) expandiram as possibilidades, trazendo ritmo, narrativa e exploração. Atualmente, obras como <em>The Last of Us</em> e <em>Dark Souls</em> exemplificam o uso de <em>landmarks</em>, guias visuais e controle de ritmo para criar experiências imersivas. </p> <p> Segundo Paul Schuytema (2008), <em>\"o level design é a ponte entre a mecânica e a emoção do jogador\"</em>, reforçando que não se trata apenas de construir cenários, mas de <strong>arquitetar experiências</strong>. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "exemplos-ld",
+      "title": "Exemplos Reais de Level Design",
+      "html": "<div data-legacy-grid=\"\"> <!-- Exemplo 1 --> <div data-legacy-card=\"\"> <h3> 🎮 Super Mario Bros. (1985) </h3> <p> O primeiro nível é projetado para ensinar movimento, pulo e colisão sem texto. Blocos e inimigos são introduzidos gradualmente para guiar o jogador a experimentar as regras. </p> </div> <!-- Exemplo 2 --> <div data-legacy-card=\"\"> <h3> 🎮 The Legend of Zelda: Ocarina of Time (1998) </h3> <p> Introduz o <em>Dungeon Design</em>, onde cada sala ensina uma mecânica que será exigida em puzzles futuros. Esse modelo é referência até hoje para jogos de aventura. </p> </div> <!-- Exemplo 3 --> <div data-legacy-card=\"\"> <h3>🎮 Dark Souls (2011)</h3> <p> Conhecido pelo <em>level design interconectado</em>, onde atalhos e landmarks (como a chama da bonfire) criam uma sensação de descoberta e domínio do espaço. A dificuldade é equilibrada pelo próprio design do cenário. </p> </div> <!-- Exemplo 4 --> <div data-legacy-card=\"\"> <h3> 🎮 The Last of Us (2013) </h3> <p> Utiliza o cenário para <strong>contar histórias ambientais</strong> (environmental storytelling). Um prédio destruído, pichações ou objetos no chão comunicam a narrativa sem cutscenes. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "probuilder-avancado",
+      "title": "Ferramentas Avançadas do ProBuilder",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3> Modos de Edição </h3> <p> Para esculpir suas malhas, você precisa dominar os três modos de seleção de elementos: </p> <div> <div> <strong>Vertex:</strong> Edita os pontos individuais. </div> <div> <strong>Edge:</strong> Edita as linhas que conectam os pontos. </div> <div> <strong>Face:</strong> Edita as superfícies poligonais. </div> </div> </div> <div data-legacy-card=\"\"> <h3> Principais Ferramentas de Modelagem </h3> <ul> <li> <strong>Extrude:</strong> \"Puxa\" uma face para fora, criando nova geometria. Essencial para criar paredes, degraus e detalhes. </li> <li> <strong>Bevel:</strong> Suaviza as bordas, chanfrando-as. Útil para criar rampas e acabamentos mais orgânicos. </li> <li> <strong>Connect Edges/Vertices:</strong> Cria novas arestas ou vértices entre os elementos selecionados, permitindo maior detalhamento. </li> <li> <strong>Triangulate Faces:</strong> Garante que as faces sejam renderizadas corretamente, especialmente após edições complexas. </li> </ul> </div> <div role=\"note\" data-legacy-card=\"\"> <h4> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"puzzle-piece\">🧩</span>Mini-Desafio: Criando uma Ponte </h4> <p> Vamos praticar: crie um cubo longo e fino para ser a base da ponte. Use <strong>Connect Edges</strong> para adicionar segmentos no meio. Selecione as faces de cima desses novos segmentos e use <strong>Extrude</strong> para criar as laterais da ponte. Use <strong>Bevel</strong> nas bordas para suavizar. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "espacos-interativos",
+      "title": "Construindo Espaços Interativos",
+      "html": "<div data-legacy-grid=\"\"> <p> O layout do seu nível deve servir ao gameplay. Cada estrutura deve ter um propósito. </p> <div data-legacy-card=\"\"> <div> <img src=\"https://placehold.co/400x250/f0f9ff/0369a1?text=Cobertura+(Cover)\" alt=\"Exemplo de um cenário com caixas e muros baixos que servem de cobertura para um jogo de tiro.\"> <h4>Criação de Cobertura</h4> <p> Em jogos de tiro, use cubos e formas baixas para criar cover. Varie a altura (cobertura total vs. parcial) para incentivar diferentes táticas. </p> </div> <div> <img src=\"https://placehold.co/400x250/f0f9ff/0369a1?text=Plataformas+e+Vãos\" alt=\"Exemplo de um cenário de plataforma com vãos que o jogador precisa saltar para atravessar.\"> <h4>Plataformas e Vãos</h4> <p> Em jogos de plataforma, a distância e a altura entre as plataformas são cruciais. Meça a capacidade de pulo do seu personagem e projete os vãos de acordo. </p> </div> <div> <img src=\"https://placehold.co/400x250/f0f9ff/0369a1?text=Corredores+vs.+Arenas\" alt=\"Comparação entre um corredor estreito e uma arena aberta em um level design.\"> <h4>Corredores vs. Arenas</h4> <p> Use corredores estreitos para criar tensão e guiar o jogador. Use espaços abertos (arenas) para batalhas contra chefes ou momentos de maior liberdade. </p> </div> </div> <div role=\"note\" data-legacy-card=\"\"> <h4>Dica de Ouro: Colisores e Navegação</h4> <p> As malhas criadas com ProBuilder já vêm com um <strong>Mesh Collider</strong> por padrão. Para otimizar o jogo, marque todos os objetos estáticos do cenário como <strong>\"Static\"</strong> no Inspector. Isso ajuda a Unity a pré-calcular a iluminação e a otimizar a renderização. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "playtesting",
+      "title": "Playtesting e Refinamento",
+      "html": "<div data-legacy-card=\"\"> <p> Level design é um processo iterativo. Crie, teste, refine, repita. O feedback do playtest é a ferramenta mais valiosa que você tem. Use seu controlador de personagem básico para \"jogar\" seu próprio nível constantemente. </p> <div role=\"note\"> <h4> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"list-check\">✅</span>Checklist de Playtest do Blockout </h4> <ul> <li> <strong>Clareza:</strong> O caminho principal está claro? O jogador sabe para onde ir? </li> <li> <strong>Navegação:</strong> Existem lugares onde o jogador pode ficar preso (em cantos, buracos)? </li> <li> <strong>Escala:</strong> As portas, corredores e coberturas parecem do tamanho certo em relação ao personagem? </li> <li> <strong>Desafio:</strong> Os pulos são possíveis? A distância da cobertura é justa? </li> <li> <strong>Diversão:</strong> O simples ato de se mover pelo espaço é agradável? </li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "videos-aula8",
+      "title": "🎬 Vídeos recomendados (Aula 8)",
+      "html": "<div data-legacy-card=\"\"> <!-- Vídeo 1 --> <a href=\"https://www.youtube.com/watch?v=SmSZ4e6b-sg\" target=\"_blank\" rel=\"noopener noreferrer\"> <article> <img src=\"https://img.youtube.com/vi/SmSZ4e6b-sg/hqdefault.jpg\" alt=\"APRENDA GAME DEV UNITY – O Primeiro Passo – Episódio 1\"> <div> <h3> Unity para iniciantes – O Primeiro Passo </h3> <p> Introdução à Unity em português — essencial para quem está começando. </p> </div> </article> </a> <!-- Vídeo 2 --> <a href=\"https://www.youtube.com/user/xxgutoxxx\" target=\"_blank\" rel=\"noopener noreferrer\"> <article> <img src=\"https://img.youtube.com/vi/xxgutoxxx/hqdefault.jpg\" alt=\"Guto + Game Dev – Programação em C# na Unity\"> <div> <h3> Guto + Game Dev (Unity e C#) </h3> <p> Programação C# aplicada à Unity — ideal para trazer lógica aos seus níveis. </p> </div> </article> </a> <!-- Vídeo 3 --> <a href=\"https://www.youtube.com/user/GamesIndie\" target=\"_blank\" rel=\"noopener noreferrer\"> <article> <img src=\"https://img.youtube.com/vi/GamesIndie/hqdefault.jpg\" alt=\"GamesIndie – Tutoriais Unity 2D/3D para iniciantes\"> <div> <h3> GamesIndie – Unity 2D/3D (iniciante) </h3> <p> Passo a passo para criar jogos na Unity — útil para entender layout e navegação. </p> </div> </article> </a> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Protótipo de Cenário Funcional",
+      "html": "<div data-legacy-card=\"\"> <p> O objetivo desta tarefa é aplicar as técnicas de level design para criar um pequeno cenário interativo e testável. </p> <h4>Passo a Passo:</h4> <ol> <li> Partindo de um projeto-base com um controlador de personagem simples, use o ProBuilder para construir um pequeno percurso. </li> <li> O cenário deve incluir, no mínimo: diferentes elevações (rampas ou escadas), uma plataforma que exija um pulo e um obstáculo simples que precise ser contornado. </li> <li> Teste exaustivamente seu layout para garantir que não há bugs de colisão ou locais onde o jogador possa ficar preso. </li> <li> <strong>Entrega:</strong> Grave e suba no Moodle um curto vídeo (30-60 segundos) mostrando a movimentação do personagem pelo seu protótipo de cenário funcional. </li> </ol> <div> <h4> Extensões (Opcional) </h4> <p> Para um desafio extra, adicione um caminho vertical que exija uma sequência de pulos, ou uma \"armadilha\" simples (como um buraco no chão) que o jogador precise desviar. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "recursos",
+      "title": "📚 Recursos Adicionais",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h4> Level Design e ProBuilder </h4> <ul> <li> <a href=\"https://unity.com/features/probuilder\" target=\"_blank\" rel=\"noopener noreferrer\">Tutorial Oficial: Level design com ProBuilder (Unity Learn)</a> </li> <li> <a href=\"https://blog.logrocket.com/design-level-probuilder-unity/\" target=\"_blank\" rel=\"noopener noreferrer\">Tutorial Prático: Design de nível simples com ProBuilder (LogRocket)</a> </li> </ul> </div> <div data-legacy-card=\"\"> <h4>Teoria de Level Design</h4> <ul> <li> <a href=\"https://jacobryanwheeler.medium.com/game-level-design-35-ways-to-guide-the-player-4bbc324204f4\" target=\"_blank\" rel=\"noopener noreferrer\">Artigo: 35 maneiras de guiar o jogador (Medium)</a> </li> <li> <a href=\"https://www.gamedeveloper.com/design/level-design-practices-for-player-guidance\" target=\"_blank\" rel=\"noopener noreferrer\">Princípios de bom level design — resumo inspirado no GDC</a> </li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia",
+      "html": "<div data-legacy-card=\"\"> <p> ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021. </p> <p> SCHUYTEMA, Paul. <strong>Design de games: uma abordagem prática.</strong> São Paulo: Cengage Learning, 2008. </p> </div>"
+    }
+  ]
+}

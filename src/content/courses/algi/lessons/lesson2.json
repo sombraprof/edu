@@ -1,0 +1,169 @@
+{
+  "id": "lesson2",
+  "title": "Aula 2: Raciocínio Lógico",
+  "objective": "Desenvolver o raciocínio lógico através de exemplos do cotidiano e introduzir operadores lógicos como base para estruturas de decisão em programação.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Pensamento lógico, decomposição de problemas, operadores lógicos (E, OU, NÃO) e tradução da lógica do dia a dia para lógica computacional."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Desenvolver o raciocínio lógico através de exemplos do cotidiano e introduzir operadores lógicos como base para estruturas de decisão em programação."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva dialogada, exercícios de decomposição de problemas, mapeamento coletivo de tarefas, exemplos práticos e TED no Moodle."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula de Hoje",
+      "items": [
+        "Recapitulação: Lógica formal e algoritmos.",
+        "Como \"desmontar\" problemas do dia a dia em passos lógicos.",
+        "Os blocos de construção da decisão: Operadores Lógicos (E, OU, NÃO).",
+        "Atividade prática: Mapeamento mental de tarefas quotidianas.",
+        "Tradução da lógica do dia a dia para a lógica computacional.",
+        "Apresentação da tarefa (TED) da Aula 2."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Da Tarefa ao Passo a Passo: Decomposição",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O primeiro passo para resolver qualquer problema com lógica é <strong>decompô-lo</strong>, ou seja, quebrar uma tarefa grande e complexa em uma série de passos menores e mais simples. Fazemos isto instintivamente todos os dias."
+        },
+        {
+          "type": "subBlock",
+          "title": "Exemplo 1: Planear uma Viagem de Fim de Semana",
+          "items": [
+            "<p>A tarefa \"Ir à praia no fim de semana\" parece simples, mas envolve uma série de verificações e ações lógicas:</p>",
+            "<div class=\"card p-4 mt-4\"><ul class=\"list-disc list-inside space-y-2\"><li>Verificar a previsão do tempo.</li><li>Verificar o saldo bancário.</li><li>Verificar se o carro tem combustível.</li><li>Escolher para qual praia ir.</li><li>Arrumar a mala (roupas, protetor solar, etc.).</li><li>Definir o trajeto no GPS.</li></ul></div>",
+            "<p class=\"mt-4\">Um computador não consegue \"planear uma viagem\". Mas consegue executar cada um destes pequenos passos, um de cada vez, se lhe dissermos exatamente como o fazer. A isto chamamos <strong>pensamento computacional</strong>.</p>"
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "Exemplo 2: Organizar um Churrasco",
+          "items": [
+            "<p>Organizar um churrasco também requer uma sequência lógica, onde alguns passos dependem de outros:</p>",
+            "<div class=\"card p-4 mt-4\"><ul class=\"list-disc list-inside space-y-2\"><li><strong>Passo 1:</strong> Convidar os amigos. (Dependência: o número de pessoas define a quantidade de comida).</li><li><strong>Passo 2:</strong> Comprar a carne, o carvão e as bebidas.</li><li><strong>Passo 3:</strong> Acender a churrasqueira. (Dependência: só pode ser feito após comprar o carvão).</li><li><strong>Passo 4:</strong> Grelhar a carne.</li><li><strong>Passo 5:</strong> Servir os convidados.</li></ul></div>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Md3LogicOperators"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática: Mapeando a Lógica do Cotidiano",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos agora aplicar estes conceitos. A ideia é pegar uma tarefa comum e \"mapeá-la\" como um algoritmo, identificando os passos e, principalmente, as decisões."
+        },
+        {
+          "type": "subBlock",
+          "title": "Modelo: Fazer Café",
+          "items": [
+            "<div style=\"background-color: var(--md-sys-color-surface-variant);\" class=\"p-6 rounded-2xl border mt-4\"><ul class=\"space-y-3\"><li><strong>Passo 1:</strong> Pegar a cafeteira.</li><li><strong>Passo 2:</strong> Verificar se há pó de café.</li><li class=\"ml-6\"><div class=\"callout callout-info\"><strong>Decisão: SE</strong> houver pó, colocar no filtro. <strong>SENÃO</strong>, adicionar \"comprar pó de café\" à lista de compras e parar o processo.</div></li><li><strong>Passo 3:</strong> Verificar se o reservatório tem água.</li><li class=\"ml-6\"><div class=\"callout callout-info\"><strong>Decisão: SE</strong> o reservatório tiver água, continuar. <strong>SENÃO</strong>, encher o reservatório com água.</div></li><li><strong>Passo 4:</strong> Ligar a cafeteira na tomada.</li><li><strong>Passo 5:</strong> Apertar o botão de ligar.</li><li><strong>Passo 6:</strong> Esperar o café ficar pronto.</li></ul></div>",
+            "<p class=\"mt-6 font-semibold\">Agora é a vossa vez! Pensem noutras tarefas: escolher uma roupa para vestir, decidir o que almoçar, sacar dinheiro no multibanco. Vamos mapear juntos no quadro.</p>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Combinando Operadores para Decisões Complexas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O verdadeiro poder da lógica aparece quando combinamos esses operadores para criar regras de negócio."
+        },
+        {
+          "type": "subBlock",
+          "title": "Exemplo 1: Regra para Desconto em Loja",
+          "items": [
+            "<p class=\"italic mb-4\">\"Um cliente tem direito a um desconto se a compra for acima de R$100 <strong>E</strong> (o cliente for VIP <strong>OU</strong> tiver um cupom de desconto).\"</p>"
+          ]
+        },
+        {
+          "title": "3. Pseudocódigo (Portugol)",
+          "content": "Uma linguagem intermediária, com regras e palavras-chave, que se aproxima de uma linguagem de programação real. É o método ideal para a transição para o código.",
+          "language": "pseudocodigo",
+          "code": "ALGORITMO \"CalcularMedia\"\nVAR\n  Nota1, Nota2, Media: REAL\nINICIO\n  ESCREVA(\"Digite a primeira nota: \")\n  LEIA(Nota1)\n  ESCREVA(\"Digite a segunda nota: \")\n  LEIA(Nota2)\n  Media <- (Nota1 + Nota2) / 2\n  ESCREVA(\"A média é: \", Media)\nFIM_ALGORITMO"
+        },
+        {
+          "type": "code",
+          "language": "pseudocodigo",
+          "code": "SE (valorCompra > 100) E (clienteEhVip OU possuiCupom) ENTAO\n  aplicarDesconto()\nSENAO\n  naoAplicarDesconto()\nFIM_SE"
+        },
+        {
+          "type": "subBlock",
+          "title": "Exemplo 2: Aprovação de Aluno",
+          "items": [
+            "<p class=\"italic mb-4\">\"Um aluno é aprovado se tiver uma média final maior ou igual a 7.0, <strong>OU</strong> se tiver uma média entre 5.0 e 6.9 <strong>E</strong> uma frequência maior que 75%.\"</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "pseudocodigo",
+          "code": "SE (media >= 7.0) OU (media >= 5.0 E frequencia > 75) ENTAO\n  status = \"Aprovado\"\nSENAO\n  status = \"Reprovado\"\nFIM_SE"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeos de Apoio",
+      "videos": [
+        {
+          "title": "Operadores Lógicos – Lógica de Programação (Paula)",
+          "src": "https://www.youtube.com/embed/bA-dXIB1tXI"
+        },
+        {
+          "title": "Curso de Lógica de Programação – Operadores e Expressões Lógicas (AND, OR, NOT)",
+          "src": "https://www.youtube.com/embed/G8haXi-EgSc"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Próximos Passos e Tarefa (TED)",
+      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">Agora que praticámos em conjunto, o desafio é formalizar este raciocínio individualmente.</p><ol class=\"list-decimal list-inside space-y-2 font-semibold\"><li>Acesse o Moodle da disciplina.</li><li>Encontre o fórum da \"Aula 2\".</li><li>Escreva um pequeno texto (até 10 linhas) descrevendo um problema simples do seu cotidiano que poderia ser resolvido com um algoritmo. Identifique pelo menos uma decisão (um \"SE\") no seu processo.</li></ol><div class=\"mt-6\"><a class=\"btn btn-tonal inline-flex items-center gap-2\" href=\"https://eadsp.unichristus.edu.br\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Acessar Moodle</span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"\" class=\"h-4 w-4\"><path d=\"M22 17H2v-2h20v2zm0-4H2v-2h20v2zm0-4H2V7h20v2z\"></path><path d=\"M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z\"></path></svg></a></div>"
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Checklist da Aula",
+      "description": "Antes de encerrar a Aula 2, confirme se você:",
+      "items": [
+        "Entendeu o conceito de decomposição de problemas em passos lógicos.",
+        "Sabe identificar operadores lógicos (E, OU, NÃO) em exemplos reais.",
+        "Conseguiu mapear uma tarefa cotidiana como um algoritmo com decisões.",
+        "Postou sua TED no Moodle descrevendo um problema do seu dia a dia com decisões lógicas."
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "📚 Bibliografia de Apoio",
+      "items": [
+        "<strong>FORBELLONE, A. L. V; EBERSPÄCHER, H. F.</strong> <em>Lógica de Programação</em>. 3. ed. São Paulo: Pearson, 2021.",
+        "<strong>MANZANO, J. A. N. G; OLIVEIRA, J. F.</strong> <em>Algoritmos: Lógica para Desenvolvimento</em>. 28. ed. São Paulo: Saraiva, 2020.",
+        "<strong>BACKES, André.</strong> <em>Linguagem C: Completa e Descomplicada</em>. São Paulo: Novatec, 2020. (capítulos iniciais de lógica e operadores)"
+      ]
+    }
+  ]
+}

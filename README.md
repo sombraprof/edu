@@ -1,39 +1,63 @@
-# EDU - Courses Hub (Vue + Vite + Tailwind + PWA)
+﻿# EDU · Courses Hub
 
-Unified site hosting multiple university courses by Prof. Tiago Sombra. Built with Vue 3, Vite, Tailwind CSS, Vue Router and configured for GitHub Pages.
+Vue 3 + Vite application that centralises aulas e exercícios do Prof. Tiago Sombra seguindo Material Design 3.
 
-## Install & Run
+## 🚀 Como iniciar
 
 ```bash
 npm ci
 npm run dev
 ```
 
-## Build
+Para gerar o build de produção:
 
 ```bash
-npm run build && npm run preview
+npm run build
+npm run preview
 ```
 
-## Add a new course
+## 📂 Estrutura de conteúdo
 
-1. Create `public/courses/<id>/` with:
-   - `meta.json` - `{ id, title, institution, description }`
-   - `lessons.json` - `[{ id, title, file }]`
-   - `lessons/<file>.html` - HTML lesson pages
-2. Register the course in `src/data/courses.ts`.
+Todo o conteúdo versionado vive em `src/content/courses/<id>/`:
 
-## Routing
+```
+src/content/courses/<id>/
+├── meta.json                 # Metadados da disciplina (id, título, instituição, descrição)
+├── lessons.json              # Índice das aulas ({ id, title, description?, available, file })
+├── lessons/
+│   ├── lessonX.json          # Dados estruturados (LessonRenderer)
+│   └── lessonX.md            # Wrapper <LessonRenderer :data="..." />
+├── exercises.json            # Índice dos exercícios ({ id, title, summary?, available, file })
+└── exercises/
+    ├── exerciseY.json        # Dados estruturados iguais às aulas
+    └── exerciseY.md          # Wrapper <LessonRenderer :data="..." />
+```
 
-- `/` - Home with cards (all courses)
-- `/course/:courseId` - Course landing (loads `meta.json`)
-- `/course/:courseId/lesson/:lessonId` - Lesson page (loads HTML via `lessons.json`)
+Cada `.json` usa o mesmo formato consumido por `LessonRenderer.vue`. Blocos legados ficam em `{ type: 'legacySection', title, html }` e são renderizados com superfícies MD3.
 
-## PWA
+## 🛠️ Fluxo de criação / migração
 
-- Configured via `vite-plugin-pwa` with SPA fallback.
-- `public/offline.html` will show when offline and content is missing.
+1. Adicione/actualize os arquivos JSON na pasta da disciplina.
+2. Rode os utilitários quando necessário:
+   - `node scripts/structure-legacy-sections.mjs` converte HTML legado (em `public/courses`) em seções normalizadas.
+   - `node scripts/apply-lesson-template.mjs` gera o wrapper `.md` de cada aula.
+   - `node scripts/convert-exercises-to-json.mjs` faz o mesmo para os exercícios.
+3. Registe a disciplina em `src/data/courses.ts` (para aparecer na home).
+4. Execute `npm run build` antes de commitar para garantir que tudo compila.
 
-## Deploy
+## 🧩 Componentes principais
 
-- GitHub Actions workflow in `.github/workflows/deploy.yml` uploads `dist/` to GitHub Pages.
+- `LessonRenderer.vue` orquestra todos os blocos (lessonPlan, ContentBlock, Callout, Timeline, etc.).
+- `LegacySection.vue` e `LegacyHtml.vue` aplicam MD3 a conteúdo HTML que ainda não foi totalmente decomposto.
+- `ExerciseView.vue` reutiliza `LessonRenderer`, garantindo a mesma experiência das aulas.
+
+## 📦 Deploy / PWA
+
+- Configuração feita com `vite-plugin-pwa`, SPA fallback activado para GitHub Pages.
+- O fluxo de publicação está em `.github/workflows/deploy.yml`.
+
+## 💡 Dicas
+
+- Preferira actualizar os arquivos JSON/MD em `src/content` – a pasta `public/courses` hoje serve apenas como fonte para scripts de migração.
+- Sempre que integrar conteúdo legacy, rode os scripts acima para manter o design consistente e evitar regressões de acessibilidade.
+- O build de verificação (`npm run build`) ajuda a pegar erros de template (por exemplo, tokens inesperados em `.md`).

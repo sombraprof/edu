@@ -30,15 +30,12 @@
 </template>
 
 <script setup lang="ts">
-// Layout wrapper for a single course
-// Loads course meta dynamically from public/courses/<id>/meta.json
 import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 interface CourseMeta { id: string; title: string; institution: string; description?: string }
 
 const route = useRoute();
-const base = import.meta.env.BASE_URL;
 const meta = ref<CourseMeta | null>(null);
 const loaded = ref(false);
 
@@ -46,9 +43,8 @@ async function loadMeta(courseId: string) {
   loaded.value = false;
   meta.value = null;
   try {
-    const res = await fetch(`${base}courses/${courseId}/meta.json`);
-    if (!res.ok) throw new Error('Meta not found');
-    meta.value = await res.json();
+    const module = await import(`../content/courses/${courseId}/meta.json`);
+    meta.value = module.default as CourseMeta;
   } catch (err) {
     console.error('[CourseLayout] Failed to load meta', err);
   } finally {
@@ -57,10 +53,19 @@ async function loadMeta(courseId: string) {
 }
 
 onMounted(() => {
-  loadMeta(String(route.params.courseId));
+  if (route.params.courseId) {
+    loadMeta(String(route.params.courseId));
+  }
 });
 
 watch(() => route.params.courseId, (id) => {
-  if (id) loadMeta(String(id));
+  if (id) {
+    loadMeta(String(id));
+  }
 });
 </script>
+
+
+
+
+

@@ -1,0 +1,13 @@
+{
+  "id": "vertical-slice",
+  "title": "Vertical slice digital",
+  "objective": "Implemente uma cena jogável com HUD básico, controles responsivos e build WebGL.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "vertical-slice",
+      "title": "Vertical slice digital",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './vertical-slice.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

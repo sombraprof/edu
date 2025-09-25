@@ -1,0 +1,73 @@
+{
+  "id": "lesson1",
+  "title": "Aula 1: Fundamentos da Programação Orientada a Objetos",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "ementa",
+      "title": "Ementa e Contextualização",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3>Informações Gerais</h3> <ul> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"puzzle-piece\">🧩</span><strong>Unidade Curricular:</strong> Linguagem de Programação Orientada a Objetos</li> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"clock\">⏱️</span><strong>Carga Horária:</strong> 90h</li> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"shapes\">🧱</span><strong>Competências:</strong> Modelagem de sistemas, abstração, encapsulamento, herança, polimorfismo, desenvolvimento em Java.</li> </ul> </div> <div data-legacy-card=\"\"> <h4><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"graduation-cap\">🎓</span>Alinhamento Acadêmico</h4> <p>Esta disciplina desenvolve competências essenciais de pensamento computacional e abstração, alinhadas às diretrizes curriculares para cursos de tecnologia. O foco em modelagem e resolução de problemas com POO prepara o aluno para desafios reais do mercado de desenvolvimento de software.</p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO</h3> <p>Fundamentos do paradigma OO, diferença para programação estruturada, e visão geral de Java (JDK, JVM, IDEs).</p> </div> <div data-legacy-card=\"\"> <h3><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO</h3> <p>Apresentar os conceitos iniciais de POO, sua relevância, e guiar na configuração do ambiente de desenvolvimento Java.</p> </div> <div data-legacy-card=\"\"> <h3><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA</h3> <p>Aula expositiva com exemplos práticos de código e uma atividade guiada para criar a primeira classe e objeto.</p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "introducao",
+      "title": "🚀 O Que é Programação Orientada a Objetos (POO)?",
+      "html": "<p> A Programação Orientada a Objetos (POO) é mais do que um conjunto de regras; é uma nova forma de pensar e estruturar soluções para problemas. Em vez de focarmos em procedimentos e lógica sequencial, a POO nos convida a modelar o mundo real através de \"objetos\". </p> <p> Pense em um carro. Ele tem <strong>características</strong> (cor, marca, modelo) e pode realizar <strong>ações</strong> (ligar, acelerar, frear). Na POO, as características são os <strong>atributos</strong> e as ações são os <strong>métodos</strong>. Juntos, eles formam um <strong>objeto</strong>, uma entidade autônoma que encapsula seus próprios dados e comportamentos. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "comparativo-paradigmas",
+      "title": "Paradigmas em Perspectiva",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3>Programação Estruturada</h3> <p>Foco em <strong>funções e procedimentos</strong>. Os dados e as operações sobre os dados são separados.</p> <ul> <li><strong>Lógica:</strong> Top-down, sequencial.</li> <li><strong>Reuso:</strong> Limitado a funções.</li> <li><strong>Manutenção:</strong> Alterações podem ter impacto global.</li> <li><strong>Exemplo:</strong> Linguagem C.</li> </ul> </div> <div data-legacy-card=\"\"> <h3>Programação Orientada a Objetos</h3> <p>Foco em <strong>objetos</strong> que unem dados (atributos) e comportamentos (métodos).</p> <ul> <li><strong>Lógica:</strong> Modelagem do mundo real.</li> <li><strong>Reuso:</strong> Alto, através de herança e composição.</li> <li><strong>Manutenção:</strong> Modular, alterações são encapsuladas.</li> <li><strong>Exemplo:</strong> Java, C#, Python.</li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "boas-praticas",
+      "title": "💡Boas Práticas para Iniciar em Java",
+      "html": "<p>Escrever código limpo desde o início acelera seu aprendizado e facilita a colaboração. Siga estas convenções:</p> <ul> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span><strong>Classes em PascalCase:</strong> <code-text>CalculadoraDeImposto</code-text>, <code-text>Book</code-text>.</li> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span><strong>Variáveis e Métodos em camelCase:</strong> <code-text>pageCount</code-text>, <code-text>displayInfo()</code-text>.</li> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span><strong>Comentários Javadoc:</strong> Use <code-text>/** ... */</code-text> para documentar classes e métodos, explicando o \"porquê\" do código.</li> </ul>"
+    },
+    {
+      "type": "legacySection",
+      "id": "conceitos",
+      "title": "🔑 Conceitos Fundamentais em Java",
+      "html": "<div data-legacy-card=\"\"> <h3>1. Classes e Objetos</h3> <p>A <strong>classe</strong> é o molde. O <strong>objeto</strong> é a instância concreta criada a partir do molde. Usamos a palavra-chave <code-text>new</code-text> para criar um objeto.</p> <div> <button data-tooltip=\"Copiar código\" aria-label=\"Copiar código da classe Book\">Copiar</button> <pre><code>\n/** * Represents a book with a title, author, and page count. * This class serves as a blueprint for creating book objects. */\npublic class Book { String title; String author; int pageCount; /** * Displays the book's information to the console. * This is a 'void' method because it does not return any value. */ public void displayInfo() { System.out.println(\"Title: \" + title); }\n} </code></pre> </div> </div> <div data-legacy-card=\"\"> <h3>2. Métodos com Retorno</h3> <p>Nem todos os métodos são <code-text>void</code-text>. Muitos realizam um cálculo ou uma operação e <strong>retornam</strong> um valor. Para isso, declaramos o tipo de retorno (ex: <code-text>String</code-text>, <code-text>int</code-text>) e usamos a palavra-chave <code-text>return</code-text>.</p> <div> <button data-tooltip=\"Copiar código\" aria-label=\"Copiar código da classe Calculator\">Copiar</button> <pre><code>\n/** * A simple calculator to demonstrate methods that return values. */\npublic class Calculator { /** * Adds two integers and returns the result. * @param a The first number. * @param b The second number. * @return The sum of a and b. */ public int add(int a, int b) { return a + b; }\n} // How to use it in the main method:\npublic class TestCalculator { public static void main(String[] args) { Calculator calc = new Calculator(); int result = calc.add(5, 7); // The returned value (12) is stored in 'result'. System.out.println(\"The result is: \" + result); // Prints \"The result is: 12\" }\n} </code></pre> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "compilacao",
+      "title": "Do Código-Fonte ao Programa: Compilação e Execução",
+      "html": "<p>Para que a JVM entenda nosso código Java, precisamos primeiro compilá-lo. Este processo transforma nosso arquivo <code-text>.java</code-text> em um arquivo <code-text>.class</code-text> (bytecode).</p> <div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <p>1. Compilar </p> <code>javac NomeDaClasse.java</code> </div> <div data-legacy-card=\"\"> <p>2. Executar </p> <code>java NomeDaClasse</code> </div> </div> <p>💡 <strong>Dica:</strong> Para listar arquivos no terminal, use <code-text>ls</code-text> (Linux/Mac) ou <code-text>dir</code-text> (Windows).</p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "ted",
+      "title": "Atividade Prática (TED): Modelando seus Primeiros Objetos",
+      "html": "<p> Vamos aplicar os conceitos criando um pequeno cenário com duas classes que se relacionam: <code-text>Motorista</code-text> e <code-text>Carro</code-text>. </p> <div data-legacy-card=\"\"> <h3>Parte 1: A Estrutura Básica</h3> <ol> <li> <strong>Crie a classe <code-text>Carro.java</code-text></strong> <p>Um carro simples com marca, modelo e ano.</p> <div> <button data-tooltip=\"Copiar código\" aria-label=\"Copiar código da classe Carro (Parte 1)\">Copiar</button> <pre><code>\npublic class Carro { String marca; String modelo; int ano;\n} </code></pre> </div> </li> <li> <strong>Crie a classe <code-text>Motorista.java</code-text></strong> <p>O motorista terá um nome e um carro associado a ele.</p> <div> <button data-tooltip=\"Copiar código\" aria-label=\"Copiar código da classe Motorista (Parte 1)\">Copiar</button> <pre><code>\npublic class Motorista { String nome; Carro carro; // A motorista \"tem um\" carro public void exibirInfo() { System.out.println(\"Motorista: \" + nome); System.out.println(\"Carro: \" + carro.marca + \" \" + carro.modelo); }\n} </code></pre> </div> </li> <li> <strong>Crie a classe <code-text>Corrida.java</code-text> para testar</strong> <p>Aqui vamos criar os objetos e conectá-los.</p> <div> <button data-tooltip=\"Copiar código\" aria-label=\"Copiar código da classe Corrida para teste\">Copiar</button> <pre><code>\npublic class Corrida { public static void main(String[] args) { // 1. Create a Carro object Carro carroDoJoao = new Carro(); carroDoJoao.marca = \"VW\"; carroDoJoao.modelo = \"Nivus\"; carroDoJoao.ano = 2023; // 2. Create a Motorista object Motorista joao = new Motorista(); joao.nome = \"João\"; // 3. Associate the car with the driver joao.carro = carroDoJoao; // 4. Display the driver's info joao.exibirInfo(); }\n} </code></pre> </div> </li> </ol> </div> <div data-legacy-card=\"\"> <h3>Parte 2 (Avançado): Construtores e Desafios</h3> <p>Agora, vamos refatorar o código usando construtores e adicionar um desafio.</p> <ul> <li><strong>Refatore as classes <code-text>Carro</code-text> e <code-text>Motorista</code-text></strong> para usar construtores, como fizemos no exemplo da aula.</li> <li><strong>Desafio Opcional:</strong> Adicione um método <code-text>acelerar()</code-text> na classe <code-text>Carro</code-text>. Depois, crie uma sobrecarga: um <code-text>acelerar()</code-text> sem parâmetros e outro <code-text>acelerar(int limiteDeVelocidade)</code-text> que recebe um valor.</li> </ul> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "recursos",
+      "title": "🔗 Recursos Extras",
+      "html": "<div data-legacy-card=\"\"> <a href=\"https://docs.oracle.com/en/java/\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Abrir documentação oficial do Java da Oracle em uma nova aba\"><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-bookmark\">📘</span>Documentação Oficial do Java (Oracle)</a> <a href=\"https://github.com/sombraprof/lpoo\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Abrir repositório da disciplina no GitHub em uma nova aba\"><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"github\">🐱</span>Repositório da Disciplina no GitHub</a> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia de Apoio",
+      "html": "<div data-legacy-card=\"\"> <p><strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.</p> <p><strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015.</p> <p><strong>BATES, Bert; SIERRA, Kathy.</strong> <em>Use a cabeça: Java.</em> 2. ed. Rio de Janeiro: ALTA BOOKS, 2010.</p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "checklist",
+      "title": "✅Checklist de Aprendizagem da Aula",
+      "html": "<div data-legacy-card=\"\"> <p>Ao final desta aula, você deve ser capaz de:</p> <ul> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Explicar o que é uma classe e um objeto.</li> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Criar uma classe simples com atributos e métodos em Java.</li> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Instanciar um objeto a partir de uma classe.</li> <li><span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"check\">✔️</span>Compilar e executar um programa Java simples no terminal.</li> </ul> </div>"
+    }
+  ]
+}

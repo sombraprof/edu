@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-8)' }">
     <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="pill-group" role="group" aria-label="Filtro de conteúdo">
@@ -104,7 +104,8 @@ interface LessonRef {
 interface ExerciseRef {
   id: string;
   title: string;
-  description: string;
+  description?: string;
+  file?: string;
   link?: string;
   available?: boolean;
 }
@@ -122,7 +123,6 @@ interface ContentItem {
 
 const route = useRoute();
 const courseId = computed(() => String(route.params.courseId ?? ''));
-const base = import.meta.env.BASE_URL;
 
 const lessons = ref<LessonRef[]>([]);
 const exercises = ref<ExerciseRef[]>([]);
@@ -131,9 +131,8 @@ const viewMode = ref<'grid' | 'list'>('grid');
 
 async function loadLessons(id: string) {
   try {
-    const res = await fetch(`${base}courses/${id}/lessons.json`);
-    if (!res.ok) throw new Error('lessons.json not found');
-    lessons.value = await res.json();
+    const module = await import(`../content/courses/${id}/lessons.json`);
+    lessons.value = module.default as LessonRef[];
   } catch (err) {
     console.error('[CourseHome] Failed to load lessons.json', err);
     lessons.value = [];
@@ -142,13 +141,8 @@ async function loadLessons(id: string) {
 
 async function loadExercises(id: string) {
   try {
-    const res = await fetch(`${base}courses/${id}/exercises.json`);
-    if (!res.ok) throw new Error('exercises.json not found');
-    const data: ExerciseRef[] = await res.json();
-    exercises.value = data.map((item) => ({
-      ...item,
-      link: item.link && !item.link.startsWith('http') ? `${base}${item.link}` : item.link
-    }));
+    const module = await import(`../content/courses/${id}/exercises.json`);
+    exercises.value = module.default as ExerciseRef[];
   } catch (err) {
     console.warn('[CourseHome] Exercises not available', err);
     exercises.value = [];
@@ -181,10 +175,14 @@ const combinedItems = computed<ContentItem[]>(() => {
   });
 
   exercises.value.forEach((exercise) => {
-    const available = exercise.available !== false && Boolean(exercise.link);
+    const available = exercise.available !== false && (!!exercise.file || !!exercise.link);
     let attrs: Record<string, unknown> = {};
     let wrapper: ContentItem['wrapper'] = 'div';
-    if (available && exercise.link) {
+
+    if (available && exercise.file) {
+      wrapper = 'router-link';
+      attrs = { to: { name: 'exercise', params: { courseId: id, exerciseId: exercise.id } } };
+    } else if (available && exercise.link) {
       const external = isExternal(exercise.link);
       wrapper = 'a';
       attrs = {
@@ -193,6 +191,7 @@ const combinedItems = computed<ContentItem[]>(() => {
         rel: external ? 'noreferrer' : undefined
       };
     }
+
     items.push({
       key: `exercise-${exercise.id}`,
       type: 'exercise',
@@ -249,3 +248,4 @@ function cardClasses(item: ContentItem) {
   return classes.join(' ');
 }
 </script>
+

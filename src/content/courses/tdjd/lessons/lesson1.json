@@ -1,0 +1,97 @@
+{
+  "id": "lesson1",
+  "title": "Aula 1: Introdução ao Desenvolvimento de Jogos Digitais",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>UNIDADE E CONTEÚDO </h3> <p> Unidade I – Introdução ao Desenvolvimento de Jogos Digitais </p> <p> Apresentação da disciplina. Panorama do mercado, gêneros, plataformas e expectativas do projeto final. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO </h3> <p> Compreender o escopo da disciplina, analisar o mercado, identificar gêneros e contextualizar o papel do desenvolvedor. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA </h3> <p> Aula expositiva dialogada, vídeo, roda de conversa e dinâmicas em grupo (aula invertida). </p> </div> <div data-legacy-card=\"\"> <h3> RECURSOS </h3> <p> Projetor, YouTube, slides e ferramentas colaborativas online. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "pergunta-norteadora",
+      "title": "Dinâmica Inicial: O Jogo Inesquecível",
+      "html": "<p> Em duplas, conversem por 3 minutos sobre o jogo que mais marcou cada um. Discutam: </p> <ul> <li> Qual foi o elemento principal que o tornou memorável (história, jogabilidade, arte, desafio)? </li> <li> Após a conversa, vamos listar no quadro os fatores mais comuns que tornam um jogo especial. </li> </ul>"
+    },
+    {
+      "type": "legacySection",
+      "id": "contexto",
+      "title": "🚀 Bem-vindos à Indústria que mais Cresce no Mundo!",
+      "html": "<p> A indústria de games é um gigante do entretenimento que supera os mercados de cinema e música somados. Ela não apenas dita tendências tecnológicas, mas também molda a cultura, a interação social e novas economias. Ser um desenvolvedor de jogos hoje significa estar no centro de um ecossistema vibrante, atuando em áreas como <strong>programação de gameplay</strong>, <strong>design de narrativas</strong>, <strong>arte 2D/3D</strong>, <strong>garantia de qualidade (QA)</strong>, <strong>design de som</strong> e muito mais. </p> <blockquote> \"Os jogos são a forma de arte mais expressiva e a plataforma de entretenimento mais poderosa da nossa era. Entender como criá-los é entender a linguagem do futuro.\" </blockquote> <p> Nesta disciplina, vamos desvendar os segredos por trás da magia. Vocês não serão apenas jogadores, mas os arquitetos de novos mundos. Nosso objetivo é transformar a paixão por jogar na habilidade de criar, combinando <strong>criatividade</strong> com <strong>tecnologia</strong>. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "historia",
+      "title": "⏳ Uma Breve História dos Jogos Digitais",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <div> </div> <h3> 1970-1980: A Era dos Arcades e Consoles Primitivos </h3> <p> Nascimento de ícones como Pong, Space Invaders e Pac-Man. O Atari 2600 populariza os jogos em casa. </p> </div> <div data-legacy-card=\"\"> <div> </div> <h3> 1985-1995: A Revolução 8-bit e 16-bit </h3> <p> A Nintendo resgata o mercado com o NES (Super Mario Bros.). A guerra de consoles entre Nintendo e Sega define uma geração. </p> </div> <div data-legacy-card=\"\"> <div> </div> <h3> 1996-2005: A Chegada do 3D e do Multiplayer Online </h3> <p> PlayStation, Nintendo 64 e o PC popularizam os gráficos 3D. Jogos como Quake e Ultima Online dão início à era dos jogos online. </p> </div> <div data-legacy-card=\"\"> <div> </div> <h3> 2006-Hoje: A Era Digital, Mobile e Indie </h3> <p> A distribuição digital (Steam), os smartphones (Angry Birds) e o acesso a ferramentas como a Unity democratizam o desenvolvimento, dando origem à explosão dos jogos indie. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "mercado",
+      "title": "📈 Panorama do Mercado de Jogos",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <div> <h3> Impacto Econômico </h3> </div> <p> Receita global bilionária, com o Brasil sendo o maior mercado da América Latina. Gera empregos em desenvolvimento, marketing, e-sports e mais. </p> </div> <div data-legacy-card=\"\"> <div> <h3>Impacto Social</h3> </div> <p> Criação de comunidades online, eventos globais (e-sports) e novas formas de socialização. Jogos como ferramenta de conexão. </p> </div> <div data-legacy-card=\"\"> <div> <h3>Impacto Cultural</h3> </div> <p> Jogos influenciam filmes, músicas e moda. São reconhecidos como uma forma de arte, com narrativas complexas e experiências imersivas. </p> </div> </div> <div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <p> O mercado global de jogos atingiu uma receita de <strong>$187.7 bilhões em 2023</strong>, com projeção de alcançar $212.4 bilhões até 2026 (Fonte: Newzoo). O Brasil se destaca como o <strong>maior mercado da América Latina</strong> e o 10º do mundo, movimentando cerca de R$ 12 bilhões anualmente (Fonte: PGB 2024). </p> <p> Este crescimento é impulsionado principalmente pelo segmento mobile, mas os mercados de PC e consoles continuam extremamente relevantes e lucrativos, especialmente com o crescimento dos serviços de assinatura e dos e-sports. </p> </div> <div data-legacy-card=\"\"> <h3> Receita Anual Global (Comparativo) </h3> <div> <div> <span>Games:</span> <div> <div style=\"width: 100%\"> $187.7 Bi </div> </div> </div> <div> <span>Cinema:</span> <div> <div style=\"width: 52%\"> $99.7 Bi </div> </div> </div> <div> <span>Música:</span> <div> <div style=\"width: 20%\"> $28.6 Bi </div> </div> </div> </div> <p> Fonte: Newzoo, Gower (2023). Valores aproximados. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "diagrama",
+      "title": "Anatomia do Ecossistema de um Jogo",
+      "html": "<div data-legacy-card=\"\"> <img src=\"https://sombraprof.github.io/tdjd/imagens/aula_1_imagem_1.png\" alt=\"Diagrama ilustrando o ecossistema de um jogo, com os núcleos de Desenvolvimento, Publicação e Comunidade interligados.\"> </div> <p> Um jogo de sucesso depende da interação entre o time de <strong>Desenvolvimento</strong> (que cria o jogo), a <strong>Publicadora</strong> (que cuida do marketing e distribuição) e a <strong>Comunidade</strong> (que joga, dá feedback e mantém o jogo vivo). </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "conceitos",
+      "title": "🔑 Pilares do Game Design",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <div> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span> <h3>Mecânicas</h3> </div> <p> As regras e os sistemas que governam o jogo. São as ações que o jogador pode realizar (pular, atirar, construir). </p> </div> <div data-legacy-card=\"\"> <div> <h3>Dinâmicas</h3> </div> <p> O comportamento que emerge da interação do jogador com as mecânicas. Ex: estratégias, táticas, cooperação. </p> </div> <div data-legacy-card=\"\"> <div> <h3>Estética</h3> </div> <p> As respostas emocionais evocadas no jogador. Ex: diversão, desafio, descoberta, fantasia, narrativa. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "generos-plataformas",
+      "title": "🎮 Gêneros e Plataformas",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3> Principais Gêneros </h3> <ul> <li> <strong>RPG (Role-Playing Game):</strong> Foco em progressão de personagem e história. (Ex: The Witcher, Final Fantasy) </li> <li> <strong>Ação/Aventura:</strong> Combina combate, exploração e puzzles. (Ex: Zelda, God of War) </li> <li> <strong>Estratégia (RTS/TBS):</strong> Requer planejamento e gerenciamento de recursos. (Ex: Age of Empires, XCOM) </li> <li> <strong>Simulação:</strong> Recria atividades do mundo real. (Ex: The Sims, Flight Simulator) </li> <li> <strong>Indie:</strong> Jogos criados por estúdios pequenos, focados em inovação e arte. (Ex: Celeste, Hollow Knight) </li> </ul> </div> <div data-legacy-card=\"\"> <h3> Principais Plataformas </h3> <ul> <li> <strong>PC:</strong> Flexibilidade, poder gráfico e distribuição digital (Steam, Epic Games). </li> <li> <strong>Consoles:</strong> Experiência otimizada e ecossistemas exclusivos (PlayStation, Xbox, Nintendo). </li> <li> <strong>Mobile:</strong> Acessibilidade massiva, jogos casuais e monetização via apps. </li> <li> <strong>XR (VR/AR):</strong> A nova fronteira da imersão, com realidade virtual e aumentada. </li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "exemplos",
+      "title": "💡 Analisando Jogos Famosos",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h4>The Witcher 3: Wild Hunt</h4> <ul> <li><strong>Gênero:</strong> RPG de Ação / Mundo Aberto</li> <li> <strong>Plataforma:</strong> PC, PlayStation, Xbox, Nintendo Switch </li> <li> <strong>Inovação Chave:</strong> Narrativa madura e complexa com missões secundárias que possuem o mesmo nível de profundidade da campanha principal, estabelecendo um novo padrão para storytelling em RPGs. </li> <li> <strong>Impacto:</strong> Considerado um dos melhores RPGs já feitos, elevou o padrão de qualidade para mundos abertos e mostrou como narrativas interativas podem ter peso literário. </li> </ul> </div> <div data-legacy-card=\"\"> <h4>Among Us</h4> <ul> <li><strong>Gênero:</strong> Social Deduction / Indie</li> <li><strong>Plataforma:</strong> Mobile, PC, Consoles</li> <li> <strong>Inovação Chave:</strong> Mecânica simples de dedução social com interação intensa entre jogadores, provando que jogos de baixo orçamento podem se tornar fenômenos culturais globais. </li> <li> <strong>Impacto:</strong> Popularizou jogos de dedução social no ambiente digital, destacando o papel da comunidade e streamers na propagação de jogos independentes. </li> </ul> </div> <div data-legacy-card=\"\"> <h4>Minecraft</h4> <ul> <li> <strong>Gênero:</strong> Sandbox / Sobrevivência / Criativo </li> <li><strong>Plataforma:</strong> Todas (PC, Consoles, Mobile)</li> <li> <strong>Inovação Chave:</strong> Mundo procedural que oferece liberdade criativa quase infinita, permitindo que jogadores construam suas próprias experiências e narrativas. </li> <li> <strong>Impacto:</strong> Transformou o conceito de sandbox, tornou-se uma ferramenta de educação e colaboração, e é um dos jogos mais vendidos e influentes da história. </li> </ul> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "video-mercado",
+      "title": "Pausa para Análise: O Mercado em Ação",
+      "html": "<p> Vamos assistir a um vídeo curto que destaca os <strong>melhores games brasileiros de fevereiro de 2025</strong>. Durante a exibição, anotem um dado ou tendência que mais chamou a atenção e discutiremos em seguida. </p> <div data-legacy-card=\"\"> <div> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "quiz",
+      "title": "🧐 Teste seu Conhecimento",
+      "html": "<div data-legacy-card=\"\"> <details> <summary> 1. Qual gênero de jogo, simbolizado por \"RTS\", foca em gerenciamento de recursos e exércitos em tempo real? <span>▼</span> </summary> <div> <p> <strong>Resposta:</strong> Estratégia em Tempo Real (Real-Time Strategy), como Age of Empires ou StarCraft. </p> </div> </details> <details> <summary> 2. A Steam é a principal plataforma de distribuição digital para qual ambiente de jogos? <span>▼</span> </summary> <div> <p> <strong>Resposta:</strong> PC (Computador). É a maior loja digital para jogos de PC no mundo. </p> </div> </details> <details> <summary> 3. Jogos como \"Celeste\" e \"Stardew Valley\", criados por equipes pequenas com foco em inovação, pertencem a qual categoria? <span>▼</span> </summary> <div> <p> <strong>Resposta:</strong> Indie (Independentes). Eles são conhecidos pela liberdade criativa e por não terem grandes publicadoras por trás. </p> </div> </details> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "projeto-final",
+      "title": "Nosso Grande Desafio: O Projeto Final",
+      "html": "<p> Ao longo da disciplina, vocês irão trabalhar em <strong>equipes multidisciplinares</strong> para conceber, desenvolver e apresentar um jogo digital completo. Este projeto não será apenas uma avaliação: será a primeira peça sólida do <strong>portfólio profissional</strong> de cada um, mostrando suas habilidades técnicas, de design e colaboração. </p> <p> O jogo deve ser pensado com <strong>design de mecânicas, experiência do jogador</strong> e <strong>viabilidade de publicação</strong>. A ideia é simular o ciclo real de desenvolvimento, incluindo documentação, prototipagem, implementação e apresentação final. </p> <h3> 📌 Roadmap do Projeto </h3> <div data-legacy-grid=\"\"> <!-- Etapa 1 --> <div data-legacy-card=\"\"> <span>1. GDD</span> <span>(Documento de Design - Ideia e Mecânicas)</span> </div> <!-- Etapa 2 --> <div data-legacy-card=\"\"> <span>2. Prototipagem</span> <span>(Testar a ideia rapidamente)</span> </div> <!-- Etapa 3 --> <div data-legacy-card=\"\"> <span>3. Implementação</span> <span>(Desenvolvimento com Unity e C#)</span> </div> <!-- Etapa 4 --> <div data-legacy-card=\"\"> <span>4. Apresentação</span> <span>(Pitch + Demonstração jogável)</span> </div> </div> <div data-legacy-card=\"\"> <p> 💡 <strong>Dica:</strong> Documentem todo o processo. Screenshots, protótipos e decisões de design serão parte do seu portfólio e podem ser usados em entrevistas e apresentações futuras. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Conectando com o Mercado",
+      "html": "<div data-legacy-card=\"\"> <p> Para a próxima aula, a tarefa tem dois objetivos: entender as profissões e o que o mercado exige. </p> <ol> <li> <strong>Fórum - A Minha Profissão Gamer:</strong> Acesse o artigo \"Profissões na Indústria de Jogos\" no Moodle. Após a leitura, participe do fórum respondendo: <blockquote> \"Com qual profissão dentro da indústria de jogos você mais se identifica e por quê?\" </blockquote> </li> <li> <strong>Pesquisa de Mercado - Vaga Real:</strong> Pesquise em sites como LinkedIn ou Catho por uma vaga real na área de jogos que te interesse (ex: \"Programador Unity Júnior\", \"Game Designer\", \"Artista 3D\"). Anote e traga para a próxima aula: <ul> <li>O nome da vaga e da empresa.</li> <li> Pelo menos 3 habilidades (skills) técnicas ou comportamentais exigidas na descrição. </li> </ul> </li> </ol> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Conectando com o Mercado",
+      "html": "<div data-legacy-card=\"\"> <p> Para a próxima aula, a tarefa tem dois objetivos: entender as <strong>profissões</strong> e o que o <strong>mercado</strong> exige. </p> <ol> <!-- Fórum --> <li> <strong>Fórum - A Minha Profissão Gamer:</strong> Leia um dos artigos recomendados abaixo e participe do fórum no Moodle respondendo: <blockquote> \"Com qual profissão dentro da indústria de jogos você mais se identifica e por quê?\" </blockquote> <p>📚 Leitura recomendada:</p> <ul> <li> <a href=\"https://ebaconline.com.br/blog/games-mercado-de-trabalho-em-expansao-no-brasil\" target=\"_blank\"> Games: um mercado de trabalho em expansão no Brasil (EBAC) </a> </li> <li> <a href=\"https://blog.uniasselvi.com.br/carreira-em-jogos-digitais/\" target=\"_blank\"> Carreira em Jogos Digitais: como trabalhar na indústria dos games (Uniasselvi) </a> </li> </ul> </li> <!-- Pesquisa de Vaga --> <li> <strong>Pesquisa de Mercado - Vaga Real:</strong> Pesquise em sites como <a href=\"https://www.linkedin.com/jobs/\" target=\"_blank\">LinkedIn</a> ou <a href=\"https://www.catho.com.br/vagas/\" target=\"_blank\">Catho</a> por uma vaga real na área de jogos que te interesse (ex: \"Programador Unity Júnior\", \"Game Designer\", \"Artista 3D\"). Anote e traga para a próxima aula: <ul> <li>O nome da vaga e da empresa.</li> <li> Pelo menos 3 habilidades (skills) técnicas ou comportamentais exigidas na descrição. </li> </ul> </li> </ol> <div> <p> 💡 <strong>Dica:</strong> Ao escolher a vaga, observe quais habilidades se repetem entre diferentes empresas. Isso dará uma visão clara de quais competências são mais valorizadas na indústria de jogos. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia de Apoio",
+      "html": "<div data-legacy-card=\"\"> <p> <strong>ALVES, W. P.</strong> <em>Unity: design e desenvolvimento de jogos.</em> Rio de Janeiro: Alta Books, 2019. </p> <p> <strong>SCHUYTEMA, Paul.</strong> <em>Design de games: uma abordagem prática.</em> São Paulo: Cengage Learning, 2008. </p> </div>"
+    }
+  ]
+}

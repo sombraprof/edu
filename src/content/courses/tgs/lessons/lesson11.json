@@ -1,0 +1,61 @@
+{
+  "id": "lesson11",
+  "title": "Aula 11: Sistemas de Informação e a Tomada de Decisão",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <!-- Conteúdo e Objetivo --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Unidade III – Sistemas de Informação Administrativos </p> <p> Sistemas de informação e tomada de decisão nas organizações. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO ESPECÍFICO </h3> <p> Analisar como os sistemas de informação apoiam os diferentes tipos de decisão e suas implicações para a eficácia organizacional. </p> </div> <!-- Metodologia e Recursos --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA E RECURSOS </h3> <p> Aula expositiva dialogada com análise de situações-problema, utilizando slides e vídeos com simulações de decisões baseadas em dados. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "pergunta-norteadora",
+      "title": "Pergunta Norteadora",
+      "html": "<p> Se você fosse gerente de uma loja e o seu sistema de BI mostrasse que as vendas de casacos caíram 80% numa semana de calor inesperado, que decisão tomaria sobre o stock? Como o Sistema de Informação transformou um \"problema\" numa \"decisão informada\"? </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "contexto",
+      "title": "🎯 Da Informação à Ação: O Propósito dos SI",
+      "html": "<p> Na aula anterior, vimos que os Sistemas de Informação se organizam em níveis (operacional, tático e estratégico). Mas por que essa divisão existe? A resposta é simples: porque os <strong>tipos de decisão</strong> tomadas em cada nível são fundamentalmente diferentes. O propósito final de qualquer SI não é apenas armazenar dados, mas sim transformar esses dados em informação útil para apoiar a tomada de decisão e, consequentemente, gerar ação. </p> <blockquote> \"A tomada de decisão é o processo de identificar e selecionar um curso de ação para lidar com um problema específico ou aproveitar uma oportunidade.\" </blockquote> <p> Herbert Simon, um dos pioneiros no estudo da decisão organizacional, classificou as decisões em um espectro que vai das totalmente programáveis até as completamente novas. Compreender esse espectro é essencial para entender por que um operador de caixa precisa de um sistema diferente de um CEO, e como a tecnologia pode auxiliar (ou até automatizar) o processo decisório em cada contexto. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tipos-decisao",
+      "title": "O Espectro da Tomada de Decisão",
+      "html": "<div data-legacy-card=\"\"> <table> <thead> <tr> <th scope=\"col\">Tipo de Decisão</th> <th scope=\"col\">Características</th> <th scope=\"col\">Nível Organizacional</th> <th scope=\"col\">Exemplo de SI de Apoio</th> </tr> </thead> <tbody> <tr> <td> Estruturada </td> <td> Repetitiva, rotineira, com regras claras e procedimentos definidos. A resposta é quase automática. </td> <td>Operacional</td> <td> <strong>TPS (Sistema de Processamento de Transações):</strong> Ex: Aprovar ou negar um pagamento com cartão de crédito com base no limite. </td> </tr> <tr> <td> Semiestruturada </td> <td> Parte do problema tem uma resposta clara, mas outra parte requer julgamento e análise. </td> <td>Tático / Gerencial</td> <td> <strong>BI (Business Intelligence):</strong> Ex: Analisar um relatório de vendas para decidir qual produto terá mais investimento em marketing no próximo trimestre. </td> </tr> <tr> <td> Não Estruturada </td> <td> Complexa, única, sem procedimentos pré-definidos. Requer intuição, criatividade e análise de múltiplos fatores externos. </td> <td>Estratégico</td> <td> <strong>ESS (Sistema de Apoio ao Executivo):</strong> Ex: Usar um dashboard com tendências de mercado para decidir se a empresa deve entrar num novo país. </td> </tr> </tbody> </table> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "metodologia-ativa",
+      "title": "💡Análise de Situação-Problema",
+      "html": "<p> Imagine que você é gerente de produto de uma plataforma de streaming de música e o seu sistema de BI apresenta os seguintes dados: </p> <div data-legacy-card=\"\"> <ul> <li> O número de utilizadores que ouvem playlists prontas aumentou 30% no último semestre. </li> <li> O tempo médio de audição de utilizadores que criam as suas próprias playlists é 50% maior. </li> <li> Um novo concorrente lançou uma funcionalidade de \"playlists colaborativas\" que está a ter sucesso. </li> </ul> <p>Discussão em Grupo:</p> <p> Que tipo de decisão você precisa de tomar (estruturada, semi ou não estruturada)? Que ações você poderia tomar com base nesses dados? Como um SI poderia ajudar a implementar e medir o sucesso da sua decisão? </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "video",
+      "title": "Decisão Baseada em Dados na Prática",
+      "html": "<div data-legacy-card=\"\"> <h3> Como a Netflix usa dados para tomar decisões </h3> <!-- NOTE (EN): Uses Tailwind aspect-ratio plugin; min heights keep the player tall enough --> <div> </div> <p> Este vídeo (em inglês, com legendas) explica como a Netflix utiliza os seus sistemas de informação para tomar decisões estratégicas, desde a produção de conteúdo até à personalização da experiência do utilizador. <a href=\"https://www.youtube.com/watch?v=0CGQvdAbNcc\" target=\"_blank\" rel=\"noopener\"> Ver no YouTube </a>. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Estudo de Caso Dirigido",
+      "html": "<div data-legacy-card=\"\"> <p> Para a próxima aula, a sua tarefa será analisar um mini-caso e responder a questões orientadoras, aplicando os conceitos de apoio à decisão. </p> <div> <p>Mini-Caso:</p> <p> Uma gestora de uma rede de lojas de roupa recebe um relatório do sistema de BI que mostra duas tendências fortes: (1) as vendas online na região sudeste cresceram 40% no último ano, mas com uma margem de lucro menor devido aos custos de envio; (2) uma nova linha de produtos sustentáveis, embora com poucas vendas, tem uma margem de lucro 60% maior e uma taxa de satisfação do cliente de 95%. Ela precisa de decidir a principal estratégia de investimento para o próximo ano. </p> <p>Questões Orientadoras:</p> <ol> <li> Que tipo de decisão a gestora precisa de tomar (estruturada, semiestruturada ou não estruturada)? Justifique. </li> <li> Quais são as duas principais opções de decisão que os dados do SI apresentam? </li> <li> Se você fosse a gestora, que outra informação (que talvez não esteja no relatório atual) você buscaria no SI para tomar uma decisão mais segura? </li> </ol> </div> <p> <strong>Entrega:</strong> Poste as suas respostas no fórum da disciplina no AVA. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "quiz",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "html": "<div data-legacy-card=\"\"> <details> <summary> 1. A decisão de reabastecer automaticamente o stock de um item quando ele atinge 10 unidades é um exemplo de decisão... </summary> <div> <p> <strong>Resposta:</strong> Estruturada. É uma decisão rotineira, baseada numa regra clara (\"SE stock &lt; 10 ENTÃO comprar mais\") que pode ser totalmente automatizada por um Sistema de Processamento de Transações (TPS) ou um ERP. </p> </div> </details> <details> <summary> 2. Qual é o principal valor que um sistema de BI oferece a um gestor tático? </summary> <div> <p> <strong>Resposta:</strong> A capacidade de transformar grandes volumes de dados operacionais em informações consolidadas (gráficos, relatórios, tendências), permitindo uma análise que apoia decisões semiestruturadas, onde o julgamento do gestor ainda é necessário. </p> </div> </details> <details> <summary> 3. Verdadeiro ou Falso: Um Sistema de Apoio ao Executivo (ESS) geralmente fornece dados extremamente detalhados e transacionais. </summary> <div> <p> <strong>Resposta:</strong> Falso. Um ESS foca-se em dados altamente sumarizados, indicadores de alto nível e tendências de longo prazo para apoiar decisões não estruturadas, evitando a sobrecarga de detalhes operacionais. </p> </div> </details> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia",
+      "html": "<div data-legacy-card=\"\"> <p> <strong>MEIRELES, Manuel; SORDI, J. O. de.</strong> <em>Administração de sistemas de informação.</em> 2. ed. São Paulo: Atlas, 2019. </p> <p> <strong>PALMISANO, Angelo; ROSINI, Alessandro Marco.</strong> <em>Administração de sistemas de informação e a gestão do conhecimento.</em> 2. ed. São Paulo: Cengage Learning, 2012. </p> </div>"
+    }
+  ]
+}

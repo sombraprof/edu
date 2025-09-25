@@ -1,4 +1,4 @@
-
+﻿
 <template>
   <div class="card p-8 my-10">
     <h3 class="text-headline-small font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">{{ data.title }}</h3>
@@ -93,7 +93,7 @@ function shouldUsePlainText(language?: string): boolean {
 }
 
 :deep(.flowchart-arrow)::after {
-  content: '↓';
+  content: '→';
   font-size: 1.5rem;
   color: var(--md-sys-color-on-surface-variant);
 }
@@ -106,3 +106,5 @@ function shouldUsePlainText(language?: string): boolean {
   background-color: var(--md-sys-color-on-surface-variant);
 }
 </style>
+
+

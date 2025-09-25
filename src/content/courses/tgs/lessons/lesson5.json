@@ -1,0 +1,61 @@
+{
+  "id": "lesson5",
+  "title": "Aula 5: A Organização como um Sistema Aberto",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <!-- Conteúdo e Objetivo --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Unidade II – A organização como um sistema aberto </p> <p> Abertura sistêmica: entradas, processamento, saídas, retroalimentação e ambiente. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVO ESPECÍFICO </h3> <p> Compreender os elementos que caracterizam uma organização como sistema aberto e analisar como ela se relaciona com o ambiente externo. </p> </div> <!-- Metodologia e Recursos --> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA E RECURSOS </h3> <p> Aula expositiva dialogada com análise de casos reais, utilizando esquemas visuais para ilustrar o modelo sistêmico. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "pergunta-norteadora",
+      "title": "Pergunta Norteadora",
+      "html": "<p> Pense na Netflix. Como a chegada de concorrentes como Disney+ e HBO Max (uma mudança no ambiente) forçou a Netflix a mudar suas 'entradas' (investimento em conteúdo) e 'processos' (produção original) para gerar novas 'saídas' (séries de sucesso)? </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "contexto",
+      "title": "🏢 A Empresa Viva: Organizações como Sistemas Abertos",
+      "html": "<p> Uma das maiores contribuições da Teoria Geral de Sistemas foi mudar radicalmente a forma como enxergamos as organizações. Antes, uma empresa era vista como uma máquina fechada, previsível e focada apenas em seus processos internos. A TGS nos mostrou que, na verdade, uma organização se parece muito mais com um organismo vivo. </p> <p> Ela é um <strong>sistema aberto</strong>, em constante e vital interação com seu <strong>ambiente</strong>. Ela não sobrevive isolada; ela precisa \"respirar\" recursos do ambiente (entradas), transformá-los internamente (processamento) e entregar algo de valor de volta (saídas). Mais importante ainda, ela precisa ouvir os sinais do ambiente (feedback) para se adaptar e não ser extinta. Empresas que ignoram seu ambiente, como veremos, correm o risco de se tornarem irrelevantes. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "diagrama-organizacao",
+      "title": "O Ecossistema Organizacional",
+      "html": "<div data-legacy-card=\"\"> <img src=\"https://sombraprof.github.io/tgs/imagens/aula_5_imagen_1.png\" alt=\"Diagrama mostrando uma empresa no centro, recebendo 'Entradas' de Fornecedores, Governo e Mercado de Trabalho. Dentro da empresa, ocorre o 'Processamento'. A empresa gera 'Saídas' para Clientes, Sociedade e Acionistas. O 'Feedback' retorna de todos os elementos do ambiente para a empresa.\"> <p> Uma organização está em constante troca com múltiplos atores do seu ambiente. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "componentes-organizacionais",
+      "title": "Analisando a Empresa como um Sistema",
+      "html": "<div data-legacy-grid=\"\"> <!-- 1. Entradas (Inputs) --> <div data-legacy-card=\"\"> <h3> Entradas: Os Recursos Essenciais </h3> <p> São todos os recursos que a organização importa do ambiente para funcionar. Sem eles, a operação para. </p> <div> <ul> <li> <strong>Materiais:</strong> Matéria-prima, componentes, suprimentos. </li> <li> <strong>Humanos:</strong> Talentos, mão de obra, conhecimento dos funcionários. </li> <li> <strong>Financeiros:</strong> Capital, investimentos, empréstimos. </li> <li> <strong>Informacionais:</strong> Pesquisas de mercado, dados de concorrentes, novas leis. </li> </ul> </div> </div> <!-- 2. Processamento (Transformação) --> <div data-legacy-card=\"\"> <h3> Processamento: O Coração da Empresa </h3> <p> É o conjunto de atividades que transforma as entradas em saídas. É a \"caixa-preta\" onde o valor é agregado. Em TI, é aqui que projetamos os sistemas de informação para otimizar as operações. </p> <div> <ul> <li> <strong>Indústria:</strong> Linha de produção, montagem. </li> <li> <strong>Empresa de Software:</strong> Desenvolvimento, testes, deploy. </li> <li> <strong>Consultoria:</strong> Análise de dados, elaboração de relatórios. </li> </ul> </div> </div> <!-- 3. Saídas (Outputs) --> <div data-legacy-card=\"\"> <h3> Saídas: A Entrega de Valor </h3> <p> São os resultados do processo de transformação que a organização exporta para o ambiente. Podem ser intencionais ou não. </p> <div> <ul> <li> <strong>Produtos ou Serviços:</strong> O bem final entregue ao cliente. </li> <li> <strong>Resultados Financeiros:</strong> Lucros para acionistas, impostos para o governo. </li> <li> <strong>Impacto Social:</strong> Geração de empregos, satisfação do cliente. </li> <li> <strong>Saídas Não Intencionais:</strong> Poluição, resíduos. </li> </ul> </div> </div> <!-- 4. Retroalimentação (Feedback) --> <div data-legacy-card=\"\"> <h3> Feedback: A Bússola Estratégica </h3> <p> É a informação que a organização recebe do ambiente sobre suas saídas. É o mecanismo de controle que permite a adaptação e a sobrevivência. </p> <div> <ul> <li> <strong>Dos Clientes:</strong> Pesquisas de satisfação, reclamações, reviews online. </li> <li> <strong>Do Mercado:</strong> Dados de vendas, participação de mercado, ações de concorrentes. </li> <li> <strong>Interno:</strong> Relatórios de performance, auditorias, feedback dos funcionários. </li> </ul> </div> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "metodologia-ativa",
+      "title": "Metodologia Ativa: Análise de Caso Real",
+      "html": "<p> Vamos analisar um caso clássico de adaptação (e falta de adaptação) ao ambiente: <strong>Blockbuster vs. Netflix</strong>. </p> <div data-legacy-card=\"\"> <p>Discussão em Grupo:</p> <ol> <li> Quais eram as principais <strong>entradas, processos e saídas</strong> da Blockbuster no seu auge (lojas físicas)? </li> <li> Qual <strong>feedback</strong> crucial vindo do ambiente (surgimento da internet, mudança de comportamento do consumidor) a Blockbuster falhou em processar? </li> <li> Como a Netflix, em seu início (DVDs pelo correio) e depois (streaming), usou o mesmo feedback para criar um sistema completamente diferente e mais adaptado? </li> <li> Mapeiem os componentes do sistema da Netflix hoje. Como ela continua a usar o feedback para evoluir? </li> </ol> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Mapa Conceitual",
+      "html": "<div data-legacy-card=\"\"> <p> Para consolidar o conhecimento desta aula, sua tarefa é elaborar um <strong>mapa conceitual</strong> sobre os elementos que caracterizam uma organização como um sistema aberto. </p> <div> <p>Instruções:</p> <ol> <li> Utilize uma ferramenta digital de sua preferência (Canva, Lucidchart, Miro, etc.). </li> <li> O conceito central do mapa deve ser \"Organização como Sistema Aberto\". </li> <li> Conecte a este conceito os elementos: <strong>Entradas, Processamento, Saídas e Retroalimentação (Feedback)</strong>. </li> <li> Para cada elemento, adicione pelo menos dois exemplos práticos de uma empresa real ou fictícia. </li> </ol> </div> <p> <strong>Entrega:</strong> Poste o link ou a imagem do seu mapa conceitual na atividade da disciplina no AVA. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "quiz",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "html": "<div data-legacy-card=\"\"> <details> <summary> 1. O capital recebido de um investidor é um exemplo de qual componente para uma startup? </summary> <div> <p> <strong>Resposta:</strong> Entrada (Financeira). É um recurso vindo do ambiente que a empresa usará para operar. </p> </div> </details> <details> <summary> 2. Uma pesquisa de satisfação enviada a clientes após uma compra é um mecanismo de: </summary> <div> <p> <strong>Resposta:</strong> Feedback (Retroalimentação). A informação coletada serve para avaliar a saída (produto/serviço) e ajustar processos futuros. </p> </div> </details> <details> <summary> 3. Verdadeiro ou Falso: Uma empresa pode prosperar a longo prazo ignorando as ações de seus concorrentes. </summary> <div> <p> <strong>Resposta:</strong> Falso. Os concorrentes são uma parte crucial do ambiente de um sistema aberto. Ignorá-los significa ignorar um feedback vital para a sobrevivência e adaptação. </p> </div> </details> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia",
+      "html": "<div data-legacy-card=\"\"> <p> <strong>MEIRELES, Manuel; SORDI, J. O. de.</strong> <em>Administração de sistemas de informação.</em> 2. ed. São Paulo: Atlas, 2019. </p> <p> <strong>BATISTA, Emerson de Oliveira.</strong> <em>Sistemas de informação: o uso consciente da tecnologia para o gerenciamento.</em> São Paulo: Saraiva, 2014. </p> </div>"
+    }
+  ]
+}

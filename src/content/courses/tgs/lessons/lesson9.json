@@ -1,0 +1,85 @@
+{
+  "id": "lesson9",
+  "title": "Aula 9: Sistemas de Informação e seu Papel nas Organizações",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "plano-aula",
+      "title": "Plano da Aula",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"book-open\">📖</span>CONTEÚDO </h3> <p> Conceito de Sistemas de Informação (SI); papel dos SI nas organizações; taxonomia e níveis organizacionais; casos reais e debate. </p> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"bullseye\">🎯</span>OBJETIVOS </h3> <ul> <li> Definir <strong>SI</strong> e situar no contexto organizacional. </li> <li> Relacionar SI aos níveis <strong>operacional, tático e estratégico</strong>. </li> <li> Analisar casos reais e discutir benefícios e desafios <em>sociotécnicos</em>. </li> </ul> </div> <div data-legacy-card=\"\"> <h3> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"gears\">⚙️</span>METODOLOGIA E RECURSOS </h3> <p> Aula expositiva + discussão orientada com estudos de caso; slides, vídeos curtos; fórum no AVA para TED. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "contexto",
+      "title": "🧠 O “Sistema Nervoso” das Organizações",
+      "html": "<p> Um <strong>Sistema de Informação (SI)</strong> integra <em>pessoas</em>, <em>processos</em>, <em>dados</em> e <em>tecnologia</em> para coletar, processar, armazenar e disseminar informações que suportam operações e decisão. É o tecido conjuntivo que conecta áreas e acelera o ciclo <em>dados → informação → ação → resultado</em>. </p> <div data-legacy-card=\"\"> <strong>Em uma frase:</strong> SI converte dados em decisão e decisão em valor (tempo, custo, qualidade, receita, conformidade). </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "dimensoes-si",
+      "title": "As Três Dimensões de um SI",
+      "html": "<div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <h3>Tecnologia</h3> <p> Infraestrutura de hardware, software, redes e dados (ERP, CRM, bases, API, nuvem). </p> </div> <div data-legacy-card=\"\"> <h3>Organização</h3> <p> Estrutura, processos, políticas e estratégia. SI precisa <strong>alinhar</strong> com o negócio. </p> </div> <div data-legacy-card=\"\"> <h3>Pessoas</h3> <p> Usuários, gestores e TI. Adoção, capacitação e cultura determinam o sucesso. </p> </div> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "dimensoes-si",
+      "title": "🔎 As Três Dimensões de um Sistema de Informação",
+      "html": "<p> Todo Sistema de Informação (SI) pode ser compreendido a partir de três dimensões interdependentes: <strong>Tecnologia</strong>, <strong>Organização</strong> e <strong>Pessoas</strong>. Essa visão é recorrente em autores como Laudon &amp; Laudon (2019) e Stair &amp; Reynolds (2020), sendo fundamental para analisar por que um SI é bem-sucedido (ou fracassa). </p> <div data-legacy-card=\"\"> <!-- Tecnologia --> <article> <h3>💻 Tecnologia</h3> <p> Engloba <em>hardware</em>, <em>software</em>, banco de dados, redes e infraestrutura. É a base operacional que possibilita processar, armazenar e compartilhar informações. </p> <p> Ex.: uso de ERP (Totvs, SAP) para integrar processos. </p> </article> <!-- Organização --> <article> <h3>🏢 Organização</h3> <p> Refere-se a processos, rotinas, normas e a cultura institucional. Mesmo sistemas avançados falham se não houver alinhamento organizacional e reconfiguração de fluxos de trabalho. </p> <p> Ex.: redefinição de processos de compras ao adotar e-procurement. </p> </article> <!-- Pessoas --> <article> <h3>👥 Pessoas</h3> <p> Inclui usuários finais, gestores e especialistas que interagem com o SI. Competências digitais, treinamento e aceitação cultural são decisivos para o êxito da tecnologia. </p> <p> Ex.: colaboradores usando CRM para registro consistente de clientes. </p> </article> </div> <p> A eficácia de um SI depende do <strong>equilíbrio entre essas dimensões</strong>. Investir apenas em tecnologia, sem adequar processos ou engajar pessoas, gera resistência e subutilização. </p> <div data-legacy-card=\"\"> <p> <strong>Atividade reflexiva:</strong> Escolha um sistema que você utiliza (Google Agenda, WhatsApp, sistema acadêmico, app de banco). Identifique exemplos de cada dimensão (tecnologia, organização, pessoas). Quais fragilidades você percebe em cada uma? </p> </div> <p> Referências: LAUDON, K. C.; LAUDON, J. P. <em>Sistemas de Informação Gerenciais</em>. Pearson, 2019. <br> STAIR, R.; REYNOLDS, G. <em>Princípios de Sistemas de Informação</em>. Cengage, 2020. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "taxonomia",
+      "title": "📚 Taxonomia de Sistemas de Informação e Níveis Organizacionais",
+      "html": "<p>Mapeie cada tipo ao problema e ao nível decisório que atende:</p> <div data-legacy-card=\"\"> <table> <thead> <tr> <th>Categoria</th> <th>Exemplos</th> <th>Finalidade</th> <th>Nível</th> </tr> </thead> <tbody> <tr> <td><strong>TPS / Transacional</strong></td> <td>PDV, folha, pedidos</td> <td>Registrar e processar transações de rotina</td> <td>Operacional</td> </tr> <tr> <td><strong>MIS / SIG</strong></td> <td>Relatórios gerenciais</td> <td>Consolidar e acompanhar desempenho</td> <td>Tático</td> </tr> <tr> <td><strong>DSS / BI / Analytics</strong></td> <td>Power BI, Tableau, Looker</td> <td>Análises e suporte à decisão</td> <td>Tático/Estratégico</td> </tr> <tr> <td><strong>ESS / Executivo</strong></td> <td>Painéis executivos</td> <td>Visão macro, tendências, KPIs críticos</td> <td>Estratégico</td> </tr> <tr> <td><strong>ERP</strong></td> <td>SAP, TOTVS, Oracle EBS</td> <td>Integração de processos-chave</td> <td>Operacional/Tático</td> </tr> <tr> <td><strong>CRM</strong></td> <td>Salesforce, RD Station, HubSpot</td> <td>Relacionamento e ciclo de vendas</td> <td>Tático</td> </tr> <tr> <td><strong>SCM</strong></td> <td>SAP SCM, Oracle SCM</td> <td>Cadeia de suprimentos e logística</td> <td>Tático</td> </tr> </tbody> </table> </div> <div data-legacy-card=\"\"> <strong>Erros comuns:</strong> <ul> <li> Confundir <em>tecnologia</em> com <em>SI</em> (SI ≠ “só software”). </li> <li> Esperar resultados estratégicos de um SI que atende apenas rotinas operacionais. </li> <li> Ignorar governança de dados (qualidade, segurança, privacidade) e adoção pelos usuários. </li> </ul> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "glossario",
+      "title": "🔤 Glossário de Siglas e Termos",
+      "html": "<p> Principais siglas usadas na disciplina e no mercado. Use como referência rápida durante os estudos. </p> <!-- NOTE (EN): Using <dl> for accessibility-friendly definition list --> <div data-legacy-grid=\"\"> <div data-legacy-card=\"\"> <dl> <div> <dt> TPS — Transaction Processing System </dt> <dd> Sistema transacional; registra rotinas do dia a dia (PDV, pedidos, folha). </dd> </div> <div> <dt> MIS / SIG — Management Information System / Sistema de Informações Gerenciais </dt> <dd> Relatórios consolidados para controle e planejamento tático. </dd> </div> <div> <dt> DSS / BI / Analytics — Decision Support System </dt> <dd> Suporte à decisão: análises, dashboards, modelos (Power BI, Tableau, Looker). </dd> </div> <div> <dt> ESS — Executive Support System </dt> <dd> Visão executiva/estratégica (tendências, KPIs críticos, visão macro). </dd> </div> <div> <dt> ERP — Enterprise Resource Planning </dt> <dd> Sistema integrado de gestão (finanças, compras, estoque, produção, RH). </dd> </div> <div> <dt> CRM — Customer Relationship Management </dt> <dd> Gestão do relacionamento com clientes (marketing, vendas, pós-venda). </dd> </div> <div> <dt> SCM — Supply Chain Management </dt> <dd> Gestão da cadeia de suprimentos (planejamento, compras, logística). </dd> </div> </dl> </div> <div data-legacy-card=\"\"> <dl> <div> <dt>DWH — Data Warehouse</dt> <dd> Repositório histórico para análise (apoia BI/Analytics). </dd> </div> <div> <dt>OLTP / OLAP</dt> <dd> OLTP: transações operacionais; OLAP: análise multidimensional. </dd> </div> <div> <dt>ETL / ELT</dt> <dd> Extração, transformação e carga de dados (ou carga antes da transformação). </dd> </div> <div> <dt>ESB / iPaaS</dt> <dd> Barramento/Plataforma de integração entre sistemas (orquestra fluxos/APIs). </dd> </div> <div> <dt> API — Application Programming Interface </dt> <dd> Contrato de integração entre sistemas (REST/GraphQL etc.). </dd> </div> <div> <dt>KPI / SLA</dt> <dd> KPI: indicador-chave de desempenho; SLA: acordo de nível de serviço. </dd> </div> <div> <dt>LGPD</dt> <dd> Lei Geral de Proteção de Dados — base legal de privacidade no Brasil. </dd> </div> </dl> </div> </div> <p> Dica: volte a esta seção durante o TED e nas próximas aulas da Unidade III para manter a terminologia consistente. </p>"
+    },
+    {
+      "type": "legacySection",
+      "id": "casos",
+      "title": "🏢 Casos Reais (para discussão orientada)",
+      "html": "<div data-legacy-card=\"\"> <article> <h3>ERP (SAP)</h3> <p> Integra finanças, compras e estoque. <strong>Benefícios:</strong> dado único, fechamento ágil. <strong>Desafios:</strong> custo, mudança cultural. </p> </article> <article> <h3>ERP (TOTVS)</h3> <p> Aderência fiscal brasileira. <strong>Benefícios:</strong> conformidade. <strong>Desafios:</strong> parametrização, atualização. </p> </article> <article> <h3> Varejo Digital (Magalu) </h3> <p> Omnicanalidade e logística. <strong>Benefícios:</strong> experiência integrada. <strong>Desafios:</strong> escalabilidade. </p> </article> <article> <h3>Plataformas (Amazon)</h3> <p> Automação, dados e serviços. <strong>Benefícios:</strong> elasticidade. <strong>Desafios:</strong> custos e governança. </p> </article> </div> <div data-legacy-card=\"\"> <h4> Perguntas para debate </h4> <ul> <li>Qual <strong>processo crítico</strong> o SI apoia no caso?</li> <li> Quais <strong>benefícios mensuráveis</strong> (tempo, custo, qualidade, receita, compliance)? </li> <li> Quais <strong>riscos</strong> (dados, pessoas, tecnologia) e como mitigá-los? </li> </ul> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "videos",
+      "title": "🎥 Vídeos Curtos (introdução prática)",
+      "html": "<div data-legacy-card=\"\"> <!-- Video 1: Introdução a Sistemas de Informação (UNIVESP) --> <!-- NOTE (EN): Using youtube-nocookie, responsive 16:9 wrapper --> <article> <h3> Introdução a Sistemas de Informação (UNIVESP) </h3> <p> Conceitos iniciais e visão de SI nas organizações. </p> <div style=\"padding-top: 56.25%\"> </div> <p> Se o player não carregar, <a href=\"https://www.youtube.com/watch?v=Pmkb8jwTccs\" target=\"_blank\" rel=\"noopener noreferrer\">abra no YouTube</a>. </p> </article> <!-- Video 2: O que é ERP? (introdução prática) --> <article> <h3> O que é ERP? (Introdução prática) </h3> <p> Conceitos, módulos e benefícios de ERP no contexto empresarial. </p> <div style=\"padding-top: 56.25%\"> </div> <p> Se o player não carregar, <a href=\"https://www.youtube.com/watch?v=K7Go9bKVTk4\" target=\"_blank\" rel=\"noopener noreferrer\">abra no YouTube</a>. </p> </article> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "checklist",
+      "title": "✅ Checklist de Qualidade de um SI",
+      "html": "<ul> <li> <strong>Utilidade:</strong> resolve o problema certo? apoia o objetivo de negócio? </li> <li> <strong>Usabilidade &amp; Adoção:</strong> usuários querem/ conseguem usar? </li> <li> <strong>Dados:</strong> qualidade, segurança, privacidade, disponibilidade. </li> <li> <strong>Integração:</strong> conversa com outros sistemas (APIs/ETL)? </li> <li> <strong>Medição:</strong> há KPIs claros (tempo, custo, qualidade, receita, compliance)? </li> <li> <strong>Sustentação:</strong> manutenção, custo total (TCO), evolução. </li> </ul>"
+    },
+    {
+      "type": "legacySection",
+      "id": "tarefa",
+      "title": "📝 Tarefa (TED): Fórum Reflexivo",
+      "html": "<div data-legacy-card=\"\"> <p> No AVA, responda: <strong>“Qual sistema de informação você mais utiliza no seu cotidiano (ex.: Google Agenda, WhatsApp, CRM, app de banco)? Ele cumpre bem sua função? Por quê?”</strong> </p> <ul> <li>Escreva ao menos <strong>1 parágrafo</strong> (5–8 linhas).</li> <li> Inclua <strong>1 comentário construtivo</strong> na postagem de um colega. </li> <li> Cite um <strong>benefício mensurável</strong> e um <strong>desafio</strong> percebido. </li> </ul> <!-- Rubrica --> <div> <h4> <span class=\"legacy-section__icon\" aria-hidden=\"true\" data-legacy-icon=\"list-check\">✅</span>Rubrica (0–10) </h4> <ul> <li> <strong>Clareza e objetividade</strong> (0–3): escreve de forma compreensível e direta. </li> <li> <strong>Exemplos e evidências</strong> (0–3): traz caso real, métrica ou evidência. </li> <li> <strong>Relação com conceitos</strong> (0–2): conecta com taxonomia/níveis ou checklist. </li> <li> <strong>Interação</strong> (0–2): comentário construtivo ao colega. </li> </ul> </div> <p> Prazo: até a próxima aula. Avaliação: participação e qualidade argumentativa, conforme rubrica. </p> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "quiz",
+      "title": "🧐 Quiz Rápido",
+      "html": "<div data-legacy-card=\"\"> <details> <summary> 1) Em qual nível um SI transacional (TPS) atua principalmente? </summary> <div>Operacional.</div> </details> <details> <summary>2) Cite um benefício de ERP e um desafio típico.</summary> <div> Benefício: dados integrados. Desafio: custo e mudança cultural. </div> </details> <details> <summary> 3) O que diferencia um SI estratégico de um operacional? </summary> <div> Estratégico suporta decisões de longo prazo; operacional suporta rotinas diárias. </div> </details> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "competencias",
+      "title": "🎯 Competências Trabalhadas",
+      "html": "<div data-legacy-card=\"\"> <ul> <li> <strong>(4)</strong> Analisar dados para apoiar decisões organizacionais. </li> <li> <strong>(11)</strong> Utilizar métodos e ferramentas adequadas ao desenvolvimento e gestão de SI. </li> <li> <strong>(12)</strong> Produzir e interpretar diagramas, gráficos e tabelas. </li> <li> <strong>(14)</strong> Especificar requisitos a partir de necessidades organizacionais. </li> </ul> </div>"
+    },
+    {
+      "type": "legacySection",
+      "id": "bibliografia",
+      "title": "📚 Bibliografia",
+      "html": "<div data-legacy-card=\"\"> <p> <strong>MEIRELES, Manuel; SORDI, J. O. de.</strong> <em>Administração de sistemas de informação.</em> 2. ed. São Paulo: Atlas, 2019. </p> <p> <strong>SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C.</strong> <em>Sistemas de informações gerenciais.</em> Porto Alegre: Grupo A, 2019. </p> </div>"
+    }
+  ]
+}

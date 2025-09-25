@@ -1,0 +1,13 @@
+{
+  "id": "refatoracao",
+  "title": "Refatoração orientada a objetos",
+  "objective": "Aplique princípios SOLID para melhorar um código legado simples.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "refatoracao",
+      "title": "Refatoração orientada a objetos",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './refatoracao.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ux-audit",
+    "title": "Auditoria de UX mobile",
+    "summary": "Mapeie fluxos de um aplicativo existente e proponha melhorias alinhadas às guidelines.",
+    "available": false,
+    "file": "ux-audit.md"
+  },
+  {
+    "id": "api-sync",
+    "title": "Sincronização com API",
+    "summary": "Implemente cache local e sincronização incremental para uma lista de itens.",
+    "available": false,
+    "file": "api-sync.md"
+  }
+]
