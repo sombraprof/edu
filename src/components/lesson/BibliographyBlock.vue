@@ -6,7 +6,7 @@
 
     <ul :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }">
       <li
-        v-for="(item, index) in data.items"
+        v-for="(item, index) in items"
         :key="index"
         class="text-body-large text-[var(--md-sys-color-on-surface-variant)] lesson-content"
         v-html="item"
@@ -16,12 +16,52 @@
 </template>
 
 <script setup lang="ts">
-interface BibliographyData {
-  title: string;
-  items: string[];
+import { computed } from 'vue';
+
+interface BibliographyEntry {
+  html?: string;
+  text?: string;
 }
 
-defineProps<{
+interface BibliographyData {
+  title: string;
+  items?: string[];
+  content?: (string | BibliographyEntry)[];
+}
+
+const props = defineProps<{
   data: BibliographyData;
 }>();
+
+const items = computed(() => {
+  if (Array.isArray(props.data.items) && props.data.items.length) {
+    return props.data.items;
+  }
+
+  if (Array.isArray(props.data.content)) {
+    return props.data.content
+      .map((entry) => {
+        if (typeof entry === 'string') {
+          return entry;
+        }
+
+        if (!entry) {
+          return '';
+        }
+
+        if (typeof entry.html === 'string') {
+          return entry.html;
+        }
+
+        if (typeof entry.text === 'string') {
+          return entry.text;
+        }
+
+        return '';
+      })
+      .filter(Boolean);
+  }
+
+  return [];
+});
 </script>

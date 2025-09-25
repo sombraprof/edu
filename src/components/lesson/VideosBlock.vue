@@ -4,8 +4,8 @@
       {{ data.title }}
     </h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div v-for="(video, index) in data.videos" :key="index" class="card p-4">
+    <div v-if="videos.length" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div v-for="(video, index) in videos" :key="index" class="card p-4 space-y-4">
         <h4 class="text-title-large font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
           {{ video.title }}
         </h4>
@@ -21,23 +21,91 @@
             allowfullscreen
           ></iframe>
         </div>
+        <p
+          v-if="video.caption"
+          class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
+        >
+          {{ video.caption }}
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
+
 interface VideoItem {
-  title: string;
-  src: string;
+  title?: string;
+  src?: string;
+  url?: string;
+  caption?: string;
 }
 
 interface VideosData {
   title: string;
-  videos: VideoItem[];
+  videos?: VideoItem[];
 }
 
-defineProps<{
+const props = defineProps<{
   data: VideosData;
 }>();
+
+const videos = computed(() => {
+  if (!Array.isArray(props.data.videos)) {
+    return [];
+  }
+
+  return props.data.videos
+    .map((video) => {
+      const src = resolveVideoSrc(video);
+      return {
+        title: video.title ?? 'Vídeo',
+        caption: video.caption,
+        src,
+      };
+    })
+    .filter((video) => Boolean(video.src));
+});
+
+function resolveVideoSrc(video: VideoItem): string {
+  if (typeof video.src === 'string' && video.src.trim().length) {
+    return video.src;
+  }
+
+  if (typeof video.url === 'string' && video.url.trim().length) {
+    return toEmbedUrl(video.url.trim());
+  }
+
+  return '';
+}
+
+function toEmbedUrl(url: string): string {
+  try {
+    const parsed = new URL(url);
+
+    if (parsed.hostname.includes('youtube.com')) {
+      const videoId = parsed.searchParams.get('v');
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+
+      const pathMatch = parsed.pathname.match(/\/embed\/([^/]+)/);
+      if (pathMatch) {
+        return `https://www.youtube.com/embed/${pathMatch[1]}`;
+      }
+    }
+
+    if (parsed.hostname === 'youtu.be') {
+      const videoId = parsed.pathname.slice(1);
+      if (videoId) {
+        return `https://www.youtube.com/embed/${videoId}`;
+      }
+    }
+
+    return url;
+  } catch (error) {
+    return url;
+  }
+}
 </script>

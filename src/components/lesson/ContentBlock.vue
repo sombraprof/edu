@@ -8,7 +8,7 @@
       <p
         v-if="item.type === 'paragraph'"
         class="text-body-large mb-4 text-[var(--md-sys-color-on-surface-variant)]"
-        v-html="item.text"
+        v-html="item.html ?? item.text"
       ></p>
 
       <div v-else-if="item.type === 'subBlock'" class="card surface-tonal p-8 mb-8">
@@ -42,6 +42,11 @@
         :code="item.code"
         :language="item.language"
         :plainText="shouldUsePlainText(item.language)"
+      />
+
+      <OrderedList
+        v-else-if="item.type === 'orderedList'"
+        :items="formatOrderedListItems(item.items)"
       />
 
       <component
@@ -103,6 +108,31 @@ function isCalloutBlock(item: any): item is { variant?: string; title?: string; 
 
 function shouldUsePlainText(language?: string): boolean {
   return !language || language === 'plaintext' || language === 'pseudocode' || language === 'text';
+}
+
+function formatOrderedListItems(items: unknown): string[] {
+  if (!Array.isArray(items)) {
+    return [];
+  }
+
+  return items
+    .map((entry) => {
+      if (typeof entry === 'string') {
+        return entry;
+      }
+
+      if (entry && typeof entry === 'object') {
+        const title =
+          typeof (entry as any).title === 'string'
+            ? `<strong>${(entry as any).title}:</strong> `
+            : '';
+        const text = typeof (entry as any).text === 'string' ? (entry as any).text : '';
+        return `${title}${text}`.trim();
+      }
+
+      return '';
+    })
+    .filter((value): value is string => Boolean(value));
 }
 </script>
 

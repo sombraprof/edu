@@ -18,6 +18,7 @@
       <VideosBlock v-else-if="block.type === 'videos'" :data="block" />
       <ChecklistBlock v-else-if="block.type === 'checklist'" :data="block" />
       <BibliographyBlock v-else-if="block.type === 'bibliography'" :data="block" />
+      <CardGrid v-else-if="block.type === 'cardGrid'" :data="block" />
       <Callout
         v-else-if="block.type === 'callout'"
         :variant="toString(block.variant)"

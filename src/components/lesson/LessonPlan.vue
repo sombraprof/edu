@@ -14,9 +14,9 @@
       ></p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div v-if="cards.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
-        v-for="(card, index) in data.cards"
+        v-for="(card, index) in cards"
         :key="index"
         class="card p-6 flex flex-col items-center text-center"
       >
@@ -51,9 +51,10 @@ import {
 } from 'lucide-vue-next';
 
 interface LessonPlanCard {
-  icon: string;
-  title: string;
-  content: string;
+  icon?: string;
+  title?: string;
+  content?: string;
+  text?: string;
 }
 
 interface LessonPlanUnit {
@@ -65,13 +66,31 @@ interface LessonPlanData {
   title: string;
   unit?: LessonPlanUnit;
   cards?: LessonPlanCard[];
+  content?: LessonPlanCard[];
 }
 
-defineProps<{
+const props = defineProps<{
   data: LessonPlanData;
 }>();
 
-const getIconComponent = (iconName: string) => {
+const cards = computed(() => {
+  const source =
+    Array.isArray(props.data.cards) && props.data.cards.length
+      ? props.data.cards
+      : Array.isArray(props.data.content)
+        ? props.data.content
+        : [];
+
+  return source
+    .map((item) => ({
+      icon: item?.icon,
+      title: item?.title ?? '',
+      content: item?.content ?? item?.text ?? '',
+    }))
+    .filter((card) => card.title || card.content);
+});
+
+const getIconComponent = (iconName?: string) => {
   // Map icon names to imported components
   const iconMap: Record<string, any> = {
     bullseye: Target,
@@ -88,6 +107,11 @@ const getIconComponent = (iconName: string) => {
     cpu: Cpu,
   };
 
-  return iconMap[iconName] || Target; // Default to Target if icon not found
+  if (!iconName) {
+    return Target;
+  }
+
+  const normalized = iconName.toLowerCase();
+  return iconMap[normalized] || iconMap[iconName] || Target; // Default to Target if icon not found
 };
 </script>

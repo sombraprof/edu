@@ -1,17 +1,23 @@
 ﻿<template>
   <section class="card-grid">
-    <header v-if="data.title || data.description" class="card-grid__header">
-      <h4 v-if="data.title" class="card-grid__title">{{ data.title }}</h4>
-      <p v-if="data.description" class="card-grid__description">{{ data.description }}</p>
+    <header v-if="cardData.title || cardData.description" class="card-grid__header">
+      <h4 v-if="cardData.title" class="card-grid__title">{{ cardData.title }}</h4>
+      <p v-if="cardData.description" class="card-grid__description">{{ cardData.description }}</p>
     </header>
 
-    <div class="card-grid__layout" :style="gridStyle">
+    <div v-if="cards.length" class="card-grid__layout" :style="gridStyle">
       <article
-        v-for="(card, index) in data.cards"
+        v-for="(card, index) in cards"
         :key="index"
         :class="['card-grid__card', toneClass(card.tone)]"
       >
         <div v-if="card.badge" class="card-grid__badge">{{ card.badge }}</div>
+
+        <component v-if="card.iconComponent" :is="card.iconComponent" class="card-grid__icon" />
+
+        <div v-else-if="card.icon" class="card-grid__icon card-grid__icon--placeholder">
+          {{ card.icon }}
+        </div>
 
         <h5 v-if="card.title" class="card-grid__card-title">{{ card.title }}</h5>
 
@@ -44,7 +50,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, type Component } from 'vue';
+import * as LucideIcons from 'lucide-vue-next';
 
 interface CardGridAction {
   label: string;
@@ -61,19 +68,56 @@ interface CardGridCard {
   items?: string[];
   footer?: string;
   actions?: CardGridAction[];
+  icon?: string;
+  iconComponent?: Component | null;
 }
 
 interface CardGridData {
   title?: string;
   description?: string;
   columns?: number;
-  cards: CardGridCard[];
+  cards?: CardGridCard[];
+  items?: Array<
+    CardGridCard & {
+      variant?: string;
+      description?: string;
+    }
+  >;
 }
 
-const { data } = defineProps<{ data: CardGridData }>();
+const props = defineProps<{ data: CardGridData }>();
+
+const cardData = computed(() => props.data ?? {});
+
+const cards = computed<CardGridCard[]>(() => {
+  const directCards = Array.isArray(cardData.value.cards) ? cardData.value.cards : [];
+
+  if (directCards.length) {
+    return directCards.map((card) => ({
+      ...card,
+      iconComponent: resolveIcon(card.icon),
+    }));
+  }
+
+  const legacyItems = Array.isArray(cardData.value.items) ? cardData.value.items : [];
+
+  return legacyItems.map((item) => ({
+    title: item.title,
+    subtitle: item.subtitle,
+    badge: item.badge,
+    tone: item.tone ?? mapVariantToTone(item.variant),
+    body: item.body ?? item.description,
+    items: item.items,
+    footer: item.footer,
+    actions: item.actions,
+    icon: item.icon,
+    iconComponent: resolveIcon(item.icon),
+  }));
+});
 
 const gridStyle = computed(() => {
-  const columns = Math.max(1, Math.min(4, data.columns ?? 2));
+  const baseColumns = cardData.value.columns ?? (cards.value.length || 2);
+  const columns = Math.max(1, Math.min(4, baseColumns));
   return { gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` };
 });
 
@@ -96,6 +140,63 @@ function toneClass(tone?: CardGridCard['tone']) {
     default:
       return 'card-grid__card--surface';
   }
+}
+
+function mapVariantToTone(variant?: string): CardGridCard['tone'] | undefined {
+  if (!variant) {
+    return undefined;
+  }
+
+  const normalized = variant.toLowerCase();
+
+  switch (normalized) {
+    case 'good-practice':
+    case 'best-practice':
+      return 'success';
+    case 'academic':
+      return 'neutral';
+    case 'alert':
+      return 'warning';
+    default:
+      if (
+        ['primary', 'secondary', 'info', 'success', 'warning', 'danger', 'neutral'].includes(
+          normalized
+        )
+      ) {
+        return normalized as CardGridCard['tone'];
+      }
+      return undefined;
+  }
+}
+
+function resolveIcon(iconName?: string): Component | null {
+  if (!iconName) {
+    return null;
+  }
+
+  const variations = createNameVariations(iconName);
+  for (const name of variations) {
+    const registry = LucideIcons as unknown as Record<string, Component>;
+    if (name in registry) {
+      return registry[name];
+    }
+  }
+
+  return null;
+}
+
+function createNameVariations(original: string): string[] {
+  const clean = original.trim();
+  const pascal = clean
+    .toLowerCase()
+    .split(/[-_\s]+/)
+    .filter(Boolean)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join('');
+
+  const camel = pascal.charAt(0).toLowerCase() + pascal.slice(1);
+
+  return Array.from(new Set([clean, pascal, camel, clean.toLowerCase(), clean.toUpperCase()]));
 }
 </script>
 
@@ -261,5 +362,26 @@ function toneClass(tone?: CardGridCard['tone']) {
   .card-grid__layout {
     grid-template-columns: 1fr;
   }
+}
+
+.card-grid__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--md-sys-border-radius-full);
+  background: color-mix(in srgb, currentColor 12%, transparent 88%);
+  margin-bottom: var(--md-sys-spacing-3);
+}
+
+.card-grid__icon--placeholder {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.card-grid__icon :deep(svg) {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 </style>
