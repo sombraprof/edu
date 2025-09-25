@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson7',
-  title: 'Aula 7: Unidade I – Persistência Local',
+  title: 'Aula 7: Unidade II – O Ciclo de Vida das Activities',
   available: true,
 };
 </script>

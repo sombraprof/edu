@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson4',
-  title: 'Aula 4: Design de Níveis',
+  title: 'Aula 4: História, Engines e Mercado',
   available: true,
 };
 </script>

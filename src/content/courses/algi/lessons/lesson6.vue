@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson6',
-  title: 'Aula 6: Variáveis e Constantes',
+  title: 'Aula 6: Variáveis, Constantes e Tipos de Dados em C',
   objective: 'Aprender a armazenar e manipular informações nos nossos programas.',
   available: true,
 };

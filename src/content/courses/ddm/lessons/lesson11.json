@@ -1,11 +1,138 @@
 {
   "id": "lesson11",
-  "title": "Aula 11: Unidade II – Firestore Database",
+  "title": "Aula 11: Unidade II – Intents Implícitas (Chamar Apps Externos)",
   "objective": "",
   "content": [
     {
-      "type": "html",
-      "html": "<section id=\"aula11\" class=\"max-w-7xl mx-auto\">\n  <header class=\"mb-12 border-b pb-8\">\n    <h2 class=\"text-4xl font-bold text-slate-900\">\n      Aula 11: Unidade II – Intents Implícitas (Chamar Apps Externos)\n    </h2>\n    <p class=\"text-lg text-slate-600 mt-2\">\n      Explorar como invocar funcionalidades de outros aplicativos, como abrir o\n      navegador, o discador ou compartilhar conteúdo.\n    </p>\n  </header>\n\n  <div class=\"bg-white p-6 rounded-lg shadow-md mb-12\">\n    <h3 class=\"font-bold text-2xl text-slate-800 mb-4\">Plano de Voo da Aula</h3>\n    <ul class=\"list-disc list-inside space-y-2 text-slate-700\">\n      <li>\n        <strong>Recapitulação da Aula 9:</strong> A diferença fundamental entre\n        Intents Explícitas e Implícitas.\n      </li>\n      <li>\n        <strong>A \"Carta Aberta\":</strong> Entendendo Ação, Dados (URI) e\n        Categoria de uma Intent Implícita.\n      </li>\n      <li>\n        <strong>Relevância Profissional:</strong> Por que a integração com o\n        ecossistema Android é vital para a UX.\n      </li>\n      <li>\n        <strong>Atividade Prática Guiada:</strong> Construindo um app \"canivete\n        suíço\" com três ações:\n        <ul>\n          <li>- Abrir uma página web (<code>ACTION_VIEW</code>).</li>\n          <li>- Discar um número de telefone (<code>ACTION_DIAL</code>).</li>\n          <li>- Compartilhar um texto (<code>ACTION_SEND</code>).</li>\n        </ul>\n      </li>\n      <li>\n        <strong>Boas Práticas e Segurança:</strong> Como evitar crashes\n        verificando se há um app para responder à Intent.\n      </li>\n      <li>\n        <strong>Tarefa (TED):</strong> Replicar e personalizar o aplicativo de\n        ações.\n      </li>\n    </ul>\n  </div>\n\n  <div id=\"contexto\" class=\"mb-16\">\n    <h3 class=\"text-3xl font-bold text-slate-800 mb-6\">\n      Explícitas vs. Implícitas: Qual a Diferença?\n    </h3>\n    <div class=\"bg-white p-8 rounded-lg shadow-md\">\n      <p class=\"text-lg mb-4\">\n        Nas aulas anteriores, usamos <strong>Intents Explícitas</strong>. Elas\n        são como cartas com um endereço completo e exato: \"Sistema Android, por\n        favor, inicie a <code>DetalheActivity</code> da minha aplicação.\" Você\n        sabe exatamente qual componente será iniciado.\n      </p>\n      <p>\n        Hoje, vamos explorar as <strong>Intents Implícitas</strong>. Elas são\n        como uma carta com uma instrução genérica, mas sem um destinatário\n        específico: \"Sistema Android, por favor, mostre as coordenadas\n        geográficas -3.74, -38.53. Não me importa qual app de mapa você usa,\n        apenas faça.\"\n      </p>\n      <div class=\"callout callout-info\">\n        <h5 class=\"font-bold mb-2\">Analogia do \"Delivery\"</h5>\n        <ul class=\"list-disc list-inside\">\n          <li>\n            <strong>Intent Explícita:</strong> \"Pedir uma pizza margherita da\n            Pizzaria da Esquina, na Rua Principal, nº 123.\"\n          </li>\n          <li>\n            <strong>Intent Implícita:</strong> \"Quero pedir uma pizza\n            margherita.\" O sistema (como um app de delivery) então te mostra uma\n            lista de todas as pizzarias que podem atender ao seu pedido.\n          </li>\n        </ul>\n      </div>\n    </div>\n  </div>\n\n  <div id=\"atividade-pratica-aula11\" class=\"mb-16\">\n    <h3 class=\"text-3xl font-bold text-slate-800 mb-6\">\n      Atividade Prática: Construindo um App de Ações\n    </h3>\n    <div class=\"bg-white p-8 rounded-lg shadow-md\">\n      <p class=\"mb-4\">\n        Vamos construir um aplicativo que executa três das ações implícitas mais\n        comuns. Este será o nosso \"canivete suíço\" de Intents.\n      </p>\n\n      <h4 class=\"font-bold text-2xl text-slate-800 mt-8 mb-4\">\n        Passo 1: O Layout (<code>activity_main.xml</code>)\n      </h4>\n      <p class=\"mb-4\">\n        Crie um novo projeto e adicione um <code>EditText</code> e três\n        <code>Buttons</code> ao seu layout.\n      </p>\n      <div class=\"code-block-wrapper\">\n        <button class=\"copy-button\">Copiar</button>\n        <div class=\"code-block\">\n          <h5 class=\"mono\">\n            &lt;-- Código para res/layout/activity_main.xml --&gt;\n          </h5>\n          <pre><code>&lt;?xml version=\"1.0\" encoding=\"utf-8\"?&gt;\n&lt;LinearLayout ... android:orientation=\"vertical\" android:padding=\"16dp\"&gt;\n\n    &lt;EditText\n        android:id=\"@+id/editTextDados\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Digite um site, telefone ou texto\"\n        android:layout_marginBottom=\"24dp\"\n        android:inputType=\"text\" /&gt;\n\n    &lt;Button\n        android:id=\"@+id/buttonAbrirSite\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Abrir Site Web\" /&gt;\n\n    &lt;Button\n        android:id=\"@+id/buttonTelefonar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"8dp\"\n        android:text=\"Telefonar\" /&gt;\n\n    &lt;Button\n        android:id=\"@+id/buttonCompartilhar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"8dp\"\n        android:text=\"Compartilhar Texto\" /&gt;\n\n&lt;/LinearLayout&gt;</code></pre>\n        </div>\n      </div>\n\n      <h4 class=\"font-bold text-2xl text-slate-800 mt-12 mb-4\">\n        Passo 2: A Lógica (<code>MainActivity.kt</code>)\n      </h4>\n      <p class=\"mb-4\">\n        Agora, vamos implementar a lógica para cada botão no nosso arquivo\n        Kotlin.\n      </p>\n      <div class=\"code-block-wrapper\">\n        <button class=\"copy-button\">Copiar</button>\n        <div class=\"code-block\">\n          <h5 class=\"mono\">// Código Final para MainActivity.kt</h5>\n          <pre><code>package br.com.unichristus.ads.intentsimplicitas\n\nimport android.content.Intent\nimport android.net.Uri\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.widget.Button\nimport android.widget.EditText\n\nclass MainActivity : AppCompatActivity() {\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        val editTextDados: EditText = findViewById(R.id.editTextDados)\n        val buttonAbrirSite: Button = findViewById(R.id.buttonAbrirSite)\n        val buttonTelefonar: Button = findViewById(R.id.buttonTelefonar)\n        val buttonCompartilhar: Button = findViewById(R.id.buttonCompartilhar)\n\n        // Ação para abrir um site\n        buttonAbrirSite.setOnClickListener {\n            val endereco = editTextDados.text.toString()\n            val uri = Uri.parse(\"http://$endereco\")\n            val intent = Intent(Intent.ACTION_VIEW, uri)\n            startActivity(intent)\n        }\n\n        // Ação para discar um número\n        buttonTelefonar.setOnClickListener {\n            val telefone = editTextDados.text.toString()\n            val uri = Uri.parse(\"tel:$telefone\")\n            val intent = Intent(Intent.ACTION_DIAL, uri)\n            startActivity(intent)\n        }\n\n        // Ação para compartilhar texto\n        buttonCompartilhar.setOnClickListener {\n            val texto = editTextDados.text.toString()\n            val intent = Intent(Intent.ACTION_SEND)\n            intent.type = \"text/plain\"\n            intent.putExtra(Intent.EXTRA_TEXT, texto)\n            \n            // Usar um chooser é uma boa prática para dar a escolha ao usuário\n            val chooser = Intent.createChooser(intent, \"Compartilhar via...\")\n            startActivity(chooser)\n        }\n    }\n}</code></pre>\n        </div>\n      </div>\n\n      <div class=\"callout callout-info\">\n        <h5 class=\"font-bold mb-2\">Boas Práticas e Segurança</h5>\n        <p>\n          O código acima funciona, mas tem um problema: se não houver um app\n          capaz de lidar com a Intent (ex: um tablet sem app de telefone\n          tentando usar <code>ACTION_DIAL</code>), o seu app irá travar! A\n          prática profissional correta é verificar se a Intent pode ser\n          resolvida antes de chamá-la:\n        </p>\n        <div class=\"code-block-wrapper\">\n          <button class=\"copy-button\">Copiar</button>\n          <div class=\"code-block\">\n            <pre><code>if (intent.resolveActivity(packageManager) != null) {\n    startActivity(intent)\n} else {\n    // Opcional: Mostrar uma mensagem de erro ao usuário\n}</code></pre>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div id=\"tarefa-aula11\" class=\"mb-16\">\n    <h3 class=\"text-3xl font-bold text-slate-800 mb-6\">\n      Encerramento e Próximos Passos\n    </h3>\n    <div class=\"callout callout-task\">\n      <h5 class=\"font-bold mb-2\">Tarefa para a próxima aula (TED)</h5>\n      <p class=\"mb-4\">\n        O desafio é criar um aplicativo que utilize as três Intents implícitas\n        que aprendemos hoje.\n      </p>\n      <ol class=\"list-decimal list-inside space-y-2\">\n        <li>Crie um novo projeto Android.</li>\n        <li>\n          Na tela principal, adicione três botões: \"Abrir Site\", \"Telefonar\" e\n          \"Compartilhar\".\n        </li>\n        <li>\n          Configure o botão \"Abrir Site\" para abrir o site da UniChristus.\n        </li>\n        <li>\n          Configure o botão \"Telefonar\" para abrir o discador com um número de\n          telefone à sua escolha.\n        </li>\n        <li>\n          Configure o botão \"Compartilhar\" para compartilhar a mensagem \"Estou\n          aprendendo a desenvolver para Android!\".\n        </li>\n        <li>\n          Tire um print de cada ação funcionando (a tela do seu app, o navegador\n          aberto, o discador e a caixa de compartilhamento) e submeta no Moodle.\n        </li>\n      </ol>\n    </div>\n    <div class=\"bg-white p-6 rounded-lg shadow-md mt-8\">\n      <h4 class=\"font-bold text-xl text-slate-800 mb-4\">\n        Bibliografia Recomendada\n      </h4>\n      <ul class=\"list-disc list-inside space-y-2\">\n        <li>\n          SIMAS, V. L. et al.\n          <strong>Desenvolvimento para Dispositivos Móveis – Volume 2</strong>.\n          Grupo A, 2019.\n        </li>\n        <li>\n          LECHETA, Ricardo R.\n          <strong\n            >Google Android: Aprenda a criar aplicações para dispositivos móveis\n            com o Android SDK</strong\n          >. Novatec, 2015.\n        </li>\n        <li>\n          <a\n            href=\"https://developer.android.com/guide/components/intents-common\"\n            target=\"_blank\"\n            class=\"text-indigo-600 hover:underline font-semibold\"\n            >Documentação Oficial sobre Intents Comuns</a\n          >.\n        </li>\n      </ul>\n    </div>\n  </div>\n</section>\n"
+      "type": "contentBlock",
+      "title": "Plano de Voo da Aula",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Recapitulação da Aula 9",
+              "text": "A diferença fundamental entre Intents Explícitas e Implícitas."
+            },
+            {
+              "title": "A Carta Aberta",
+              "text": "Entenda como ação, dados (URI) e categoria definem uma Intent Implícita."
+            },
+            {
+              "title": "Relevância Profissional",
+              "text": "Integração com o ecossistema Android como parte essencial da experiência de uso."
+            },
+            {
+              "title": "Atividade Prática Guiada",
+              "text": "Construção de um \"Mini App de Ações\" com três funcionalidades: <ul><li>Abrir uma página web (<code>ACTION_VIEW</code>).</li><li>Discar um número de telefone (<code>ACTION_DIAL</code>).</li><li>Compartilhar um texto (<code>ACTION_SEND</code>).</li></ul>"
+            },
+            {
+              "title": "Boas Práticas e Segurança",
+              "text": "Verificar se existe um app capaz de responder à Intent antes de executá-la."
+            },
+            {
+              "title": "Tarefa (TED)",
+              "text": "Replicar e personalizar o aplicativo de ações desenvolvido em aula."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Explícitas vs. Implícitas: Qual a Diferença?",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Nas aulas anteriores trabalhamos com <strong>Intents Explícitas</strong>, em que apontamos exatamente qual componente deve ser iniciado (por exemplo, abrir a <code>DetalheActivity</code>)."
+        },
+        {
+          "type": "paragraph",
+          "html": "Nesta aula exploramos as <strong>Intents Implícitas</strong>, nas quais descrevemos a ação desejada (abrir coordenadas, compartilhar conteúdo, discar um número) e deixamos que o sistema Android apresente os aplicativos capazes de atender a esse pedido."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Analogia do delivery",
+          "content": "<ul><li><strong>Intent Explícita:</strong> pedir uma pizza margherita da pizzaria específica, com endereço definido.</li><li><strong>Intent Implícita:</strong> informar que deseja uma pizza margherita e deixar que o sistema ofereça opções de pizzaria.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática: Construindo um App de Ações",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Vamos desenvolver um aplicativo que reúna três Intents implícitas frequentes."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Passo 1: Layout (<code>activity_main.xml</code>)",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Crie o layout com um campo de entrada e três botões responsáveis por cada ação."
+        },
+        {
+          "type": "code",
+          "language": "xml",
+          "code": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"16dp\">\n\n    <EditText\n        android:id=\"@+id/editTextDados\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Digite um site, telefone ou texto\"\n        android:layout_marginBottom=\"24dp\"\n        android:inputType=\"text\" />\n\n    <Button\n        android:id=\"@+id/buttonAbrirSite\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Abrir Site Web\" />\n\n    <Button\n        android:id=\"@+id/buttonTelefonar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"8dp\"\n        android:text=\"Telefonar\" />\n\n    <Button\n        android:id=\"@+id/buttonCompartilhar\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"8dp\"\n        android:text=\"Compartilhar Texto\" />\n\n</LinearLayout>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Passo 2: Lógica (<code>MainActivity.kt</code>)",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Implemente as ações de abrir site, discar e compartilhar utilizando Intents implícitas."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "package br.com.unichristus.ads.intentsimplicitas\n\nimport android.content.Intent\nimport android.net.Uri\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.widget.Button\nimport android.widget.EditText\n\nclass MainActivity : AppCompatActivity() {\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        val editTextDados: EditText = findViewById(R.id.editTextDados)\n        val buttonAbrirSite: Button = findViewById(R.id.buttonAbrirSite)\n        val buttonTelefonar: Button = findViewById(R.id.buttonTelefonar)\n        val buttonCompartilhar: Button = findViewById(R.id.buttonCompartilhar)\n\n        buttonAbrirSite.setOnClickListener {\n            val endereco = editTextDados.text.toString()\n            val uri = Uri.parse(\"http://$endereco\")\n            val intent = Intent(Intent.ACTION_VIEW, uri)\n            startActivity(intent)\n        }\n\n        buttonTelefonar.setOnClickListener {\n            val telefone = editTextDados.text.toString()\n            val uri = Uri.parse(\"tel:$telefone\")\n            val intent = Intent(Intent.ACTION_DIAL, uri)\n            startActivity(intent)\n        }\n\n        buttonCompartilhar.setOnClickListener {\n            val texto = editTextDados.text.toString()\n            val intent = Intent(Intent.ACTION_SEND)\n            intent.type = \"text/plain\"\n            intent.putExtra(Intent.EXTRA_TEXT, texto)\n            val chooser = Intent.createChooser(intent, \"Compartilhar via...\")\n            startActivity(chooser)\n        }\n    }\n}"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Boas Práticas e Segurança",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Antes de iniciar a Intent, verifique se existe aplicativo capaz de tratá-la para evitar falhas."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "if (intent.resolveActivity(packageManager) != null) {\n    startActivity(intent)\n} else {\n    // Opcional: informar ao usuário que não existe aplicativo compatível\n}"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Tarefa (TED)",
+      "content": "<p>Crie um app que utilize as três Intents implícitas estudadas:</p><ol><li>Adicione botões para abrir o site da UniChristus, discar um número e compartilhar uma mensagem.</li><li>Garanta que cada ação trate corretamente entradas vazias ou inválidas.</li><li>Registre prints das telas e resultados e envie no Moodle.</li></ol>"
+    },
+    {
+      "type": "bibliography",
+      "title": "Bibliografia Recomendada",
+      "content": [
+        {
+          "html": "SIMAS, V. L. et al. <strong>Desenvolvimento para Dispositivos Móveis – Volume 2.</strong> Grupo A, 2019."
+        },
+        {
+          "html": "LECHETA, Ricardo R. <strong>Google Android: Aprenda a criar aplicações para dispositivos móveis com o Android SDK.</strong> Novatec, 2015."
+        },
+        {
+          "html": "<a href=\"https://developer.android.com/guide/components/intents-common\" target=\"_blank\" rel=\"noreferrer\">Documentação oficial sobre Intents comuns (developer.android.com)</a>."
+        }
+      ]
     }
   ]
 }

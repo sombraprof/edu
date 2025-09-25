@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson8',
-  title: 'Aula 8: Leitura Múltipla e Saída Formatada',
+  title: 'Aula 8: Leitura Múltipla, Cálculos Encadeados e printf Formatado',
   objective: 'Consolidando o fluxo sequencial: Entrada → Processamento → Saída',
   available: true,
 };

@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson7',
-  title: 'Aula 7: Física e Colisões',
+  title: 'Aula 7: Prototipagem Rápida e GDD',
   available: true,
 };
 </script>

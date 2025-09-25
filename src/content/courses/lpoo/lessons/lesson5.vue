@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson5',
-  title: 'Aula 5: Herança',
+  title: 'Aula 5: Resolução da AV1 e Introdução à Herança',
   available: true,
 };
 </script>

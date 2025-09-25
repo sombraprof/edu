@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson4',
-  title: 'Aula 4: Do Pseudocódigo ao C',
+  title: 'Aula 4: Do Pseudocódigo ao Primeiro Programa em C',
   objective: 'A transição do planeamento em Portugol para a implementação em Linguagem C.',
   available: true,
 };

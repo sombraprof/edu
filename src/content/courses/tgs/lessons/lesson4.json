@@ -1,11 +1,177 @@
 {
   "id": "lesson4",
   "title": "Aula 4: Tipos de Sistemas: Classificações e Exemplos",
-  "objective": "",
+  "objective": "Diferenciar os tipos de sistemas a partir de suas características principais e analisar exemplos de sua aplicação prática em diferentes contextos organizacionais.",
   "content": [
     {
-      "type": "html",
-      "html": "<!DOCTYPE html>\n<html lang=\"pt-BR\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>TGS - Aula 4: Tipos de Sistemas: Classificações e Exemplos</title>\n    <meta\n      name=\"description\"\n      content=\"Aula 4 da disciplina Teoria Geral de Sistemas, focada na classificação de sistemas: abertos, fechados, dinâmicos, estáveis, permanentes e temporários, e sua aplicação em SI.\"\n    />\n    <!-- Tailwind CSS via CDN -->\n    <!-- Tailwind Typography Plugin -->\n    <script src=\"https://cdn.tailwindcss.com/3.4.1?plugins=typography\"></script>\n    <!-- Google Fonts: Inter -->\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n    <link\n      href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap\"\n      rel=\"stylesheet\"\n    />\n    <!-- Font Awesome for icons -->\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"\n    />\n    <link rel=\"stylesheet\" href=\"../css/style.css\" />\n    <link rel=\"stylesheet\" href=\"../css/aula.css\" />\n    </head>\n  <body class=\"text-slate-800\">\n    <!-- Cabeçalho da Aula -->\n    <header class=\"bg-white shadow-md\">\n      <div class=\"container mx-auto px-6 py-8\">\n        <h1 class=\"text-4xl font-bold text-sky-800\">\n          Teoria Geral de Sistemas (TGS)\n        </h1>\n        <p class=\"text-xl text-slate-600 mt-2\">Aula 4: Tipos de Sistemas</p>\n      <nav class=\\\"mt-2\\\"><a href=\\\"../index.html\\\" class=\\\"inline-flex items-center gap-2 text-slate-500 hover:text-sky-700 text-sm\\\"><i class=\\\"fa-solid fa-arrow-left\\\"></i><span>Voltar ao Início</span></a></nav>\n    </div>\n    </header>\n\n    <!-- Corpo Principal da Aula -->\n    <main class=\"container mx-auto px-6 py-10\">\n      <div class=\\\"prose prose-slate max-w-none lg:prose-lg aula-prose\\\">\n      <!-- Seção: Plano da Aula -->\n      <section\n        id=\"plano-aula\"\n        aria-label=\"Plano da Aula\"\n        class=\"mb-12 bg-sky-50 border border-sky-200 p-8 rounded-2xl shadow-lg\"\n      >\n        <h2 class=\"text-3xl font-bold text-sky-700 mb-6 text-center\">\n          Plano da Aula\n        </h2>\n        <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6\">\n          <!-- Conteúdo e Objetivo -->\n          <div\n            class=\"bg-white aula-card p-6 rounded-lg shadow-sm col-span-1 md:col-span-2 lg:col-span-2\"\n          >\n            <h3 class=\"font-semibold text-lg text-sky-800 mb-2\">\n              <i class=\"fa-solid fa-book-open mr-2\"></i>CONTEÚDO\n            </h3>\n            <p class=\"font-bold text-slate-700\">\n              Unidade I – Definição e Tipos de Sistemas\n            </p>\n            <p class=\"text-slate-600 mt-1\">\n              Tipos de sistemas: abertos x fechados, estáveis x dinâmicos,\n              permanentes x temporários.\n            </p>\n          </div>\n          <div class=\"bg-white aula-card p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-sky-800 mb-2\">\n              <i class=\"fa-solid fa-bullseye mr-2\"></i>OBJETIVO ESPECÍFICO\n            </h3>\n            <p class=\"text-slate-600\">\n              Diferenciar os tipos de sistemas a partir de suas características\n              principais e analisar exemplos de sua aplicação prática em\n              diferentes contextos organizacionais.\n            </p>\n          </div>\n          <!-- Metodologia e Recursos -->\n          <div class=\"bg-white aula-card p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-sky-800 mb-2\">\n              <i class=\"fa-solid fa-gears mr-2\"></i>METODOLOGIA E RECURSOS\n            </h3>\n            <p class=\"text-slate-600\">\n              Estudo de caso em grupo (metodologia ativa) para análise de\n              sistemas reais, com uso de quadro ou lousa digital.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Pergunta Norteadora -->\n      <section\n        id=\"pergunta-norteadora\"\n        aria-label=\"Pergunta Norteadora\"\n        class=\"mb-12 callout callout-info\"\n      >\n        <h3 class=\"font-bold text-lg mb-2\">\n          <i class=\"fa-solid fa-question-circle mr-2\"></i>Pergunta Norteadora\n        </h3>\n        <p>\n          Por que uma rede social como o Instagram precisa se atualizar\n          constantemente, enquanto as regras do xadrez permanecem as mesmas por\n          séculos? O que isso nos diz sobre os diferentes tipos de sistemas?\n        </p>\n      </section>\n\n      <!-- Seção: Contexto Inicial -->\n      <section\n        id=\"contexto\"\n        aria-label=\"Contexto Inicial\"\n        class=\"mb-12 bg-white p-8 rounded-lg shadow prose prose-slate max-w-none lg:prose-lg\"\n      >\n        <h2 class=\"text-3xl font-semibold text-slate-800 mb-4\">\n          🗂️ Por que Classificar Sistemas?\n        </h2>\n        <p>\n          Depois de entendermos a anatomia de um sistema, o próximo passo é\n          aprender a classificá-lo. Assim como um biólogo classifica os seres\n          vivos para entender seus comportamentos e relações, um analista de\n          sistemas classifica os sistemas para prever seu comportamento,\n          entender suas necessidades e escolher a melhor abordagem para\n          projetá-los ou gerenciá-los. A TGS de Bertalanffy nos deu a base para\n          entender as organizações como sistemas abertos, e essa classificação é\n          a ferramenta que usamos para modelá-los.\n        </p>\n        <p>\n          Saber se um sistema de informação, como um ERP ou um CRM, é\n          <strong>aberto</strong> ou <strong>fechado</strong>,\n          <strong>dinâmico</strong> ou <strong>estável</strong>, nos ajuda a\n          tomar decisões cruciais. Um sistema dinâmico, por exemplo, exigirá uma\n          arquitetura de software flexível e escalável, enquanto um sistema\n          estável pode priorizar a segurança e a robustez. Esta aula nos dará as\n          ferramentas para fazer essa diferenciação.\n        </p>\n      </section>\n\n      <!-- Seção: Classificação de Sistemas -->\n      <section\n        id=\"classificacao\"\n        aria-label=\"Classificação de Sistemas\"\n        class=\"mb-12\"\n      >\n        <h2\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          Tabela Comparativa de Tipos de Sistemas\n        </h2>\n        <div class=\"overflow-x-auto bg-white p-6 rounded-lg shadow\">\n          <table class=\"min-w-full text-left text-sm font-light\">\n            <thead class=\"border-b font-medium bg-slate-100\">\n              <tr>\n                <th scope=\"col\" class=\"px-6 py-4\">Critério</th>\n                <th scope=\"col\" class=\"px-6 py-4\">Tipo 1</th>\n                <th scope=\"col\" class=\"px-6 py-4\">\n                  Característica Principal e Exemplos\n                </th>\n                <th scope=\"col\" class=\"px-6 py-4\">Tipo 2</th>\n                <th scope=\"col\" class=\"px-6 py-4\">\n                  Característica Principal e Exemplos\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr class=\"border-b\">\n                <td class=\"px-6 py-4 font-semibold text-sky-700\">\n                  Interação com o Ambiente\n                </td>\n                <td class=\"px-6 py-4 font-semibold\">Aberto</td>\n                <td class=\"px-6 py-4\">\n                  Troca constante de energia e informação com o ambiente. É\n                  adaptativo. <br /><em\n                    >Ex: Uma empresa (social), o Google Search (SI), um\n                    ecossistema (natural).</em\n                  >\n                </td>\n                <td class=\"px-6 py-4 font-semibold\">Fechado</td>\n                <td class=\"px-6 py-4\">\n                  Interação mínima ou nula com o ambiente. Comportamento\n                  previsível. <br /><em\n                    >Ex: Um relógio de corda (físico), uma reação química\n                    isolada (natural).</em\n                  >\n                </td>\n              </tr>\n              <tr class=\"border-b bg-slate-50\">\n                <td class=\"px-6 py-4 font-semibold text-purple-700\">\n                  Resposta à Mudança\n                </td>\n                <td class=\"px-6 py-4 font-semibold\">Dinâmico</td>\n                <td class=\"px-6 py-4\">\n                  Muda constantemente em resposta a estímulos. É flexível e\n                  evolutivo. <br /><em\n                    >Ex: O app da Uber (SI), o clima (natural), o mercado de\n                    ações (social).</em\n                  >\n                </td>\n                <td class=\"px-6 py-4 font-semibold\">Estável (ou Estático)</td>\n                <td class=\"px-6 py-4\">\n                  Resiste a mudanças e busca manter o equilíbrio (homeostase).\n                  <br /><em\n                    >Ex: As regras do xadrez (social), um sistema de controle de\n                    versão como o Git (SI).</em\n                  >\n                </td>\n              </tr>\n              <tr class=\"border-b\">\n                <td class=\"px-6 py-4 font-semibold text-emerald-700\">\n                  Duração no Tempo\n                </td>\n                <td class=\"px-6 py-4 font-semibold\">Permanente</td>\n                <td class=\"px-6 py-4\">\n                  Projetado para existir por um longo e indeterminado período.\n                  <br /><em\n                    >Ex: Uma universidade (social), um sistema operacional como\n                    o Windows (SI).</em\n                  >\n                </td>\n                <td class=\"px-6 py-4 font-semibold\">Temporário</td>\n                <td class=\"px-6 py-4\">\n                  Criado com um propósito específico e um ciclo de vida\n                  definido. <br /><em\n                    >Ex: Um projeto de software (SI), a organização de um evento\n                    (social).</em\n                  >\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n\n      <!-- Seção: Aplicação em SI (CORRIGIDA) -->\n      <section\n        id=\"aplicacao-si\"\n        aria-label=\"Aplicação em Sistemas de Informação\"\n        class=\"mb-12\"\n      >\n        <h2\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          📌 Aplicação em Sistemas de Informação\n        </h2>\n        <!-- Container para o estilo de caixa (fundo, sombra, padding) -->\n        <div class=\"bg-white aula-card p-8 rounded-lg shadow\">\n          <!-- Container para o conteúdo com estilos manuais -->\n          <div>\n            <p class=\"text-lg leading-relaxed text-slate-700 mb-4\">\n              A classificação de um sistema não é um exercício puramente\n              acadêmico; ela tem implicações diretas no design e na arquitetura\n              de software.\n            </p>\n            <ul class=\"list-disc list-inside space-y-4 text-slate-700\">\n              <li>\n                <strong class=\"text-slate-900\"\n                  >Sistemas Abertos e Dinâmicos</strong\n                >\n                (ex: redes sociais, e-commerce) exigem\n                <strong>alta escalabilidade e interoperabilidade</strong>. A\n                arquitetura de microsserviços e o uso intensivo de APIs são\n                abordagens comuns, pois permitem que partes do sistema evoluam\n                de forma independente e se conectem facilmente a serviços\n                externos. A segurança precisa lidar com inúmeras interações\n                externas.\n              </li>\n              <li>\n                <strong class=\"text-slate-900\"\n                  >Sistemas Fechados e Estáveis</strong\n                >\n                (ex: sistema de controle de um avião, software de uma urna\n                eletrônica) priorizam\n                <strong>segurança, confiabilidade e robustez</strong>. A\n                arquitetura tende a ser mais monolítica e controlada, com testes\n                exaustivos para garantir um comportamento previsível e sem\n                falhas. A interoperabilidade é limitada e rigidamente\n                controlada.\n              </li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <!-- Seção: Erros Comuns -->\n      <section\n        id=\"erros-comuns\"\n        aria-label=\"Erros Comuns na Classificação\"\n        class=\"mb-12\"\n      >\n        <h2\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-6\"\n        >\n          🚨 Erros Comuns na Classificação\n        </h2>\n        <div class=\"space-y-6\">\n          <div\n            class=\"flex items-start bg-white p-6 rounded-lg shadow-sm border border-slate-200\"\n          >\n            <i\n              class=\"fa-solid fa-door-closed text-2xl text-red-500 mt-1 mr-4\"\n            ></i>\n            <div>\n              <h3 class=\"font-bold text-slate-800\">\n                Confusão entre Aberto e Fechado em Software\n              </h3>\n              <p class=\"text-slate-600\">\n                Nenhum software é 100% fechado; ele sempre roda em um ambiente\n                (sistema operacional). A classificação depende do\n                <strong>grau</strong> de interação. Um sistema de backoffice com\n                poucas integrações é \"relativamente fechado\" em comparação com\n                uma API pública.\n              </p>\n            </div>\n          </div>\n          <div\n            class=\"flex items-start bg-white p-6 rounded-lg shadow-sm border border-slate-200\"\n          >\n            <i class=\"fa-solid fa-wind text-2xl text-yellow-500 mt-1 mr-4\"></i>\n            <div>\n              <h3 class=\"font-bold text-slate-800\">\n                Assumir que todo sistema dinâmico é caótico\n              </h3>\n              <p class=\"text-slate-600\">\n                Sistemas dinâmicos mudam, mas isso não significa que não tenham\n                regras. O algoritmo do Google Search é extremamente dinâmico,\n                mas opera com base em regras de ranqueamento muito bem\n                definidas.\n              </p>\n            </div>\n          </div>\n          <div\n            class=\"flex items-start bg-white p-6 rounded-lg shadow-sm border border-slate-200\"\n          >\n            <i\n              class=\"fa-solid fa-infinity text-2xl text-blue-500 mt-1 mr-4\"\n            ></i>\n            <div>\n              <h3 class=\"font-bold text-slate-800\">\n                Não identificar a mudança de classificação\n              </h3>\n              <p class=\"text-slate-600\">\n                Um sistema pode mudar sua natureza ao longo do tempo. Um projeto\n                de software (temporário) pode se tornar um produto de sucesso\n                que exige manutenção contínua (permanente).\n              </p>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      <!-- Metodologia Ativa -->\n      <section\n        id=\"metodologia-ativa\"\n        aria-label=\"Metodologia Ativa: Estudo de Caso\"\n        class=\"mb-12 callout callout-practice\"\n      >\n        <h2 class=\"text-2xl font-bold mb-4\">\n          <i class=\"fa-solid fa-users mr-2\"></i>Metodologia Ativa: Estudo de\n          Caso em Grupo\n        </h2>\n        <p class=\"mb-4\">\n          Agora é a hora de aplicar o conhecimento! Vamos nos dividir em grupos\n          para analisar sistemas do mundo real.\n        </p>\n        <div class=\"bg-white/50 p-4 rounded-md\">\n          <p class=\"font-semibold\">Passo a Passo da Atividade:</p>\n          <ol class=\"list-decimal list-inside mt-2 space-y-2\">\n            <li><strong>Formem grupos</strong> de 3 a 4 pessoas.</li>\n            <li>\n              <strong>Escolham um sistema</strong> para analisar a partir das\n              opções: <strong>sistema bancário</strong>,\n              <strong>sistema de uma escola/faculdade</strong>,\n              <strong>aplicativo de delivery</strong> ou\n              <strong>sistema de transporte público</strong>.\n            </li>\n            <li>\n              <strong>Classifiquem o sistema escolhido</strong> usando os três\n              critérios que aprendemos.\n            </li>\n            <li>\n              <strong>Preparem uma justificativa clara</strong> para cada\n              classificação, usando exemplos práticos.\n            </li>\n            <li>\n              <strong>Apresentem para a turma:</strong> Cada grupo terá um tempo\n              para apresentar sua análise e conclusões.\n            </li>\n          </ol>\n        </div>\n      </section>\n\n      <!-- Seção: Tarefa (TED) -->\n      <section\n        id=\"tarefa\"\n        aria-label=\"Tarefa da Aula\"\n        class=\"mb-12 prose prose-slate max-w-none lg:prose-lg\"\n      >\n        <h2\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-4\"\n        >\n          📝 Tarefa (TED): Análise Comparativa\n        </h2>\n        <div class=\"bg-white aula-card p-8 rounded-lg shadow not-prose\">\n          <p class=\"text-lg leading-relaxed mb-4\">\n            Para a próxima aula, você deverá fazer uma análise comparativa de\n            dois sistemas com naturezas distintas.\n          </p>\n          <div class=\"bg-slate-50 p-4 rounded-md\">\n            <p class=\"font-semibold\">Instruções:</p>\n            <ol class=\"list-decimal list-inside mt-2 space-y-2\">\n              <li>\n                Escolha dois sistemas que você usa: um que seja\n                <strong>aberto e dinâmico</strong> (ex: uma rede social) e outro\n                que seja mais <strong>fechado e estável</strong> (ex: um editor\n                de texto offline).\n              </li>\n              <li>\n                Para cada um, classifique-o e justifique sua escolha com\n                exemplos.\n              </li>\n              <li>\n                Compare os dois, destacando como suas naturezas diferentes\n                impactam a sua experiência como usuário.\n              </li>\n              <li>\n                (Opcional) Crie um mini-diagrama ou tabela para ilustrar sua\n                comparação.\n              </li>\n              <li>\n                (Reflexão) Se você fosse projetar um novo recurso para o sistema\n                dinâmico, que cuidados teria que tomar em relação à arquitetura\n                e ao banco de dados?\n              </li>\n            </ol>\n          </div>\n          <p class=\"mt-4 font-semibold\">\n            <strong>Entrega:</strong> Poste seu relato escrito no fórum da\n            disciplina no Moodle.\n          </p>\n        </div>\n      </section>\n\n      <!-- Mini-Quiz de Autoavaliação -->\n      <section id=\"quiz\" class=\"mb-12\" aria-label=\"Quiz de Autoavaliação\">\n        <h2\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-6\"\n        >\n          🧐 Mini-Quiz de Autoavaliação\n        </h2>\n        <div class=\"space-y-4\">\n          <details>\n            <summary>\n              1. Uma organização empresarial é um exemplo clássico de qual tipo\n              de sistema?\n            </summary>\n            <div class=\"quiz-answer\">\n              <p>\n                <strong>Resposta:</strong> Aberto e Dinâmico. Aberto porque\n                interage constantemente com clientes, fornecedores e o mercado.\n                Dinâmico porque precisa se adaptar às mudanças para sobreviver e\n                crescer.\n              </p>\n            </div>\n          </details>\n          <details>\n            <summary>\n              2. O sistema de regras de um jogo de tabuleiro, como o Banco\n              Imobiliário, é melhor classificado como:\n            </summary>\n            <div class=\"quiz-answer\">\n              <p>\n                <strong>Resposta:</strong> Estável. As regras são fixas e não\n                mudam durante o jogo, garantindo o equilíbrio e a\n                previsibilidade.\n              </p>\n            </div>\n          </details>\n          <details>\n            <summary>\n              3. Verdadeiro ou Falso: Um projeto para desenvolver um novo\n              aplicativo para a Copa do Mundo de 2026 é um exemplo de sistema\n              permanente.\n            </summary>\n            <div class=\"quiz-answer\">\n              <p>\n                <strong>Resposta:</strong> Falso. É um sistema temporário, pois\n                tem um objetivo claro e um prazo definido para terminar (o fim\n                do evento).\n              </p>\n            </div>\n          </details>\n        </div>\n      </section>\n\n      <!-- Seção: Bibliografia -->\n      <section\n        id=\"bibliografia\"\n        aria-label=\"Bibliografia\"\n        class=\"prose prose-slate max-w-none lg:prose-lg\"\n      >\n        <h2\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-4\"\n        >\n          📚 Bibliografia\n        </h2>\n        <div class=\"bg-white aula-card p-8 rounded-lg shadow space-y-4 not-prose\">\n          <p>\n            <strong>STAIR, Ralph M.; REYNOLDS, George W.</strong>\n            <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo:\n            Cengage Learning, 2021.\n          </p>\n          <p>\n            <strong>LAUDON, Kenneth C.; LAUDON, Jane P.</strong>\n            <em>Sistemas de Informação Gerenciais.</em> 11. ed. São Paulo:\n            Pearson Prentice Hall, 2014.\n          </p>\n          <p>\n            <strong>PALMISANO, Angelo; ROSINI, Alessandro Marco.</strong>\n            <em\n              >Administração de sistemas de informação e a gestão do\n              conhecimento.</em\n            >\n            2. ed. São Paulo: Cengage Learning, 2012.\n          </p>\n          <p>\n            <strong>BERTALANFFY, Ludwig von.</strong>\n            <em>Teoria Geral dos Sistemas.</em> Petrópolis: Vozes, 2008.\n          </p>\n          <p>\n            <strong>CHIAVENATO, Idalberto.</strong>\n            <em>Introdução à teoria geral da administração.</em> 9. ed. Barueri:\n            Manole, 2014.\n          </p>\n        </div>\n      </section>\n          </div>\n    </main>\n\n    <!-- Rodapé -->\n    <footer class=\"bg-slate-800 text-white mt-12\" role=\"contentinfo\">\n      <div class=\"container mx-auto px-6 py-4 text-center\">\n        <p>&copy; 2025 - Disciplina de Teoria Geral de Sistemas</p>\n        <p class=\"text-sm text-slate-400\">\n          Material desenvolvido para o curso de Sistemas de Informação.\n        </p>\n      </div>\n    </footer>\n  </body>\n</html>\n"
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Unidade I – Definição e Tipos de Sistemas. Tipos de sistemas: abertos x fechados, estáveis x dinâmicos, permanentes x temporários."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO ESPECÍFICO",
+          "content": "Diferenciar os tipos de sistemas a partir de suas características principais e analisar exemplos de sua aplicação prática em diferentes contextos organizacionais."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA E RECURSOS",
+          "content": "Estudo de caso em grupo (metodologia ativa) para análise de sistemas reais, com uso de quadro ou lousa digital."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta Norteadora",
+      "content": "Por que uma rede social como o Instagram precisa se atualizar constantemente, enquanto as regras do xadrez permanecem as mesmas por séculos? O que isso nos diz sobre os diferentes tipos de sistemas?"
+    },
+    {
+      "type": "contentBlock",
+      "title": "🗂️ Por que Classificar Sistemas?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Depois de entendermos a anatomia de um sistema, o próximo passo é aprender a classificá-lo. Assim como um biólogo classifica os seres vivos para entender seus comportamentos e relações, um analista de sistemas classifica os sistemas para prever seu comportamento, entender suas necessidades e escolher a melhor abordagem para projetá-los ou gerenciá-los. A TGS de Bertalanffy nos deu a base para entender as organizações como sistemas abertos, e essa classificação é a ferramenta que usamos para modelá-los."
+        },
+        {
+          "type": "paragraph",
+          "text": "Saber se um sistema de informação, como um ERP ou um CRM, é <strong>aberto</strong> ou <strong>fechado</strong>, <strong>dinâmico</strong> ou <strong>estável</strong>, nos ajuda a tomar decisões cruciais. Um sistema dinâmico, por exemplo, exigirá uma arquitetura de software flexível e escalável, enquanto um sistema estável pode priorizar a segurança e a robustez. Esta aula nos dará as ferramentas para fazer essa diferenciação."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Tabela Comparativa de Tipos de Sistemas",
+      "headers": [
+        "Critério",
+        "Tipo 1",
+        "Característica Principal e Exemplos",
+        "Tipo 2",
+        "Característica Principal e Exemplos"
+      ],
+      "rows": [
+        [
+          "Interação com o Ambiente",
+          "Aberto",
+          "Troca constante de energia e informação com o ambiente. É adaptativo. <br><em>Ex: Uma empresa (social), o Google Search (SI), um ecossistema (natural).</em>",
+          "Fechado",
+          "Interação mínima ou nula com o ambiente. Comportamento previsível. <br><em>Ex: Um relógio de corda (físico), uma reação química isolada (natural).</em>"
+        ],
+        [
+          "Resposta à Mudança",
+          "Dinâmico",
+          "Muda constantemente em resposta a estímulos. É flexível e evolutivo. <br><em>Ex: O app da Uber (SI), o clima (natural), o mercado de ações (social).</em>",
+          "Estável (ou Estático)",
+          "Resiste a mudanças e busca manter o equilíbrio (homeostase). <br><em>Ex: As regras do xadrez (social), um sistema de controle de versão como o Git (SI).</em>"
+        ],
+        [
+          "Duração no Tempo",
+          "Permanente",
+          "Projetado para existir por um longo e indeterminado período. <br><em>Ex: Uma universidade (social), um sistema operacional como o Windows (SI).</em>",
+          "Temporário",
+          "Criado com um propósito específico e um ciclo de vida definido. <br><em>Ex: Um projeto de software (SI), a organização de um evento (social).</em>"
+        ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📌 Aplicação em Sistemas de Informação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A classificação de um sistema não é um exercício puramente acadêmico; ela tem implicações diretas no design e na arquitetura de software."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong class=\"text-slate-900\">Sistemas Abertos e Dinâmicos</strong> (ex: redes sociais, e-commerce) exigem <strong>alta escalabilidade e interoperabilidade</strong>. A arquitetura de microsserviços e o uso intensivo de APIs são abordagens comuns, pois permitem que partes do sistema evoluam de forma independente e se conectem facilmente a serviços externos. A segurança precisa lidar com inúmeras interações externas.",
+            "<strong class=\"text-slate-900\">Sistemas Fechados e Estáveis</strong> (ex: sistema de controle de um avião, software de uma urna eletrônica) priorizam <strong>segurança, confiabilidade e robustez</strong>. A arquitetura tende a ser mais monolítica e controlada, com testes exaustivos para garantir um comportamento previsível e sem falhas. A interoperabilidade é limitada e rigidamente controlada."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🚨 Erros Comuns na Classificação",
+      "cards": [
+        {
+          "title": "Confusão entre Aberto e Fechado em Software",
+          "content": "Nenhum software é 100% fechado; ele sempre roda em um ambiente (sistema operacional). A classificação depende do <strong>grau</strong> de interação. Um sistema de backoffice com poucas integrações é \"relativamente fechado\" em comparação com uma API pública."
+        },
+        {
+          "title": "Assumir que todo sistema dinâmico é caótico",
+          "content": "Sistemas dinâmicos mudam, mas isso não significa que não tenham regras. O algoritmo do Google Search é extremamente dinâmico, mas opera com base em regras de ranqueamento muito bem definidas."
+        },
+        {
+          "title": "Não identificar a mudança de classificação",
+          "content": "Um sistema pode mudar sua natureza ao longo do tempo. Um projeto de software (temporário) pode se tornar um produto de sucesso que exige manutenção contínua (permanente)."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "<i class=\"fa-solid fa-users mr-2\"></i>Metodologia Ativa: Estudo de Caso em Grupo",
+      "content": "<p>Agora é a hora de aplicar o conhecimento! Vamos nos dividir em grupos para analisar sistemas do mundo real.</p><div class=\"bg-white/50 p-4 rounded-md\"><p class=\"font-semibold\">Passo a Passo da Atividade:</p><ol class=\"list-decimal list-inside mt-2 space-y-2\"><li><strong>Formem grupos</strong> de 3 a 4 pessoas.</li><li><strong>Escolham um sistema</strong> para analisar a partir das opções: <strong>sistema bancário</strong>, <strong>sistema de uma escola/faculdade</strong>, <strong>aplicativo de delivery</strong> ou <strong>sistema de transporte público</strong>.</li><li><strong>Classifiquem o sistema escolhido</strong> usando os três critérios que aprendemos.</li><li><strong>Preparem uma justificativa clara</strong> para cada classificação, usando exemplos práticos.</li><li><strong>Apresentem para a turma:</strong> Cada grupo terá um tempo para apresentar sua análise e conclusões.</li></ol></div>"
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Análise Comparativa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para a próxima aula, você deverá fazer uma análise comparativa de dois sistemas com naturezas distintas."
+        },
+        {
+          "type": "list",
+          "title": "Instruções:",
+          "items": [
+            "Escolha dois sistemas que você usa: um que seja <strong>aberto e dinâmico</strong> (ex: uma rede social) e outro que seja mais <strong>fechado e estável</strong> (ex: um editor de texto offline).",
+            "Para cada um, classifique-o e justifique sua escolha com exemplos.",
+            "Compare os dois, destacando como suas naturezas diferentes impactam a sua experiência como usuário.",
+            "(Opcional) Crie um mini-diagrama ou tabela para ilustrar sua comparação.",
+            "(Reflexão) Se você fosse projetar um novo recurso para o sistema dinâmico, que cuidados teria que tomar em relação à arquitetura e ao banco de dados?"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Entrega:</strong> Poste seu relato escrito no fórum da disciplina no Moodle."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "items": [
+        {
+          "title": "1. Uma organização empresarial é um exemplo clássico de qual tipo de sistema?",
+          "content": "<strong>Resposta:</strong> Aberto e Dinâmico. Aberto porque interage constantemente com clientes, fornecedores e o mercado. Dinâmico porque precisa se adaptar às mudanças para sobreviver e crescer."
+        },
+        {
+          "title": "2. O sistema de regras de um jogo de tabuleiro, como o Banco Imobiliário, é melhor classificado como:",
+          "content": "<strong>Resposta:</strong> Estável. As regras são fixas e não mudam durante o jogo, garantindo o equilíbrio e a previsibilidade."
+        },
+        {
+          "title": "3. Verdadeiro ou Falso: Um projeto para desenvolver um novo aplicativo para a Copa do Mundo de 2026 é um exemplo de sistema permanente.",
+          "content": "<strong>Resposta:</strong> Falso. É um sistema temporário, pois tem um objetivo claro e um prazo definido para terminar (o fim do evento)."
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "<strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021.",
+        "<strong>LAUDON, Kenneth C.; LAUDON, Jane P.</strong> <em>Sistemas de Informação Gerenciais.</em> 11. ed. São Paulo: Pearson Prentice Hall, 2014.",
+        "<strong>PALMISANO, Angelo; ROSINI, Alessandro Marco.</strong> <em>Administração de sistemas de informação e a gestão do conhecimento.</em> 2. ed. São Paulo: Cengage Learning, 2012.",
+        "<strong>BERTALANFFY, Ludwig von.</strong> <em>Teoria Geral dos Sistemas.</em> Petrópolis: Vozes, 2008.",
+        "<strong>CHIAVENATO, Idalberto.</strong> <em>Introdução à teoria geral da administração.</em> 9. ed. Barueri: Manole, 2014."
+      ]
     }
   ]
 }

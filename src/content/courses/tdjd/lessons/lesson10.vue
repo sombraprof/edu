@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson10',
-  title: 'Aula 10: Monetização',
+  title: 'Aula 10: Fundamentos de C# na Unity',
   available: true,
 };
 </script>

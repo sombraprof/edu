@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson11',
-  title: 'Aula 11: Publicação',
+  title: 'Aula 11: Métodos, Eventos e Corrotinas',
   available: true,
 };
 </script>

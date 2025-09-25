@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson9',
-  title: 'Aula 9: Multiplayer',
+  title: 'Aula 9: Consolidação de Protótipo e GDD',
   available: true,
 };
 </script>

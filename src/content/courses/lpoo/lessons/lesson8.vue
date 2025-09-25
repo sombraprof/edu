@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson8',
-  title: 'Aula 8: Tratamento de Exceções',
+  title: 'Aula 8: Projeto Prático - Sistema Bancário',
   available: true,
 };
 </script>

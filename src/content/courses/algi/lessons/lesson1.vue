@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson1',
-  title: 'Aula 1: Apresentação e Lógica',
+  title: 'Aula 1: Introdução à Lógica e Algoritmos',
   objective:
     'O objetivo desta aula é conhecer o plano de ensino e entender a lógica como a base para criar soluções computacionais.',
   available: true,

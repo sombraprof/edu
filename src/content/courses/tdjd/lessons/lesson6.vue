@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson6',
-  title: 'Aula 6: Programação Básica',
+  title: 'Aula 6: Importação de Assets e Organização de Projeto',
   available: true,
 };
 </script>

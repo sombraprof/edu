@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson7',
-  title: 'Aula 7: Interfaces e Classes Abstratas',
+  title: 'Aula 7: Classes Abstratas e Interfaces',
   available: true,
 };
 </script>

@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson5',
-  title: 'Aula 5: Unidade I – Layouts e Views',
+  title: 'Aula 5: Unidade I – Manipulação de Eventos e Uso de Logcat',
   available: true,
 };
 </script>

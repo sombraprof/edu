@@ -1,11 +1,279 @@
 {
   "id": "lesson8",
-  "title": "Aula 8: IA e Comportamentos",
-  "objective": "",
+  "title": "Aula 8: Level Design com ProBuilder",
+  "objective": "Desenvolver habilidades na construção de ambientes 3D com ProBuilder, aplicando princípios de usabilidade e teste iterativo de cenário.",
   "content": [
     {
-      "type": "html",
-      "html": "<!DOCTYPE html>\n<html lang=\"pt-BR\" class=\"scroll-smooth\">\n  <head>\n    <!-- Essential Meta Tags -->\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>TDJD - Aula 8: Level Design com ProBuilder</title>\n    <meta\n      name=\"description\"\n      content=\"Unidade II – Fundamentos da Unity e Prototipagem. Aula prática sobre level design com ProBuilder, criação de estruturas, colisores e espaços interativos.\"\n    />\n    <meta name=\"author\" content=\"Prof. Tiago Guimarães Sombra\" />\n    <meta\n      name=\"keywords\"\n      content=\"Unity, ProBuilder, Level Design, Blockout, Prototipagem, Game Design\"\n    />\n\n    <!-- Open Graph / Facebook -->\n    <meta property=\"og:type\" content=\"website\" />\n    <meta property=\"og:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta\n      property=\"og:title\"\n      content=\"TDJD - Aula 8: Level Design com ProBuilder\"\n    />\n    <meta\n      property=\"og:description\"\n      content=\"Aprenda a construir ambientes 3D, aplicando princípios de usabilidade, navegação e teste iterativo de cenários com ProBuilder na Unity.\"\n    />\n    <meta\n      property=\"og:image\"\n      content=\"https://placehold.co/1200x630/0284c7/ffffff?text=TDJD\\nAula+8\"\n    />\n\n    <!-- Twitter -->\n    <meta property=\"twitter:card\" content=\"summary_large_image\" />\n    <meta property=\"twitter:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta\n      property=\"twitter:title\"\n      content=\"TDJD - Aula 8: Level Design com ProBuilder\"\n    />\n    <meta\n      property=\"twitter:description\"\n      content=\"Aprenda a construir ambientes 3D, aplicando princípios de usabilidade, navegação e teste iterativo de cenários com ProBuilder na Unity.\"\n    />\n    <meta\n      property=\"twitter:image\"\n      content=\"https://placehold.co/1200x630/0284c7/ffffff?text=TDJD\\nAula+8\"\n    />\n\n    <!-- CDN Links -->\n    <script src=\"https://cdn.tailwindcss.com?plugins=typography\"></script>\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n    <link\n      href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap\"\n      rel=\"stylesheet\"\n    />\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"\n    />\n\n    <!-- Custom Styles -->\n    <style>\n      body {\n        font-family: \"Inter\", sans-serif;\n        background-color: #f8fafc;\n        /* bg-slate-50 */\n        padding-top: 60px;\n        /* Space for fixed navbar */\n      }\n\n      .callout {\n        border-left-width: 4px;\n        padding: 1.5rem;\n        margin: 1.5rem 0;\n        border-radius: 0.5rem;\n      }\n\n      .callout-info {\n        background-color: #f0f9ff;\n        /* bg-sky-50 */\n        border-color: #7dd3fc;\n        /* border-sky-300 */\n        color: #0c4a6e;\n        /* text-sky-800 */\n      }\n\n      .callout-practice {\n        background-color: #f0fdf4;\n        /* bg-emerald-50 */\n        border-color: #6ee7b7;\n        /* border-emerald-300 */\n        color: #065f46;\n        /* text-emerald-800 */\n      }\n\n      .callout-warning {\n        background-color: #fffbeb; /* bg-amber-50 */\n        border-color: #fcd34d; /* border-amber-300 */\n        color: #92400e; /* text-amber-800 */\n      }\n    </style>\n  </head>\n\n  <body class=\"text-slate-800\">\n    <!-- Fixed Navigation Menu -->\n    <nav\n      class=\"bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50\"\n      role=\"navigation\"\n      aria-label=\"Navegação Principal\"\n    >\n      <div class=\"container mx-auto px-6\">\n        <div class=\"flex justify-between items-center h-16\">\n          <span class=\"text-lg font-bold text-sky-700\">TDJD - Aula 8</span>\n          <div class=\"hidden md:flex space-x-4 text-sm font-semibold\">\n            <a href=\"#plano-aula\" class=\"text-slate-600 hover:text-sky-600\"\n              >Plano</a\n            >\n            <a href=\"#principios-ld\" class=\"text-slate-600 hover:text-sky-600\"\n              >Princípios</a\n            >\n            <a\n              href=\"#probuilder-avancado\"\n              class=\"text-slate-600 hover:text-sky-600\"\n              >ProBuilder</a\n            >\n            <a href=\"#playtesting\" class=\"text-slate-600 hover:text-sky-600\"\n              >Playtesting</a\n            >\n            <a href=\"#tarefa\" class=\"text-slate-600 hover:text-sky-600\">TED</a>\n            <a href=\"#recursos\" class=\"text-slate-600 hover:text-sky-600\"\n              >Recursos</a\n            >\n          </div>\n        </div>\n      </div>\n    </nav>\n\n    <!-- Page Header -->\n    <header class=\"bg-slate-800 shadow-md relative\">\n      <div\n        class=\"w-full h-48 bg-gradient-to-r from-sky-800 to-cyan-900 opacity-80\"\n      ></div>\n      <div\n        class=\"container mx-auto px-6 py-8 absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/70 to-transparent\"\n      >\n        <h1 class=\"text-4xl font-bold text-white\">\n          Aula 8: Level Design com ProBuilder\n        </h1>\n        <p class=\"text-xl text-slate-300 mt-2\">\n          Unidade II – Fundamentos da Unity e Prototipagem\n        </p>\n      </div>\n    </header>\n\n    <!-- Main Content Area -->\n    <main class=\"container mx-auto px-6 py-10\" role=\"main\">\n      <!-- Section: Lesson Plan -->\n      <section\n        id=\"plano-aula\"\n        aria-labelledby=\"plano-aula-heading\"\n        class=\"mb-12 bg-sky-50 border border-sky-200 p-8 rounded-2xl shadow-lg\"\n      >\n        <h2\n          id=\"plano-aula-heading\"\n          class=\"text-3xl font-bold text-sky-700 mb-6 text-center\"\n        >\n          Plano da Aula\n        </h2>\n        <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6\">\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-sky-800 mb-2\">\n              <i class=\"fa-solid fa-book-open mr-2\"></i>CONTEÚDO\n            </h3>\n            <p class=\"text-slate-600 mt-1 text-sm\">\n              Level design com ProBuilder: criação de estruturas, colisores,\n              navegação e espaços interativos. Teste e refinamento de layouts.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-sky-800 mb-2\">\n              <i class=\"fa-solid fa-bullseye mr-2\"></i>OBJETIVO\n            </h3>\n            <p class=\"text-slate-600 text-sm\">\n              Desenvolver habilidades na construção de ambientes 3D com\n              ProBuilder, aplicando princípios de usabilidade e teste iterativo\n              de cenário.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-sky-800 mb-2\">\n              <i class=\"fa-solid fa-gears mr-2\"></i>METODOLOGIA\n            </h3>\n            <p class=\"text-slate-600 text-sm\">\n              Aula prática com orientação por desafios (metodologia ativa:\n              hands-on com feedback em tempo real).\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Section: Introduction to Level Design -->\n      <section\n        id=\"introducao\"\n        aria-labelledby=\"intro-heading\"\n        class=\"mb-12 bg-white p-8 rounded-lg shadow\"\n      >\n        <h2\n          id=\"intro-heading\"\n          class=\"text-3xl font-semibold text-slate-800 mb-4\"\n        >\n          Arquitetura da Diversão: Introdução ao Level Design\n        </h2>\n        <div class=\"text-slate-700 leading-relaxed space-y-4\">\n          <p>\n            Na aula anterior, aprendemos a conceituar um jogo com o GDD e a\n            criar formas básicas com ProBuilder. Hoje, vamos aprofundar o uso\n            dessa ferramenta para praticar o <strong>Level Design</strong> — a\n            arte e a ciência de criar os ambientes, fases e missões de um jogo.\n          </p>\n          <blockquote\n            class=\"text-lg italic text-slate-600 border-l-4 border-sky-300 pl-4\"\n          >\n            \"Um bom level design guia o jogador sutilmente, fazendo-o sentir-se\n            inteligente e poderoso. Ele não apenas cria um espaço, mas também\n            dita o ritmo da experiência.\"\n            <footer class=\"text-base not-italic text-slate-500 mt-2\">\n              — Adaptado de Schuytema, \"Design de games: uma abordagem prática\"\n            </footer>\n          </blockquote>\n          <p>\n            O objetivo é ir além da simples construção de \"caixas\". Vamos\n            aprender a pensar como arquitetos de experiências, usando o\n            ProBuilder para criar espaços que contam histórias, propõem desafios\n            e, acima de tudo, são divertidos de navegar.\n          </p>\n        </div>\n      </section>\n\n      <!-- Section: Principles of Level Design -->\n      <section\n        id=\"principios-ld\"\n        aria-labelledby=\"ld-principles-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"ld-principles-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          <i class=\"fa-solid fa-lightbulb mr-2\"></i>Princípios do Bom Level\n          Design\n        </h2>\n        <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6\">\n          <div class=\"bg-white p-4 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800\">Fluxo do Jogador</h4>\n            <p class=\"text-sm text-slate-600\">\n              Guiar o jogador de forma intuitiva pelo cenário, usando luz, cor e\n              composição para indicar o caminho.\n            </p>\n          </div>\n          <div class=\"bg-white p-4 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800\">Pontos de Interesse</h4>\n            <p class=\"text-sm text-slate-600\">\n              Criar marcos visuais (landmarks) que ajudam na orientação e\n              despertam a curiosidade para a exploração.\n            </p>\n          </div>\n          <div class=\"bg-white p-4 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800\">Ritmo e Cadência</h4>\n            <p class=\"text-sm text-slate-600\">\n              Alternar entre momentos de alta tensão (combate, puzzles difíceis)\n              e de calma (exploração, narrativa).\n            </p>\n          </div>\n          <div class=\"bg-white p-4 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800\">Risco vs. Recompensa</h4>\n            <p class=\"text-sm text-slate-600\">\n              Oferecer desafios opcionais mais difíceis que recompensam o\n              jogador com itens ou segredos valiosos.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Section: Principles of Level Design (Aprofundada) -->\n      <section\n        id=\"principios-ld\"\n        aria-labelledby=\"ld-principles-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"ld-principles-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          <i class=\"fa-solid fa-lightbulb mr-2\"></i>Princípios do Bom Level\n          Design (Aprofundada)\n        </h2>\n\n        <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8\">\n          <!-- Fluxo -->\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800 mb-2\">Fluxo do Jogador</h4>\n            <p class=\"text-sm text-slate-600 leading-relaxed\">\n              O <strong>fluxo</strong> é a sensação de progressão natural pelo\n              cenário. O level design deve usar <em>pistas visuais</em> (luz,\n              cor, contraste, sons) para guiar o jogador sem precisar de setas\n              ou tutoriais explícitos. <br /><br />\n              <em>Exemplo:</em> Em <strong>Portal (2007)</strong>, as áreas\n              brancas indicam onde o jogador pode abrir portais, guiando a\n              progressão intuitivamente.\n            </p>\n          </div>\n\n          <!-- Pontos de Interesse -->\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800 mb-2\">\n              Pontos de Interesse (Landmarks)\n            </h4>\n            <p class=\"text-sm text-slate-600 leading-relaxed\">\n              Os <em>landmarks</em> funcionam como faróis no espaço: uma torre,\n              uma montanha, uma estátua. Eles ajudam na\n              <strong>orientação espacial</strong> e despertam curiosidade.\n              <br /><br />\n              <em>Exemplo:</em> Em\n              <strong>Shadow of the Colossus (2005)</strong>, os colossos\n              visíveis à distância orientam e atraem o jogador.\n            </p>\n          </div>\n\n          <!-- Ritmo e Cadência -->\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800 mb-2\">Ritmo e Cadência</h4>\n            <p class=\"text-sm text-slate-600 leading-relaxed\">\n              Alternar <strong>momentos de tensão e de respiro</strong> é\n              essencial. Bons níveis criam uma “montanha-russa” de emoções. O\n              jogador não pode estar sempre em combate intenso, nem só\n              explorando calmamente. <br /><br />\n              <em>Exemplo:</em> Em <strong>Half-Life 2 (2004)</strong>, os\n              corredores apertados criam tensão que se abre em arenas com maior\n              liberdade.\n            </p>\n          </div>\n\n          <!-- Risco vs Recompensa -->\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h4 class=\"font-bold text-sky-800 mb-2\">Risco vs. Recompensa</h4>\n            <p class=\"text-sm text-slate-600 leading-relaxed\">\n              Jogadores gostam de <strong>escolhas significativas</strong>. Um\n              caminho arriscado pode oferecer recompensas extras, criando valor\n              na exploração. <br /><br />\n              <em>Exemplo:</em> Em <strong>Dark Souls (2011)</strong>, enfrentar\n              inimigos mais fortes pode render atalhos, itens raros ou um\n              sentimento de conquista.\n            </p>\n          </div>\n        </div>\n\n        <!-- Complemento teórico -->\n        <div class=\"callout callout-info mt-8\" role=\"note\">\n          <h4 class=\"font-bold mb-2\">\n            <i class=\"fa-solid fa-quote-left mr-2\"></i>Citação Relevante\n          </h4>\n          <p class=\"text-sm text-slate-700 leading-relaxed\">\n            \"Um bom level design é invisível: ele guia, ensina e emociona sem\n            que o jogador perceba que está sendo conduzido.\"\n            <span class=\"block text-slate-500 text-xs mt-2\"\n              >— Adaptado de Jesse Schell, <em>The Art of Game Design</em></span\n            >\n          </p>\n        </div>\n      </section>\n\n      <!-- Section: História e Referências -->\n      <section\n        id=\"historia-ld\"\n        aria-labelledby=\"historia-ld-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"historia-ld-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          <i class=\"fa-solid fa-book mr-2\"></i>História e Referências do Level\n          Design\n        </h2>\n        <div\n          class=\"bg-white p-8 rounded-lg shadow space-y-6 text-slate-700 leading-relaxed\"\n        >\n          <p>\n            O conceito de <strong>level design</strong> evoluiu junto com a\n            própria indústria de jogos. Nos anos 80, títulos como\n            <em>Super Mario Bros.</em> (1985) já usavam o design de níveis para\n            ensinar regras sem precisar de tutoriais escritos:\n          </p>\n          <blockquote\n            class=\"italic border-l-4 border-sky-300 pl-4 text-slate-600\"\n          >\n            \"O primeiro nível de Mario é um tutorial invisível — cada obstáculo\n            ensina uma nova habilidade ao jogador.\"\n            <footer class=\"not-italic text-sm text-slate-500\">\n              — Miyamoto, criador da série Mario\n            </footer>\n          </blockquote>\n          <p>\n            A partir dos anos 90, jogos em 3D como <em>Doom</em> (1993) e\n            <em>Half-Life</em> (1998) expandiram as possibilidades, trazendo\n            ritmo, narrativa e exploração. Atualmente, obras como\n            <em>The Last of Us</em> e <em>Dark Souls</em> exemplificam o uso de\n            <em>landmarks</em>, guias visuais e controle de ritmo para criar\n            experiências imersivas.\n          </p>\n          <p>\n            Segundo Paul Schuytema (2008),\n            <em\n              >\"o level design é a ponte entre a mecânica e a emoção do\n              jogador\"</em\n            >, reforçando que não se trata apenas de construir cenários, mas de\n            <strong>arquitetar experiências</strong>.\n          </p>\n        </div>\n      </section>\n\n      <!-- Section: Exemplos Reais -->\n      <section\n        id=\"exemplos-ld\"\n        aria-labelledby=\"exemplos-ld-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"exemplos-ld-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          <i class=\"fa-solid fa-gamepad mr-2\"></i>Exemplos Reais de Level Design\n        </h2>\n        <div\n          class=\"bg-white p-8 rounded-lg shadow space-y-8 text-slate-700 leading-relaxed\"\n        >\n          <!-- Exemplo 1 -->\n          <div>\n            <h3 class=\"font-bold text-sky-800 mb-2\">\n              🎮 Super Mario Bros. (1985)\n            </h3>\n            <p class=\"text-sm\">\n              O primeiro nível é projetado para ensinar movimento, pulo e\n              colisão sem texto. Blocos e inimigos são introduzidos gradualmente\n              para guiar o jogador a experimentar as regras.\n            </p>\n          </div>\n          <!-- Exemplo 2 -->\n          <div>\n            <h3 class=\"font-bold text-sky-800 mb-2\">\n              🎮 The Legend of Zelda: Ocarina of Time (1998)\n            </h3>\n            <p class=\"text-sm\">\n              Introduz o <em>Dungeon Design</em>, onde cada sala ensina uma\n              mecânica que será exigida em puzzles futuros. Esse modelo é\n              referência até hoje para jogos de aventura.\n            </p>\n          </div>\n          <!-- Exemplo 3 -->\n          <div>\n            <h3 class=\"font-bold text-sky-800 mb-2\">🎮 Dark Souls (2011)</h3>\n            <p class=\"text-sm\">\n              Conhecido pelo <em>level design interconectado</em>, onde atalhos\n              e landmarks (como a chama da bonfire) criam uma sensação de\n              descoberta e domínio do espaço. A dificuldade é equilibrada pelo\n              próprio design do cenário.\n            </p>\n          </div>\n          <!-- Exemplo 4 -->\n          <div>\n            <h3 class=\"font-bold text-sky-800 mb-2\">\n              🎮 The Last of Us (2013)\n            </h3>\n            <p class=\"text-sm\">\n              Utiliza o cenário para\n              <strong>contar histórias ambientais</strong> (environmental\n              storytelling). Um prédio destruído, pichações ou objetos no chão\n              comunicam a narrativa sem cutscenes.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Section: Advanced ProBuilder -->\n      <section\n        id=\"probuilder-avancado\"\n        aria-labelledby=\"probuilder-adv-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"probuilder-adv-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          <i class=\"fa-solid fa-wrench mr-2\"></i>Ferramentas Avançadas do\n          ProBuilder\n        </h2>\n        <div class=\"bg-white p-8 rounded-lg shadow space-y-6\">\n          <div>\n            <h3 class=\"text-2xl font-semibold text-sky-800 mb-2\">\n              Modos de Edição\n            </h3>\n            <p class=\"text-slate-600 leading-relaxed mb-4\">\n              Para esculpir suas malhas, você precisa dominar os três modos de\n              seleção de elementos:\n            </p>\n            <div class=\"grid grid-cols-1 md:grid-cols-3 gap-4 text-center\">\n              <div class=\"bg-sky-50 p-3 rounded\">\n                <i class=\"fa-solid fa-circle-nodes mr-2\"></i\n                ><strong>Vertex:</strong> Edita os pontos individuais.\n              </div>\n              <div class=\"bg-sky-50 p-3 rounded\">\n                <i class=\"fa-solid fa-draw-polygon mr-2\"></i\n                ><strong>Edge:</strong> Edita as linhas que conectam os pontos.\n              </div>\n              <div class=\"bg-sky-50 p-3 rounded\">\n                <i class=\"fa-solid fa-square-check mr-2\"></i\n                ><strong>Face:</strong> Edita as superfícies poligonais.\n              </div>\n            </div>\n          </div>\n          <div>\n            <h3 class=\"text-2xl font-semibold text-sky-800 mb-2\">\n              Principais Ferramentas de Modelagem\n            </h3>\n            <ul class=\"list-disc list-inside space-y-2 text-sm text-slate-600\">\n              <li>\n                <strong>Extrude:</strong> \"Puxa\" uma face para fora, criando\n                nova geometria. Essencial para criar paredes, degraus e\n                detalhes.\n              </li>\n              <li>\n                <strong>Bevel:</strong> Suaviza as bordas, chanfrando-as. Útil\n                para criar rampas e acabamentos mais orgânicos.\n              </li>\n              <li>\n                <strong>Connect Edges/Vertices:</strong> Cria novas arestas ou\n                vértices entre os elementos selecionados, permitindo maior\n                detalhamento.\n              </li>\n              <li>\n                <strong>Triangulate Faces:</strong> Garante que as faces sejam\n                renderizadas corretamente, especialmente após edições complexas.\n              </li>\n            </ul>\n          </div>\n          <div class=\"callout callout-practice\" role=\"note\">\n            <h4 class=\"font-bold mb-2\">\n              <i class=\"fa-solid fa-puzzle-piece mr-2\"></i>Mini-Desafio: Criando\n              uma Ponte\n            </h4>\n            <p class=\"text-sm\">\n              Vamos praticar: crie um cubo longo e fino para ser a base da\n              ponte. Use <strong>Connect Edges</strong> para adicionar segmentos\n              no meio. Selecione as faces de cima desses novos segmentos e use\n              <strong>Extrude</strong> para criar as laterais da ponte. Use\n              <strong>Bevel</strong> nas bordas para suavizar.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Section: Interactive Spaces -->\n      <section\n        id=\"espacos-interativos\"\n        aria-labelledby=\"interactive-spaces-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"interactive-spaces-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          <i class=\"fa-solid fa-map-location-dot mr-2\"></i>Construindo Espaços\n          Interativos\n        </h2>\n        <div class=\"bg-white p-8 rounded-lg shadow space-y-4\">\n          <p class=\"text-slate-700 leading-relaxed\">\n            O layout do seu nível deve servir ao gameplay. Cada estrutura deve\n            ter um propósito.\n          </p>\n          <div class=\"grid grid-cols-1 md:grid-cols-3 gap-6 mt-6\">\n            <div class=\"text-center\">\n              <img\n                src=\"https://placehold.co/400x250/f0f9ff/0369a1?text=Cobertura+(Cover)\"\n                alt=\"Exemplo de um cenário com caixas e muros baixos que servem de cobertura para um jogo de tiro.\"\n                class=\"rounded-md w-full mb-2\"\n              />\n              <h4 class=\"font-semibold text-sky-800\">Criação de Cobertura</h4>\n              <p class=\"text-sm text-slate-600\">\n                Em jogos de tiro, use cubos e formas baixas para criar cover.\n                Varie a altura (cobertura total vs. parcial) para incentivar\n                diferentes táticas.\n              </p>\n            </div>\n            <div class=\"text-center\">\n              <img\n                src=\"https://placehold.co/400x250/f0f9ff/0369a1?text=Plataformas+e+Vãos\"\n                alt=\"Exemplo de um cenário de plataforma com vãos que o jogador precisa saltar para atravessar.\"\n                class=\"rounded-md w-full mb-2\"\n              />\n              <h4 class=\"font-semibold text-sky-800\">Plataformas e Vãos</h4>\n              <p class=\"text-sm text-slate-600\">\n                Em jogos de plataforma, a distância e a altura entre as\n                plataformas são cruciais. Meça a capacidade de pulo do seu\n                personagem e projete os vãos de acordo.\n              </p>\n            </div>\n            <div class=\"text-center\">\n              <img\n                src=\"https://placehold.co/400x250/f0f9ff/0369a1?text=Corredores+vs.+Arenas\"\n                alt=\"Comparação entre um corredor estreito e uma arena aberta em um level design.\"\n                class=\"rounded-md w-full mb-2\"\n              />\n              <h4 class=\"font-semibold text-sky-800\">Corredores vs. Arenas</h4>\n              <p class=\"text-sm text-slate-600\">\n                Use corredores estreitos para criar tensão e guiar o jogador.\n                Use espaços abertos (arenas) para batalhas contra chefes ou\n                momentos de maior liberdade.\n              </p>\n            </div>\n          </div>\n          <div class=\"callout callout-info mt-6\" role=\"note\">\n            <h4 class=\"font-bold mb-2\">Dica de Ouro: Colisores e Navegação</h4>\n            <p class=\"text-sm\">\n              As malhas criadas com ProBuilder já vêm com um\n              <strong>Mesh Collider</strong> por padrão. Para otimizar o jogo,\n              marque todos os objetos estáticos do cenário como\n              <strong>\"Static\"</strong> no Inspector. Isso ajuda a Unity a\n              pré-calcular a iluminação e a otimizar a renderização.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Section: Playtesting -->\n      <section\n        id=\"playtesting\"\n        aria-labelledby=\"playtesting-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"playtesting-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-8\"\n        >\n          <i class=\"fa-solid fa-user-check mr-2\"></i>Playtesting e Refinamento\n        </h2>\n        <div class=\"bg-white p-8 rounded-lg shadow space-y-4\">\n          <p class=\"text-slate-700 leading-relaxed\">\n            Level design é um processo iterativo. Crie, teste, refine, repita. O\n            feedback do playtest é a ferramenta mais valiosa que você tem. Use\n            seu controlador de personagem básico para \"jogar\" seu próprio nível\n            constantemente.\n          </p>\n          <div class=\"callout callout-practice\" role=\"note\">\n            <h4 class=\"font-bold mb-2\">\n              <i class=\"fa-solid fa-list-check mr-2\"></i>Checklist de Playtest\n              do Blockout\n            </h4>\n            <ul class=\"list-disc list-inside text-sm text-slate-600 space-y-1\">\n              <li>\n                <strong>Clareza:</strong> O caminho principal está claro? O\n                jogador sabe para onde ir?\n              </li>\n              <li>\n                <strong>Navegação:</strong> Existem lugares onde o jogador pode\n                ficar preso (em cantos, buracos)?\n              </li>\n              <li>\n                <strong>Escala:</strong> As portas, corredores e coberturas\n                parecem do tamanho certo em relação ao personagem?\n              </li>\n              <li>\n                <strong>Desafio:</strong> Os pulos são possíveis? A distância da\n                cobertura é justa?\n              </li>\n              <li>\n                <strong>Diversão:</strong> O simples ato de se mover pelo espaço\n                é agradável?\n              </li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <!-- Section: Vídeos recomendados (Aula 8) -->\n      <section\n        id=\"videos-aula8\"\n        aria-labelledby=\"videos-aula8-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"videos-aula8-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-teal-500 pb-2 mb-6\"\n        >\n          🎬 Vídeos recomendados (Aula 8)\n        </h2>\n\n        <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6\">\n          <!-- Vídeo 1 -->\n          <a\n            href=\"https://www.youtube.com/watch?v=SmSZ4e6b-sg\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            class=\"block bg-white rounded-lg shadow hover:shadow-lg transition\"\n          >\n            <article>\n              <img\n                src=\"https://img.youtube.com/vi/SmSZ4e6b-sg/hqdefault.jpg\"\n                alt=\"APRENDA GAME DEV UNITY – O Primeiro Passo – Episódio 1\"\n                class=\"w-full h-44 object-cover rounded-t-lg\"\n              />\n              <div class=\"p-4\">\n                <h3 class=\"font-bold text-teal-800\">\n                  Unity para iniciantes – O Primeiro Passo\n                </h3>\n                <p class=\"text-sm text-slate-600\">\n                  Introdução à Unity em português — essencial para quem está\n                  começando.\n                </p>\n              </div>\n            </article>\n          </a>\n\n          <!-- Vídeo 2 -->\n          <a\n            href=\"https://www.youtube.com/user/xxgutoxxx\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            class=\"block bg-white rounded-lg shadow hover:shadow-lg transition\"\n          >\n            <article>\n              <img\n                src=\"https://img.youtube.com/vi/xxgutoxxx/hqdefault.jpg\"\n                alt=\"Guto + Game Dev – Programação em C# na Unity\"\n                class=\"w-full h-44 object-cover rounded-t-lg\"\n              />\n              <div class=\"p-4\">\n                <h3 class=\"font-bold text-teal-800\">\n                  Guto + Game Dev (Unity e C#)\n                </h3>\n                <p class=\"text-sm text-slate-600\">\n                  Programação C# aplicada à Unity — ideal para trazer lógica aos\n                  seus níveis.\n                </p>\n              </div>\n            </article>\n          </a>\n\n          <!-- Vídeo 3 -->\n          <a\n            href=\"https://www.youtube.com/user/GamesIndie\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            class=\"block bg-white rounded-lg shadow hover:shadow-lg transition\"\n          >\n            <article>\n              <img\n                src=\"https://img.youtube.com/vi/GamesIndie/hqdefault.jpg\"\n                alt=\"GamesIndie – Tutoriais Unity 2D/3D para iniciantes\"\n                class=\"w-full h-44 object-cover rounded-t-lg\"\n              />\n              <div class=\"p-4\">\n                <h3 class=\"font-bold text-teal-800\">\n                  GamesIndie – Unity 2D/3D (iniciante)\n                </h3>\n                <p class=\"text-sm text-slate-600\">\n                  Passo a passo para criar jogos na Unity — útil para entender\n                  layout e navegação.\n                </p>\n              </div>\n            </article>\n          </a>\n        </div>\n      </section>\n\n      <!-- Section: TED -->\n      <section id=\"tarefa\" aria-labelledby=\"tarefa-heading\" class=\"mb-12\">\n        <h2\n          id=\"tarefa-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-4\"\n        >\n          📝 Tarefa (TED): Protótipo de Cenário Funcional\n        </h2>\n        <div\n          class=\"bg-white p-8 rounded-lg shadow space-y-4 text-slate-700 leading-relaxed\"\n        >\n          <p class=\"text-lg\">\n            O objetivo desta tarefa é aplicar as técnicas de level design para\n            criar um pequeno cenário interativo e testável.\n          </p>\n          <h4 class=\"font-semibold text-sky-800 mt-6 mb-2\">Passo a Passo:</h4>\n          <ol class=\"list-decimal list-inside space-y-2 text-sm\">\n            <li>\n              Partindo de um projeto-base com um controlador de personagem\n              simples, use o ProBuilder para construir um pequeno percurso.\n            </li>\n            <li>\n              O cenário deve incluir, no mínimo: diferentes elevações (rampas ou\n              escadas), uma plataforma que exija um pulo e um obstáculo simples\n              que precise ser contornado.\n            </li>\n            <li>\n              Teste exaustivamente seu layout para garantir que não há bugs de\n              colisão ou locais onde o jogador possa ficar preso.\n            </li>\n            <li>\n              <strong>Entrega:</strong> Grave e suba no Moodle um curto vídeo\n              (30-60 segundos) mostrando a movimentação do personagem pelo seu\n              protótipo de cenário funcional.\n            </li>\n          </ol>\n          <div\n            class=\"mt-6 bg-emerald-50 border border-emerald-200 p-4 rounded-lg\"\n          >\n            <h4 class=\"font-semibold text-emerald-800 mb-2\">\n              <i class=\"fa-solid fa-star mr-2\"></i>Extensões (Opcional)\n            </h4>\n            <p class=\"text-sm\">\n              Para um desafio extra, adicione um caminho vertical que exija uma\n              sequência de pulos, ou uma \"armadilha\" simples (como um buraco no\n              chão) que o jogador precise desviar.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section id=\"recursos\" aria-labelledby=\"recursos-heading\" class=\"mb-12\">\n        <h2\n          id=\"recursos-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-4\"\n        >\n          📚 Recursos Adicionais\n        </h2>\n        <div\n          class=\"bg-white p-8 rounded-lg shadow grid grid-cols-1 md:grid-cols-2 gap-8\"\n        >\n          <div>\n            <h4 class=\"font-bold text-sky-800 mb-2\">\n              Level Design e ProBuilder\n            </h4>\n            <ul class=\"text-sm space-y-2\">\n              <li>\n                <a\n                  href=\"https://unity.com/features/probuilder\"\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                  class=\"text-sky-600 hover:underline\"\n                  >Tutorial Oficial: Level design com ProBuilder (Unity\n                  Learn)</a\n                >\n              </li>\n              <li>\n                <a\n                  href=\"https://blog.logrocket.com/design-level-probuilder-unity/\"\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                  class=\"text-sky-600 hover:underline\"\n                  >Tutorial Prático: Design de nível simples com ProBuilder\n                  (LogRocket)</a\n                >\n              </li>\n            </ul>\n          </div>\n          <div>\n            <h4 class=\"font-bold text-sky-800 mb-2\">Teoria de Level Design</h4>\n            <ul class=\"text-sm space-y-2\">\n              <li>\n                <a\n                  href=\"https://jacobryanwheeler.medium.com/game-level-design-35-ways-to-guide-the-player-4bbc324204f4\"\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                  class=\"text-sky-600 hover:underline\"\n                  >Artigo: 35 maneiras de guiar o jogador (Medium)</a\n                >\n              </li>\n              <li>\n                <a\n                  href=\"https://www.gamedeveloper.com/design/level-design-practices-for-player-guidance\"\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                  class=\"text-sky-600 hover:underline\"\n                  >Princípios de bom level design — resumo inspirado no GDC</a\n                >\n              </li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <!-- Section: Bibliography -->\n      <section\n        id=\"bibliografia\"\n        aria-labelledby=\"bibliografia-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"bibliografia-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-sky-500 pb-2 mb-4\"\n        >\n          📚 Bibliografia\n        </h2>\n        <div\n          class=\"bg-white p-8 rounded-lg shadow space-y-4 text-slate-700 leading-relaxed\"\n        >\n          <p>\n            ALVES, George Santiago.\n            <strong>Projeto de jogos 3D: modelagem e programação.</strong> São\n            Paulo: Platos, 2021.\n          </p>\n          <p>\n            SCHUYTEMA, Paul.\n            <strong>Design de games: uma abordagem prática.</strong> São Paulo:\n            Cengage Learning, 2008.\n          </p>\n        </div>\n      </section>\n    </main>\n\n    <!-- Footer -->\n    <footer class=\"bg-slate-800 text-white mt-12\" role=\"contentinfo\">\n      <div class=\"container mx-auto px-6 py-6 text-center\">\n        <p>\n          &copy; 2025 - Tecnologia e Desenvolvimento de Jogos Digitais |\n          Semestre 2025.2\n        </p>\n        <p class=\"text-sm text-slate-400\">\n          Material desenvolvido para os cursos de ADS e SI da UniChristus.\n        </p>\n        <div class=\"mt-4\">\n          <a href=\"#\" class=\"text-sky-400 hover:underline text-sm\"\n            >Acessar Moodle</a\n          >\n          <span class=\"text-slate-500 mx-2\">|</span>\n          <a href=\"#\" class=\"text-sky-400 hover:underline text-sm\"\n            >Política de Uso</a\n          >\n        </div>\n      </div>\n    </footer>\n  </body>\n</html>\n"
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Level design com ProBuilder: criação de estruturas, colisores, navegação e espaços interativos. Teste e refinamento de layouts."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Desenvolver habilidades na construção de ambientes 3D com ProBuilder, aplicando princípios de usabilidade e teste iterativo de cenário."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula prática com orientação por desafios (metodologia ativa: hands-on com feedback em tempo real)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Arquitetura da Diversão: Introdução ao Level Design",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Na aula anterior, aprendemos a conceituar um jogo com o GDD e a criar formas básicas com ProBuilder. Hoje, vamos aprofundar o uso dessa ferramenta para praticar o <strong>Level Design</strong> — a arte e a ciência de criar os ambientes, fases e missões de um jogo."
+        },
+        {
+          "type": "blockquote",
+          "text": "\"Um bom level design guia o jogador sutilmente, fazendo-o sentir-se inteligente e poderoso. Ele não apenas cria um espaço, mas também dita o ritmo da experiência.\"",
+          "source": "— Adaptado de Schuytema, \"Design de games: uma abordagem prática\""
+        },
+        {
+          "type": "paragraph",
+          "text": "O objetivo é ir além da simples construção de \"caixas\". Vamos aprender a pensar como arquitetos de experiências, usando o ProBuilder para criar espaços que contam histórias, propõem desafios e, acima de tudo, são divertidos de navegar."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "<i class=\"fa-solid fa-lightbulb mr-2\"></i>Princípios do Bom Level Design",
+      "cards": [
+        {
+          "title": "Fluxo do Jogador",
+          "content": "Guiar o jogador de forma intuitiva pelo cenário, usando luz, cor e composição para indicar o caminho."
+        },
+        {
+          "title": "Pontos de Interesse",
+          "content": "Criar marcos visuais (landmarks) que ajudam na orientação e despertam a curiosidade para a exploração."
+        },
+        {
+          "title": "Ritmo e Cadência",
+          "content": "Alternar entre momentos de alta tensão (combate, puzzles difíceis) e de calma (exploração, narrativa)."
+        },
+        {
+          "title": "Risco vs. Recompensa",
+          "content": "Oferecer desafios opcionais mais difíceis que recompensam o jogador com itens ou segredos valiosos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-book mr-2\"></i>História e Referências do Level Design",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O conceito de <strong>level design</strong> evoluiu junto com a própria indústria de jogos. Nos anos 80, títulos como <em>Super Mario Bros.</em> (1985) já usavam o design de níveis para ensinar regras sem precisar de tutoriais escritos:"
+        },
+        {
+          "type": "blockquote",
+          "text": "\"O primeiro nível de Mario é um tutorial invisível — cada obstáculo ensina uma nova habilidade ao jogador.\"",
+          "source": "— Miyamoto, criador da série Mario"
+        },
+        {
+          "type": "paragraph",
+          "text": "A partir dos anos 90, jogos em 3D como <em>Doom</em> (1993) e <em>Half-Life</em> (1998) expandiram as possibilidades, trazendo ritmo, narrativa e exploração. Atualmente, obras como <em>The Last of Us</em> e <em>Dark Souls</em> exemplificam o uso de <em>landmarks</em>, guias visuais e controle de ritmo para criar experiências imersivas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Segundo Paul Schuytema (2008), <em>\"o level design é a ponte entre a mecânica e a emoção do jogador\"</em>, reforçando que não se trata apenas de construir cenários, mas de <strong>arquitetar experiências</strong>."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-gamepad mr-2\"></i>Exemplos Reais de Level Design",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "<strong>🎮 Super Mario Bros. (1985)</strong>: O primeiro nível é projetado para ensinar movimento, pulo e colisão sem texto. Blocos e inimigos são introduzidos gradualmente para guiar o jogador a experimentar as regras.",
+            "<strong>🎮 The Legend of Zelda: Ocarina of Time (1998)</strong>: Introduz o <em>Dungeon Design</em>, onde cada sala ensina uma mecânica que será exigida em puzzles futuros. Esse modelo é referência até hoje para jogos de aventura.",
+            "<strong>🎮 Dark Souls (2011)</strong>: Conhecido pelo <em>level design interconectado</em>, onde atalhos e landmarks (como a chama da bonfire) criam uma sensação de descoberta e domínio do espaço. A dificuldade é equilibrada pelo próprio design do cenário.",
+            "<strong>🎮 The Last of Us (2013)</strong>: Utiliza o cenário para <strong>contar histórias ambientais</strong> (environmental storytelling). Um prédio destruído, pichações ou objetos no chão comunicam a narrativa sem cutscenes."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-wrench mr-2\"></i>Ferramentas Avançadas do ProBuilder",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "Modos de Edição",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Para esculpir suas malhas, você precisa dominar os três modos de seleção de elementos:"
+            },
+            {
+              "type": "cardGrid",
+              "cards": [
+                {
+                  "title": "<i class=\"fa-solid fa-circle-nodes mr-2\"></i>Vertex",
+                  "content": "Edita os pontos individuais."
+                },
+                {
+                  "title": "<i class=\"fa-solid fa-draw-polygon mr-2\"></i>Edge",
+                  "content": "Edita as linhas que conectam os pontos."
+                },
+                {
+                  "title": "<i class=\"fa-solid fa-square-check mr-2\"></i>Face",
+                  "content": "Edita as superfícies poligonais."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Principais Ferramentas de Modelagem",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "<strong>Extrude:</strong> \"Puxa\" uma face para fora, criando nova geometria. Essencial para criar paredes, degraus e detalhes.",
+                "<strong>Bevel:</strong> Suaviza as bordas, chanfrando-as. Útil para criar rampas e acabamentos mais orgânicos.",
+                "<strong>Connect Edges/Vertices:</strong> Cria novas arestas ou vértices entre os elementos selecionados, permitindo maior detalhamento.",
+                "<strong>Triangulate Faces:</strong> Garante que as faces sejam renderizadas corretamente, especialmente após edições complexas."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-puzzle-piece mr-2\"></i>Mini-Desafio: Criando uma Ponte",
+          "content": "Vamos praticar: crie um cubo longo e fino para ser a base da ponte. Use <strong>Connect Edges</strong> para adicionar segmentos no meio. Selecione as faces de cima desses novos segmentos e use <strong>Extrude</strong> para criar as laterais da ponte. Use <strong>Bevel</strong> nas bordas para suavizar."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "<i class=\"fa-solid fa-map-location-dot mr-2\"></i>Construindo Espaços Interativos",
+      "cards": [
+        {
+          "title": "Criação de Cobertura",
+          "content": "Em jogos de tiro, use cubos e formas baixas para criar cover. Varie a altura (cobertura total vs. parcial) para incentivar diferentes táticas.",
+          "image": "https://placehold.co/400x250/f0f9ff/0369a1?text=Cobertura+(Cover)"
+        },
+        {
+          "title": "Plataformas e Vãos",
+          "content": "Em jogos de plataforma, a distância e a altura entre as plataformas são cruciais. Meça a capacidade de pulo do seu personagem e projete os vãos de acordo.",
+          "image": "https://placehold.co/400x250/f0f9ff/0369a1?text=Plataformas+e+Vãos"
+        },
+        {
+          "title": "Corredores vs. Arenas",
+          "content": "Use corredores estreitos para criar tensão e guiar o jogador. Use espaços abertos (arenas) para batalhas contra chefes ou momentos de maior liberdade.",
+          "image": "https://placehold.co/400x250/f0f9ff/0369a1?text=Corredores+vs.+Arenas"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-user-check mr-2\"></i>Playtesting e Refinamento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Level design é um processo iterativo. Crie, teste, refine, repita. O feedback do playtest é a ferramenta mais valiosa que você tem. Use seu controlador de personagem básico para \"jogar\" seu próprio nível constantemente."
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-list-check mr-2\"></i>Checklist de Playtest do Blockout",
+          "content": "<ul><li><strong>Clareza:</strong> O caminho principal está claro? O jogador sabe para onde ir?</li><li><strong>Navegação:</strong> Existem lugares onde o jogador pode ficar preso (em cantos, buracos)?</li><li><strong>Escala:</strong> As portas, corredores e coberturas parecem do tamanho certo em relação ao personagem?</li><li><strong>Desafio:</strong> Os pulos são possíveis? A distância da cobertura é justa?</li><li><strong>Diversão:</strong> O simples ato de se mover pelo espaço é agradável?</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎬 Vídeos recomendados (Aula 8)",
+      "videos": [
+        {
+          "youtubeId": "SmSZ4e6b-sg",
+          "title": "Unity para iniciantes – O Primeiro Passo",
+          "description": "Introdução à Unity em português — essencial para quem está começando."
+        },
+        {
+          "youtubeId": "xxgutoxxx",
+          "title": "Guto + Game Dev (Unity e C#)",
+          "description": "Programação C# aplicada à Unity — ideal para trazer lógica aos seus níveis."
+        },
+        {
+          "youtubeId": "GamesIndie",
+          "title": "GamesIndie – Unity 2D/3D (iniciante)",
+          "description": "Passo a passo para criar jogos na Unity — útil para entender layout e navegação."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Protótipo de Cenário Funcional",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O objetivo desta tarefa é aplicar as técnicas de level design para criar um pequeno cenário interativo e testável."
+        },
+        {
+          "type": "list",
+          "title": "Passo a Passo:",
+          "items": [
+            "Partindo de um projeto-base com um controlador de personagem simples, use o ProBuilder para construir um pequeno percurso.",
+            "O cenário deve incluir, no mínimo: diferentes elevações (rampas ou escadas), uma plataforma que exija um pulo e um obstáculo simples que precise ser contornado.",
+            "Teste exaustivamente seu layout para garantir que não há bugs de colisão ou locais onde o jogador possa ficar preso.",
+            "<strong>Entrega:</strong> Grave e suba no Moodle um curto vídeo (30-60 segundos) mostrando a movimentação do personagem pelo seu protótipo de cenário funcional."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-star mr-2\"></i>Extensões (Opcional)",
+          "content": "Para um desafio extra, adicione um caminho vertical que exija uma sequência de pulos, ou uma \"armadilha\" simples (como um buraco no chão) que o jogador precise desviar."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📚 Recursos Adicionais",
+      "content": [
+        {
+          "type": "button",
+          "text": "Tutorial Oficial: Level design com ProBuilder (Unity Learn)",
+          "href": "https://unity.com/features/probuilder"
+        },
+        {
+          "type": "button",
+          "text": "Tutorial Prático: Design de nível simples com ProBuilder (LogRocket)",
+          "href": "https://blog.logrocket.com/design-level-probuilder-unity/"
+        },
+        {
+          "type": "button",
+          "text": "Artigo: 35 maneiras de guiar o jogador (Medium)",
+          "href": "https://jacobryanwheeler.medium.com/game-level-design-35-ways-to-guide-the-player-4bbc324204f4"
+        },
+        {
+          "type": "button",
+          "text": "Princípios de bom level design — resumo inspirado no GDC",
+          "href": "https://www.gamedeveloper.com/design/level-design-practices-for-player-guidance"
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021.",
+        "SCHUYTEMA, Paul. <strong>Design de games: uma abordagem prática.</strong> São Paulo: Cengage Learning, 2008."
+      ]
     }
   ]
 }

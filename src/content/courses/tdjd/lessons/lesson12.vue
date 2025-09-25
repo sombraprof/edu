@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson12',
-  title: 'Aula 12: Marketing',
+  title: 'Aula 12: Input System na Unity (C#)',
   available: true,
 };
 </script>

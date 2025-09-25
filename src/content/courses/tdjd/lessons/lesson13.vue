@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson13',
-  title: 'Aula 13: Projeto Final',
+  title: 'Aula 13: Arquitetura Baseada em Componentes',
   available: true,
 };
 </script>

@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson10',
-  title: 'Aula 10: Unidade II – Firebase e Autenticação',
+  title: 'Aula 10: Unidade II – Passagem de Dados com Intent.putExtra',
   available: true,
 };
 </script>

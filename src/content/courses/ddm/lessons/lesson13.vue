@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson13',
-  title: 'Aula 13: Unidade II – Projeto Integrador',
+  title: 'Aula 13: Unidade III – Persistência com SharedPreferences',
   available: true,
 };
 </script>

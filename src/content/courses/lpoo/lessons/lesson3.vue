@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson3',
-  title: 'Aula 3: Construtores e Métodos',
+  title: 'Aula 3: Objetos, Atributos e Métodos',
   available: true,
 };
 </script>

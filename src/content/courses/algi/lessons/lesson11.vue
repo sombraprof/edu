@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson11',
-  title: 'Aula 11: Revisão da Unidade III e Mini-teste',
+  title: 'Aula 11: Seleção Múltipla com <code>switch-case</code>',
   objective: 'Organizando decisões complexas de forma limpa e eficiente.',
   available: true,
 };

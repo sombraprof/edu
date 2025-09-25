@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson4',
-  title: 'Aula 4: Encapsulamento',
+  title: 'Aula 4: Visibilidade, Modificadores de Acesso e Encapsulamento',
   available: true,
 };
 </script>

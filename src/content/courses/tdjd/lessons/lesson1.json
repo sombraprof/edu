@@ -1,11 +1,305 @@
 {
   "id": "lesson1",
   "title": "Aula 1: Introdução ao Desenvolvimento de Jogos Digitais",
-  "objective": "",
+  "objective": "Compreender o escopo da disciplina, analisar o mercado, identificar gêneros e contextualizar o papel do desenvolvedor.",
   "content": [
     {
-      "type": "html",
-      "html": "<!DOCTYPE html>\n<html lang=\"pt-BR\" class=\"scroll-smooth\">\n  <head>\n    <!-- Metadados Essenciais -->\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>\n      TDJD - Aula 1: Introdução ao Desenvolvimento de Jogos Digitais\n    </title>\n    <meta\n      name=\"description\"\n      content=\"Aula 1 da disciplina de Tecnologia e Desenvolvimento de Jogos Digitais. Explore o mercado, gêneros, plataformas e o pontapé inicial para criar seu primeiro jogo.\"\n    />\n    <meta name=\"author\" content=\"Prof. Tiago Guimarães Sombra\" />\n\n    <!-- Open Graph / Facebook -->\n    <meta property=\"og:type\" content=\"website\" />\n    <meta property=\"og:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta\n      property=\"og:title\"\n      content=\"TDJD - Aula 1: Introdução ao Desenvolvimento de Jogos Digitais\"\n    />\n    <meta\n      property=\"og:description\"\n      content=\"Explore o mercado, gêneros, plataformas e o pontapé inicial para criar seu primeiro jogo.\"\n    />\n    <meta\n      property=\"og:image\"\n      content=\"https://placehold.co/1200x630/4338ca/ffffff?text=TDJD\\nAula+1\"\n    />\n\n    <!-- Twitter -->\n    <meta property=\"twitter:card\" content=\"summary_large_image\" />\n    <meta property=\"twitter:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta\n      property=\"twitter:title\"\n      content=\"TDJD - Aula 1: Introdução ao Desenvolvimento de Jogos Digitais\"\n    />\n    <meta\n      property=\"twitter:description\"\n      content=\"Explore o mercado, gêneros, plataformas e o pontapé inicial para criar seu primeiro jogo.\"\n    />\n    <meta\n      property=\"twitter:image\"\n      content=\"https://placehold.co/1200x630/4338ca/ffffff?text=TDJD\\nAula+1\"\n    />\n\n    <!-- Tailwind CSS via CDN -->\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n    <!-- Tailwind Typography Plugin -->\n    <script src=\"https://cdn.tailwindcss.com/3.4.1?plugins=typography\"></script>\n    <!-- Google Fonts: Inter -->\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n    <link\n      href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap\"\n      rel=\"stylesheet\"\n    />\n    <!-- Font Awesome for icons -->\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"\n    />\n    <style>\n      body {\n        font-family: \"Inter\", sans-serif;\n        background-color: #f8fafc; /* bg-slate-50 */\n        padding-top: 60px; /* Espaço para o menu fixo */\n      }\n      .callout {\n        border-left-width: 4px;\n        padding: 1.5rem;\n        margin: 1.5rem 0;\n        border-radius: 0.5rem;\n      }\n      .callout-info {\n        background-color: #f0f9ff; /* bg-sky-50 */\n        border-color: #7dd3fc; /* border-sky-300 */\n        color: #0c4a6e; /* text-sky-800 */\n      }\n      .callout-practice {\n        background-color: #f0fdf4; /* bg-emerald-50 */\n        border-color: #6ee7b7; /* border-emerald-300 */\n        color: #065f46; /* text-emerald-800 */\n      }\n      .callout-challenge {\n        background-color: #fffbeb; /* bg-amber-50 */\n        border-color: #fcd34d; /* border-amber-300 */\n        color: #92400e; /* text-amber-800 */\n      }\n      details > summary {\n        cursor: pointer;\n        font-weight: 600;\n        padding: 0.75rem 1.25rem;\n        background-color: #f1f5f9;\n        border-radius: 0.375rem;\n        transition: background-color 0.2s;\n        display: flex;\n        justify-content: space-between;\n        align-items: center;\n      }\n      details > summary:hover {\n        background-color: #e2e8f0;\n      }\n      details[open] > summary {\n        background-color: #e2e8f0;\n      }\n      .quiz-answer {\n        padding: 1rem 1.25rem;\n        background-color: #f8fafc;\n        border: 1px solid #e2e8f0;\n        border-top: none;\n        border-radius: 0 0 0.375rem 0.375rem;\n      }\n      .summary-arrow {\n        transition: transform 0.3s;\n      }\n      details[open] .summary-arrow {\n        transform: rotate(180deg);\n      }\n      /* Estilo para a linha do tempo */\n      .timeline-item {\n        position: relative;\n        padding-bottom: 2.5rem;\n        padding-left: 2.5rem;\n        border-left: 2px solid #e2e8f0; /* border-slate-200 */\n      }\n      .timeline-item:last-child {\n        border-left: 2px solid transparent;\n      }\n      .timeline-icon {\n        position: absolute;\n        left: -0.8rem;\n        top: 0;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        width: 1.6rem;\n        height: 1.6rem;\n        border-radius: 9999px;\n        background-color: #fff;\n        border: 2px solid #e2e8f0;\n      }\n    </style>\n  </head>\n  <body class=\"text-slate-800\">\n    <!-- Menu de Navegação Fixo -->\n    <nav\n      class=\"bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50\"\n    >\n      <div class=\"container mx-auto px-6\">\n        <div class=\"flex justify-between items-center h-16\">\n          <span class=\"text-lg font-bold text-indigo-700\">TDJD - Aula 1</span>\n          <div class=\"hidden md:flex space-x-4 text-sm font-semibold\">\n            <a href=\"#plano-aula\" class=\"text-slate-600 hover:text-indigo-600\"\n              >Plano</a\n            >\n            <a href=\"#mercado\" class=\"text-slate-600 hover:text-indigo-600\"\n              >Mercado</a\n            >\n            <a href=\"#conceitos\" class=\"text-slate-600 hover:text-indigo-600\"\n              >Conceitos</a\n            >\n            <a\n              href=\"#generos-plataformas\"\n              class=\"text-slate-600 hover:text-indigo-600\"\n              >Gêneros</a\n            >\n            <a\n              href=\"#projeto-final\"\n              class=\"text-slate-600 hover:text-indigo-600\"\n              >Projeto</a\n            >\n            <a href=\"#tarefa\" class=\"text-slate-600 hover:text-indigo-600\"\n              >TED</a\n            >\n          </div>\n        </div>\n      </div>\n    </nav>\n\n    <!-- Cabeçalho da Aula -->\n    <header class=\"bg-white shadow-md\">\n      <div class=\"container mx-auto px-6 py-8\">\n        <h1 class=\"text-4xl font-bold text-indigo-800\">\n          Tecnologia e Desenvolvimento de Jogos Digitais\n        </h1>\n        <p class=\"text-xl text-slate-600 mt-2\">\n          Aula 1: Unidade I – Introdução ao Desenvolvimento de Jogos Digitais\n        </p>\n      </div>\n    </header>\n\n    <!-- Corpo Principal da Aula -->\n    <main class=\"container mx-auto px-6 py-10\">\n      <!-- Seção: Plano da Aula -->\n      <section\n        id=\"plano-aula\"\n        aria-labelledby=\"plano-aula-heading\"\n        class=\"mb-12 bg-indigo-50 border border-indigo-200 p-8 rounded-2xl shadow-lg\"\n      >\n        <h2\n          id=\"plano-aula-heading\"\n          class=\"text-3xl font-bold text-indigo-700 mb-6 text-center\"\n        >\n          Plano da Aula\n        </h2>\n        <div class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6\">\n          <div\n            class=\"bg-white p-6 rounded-lg shadow-sm col-span-1 md:col-span-2 lg:col-span-3\"\n          >\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n              <i class=\"fa-solid fa-book-open mr-2\"></i>UNIDADE E CONTEÚDO\n            </h3>\n            <p class=\"font-bold text-slate-700\">\n              Unidade I – Introdução ao Desenvolvimento de Jogos Digitais\n            </p>\n            <p class=\"text-slate-600 mt-1\">\n              Apresentação da disciplina. Panorama do mercado, gêneros,\n              plataformas e expectativas do projeto final.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n              <i class=\"fa-solid fa-bullseye mr-2\"></i>OBJETIVO\n            </h3>\n            <p class=\"text-slate-600\">\n              Compreender o escopo da disciplina, analisar o mercado,\n              identificar gêneros e contextualizar o papel do desenvolvedor.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n              <i class=\"fa-solid fa-gears mr-2\"></i>METODOLOGIA\n            </h3>\n            <p class=\"text-slate-600\">\n              Aula expositiva dialogada, vídeo, roda de conversa e dinâmicas em\n              grupo (aula invertida).\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n              <i class=\"fa-solid fa-desktop mr-2\"></i>RECURSOS\n            </h3>\n            <p class=\"text-slate-600\">\n              Projetor, YouTube, slides e ferramentas colaborativas online.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Pergunta Norteadora Interativa -->\n      <section\n        id=\"pergunta-norteadora\"\n        aria-labelledby=\"pergunta-norteadora-heading\"\n        class=\"mb-12 callout callout-info\"\n      >\n        <h2 id=\"pergunta-norteadora-heading\" class=\"font-bold text-lg mb-2\">\n          <i class=\"fa-solid fa-comments mr-2\"></i>Dinâmica Inicial: O Jogo\n          Inesquecível\n        </h2>\n        <p>\n          Em duplas, conversem por 3 minutos sobre o jogo que mais marcou cada\n          um. Discutam:\n        </p>\n        <ul class=\"list-disc list-inside mt-2 pl-4\">\n          <li>\n            Qual foi o elemento principal que o tornou memorável (história,\n            jogabilidade, arte, desafio)?\n          </li>\n          <li>\n            Após a conversa, vamos listar no quadro os fatores mais comuns que\n            tornam um jogo especial.\n          </li>\n        </ul>\n      </section>\n\n      <!-- Seção: Contexto Inicial -->\n      <section\n        id=\"contexto\"\n        aria-labelledby=\"contexto-heading\"\n        class=\"mb-12 bg-white p-8 rounded-lg shadow\"\n      >\n        <h2\n          id=\"contexto-heading\"\n          class=\"text-3xl font-semibold text-slate-800 mb-6\"\n        >\n          🚀 Bem-vindos à Indústria que mais Cresce no Mundo!\n        </h2>\n\n        <p class=\"text-slate-700 leading-relaxed mb-4\">\n          A indústria de games é um gigante do entretenimento que supera os\n          mercados de cinema e música somados. Ela não apenas dita tendências\n          tecnológicas, mas também molda a cultura, a interação social e novas\n          economias. Ser um desenvolvedor de jogos hoje significa estar no\n          centro de um ecossistema vibrante, atuando em áreas como\n          <strong>programação de gameplay</strong>,\n          <strong>design de narrativas</strong>, <strong>arte 2D/3D</strong>,\n          <strong>garantia de qualidade (QA)</strong>,\n          <strong>design de som</strong> e muito mais.\n        </p>\n\n        <blockquote\n          class=\"text-xl italic text-slate-600 border-l-4 border-indigo-300 pl-4 leading-relaxed mb-4\"\n        >\n          \"Os jogos são a forma de arte mais expressiva e a plataforma de\n          entretenimento mais poderosa da nossa era. Entender como criá-los é\n          entender a linguagem do futuro.\"\n        </blockquote>\n\n        <p class=\"text-slate-700 leading-relaxed\">\n          Nesta disciplina, vamos desvendar os segredos por trás da magia. Vocês\n          não serão apenas jogadores, mas os arquitetos de novos mundos. Nosso\n          objetivo é transformar a paixão por jogar na habilidade de criar,\n          combinando <strong>criatividade</strong> com\n          <strong>tecnologia</strong>.\n        </p>\n      </section>\n\n      <!-- Seção: Linha do Tempo -->\n      <section id=\"historia\" aria-labelledby=\"historia-heading\" class=\"mb-12\">\n        <h2\n          id=\"historia-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          ⏳ Uma Breve História dos Jogos Digitais\n        </h2>\n        <div class=\"container mx-auto\">\n          <div class=\"timeline-item\">\n            <div class=\"timeline-icon\">\n              <i class=\"fa-solid fa-ghost text-yellow-500\"></i>\n            </div>\n            <h3 class=\"text-xl font-semibold text-slate-700\">\n              1970-1980: A Era dos Arcades e Consoles Primitivos\n            </h3>\n            <p class=\"text-slate-600 mt-1\">\n              Nascimento de ícones como Pong, Space Invaders e Pac-Man. O Atari\n              2600 populariza os jogos em casa.\n            </p>\n          </div>\n          <div class=\"timeline-item\">\n            <div class=\"timeline-icon\">\n              <i class=\"fa-solid fa-gamepad text-red-500\"></i>\n            </div>\n            <h3 class=\"text-xl font-semibold text-slate-700\">\n              1985-1995: A Revolução 8-bit e 16-bit\n            </h3>\n            <p class=\"text-slate-600 mt-1\">\n              A Nintendo resgata o mercado com o NES (Super Mario Bros.). A\n              guerra de consoles entre Nintendo e Sega define uma geração.\n            </p>\n          </div>\n          <div class=\"timeline-item\">\n            <div class=\"timeline-icon\">\n              <i class=\"fa-solid fa-cube text-blue-500\"></i>\n            </div>\n            <h3 class=\"text-xl font-semibold text-slate-700\">\n              1996-2005: A Chegada do 3D e do Multiplayer Online\n            </h3>\n            <p class=\"text-slate-600 mt-1\">\n              PlayStation, Nintendo 64 e o PC popularizam os gráficos 3D. Jogos\n              como Quake e Ultima Online dão início à era dos jogos online.\n            </p>\n          </div>\n          <div class=\"timeline-item\">\n            <div class=\"timeline-icon\">\n              <i class=\"fa-solid fa-mobile-screen-button text-green-500\"></i>\n            </div>\n            <h3 class=\"text-xl font-semibold text-slate-700\">\n              2006-Hoje: A Era Digital, Mobile e Indie\n            </h3>\n            <p class=\"text-slate-600 mt-1\">\n              A distribuição digital (Steam), os smartphones (Angry Birds) e o\n              acesso a ferramentas como a Unity democratizam o desenvolvimento,\n              dando origem à explosão dos jogos indie.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Seção: Panorama do Mercado -->\n      <section id=\"mercado\" aria-labelledby=\"mercado-heading\" class=\"mb-12\">\n        <h2\n          id=\"mercado-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          📈 Panorama do Mercado de Jogos\n        </h2>\n        <div class=\"grid grid-cols-1 md:grid-cols-3 gap-6 mb-12\">\n          <div class=\"bg-white p-6 rounded-lg shadow-md\">\n            <div class=\"flex items-center mb-3\">\n              <i\n                class=\"fa-solid fa-sack-dollar text-3xl text-emerald-500 mr-4\"\n              ></i>\n              <h3 class=\"text-xl font-bold text-slate-700\">\n                Impacto Econômico\n              </h3>\n            </div>\n            <p class=\"text-slate-600\">\n              Receita global bilionária, com o Brasil sendo o maior mercado da\n              América Latina. Gera empregos em desenvolvimento, marketing,\n              e-sports e mais.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-md\">\n            <div class=\"flex items-center mb-3\">\n              <i class=\"fa-solid fa-users text-3xl text-sky-500 mr-4\"></i>\n              <h3 class=\"text-xl font-bold text-slate-700\">Impacto Social</h3>\n            </div>\n            <p class=\"text-slate-600\">\n              Criação de comunidades online, eventos globais (e-sports) e novas\n              formas de socialização. Jogos como ferramenta de conexão.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-md\">\n            <div class=\"flex items-center mb-3\">\n              <i class=\"fa-solid fa-palette text-3xl text-purple-500 mr-4\"></i>\n              <h3 class=\"text-xl font-bold text-slate-700\">Impacto Cultural</h3>\n            </div>\n            <p class=\"text-slate-600\">\n              Jogos influenciam filmes, músicas e moda. São reconhecidos como\n              uma forma de arte, com narrativas complexas e experiências\n              imersivas.\n            </p>\n          </div>\n        </div>\n        <div class=\"grid grid-cols-1 lg:grid-cols-2 gap-8\">\n          <div class=\"prose prose-slate max-w-none lg:prose-lg\">\n            <p>\n              O mercado global de jogos atingiu uma receita de\n              <strong>$187.7 bilhões em 2023</strong>, com projeção de alcançar\n              $212.4 bilhões até 2026 (Fonte: Newzoo). O Brasil se destaca como\n              o <strong>maior mercado da América Latina</strong> e o 10º do\n              mundo, movimentando cerca de R$ 12 bilhões anualmente (Fonte: PGB\n              2024).\n            </p>\n            <p>\n              Este crescimento é impulsionado principalmente pelo segmento\n              mobile, mas os mercados de PC e consoles continuam extremamente\n              relevantes e lucrativos, especialmente com o crescimento dos\n              serviços de assinatura e dos e-sports.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-md\">\n            <h3 class=\"font-semibold text-center text-slate-700 mb-4\">\n              Receita Anual Global (Comparativo)\n            </h3>\n            <div class=\"space-y-4\">\n              <div class=\"flex items-center\">\n                <span class=\"w-24 font-bold text-indigo-700\">Games:</span>\n                <div class=\"flex-1 bg-slate-200 rounded-full h-8\">\n                  <div\n                    class=\"bg-indigo-600 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold\"\n                    style=\"width: 100%\"\n                  >\n                    $187.7 Bi\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex items-center\">\n                <span class=\"w-24 font-bold text-sky-700\">Cinema:</span>\n                <div class=\"flex-1 bg-slate-200 rounded-full h-8\">\n                  <div\n                    class=\"bg-sky-500 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold\"\n                    style=\"width: 52%\"\n                  >\n                    $99.7 Bi\n                  </div>\n                </div>\n              </div>\n              <div class=\"flex items-center\">\n                <span class=\"w-24 font-bold text-emerald-700\">Música:</span>\n                <div class=\"flex-1 bg-slate-200 rounded-full h-8\">\n                  <div\n                    class=\"bg-emerald-500 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold\"\n                    style=\"width: 20%\"\n                  >\n                    $28.6 Bi\n                  </div>\n                </div>\n              </div>\n            </div>\n            <p class=\"text-xs text-slate-500 text-center mt-2\">\n              Fonte: Newzoo, Gower (2023). Valores aproximados.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Diagrama do Ecossistema de um Jogo -->\n      <section\n        id=\"diagrama\"\n        aria-labelledby=\"diagrama-heading\"\n        class=\"my-12 p-6 bg-white rounded-lg shadow text-center\"\n      >\n        <h2\n          id=\"diagrama-heading\"\n          class=\"text-2xl font-semibold text-slate-800 mb-4\"\n        >\n          Anatomia do Ecossistema de um Jogo\n        </h2>\n        <div class=\"flex justify-center\">\n          <img\n            src=\"https://sombraprof.github.io/tdjd/imagens/aula_1_imagem_1.png\"\n            alt=\"Diagrama ilustrando o ecossistema de um jogo, com os núcleos de Desenvolvimento, Publicação e Comunidade interligados.\"\n            class=\"rounded-md\"\n          />\n        </div>\n        <p class=\"text-sm text-slate-600 mt-4\">\n          Um jogo de sucesso depende da interação entre o time de\n          <strong>Desenvolvimento</strong> (que cria o jogo), a\n          <strong>Publicadora</strong> (que cuida do marketing e distribuição) e\n          a <strong>Comunidade</strong> (que joga, dá feedback e mantém o jogo\n          vivo).\n        </p>\n      </section>\n\n      <!-- Seção: Conceitos-Chave Interativos -->\n      <section id=\"conceitos\" aria-labelledby=\"conceitos-heading\" class=\"mb-12\">\n        <h2\n          id=\"conceitos-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          🔑 Pilares do Game Design\n        </h2>\n        <div class=\"grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6\">\n          <div\n            class=\"bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300\"\n          >\n            <div class=\"flex items-center mb-3\">\n              <i class=\"fa-solid fa-gears text-2xl text-slate-600 mr-4\"></i>\n              <h3 class=\"text-xl font-bold text-slate-700\">Mecânicas</h3>\n            </div>\n            <p class=\"text-slate-600\">\n              As regras e os sistemas que governam o jogo. São as ações que o\n              jogador pode realizar (pular, atirar, construir).\n            </p>\n          </div>\n          <div\n            class=\"bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300\"\n          >\n            <div class=\"flex items-center mb-3\">\n              <i class=\"fa-solid fa-users-line text-2xl text-sky-600 mr-4\"></i>\n              <h3 class=\"text-xl font-bold text-slate-700\">Dinâmicas</h3>\n            </div>\n            <p class=\"text-slate-600\">\n              O comportamento que emerge da interação do jogador com as\n              mecânicas. Ex: estratégias, táticas, cooperação.\n            </p>\n          </div>\n          <div\n            class=\"bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300\"\n          >\n            <div class=\"flex items-center mb-3\">\n              <i class=\"fa-solid fa-heart text-2xl text-red-600 mr-4\"></i>\n              <h3 class=\"text-xl font-bold text-slate-700\">Estética</h3>\n            </div>\n            <p class=\"text-slate-600\">\n              As respostas emocionais evocadas no jogador. Ex: diversão,\n              desafio, descoberta, fantasia, narrativa.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Seção: Gêneros e Plataformas -->\n      <section\n        id=\"generos-plataformas\"\n        aria-labelledby=\"generos-heading\"\n        class=\"mb-12\"\n      >\n        <h2\n          id=\"generos-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          🎮 Gêneros e Plataformas\n        </h2>\n        <div class=\"grid grid-cols-1 lg:grid-cols-2 gap-8\">\n          <div class=\"bg-white p-6 rounded-lg shadow\">\n            <h3 class=\"text-2xl font-semibold text-slate-800 mb-4\">\n              Principais Gêneros\n            </h3>\n            <ul class=\"list-disc list-inside space-y-2 text-slate-700\">\n              <li>\n                <strong>RPG (Role-Playing Game):</strong> Foco em progressão de\n                personagem e história. (Ex: The Witcher, Final Fantasy)\n              </li>\n              <li>\n                <strong>Ação/Aventura:</strong> Combina combate, exploração e\n                puzzles. (Ex: Zelda, God of War)\n              </li>\n              <li>\n                <strong>Estratégia (RTS/TBS):</strong> Requer planejamento e\n                gerenciamento de recursos. (Ex: Age of Empires, XCOM)\n              </li>\n              <li>\n                <strong>Simulação:</strong> Recria atividades do mundo real.\n                (Ex: The Sims, Flight Simulator)\n              </li>\n              <li>\n                <strong>Indie:</strong> Jogos criados por estúdios pequenos,\n                focados em inovação e arte. (Ex: Celeste, Hollow Knight)\n              </li>\n            </ul>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow\">\n            <h3 class=\"text-2xl font-semibold text-slate-800 mb-4\">\n              Principais Plataformas\n            </h3>\n            <ul class=\"list-disc list-inside space-y-2 text-slate-700\">\n              <li>\n                <i class=\"fa-solid fa-computer text-sky-600 mr-2\"></i\n                ><strong>PC:</strong> Flexibilidade, poder gráfico e\n                distribuição digital (Steam, Epic Games).\n              </li>\n              <li>\n                <i class=\"fa-solid fa-gamepad text-red-600 mr-2\"></i\n                ><strong>Consoles:</strong> Experiência otimizada e ecossistemas\n                exclusivos (PlayStation, Xbox, Nintendo).\n              </li>\n              <li>\n                <i\n                  class=\"fa-solid fa-mobile-screen-button text-green-600 mr-2\"\n                ></i\n                ><strong>Mobile:</strong> Acessibilidade massiva, jogos casuais\n                e monetização via apps.\n              </li>\n              <li>\n                <i class=\"fa-solid fa-vr-cardboard text-purple-600 mr-2\"></i\n                ><strong>XR (VR/AR):</strong> A nova fronteira da imersão, com\n                realidade virtual e aumentada.\n              </li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <!-- Seção: Exemplos Práticos -->\n      <section\n        id=\"exemplos\"\n        aria-labelledby=\"exemplos-heading\"\n        class=\"mb-12 not-prose\"\n      >\n        <h2\n          id=\"exemplos-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-6\"\n        >\n          💡 Analisando Jogos Famosos\n        </h2>\n        <div class=\"grid md:grid-cols-2 lg:grid-cols-3 gap-8\">\n          <div class=\"bg-white p-6 rounded-lg shadow\">\n            <h4 class=\"text-xl font-semibold mb-3\">The Witcher 3: Wild Hunt</h4>\n            <ul class=\"space-y-2\">\n              <li><strong>Gênero:</strong> RPG de Ação / Mundo Aberto</li>\n              <li>\n                <strong>Plataforma:</strong> PC, PlayStation, Xbox, Nintendo\n                Switch\n              </li>\n              <li>\n                <strong>Inovação Chave:</strong> Narrativa madura e complexa com\n                missões secundárias que possuem o mesmo nível de profundidade da\n                campanha principal, estabelecendo um novo padrão para\n                storytelling em RPGs.\n              </li>\n              <li>\n                <strong>Impacto:</strong> Considerado um dos melhores RPGs já\n                feitos, elevou o padrão de qualidade para mundos abertos e\n                mostrou como narrativas interativas podem ter peso literário.\n              </li>\n            </ul>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow\">\n            <h4 class=\"text-xl font-semibold mb-3\">Among Us</h4>\n            <ul class=\"space-y-2\">\n              <li><strong>Gênero:</strong> Social Deduction / Indie</li>\n              <li><strong>Plataforma:</strong> Mobile, PC, Consoles</li>\n              <li>\n                <strong>Inovação Chave:</strong> Mecânica simples de dedução\n                social com interação intensa entre jogadores, provando que jogos\n                de baixo orçamento podem se tornar fenômenos culturais globais.\n              </li>\n              <li>\n                <strong>Impacto:</strong> Popularizou jogos de dedução social no\n                ambiente digital, destacando o papel da comunidade e streamers\n                na propagação de jogos independentes.\n              </li>\n            </ul>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow\">\n            <h4 class=\"text-xl font-semibold mb-3\">Minecraft</h4>\n            <ul class=\"space-y-2\">\n              <li>\n                <strong>Gênero:</strong> Sandbox / Sobrevivência / Criativo\n              </li>\n              <li><strong>Plataforma:</strong> Todas (PC, Consoles, Mobile)</li>\n              <li>\n                <strong>Inovação Chave:</strong> Mundo procedural que oferece\n                liberdade criativa quase infinita, permitindo que jogadores\n                construam suas próprias experiências e narrativas.\n              </li>\n              <li>\n                <strong>Impacto:</strong> Transformou o conceito de sandbox,\n                tornou-se uma ferramenta de educação e colaboração, e é um dos\n                jogos mais vendidos e influentes da história.\n              </li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <!-- Seção: Vídeo Panorama -->\n      <section\n        id=\"video-mercado\"\n        aria-label=\"Vídeo Panorama de Mercado\"\n        class=\"mb-12 callout callout-practice\"\n      >\n        <h3 class=\"font-bold text-lg mb-2\">\n          <i class=\"fa-solid fa-video mr-2\"></i>Pausa para Análise: O Mercado em\n          Ação\n        </h3>\n        <p>\n          Vamos assistir a um vídeo curto que destaca os\n          <strong>melhores games brasileiros de fevereiro de 2025</strong>.\n          Durante a exibição, anotem um dado ou tendência que mais chamou a\n          atenção e discutiremos em seguida.\n        </p>\n        <div class=\"mt-4 flex justify-center\">\n          <div class=\"w-full max-w-3xl aspect-video\">\n            <iframe\n              class=\"w-full h-full rounded-lg shadow\"\n              src=\"https://www.youtube.com/embed/iM-Qc11_pHI?start=61\"\n              title=\"Melhores Games Brasileiros • Fevereiro 2025\"\n              frameborder=\"0\"\n              allowfullscreen\n            ></iframe>\n          </div>\n        </div>\n      </section>\n\n      <!-- Seção: Quiz -->\n      <section id=\"quiz\" aria-labelledby=\"quiz-heading\" class=\"mb-12\">\n        <h2\n          id=\"quiz-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          🧐 Teste seu Conhecimento\n        </h2>\n        <div class=\"space-y-4\">\n          <details>\n            <summary>\n              1. Qual gênero de jogo, simbolizado por \"RTS\", foca em\n              gerenciamento de recursos e exércitos em tempo real?\n              <span class=\"summary-arrow\">▼</span>\n            </summary>\n            <div class=\"quiz-answer\">\n              <p>\n                <strong>Resposta:</strong> Estratégia em Tempo Real (Real-Time\n                Strategy), como Age of Empires ou StarCraft.\n              </p>\n            </div>\n          </details>\n          <details>\n            <summary>\n              2. A Steam é a principal plataforma de distribuição digital para\n              qual ambiente de jogos? <span class=\"summary-arrow\">▼</span>\n            </summary>\n            <div class=\"quiz-answer\">\n              <p>\n                <strong>Resposta:</strong> PC (Computador). É a maior loja\n                digital para jogos de PC no mundo.\n              </p>\n            </div>\n          </details>\n          <details>\n            <summary>\n              3. Jogos como \"Celeste\" e \"Stardew Valley\", criados por equipes\n              pequenas com foco em inovação, pertencem a qual categoria?\n              <span class=\"summary-arrow\">▼</span>\n            </summary>\n            <div class=\"quiz-answer\">\n              <p>\n                <strong>Resposta:</strong> Indie (Independentes). Eles são\n                conhecidos pela liberdade criativa e por não terem grandes\n                publicadoras por trás.\n              </p>\n            </div>\n          </details>\n        </div>\n      </section>\n\n      <!-- Seção: Projeto Final -->\n      <section\n        id=\"projeto-final\"\n        aria-labelledby=\"projeto-final-heading\"\n        class=\"mb-12 callout callout-challenge\"\n      >\n        <h2 id=\"projeto-final-heading\" class=\"font-bold text-lg mb-2\">\n          <i class=\"fa-solid fa-trophy mr-2\"></i>Nosso Grande Desafio: O Projeto\n          Final\n        </h2>\n        <p class=\"mb-3\">\n          Ao longo da disciplina, vocês irão trabalhar em\n          <strong>equipes multidisciplinares</strong>\n          para conceber, desenvolver e apresentar um jogo digital completo. Este\n          projeto não será apenas uma avaliação: será a primeira peça sólida do\n          <strong>portfólio profissional</strong> de cada um, mostrando suas\n          habilidades técnicas, de design e colaboração.\n        </p>\n        <p class=\"mb-4\">\n          O jogo deve ser pensado com\n          <strong>design de mecânicas, experiência do jogador</strong> e\n          <strong>viabilidade de publicação</strong>. A ideia é simular o ciclo\n          real de desenvolvimento, incluindo documentação, prototipagem,\n          implementação e apresentação final.\n        </p>\n\n        <h3 class=\"font-semibold mt-4 mb-3 text-indigo-900\">\n          📌 Roadmap do Projeto\n        </h3>\n        <div\n          class=\"flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4 text-center\"\n        >\n          <!-- Etapa 1 -->\n          <div class=\"flex-1 bg-white rounded-lg p-4 shadow\">\n            <span class=\"font-bold block text-lg\">1. GDD</span>\n            <span class=\"text-sm text-slate-600\"\n              >(Documento de Design - Ideia e Mecânicas)</span\n            >\n          </div>\n\n          <!-- Etapa 2 -->\n          <div class=\"flex-1 bg-white rounded-lg p-4 shadow\">\n            <span class=\"font-bold block text-lg\">2. Prototipagem</span>\n            <span class=\"text-sm text-slate-600\"\n              >(Testar a ideia rapidamente)</span\n            >\n          </div>\n\n          <!-- Etapa 3 -->\n          <div class=\"flex-1 bg-white rounded-lg p-4 shadow\">\n            <span class=\"font-bold block text-lg\">3. Implementação</span>\n            <span class=\"text-sm text-slate-600\"\n              >(Desenvolvimento com Unity e C#)</span\n            >\n          </div>\n\n          <!-- Etapa 4 -->\n          <div class=\"flex-1 bg-white rounded-lg p-4 shadow\">\n            <span class=\"font-bold block text-lg\">4. Apresentação</span>\n            <span class=\"text-sm text-slate-600\"\n              >(Pitch + Demonstração jogável)</span\n            >\n          </div>\n        </div>\n\n        <div class=\"mt-6 bg-amber-50 border border-amber-200 p-4 rounded-lg\">\n          <p class=\"text-sm text-amber-900\">\n            💡 <strong>Dica:</strong> Documentem todo o processo. Screenshots,\n            protótipos e decisões de design serão parte do seu portfólio e podem\n            ser usados em entrevistas e apresentações futuras.\n          </p>\n        </div>\n      </section>\n\n      <!-- Seção: Tarefa (TED) -->\n      <section\n        id=\"tarefa\"\n        aria-labelledby=\"tarefa-heading\"\n        class=\"mb-12 prose prose-slate max-w-none lg:prose-lg\"\n      >\n        <h2\n          id=\"tarefa-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-4\"\n        >\n          📝 Tarefa (TED): Conectando com o Mercado\n        </h2>\n        <div class=\"bg-white p-8 rounded-lg shadow not-prose\">\n          <p class=\"text-lg leading-relaxed mb-4\">\n            Para a próxima aula, a tarefa tem dois objetivos: entender as\n            profissões e o que o mercado exige.\n          </p>\n          <ol class=\"list-decimal list-inside space-y-4\">\n            <li>\n              <strong>Fórum - A Minha Profissão Gamer:</strong> Acesse o artigo\n              \"Profissões na Indústria de Jogos\" no Moodle. Após a leitura,\n              participe do fórum respondendo:\n              <blockquote\n                class=\"bg-slate-100 p-4 rounded-md text-lg italic border-l-4 border-slate-300 my-2\"\n              >\n                \"Com qual profissão dentro da indústria de jogos você mais se\n                identifica e por quê?\"\n              </blockquote>\n            </li>\n            <li>\n              <strong>Pesquisa de Mercado - Vaga Real:</strong> Pesquise em\n              sites como LinkedIn ou Catho por uma vaga real na área de jogos\n              que te interesse (ex: \"Programador Unity Júnior\", \"Game Designer\",\n              \"Artista 3D\"). Anote e traga para a próxima aula:\n              <ul class=\"list-disc list-inside mt-2 pl-4\">\n                <li>O nome da vaga e da empresa.</li>\n                <li>\n                  Pelo menos 3 habilidades (skills) técnicas ou comportamentais\n                  exigidas na descrição.\n                </li>\n              </ul>\n            </li>\n          </ol>\n        </div>\n      </section>\n\n      <!-- Seção: Tarefa (TED) -->\n      <section\n        id=\"tarefa\"\n        aria-labelledby=\"tarefa-heading\"\n        class=\"mb-12 prose prose-slate max-w-none lg:prose-lg\"\n      >\n        <h2\n          id=\"tarefa-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-4\"\n        >\n          📝 Tarefa (TED): Conectando com o Mercado\n        </h2>\n        <div class=\"bg-white p-8 rounded-lg shadow not-prose\">\n          <p class=\"text-lg leading-relaxed mb-4\">\n            Para a próxima aula, a tarefa tem dois objetivos: entender as\n            <strong>profissões</strong> e o que o\n            <strong>mercado</strong> exige.\n          </p>\n\n          <ol class=\"list-decimal list-inside space-y-4\">\n            <!-- Fórum -->\n            <li>\n              <strong>Fórum - A Minha Profissão Gamer:</strong>\n              Leia um dos artigos recomendados abaixo e participe do fórum no\n              Moodle respondendo:\n              <blockquote\n                class=\"bg-slate-100 p-4 rounded-md text-lg italic border-l-4 border-slate-300 my-2\"\n              >\n                \"Com qual profissão dentro da indústria de jogos você mais se\n                identifica e por quê?\"\n              </blockquote>\n\n              <p class=\"mt-3 font-semibold\">📚 Leitura recomendada:</p>\n              <ul class=\"list-disc list-inside mt-2 pl-4\">\n                <li>\n                  <a\n                    href=\"https://ebaconline.com.br/blog/games-mercado-de-trabalho-em-expansao-no-brasil\"\n                    target=\"_blank\"\n                    class=\"text-indigo-600 hover:underline\"\n                  >\n                    Games: um mercado de trabalho em expansão no Brasil (EBAC)\n                  </a>\n                </li>\n                <li>\n                  <a\n                    href=\"https://blog.uniasselvi.com.br/carreira-em-jogos-digitais/\"\n                    target=\"_blank\"\n                    class=\"text-indigo-600 hover:underline\"\n                  >\n                    Carreira em Jogos Digitais: como trabalhar na indústria dos\n                    games (Uniasselvi)\n                  </a>\n                </li>\n              </ul>\n            </li>\n\n            <!-- Pesquisa de Vaga -->\n            <li>\n              <strong>Pesquisa de Mercado - Vaga Real:</strong>\n              Pesquise em sites como\n              <a\n                href=\"https://www.linkedin.com/jobs/\"\n                target=\"_blank\"\n                class=\"text-indigo-600 hover:underline\"\n                >LinkedIn</a\n              >\n              ou\n              <a\n                href=\"https://www.catho.com.br/vagas/\"\n                target=\"_blank\"\n                class=\"text-indigo-600 hover:underline\"\n                >Catho</a\n              >\n              por uma vaga real na área de jogos que te interesse (ex:\n              \"Programador Unity Júnior\", \"Game Designer\", \"Artista 3D\"). Anote\n              e traga para a próxima aula:\n              <ul class=\"list-disc list-inside mt-2 pl-4\">\n                <li>O nome da vaga e da empresa.</li>\n                <li>\n                  Pelo menos 3 habilidades (skills) técnicas ou comportamentais\n                  exigidas na descrição.\n                </li>\n              </ul>\n            </li>\n          </ol>\n\n          <div\n            class=\"mt-6 bg-indigo-50 border border-indigo-200 p-4 rounded-lg\"\n          >\n            <p class=\"text-sm text-indigo-800\">\n              💡 <strong>Dica:</strong> Ao escolher a vaga, observe quais\n              habilidades se repetem entre diferentes empresas. Isso dará uma\n              visão clara de quais competências são mais valorizadas na\n              indústria de jogos.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <!-- Seção: Bibliografia -->\n      <section\n        id=\"bibliografia\"\n        aria-labelledby=\"bibliografia-heading\"\n        class=\"prose prose-slate max-w-none lg:prose-lg\"\n      >\n        <h2\n          id=\"bibliografia-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-4\"\n        >\n          📚 Bibliografia de Apoio\n        </h2>\n        <div class=\"bg-white p-8 rounded-lg shadow space-y-4 not-prose\">\n          <p>\n            <strong>ALVES, W. P.</strong>\n            <em>Unity: design e desenvolvimento de jogos.</em> Rio de Janeiro:\n            Alta Books, 2019.\n          </p>\n          <p>\n            <strong>SCHUYTEMA, Paul.</strong>\n            <em>Design de games: uma abordagem prática.</em> São Paulo: Cengage\n            Learning, 2008.\n          </p>\n        </div>\n      </section>\n    </main>\n\n    <!-- Footer -->\n    <footer class=\"bg-slate-800 text-white mt-12\" role=\"contentinfo\">\n      <div class=\"container mx-auto px-6 py-6 text-center\">\n        <p>\n          &copy; 2025 - Tecnologia e Desenvolvimento de Jogos Digitais |\n          Semestre 2025.2\n        </p>\n        <p class=\"text-sm text-slate-400\">\n          Material desenvolvido para os cursos de ADS e SI da UniChristus.\n        </p>\n        <div class=\"mt-4\">\n          <a\n            href=\"https://eadsp.unichristus.edu.br/\"\n            class=\"text-indigo-400 hover:underline text-sm\"\n            >Acessar Moodle</a\n          >\n          <span class=\"text-slate-500 mx-2\">|</span>\n          <a\n            href=\"/politica_uso/\"\n            class=\"text-indigo-400 hover:underline text-sm\"\n            >Política de Uso</a\n          >\n        </div>\n      </div>\n    </footer>\n  </body>\n</html>\n"
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "UNIDADE E CONTEÚDO",
+          "content": "Unidade I – Introdução ao Desenvolvimento de Jogos Digitais. Apresentação da disciplina. Panorama do mercado, gêneros, plataformas e expectativas do projeto final."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Compreender o escopo da disciplina, analisar o mercado, identificar gêneros e contextualizar o papel do desenvolvedor."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva dialogada, vídeo, roda de conversa e dinâmicas em grupo (aula invertida)."
+        },
+        {
+          "icon": "desktop",
+          "title": "RECURSOS",
+          "content": "Projetor, YouTube, slides e ferramentas colaborativas online."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Dinâmica Inicial: O Jogo Inesquecível",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas, conversem por 3 minutos sobre o jogo que mais marcou cada um. Discutam:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Qual foi o elemento principal que o tornou memorável (história, jogabilidade, arte, desafio)?",
+            "Após a conversa, vamos listar no quadro os fatores mais comuns que tornam um jogo especial."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🚀 Bem-vindos à Indústria que mais Cresce no Mundo!",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A indústria de games é um gigante do entretenimento que supera os mercados de cinema e música somados. Ela não apenas dita tendências tecnológicas, mas também molda a cultura, a interação social e novas economias. Ser um desenvolvedor de jogos hoje significa estar no centro de um ecossistema vibrante, atuando em áreas como <strong>programação de gameplay</strong>, <strong>design de narrativas</strong>, <strong>arte 2D/3D</strong>, <strong>garantia de qualidade (QA)</strong>, <strong>design de som</strong> e muito mais."
+        },
+        {
+          "type": "blockquote",
+          "text": "\"Os jogos são a forma de arte mais expressiva e a plataforma de entretenimento mais poderosa da nossa era. Entender como criá-los é entender a linguagem do futuro.\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Nesta disciplina, vamos desvendar os segredos por trás da magia. Vocês não serão apenas jogadores, mas os arquitetos de novos mundos. Nosso objetivo é transformar a paixão por jogar na habilidade de criar, combinando <strong>criatividade</strong> com <strong>tecnologia</strong>."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "⏳ Uma Breve História dos Jogos Digitais",
+      "steps": [
+        {
+          "title": "1970-1980: A Era dos Arcades e Consoles Primitivos",
+          "content": "Nascimento de ícones como Pong, Space Invaders e Pac-Man. O Atari 2600 populariza os jogos em casa."
+        },
+        {
+          "title": "1985-1995: A Revolução 8-bit e 16-bit",
+          "content": "A Nintendo resgata o mercado com o NES (Super Mario Bros.). A guerra de consoles entre Nintendo e Sega define uma geração."
+        },
+        {
+          "title": "1996-2005: A Chegada do 3D e do Multiplayer Online",
+          "content": "PlayStation, Nintendo 64 e o PC popularizam os gráficos 3D. Jogos como Quake e Ultima Online dão início à era dos jogos online."
+        },
+        {
+          "title": "2006-Hoje: A Era Digital, Mobile e Indie",
+          "content": "A distribuição digital (Steam), os smartphones (Angry Birds) e o acesso a ferramentas como a Unity democratizam o desenvolvimento, dando origem à explosão dos jogos indie."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📈 Panorama do Mercado de Jogos",
+      "content": [
+        {
+          "type": "cardGrid",
+          "cards": [
+            {
+              "title": "Impacto Econômico",
+              "content": "Receita global bilionária, com o Brasil sendo o maior mercado da América Latina. Gera empregos em desenvolvimento, marketing, e-sports e mais."
+            },
+            {
+              "title": "Impacto Social",
+              "content": "Criação de comunidades online, eventos globais (e-sports) e novas formas de socialização. Jogos como ferramenta de conexão."
+            },
+            {
+              "title": "Impacto Cultural",
+              "content": "Jogos influenciam filmes, músicas e moda. São reconhecidos como uma forma de arte, com narrativas complexas e experiências imersivas."
+            }
+          ]
+        },
+        {
+          "type": "barChart",
+          "title": "Receita Anual Global (Comparativo)",
+          "data": [
+            {
+              "label": "Games",
+              "value": 187.7,
+              "color": "#4f46e5"
+            },
+            {
+              "label": "Cinema",
+              "value": 99.7,
+              "color": "#0ea5e9"
+            },
+            {
+              "label": "Música",
+              "value": 28.6,
+              "color": "#10b981"
+            }
+          ],
+          "source": "Fonte: Newzoo, Gower (2023). Valores aproximados."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Anatomia do Ecossistema de um Jogo",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://sombraprof.github.io/tdjd/imagens/aula_1_imagem_1.png",
+          "alt": "Diagrama ilustrando o ecossistema de um jogo, com os núcleos de Desenvolvimento, Publicação e Comunidade interligados."
+        },
+        {
+          "type": "paragraph",
+          "text": "Um jogo de sucesso depende da interação entre o time de <strong>Desenvolvimento</strong> (que cria o jogo), a <strong>Publicadora</strong> (que cuida do marketing e distribuição) e a <strong>Comunidade</strong> (que joga, dá feedback e mantém o jogo vivo)."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🔑 Pilares do Game Design",
+      "cards": [
+        {
+          "title": "Mecânicas",
+          "content": "As regras e os sistemas que governam o jogo. São as ações que o jogador pode realizar (pular, atirar, construir)."
+        },
+        {
+          "title": "Dinâmicas",
+          "content": "O comportamento que emerge da interação do jogador com as mecânicas. Ex: estratégias, táticas, cooperação."
+        },
+        {
+          "title": "Estética",
+          "content": "As respostas emocionais evocadas no jogador. Ex: diversão, desafio, descoberta, fantasia, narrativa."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🎮 Gêneros e Plataformas",
+      "cards": [
+        {
+          "title": "Principais Gêneros",
+          "content": "<ul><li><strong>RPG (Role-Playing Game):</strong> Foco em progressão de personagem e história. (Ex: The Witcher, Final Fantasy)</li><li><strong>Ação/Aventura:</strong> Combina combate, exploração e puzzles. (Ex: Zelda, God of War)</li><li><strong>Estratégia (RTS/TBS):</strong> Requer planejamento e gerenciamento de recursos. (Ex: Age of Empires, XCOM)</li><li><strong>Simulação:</strong> Recria atividades do mundo real. (Ex: The Sims, Flight Simulator)</li><li><strong>Indie:</strong> Jogos criados por estúdios pequenos, focados em inovação e arte. (Ex: Celeste, Hollow Knight)</li></ul>"
+        },
+        {
+          "title": "Principais Plataformas",
+          "content": "<ul><li><strong>PC:</strong> Flexibilidade, poder gráfico e distribuição digital (Steam, Epic Games).</li><li><strong>Consoles:</strong> Experiência otimizada e ecossistemas exclusivos (PlayStation, Xbox, Nintendo).</li><li><strong>Mobile:</strong> Acessibilidade massiva, jogos casuais e monetização via apps.</li><li><strong>XR (VR/AR):</strong> A nova fronteira da imersão, com realidade virtual e aumentada.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "💡 Analisando Jogos Famosos",
+      "cards": [
+        {
+          "title": "The Witcher 3: Wild Hunt",
+          "content": "<ul><li><strong>Gênero:</strong> RPG de Ação / Mundo Aberto</li><li><strong>Plataforma:</strong> PC, PlayStation, Xbox, Nintendo Switch</li><li><strong>Inovação Chave:</strong> Narrativa madura e complexa com missões secundárias que possuem o mesmo nível de profundidade da campanha principal, estabelecendo um novo padrão para storytelling em RPGs.</li><li><strong>Impacto:</strong> Considerado um dos melhores RPGs já feitos, elevou o padrão de qualidade para mundos abertos e mostrou como narrativas interativas podem ter peso literário.</li></ul>"
+        },
+        {
+          "title": "Among Us",
+          "content": "<ul><li><strong>Gênero:</strong> Social Deduction / Indie</li><li><strong>Plataforma:</strong> Mobile, PC, Consoles</li><li><strong>Inovação Chave:</strong> Mecânica simples de dedução social com interação intensa entre jogadores, provando que jogos de baixo orçamento podem se tornar fenômenos culturais globais.</li><li><strong>Impacto:</strong> Popularizou jogos de dedução social no ambiente digital, destacando o papel da comunidade e streamers na propagação de jogos independentes.</li></ul>"
+        },
+        {
+          "title": "Minecraft",
+          "content": "<ul><li><strong>Gênero:</strong> Sandbox / Sobrevivência / Criativo</li><li><strong>Plataforma:</strong> Todas (PC, Consoles, Mobile)</li><li><strong>Inovação Chave:</strong> Mundo procedural que oferece liberdade criativa quase infinita, permitindo que jogadores construam suas próprias experiências e narrativas.</li><li><strong>Impacto:</strong> Transformou o conceito de sandbox, tornou-se uma ferramenta de educação e colaboração, e é um dos jogos mais vendidos e influentes da história.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pausa para Análise: O Mercado em Ação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos assistir a um vídeo curto que destaca os <strong>melhores games brasileiros de fevereiro de 2025</strong>. Durante a exibição, anotem um dado ou tendência que mais chamou a atenção e discutiremos em seguida."
+        },
+        {
+          "type": "video",
+          "youtubeId": "iM-Qc11_pHI",
+          "start": 61
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "🧐 Teste seu Conhecimento",
+      "items": [
+        {
+          "title": "1. Qual gênero de jogo, simbolizado por \"RTS\", foca em gerenciamento de recursos e exércitos em tempo real?",
+          "content": "<strong>Resposta:</strong> Estratégia em Tempo Real (Real-Time Strategy), como Age of Empires ou StarCraft."
+        },
+        {
+          "title": "2. A Steam é a principal plataforma de distribuição digital para qual ambiente de jogos?",
+          "content": "<strong>Resposta:</strong> PC (Computador). É a maior loja digital para jogos de PC no mundo."
+        },
+        {
+          "title": "3. Jogos como \"Celeste\" e \"Stardew Valley\", criados por equipes pequenas com foco em inovação, pertencem a qual categoria?",
+          "content": "<strong>Resposta:</strong> Indie (Independentes). Eles são conhecidos pela liberdade criativa e por não terem grandes publicadoras por trás."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Nosso Grande Desafio: O Projeto Final",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Ao longo da disciplina, vocês irão trabalhar em <strong>equipes multidisciplinares</strong> para conceber, desenvolver e apresentar um jogo digital completo. Este projeto não será apenas uma avaliação: será a primeira peça sólida do <strong>portfólio profissional</strong> de cada um, mostrando suas habilidades técnicas, de design e colaboração."
+        },
+        {
+          "type": "paragraph",
+          "text": "O jogo deve ser pensado com <strong>design de mecânicas, experiência do jogador</strong> e <strong>viabilidade de publicação</strong>. A ideia é simular o ciclo real de desenvolvimento, incluindo documentação, prototipagem, implementação e apresentação final."
+        },
+        {
+          "type": "roadmap",
+          "steps": [
+            {
+              "title": "1. GDD",
+              "content": "(Documento de Design - Ideia e Mecânicas)"
+            },
+            {
+              "title": "2. Prototipagem",
+              "content": "(Testar a ideia rapidamente)"
+            },
+            {
+              "title": "3. Implementação",
+              "content": "(Desenvolvimento com Unity e C#)"
+            },
+            {
+              "title": "4. Apresentação",
+              "content": "(Pitch + Demonstração jogável)"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "💡 <strong>Dica:</strong> Documentem todo o processo. Screenshots, protótipos e decisões de design serão parte do seu portfólio e podem ser usados em entrevistas e apresentações futuras."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Conectando com o Mercado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para a próxima aula, a tarefa tem dois objetivos: entender as <strong>profissões</strong> e o que o <strong>mercado</strong> exige."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Fórum - A Minha Profissão Gamer:</strong> Leia um dos artigos recomendados abaixo e participe do fórum no Moodle respondendo:<blockquote>\"Com qual profissão dentro da indústria de jogos você mais se identifica e por quê?\"</blockquote><p class=\"mt-3 font-semibold\">📚 Leitura recomendada:</p><ul><li><a href=\"https://ebaconline.com.br/blog/games-mercado-de-trabalho-em-expansao-no-brasil\" target=\"_blank\">Games: um mercado de trabalho em expansão no Brasil (EBAC)</a></li><li><a href=\"https://blog.uniasselvi.com.br/carreira-em-jogos-digitais/\" target=\"_blank\">Carreira em Jogos Digitais: como trabalhar na indústria dos games (Uniasselvi)</a></li></ul>",
+            "<strong>Pesquisa de Mercado - Vaga Real:</strong> Pesquise em sites como <a href=\"https://www.linkedin.com/jobs/\" target=\"_blank\">LinkedIn</a> ou <a href=\"https://www.catho.com.br/vagas/\" target=\"_blank\">Catho</a> por uma vaga real na área de jogos que te interesse (ex: \"Programador Unity Júnior\", \"Game Designer\", \"Artista 3D\"). Anote e traga para a próxima aula:<ul><li>O nome da vaga e da empresa.</li><li>Pelo menos 3 habilidades (skills) técnicas ou comportamentais exigidas na descrição.</li></ul>"
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "content": "💡 <strong>Dica:</strong> Ao escolher a vaga, observe quais habilidades se repetem entre diferentes empresas. Isso dará uma visão clara de quais competências são mais valorizadas na indústria de jogos."
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia de Apoio",
+      "references": [
+        "<strong>ALVES, W. P.</strong> <em>Unity: design e desenvolvimento de jogos.</em> Rio de Janeiro: Alta Books, 2019.",
+        "<strong>SCHUYTEMA, Paul.</strong> <em>Design de games: uma abordagem prática.</em> São Paulo: Cengage Learning, 2008."
+      ]
     }
   ]
 }

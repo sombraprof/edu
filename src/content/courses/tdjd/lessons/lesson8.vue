@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson8',
-  title: 'Aula 8: IA e Comportamentos',
+  title: 'Aula 8: Level Design com ProBuilder',
   available: true,
 };
 </script>

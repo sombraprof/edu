@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson4',
-  title: 'Aula 4: Unidade I – Activities e Intents',
+  title: 'Aula 4: Unidade I – Componentes de UI',
   available: true,
 };
 </script>

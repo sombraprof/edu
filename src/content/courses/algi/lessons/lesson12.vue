@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson12',
-  title: 'Aula 12: Estruturas Condicionais Simples e Compostas (if/else)',
+  title: 'Aula 12: Condições Encadeadas com else if',
   objective: 'Criando múltiplos caminhos para decisões mais complexas e organizadas.',
   available: true,
 };

@@ -1,7 +1,7 @@
 [
   {
     "id": "lesson1",
-    "title": "Aula 1: Apresentação e Lógica",
+    "title": "Aula 1: Introdução à Lógica e Algoritmos",
     "file": "lesson1.vue",
     "available": true,
     "description": "O objetivo desta aula é conhecer o plano de ensino e entender a lógica como a base para criar soluções computacionais."
@@ -22,7 +22,7 @@
   },
   {
     "id": "lesson4",
-    "title": "Aula 4: Do Pseudocódigo ao C",
+    "title": "Aula 4: Do Pseudocódigo ao Primeiro Programa em C",
     "file": "lesson4.vue",
     "available": true,
     "description": "A transição do planeamento em Portugol para a implementação em Linguagem C."
@@ -36,7 +36,7 @@
   },
   {
     "id": "lesson6",
-    "title": "Aula 6: Variáveis e Constantes",
+    "title": "Aula 6: Variáveis, Constantes e Tipos de Dados em C",
     "file": "lesson6.vue",
     "available": true,
     "description": "Aprender a armazenar e manipular informações nos nossos programas."
@@ -50,7 +50,7 @@
   },
   {
     "id": "lesson8",
-    "title": "Aula 8: Leitura Múltipla e Saída Formatada",
+    "title": "Aula 8: Leitura Múltipla, Cálculos Encadeados e printf Formatado",
     "file": "lesson8.vue",
     "available": true,
     "description": "Consolidando o fluxo sequencial: Entrada → Processamento → Saída"
@@ -64,21 +64,21 @@
   },
   {
     "id": "lesson10",
-    "title": "Aula 10: Problemas Sequenciais Compostos em C",
+    "title": "Aula 10: Estruturas de Controle Condicional com if e else",
     "file": "lesson10.vue",
     "available": true,
     "description": "Escrever programas em C que alterem o fluxo do algoritmo com base em condições booleanas, utilizando if e else para decisões simples e compostas."
   },
   {
     "id": "lesson11",
-    "title": "Aula 11: Revisão da Unidade III e Mini-teste",
+    "title": "Aula 11: Seleção Múltipla com <code>switch-case</code>",
     "file": "lesson11.vue",
     "available": true,
     "description": "Organizando decisões complexas de forma limpa e eficiente."
   },
   {
     "id": "lesson12",
-    "title": "Aula 12: Estruturas Condicionais Simples e Compostas (if/else)",
+    "title": "Aula 12: Condições Encadeadas com else if",
     "file": "lesson12.vue",
     "available": true,
     "description": "Criando múltiplos caminhos para decisões mais complexas e organizadas."

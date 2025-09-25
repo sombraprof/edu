@@ -1,11 +1,228 @@
 {
   "id": "lesson5",
-  "title": "Aula 5: Herança",
-  "objective": "",
+  "title": "Aula 5: Resolução da AV1 e Introdução à Herança",
+  "objective": "Revisar os conceitos fundamentais de POO e introduzir a Herança como mecanismo de reuso e especialização de código em Java.",
   "content": [
     {
-      "type": "html",
-      "html": "<!DOCTYPE html>\n<html lang=\"pt-BR\" class=\"scroll-smooth\">\n\n<head>\n    <!-- Metadados Essenciais -->\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>LPOO - Aula 5: Resolução da AV1 e Introdução à Herança</title>\n    <meta name=\"description\"\n        content=\"Aula 5 da disciplina de LPOO. Resolução comentada da AV1 e introdução ao conceito de Herança em Java com extends, superclasses e subclasses.\" />\n    <meta name=\"author\" content=\"Prof. Tiago Guimarães Sombra\" />\n\n    <!-- Open Graph / Facebook -->\n    <meta property=\"og:type\" content=\"website\" />\n    <meta property=\"og:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta property=\"og:title\" content=\"LPOO - Aula 5: Resolução da AV1 e Introdução à Herança\" />\n    <meta property=\"og:description\"\n        content=\"Resolução comentada da AV1 e introdução ao conceito de Herança em Java com extends, superclasses e subclasses.\" />\n    <meta property=\"og:image\" content=\"https://placehold.co/1200x630/4f46e5/ffffff?text=LPOO%0AAula%205\" />\n\n    <!-- Twitter -->\n    <meta property=\"twitter:card\" content=\"summary_large_image\" />\n    <meta property=\"twitter:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta property=\"twitter:title\" content=\"LPOO - Aula 5: Resolução da AV1 e Introdução à Herança\" />\n    <meta property=\"twitter:description\"\n        content=\"Resolução comentada da AV1 e introdução ao conceito de Herança em Java com extends, superclasses e subclasses.\" />\n    <meta property=\"twitter:image\" content=\"https://placehold.co/1200x630/4f46e5/ffffff?text=LPOO%0AAula%205\" />\n\n    <!-- Tailwind CSS via CDN -->\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n    <!-- Google Fonts: Inter & Roboto Mono -->\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n    <link\n        href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap\"\n        rel=\"stylesheet\" />\n    <!-- Font Awesome for icons -->\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\" integrity=\"sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=\" crossorigin=\"anonymous\" />\n\n    <!-- Estilos locais removidos: usamos css/style.css global para callouts, code-block e copy-btn -->\n</head>\n\n<body class=\"text-slate-800\">\n    <nav class=\"bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50\"\n        aria-label=\"Menu de navegação principal\">\n        <div class=\"container mx-auto px-6\">\n            <div class=\"flex justify-between items-center h-16\">\n                <span class=\"text-lg font-bold text-indigo-700\">LPOO - Aula 5</span>\n                <div class=\"hidden md:flex space-x-4 text-sm font-semibold\">\n                    <a href=\"#plano-aula\" class=\"text-slate-600 hover:text-indigo-600\">Plano</a>\n                    <a href=\"#av1\" class=\"text-slate-600 hover:text-indigo-600\">Análise AV1</a>\n                    <a href=\"#teoria\" class=\"text-slate-600 hover:text-indigo-600\">Teoria</a>\n                    <a href=\"#pratica\" class=\"text-slate-600 hover:text-indigo-600\">Prática</a>\n                    <a href=\"#ted\" class=\"text-slate-600 hover:text-indigo-600\">TED</a>\n                    <a href=\"#bibliografia\" class=\"text-slate-600 hover:text-indigo-600\">Bibliografia</a>\n                </div>\n            </div>\n        </div>\n    </nav>\n\n    <header class=\"bg-gradient-to-r from-indigo-700 to-indigo-900 text-white shadow-lg\">\n        <div class=\"container mx-auto px-6 py-10\">\n            <h1 class=\"text-4xl font-bold\">Resolução da AV1 e Introdução à Herança</h1>\n            <p class=\"text-xl text-indigo-200 mt-2\">Aula 5: Unidade III - Conceitos práticos de OO e seus pilares</p>\n        </div>\n    </header>\n\n    <main class=\"container mx-auto px-6 py-10\" role=\"main\">\n\n        <section id=\"ementa\" class=\"mb-12 bg-white p-8 rounded-lg shadow\" aria-labelledby=\"ementa-heading\">\n            <h2 id=\"ementa-heading\" class=\"text-3xl font-semibold text-slate-800 mb-6\">Ementa e Contextualização</h2>\n            <p class=\"text-slate-700 leading-relaxed\">\n                Nesta aula, faremos uma pausa estratégica para consolidar o conhecimento adquirido até agora, com a\n                resolução comentada da AV1. Em seguida, daremos um passo fundamental na Programação Orientada a Objetos\n                ao introduzir a <strong>Herança</strong>. A herança é um mecanismo poderoso que permite criar novas\n                classes a partir de outras já existentes, promovendo o reuso de código, evitando duplicação e\n                organizando nosso software em hierarquias lógicas. É o pilar que nos permite modelar relacionamentos do\n                tipo \"é-um\" (um Gerente \"é-um\" Funcionário), essencial para a construção de sistemas complexos e\n                escaláveis.\n            </p>\n        </section>\n\n        <section id=\"plano-aula\" class=\"mb-12 bg-indigo-50 border border-indigo-200 p-8 rounded-2xl shadow-lg\"\n            aria-labelledby=\"plano-aula-heading\">\n            <h2 id=\"plano-aula-heading\" class=\"text-3xl font-bold text-indigo-700 mb-6 text-center\">Plano da Aula</h2>\n            <div class=\"grid grid-cols-1 md:grid-cols-3 gap-6\">\n                <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n                    <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n                        <i class=\"fa-solid fa-book-open mr-2\" aria-hidden=\"true\"></i>CONTEÚDO</h3>\n                    <p class=\"text-slate-600\">Resolução comentada da AV1. Conceito de Herança, palavra-chave <code-text>extends</code-text>,\n                        superclasse (classe base) e subclasse (classe derivada).</p>\n                </div>\n                <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n                    <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n                        <i class=\"fa-solid fa-bullseye mr-2\" aria-hidden=\"true\"></i>OBJETIVO</h3>\n                    <p class=\"text-slate-600\">Revisar os conceitos fundamentais de POO e introduzir a Herança como\n                        mecanismo de reuso e especialização de código em Java.</p>\n                </div>\n                <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n                    <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n                        <i class=\"fa-solid fa-gears mr-2\" aria-hidden=\"true\"></i>METODOLOGIA</h3>\n                    <p class=\"text-slate-600\">Análise da avaliação, aula expositiva sobre Herança, e exemplos práticos\n                        de implementação de hierarquias de classes.</p>\n                </div>\n            </div>\n        </section>\n\n        <!-- NOVA SEÇÃO: Resolução Comentada da AV1 -->\n        <section id=\"av1\" class=\"mb-12\" aria-labelledby=\"av1-heading\">\n            <h2 id=\"av1-heading\" class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\">\n                📚 Teoria — Análise da AV1: Consolidando Nossos Conhecimentos</h2>\n            <div class=\"bg-white p-8 rounded-lg shadow\">\n                <p class=\"text-slate-700 leading-relaxed mb-4\">\n                    Vamos revisar um problema típico da AV1, que aborda os conceitos essenciais que vimos até agora:\n                    classes, objetos, atributos, métodos e encapsulamento.\n                </p>\n                <div class=\"callout callout-academic\">\n                    <h4 class=\"font-bold text-lg mb-2\">Problema Exemplo: Modelar um <code-text>Curso</code-text></h4>\n                    <p class=\"text-sm\">\"Crie uma classe <code-text>Curso</code-text> para representar um curso acadêmico. A classe deve ter\n                        os atributos privados <code-text>nome</code-text> (String) e <code-text>cargaHoraria</code-text> (int). Implemente um construtor que\n                        inicialize esses atributos e métodos getters e setters. O setter de <code-text>cargaHoraria</code-text> deve garantir\n                        que o valor não seja negativo. Crie uma classe de teste para instanciar e exibir os dados de um\n                        curso.\"</p>\n                </div>\n                <h3 class=\"text-xl font-semibold text-slate-800 mt-6 mb-2\">Resolução Passo a Passo</h3>\n                <p class=\"text-slate-600 mb-4\">A solução correta envolve criar a classe com atributos privados e\n                    fornecer acesso controlado através de métodos públicos.</p>\n                <div class=\"code-block\">\n                        <button class=\"copy-btn\" data-tooltip=\"Copiar código\" aria-label=\"Copiar código da resolução da AV1\"><i class=\"fa-solid fa-copy mr-1\" aria-hidden=\"true\"></i>Copiar</button>\n                    <pre><code class=\"language-java\">\n// File: Curso.java\npublic class Curso {\n    private String nome;\n    private int cargaHoraria;\n\n    public Curso(String nome, int cargaHoraria) {\n        this.nome = nome;\n        this.setCargaHoraria(cargaHoraria); // Use the setter to ensure validation\n    }\n\n    public String getNome() {\n        return this.nome;\n    }\n\n    public int getCargaHoraria() {\n        return this.cargaHoraria;\n    }\n\n    public void setNome(String nome) {\n        this.nome = nome;\n    }\n\n    public void setCargaHoraria(int cargaHoraria) {\n        if (cargaHoraria >= 0) {\n            this.cargaHoraria = cargaHoraria;\n        } else {\n            System.out.println(\"[ERRO] Carga horária não pode ser negativa.\");\n        }\n    }\n}\n                </code></pre>\n                </div>\n            </div>\n        </section>\n\n        <section id=\"teoria\" class=\"mb-12\" aria-labelledby=\"teoria-heading\">\n            <h2 id=\"teoria-heading\"\n                class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\">🏗️ Construindo\n                Hierarquias: O Poder da Herança</h2>\n\n            <div class=\"bg-white p-6 rounded-lg shadow mb-6\">\n                <h3 class=\"text-2xl font-semibold text-slate-800 mb-4\">1. O que é Herança?</h3>\n                <p class=\"text-slate-700 leading-relaxed mb-4\">\n                    Herança é um mecanismo que permite que uma classe (subclasse) herde atributos e métodos de outra\n                    classe (superclasse). Isso cria uma relação \"é-um\". Por exemplo, um <code-text>Cachorro</code-text> <strong>é um</strong>\n                    <code-text>Animal</code-text>. A subclasse pode reutilizar todo o código da superclasse e ainda adicionar seus próprios\n                    atributos e métodos específicos.\n                </p>\n                <ul class=\"list-disc list-inside space-y-2 text-slate-700 mb-6\">\n                    <li><strong>Superclasse (ou Classe Pai/Base):</strong> A classe que está sendo herdada. Contém os\n                        membros mais genéricos.</li>\n                    <li><strong>Subclasse (ou Classe Filha/Derivada):</strong> A classe que herda. É uma versão\n                        especializada da superclasse.</li>\n                    <li><strong>Palavra-chave <code-text>extends</code-text>:</strong> Usada em Java para estabelecer a relação de herança.\n                        Ex: <code-text>public class Cachorro extends Animal</code-text>.</li>\n                </ul>\n            </div>\n\n            <div class=\"bg-white p-6 rounded-lg shadow mb-6\">\n                <h3 class=\"text-2xl font-semibold text-slate-800 mb-4\">2. A Palavra-chave <code-text>super</code-text></h3>\n                <p class=\"text-slate-700 leading-relaxed mb-4\">\n                    A palavra-chave <code-text>super</code-text> é usada dentro de uma subclasse para se referir a membros da sua\n                    superclasse. Ela tem dois usos principais:\n                </p>\n                <ul class=\"list-disc list-inside space-y-2 text-slate-700\">\n                    <li><strong><code-text>super()</code-text>:</strong> Para chamar o construtor da superclasse. Esta deve ser a\n                        <strong>primeira instrução</strong> no construtor da subclasse.</li>\n                    <li><strong><code-text>super.metodo()</code-text>:</strong> Para chamar um método específico da superclasse,\n                        especialmente útil quando a subclasse sobrescreve esse método.</li>\n                </ul>\n            </div>\n\n            <!-- NOVA SEÇÃO: Vantagens e Cuidados -->\n            <div class=\"bg-white p-6 rounded-lg shadow mb-6\">\n                <h3 class=\"text-2xl font-semibold text-slate-800 mb-4\">3. Vantagens e Cuidados com a Herança</h3>\n                <div class=\"grid grid-cols-1 md:grid-cols-2 gap-6 mt-4\">\n                    <div class=\"bg-green-50 p-4 rounded-lg border-l-4 border-green-500\">\n                        <h4 class=\"font-bold text-green-800 mb-2\">Vantagens</h4>\n                        <ul class=\"list-disc list-inside text-sm text-green-900 space-y-1\">\n                            <li><strong>Reuso de Código:</strong> Evita duplicação de atributos e métodos comuns.</li>\n                            <li><strong>Organização:</strong> Cria hierarquias lógicas e fáceis de entender.</li>\n                            <li><strong>Polimorfismo:</strong> Permite que objetos de subclasses sejam tratados como\n                                objetos da superclasse (veremos na próxima aula).</li>\n                        </ul>\n                    </div>\n                    <div class=\"bg-red-50 p-4 rounded-lg border-l-4 border-red-500\">\n                        <h4 class=\"font-bold text-red-800 mb-2\">Cuidados</h4>\n                        <ul class=\"list-disc list-inside text-sm text-red-900 space-y-1\">\n                            <li><strong>Acoplamento Forte:</strong> Subclasses são fortemente acopladas às suas\n                                superclasses. Mudanças na superclasse podem quebrar as subclasses.</li>\n                            <li><strong>Hierarquias Frágeis:</strong> Hierarquias muito profundas ou mal planejadas\n                                podem se tornar difíceis de manter.</li>\n                            <li><strong>Uso Indevido:</strong> Herança deve representar uma relação \"é-um\". Para\n                                relações \"tem-um\", prefira composição.</li>\n                        </ul>\n                    </div>\n                </div>\n            </div>\n        </section>\n\n        <section id=\"pratica\" class=\"mb-12\" aria-labelledby=\"pratica-heading\">\n            <h2 id=\"pratica-heading\"\n                class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\">💻 Exemplos\n                Práticos: Criando Hierarquias</h2>\n\n            <div class=\"bg-white p-6 rounded-lg shadow mb-6\">\n                <h3 class=\"text-xl font-semibold text-slate-800 mb-2\">Exemplo 1: <code-text>Animal</code-text> e <code-text>Cachorro</code-text></h3>\n                <p class=\"text-slate-600 mb-4\">Aqui, <code-text>Cachorro</code-text> herda <code-text>nome</code-text> de <code-text>Animal</code-text> e adiciona seu próprio atributo\n                    <code-text>raca</code-text>.</p>\n                <div class=\"code-block\">\n                        <button class=\"copy-btn\" data-tooltip=\"Copiar código\" aria-label=\"Copiar código da classe Animal\"><i class=\"fa-solid fa-copy mr-1\" aria-hidden=\"true\"></i>Copiar</button>\n                    <pre><code class=\"language-java\">\n// Superclass\npublic class Animal {\n    protected String nome;\n\n    public Animal(String nome) {\n        this.nome = nome;\n    }\n\n    public void comer() {\n        System.out.println(this.nome + \" está comendo.\");\n    }\n}\n\n// Subclass\npublic class Cachorro extends Animal {\n    private String raca;\n\n    public Cachorro(String nome, String raca) {\n        // Calls the constructor of the superclass (Animal)\n        super(nome); \n        this.raca = raca;\n    }\n\n    public void latir() {\n        System.out.println(this.nome + \" da raça \" + this.raca + \" está latindo: Au au!\");\n    }\n}\n                </code></pre>\n                </div>\n            </div>\n\n            <div class=\"bg-white p-6 rounded-lg shadow\">\n                <h3 class=\"text-xl font-semibold text-slate-800 mb-2\">Exemplo 2: <code-text>Funcionario</code-text> e <code-text>Gerente</code-text></h3>\n                <p class=\"text-slate-600 mb-4\">Um <code-text>Gerente</code-text> é um tipo de <code-text>Funcionario</code-text> que tem um bônus adicional.</p>\n                <div class=\"code-block\">\n                        <button class=\"copy-btn\" data-tooltip=\"Copiar código\" aria-label=\"Copiar código das classes Funcionario e Gerente\"><i class=\"fa-solid fa-copy mr-1\" aria-hidden=\"true\"></i>Copiar</button>\n                    <pre><code class=\"language-java\">\n// Superclass\npublic class Funcionario {\n    private String nome;\n    private double salario;\n\n    public Funcionario(String nome, double salario) {\n        this.nome = nome;\n        this.salario = salario;\n    }\n\n    public double getSalario() {\n        return this.salario;\n    }\n    \n    public String getNome() {\n        return this.nome;\n    }\n}\n\n// Subclass\npublic class Gerente extends Funcionario {\n    private double bonus;\n\n    public Gerente(String nome, double salario, double bonus) {\n        // Call the Funcionario constructor\n        super(nome, salario);\n        this.bonus = bonus;\n    }\n\n    // A better approach is to create a new method for the total salary.\n    public double getSalarioComBonus() {\n        // super.getSalario() calls the getSalario() method from the Funcionario class\n        return super.getSalario() + this.bonus;\n    }\n}\n                </code></pre>\n                </div>\n            </div>\n        </section>\n\n        <section id=\"recursos-auxiliares\" class=\"mb-12\" aria-labelledby=\"recursos-heading\">\n            <h2 id=\"recursos-heading\"\n                class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\">🎥 Vídeos e Links\n                de Apoio</h2>\n            <div class=\"grid grid-cols-1 md:grid-cols-2 gap-8 mb-8\">\n                <div class=\"bg-white p-4 rounded-lg shadow\">\n                    <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">Herança em Java (Curso de Java 39 – Loiane\n                        Groner)</h3>\n                    <div class=\"aspect-video w-full\">\n                        <iframe class=\"w-full h-full rounded-md\" src=\"https://www.youtube.com/embed/aRPal-8z4RQ\"\n                            title=\"Herança em Java – Loiane Groner\" frameborder=\"0\" allowfullscreen></iframe>\n                    </div>\n                </div>\n                <div class=\"bg-white p-4 rounded-lg shadow\">\n                    <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">Herança e super em Java (Curso de Java 37)\n                    </h3>\n                    <div class=\"aspect-video w-full\">\n                        <iframe class=\"w-full h-full rounded-md\" src=\"https://www.youtube.com/embed/MOXLCjL4Ik4\"\n                            title=\"Herança e super em Java\" frameborder=\"0\" allowfullscreen></iframe>\n                    </div>\n                </div>\n            </div>\n            <div class=\"bg-white p-6 rounded-lg shadow\">\n                <h3 class=\"font-semibold text-lg text-indigo-800 mb-4\">📖 Leituras Recomendadas</h3>\n                <ul class=\"space-y-4\">\n                    <li>\n                        <a href=\"https://docs.oracle.com/javase/tutorial/java/javaOO/inheritance.html\" target=\"_blank\"\n                            rel=\"noopener noreferrer\" class=\"block font-semibold text-indigo-600 hover:underline\">\n                            <i class=\"fa-solid fa-book-bookmark mr-2\"></i>Inheritance (Documentação Oficial da Oracle)\n                        </a>\n                        <p class=\"text-sm text-slate-600\">O guia oficial da Oracle sobre herança em Java.</p>\n                    </li>\n                    <li>\n                        <a href=\"https://www.baeldung.com/java-inheritance\" target=\"_blank\" rel=\"noopener noreferrer\"\n                            class=\"block font-semibold text-indigo-600 hover:underline\">\n                            <i class=\"fa-solid fa-file-alt mr-2\"></i>Inheritance in Java (Baeldung)</a>\n                        <p class=\"text-sm text-slate-600\">Bom material técnico para aprofundar o aprendizado.</p>\n                    </li>\n                </ul>\n            </div>\n        </section>\n\n\n        <section id=\"ted\" class=\"mb-12 bg-amber-50 border border-amber-300 p-8 rounded-lg shadow-lg\"\n            aria-labelledby=\"ted-heading\">\n            <h2 id=\"ted-heading\" class=\"text-3xl font-bold text-amber-800 mb-6\">\n                <i class=\"fa-solid fa-laptop-code mr-2\" aria-hidden=\"true\"></i>Atividade Prática (TED): Modelando\n                Veículos</h2>\n            <p class=\"text-amber-900 leading-relaxed mb-4\">\n                Vamos praticar a herança modelando diferentes tipos de veículos.\n            </p>\n            <ol class=\"list-decimal list-inside space-y-4 text-amber-900\">\n                <li><strong>Crie a superclasse <code-text>Veiculo.java</code-text></strong> com atributos <code-text>private String marca</code-text> e <code-text>private\n                    String modelo</code-text>. Adicione um construtor e getters para esses atributos.</li>\n                <li><strong>Crie a subclasse <code-text>Carro.java</code-text></strong> que herda de <code-text>Veiculo</code-text>. Adicione um atributo <code-text>private\n                    int numeroDePortas</code-text>. Crie um construtor que use <code-text>super()</code-text> para inicializar a marca e o modelo.</li>\n                <li><strong>Crie a subclasse <code-text>Moto.java</code-text></strong> que herda de <code-text>Veiculo</code-text>. Adicione um atributo <code-text>private\n                    int cilindradas</code-text>. Crie um construtor que também use <code-text>super()</code-text>.</li>\n                <li><strong>Crie uma classe <code-text>Garagem.java</code-text> com um método <code-text>main</code-text></strong> para testar. Crie um objeto\n                    <code-text>Carro</code-text> e um objeto <code-text>Moto</code-text>, e imprima as informações completas de cada um no console.</li>\n            </ol>\n        </section>\n\n        <section id=\"checklist\" class=\"mt-12\" aria-labelledby=\"checklist-heading\">\n            <div class=\"bg-green-50 border-l-4 border-green-500 text-green-800 p-6 rounded-lg shadow\">\n                <h3 id=\"checklist-heading\" class=\"font-bold text-lg mb-3\">\n                    <i class=\"fa-solid fa-list-check mr-2\" aria-hidden=\"true\"></i>Checklist de Aprendizagem da Aula</h3>\n                <p>Ao final desta aula, você deve ser capaz de:</p>\n                <ul class=\"list-none space-y-2 mt-2\">\n                    <li><i class=\"fa-solid fa-check text-green-600 mr-2\" aria-hidden=\"true\"></i>Explicar o conceito de\n                        Herança e a relação \"é-um\".</li>\n                    <li><i class=\"fa-solid fa-check text-green-600 mr-2\" aria-hidden=\"true\"></i>Utilizar a palavra-chave\n                        <code-text>extends</code-text> para criar uma subclasse.</li>\n                    <li><i class=\"fa-solid fa-check text-green-600 mr-2\" aria-hidden=\"true\"></i>Chamar o construtor da\n                        superclasse usando <code-text>super()</code-text>.</li>\n                    <li><i class=\"fa-solid fa-check text-green-600 mr-2\" aria-hidden=\"true\"></i>Entender como subclasses\n                        herdam membros e podem adicionar os seus próprios.</li>\n                </ul>\n            </div>\n        </section>\n\n        <section id=\"bibliografia\" class=\"prose prose-slate max-w-none lg:prose-lg mt-12\"\n            aria-labelledby=\"bibliografia-heading\">\n            <h2 id=\"bibliografia-heading\"\n                class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-4\">📚 Bibliografia de\n                Apoio</h2>\n            <div class=\"bg-white p-8 rounded-lg shadow space-y-4 not-prose\">\n                <p><strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo:\n                    Pearson Prentice Hall, 2014.</p>\n                <p><strong>SCHILDT, Herbert.</strong>\n                    <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto\n                    Alegre: Bookman, 2015.</p>\n                <p><strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong>\n                    <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013.</p>\n            </div>\n        </section>\n    </main>\n\n    <footer class=\"bg-slate-800 text-slate-300 mt-12\" role=\"contentinfo\">\n        <div class=\"container mx-auto px-6 py-8 text-center\">\n            <p class=\"font-semibold text-white\">Prof. Tiago Guimarães Sombra</p>\n            <p class=\"text-sm mt-1\">Material acadêmico para os cursos de ADS e SI.</p>\n            <p class=\"text-sm font-bold text-indigo-300\">Unifametro</p>\n            <div class=\"mt-4 flex justify-center items-center space-x-4\">\n                <a href=\"https://github.com/sombraprof/lpoo\" target=\"_blank\" rel=\"noopener noreferrer\"\n                    class=\"text-indigo-400 hover:text-white transition-colors\"\n                    aria-label=\"Visitar o repositório do projeto no GitHub\">\n                    <i class=\"fab fa-github fa-lg mr-1\" aria-hidden=\"true\"></i> Repositório GitHub\n                </a>\n                <span class=\"text-slate-500\">|</span>\n                <a href=\"#\" class=\"text-indigo-400 hover:text-white transition-colors\"\n                    aria-label=\"Ver a política de uso do material\">Política de Uso</a>\n            </div>\n        </div>\n    </footer>\n</body>\n\n</html>\n"
+      "type": "contentBlock",
+      "title": "Ementa e Contextualização",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Nesta aula, faremos uma pausa estratégica para consolidar o conhecimento adquirido até agora, com a resolução comentada da AV1. Em seguida, daremos um passo fundamental na Programação Orientada a Objetos ao introduzir a <strong>Herança</strong>. A herança é um mecanismo poderoso que permite criar novas classes a partir de outras já existentes, promovendo o reuso de código, evitando duplicação e organizando nosso software em hierarquias lógicas. É o pilar que nos permite modelar relacionamentos do tipo \"é-um\" (um Gerente \"é-um\" Funcionário), essencial para a construção de sistemas complexos e escaláveis."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Resolução comentada da AV1. Conceito de Herança, palavra-chave `extends`, superclasse (classe base) e subclasse (classe derivada)."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Revisar os conceitos fundamentais de POO e introduzir a Herança como mecanismo de reuso e especialização de código em Java."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Análise da avaliação, aula expositiva sobre Herança, e exemplos práticos de implementação de hierarquias de classes."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📚 Teoria — Análise da AV1: Consolidando Nossos Conhecimentos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos revisar um problema típico da AV1, que aborda os conceitos essenciais que vimos até agora: classes, objetos, atributos, métodos e encapsulamento."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Problema Exemplo: Modelar um Curso",
+          "content": "\"Crie uma classe `Curso` para representar um curso acadêmico. A classe deve ter os atributos privados `nome` (String) e `cargaHoraria` (int). Implemente um construtor que inicialize esses atributos e métodos getters e setters. O setter de `cargaHoraria` deve garantir que o valor não seja negativo. Crie uma classe de teste para instanciar e exibir os dados de um curso.\""
+        },
+        {
+          "type": "contentBlock",
+          "title": "Resolução Passo a Passo",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A solução correta envolve criar a classe com atributos privados e fornecer acesso controlado através de métodos públicos."
+            },
+            {
+              "type": "code",
+              "language": "java",
+              "code": "// File: Curso.java\npublic class Curso {\n    private String nome;\n    private int cargaHoraria;\n\n    public Curso(String nome, int cargaHoraria) {\n        this.nome = nome;\n        this.setCargaHoraria(cargaHoraria); // Use the setter to ensure validation\n    }\n\n    public String getNome() {\n        return this.nome;\n    }\n\n    public int getCargaHoraria() {\n        return this.cargaHoraria;\n    }\n\n    public void setNome(String nome) {\n        this.nome = nome;\n    }\n\n    public void setCargaHoraria(int cargaHoraria) {\n        if (cargaHoraria >= 0) {\n            this.cargaHoraria = cargaHoraria;\n        } else {\n            System.out.println(\"[ERRO] Carga horária não pode ser negativa.\");\n        }\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🏗️ Construindo Hierarquias: O Poder da Herança",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "1. O que é Herança?",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Herança é um mecanismo que permite que uma classe (subclasse) herde atributos e métodos de outra classe (superclasse). Isso cria uma relação \"é-um\". Por exemplo, um `Cachorro` <strong>é um</strong> `Animal`. A subclasse pode reutilizar todo o código da superclasse e ainda adicionar seus próprios atributos e métodos específicos."
+            },
+            {
+              "type": "list",
+              "items": [
+                "<strong>Superclasse (ou Classe Pai/Base):</strong> A classe que está sendo herdada. Contém os membros mais genéricos.",
+                "<strong>Subclasse (ou Classe Filha/Derivada):</strong> A classe que herda. É uma versão especializada da superclasse.",
+                "<strong>Palavra-chave `extends`:</strong> Usada em Java para estabelecer a relação de herança. Ex: `public class Cachorro extends Animal`."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "2. A Palavra-chave super",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A palavra-chave `super` é usada dentro de uma subclasse para se referir a membros da sua superclasse. Ela tem dois usos principais:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "`super()`: Para chamar o construtor da superclasse. Esta deve ser a <strong>primeira instrução</strong> no construtor da subclasse.",
+                "`super.metodo()`: Para chamar um método específico da superclasse, especialmente útil quando a subclasse sobrescreve esse método."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "cardGrid",
+          "title": "3. Vantagens e Cuidados com a Herança",
+          "cards": [
+            {
+              "title": "Vantagens",
+              "content": "<ul><li><strong>Reuso de Código:</strong> Evita duplicação de atributos e métodos comuns.</li><li><strong>Organização:</strong> Cria hierarquias lógicas e fáceis de entender.</li><li><strong>Polimorfismo:</strong> Permite que objetos de subclasses sejam tratados como objetos da superclasse (veremos na próxima aula).</li></ul>"
+            },
+            {
+              "title": "Cuidados",
+              "content": "<ul><li><strong>Acoplamento Forte:</strong> Subclasses são fortemente acopladas às suas superclasses. Mudanças na superclasse podem quebrar as subclasses.</li><li><strong>Hierarquias Frágeis:</strong> Hierarquias muito profundas ou mal planejadas podem se tornar difíceis de manter.</li><li><strong>Uso Indevido:</strong> Herança deve representar uma relação \"é-um\". Para relações \"tem-um\", prefira composição.</li></ul>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "💻 Exemplos Práticos: Criando Hierarquias",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "Exemplo 1: Animal e Cachorro",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Aqui, `Cachorro` herda `nome` de `Animal` e adiciona seu próprio atributo `raca`."
+            },
+            {
+              "type": "code",
+              "language": "java",
+              "code": "// Superclass\npublic class Animal {\n    protected String nome;\n\n    public Animal(String nome) {\n        this.nome = nome;\n    }\n\n    public void comer() {\n        System.out.println(this.nome + \" está comendo.\");\n    }\n}\n\n// Subclass\npublic class Cachorro extends Animal {\n    private String raca;\n\n    public Cachorro(String nome, String raca) {\n        // Calls the constructor of the superclass (Animal)\n        super(nome); \n        this.raca = raca;\n    }\n\n    public void latir() {\n        System.out.println(this.nome + \" da raça \" + this.raca + \" está latindo: Au au!\");\n    }\n}"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Exemplo 2: Funcionario e Gerente",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Um `Gerente` é um tipo de `Funcionario` que tem um bônus adicional."
+            },
+            {
+              "type": "code",
+              "language": "java",
+              "code": "// Superclass\npublic class Funcionario {\n    private String nome;\n    private double salario;\n\n    public Funcionario(String nome, double salario) {\n        this.nome = nome;\n        this.salario = salario;\n    }\n\n    public double getSalario() {\n        return this.salario;\n    }\n    \n    public String getNome() {\n        return this.nome;\n    }\n}\n\n// Subclass\npublic class Gerente extends Funcionario {\n    private double bonus;\n\n    public Gerente(String nome, double salario, double bonus) {\n        // Call the Funcionario constructor\n        super(nome, salario);\n        this.bonus = bonus;\n    }\n\n    // A better approach is to create a new method for the total salary.\n    public double getSalarioComBonus() {\n        // super.getSalario() calls the getSalario() method from the Funcionario class\n        return super.getSalario() + this.bonus;\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎥 Vídeos e Links de Apoio",
+      "videos": [
+        {
+          "title": "Herança em Java (Curso de Java 39 – Loiane Groner)",
+          "youtubeId": "aRPal-8z4RQ"
+        },
+        {
+          "title": "Herança e super em Java (Curso de Java 37)",
+          "youtubeId": "MOXLCjL4Ik4"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📖 Leituras Recomendadas",
+      "content": [
+        {
+          "type": "button",
+          "text": "Inheritance (Documentação Oficial da Oracle)",
+          "href": "https://docs.oracle.com/javase/tutorial/java/javaOO/inheritance.html"
+        },
+        {
+          "type": "button",
+          "text": "Inheritance in Java (Baeldung)",
+          "href": "https://www.baeldung.com/java-inheritance"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática (TED): Modelando Veículos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos praticar a herança modelando diferentes tipos de veículos."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Crie a superclasse `Veiculo.java`** com atributos `private String marca` e `private String modelo`. Adicione um construtor e getters para esses atributos.",
+            "**Crie a subclasse `Carro.java`** que herda de `Veiculo`. Adicione um atributo `private int numeroDePortas`. Crie um construtor que use `super()` para inicializar a marca e o modelo.",
+            "**Crie a subclasse `Moto.java`** que herda de `Veiculo`. Adicione um atributo `private int cilindradas`. Crie um construtor que também use `super()`.",
+            "**Crie uma classe `Garagem.java` com um método `main`** para testar. Crie um objeto `Carro` e um objeto `Moto`, e imprima as informações completas de cada um no console."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de Aprendizagem da Aula",
+      "items": [
+        "Explicar o conceito de Herança e a relação \"é-um\".",
+        "Utilizar a palavra-chave `extends` para criar uma subclasse.",
+        "Chamar o construtor da superclasse usando `super()`.",
+        "Entender como subclasses herdam membros e podem adicionar os seus próprios."
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia de Apoio",
+      "references": [
+        "<strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.",
+        "<strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015.",
+        "<strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong> <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013."
+      ]
     }
   ]
 }

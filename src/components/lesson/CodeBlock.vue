@@ -109,8 +109,7 @@ watch(
   border-radius: 1rem;
   overflow: hidden;
   margin: 1.5rem 0;
-  box-shadow: var(--shadow-elevation-1);
-  border: 1px solid var(--md-sys-color-outline);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 65%, transparent);
   position: relative;
 }
 
@@ -128,20 +127,20 @@ watch(
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--md-sys-color-outline);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
   cursor: pointer;
-  transition: all 200ms ease;
-  box-shadow: var(--shadow-elevation-1);
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease;
 }
 
 .btn-icon:hover {
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
   border-color: var(--md-sys-color-primary);
-  box-shadow: var(--shadow-elevation-2);
-  transform: translateY(-1px);
 }
 
 .btn-icon:focus-visible {

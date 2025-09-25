@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson14',
-  title: 'Aula 14: Unidade III – Desenvolvimento Híbrido',
+  title: 'Aula 14: Unidade III – Introdução ao Room: Entities e DAO',
   available: true,
 };
 </script>

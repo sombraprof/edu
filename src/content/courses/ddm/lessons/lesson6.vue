@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson6',
-  title: 'Aula 6: Unidade I – Eventos e Interação',
+  title: 'Aula 6: Unidade I – Projeto Prático: App de Boas-vindas',
   available: true,
 };
 </script>

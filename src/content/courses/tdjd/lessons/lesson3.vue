@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson3',
-  title: 'Aula 3: Mecânicas de Jogos',
+  title: 'Aula 3: Estudos de Caso, Análise Crítica e Inovações',
   available: true,
 };
 </script>

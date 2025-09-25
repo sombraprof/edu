@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson6',
-  title: 'Aula 6: Polimorfismo',
+  title: 'Aula 6: Aprofundando em Herança e Polimorfismo',
   available: true,
 };
 </script>

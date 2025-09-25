@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson8',
-  title: 'Aula 8: Unidade I – Consumo de APIs',
+  title: 'Aula 8: Unidade II – Salvando Estado com Bundle',
   available: true,
 };
 </script>

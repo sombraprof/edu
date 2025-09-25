@@ -1,11 +1,191 @@
 {
   "id": "lesson4",
-  "title": "Aula 4: Encapsulamento",
-  "objective": "",
+  "title": "Aula 4: Visibilidade, Modificadores de Acesso e Encapsulamento",
+  "objective": "Controlar a visibilidade de atributos e métodos, e aplicar o encapsulamento para proteger o estado dos objetos.",
   "content": [
     {
-      "type": "html",
-      "html": "<!DOCTYPE html>\n<html lang=\"pt-BR\" class=\"scroll-smooth\">\n  <head>\n    <!-- Metadados Essenciais -->\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>\n      LPOO - Aula 4: Visibilidade, Modificadores de Acesso e Encapsulamento\n    </title>\n    <meta\n      name=\"description\"\n      content=\"Aula 4 da disciplina de LPOO. Entenda os modificadores de acesso (public, private, protected) e aprenda a aplicar o encapsulamento com getters e setters em Java.\"\n    />\n    <meta name=\"author\" content=\"Prof. Tiago Guimarães Sombra\" />\n\n    <!-- Open Graph / Facebook -->\n    <meta property=\"og:type\" content=\"website\" />\n    <meta property=\"og:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta\n      property=\"og:title\"\n      content=\"LPOO - Aula 4: Visibilidade, Modificadores de Acesso e Encapsulamento\"\n    />\n    <meta\n      property=\"og:description\"\n      content=\"Entenda os modificadores de acesso (public, private, protected) e aprenda a aplicar o encapsulamento com getters e setters em Java.\"\n    />\n    <meta\n      property=\"og:image\"\n      content=\"https://placehold.co/1200x630/4f46e5/ffffff?text=LPOO%0AAula%204\"\n    />\n\n    <!-- Twitter -->\n    <meta property=\"twitter:card\" content=\"summary_large_image\" />\n    <meta property=\"twitter:url\" content=\"URL_DA_SUA_PAGINA_AQUI\" />\n    <meta\n      property=\"twitter:title\"\n      content=\"LPOO - Aula 4: Visibilidade, Modificadores de Acesso e Encapsulamento\"\n    />\n    <meta\n      property=\"twitter:description\"\n      content=\"Entenda os modificadores de acesso (public, private, protected) e aprenda a aplicar o encapsulamento com getters e setters em Java.\"\n    />\n    <meta\n      property=\"twitter:image\"\n      content=\"https://placehold.co/1200x630/4f46e5/ffffff?text=LPOO%0AAula%204\"\n    />\n\n    <!-- Tailwind CSS via CDN -->\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n    <!-- Google Fonts: Inter & Roboto Mono -->\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin />\n    <link\n      href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;700&display=swap\"\n      rel=\"stylesheet\"\n    />\n    <!-- Font Awesome for icons -->\n    <link\n      rel=\"stylesheet\"\n      href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\"\n      integrity=\"sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=\" crossorigin=\"anonymous\"\n    />\n\n    <!-- Estilos locais removidos: usamos css/style.css global para callouts, code-block e copy-btn -->\n  </head>\n\n  <body class=\"text-slate-800\">\n    <nav\n      class=\"bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50\"\n      aria-label=\"Menu de navegação principal\"\n    >\n      <div class=\"container mx-auto px-6\">\n        <div class=\"flex justify-between items-center h-16\">\n          <span class=\"text-lg font-bold text-indigo-700\">LPOO - Aula 4</span>\n          <div class=\"hidden md:flex space-x-4 text-sm font-semibold\">\n            <a href=\"#plano-aula\" class=\"text-slate-600 hover:text-indigo-600\"\n              >Plano</a\n            >\n            <a href=\"#teoria\" class=\"text-slate-600 hover:text-indigo-600\"\n              >Teoria</a\n            >\n            <a href=\"#pratica\" class=\"text-slate-600 hover:text-indigo-600\"\n              >Prática</a\n            >\n            <a href=\"#ted\" class=\"text-slate-600 hover:text-indigo-600\">TED</a>\n            <a href=\"#bibliografia\" class=\"text-slate-600 hover:text-indigo-600\"\n              >Bibliografia</a\n            >\n          </div>\n        </div>\n      </div>\n    </nav>\n\n    <header\n      class=\"bg-gradient-to-r from-indigo-700 to-indigo-900 text-white shadow-lg\"\n    >\n      <div class=\"container mx-auto px-6 py-10\">\n        <h1 class=\"text-4xl font-bold\">\n          Visibilidade, Modificadores de Acesso e Encapsulamento\n        </h1>\n        <p class=\"text-xl text-indigo-200 mt-2\">\n          Aula 4: Unidade II – Noções básicas e de OO e seus conceitos\n        </p>\n      </div>\n    </header>\n\n    <main class=\"container mx-auto px-6 py-10\" role=\"main\">\n      <section\n        id=\"ementa\"\n        class=\"mb-12 bg-white p-8 rounded-lg shadow\"\n        aria-labelledby=\"ementa-heading\"\n      >\n        <h2\n          id=\"ementa-heading\"\n          class=\"text-3xl font-semibold text-slate-800 mb-6\"\n        >\n          Ementa e Contextualização\n        </h2>\n        <p class=\"text-slate-700 leading-relaxed\">\n          Até agora, nossos atributos e métodos estavam \"abertos\" para o mundo.\n          Mas e se quiséssemos proteger os dados de um objeto contra\n          modificações indevidas? É aqui que entram os\n          <strong>modificadores de acesso</strong> e o\n          <strong>encapsulamento</strong>. O encapsulamento é um dos pilares da\n          POO e consiste em \"esconder\" os detalhes internos de um objeto,\n          expondo apenas uma interface segura para interação. Isso não só\n          aumenta a segurança do software, mas também o torna mais flexível e\n          fácil de manter.\n        </p>\n      </section>\n\n      <section\n        id=\"plano-aula\"\n        class=\"mb-12 bg-indigo-50 border border-indigo-200 p-8 rounded-2xl shadow-lg\"\n        aria-labelledby=\"plano-aula-heading\"\n      >\n        <h2\n          id=\"plano-aula-heading\"\n          class=\"text-3xl font-bold text-indigo-700 mb-6 text-center\"\n        >\n          Plano da Aula\n        </h2>\n        <div class=\"grid grid-cols-1 md:grid-cols-3 gap-6\">\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n              <i class=\"fa-solid fa-book-open mr-2\" aria-hidden=\"true\"></i\n              >CONTEÚDO\n            </h3>\n            <p class=\"text-slate-600\">\n              Modificadores de acesso em Java (public, private, protected),\n              encapsulamento, getters e setters, e boas práticas.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n              <i class=\"fa-solid fa-bullseye mr-2\" aria-hidden=\"true\"></i\n              >OBJETIVO\n            </h3>\n            <p class=\"text-slate-600\">\n              Controlar a visibilidade de atributos e métodos, e aplicar o\n              encapsulamento para proteger o estado dos objetos.\n            </p>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow-sm\">\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n              <i class=\"fa-solid fa-gears mr-2\" aria-hidden=\"true\"></i\n              >METODOLOGIA\n            </h3>\n            <p class=\"text-slate-600\">\n              Aula expositiva com analogias, exemplos práticos de código e uma\n              atividade de refatoração para aplicar os conceitos.\n            </p>\n          </div>\n        </div>\n      </section>\n\n      <section id=\"teoria\" class=\"mb-12\" aria-labelledby=\"teoria-heading\">\n        <h2\n          id=\"teoria-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          🛡️ Protegendo Seus Objetos\n        </h2>\n\n        <div class=\"bg-white p-6 rounded-lg shadow mb-6\">\n          <h3 class=\"text-2xl font-semibold text-slate-800 mb-4\">\n            1. Modificadores de Acesso\n          </h3>\n          <p class=\"text-slate-700 leading-relaxed mb-4\">\n            Java oferece quatro níveis de controle de acesso para membros de uma\n            classe (atributos e métodos):\n          </p>\n          <ul class=\"list-none space-y-4\">\n            <li class=\"flex items-start\">\n              <span\n                class=\"font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full w-28 text-center mr-4\"\n                >public</span\n              ><span\n                >Acessível de qualquer classe, em qualquer pacote. É o nível\n                menos restritivo.</span\n              >\n            </li>\n            <li class=\"flex items-start\">\n              <span\n                class=\"font-bold text-sky-600 bg-sky-100 px-2 py-1 rounded-full w-28 text-center mr-4\"\n                >protected</span\n              ><span\n                >Acessível dentro do mesmo pacote e por subclasses (mesmo em\n                pacotes diferentes).</span\n              >\n            </li>\n            <li class=\"flex items-start\">\n              <span\n                class=\"font-bold text-gray-600 bg-gray-100 px-2 py-1 rounded-full w-28 text-center mr-4\"\n                >package-private</span\n              ><span\n                >(Sem modificador) Acessível apenas por classes dentro do mesmo\n                pacote. É o padrão.</span\n              >\n            </li>\n            <li class=\"flex items-start\">\n              <span\n                class=\"font-bold text-red-600 bg-red-100 px-2 py-1 rounded-full w-28 text-center mr-4\"\n                >private</span\n              ><span\n                >Acessível apenas dentro da própria classe. É o nível mais\n                restritivo.</span\n              >\n            </li>\n          </ul>\n        </div>\n\n        <div class=\"bg-white p-6 rounded-lg shadow mb-6\">\n          <h3 class=\"text-2xl font-semibold text-slate-800 mb-4\">\n            2. Encapsulamento: O Princípio da Caixa-Preta\n          </h3>\n          <p class=\"text-slate-700 leading-relaxed mb-4\">\n            Encapsular significa agrupar os dados (atributos) e os métodos que\n            operam nesses dados dentro de uma única unidade (a classe), e\n            esconder os detalhes da implementação do mundo exterior. A boa\n            prática é declarar os <strong>atributos como <code-text>private</code-text></strong> e\n            fornecer <strong>métodos <code-text>public</code-text></strong>\n            para acessá-los e modificá-los de forma controlada.\n          </p>\n          <p class=\"text-slate-700 leading-relaxed\">\n            Pense em um caixa eletrônico: você não tem acesso direto ao dinheiro\n            no cofre (atributo <code-text>private</code-text>). Em vez disso, você usa uma interface\n            pública (a tela e os botões) para realizar operações seguras como\n            <code-text>sacar()</code-text> e <code-text>verificarSaldo()</code-text>.\n          </p>\n          <!-- CORREÇÃO: Imagem substituída por HTML/CSS para representar o diagrama UML -->\n          <div class=\"flex justify-center bg-slate-50 p-4 rounded-lg mt-6\">\n            <div\n              class=\"bg-white border-2 border-slate-300 rounded-lg shadow-md w-full max-w-sm mx-auto font-mono text-sm\"\n            >\n              <div\n                class=\"p-2 font-bold text-center bg-slate-100 border-b-2 border-slate-300\"\n              >\n                ContaBancaria\n              </div>\n              <div class=\"p-3 border-b-2 border-slate-300\">\n                <ul class=\"space-y-1\">\n                  <li>\n                    <span class=\"text-red-500 font-bold mr-2\">-</span>saldo:\n                    double\n                  </li>\n                  <li>\n                    <span class=\"text-red-500 font-bold mr-2\">-</span>titular:\n                    String\n                  </li>\n                </ul>\n              </div>\n              <div class=\"p-3\">\n                <ul class=\"space-y-1\">\n                  <li>\n                    <span class=\"text-green-500 font-bold mr-2\">+</span\n                    >depositar(valor: double): void\n                  </li>\n                  <li>\n                    <span class=\"text-green-500 font-bold mr-2\">+</span\n                    >sacar(valor: double): void\n                  </li>\n                  <li>\n                    <span class=\"text-green-500 font-bold mr-2\">+</span\n                    >getSaldo(): double\n                  </li>\n                </ul>\n              </div>\n            </div>\n          </div>\n        </div>\n      </section>\n\n      <section id=\"pratica\" class=\"mb-12\" aria-labelledby=\"pratica-heading\">\n        <h2\n          id=\"pratica-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          💻 Exemplos Práticos: Gerenciando uma Conta Bancária\n        </h2>\n\n        <div class=\"bg-white p-6 rounded-lg shadow mb-6\">\n          <h3 class=\"text-xl font-semibold text-slate-800 mb-2\">\n            Exemplo 1: Classe <code-text>ContaBancaria</code-text> Encapsulada\n          </h3>\n          <p class=\"text-slate-600 mb-4\">\n            Note como o <code-text>saldo</code-text> é <code-text>private</code-text>. A única forma de alterá-lo é\n            através dos métodos públicos <code-text>depositar</code-text> e <code-text>sacar</code-text>.\n          </p>\n          <div class=\"code-block\">\n            <button\n              class=\"copy-btn\" data-tooltip=\"Copiar código\" aria-label=\"Copiar código\"\n              title=\"Copiar código\"\n              aria-label=\"Copiar código da classe ContaBancaria\"\n            >\n              <i class=\"fa-solid fa-copy mr-1\" aria-hidden=\"true\"></i>Copiar\n            </button>\n            <pre><code class=\"language-java\">\npublic class ContaBancaria {\n    // Attributes are private to protect them from direct external access.\n    private String titular;\n    private double saldo;\n\n    // A public constructor to initialize the object.\n    public ContaBancaria(String titular) {\n        this.titular = titular;\n        this.saldo = 0.0; // Initial balance is always zero.\n    }\n\n    // Public method to deposit money. This is a controlled way to modify 'saldo'.\n    public void depositar(double valor) {\n        if (valor > 0) {\n            this.saldo += valor;\n            System.out.println(\"Depósito de R$ \" + valor + \" realizado com sucesso.\");\n        } else {\n            System.out.println(\"Valor de depósito inválido.\");\n        }\n    }\n\n    // Public method to withdraw money.\n    public void sacar(double valor) {\n        if (valor > 0 && valor <= this.saldo) {\n            this.saldo -= valor;\n            System.out.println(\"Saque de R$ \" + valor + \" realizado com sucesso.\");\n        } else {\n            System.out.println(\"Saque não permitido. Saldo insuficiente ou valor inválido.\");\n        }\n    }\n\n    // Public \"getter\" method to allow read-only access to the balance.\n    public double getSaldo() {\n        return this.saldo;\n    }\n}\n                </code></pre>\n          </div>\n        </div>\n\n        <div class=\"bg-white p-6 rounded-lg shadow\">\n          <h3 class=\"text-xl font-semibold text-slate-800 mb-2\">\n            Exemplo 2: Usando a Classe Encapsulada\n          </h3>\n          <p class=\"text-slate-600 mb-4\">\n            Na classe <code-text>Banco</code-text>, não podemos fazer <code-text>minhaConta.saldo = -500;</code-text>.\n            Somos forçados a usar os métodos seguros.\n          </p>\n          <div class=\"code-block\">\n            <button\n              class=\"copy-btn\" data-tooltip=\"Copiar código\" aria-label=\"Copiar código\"\n              title=\"Copiar código\"\n              aria-label=\"Copiar código da classe Banco\"\n            >\n              <i class=\"fa-solid fa-copy mr-1\" aria-hidden=\"true\"></i>Copiar\n            </button>\n            <pre><code class=\"language-java\">\npublic class Banco {\n    public static void main(String[] args) {\n        ContaBancaria minhaConta = new ContaBancaria(\"Ana Souza\");\n\n        System.out.println(\"Saldo inicial: R$ \" + minhaConta.getSaldo());\n\n        minhaConta.depositar(500.0);\n        minhaConta.sacar(200.0);\n        \n        // This line would cause a compilation error because 'saldo' is private.\n        // minhaConta.saldo = 1000000; \n        \n        minhaConta.sacar(400.0); // This will fail due to insufficient funds.\n\n        System.out.println(\"Saldo final: R$ \" + minhaConta.getSaldo());\n    }\n}\n                </code></pre>\n          </div>\n        </div>\n      </section>\n\n      <section\n        id=\"recursos-auxiliares\"\n        class=\"mb-12\"\n        aria-labelledby=\"recursos-heading\"\n      >\n        <h2\n          id=\"recursos-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-8\"\n        >\n          🎥 Vídeos e Links de Apoio\n        </h2>\n        <div class=\"grid grid-cols-1 md:grid-cols-2 gap-8\">\n          <div class=\"space-y-6\">\n            <!-- CORREÇÃO: Links de vídeo atualizados e container responsivo -->\n            <div class=\"bg-white p-4 rounded-lg shadow mb-6\">\n              <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n                Encapsulamento em Java (Loiane Groner)\n              </h3>\n              <div class=\"aspect-video w-full\">\n                <iframe\n                  class=\"w-full h-full rounded-md\"\n                  src=\"https://www.youtube.com/embed/6oD7TE90e-M\"\n                  title=\"Encapsulamento em Java - Loiane Groner\"\n                  frameborder=\"0\"\n                  allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n                  allowfullscreen\n                >\n                </iframe>\n              </div>\n            </div>\n\n            <div class=\"bg-white p-4 rounded-lg shadow\">\n              <h3 class=\"font-semibold text-lg text-indigo-800 mb-2\">\n                Getters e Setters em Java (Tutorial Java #84)\n              </h3>\n              <div class=\"aspect-video w-full\">\n                <iframe\n                  class=\"w-full h-full rounded-md\"\n                  src=\"https://www.youtube.com/embed/6wVmqY-CrGM\"\n                  title=\"Getters and Setters Java Tutorial #84\"\n                  frameborder=\"0\"\n                  allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\"\n                  allowfullscreen\n                >\n                </iframe>\n              </div>\n            </div>\n          </div>\n          <div class=\"bg-white p-6 rounded-lg shadow\">\n            <h3 class=\"font-semibold text-lg text-indigo-800 mb-4\">\n              Leituras Recomendadas\n            </h3>\n            <ul class=\"space-y-4\">\n              <li>\n                <a\n                  href=\"https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html\"\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                  class=\"block font-semibold text-indigo-600 hover:underline\"\n                >\n                  <i class=\"fa-solid fa-book-bookmark mr-2\"></i>Controlling\n                  Access to Members of a Class (Oracle)\n                </a>\n                <p class=\"text-sm text-slate-600\">\n                  A documentação oficial sobre modificadores de acesso.\n                </p>\n              </li>\n              <li>\n                <a\n                  href=\"https://www.w3schools.com/java/java_encapsulation.asp\"\n                  target=\"_blank\"\n                  rel=\"noopener noreferrer\"\n                  class=\"block font-semibold text-indigo-600 hover:underline\"\n                >\n                  <i class=\"fa-solid fa-file-alt mr-2\"></i>Java Encapsulation\n                  (Getters and Setters) (W3Schools)\n                </a>\n                <p class=\"text-sm text-slate-600\">\n                  Um guia rápido e prático sobre como implementar\n                  encapsulamento.\n                </p>\n              </li>\n            </ul>\n          </div>\n        </div>\n      </section>\n\n      <section\n        id=\"ted\"\n        class=\"mb-12 bg-amber-50 border border-amber-300 p-8 rounded-lg shadow-lg\"\n        aria-labelledby=\"ted-heading\"\n      >\n        <h2 id=\"ted-heading\" class=\"text-3xl font-bold text-amber-800 mb-6\">\n          <i class=\"fa-solid fa-laptop-code mr-2\" aria-hidden=\"true\"></i\n          >Atividade Prática (TED): Refatorando a Classe <code-text>Funcionario</code-text>\n        </h2>\n        <p class=\"text-amber-900 leading-relaxed mb-4\">\n          Vamos refatorar uma classe <code-text>Funcionario</code-text> para aplicar o encapsulamento\n          e garantir a integridade dos seus dados.\n        </p>\n        <ol class=\"list-decimal list-inside space-y-4 text-amber-900\">\n          <li>\n            <strong>Crie a classe <code-text>Funcionario.java</code-text></strong> com os atributos\n            <code-text>private String nome</code-text> e <code-text>private double salario</code-text>.\n          </li>\n          <li>\n            <strong>Implemente os métodos <code-text>public</code-text> getters e setters</strong>\n            para ambos os atributos: <code-text>getNome()</code-text>, <code-text>setNome(String nome)</code-text>,\n            <code-text>getSalario()</code-text>, <code-text>setSalario(double salario)</code-text>.\n          </li>\n          <li>\n            <strong>Adicione uma regra de negócio no <code-text>setSalario</code-text></strong>: o\n            salário não pode ser definido com um valor menor que o salário\n            mínimo (R$ 1.212,00). Se o valor for inválido, exiba uma mensagem de\n            erro e não altere o salário.\n          </li>\n          <li>\n            <strong>Crie uma classe <code-text>Empresa.java</code-text> com um método <code-text>main</code-text></strong>\n            para testar. Crie um objeto <code-text>Funcionario</code-text>, tente definir um salário\n            válido e um inválido, e exiba os resultados usando os getters.\n          </li>\n        </ol>\n        <div class=\"mt-6 callout callout-info\">\n          <h4 class=\"font-bold text-lg mb-2\">Sugestão de Metodologia Ativa</h4>\n          <p class=\"text-sm\">\n            Realize esta atividade em dupla (*pair programming*). Discutam por\n            que a validação no método <code-text>setSalario</code-text> é importante para a\n            consistência do sistema. Como essa abordagem ajuda a evitar bugs no\n            futuro?\n          </p>\n        </div>\n      </section>\n\n      <section id=\"checklist\" class=\"mt-12\" aria-labelledby=\"checklist-heading\">\n        <div\n          class=\"bg-green-50 border-l-4 border-green-500 text-green-800 p-6 rounded-lg shadow\"\n        >\n          <h3 id=\"checklist-heading\" class=\"font-bold text-lg mb-3\">\n            <i class=\"fa-solid fa-list-check mr-2\" aria-hidden=\"true\"></i\n            >Checklist de Aprendizagem da Aula\n          </h3>\n          <p>Ao final desta aula, você deve ser capaz de:</p>\n          <ul class=\"list-none space-y-2 mt-2\">\n            <li>\n              <i\n                class=\"fa-solid fa-check text-green-600 mr-2\"\n                aria-hidden=\"true\"\n              ></i\n              >Diferenciar os modificadores de acesso <code-text>public</code-text>, <code-text>private</code-text> e\n              <code-text>protected</code-text>.\n            </li>\n            <li>\n              <i\n                class=\"fa-solid fa-check text-green-600 mr-2\"\n                aria-hidden=\"true\"\n              ></i\n              >Explicar o conceito de encapsulamento e sua importância.\n            </li>\n            <li>\n              <i\n                class=\"fa-solid fa-check text-green-600 mr-2\"\n                aria-hidden=\"true\"\n              ></i\n              >Implementar encapsulamento usando atributos privados e métodos\n              getters/setters públicos.\n            </li>\n            <li>\n              <i\n                class=\"fa-solid fa-check text-green-600 mr-2\"\n                aria-hidden=\"true\"\n              ></i\n              >Adicionar regras de validação dentro dos métodos setters para\n              proteger o estado do objeto.\n            </li>\n          </ul>\n        </div>\n      </section>\n\n      <section\n        id=\"bibliografia\"\n        class=\"prose prose-slate max-w-none lg:prose-lg mt-12\"\n        aria-labelledby=\"bibliografia-heading\"\n      >\n        <h2\n          id=\"bibliografia-heading\"\n          class=\"text-3xl font-semibold text-slate-800 border-b-2 border-indigo-500 pb-2 mb-4\"\n        >\n          📚 Bibliografia de Apoio\n        </h2>\n        <div class=\"bg-white p-8 rounded-lg shadow space-y-4 not-prose\">\n          <p>\n            <strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong>\n            <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice\n            Hall, 2014.\n          </p>\n          <p>\n            <strong>SCHILDT, Herbert.</strong>\n            <em\n              >Java para iniciantes: crie, compile e execute programas Java\n              rapidamente.</em\n            >\n            6. ed. Porto Alegre: Bookman, 2015.\n          </p>\n          <p>\n            <strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong>\n            <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto\n            Alegre: Bookman, 2013.\n          </p>\n        </div>\n      </section>\n    </main>\n\n    <footer class=\"bg-slate-800 text-slate-300 mt-12\" role=\"contentinfo\">\n      <div class=\"container mx-auto px-6 py-8 text-center\">\n        <p class=\"font-semibold text-white\">Prof. Tiago Guimarães Sombra</p>\n        <p class=\"text-sm mt-1\">\n          Material acadêmico para os cursos de ADS e SI.\n        </p>\n        <p class=\"text-sm font-bold text-indigo-300\">Unifametro</p>\n        <div class=\"mt-4 flex justify-center items-center space-x-4\">\n          <a\n            href=\"https://github.com/sombraprof/lpoo\"\n            target=\"_blank\"\n            rel=\"noopener noreferrer\"\n            class=\"text-indigo-400 hover:text-white transition-colors\"\n            aria-label=\"Visitar o repositório do projeto no GitHub\"\n          >\n            <i class=\"fab fa-github fa-lg mr-1\" aria-hidden=\"true\"></i>\n            Repositório GitHub\n          </a>\n          <span class=\"text-slate-500\">|</span>\n          <a\n            href=\"#\"\n            class=\"text-indigo-400 hover:text-white transition-colors\"\n            aria-label=\"Ver a política de uso do material\"\n            >Política de Uso</a\n          >\n        </div>\n      </div>\n    </footer>\n  </body>\n</html>\n"
+      "type": "contentBlock",
+      "title": "Ementa e Contextualização",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Até agora, nossos atributos e métodos estavam \"abertos\" para o mundo. Mas e se quiséssemos proteger os dados de um objeto contra modificações indevidas? É aqui que entram os <strong>modificadores de acesso</strong> e o <strong>encapsulamento</strong>. O encapsulamento é um dos pilares da POO e consiste em \"esconder\" os detalhes internos de um objeto, expondo apenas uma interface segura para interação. Isso não só aumenta a segurança do software, mas também o torna mais flexível e fácil de manter."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Modificadores de acesso em Java (public, private, protected), encapsulamento, getters e setters, e boas práticas."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Controlar a visibilidade de atributos e métodos, e aplicar o encapsulamento para proteger o estado dos objetos."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva com analogias, exemplos práticos de código e uma atividade de refatoração para aplicar os conceitos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🛡️ Protegendo Seus Objetos",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "1. Modificadores de Acesso",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Java oferece quatro níveis de controle de acesso para membros de uma classe (atributos e métodos):"
+            },
+            {
+              "type": "list",
+              "items": [
+                "`public`: Acessível de qualquer classe, em qualquer pacote. É o nível menos restritivo.",
+                "`protected`: Acessível dentro do mesmo pacote e por subclasses (mesmo em pacotes diferentes).",
+                "`package-private` (Sem modificador): Acessível apenas por classes dentro do mesmo pacote. É o padrão.",
+                "`private`: Acessível apenas dentro da própria classe. É o nível mais restritivo."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "2. Encapsulamento: O Princípio da Caixa-Preta",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Encapsular significa agrupar os dados (atributos) e os métodos que operam nesses dados dentro de uma única unidade (a classe), e esconder os detalhes da implementação do mundo exterior. A boa prática é declarar os <strong>atributos como `private`</strong> e fornecer <strong>métodos `public`</strong> para acessá-los e modificá-los de forma controlada."
+            },
+            {
+              "type": "paragraph",
+              "text": "Pense em um caixa eletrônico: você não tem acesso direto ao dinheiro no cofre (atributo `private`). Em vez disso, você usa uma interface pública (a tela e os botões) para realizar operações seguras como `sacar()` e `verificarSaldo()`."
+            },
+            {
+              "type": "html",
+              "html": "<div class=\"flex justify-center bg-slate-50 p-4 rounded-lg mt-6\"><div class=\"bg-white border-2 border-slate-300 rounded-lg shadow-md w-full max-w-sm mx-auto font-mono text-sm\"><div class=\"p-2 font-bold text-center bg-slate-100 border-b-2 border-slate-300\">ContaBancaria</div><div class=\"p-3 border-b-2 border-slate-300\"><ul class=\"space-y-1\"><li class=\"flex items-start\"><span class=\"font-bold text-red-500 bg-red-100 px-2 py-1 rounded-full w-28 text-center mr-4\">-</span>saldo: double</li><li class=\"flex items-start\"><span class=\"font-bold text-red-500 bg-red-100 px-2 py-1 rounded-full w-28 text-center mr-4\">-</span>titular: String</li></ul></div><div class=\"p-3\"><ul class=\"space-y-1\"><li class=\"flex items-start\"><span class=\"font-bold text-green-500 bg-green-100 px-2 py-1 rounded-full w-28 text-center mr-4\">+</span>depositar(valor: double): void</li><li class=\"flex items-start\"><span class=\"font-bold text-green-500 bg-green-100 px-2 py-1 rounded-full w-28 text-center mr-4\">+</span>sacar(valor: double): void</li><li class=\"flex items-start\"><span class=\"font-bold text-green-500 bg-green-100 px-2 py-1 rounded-full w-28 text-center mr-4\">+</span>getSaldo(): double</li></ul></div></div></div>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "💻 Exemplos Práticos: Gerenciando uma Conta Bancária",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "Exemplo 1: Classe ContaBancaria Encapsulada",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Note como o `saldo` é `private`. A única forma de alterá-lo é através dos métodos públicos `depositar` e `sacar`."
+            },
+            {
+              "type": "code",
+              "language": "java",
+              "code": "public class ContaBancaria {\n    // Attributes are private to protect them from direct external access.\n    private String titular;\n    private double saldo;\n\n    // A public constructor to initialize the object.\n    public ContaBancaria(String titular) {\n        this.titular = titular;\n        this.saldo = 0.0; // Initial balance is always zero.\n    }\n\n    // Public method to deposit money. This is a controlled way to modify 'saldo'.\n    public void depositar(double valor) {\n        if (valor > 0) {\n            this.saldo += valor;\n            System.out.println(\"Depósito de R$ \" + valor + \" realizado com sucesso.\");\n        } else {\n            System.out.println(\"Valor de depósito inválido.\");\n        }\n    }\n\n    // Public method to withdraw money.\n    public void sacar(double valor) {\n        if (valor > 0 && valor <= this.saldo) {\n            this.saldo -= valor;\n            System.out.println(\"Saque de R$ \" + valor + \" realizado com sucesso.\");\n        } else {\n            System.out.println(\"Saque não permitido. Saldo insuficiente ou valor inválido.\");\n        }\n    }\n\n    // Public \"getter\" method to allow read-only access to the balance.\n    public double getSaldo() {\n        return this.saldo;\n    }\n}"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Exemplo 2: Usando a Classe Encapsulada",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Na classe `Banco`, não podemos fazer `minhaConta.saldo = -500;`. Somos forçados a usar os métodos seguros."
+            },
+            {
+              "type": "code",
+              "language": "java",
+              "code": "public class Banco {\n    public static void main(String[] args) {\n        ContaBancaria minhaConta = new ContaBancaria(\"Ana Souza\");\n\n        System.out.println(\"Saldo inicial: R$ \" + minhaConta.getSaldo());\n\n        minhaConta.depositar(500.0);\n        minhaConta.sacar(200.0);\n        \n        // This line would cause a compilation error because 'saldo' is private.\n        // minhaConta.saldo = 1000000; \n        \n        minhaConta.sacar(400.0); // This will fail due to insufficient funds.\n\n        System.out.println(\"Saldo final: R$ \" + minhaConta.getSaldo());\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎥 Vídeos e Links de Apoio",
+      "videos": [
+        {
+          "title": "Encapsulamento em Java (Loiane Groner)",
+          "youtubeId": "6oD7TE90e-M"
+        },
+        {
+          "title": "Getters e Setters em Java (Tutorial Java #84)",
+          "youtubeId": "6wVmqY-CrGM"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leituras Recomendadas",
+      "content": [
+        {
+          "type": "button",
+          "text": "Controlling Access to Members of a Class (Oracle)",
+          "href": "https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html"
+        },
+        {
+          "type": "button",
+          "text": "Java Encapsulation (Getters and Setters) (W3Schools)",
+          "href": "https://www.w3schools.com/java/java_encapsulation.asp"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática (TED): Refatorando a Classe Funcionario",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos refatorar uma classe `Funcionario` para aplicar o encapsulamento e garantir a integridade dos seus dados."
+        },
+        {
+          "type": "list",
+          "items": [
+            "**Crie a classe `Funcionario.java`** com os atributos `private String nome` e `private double salario`.",
+            "**Implemente os métodos `public` getters e setters** para ambos os atributos: `getNome()`, `setNome(String nome)`, `getSalario()`, `setSalario(double salario)`.",
+            "**Adicione uma regra de negócio no `setSalario`**: o salário não pode ser definido com um valor menor que o salário mínimo (R$ 1.212,00). Se o valor for inválido, exiba uma mensagem de erro e não altere o salário.",
+            "**Crie uma classe `Empresa.java` com um método `main`** para testar. Crie um objeto `Funcionario`, tente definir um salário válido e um inválido, e exiba os resultados usando os getters."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Sugestão de Metodologia Ativa",
+          "content": "Realize esta atividade em dupla (*pair programming*). Discutam por que a validação no método `setSalario` é importante para a consistência do sistema. Como essa abordagem ajuda a evitar bugs no futuro?"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de Aprendizagem da Aula",
+      "items": [
+        "Diferenciar os modificadores de acesso `public`, `private` e `protected`.",
+        "Explicar o conceito de encapsulamento e sua importância.",
+        "Implementar encapsulamento usando atributos privados e métodos getters/setters públicos.",
+        "Adicionar regras de validação dentro dos métodos setters para proteger o estado do objeto."
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia de Apoio",
+      "references": [
+        "<strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.",
+        "<strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015.",
+        "<strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong> <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013."
+      ]
     }
   ]
 }

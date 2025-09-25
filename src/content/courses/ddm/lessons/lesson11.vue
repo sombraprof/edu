@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson11',
-  title: 'Aula 11: Unidade II – Firestore Database',
+  title: 'Aula 11: Unidade II – Intents Implícitas (Chamar Apps Externos)',
   available: true,
 };
 </script>

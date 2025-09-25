@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson12',
-  title: 'Aula 12: Unidade II – Storage e Notificações',
+  title: 'Aula 12: Unidade II – Projeto Prático: Navegação Multi-Tela com Dados',
   available: true,
 };
 </script>

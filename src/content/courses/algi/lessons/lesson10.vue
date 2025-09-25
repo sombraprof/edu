@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson10',
-  title: 'Aula 10: Problemas Sequenciais Compostos em C',
+  title: 'Aula 10: Estruturas de Controle Condicional com if e else',
   objective:
     'Escrever programas em C que alterem o fluxo do algoritmo com base em condições booleanas, utilizando if e else para decisões simples e compostas.',
   available: true,

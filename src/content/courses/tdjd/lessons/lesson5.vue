@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson5',
-  title: 'Aula 5: Arte e Som',
+  title: 'Aula 5: Fundamentos da Unity e Prototipagem',
   available: true,
 };
 </script>

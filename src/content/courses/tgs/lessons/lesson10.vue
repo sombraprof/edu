@@ -1,7 +1,7 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson10',
-  title: 'Aula 10: Níveis dos Sistemas de Informação (Operacional, Tático, Estratégico)',
+  title: 'Aula 10: Níveis dos Sistemas de Informação (Operacional, Tático e Estratégico)',
   available: true,
 };
 </script>
