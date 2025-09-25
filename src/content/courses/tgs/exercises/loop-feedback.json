@@ -1,0 +1,13 @@
+{
+  "id": "loop-feedback",
+  "title": "Análise de feedback loops",
+  "objective": "Construa diagramas causais destacando ciclos de reforço e balanço.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "loop-feedback",
+      "title": "Análise de feedback loops",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './loop-feedback.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

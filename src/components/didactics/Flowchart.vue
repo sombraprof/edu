@@ -1,7 +1,16 @@
 <template>
   <div class="flowchart-container card p-6 my-8">
-    <h3 v-if="title" class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">{{ title }}</h3>
-    <p v-if="description" class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]" v-html="description"></p>
+    <h3
+      v-if="title"
+      class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]"
+    >
+      {{ title }}
+    </h3>
+    <p
+      v-if="description"
+      class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]"
+      v-html="description"
+    ></p>
 
     <div class="flowchart-wrapper">
       <div class="flowchart">
@@ -11,7 +20,7 @@
           :class="[
             'flowchart-node',
             `flowchart-${node.type}`,
-            { 'flowchart-active': activeNode === node.id }
+            { 'flowchart-active': activeNode === node.id },
           ]"
           :style="{ top: node.y + 'px', left: node.x + 'px' }"
         >
@@ -32,10 +41,7 @@
               refY="3.5"
               orient="auto"
             >
-              <polygon
-                points="0 0, 10 3.5, 0 7"
-                fill="var(--md-sys-color-outline)"
-              />
+              <polygon points="0 0, 10 3.5, 0 7" fill="var(--md-sys-color-outline)" />
             </marker>
           </defs>
 
@@ -54,16 +60,19 @@
       </div>
     </div>
 
-    <div v-if="legend && legend.length > 0" class="mt-6 p-4 bg-[var(--md-sys-color-surface-container)] rounded-lg">
-      <h4 class="text-title-medium font-semibold mb-3 text-[var(--md-sys-color-on-surface)]">Legenda</h4>
+    <div
+      v-if="legend && legend.length > 0"
+      class="mt-6 p-4 bg-[var(--md-sys-color-surface-container)] rounded-lg"
+    >
+      <h4 class="text-title-medium font-semibold mb-3 text-[var(--md-sys-color-on-surface)]">
+        Legenda
+      </h4>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-        <div
-          v-for="item in legend"
-          :key="item.type"
-          class="flex items-center gap-2"
-        >
+        <div v-for="item in legend" :key="item.type" class="flex items-center gap-2">
           <div :class="['w-4 h-4 rounded', `bg-${item.color}`]"></div>
-          <span class="text-body-small text-[var(--md-sys-color-on-surface-variant)]">{{ item.label }}</span>
+          <span class="text-body-small text-[var(--md-sys-color-on-surface-variant)]">{{
+            item.label
+          }}</span>
         </div>
       </div>
     </div>
@@ -72,16 +81,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import {
-  Play,
-  Square,
-  Diamond,
-  Circle,
-  ArrowRight,
-  Database,
-  Cpu,
-  Monitor
-} from 'lucide-vue-next';
+import { Play, Square, Diamond, Circle, ArrowRight, Database, Cpu, Monitor } from 'lucide-vue-next';
 
 interface FlowchartNode {
   id: string;
@@ -118,30 +118,30 @@ const activeNode = ref<string | null>(null);
 
 const dimensions = computed(() => ({
   width: props.dimensions?.width || 800,
-  height: props.dimensions?.height || 600
+  height: props.dimensions?.height || 600,
 }));
 
 function getIcon(iconName?: string) {
   const iconMap: Record<string, any> = {
-    'play': Play,
-    'square': Square,
-    'diamond': Diamond,
-    'circle': Circle,
+    play: Play,
+    square: Square,
+    diamond: Diamond,
+    circle: Circle,
     'arrow-right': ArrowRight,
-    'database': Database,
-    'cpu': Cpu,
-    'monitor': Monitor
+    database: Database,
+    cpu: Cpu,
+    monitor: Monitor,
   };
   return iconMap[iconName || ''] || null;
 }
 
 function getNodeCenter(nodeId: string) {
-  const node = props.nodes.find(n => n.id === nodeId);
+  const node = props.nodes.find((n) => n.id === nodeId);
   if (!node) return { x: 0, y: 0 };
 
   return {
     x: node.x + 100, // Assuming node width is 200px, center is at 100px
-    y: node.y + 40   // Assuming node height is 80px, center is at 40px
+    y: node.y + 40, // Assuming node height is 80px, center is at 40px
   };
 }
 </script>

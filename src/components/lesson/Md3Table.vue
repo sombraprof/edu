@@ -4,12 +4,28 @@
       <table class="w-full md3-table min-w-[480px]">
         <thead class="bg-surface-variant text-on-surface-variant">
           <tr>
-            <th v-for="(header, index) in headers" :key="index" class="text-left font-semibold" :style="{ padding: 'var(--md-sys-spacing-3)' }">{{ header }}</th>
+            <th
+              v-for="(header, index) in headers"
+              :key="index"
+              class="text-left font-semibold"
+              :style="{ padding: 'var(--md-sys-spacing-3)' }"
+            >
+              {{ header }}
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(row, rowIndex) in rows" :key="rowIndex" class="border-b border-outline-variant">
-            <td v-for="(cell, cellIndex) in row" :key="cellIndex" class="text-on-surface" :style="{ padding: 'var(--md-sys-spacing-3)' }">
+          <tr
+            v-for="(row, rowIndex) in rows"
+            :key="rowIndex"
+            class="border-b border-outline-variant"
+          >
+            <td
+              v-for="(cell, cellIndex) in row"
+              :key="cellIndex"
+              class="text-on-surface"
+              :style="{ padding: 'var(--md-sys-spacing-3)' }"
+            >
               <span v-if="cell.mono" class="font-mono text-body-small">{{ cell.value }}</span>
               <span v-else-if="cell.code" class="inline-code">{{ cell.value }}</span>
               <span v-else>{{ cell.value }}</span>
@@ -39,7 +55,8 @@ defineProps<Md3TableProps>();
 </script>
 
 <style scoped>
-.md3-table th, .md3-table td {
+.md3-table th,
+.md3-table td {
   border-bottom: 1px solid var(--md-sys-color-outline-variant);
 }
 

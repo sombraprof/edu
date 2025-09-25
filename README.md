@@ -1,39 +1,72 @@
-# EDU - Courses Hub (Vue + Vite + Tailwind + PWA)
+﻿# EDU · Courses Hub
 
-Unified site hosting multiple university courses by Prof. Tiago Sombra. Built with Vue 3, Vite, Tailwind CSS, Vue Router and configured for GitHub Pages.
+Vue 3 + Vite application that centralises the course material of Prof. Tiago Sombra. The interface follows Material Design 3 and renders structured JSON content through reusable Vue components.
 
-## Install & Run
+## Getting Started
 
 ```bash
 npm ci
 npm run dev
 ```
 
-## Build
+To validate a production build:
 
 ```bash
-npm run build && npm run preview
+npm run build
+npm run preview
 ```
 
-## Add a new course
+## Formatting & Git Hooks
 
-1. Create `public/courses/<id>/` with:
-   - `meta.json` - `{ id, title, institution, description }`
-   - `lessons.json` - `[{ id, title, file }]`
-   - `lessons/<file>.html` - HTML lesson pages
-2. Register the course in `src/data/courses.ts`.
+- `npm run format` – applies Prettier to the entire project.
+- `npm run format:check` – verifies formatting without writing changes.
+- A pre-commit hook (configured via `simple-git-hooks`) runs Prettier against staged files. Install the hooks once with `npm install` or `npm run prepare`.
 
-## Routing
+## Content Architecture
 
-- `/` - Home with cards (all courses)
-- `/course/:courseId` - Course landing (loads `meta.json`)
-- `/course/:courseId/lesson/:lessonId` - Lesson page (loads HTML via `lessons.json`)
+All course assets live under `src/content/courses/<courseId>/`:
 
-## PWA
+```
+src/content/courses/<courseId>/
+├── meta.json                # Course metadata (id, title, institution, description)
+├── lessons.json             # Lessons index ({ id, title, description?, available, file })
+├── lessons/
+│   ├── lessonX.json         # Structured blocks consumed by LessonRenderer
+│   └── lessonX.md           # Wrapper that imports the JSON and renders <LessonRenderer>
+├── exercises.json          # Exercises index ({ id, title, summary?, available, file })
+└── exercises/
+    ├── exerciseY.json       # Structured blocks identical to lessons
+    └── exerciseY.md         # Wrapper that imports the JSON and renders <LessonRenderer>
+```
 
-- Configured via `vite-plugin-pwa` with SPA fallback.
-- `public/offline.html` will show when offline and content is missing.
+Structured blocks should prefer declarative component types (`lessonPlan`, `contentBlock`, `callout`, etc.). `legacySection` is available as a temporary escape hatch for sanitised HTML; the renderer will still apply MD3 surfaces to those sections.
 
-## Deploy
+For detailed authoring guidance – including naming conventions, block schemas, design tokens and accessibility recommendations – see [`docs/CONTENT_AUTHORING_GUIDE.md`](docs/CONTENT_AUTHORING_GUIDE.md).
 
-- GitHub Actions workflow in `.github/workflows/deploy.yml` uploads `dist/` to GitHub Pages.
+## Helper Scripts
+
+- `node scripts/structure-legacy-sections.mjs` – converts legacy HTML lessons (when available) into `legacySection` blocks.
+- `node scripts/apply-lesson-template.mjs` – regenerates the Markdown wrappers so they only mount `LessonRenderer` with the latest JSON.
+- `node scripts/convert-exercises-to-json.mjs` – mirrors the same process for exercises.
+
+These scripts are optional; new content should be authored directly in the structured JSON format.
+
+## Key Components
+
+- `LessonRenderer.vue` orchestrates all block types and applies Material 3 spacing and typography.
+- `LegacySection.vue` and `LegacyHtml.vue` provide MD3 surfaces for sanitised HTML while the content is being migrated.
+- `ExerciseView.vue` shares exactly the same rendering pipeline used by lessons, ensuring visual parity between theory and practice.
+
+## Deployment / PWA
+
+- The project uses `vite-plugin-pwa` with SPA fallback for GitHub Pages.
+- The deployment workflow lives in `.github/workflows/deploy.yml`.
+
+## Quality Checklist
+
+Before opening a pull request:
+
+- [ ] Run `npm run format` and `npm run build` locally.
+- [ ] Ensure component names, variables and comments are written in English.
+- [ ] Confirm that lessons/exercises reference the correct JSON wrapper and appear in `lessons.json` / `exercises.json` indexes.
+- [ ] Update documentation when the architecture or authoring workflow changes.

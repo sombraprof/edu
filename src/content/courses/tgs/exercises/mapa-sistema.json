@@ -1,0 +1,13 @@
+{
+  "id": "mapa-sistema",
+  "title": "Mapa de sistema",
+  "objective": "Modele as fronteiras, entradas e saídas de um sistema real escolhido pelo grupo.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "mapa-sistema",
+      "title": "Mapa de sistema",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './mapa-sistema.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

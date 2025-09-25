@@ -1,20 +1,30 @@
-
 <template>
-  <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)', marginTop: 'var(--md-sys-spacing-8)', marginBottom: 'var(--md-sys-spacing-8)' }">
+  <div
+    :style="{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 'var(--md-sys-spacing-4)',
+      marginTop: 'var(--md-sys-spacing-8)',
+      marginBottom: 'var(--md-sys-spacing-8)',
+    }"
+  >
     <div v-for="(item, index) in data.items" :key="index" class="card surface-tonal !p-0">
-      <button 
-        @click="toggle(index)" 
+      <button
+        @click="toggle(index)"
         class="w-full flex justify-between items-center p-4 text-left font-semibold md-sys-typescale-headline-small text-[var(--md-sys-color-on-surface)]"
         :aria-expanded="openIndex === index"
       >
         <span>{{ item.title }}</span>
         <ChevronDown
-          :style="{ height: 'var(--md-sys-icon-size-medium)', width: 'var(--md-sys-icon-size-medium)' }"
+          :style="{
+            height: 'var(--md-sys-icon-size-medium)',
+            width: 'var(--md-sys-icon-size-medium)',
+          }"
           class="transform transition-transform duration-300 text-[var(--md-sys-color-on-surface-variant)]"
           :class="{ 'rotate-180': openIndex === index }"
         />
       </button>
-      <div 
+      <div
         class="overflow-hidden transition-all duration-500 ease-in-out"
         :style="{ maxHeight: openIndex === index ? '1000px' : '0px' }"
       >
@@ -68,6 +78,6 @@ function toggle(index: number) {
 }
 
 .prose-container :deep(.prose) ul > li::before {
-    background-color: var(--md-sys-color-on-surface-variant);
+  background-color: var(--md-sys-color-on-surface-variant);
 }
 </style>

@@ -1,0 +1,13 @@
+{
+  "id": "modelagem-uml",
+  "title": "Modelagem UML de caso real",
+  "objective": "Crie diagrama de classes com relacionamentos, atributos e multiplicidades.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "modelagem-uml",
+      "title": "Modelagem UML de caso real",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './modelagem-uml.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

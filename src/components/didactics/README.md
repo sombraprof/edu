@@ -5,6 +5,7 @@ Uma coleção de componentes Vue reutilizáveis para elementos educacionais, seg
 ## 🎯 Componentes Disponíveis
 
 ### 1. TruthTable - Tabelas Verdade/Falso
+
 Componente para exibir tabelas verdade de operadores lógicos.
 
 ```vue
@@ -16,7 +17,7 @@ Componente para exibir tabelas verdade de operadores lógicos.
       ['V', 'V', 'V'],
       ['V', 'F', 'F'],
       ['F', 'V', 'F'],
-      ['F', 'F', 'F']
+      ['F', 'F', 'F'],
     ]"
     :legend="true"
   />
@@ -28,6 +29,7 @@ import { TruthTable } from '@/components/didactics';
 ```
 
 ### 2. Flowchart - Fluxogramas
+
 Componente para criar fluxogramas interativos com nós conectados.
 
 ```vue
@@ -45,28 +47,27 @@ import { Flowchart } from '@/components/didactics';
 
 const flowchartNodes = [
   {
-    id: "start",
-    type: "start",
-    content: "Início",
+    id: 'start',
+    type: 'start',
+    content: 'Início',
     x: 50,
-    y: 50
+    y: 50,
   },
   {
-    id: "decision",
-    type: "decision",
-    content: "Média ≥ 7.0?",
+    id: 'decision',
+    type: 'decision',
+    content: 'Média ≥ 7.0?',
     x: 300,
-    y: 150
-  }
+    y: 150,
+  },
 ];
 
-const flowchartConnections = [
-  { from: "start", to: "decision", label: "Sim" }
-];
+const flowchartConnections = [{ from: 'start', to: 'decision', label: 'Sim' }];
 </script>
 ```
 
 ### 3. BlockDiagram - Diagramas de Blocos
+
 Componente para diagramas de blocos com conexões e legendas.
 
 ```vue
@@ -84,36 +85,35 @@ import { BlockDiagram } from '@/components/didactics';
 
 const systemBlocks = [
   {
-    id: "input",
-    type: "input",
-    title: "Entrada",
-    content: "Dados de entrada",
+    id: 'input',
+    type: 'input',
+    title: 'Entrada',
+    content: 'Dados de entrada',
     x: 50,
     y: 50,
     width: 150,
-    height: 80
+    height: 80,
   },
   {
-    id: "process",
-    type: "process",
-    title: "Processamento",
-    content: "Lógica de negócio",
+    id: 'process',
+    type: 'process',
+    title: 'Processamento',
+    content: 'Lógica de negócio',
     x: 250,
     y: 50,
     width: 150,
-    height: 80
-  }
+    height: 80,
+  },
 ];
 
-const systemConnections = [
-  { from: "input", to: "process", label: "Fluxo de dados" }
-];
+const systemConnections = [{ from: 'input', to: 'process', label: 'Fluxo de dados' }];
 </script>
 ```
 
 ## 🚀 Instalação e Uso
 
 ### Importação
+
 ```typescript
 // Importar componentes individuais
 import { TruthTable, Flowchart, BlockDiagram } from '@/components/didactics';
@@ -123,6 +123,7 @@ import * as Didactics from '@/components/didactics';
 ```
 
 ### Uso em Templates Vue
+
 ```vue
 <template>
   <div>
@@ -136,6 +137,7 @@ import * as Didactics from '@/components/didactics';
 ## 📋 Props e Interfaces
 
 ### TruthTable Props
+
 ```typescript
 interface TruthTableProps {
   title?: string;
@@ -147,6 +149,7 @@ interface TruthTableProps {
 ```
 
 ### Flowchart Props
+
 ```typescript
 interface FlowchartNode {
   id: string;
@@ -174,6 +177,7 @@ interface FlowchartProps {
 ```
 
 ### BlockDiagram Props
+
 ```typescript
 interface BlockDiagramBlock {
   id: string;
@@ -201,7 +205,9 @@ interface BlockDiagramProps {
 ## 🎨 Estilos e Temas
 
 ### Material Design 3
+
 Todos os componentes seguem as diretrizes do Material Design 3:
+
 - ✅ Cores do sistema MD3
 - ✅ Sombras e elevações apropriadas
 - ✅ Bordas arredondadas
@@ -209,12 +215,14 @@ Todos os componentes seguem as diretrizes do Material Design 3:
 - ✅ Estados interativos (hover, focus)
 
 ### Responsividade
+
 - ✅ Layout adaptável para mobile e desktop
 - ✅ Overflow horizontal com scroll
 - ✅ Fontes escaláveis
 - ✅ Espaçamentos responsivos
 
 ### Tema Dark/Light
+
 - ✅ Suporte automático ao tema do sistema
 - ✅ Contraste adequado em ambos os temas
 - ✅ Transições suaves entre temas
@@ -222,6 +230,7 @@ Todos os componentes seguem as diretrizes do Material Design 3:
 ## 📖 Exemplos Práticos
 
 ### Exemplo Completo
+
 ```vue
 <template>
   <div class="space-y-8">
@@ -234,7 +243,7 @@ Todos os componentes seguem as diretrizes do Material Design 3:
         ['V', 'V', 'V'],
         ['V', 'F', 'F'],
         ['F', 'V', 'F'],
-        ['F', 'F', 'F']
+        ['F', 'F', 'F'],
       ]"
       :legend="true"
     />
@@ -267,6 +276,7 @@ import { TruthTable, Flowchart, BlockDiagram } from '@/components/didactics';
 ## 🔧 Desenvolvimento
 
 ### Estrutura de Arquivos
+
 ```
 src/components/didactics/
 ├── TruthTable.vue          # Componente de tabelas verdade
@@ -278,6 +288,7 @@ src/components/didactics/
 ```
 
 ### Adicionando Novos Componentes
+
 1. Crie o arquivo `.vue` do componente
 2. Adicione as interfaces TypeScript em `index.ts`
 3. Exporte o componente em `index.ts`
@@ -287,16 +298,19 @@ src/components/didactics/
 ## 🎯 Casos de Uso
 
 ### Educação em Computação
+
 - ✅ Tabelas verdade para lógica digital
 - ✅ Fluxogramas para algoritmos
 - ✅ Diagramas de blocos para arquitetura de sistemas
 
 ### Ensino de Matemática
+
 - ✅ Tabelas de valores para funções
 - ✅ Diagramas de blocos para processos matemáticos
 - ✅ Fluxogramas para resolução de problemas
 
 ### Ensino Técnico
+
 - ✅ Diagramas de blocos para processos industriais
 - ✅ Fluxogramas para procedimentos técnicos
 - ✅ Tabelas para especificações técnicas

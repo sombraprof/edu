@@ -1,7 +1,16 @@
 <template>
   <div class="truth-table-container card p-6 my-8">
-    <h3 v-if="title" class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">{{ title }}</h3>
-    <p v-if="description" class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]" v-html="description"></p>
+    <h3
+      v-if="title"
+      class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]"
+    >
+      {{ title }}
+    </h3>
+    <p
+      v-if="description"
+      class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]"
+      v-html="description"
+    ></p>
 
     <div class="overflow-x-auto">
       <table class="truth-table w-full border-collapse">
@@ -20,7 +29,11 @@
           <tr
             v-for="(row, rowIndex) in rows"
             :key="rowIndex"
-            :class="rowIndex % 2 === 0 ? 'bg-[var(--md-sys-color-surface)]' : 'bg-[var(--md-sys-color-surface-container)]'"
+            :class="
+              rowIndex % 2 === 0
+                ? 'bg-[var(--md-sys-color-surface)]'
+                : 'bg-[var(--md-sys-color-surface-container)]'
+            "
           >
             <td
               v-for="(cell, cellIndex) in row"
@@ -32,7 +45,7 @@
                   'inline-flex items-center justify-center w-6 h-6 rounded-full text-body-small font-medium',
                   cell === 'V' || cell === '1' || cell === true || cell === 'true'
                     ? 'bg-[var(--md-sys-color-primary-container] text-[var(--md-sys-color-on-primary-container]'
-                    : 'bg-[var(--md-sys-color-error-container] text-[var(--md-sys-color-on-error-container]'
+                    : 'bg-[var(--md-sys-color-error-container] text-[var(--md-sys-color-on-error-container]',
                 ]"
               >
                 {{ formatCellValue(cell) }}
@@ -44,14 +57,24 @@
     </div>
 
     <div v-if="legend" class="mt-4 p-4 bg-[var(--md-sys-color-surface-container)] rounded-lg">
-      <h4 class="text-title-medium font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">Legenda</h4>
+      <h4 class="text-title-medium font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
+        Legenda
+      </h4>
       <div class="flex flex-wrap gap-4">
         <div class="flex items-center gap-2">
-          <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-body-small font-medium bg-[var(--md-sys-color-primary-container] text-[var(--md-sys-color-on-primary-container]">V</span>
-          <span class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]">Verdadeiro</span>
+          <span
+            class="inline-flex items-center justify-center w-6 h-6 rounded-full text-body-small font-medium bg-[var(--md-sys-color-primary-container] text-[var(--md-sys-color-on-primary-container]"
+            >V</span
+          >
+          <span class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
+            >Verdadeiro</span
+          >
         </div>
         <div class="flex items-center gap-2">
-          <span class="inline-flex items-center justify-center w-6 h-6 rounded-full text-body-small font-medium bg-[var(--md-sys-color-error-container] text-[var(--md-sys-color-on-error-container]">F</span>
+          <span
+            class="inline-flex items-center justify-center w-6 h-6 rounded-full text-body-small font-medium bg-[var(--md-sys-color-error-container] text-[var(--md-sys-color-on-error-container]"
+            >F</span
+          >
           <span class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]">Falso</span>
         </div>
       </div>

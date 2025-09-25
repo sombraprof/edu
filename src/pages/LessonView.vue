@@ -1,62 +1,53 @@
-﻿
-<template>
+﻿<template>
   <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }">
     <nav class="flex items-center gap-2 md-sys-typescale-body-small">
-      <router-link class="nav-link" :to="{ name: 'course-home', params: { courseId } }">Voltar para a disciplina</router-link>
-      <ChevronRight :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" class="text-[var(--md-sys-color-on-surface-variant)]" />
+      <router-link class="btn btn-text" :to="{ name: 'course-home', params: { courseId } }"
+        >Voltar para a disciplina</router-link
+      >
+      <ChevronRight
+        :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }"
+        class="text-[var(--md-sys-color-on-surface-variant)]"
+      />
       <span class="text-[var(--md-sys-color-on-surface-variant)]">{{ lessonTitle }}</span>
     </nav>
 
-
-    <!-- New JSON-based rendering -->
-    <article v-if="lessonContent" class="card max-w-none p-8" :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }">
-       <header :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
-        <p class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]/80">Conteúdo da aula</p>
-        <h2 class="text-headline-medium font-semibold text-[var(--md-sys-color-on-surface)]">{{ lessonTitle }}</h2>
-        <p v-if="lessonContent.objective" class="text-body-large !mt-4">{{ lessonContent.objective }}</p>
+    <article
+      v-if="lessonComponent"
+      class="card max-w-none p-8"
+      :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }"
+    >
+      <header :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
+        <p
+          class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]/80"
+        >
+          Conteúdo da aula
+        </p>
+        <h2 class="text-headline-medium font-semibold text-[var(--md-sys-color-on-surface)]">
+          {{ lessonTitle }}
+        </h2>
+        <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
       </header>
 
-      <div class="divider"></div>
+      <div class="divider" role="presentation"></div>
 
-      <template v-for="(block, index) in lessonContent.content" :key="index">
-        <div v-if="block.type === 'html'" class="prose max-w-none lesson-content" v-html="block.html"></div>
-        <CodeBlock
-          v-if="block.type === 'code'"
-          :code="block.code"
-          :language="block.language"
-          :plainText="shouldUsePlainText(block.language)"
-        />
-        <LessonPlan v-if="block.type === 'lessonPlan'" :data="block" />
-        <ContentBlock v-if="block.type === 'contentBlock'" :data="block" />
-        <VideosBlock v-if="block.type === 'videos'" :data="block" />
-        <ChecklistBlock v-if="block.type === 'checklist'" :data="block" />
-        <BibliographyBlock v-if="block.type === 'bibliography'" :data="block" />
-        <Callout 
-          v-if="block.type === 'callout'" 
-          :variant="block.variant" 
-          :title="block.title" 
-          :content="block.content" 
-        />
-        <Timeline v-if="block.type === 'timeline'" :data="block" />
-        <FlightPlan v-if="block.type === 'flightPlan'" :data="block" />
-        <Accordion v-if="block.type === 'accordion'" :data="block" />
-        <Representations v-if="block.type === 'representations'" :data="block" />
-        <TruthTable v-if="block.type === 'truthTable'" :title="block.title" :headers="block.headers" :rows="block.rows" />
-        <component v-if="block.type === 'component'" :is="getComponent(block.component)" v-bind="block.props || {}" />
-        <!-- Other components will be added here -->
-      </template>
+      <component :is="lessonComponent" class="lesson-content prose max-w-none dark:prose-invert" />
     </article>
 
+    <article
+      v-else
+      class="card max-w-none p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
+    >
+      Não foi possível carregar esta aula.
+    </article>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, watch } from 'vue';
+import { computed, defineAsyncComponent, nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { ChevronRight } from 'lucide-vue-next';
 import Prism from 'prismjs';
-// Import themes and languages for Prism
-// import 'prismjs/themes/prism-tomorrow.css';
+
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/components/prism-typescript';
@@ -68,100 +59,81 @@ import 'prismjs/components/prism-cpp';
 import 'prismjs/components/prism-csharp';
 import 'prismjs/components/prism-kotlin';
 
-// Import the new lesson components
-import Callout from '@/components/lesson/Callout.vue';
-import Timeline from '@/components/lesson/Timeline.vue';
-import FlightPlan from '@/components/lesson/FlightPlan.vue';
-import Accordion from '@/components/lesson/Accordion.vue';
-import Representations from '@/components/lesson/Representations.vue';
-import CodeBlock from '@/components/lesson/CodeBlock.vue';
-import LessonPlan from '@/components/lesson/LessonPlan.vue';
-import ContentBlock from '@/components/lesson/ContentBlock.vue';
-import VideosBlock from '@/components/lesson/VideosBlock.vue';
-import ChecklistBlock from '@/components/lesson/ChecklistBlock.vue';
-import BibliographyBlock from '@/components/lesson/BibliographyBlock.vue';
-import TruthTable from '@/components/lesson/TruthTable.vue'; // Import TruthTable component
-import Md3Table from '@/components/lesson/Md3Table.vue';
-import Md3LogicOperators from '@/components/lesson/Md3LogicOperators.vue';
-import MemoryDiagram from '@/components/lesson/MemoryDiagram.vue';
-import OrderedList from '@/components/lesson/OrderedList.vue';
-
-interface LessonRef { id: string; title: string; file: string }
-interface LessonContent {
+interface LessonRef {
   id: string;
   title: string;
-  objective: string;
-  content: any[];
+  file: string;
+  description?: string;
+  available?: boolean;
 }
 
+const lessonIndexes = import.meta.glob('../content/courses/*/lessons.json');
+const lessonModules = import.meta.glob('../content/courses/*/lessons/*.vue');
+
 const route = useRoute();
-const base = import.meta.env.BASE_URL;
 const courseId = computed(() => String(route.params.courseId));
 const lessonId = computed(() => String(route.params.lessonId));
 
 const lessonTitle = ref<string>('');
-const contentRef = ref<HTMLElement | null>(null);
+const lessonObjective = ref<string>('');
+const lessonComponent = shallowRef<any | null>(null);
 
-// --- State Management ---
-const lessonContent = ref<LessonContent | null>(null);
-
+function highlight() {
+  requestAnimationFrame(() => {
+    Prism.highlightAll();
+  });
+}
 
 async function loadLesson() {
-  // Reset states
-  lessonContent.value = null;
+  lessonComponent.value = null;
+  lessonTitle.value = '';
+  lessonObjective.value = '';
 
   try {
     const currentCourse = courseId.value;
     const currentLesson = lessonId.value;
 
-    // 1. Fetch lesson metadata from the index
-    const indexRes = await fetch(`${base}courses/${currentCourse}/lessons.json`);
-    if (!indexRes.ok) throw new Error('lessons.json not found');
-    const index: LessonRef[] = await indexRes.json();
-    const entry = index.find((l) => l.id === currentLesson);
-    if (!entry) throw new Error('Lesson not found in index');
-    lessonTitle.value = entry.title;
+    const indexPath = `../content/courses/${currentCourse}/lessons.json`;
+    const indexImporter = lessonIndexes[indexPath];
+    if (!indexImporter) throw new Error(`Could not find lesson index for path: ${indexPath}`);
 
-    // 2. Fetch the lesson content file (HTML or JSON)
-    const fileRes = await fetch(`${base}courses/${currentCourse}/lessons/${entry.file}`);
-    if (!fileRes.ok) throw new Error(`Lesson file not found: ${entry.file}`);
+    const indexModule: any = await indexImporter();
+    const index: LessonRef[] = indexModule.default || indexModule;
+    if (!Array.isArray(index)) throw new Error('Lesson index is not an array.');
 
-    // 3. Process content based on file type
-    if (entry.file.endsWith('.json')) {
-      lessonContent.value = await fileRes.json();
-    }
+    const entry = index.find((item) => item.id === currentLesson);
+    if (!entry) throw new Error(`Lesson ${currentLesson} not found`);
 
-    // 4. Highlight code blocks after content is rendered
-    await nextTick();
-    const container = contentRef.value || document; // Fallback to document for JSON content
-    Prism.highlightAllUnder(container);
+    const lessonPath = `../content/courses/${currentCourse}/lessons/${entry.file}`;
+    const lessonImporter = lessonModules[lessonPath];
+    if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
 
-  } catch (err) {
-    console.error('[LessonView] Failed to load lesson:', err);
-    lessonContent.value = { id: '', title: lessonTitle.value, objective: '', content: [{ type: 'html', html: '<p class="text-error-500">Não foi possível carregar esta aula no momento.</p>' }] };
+    const loader = async () => {
+      const mod: any = await lessonImporter();
+      const meta = mod.meta ?? {};
+      lessonTitle.value = meta.title ?? entry.title;
+      lessonObjective.value = meta.objective ?? entry.description ?? '';
+      await nextTick();
+      highlight();
+      return mod.default;
+    };
+
+    lessonComponent.value = defineAsyncComponent({
+      loader,
+      suspensible: false,
+    });
+  } catch (error) {
+    console.error('[LessonView] Failed to load lesson:', error);
+    lessonTitle.value = 'Erro ao carregar aula';
+    lessonObjective.value = 'Não foi possível localizar o material solicitado.';
   }
 }
 
-onMounted(loadLesson);
-watch([courseId, lessonId], loadLesson);
+onMounted(() => {
+  loadLesson();
+});
 
-// Component resolver for dynamic component rendering
-function getComponent(componentName: string) {
-  const components: Record<string, any> = {
-    Md3Table,
-    Md3LogicOperators,
-    MemoryDiagram,
-    OrderedList,
-    // Add more components here as needed
-  };
-  return components[componentName] || null;
-}
-
-// Function to determine if plain text should be used
-function shouldUsePlainText(language?: string): boolean {
-  // Use plain text for plaintext, pseudocode, or when no language is specified
-  return !language || language === 'plaintext' || language === 'pseudocode' || language === 'text';
-}
-
+watch([courseId, lessonId], () => {
+  loadLesson();
+});
 </script>
-

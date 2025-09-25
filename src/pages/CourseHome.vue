@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-8)' }">
     <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="pill-group" role="group" aria-label="Filtro de conteúdo">
@@ -34,7 +34,12 @@
           type="button"
           @click="viewMode = 'grid'"
         >
-          <Grid3x3 :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
+          <Grid3x3
+            :style="{
+              height: 'var(--md-sys-icon-size-small)',
+              width: 'var(--md-sys-icon-size-small)',
+            }"
+          />
           Grade
         </button>
         <button
@@ -43,13 +48,26 @@
           type="button"
           @click="viewMode = 'list'"
         >
-          <List :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
+          <List
+            :style="{
+              height: 'var(--md-sys-icon-size-small)',
+              width: 'var(--md-sys-icon-size-small)',
+            }"
+          />
           Lista
         </button>
       </div>
     </header>
 
-    <div v-if="displayItems.length" :class="viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : ''" :style="viewMode === 'list' ? { display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' } : {}">
+    <div
+      v-if="displayItems.length"
+      :class="viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : ''"
+      :style="
+        viewMode === 'list'
+          ? { display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }
+          : {}
+      "
+    >
       <component
         v-for="item in displayItems"
         :key="item.key"
@@ -59,29 +77,48 @@
         v-bind="item.attrs"
       >
         <div class="flex flex-wrap items-center gap-3 md-sys-typescale-body-small">
-          <span class="chip" :class="typeChipClass(item)">{{ item.type === 'lesson' ? 'Aula' : 'Exercício' }}</span>
-          <span class="chip" :class="statusChipClass(item)">{{ item.available ? 'Disponível' : 'Em breve' }}</span>
+          <span class="chip" :class="typeChipClass(item)">{{
+            item.type === 'lesson' ? 'Aula' : 'Exercício'
+          }}</span>
+          <span class="chip" :class="statusChipClass(item)">{{
+            item.available ? 'Disponível' : 'Em breve'
+          }}</span>
         </div>
         <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
-          <h3 class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">{{ item.title }}</h3>
+          <h3 class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">
+            {{ item.title }}
+          </h3>
           <p v-if="item.description" class="supporting-text">
             {{ item.description }}
           </p>
         </div>
         <div class="mt-auto flex items-center justify-end">
           <template v-if="item.available && item.cta">
-            <span class="inline-flex items-center gap-2 text-label-medium font-medium text-[var(--md-sys-color-on-surface-variant)] transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow">
+            <span
+              class="inline-flex items-center gap-2 text-label-medium font-medium text-[var(--md-sys-color-on-surface-variant)] transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow"
+            >
               <span>{{ item.cta }}</span>
-              <ChevronRight :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" class="transition-transform duration-150 group-hover:translate-x-1" />
+              <ChevronRight
+                :style="{
+                  height: 'var(--md-sys-icon-size-small)',
+                  width: 'var(--md-sys-icon-size-small)',
+                }"
+                class="transition-transform duration-150 group-hover:translate-x-1"
+              />
             </span>
           </template>
           <template v-else-if="!item.available">
-            <span class="md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]">Conteúdo em preparação.</span>
+            <span class="md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]"
+              >Conteúdo em preparação.</span
+            >
           </template>
         </div>
       </component>
     </div>
-    <div v-else class="card p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]">
+    <div
+      v-else
+      class="card p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
+    >
       Nenhum conteúdo encontrado para este filtro.
       <button class="btn btn-text mt-4" type="button" @click="resetFilters">Limpar filtros</button>
     </div>
@@ -104,7 +141,8 @@ interface LessonRef {
 interface ExerciseRef {
   id: string;
   title: string;
-  description: string;
+  description?: string;
+  file?: string;
   link?: string;
   available?: boolean;
 }
@@ -122,7 +160,6 @@ interface ContentItem {
 
 const route = useRoute();
 const courseId = computed(() => String(route.params.courseId ?? ''));
-const base = import.meta.env.BASE_URL;
 
 const lessons = ref<LessonRef[]>([]);
 const exercises = ref<ExerciseRef[]>([]);
@@ -131,9 +168,8 @@ const viewMode = ref<'grid' | 'list'>('grid');
 
 async function loadLessons(id: string) {
   try {
-    const res = await fetch(`${base}courses/${id}/lessons.json`);
-    if (!res.ok) throw new Error('lessons.json not found');
-    lessons.value = await res.json();
+    const module = await import(`../content/courses/${id}/lessons.json`);
+    lessons.value = module.default as LessonRef[];
   } catch (err) {
     console.error('[CourseHome] Failed to load lessons.json', err);
     lessons.value = [];
@@ -142,13 +178,8 @@ async function loadLessons(id: string) {
 
 async function loadExercises(id: string) {
   try {
-    const res = await fetch(`${base}courses/${id}/exercises.json`);
-    if (!res.ok) throw new Error('exercises.json not found');
-    const data: ExerciseRef[] = await res.json();
-    exercises.value = data.map((item) => ({
-      ...item,
-      link: item.link && !item.link.startsWith('http') ? `${base}${item.link}` : item.link
-    }));
+    const module = await import(`../content/courses/${id}/exercises.json`);
+    exercises.value = module.default as ExerciseRef[];
   } catch (err) {
     console.warn('[CourseHome] Exercises not available', err);
     exercises.value = [];
@@ -176,23 +207,28 @@ const combinedItems = computed<ContentItem[]>(() => {
       available,
       cta: available ? 'Abrir aula' : undefined,
       wrapper: available ? 'router-link' : 'div',
-      attrs
+      attrs,
     });
   });
 
   exercises.value.forEach((exercise) => {
-    const available = exercise.available !== false && Boolean(exercise.link);
+    const available = exercise.available !== false && (!!exercise.file || !!exercise.link);
     let attrs: Record<string, unknown> = {};
     let wrapper: ContentItem['wrapper'] = 'div';
-    if (available && exercise.link) {
+
+    if (available && exercise.file) {
+      wrapper = 'router-link';
+      attrs = { to: { name: 'exercise', params: { courseId: id, exerciseId: exercise.id } } };
+    } else if (available && exercise.link) {
       const external = isExternal(exercise.link);
       wrapper = 'a';
       attrs = {
         href: exercise.link,
         target: external ? '_blank' : undefined,
-        rel: external ? 'noreferrer' : undefined
+        rel: external ? 'noreferrer' : undefined,
       };
     }
+
     items.push({
       key: `exercise-${exercise.id}`,
       type: 'exercise',
@@ -201,7 +237,7 @@ const combinedItems = computed<ContentItem[]>(() => {
       available,
       cta: available ? 'Abrir material' : undefined,
       wrapper,
-      attrs
+      attrs,
     });
   });
 
@@ -209,18 +245,24 @@ const combinedItems = computed<ContentItem[]>(() => {
 });
 
 const displayItems = computed(() =>
-  combinedItems.value.filter((item) => contentFilter.value === 'all' || item.type === contentFilter.value)
+  combinedItems.value.filter(
+    (item) => contentFilter.value === 'all' || item.type === contentFilter.value
+  )
 );
 
-watch(courseId, (id) => {
-  if (!id) {
-    lessons.value = [];
-    exercises.value = [];
-    return;
-  }
-  loadLessons(id);
-  loadExercises(id);
-}, { immediate: true });
+watch(
+  courseId,
+  (id) => {
+    if (!id) {
+      lessons.value = [];
+      exercises.value = [];
+      return;
+    }
+    loadLessons(id);
+    loadExercises(id);
+  },
+  { immediate: true }
+);
 
 function resetFilters() {
   contentFilter.value = 'all';

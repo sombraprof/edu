@@ -1,17 +1,31 @@
-
-<template>
+﻿<template>
   <div class="card p-8 my-10">
-    <h3 class="text-headline-small font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">{{ data.title }}</h3>
-    <p v-if="data.description" class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]" v-html="data.description"></p>
+    <h3 class="text-headline-small font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
+      {{ data.title }}
+    </h3>
+    <p
+      v-if="data.description"
+      class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]"
+      v-html="data.description"
+    ></p>
 
     <div class="grid grid-cols-1 gap-8">
       <div v-for="(item, index) in data.items" :key="index" class="card !p-6 flex flex-col">
-        <h4 class="text-title-large font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">{{ item.title }}</h4>
-        <p class="text-body-medium text-[var(--md-sys-color-on-surface-variant)] flex-grow" v-html="item.content"></p>
-        
+        <h4 class="text-title-large font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">
+          {{ item.title }}
+        </h4>
+        <p
+          class="text-body-medium text-[var(--md-sys-color-on-surface-variant)] flex-grow"
+          v-html="item.content"
+        ></p>
+
         <div class="mt-4 pt-4 border-t border-[var(--md-sys-color-outline)]">
           <!-- Case 1: Render raw HTML detail -->
-          <div v-if="item.detail" class="prose max-w-none lesson-content" v-html="item.detail"></div>
+          <div
+            v-if="item.detail"
+            class="prose max-w-none lesson-content"
+            v-html="item.detail"
+          ></div>
 
           <!-- Case 2: Render styled code block -->
           <div v-if="item.code">
@@ -93,7 +107,7 @@ function shouldUsePlainText(language?: string): boolean {
 }
 
 :deep(.flowchart-arrow)::after {
-  content: '↓';
+  content: '→';
   font-size: 1.5rem;
   color: var(--md-sys-color-on-surface-variant);
 }

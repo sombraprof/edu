@@ -1,0 +1,13 @@
+{
+  "id": "lista2",
+  "title": "Lista 2 — Condicionais e operadores",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "lista2",
+      "title": "Lista 2 — Condicionais e operadores",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './lista2.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

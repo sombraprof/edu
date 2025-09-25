@@ -1,0 +1,13 @@
+{
+  "id": "protótipo-papel",
+  "title": "Protótipo de papel",
+  "objective": "Estruture o gameplay loop em um protótipo físico com regras claras e feedback imediato.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "protótipo-papel",
+      "title": "Protótipo de papel",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './protótipo-papel.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

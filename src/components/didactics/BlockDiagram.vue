@@ -1,7 +1,16 @@
 <template>
   <div class="block-diagram-container card p-6 my-8">
-    <h3 v-if="title" class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">{{ title }}</h3>
-    <p v-if="description" class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]" v-html="description"></p>
+    <h3
+      v-if="title"
+      class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]"
+    >
+      {{ title }}
+    </h3>
+    <p
+      v-if="description"
+      class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]"
+      v-html="description"
+    ></p>
 
     <div class="block-diagram-wrapper">
       <div class="block-diagram" :style="{ minHeight: (dimensions?.height || 600) + 'px' }">
@@ -11,13 +20,13 @@
           :class="[
             'block-item',
             `block-${block.type}`,
-            { 'block-active': activeBlock === block.id }
+            { 'block-active': activeBlock === block.id },
           ]"
           :style="{
             top: block.y + 'px',
             left: block.x + 'px',
             width: block.width + 'px',
-            minHeight: block.height + 'px'
+            minHeight: block.height + 'px',
           }"
         >
           <div class="block-header" v-if="block.title">
@@ -40,7 +49,11 @@
         </div>
 
         <!-- Render connections -->
-        <svg class="block-connections" :width="dimensions?.width || 800" :height="dimensions?.height || 600">
+        <svg
+          class="block-connections"
+          :width="dimensions?.width || 800"
+          :height="dimensions?.height || 600"
+        >
           <defs>
             <marker
               id="block-arrowhead"
@@ -50,10 +63,7 @@
               refY="3.5"
               orient="auto"
             >
-              <polygon
-                points="0 0, 10 3.5, 0 7"
-                fill="var(--md-sys-color-outline)"
-              />
+              <polygon points="0 0, 10 3.5, 0 7" fill="var(--md-sys-color-outline)" />
             </marker>
           </defs>
 
@@ -85,22 +95,25 @@
       </div>
     </div>
 
-    <div v-if="legend && legend.length > 0" class="mt-6 p-4 bg-[var(--md-sys-color-surface-container)] rounded-lg">
-      <h4 class="text-title-medium font-semibold mb-3 text-[var(--md-sys-color-on-surface)]">Legenda</h4>
+    <div
+      v-if="legend && legend.length > 0"
+      class="mt-6 p-4 bg-[var(--md-sys-color-surface-container)] rounded-lg"
+    >
+      <h4 class="text-title-medium font-semibold mb-3 text-[var(--md-sys-color-on-surface)]">
+        Legenda
+      </h4>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        <div
-          v-for="item in legend"
-          :key="item.type"
-          class="flex items-center gap-3"
-        >
+        <div v-for="item in legend" :key="item.type" class="flex items-center gap-3">
           <div
             :class="[
               'w-4 h-4 rounded border-2',
               `bg-${item.color}`,
-              `border-${item.borderColor || item.color}`
+              `border-${item.borderColor || item.color}`,
             ]"
           ></div>
-          <span class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]">{{ item.label }}</span>
+          <span class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]">{{
+            item.label
+          }}</span>
         </div>
       </div>
     </div>
@@ -118,7 +131,7 @@ import {
   HardDrive,
   Settings,
   Users,
-  ArrowRight
+  ArrowRight,
 } from 'lucide-vue-next';
 
 interface BlockItem {
@@ -169,26 +182,26 @@ const activeBlock = ref<string | null>(null);
 
 function getIcon(iconName?: string) {
   const iconMap: Record<string, any> = {
-    'database': Database,
-    'cpu': Cpu,
-    'monitor': Monitor,
-    'server': Server,
-    'cloud': Cloud,
+    database: Database,
+    cpu: Cpu,
+    monitor: Monitor,
+    server: Server,
+    cloud: Cloud,
     'hard-drive': HardDrive,
-    'settings': Settings,
-    'users': Users,
-    'arrow-right': ArrowRight
+    settings: Settings,
+    users: Users,
+    'arrow-right': ArrowRight,
   };
   return iconMap[iconName || ''] || null;
 }
 
 function getBlockCenter(blockId: string) {
-  const block = props.blocks.find(b => b.id === blockId);
+  const block = props.blocks.find((b) => b.id === blockId);
   if (!block) return { x: 0, y: 0 };
 
   return {
     x: block.x + block.width / 2,
-    y: block.y + block.height / 2
+    y: block.y + block.height / 2,
   };
 }
 </script>

@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: [
-    './index.html',
-    './src/**/*.{vue,ts,tsx,js,jsx}'
-  ],
+  content: ['./index.html', './src/**/*.{vue,ts,tsx,js,jsx}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         primary: {
@@ -21,7 +18,7 @@ module.exports = {
           600: '#1e88e5',
           700: '#1976d2',
           800: '#1565c0',
-          900: '#0d47a1'
+          900: '#0d47a1',
         },
         secondary: {
           50: '#fce4ec',
@@ -33,7 +30,7 @@ module.exports = {
           600: '#d81b60',
           700: '#c2185b',
           800: '#ad1457',
-          900: '#880e4f'
+          900: '#880e4f',
         },
         neutral: {
           50: '#fafafa',
@@ -45,7 +42,7 @@ module.exports = {
           600: '#757575',
           700: '#616161',
           800: '#424242',
-          900: '#212121'
+          900: '#212121',
         },
         'neutral-variant': {
           50: '#f5f5f5',
@@ -57,7 +54,7 @@ module.exports = {
           600: '#4e4e4e',
           700: '#3a3a3a',
           800: '#2a2a2a',
-          900: '#1c1c1c'
+          900: '#1c1c1c',
         },
         error: {
           50: '#ffebee',
@@ -69,7 +66,7 @@ module.exports = {
           600: '#e53935',
           700: '#d32f2f',
           800: '#c62828',
-          900: '#b71c1c'
+          900: '#b71c1c',
         },
         success: {
           50: '#e8f5e8',
@@ -81,7 +78,7 @@ module.exports = {
           600: '#43a047',
           700: '#388e3c',
           800: '#2e7d32',
-          900: '#1b5e20'
+          900: '#1b5e20',
         },
         warning: {
           50: '#fff8e1',
@@ -93,7 +90,7 @@ module.exports = {
           600: '#ffb300',
           700: '#ffa000',
           800: '#ff8f00',
-          900: '#ff6f00'
+          900: '#ff6f00',
         },
         info: {
           50: '#e3f2fd',
@@ -105,7 +102,7 @@ module.exports = {
           600: '#1e88e5',
           700: '#1976d2',
           800: '#1565c0',
-          900: '#0d47a1'
+          900: '#0d47a1',
         },
         surface: {
           light: {
@@ -114,7 +111,7 @@ module.exports = {
             200: '#f5f5f5',
             300: '#f0f0f0',
             400: '#e0e0e0',
-            500: '#cccccc'
+            500: '#cccccc',
           },
           dark: {
             50: '#2a2a2a',
@@ -122,9 +119,9 @@ module.exports = {
             200: '#121212',
             300: '#0a0a0a',
             400: '#030303',
-            500: '#000000'
-          }
-        }
+            500: '#000000',
+          },
+        },
       },
       fontSize: {
         'display-large': ['3.5rem', { lineHeight: '4rem', fontWeight: '400' }],
@@ -141,20 +138,20 @@ module.exports = {
         'body-small': ['0.75rem', { lineHeight: '1rem', fontWeight: '400' }],
         'label-large': ['0.875rem', { lineHeight: '1.25rem', fontWeight: '500' }],
         'label-medium': ['0.75rem', { lineHeight: '1rem', fontWeight: '500' }],
-        'label-small': ['0.6875rem', { lineHeight: '0.875rem', fontWeight: '500' }]
+        'label-small': ['0.6875rem', { lineHeight: '0.875rem', fontWeight: '500' }],
       },
       borderRadius: {
         '4xl': '1.5rem',
-        '5xl': '2rem'
+        '5xl': '2rem',
       },
       boxShadow: {
         'elevation-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
         'elevation-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
         'elevation-3': '0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15)',
         'elevation-4': '0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 6px 10px 4px rgba(0, 0, 0, 0.15)',
-        'elevation-5': '0px 4px 4px 0px rgba(0, 0, 0, 0.3), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)'
-      }
-    }
+        'elevation-5': '0px 4px 4px 0px rgba(0, 0, 0, 0.3), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)',
+      },
+    },
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography')],
 };

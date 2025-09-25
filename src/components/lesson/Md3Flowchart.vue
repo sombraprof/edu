@@ -19,7 +19,11 @@
         </template>
         <template v-else-if="element.type === 'bifurcation'">
           <div class="flowchart-bifurcation">
-            <div v-for="(branch, branchIndex) in element.branches" :key="branchIndex" class="flowchart-branch">
+            <div
+              v-for="(branch, branchIndex) in element.branches"
+              :key="branchIndex"
+              class="flowchart-branch"
+            >
               <div class="flowchart-branch-label">{{ branch.label }}</div>
               <div :class="branch.class">
                 <span v-if="branch.type === 'io'">{{ branch.text }}</span>

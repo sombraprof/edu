@@ -1,15 +1,15 @@
 /**
- * Biblioteca de Componentes Didáticos
+ * Didactic Components Library
  *
- * Componentes reutilizáveis para elementos educacionais seguindo Material Design 3.
- * Cada componente é responsivo e aceita props para personalização de conteúdo.
+ * Reusable educational components that follow Material Design 3.
+ * Each component remains responsive and accepts props for content customization.
  */
 
 export { default as TruthTable } from './TruthTable.vue';
 export { default as Flowchart } from './Flowchart.vue';
 export { default as BlockDiagram } from './BlockDiagram.vue';
 
-// Tipos de dados para os componentes
+// Data contracts consumed by the components
 export interface TruthTableData {
   title?: string;
   description?: string;
@@ -84,7 +84,7 @@ export interface BlockDiagramData {
   dimensions?: { width: number; height: number };
 }
 
-// Funções utilitárias
+// Factory helpers used by demos and tests
 export const createTruthTable = (data: TruthTableData) => data;
 export const createFlowchart = (data: FlowchartData) => data;
 export const createBlockDiagram = (data: BlockDiagramData) => data;

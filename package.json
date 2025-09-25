@@ -4,19 +4,22 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vue-tsc --noEmit && npx vite build",
-    "preview": "npx vite preview --base /edu/",
-    "convert-lessons": "node scripts/convert-lessons.js",
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview --base /edu/",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
+    "@vueuse/head": "^2.0.0",
     "lucide-vue-next": "^0.472.0",
+    "turndown": "^7.2.1",
     "vite": "^7.1.6",
     "vue": "^3.4.0",
-    "vue-router": "^4.3.0",
-    "vue-tsc": "^2.0.0"
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
@@ -25,11 +28,22 @@
     "@vue/test-utils": "^2.4.6",
     "autoprefixer": "^10.4.0",
     "jsdom": "^27.0.0",
+    "markdown-it": "^14.1.0",
     "postcss": "^8.4.0",
-    "prismjs": "^1.29.0",
+    "prismjs": "^1.30.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.4.0",
     "vite-plugin-pwa": "^1.0.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "vue-tsc": "^2.0.0",
+    "prettier": "^3.3.3",
+    "lint-staged": "^15.3.0",
+    "simple-git-hooks": "^2.9.0"
+  },
+  "lint-staged": {
+    "**/*.{vue,ts,tsx,js,jsx,cjs,mjs,json,md,css,scss}": "prettier --check"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }

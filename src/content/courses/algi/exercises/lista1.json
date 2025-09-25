@@ -1,0 +1,13 @@
+{
+  "id": "lista1",
+  "title": "Lista 1 — Algoritmos básicos",
+  "objective": "",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "lista1",
+      "title": "Lista 1 — Algoritmos básicos",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './lista1.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

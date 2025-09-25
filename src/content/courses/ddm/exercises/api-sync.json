@@ -1,0 +1,13 @@
+{
+  "id": "api-sync",
+  "title": "Sincronização com API",
+  "objective": "Implemente cache local e sincronização incremental para uma lista de itens.",
+  "content": [
+    {
+      "type": "legacySection",
+      "id": "api-sync",
+      "title": "Sincronização com API",
+      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './api-sync.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+    }
+  ]
+}

@@ -25,16 +25,16 @@ export default defineConfig(({ command }) => {
             {
               src: 'favicon.svg',
               sizes: 'any',
-              type: 'image/svg+xml'
-            }
-          ]
+              type: 'image/svg+xml',
+            },
+          ],
         },
         workbox: {
           // Ensure SPA fallback works on static hosts like GitHub Pages
           navigateFallback: `${base}index.html`,
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}']
-        }
-      })
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
+        },
+      }),
     ],
     resolve: {
       alias: {
@@ -42,7 +42,7 @@ export default defineConfig(({ command }) => {
       },
     },
     server: {
-      port: 5173
+      port: 5173,
     },
     preview: {
       base: '/edu/',

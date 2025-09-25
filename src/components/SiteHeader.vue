@@ -1,18 +1,36 @@
 ﻿<template>
   <!-- Sticky header with Material 3 styling -->
-  <header class="sticky top-0 z-50 border-b border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)]/90 backdrop-blur">
+  <header
+    class="sticky top-0 z-50 border-b border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)]/90 backdrop-blur"
+  >
     <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4">
       <router-link to="/" class="inline-flex items-center gap-3">
-        <span class="grid h-10 w-10 place-items-center bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)] shadow-elevation-1" :style="{ borderRadius: 'var(--md-sys-border-radius-full)' }">
-          <GraduationCap :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
+        <span
+          class="grid h-10 w-10 place-items-center bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)] shadow-elevation-1"
+          :style="{ borderRadius: 'var(--md-sys-border-radius-full)' }"
+        >
+          <GraduationCap
+            :style="{
+              height: 'var(--md-sys-icon-size-small)',
+              width: 'var(--md-sys-icon-size-small)',
+            }"
+          />
         </span>
         <span class="hidden flex-col leading-tight sm:flex">
-          <span class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]">Disciplinas</span>
-          <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">Prof. Tiago Sombra</span>
+          <span
+            class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]"
+            >Disciplinas</span
+          >
+          <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]"
+            >Prof. Tiago Sombra</span
+          >
         </span>
-        <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)] sm:hidden">Tiago  Sombra</span>
+        <span
+          class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)] sm:hidden"
+          >Tiago Sombra</span
+        >
       </router-link>
-      <nav class="hidden items-center gap-2 md:flex">
+      <nav class="flex items-center gap-2">
         <router-link
           v-if="navAction"
           class="nav-link"
@@ -20,12 +38,17 @@
           :to="navAction.to"
           :aria-label="navAction.label"
         >
-          <component :is="navAction.icon" :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
+          <component
+            :is="navAction.icon"
+            :style="{
+              height: 'var(--md-sys-icon-size-small)',
+              width: 'var(--md-sys-icon-size-small)',
+            }"
+          />
           <span>{{ navAction.label }}</span>
         </router-link>
         <ThemeToggle />
       </nav>
-      <ThemeToggle class="md:hidden" />
     </div>
   </header>
 </template>
@@ -40,13 +63,13 @@ import { GraduationCap, Grid3x3, ArrowLeft } from 'lucide-vue-next';
 const route = useRoute();
 
 const navAction = computed(() => {
-  if (route.name === 'lesson') {
+  if (route.name === 'lesson' || route.name === 'exercise') {
     const courseId = route.params.courseId ? String(route.params.courseId) : null;
     if (courseId) {
       return {
         label: 'Voltar para a disciplina',
         to: { name: 'course-home', params: { courseId } },
-        icon: ArrowLeft
+        icon: ArrowLeft,
       } as const;
     }
   }
@@ -55,7 +78,7 @@ const navAction = computed(() => {
     return {
       label: 'Todas as disciplinas',
       to: { name: 'home' as const },
-      icon: Grid3x3
+      icon: Grid3x3,
     } as const;
   }
 

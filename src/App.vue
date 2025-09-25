@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <!-- App root layout -->
   <div class="min-h-screen text-[var(--md-sys-color-on-background)]">
     <SiteHeader />
@@ -15,14 +15,19 @@
         @click="scrollToTop"
         aria-label="Voltar ao topo"
       >
-        <ArrowUp :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }" />
+        <ArrowUp
+          :style="{
+            height: 'var(--md-sys-icon-size-small)',
+            width: 'var(--md-sys-icon-size-small)',
+          }"
+        />
       </button>
     </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-// Root-level shell com botão de voltar ao topo
+// Root shell with a scroll-to-top action
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { ArrowUp } from 'lucide-vue-next';
 import SiteHeader from './components/SiteHeader.vue';
@@ -51,7 +56,9 @@ onBeforeUnmount(() => {
 <style scoped>
 .fade-expand-enter-active,
 .fade-expand-leave-active {
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 .fade-expand-enter-from,
