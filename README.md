@@ -46,6 +46,9 @@ For detailed authoring guidance – including naming conventions, block schemas,
 ## Helper Scripts
 
 - `node scripts/structure-legacy-sections.mjs` – converts legacy HTML lessons (when available) into `legacySection` blocks.
+- `node scripts/create-lesson-from-html.mjs --course <id> --id <lessonId> --title "..." --objective "..." --input <file>` –
+  scaffolds a new lesson by transforming `<section>`-based HTML into the JSON + Vue wrapper expected by the app. Accepts HTML
+  piped from STDIN so you can drop AI generated markup straight into the project.
 - `node scripts/apply-lesson-template.mjs` – regenerates the Markdown wrappers so they only mount `LessonRenderer` with the latest JSON.
 - `node scripts/convert-exercises-to-json.mjs` – mirrors the same process for exercises.
 
