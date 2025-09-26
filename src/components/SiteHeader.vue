@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <!-- Sticky header with Material 3 styling -->
   <header class="app-top-bar">
     <div class="app-top-bar__content">

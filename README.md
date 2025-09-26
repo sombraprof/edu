@@ -1,4 +1,4 @@
-﻿# EDU · Courses Hub
+# EDU · Courses Hub
 
 Vue 3 + Vite application that centralises the course material of Prof. Tiago Sombra. The interface follows Material Design 3, uses a shared utility library for typography/surfaces/elevations and renders structured JSON content through reusable Vue components.
 
