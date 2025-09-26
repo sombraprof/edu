@@ -81,7 +81,7 @@
 
 ### 5.2 Plano de ação
 
-1. **Biblioteca de utilitários MD3**: criar `@layer components` com classes `md-stack-6`, `md-card`, `md-title-large`, etc., substituindo styles inline.
+1. **Biblioteca de utilitários MD3**: criar `@layer components` com classes `md-stack-6`, `md-card`, `md-title-large`, etc., substituindo styles inline. _(Concluído — ver `docs/WORK_STATUS.md`, item 17.)_
 2. **Tipografia**: mapear tokens MD3 (`headline`, `title`, `body`) em `@layer base` e remover classes Tailwind livres (`text-xl`, `font-semibold`).
 3. **Temas dinâmicos**: expor toggle claro/escuro atual via `ThemeToggle` mas salvar preferências com fallback SSR-safe e permitir esquemas alternativos (ex.: tema da instituição).
 4. **Auditoria visual**: montar storybook MD3 (ou Chromatic) para validar componentes em isolamento.

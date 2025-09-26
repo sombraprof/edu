@@ -14,7 +14,9 @@
     "prepare": "simple-git-hooks",
     "scaffold:lesson": "node scripts/scaffold-lesson.mjs",
     "validate:content": "node scripts/validate-content.mjs",
-    "validate:report": "node scripts/validate-content.mjs --report"
+    "validate:report": "node scripts/validate-content.mjs --report",
+    "report:observability": "node scripts/report-content-metrics.mjs",
+    "report:observability:check": "node scripts/report-content-metrics.mjs --check"
   },
   "dependencies": {
     "@vueuse/head": "^2.0.0",

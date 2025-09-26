@@ -5,7 +5,12 @@
     "description": "Estruture o gameplay loop em um protótipo físico com regras claras e feedback imediato.",
     "link": "courses/tdjd/exercises/prototipo-papel.html",
     "available": true,
-    "file": "protótipo-papel.vue"
+    "file": "protótipo-papel.vue",
+    "metadata": {
+      "generatedBy": "Equipe EDU",
+      "model": "manual",
+      "timestamp": "2024-06-14T00:00:00.000Z"
+    }
   },
   {
     "id": "vertical-slice",
@@ -13,6 +18,11 @@
     "description": "Implemente uma cena jogável com HUD básico, controles responsivos e build WebGL.",
     "link": "courses/tdjd/exercises/vertical-slice.html",
     "available": false,
-    "file": "vertical-slice.vue"
+    "file": "vertical-slice.vue",
+    "metadata": {
+      "generatedBy": "Equipe EDU",
+      "model": "manual",
+      "timestamp": "2024-06-14T00:00:00.000Z"
+    }
   }
 ]

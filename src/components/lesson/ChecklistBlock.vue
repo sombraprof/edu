@@ -1,25 +1,16 @@
 <template>
   <div class="card p-6 my-8">
-    <h3 class="text-headline-small font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
+    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-2">
       {{ data.title }}
     </h3>
-    <p
-      v-if="data.description"
-      class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]"
-    >
+    <p v-if="data.description" class="md-typescale-body-large text-on-surface-variant mb-6">
       {{ data.description }}
     </p>
 
     <ul :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }">
       <li v-for="(item, index) in data.items" :key="index" class="flex items-start gap-3">
-        <CheckCircle
-          :style="{
-            height: 'var(--md-sys-icon-size-medium)',
-            width: 'var(--md-sys-icon-size-medium)',
-          }"
-          class="text-[var(--md-sys-color-primary)] flex-shrink-0"
-        />
-        <p class="text-body-large text-[var(--md-sys-color-on-surface-variant)]" v-html="item"></p>
+        <CheckCircle class="md-icon md-icon--md text-[var(--md-sys-color-primary)] flex-shrink-0" />
+        <p class="md-typescale-body-large text-on-surface-variant" v-html="item"></p>
       </li>
     </ul>
   </div>

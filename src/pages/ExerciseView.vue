@@ -44,6 +44,12 @@ import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } fro
 import { useRoute } from 'vue-router';
 import { ChevronRight } from 'lucide-vue-next';
 
+interface GenerationMetadata {
+  generatedBy: string;
+  model: string;
+  timestamp: string;
+}
+
 interface ExerciseRef {
   id: string;
   title: string;
@@ -52,6 +58,8 @@ interface ExerciseRef {
   available?: boolean;
   description?: string;
   summary?: string;
+  metadata?: GenerationMetadata;
+  type?: string;
 }
 
 const exerciseModules = import.meta.glob('../content/courses/*/exercises/*.vue');

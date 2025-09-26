@@ -4,6 +4,7 @@ import CourseLayout from '../pages/CourseLayout.vue';
 import CourseHome from '../pages/CourseHome.vue';
 import LessonView from '../pages/LessonView.vue';
 import ExerciseView from '../pages/ExerciseView.vue';
+import ValidationReport from '../pages/ValidationReport.vue';
 
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: Home },
@@ -16,6 +17,11 @@ const routes: RouteRecordRaw[] = [
       { path: 'lesson/:lessonId', name: 'lesson', component: LessonView, props: true },
       { path: 'exercise/:exerciseId', name: 'exercise', component: ExerciseView, props: true },
     ],
+  },
+  {
+    path: '/relatorios/validacao-conteudo',
+    name: 'validation-report',
+    component: ValidationReport,
   },
   // Fallback to home for unknown routes
   { path: '/:pathMatch(.*)*', redirect: '/' },
