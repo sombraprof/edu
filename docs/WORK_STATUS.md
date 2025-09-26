@@ -96,13 +96,23 @@ Esses materiais dão visibilidade sobre o estado atual do projeto e aceleram a c
 - `npm run report:governance` cruza validação e observabilidade gerando `reports/governance-alert.md`/`.json` com problemas, avisos, blocos legados e lacunas de metadados por curso.
 - O workflow de deploy publica o alerta como artefato e mantém atualizada uma issue automática (`governanca-automatica`) com o resumo das pendências, facilitando o acompanhamento contínuo da redução de blocos legados.
 
+21. **Histórico comparativo de governança**
+
+- `npm run report:governance` também grava `reports/governance-history.json` com as métricas de cada execução, permitindo comparar problemas, avisos, blocos legados e metadados pendentes ao longo do tempo.
+- O Markdown passa a exibir a evolução desde a última rodada sempre que houver dados anteriores, facilitando acompanhar tendências diretamente na issue automática.
+
+22. **Snapshots semanais do alerta de governança**
+
+- `npm run report:governance:history` consolida o histórico em `reports/governance-history-summary.json` e gera uma tabela semanal em `reports/governance-history.md`.
+- O workflow agrega o resumo em `reports/governance-issue.md`, anexando automaticamente a tabela histórica à issue `governanca-automatica` junto com o alerta atual.
+
 ## O que ainda pode ser feito
 
 A partir das recomendações listadas na revisão de arquitetura, seguem frentes prioritárias:
 
 1. **Automação e validação**
-   - Complementar o alerta automático com comparação histórica (ex.: anexar diferença de blocos legados entre execuções) e publicar snapshot semanal em `reports/`.
-   - Estender os relatórios para incluir séries temporais e evolução percentual da migração MD3.
+   - Visualizar o histórico em gráficos/sparklines e publicar diffs percentuais para destacar ganhos semanais nas issues automáticas.
+   - Estender os relatórios para incluir séries temporais e evolução percentual da migração MD3 usando o histórico consolidado.
 2. **Refinamento do front-end**
    - Montar Storybook ou Chromatic para validar visualmente componentes críticos e garantir regressão visual sobre os novos utilitários.
    - Converter wrappers `.vue` redundantes para carregamento dinâmico baseado em JSON, reduzindo retrabalho.
@@ -126,3 +136,5 @@ Seguir essas etapas transforma a revisão em plano operacional, permitindo que a
 | Observabilidade automatizada no CI            | ✅ Concluída | Workflow gera o relatório, publica artefato dedicado e falha quando faltam metadados obrigatórios em exercícios/suplementos.       |
 | Proveniência exibida no painel                | ✅ Concluída | Painel traz cobertura de metadados, autores recorrentes e modelos utilizados por curso.                                            |
 | Governança automática no CI                   | ✅ Concluída | Workflow gera `reports/governance-alert.{md,json}` e mantém issue `governanca-automatica` com problemas/avisos e blocos legados.   |
+| Histórico do alerta de governança             | ✅ Concluída | `reports/governance-history.json` concentra métricas por execução e habilita o comparativo automático no relatório em Markdown.    |
+| Snapshots semanais de governança              | ✅ Concluída | `npm run report:governance:history` gera tabela semanal e o workflow publica o agregado na issue automática.                       |

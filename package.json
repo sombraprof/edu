@@ -17,7 +17,8 @@
     "validate:report": "node scripts/validate-content.mjs --report",
     "report:observability": "node scripts/report-content-metrics.mjs",
     "report:observability:check": "node scripts/report-content-metrics.mjs --check",
-    "report:governance": "node scripts/generate-governance-alert.mjs"
+    "report:governance": "node scripts/generate-governance-alert.mjs",
+    "report:governance:history": "node scripts/report-governance-history.mjs"
   },
   "dependencies": {
     "@material/material-color-utilities": "^0.2.7",
