@@ -1,6 +1,6 @@
 <template>
   <div class="card p-6 my-8">
-    <h3 class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">
+    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-4">
       {{ data.title }}
     </h3>
 
@@ -8,7 +8,7 @@
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="text-body-large text-[var(--md-sys-color-on-surface-variant)] lesson-content"
+        class="md-typescale-body-large text-on-surface-variant lesson-content"
         v-html="item"
       ></li>
     </ul>

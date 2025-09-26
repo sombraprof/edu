@@ -25,10 +25,51 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate content and generate report
+        id: validate_report
+        run: npm run validate:report
+        continue-on-error: true
+
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-validation-report
+          path: reports/content-validation-report.json
+          if-no-files-found: error
+
+      - name: Fail if content validation failed
+        if: steps.validate_report.outcome == 'failure'
+        run: |
+          echo "Content validation failed. Consulte o artefato gerado para detalhes."
+          exit 1
+
+      - name: Generate observability report
+        if: steps.validate_report.outcome == 'success'
+        id: observability
+        run: npm run report:observability:check
+        continue-on-error: true
+
+      - name: Upload observability report
+        if: steps.validate_report.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-observability-report
+          path: reports/content-observability.json
+          if-no-files-found: error
+
+      - name: Fail if observability reported metadata gaps
+        if: steps.observability.outcome == 'failure'
+        run: |
+          echo "Relatório de observabilidade encontrou itens sem metadados obrigatórios."
+          exit 1
+
       - name: Build
+        if: steps.validate_report.outcome == 'success' && steps.observability.outcome == 'success'
         run: npm run build
 
       - name: Upload artifact
+        if: steps.validate_report.outcome == 'success' && steps.observability.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist

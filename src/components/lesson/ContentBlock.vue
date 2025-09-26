@@ -1,18 +1,18 @@
 ﻿<template>
   <div class="card p-8 my-10">
-    <h3 class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">
+    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-4">
       {{ data.title }}
     </h3>
 
     <template v-for="(item, index) in data.content" :key="index">
       <p
         v-if="item.type === 'paragraph'"
-        class="text-body-large mb-4 text-[var(--md-sys-color-on-surface-variant)]"
+        class="md-typescale-body-large text-on-surface-variant mb-4"
         v-html="item.html ?? item.text"
       ></p>
 
-      <div v-else-if="item.type === 'subBlock'" class="card surface-tonal p-8 mb-8">
-        <h4 class="text-title-large font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">
+      <div v-else-if="item.type === 'subBlock'" class="card md-surface-container p-8 mb-8">
+        <h4 class="md-typescale-title-large font-semibold text-on-surface mb-4">
           {{ item.title }}
         </h4>
         <template v-for="(subItem, subIndex) in item.items" :key="subIndex">

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-26T13:43:51.248Z",
+  "generatedAt": "2025-09-26T19:31:40.241Z",
   "status": "passed-with-warnings",
   "totals": {
     "courses": 5,
@@ -80,5 +80,276 @@
         }
       ]
     }
-  ]
+  ],
+  "generation": {
+    "exercises": [
+      {
+        "course": "algi",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "lista1",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "lista2",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "ddm",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "api-sync",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "ux-audit",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "lpoo",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "modelagem-uml",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "refatoracao",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "tdjd",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "protótipo-papel",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "vertical-slice",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "tgs",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "loop-feedback",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "mapa-sistema",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "supplements": [
+      {
+        "course": "algi",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "guia-estudos",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "ddm",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "glossario-ui",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "lpoo",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "patterns-cheatsheet",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "tdjd",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "bibliografia-base",
+            "type": "reading",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "tgs",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "template-relatorio",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      }
+    ]
+  }
 }

@@ -8,37 +8,58 @@ This document explains how to produce new lessons and exercises that integrate s
 - Every lesson or exercise is defined by a pair of files:
   - `<id>.json`: structured data consumed by `LessonRenderer.vue`.
   - `<id>.vue`: a thin wrapper that imports the JSON, exposes the `meta` object and mounts `<LessonRenderer :data="..." />`.
-- `lessons.json` and `exercises.json` act as indexes (`{ id, title, description/summary, file, available }`).
+- `lessons.json` and `exercises.json` act as indexes (`{ id, title, description/summary, file?, link?, available, metadata }`).
+- Each exercise entry must include `metadata` with `generatedBy`, `model` (ex.: `manual`, `gpt-4o-mini`) e `timestamp` ISO para auditoria.
+- In `exercises.json`, keep the `link` prefix as `courses/<courseId>/exercises/...` (ou URL absoluta) e reutilize o mesmo slug para o `id`, `.vue` wrapper e `.json` payload.
+- `supplements.json` (opcional) lista materiais extras (`{ id, title, type, description?, file?/link?, available?, metadata }`). Use `type` ∈ `reading | lab | project | slide | video | reference`.
 - Vue pages (`LessonView.vue`, `ExerciseView.vue`, `CourseHome.vue`) dynamically import these indexes and render the JSON blocks.
+
+### Metadados do curso (`meta.json`)
+
+- Mantenha `id` igual ao diretório do curso (`algi`, `tdjd`, etc.). Qualquer divergência interrompe a validação.
+- `title` deve descrever o curso em pelo menos 8 caracteres úteis (após `trim`).
+- `institution` aceita apenas nomes canônicos (`Unichristus`, `Unifametro`) e não pode conter espaços extras no início/fim.
+- `description` precisa ter ao menos 60 caracteres para comunicar claramente o foco do curso na home.
+- `npm run validate:content` acusa mensagens em português apontando qualquer campo fora do padrão.
 
 ## 2. Supported Block Types
 
 `LessonRenderer.vue` understands the following `type` values inside the `content` array:
 
-| Type              | Description                                                                           |
-| ----------------- | ------------------------------------------------------------------------------------- |
-| `lessonPlan`      | High level plan with hero cards (object must match the existing AlgI schema).         |
-| `contentBlock`    | Rich paragraphs, optional sub-blocks and callouts.                                    |
-| `callout`         | Highlight box with `variant` (`info`, `good-practice`, `academic`, etc.).             |
-| `flightPlan`      | Ordered list of key items (timeline of the class).                                    |
-| `timeline`        | Step-by-step timeline.                                                                |
-| `accordion`       | Expandable sections (`title`, `content` HTML).                                        |
-| `videos`          | Embedded YouTube resources.                                                           |
-| `checklist`       | List of completion items.                                                             |
-| `bibliography`    | References in HTML/Markdown.                                                          |
-| `truthTable`      | Matrix data for logic tables.                                                         |
-| `representations` | Used in AlgI to compare narrative/flowchart/pseudocode.                               |
-| `legacySection`   | Sanitised HTML that still needs future componentisation (rendered with MD3 surfaces). |
+| Type              | Description                                                                                                                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lessonPlan`      | High level plan with hero cards (object must match the existing AlgI schema). Icons must use the canonical tokens (`bullseye`, `target`, `graduation-cap`, `calendar-days`, `users`, etc.). |
+| `contentBlock`    | Rich paragraphs, optional sub-blocks and callouts.                                                                                                                                          |
+| `callout`         | Highlight box with `variant` (`info`, `good-practice`, `academic`, `warning`, `task`, `error`). Use sempre valores em minúsculas e com hífen quando necessário.                             |
+| `flightPlan`      | Ordered list of key items (timeline of the class).                                                                                                                                          |
+| `timeline`        | Step-by-step timeline.                                                                                                                                                                      |
+| `accordion`       | Expandable sections (`title`, `content` HTML).                                                                                                                                              |
+| `videos`          | Embedded YouTube resources.                                                                                                                                                                 |
+| `checklist`       | List of completion items.                                                                                                                                                                   |
+| `bibliography`    | References in HTML/Markdown.                                                                                                                                                                |
+| `truthTable`      | Matrix data for logic tables.                                                                                                                                                               |
+| `representations` | Used in AlgI to compare narrative/flowchart/pseudocode.                                                                                                                                     |
+| `legacySection`   | Sanitised HTML that still needs future componentisation (rendered with MD3 surfaces).                                                                                                       |
 
 > Prefer declarative blocks (`lessonPlan`, `contentBlock`, `callout`, etc.) over `legacySection`. Use `legacySection` only as a temporary bridge when automatic conversion is not feasible.
 
+### Card grids sem surpresas
+
+- Prefira o array `cards` para novos conteúdos (cada item aceita `title`, `subtitle`, `body` ou `content`, além de `actions`).
+- Garanta que exista algum campo renderizável (`body`, `content`, `description`, `footer` ou `items`). Blocos sem texto são rejeitados pelo validador.
+- O campo `columns` deve estar entre 1 e 4. Valores fracionários ou fora desse intervalo são considerados inválidos.
+- Quando precisar mapear estados visuais, utilize `tone` (`primary`, `success`, `neutral`, etc.) ou variantes canônicas (`info`, `good-practice`, `academic`, `warning`, `task`, `error`).
+- Ações (`actions`) precisam conter pares `{ "label": "...", "href": "..." }` e, se `external` for usado, mantenha-o booleano.
+
 ## 3. Design & Material 3 Tokens
 
-The global styles are defined in `src/assets/styles.css`. When handcrafting HTML inside `legacySection.html`, use the helper classes provided by the app instead of ad-hoc styling:
+The global styles are defined in `src/assets/styles.css`. When handcrafting HTML inside `legacySection.html`, rely on the shared MD3 utilities instead of ad-hoc styling:
 
-- `.md-bg-*`, `.md-border-*`, `.md-text-*` for colour tokens.
-- `.card`, `.surface-tonal`, `.chip`, `.btn`, `.divider` for layout primitives.
-- Respect the spacing scale (`var(--md-sys-spacing-*)`) and typography tokens (`text-title-large`, `text-body-large`, etc.).
+- **Typography:** `.md-typescale-display-*`, `.md-typescale-headline-*`, `.md-typescale-title-*`, `.md-typescale-body-*`, `.md-typescale-label-*` provide the correct `line-height`, weight and letter spacing for each level of the Material 3 scale.
+- **Colour & contrast:** `.text-on-surface`, `.text-on-surface-variant`, `.text-on-primary`, `.text-on-primary-container`, `.text-on-secondary-container` guarantee readable foreground combinations.
+- **Surfaces & depth:** `.md-surface`, `.md-surface-container`, `.md-surface-container-high`, `.md-surface-primary`, `.md-surface-primary-container` combined with `.md-elevation-1/2/3` replace bespoke backgrounds and shadows.
+- **Icon sizing:** `.md-icon` with modifiers (`--sm`, `--md`, `--lg`) aligns Lucide icons to the MD3 dimension system.
+- **Spacing:** prefer the spacing tokens (`var(--md-sys-spacing-*)`) already declared at the root when adding gaps or paddings.
 
 Inside legacy sections the renderer automatically wraps blocks with MD3 cards (`data-legacy-card`) and grids (`data-legacy-grid`). You only need to produce semantic HTML (`<h3>`, `<ul>`, `<p>`, `<code>`).
 
@@ -53,8 +74,18 @@ Inside legacy sections the renderer automatically wraps blocks with MD3 cards (`
 1. Execute `npm run scaffold:lesson -- --course <slug> --number <NN> --title "Aula X"` (or pass `--id lesson-NN`) to scaffold the trio (`lessons.json`, `<id>.json`, `<id>.vue`). Lesson ids must follow the zero-padded pattern `lesson-01`, `lesson-02`, etc.
 2. Author the structured JSON describing the new lesson content. Reuse existing block schemas whenever possible.
 3. Adjust the generated Vue wrapper if necessary (meta/objective or availability flags).
-4. Run `npm run validate:content` (or `npm run validate:report` to persist the aggregated JSON) to ensure the schema and file references remain consistent.
+4. Run `npm run validate:content` (or `npm run validate:report` to persist the aggregated JSON com o resumo de metadados) to ensure the schema and file references remain consistent e auditáveis.
 5. Run `npm run format` followed by `npm run build` to ensure the Vue compiler accepts the new content.
+
+### Metadados de geração e manifestos complementares
+
+- Sempre preencha o objeto `metadata` (`generatedBy`, `model`, `timestamp`) ao criar ou atualizar entradas em `exercises.json` e `supplements.json`. Use `generatedBy: "Equipe EDU"` para trabalho manual ou o identificador da IA responsável.
+- Prefira timestamps em UTC (`2024-06-14T00:00:00.000Z`). Esses campos ajudam a rastrear conteúdo produzido por LLMs e priorizar revisões humanas.
+- `supplements.json` pode listar PDFs, slides, planilhas ou outros assets. Defina `type` para orientar o consumo (`reading`, `slide`, `lab`, etc.) e mantenha `available: false` até que o arquivo/link esteja pronto.
+- Após rodar `npm run validate:report`, consulte `reports/content-validation-report.json` para ver o consolidado por curso (totais por autor/modelo, intervalo temporal e entradas individuais) antes de enviar mudanças.
+- Use `npm run report:observability` para acompanhar quantas lições continuam com blocos legados, qual a cobertura de blocos MD3 em cada curso e se exercícios/suplementos mantêm metadados completos.
+- Rode `npm run report:observability:check` quando quiser reproduzir o mesmo guardrail do CI/CD; o workflow de deploy falha automaticamente se encontrar exercícios ou suplementos sem `metadata` obrigatório.
+- A página `/relatorios/validacao-conteudo` exibe os mesmos dados com cobertura por curso, autores recorrentes e modelos utilizados, facilitando a conferência visual dos metadados antes do deploy.
 
 ### Automating HTML-first lessons
 
@@ -103,6 +134,7 @@ The helper scripts in `scripts/` (`structure-legacy-sections.mjs`, `apply-lesson
 - [ ] JSON validates and mirrors the schema used in AlgI (`npm run validate:content` ou `npm run validate:report`).
 - [ ] Vue wrapper renders `<LessonRenderer :data="..." />` and nothing else.
 - [ ] Icons correspond to the Lucide palette (`GraduationCap`, `Target`, `BookOpen`, etc.) and will be mapped automatically when using `legacySection` ids.
+- [ ] Blocos `cardGrid` trazem título + conteúdo e usam variantes/tónus canônicos (`info`, `good-practice`, `primary`, `neutral`, etc.).
 - [ ] Spacing, casing and tokens follow Material Design 3 conventions.
 - [ ] `npm run format` and `npm run build` succeed locally.
 

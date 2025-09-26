@@ -53,6 +53,54 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'CardGrid',
 ];
 
+const ALLOWED_CALLOUT_VARIANTS = new Set([
+  'info',
+  'good-practice',
+  'academic',
+  'warning',
+  'task',
+  'error',
+]);
+
+const ALLOWED_CARD_GRID_TONES = new Set([
+  'primary',
+  'secondary',
+  'info',
+  'success',
+  'warning',
+  'danger',
+  'neutral',
+]);
+
+const ALLOWED_CARD_GRID_VARIANTS = new Set([
+  ...ALLOWED_CALLOUT_VARIANTS,
+  ...ALLOWED_CARD_GRID_TONES,
+  'best-practice',
+]);
+
+const ALLOWED_LESSON_PLAN_ICONS = new Set([
+  'bullseye',
+  'target',
+  'gears',
+  'settings',
+  'desktop',
+  'monitor',
+  'check-circle',
+  'users',
+  'book-open',
+  'code',
+  'database',
+  'cpu',
+  'calendar-days',
+  'clock',
+  'graduation-cap',
+  'tasks',
+]);
+
+const ALLOWED_INSTITUTIONS = new Set(['Unichristus', 'Unifametro']);
+const MIN_META_DESCRIPTION_LENGTH = 60;
+const MIN_META_TITLE_LENGTH = 8;
+
 const blockValidators = {
   html: requireStringField('html', 'Bloco "html" requer o campo "html" com conteúdo.'),
   code: (block, context) => {
@@ -93,6 +141,9 @@ const blockValidators = {
         'Bloco "lessonPlan" deve informar "unit", "cards" ou "content" com pelo menos um item.'
       );
     }
+
+    validateLessonPlanIcons(cards, 'cards', context);
+    validateLessonPlanIcons(content, 'content', context);
   },
   contentBlock(block, context) {
     requireStringField('title', 'Bloco "contentBlock" requer o campo "title".')(block, context);
@@ -120,14 +171,7 @@ const blockValidators = {
     validateBibliographyBlock(block, context);
   },
   cardGrid(block, context) {
-    const cards = normalizeArray(block.cards);
-    const items = normalizeArray(block.items);
-    if (cards.length === 0 && items.length === 0) {
-      pushBlockProblem(
-        context,
-        'Bloco "cardGrid" requer "cards" ou "items" com pelo menos um card.'
-      );
-    }
+    validateCardGridBlock(block, context);
   },
   callout(block, context) {
     if (!hasRenderableContent(block.content)) {
@@ -147,6 +191,23 @@ const blockValidators = {
         context,
         'Campo "variant" do bloco "callout" deve ser string quando presente.'
       );
+    } else if (typeof block.variant === 'string') {
+      const normalized = block.variant.trim().toLowerCase();
+      if (!ALLOWED_CALLOUT_VARIANTS.has(normalized)) {
+        pushBlockProblem(
+          context,
+          `Valor de "variant" inválido ("${block.variant}"). Use um dos valores: ${[
+            ...ALLOWED_CALLOUT_VARIANTS,
+          ]
+            .map((value) => `"${value}"`)
+            .join(', ')}.`
+        );
+      } else if (normalized !== block.variant) {
+        pushBlockProblem(
+          context,
+          `Valor de "variant" deve usar o formato canônico "${normalized}" para manter a nomenclatura consistente.`
+        );
+      }
     }
   },
   timeline(block, context) {
@@ -345,7 +406,12 @@ function validateBibliographyBlock(block, context) {
       context,
       'Bloco "bibliography" requer o array "items", "content" ou "references" com pelo menos uma referência.'
     );
+    return;
   }
+
+  validateBibliographyEntries(items, 'items', context);
+  validateBibliographyEntries(content, 'content', context);
+  validateBibliographyEntries(references, 'references', context);
 }
 
 function validateAudioBlock(block, context) {
@@ -390,6 +456,307 @@ function hasRenderableContent(value) {
     return Object.keys(value).length > 0;
   }
   return false;
+}
+
+function validateLessonPlanIcons(items, source, context) {
+  items.forEach((item, index) => {
+    if (!item || typeof item !== 'object') {
+      return;
+    }
+
+    if (item.icon === undefined) {
+      return;
+    }
+
+    if (typeof item.icon !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "${source}[${index}].icon" deve ser uma string usando os nomes canônicos de ícones.`
+      );
+      return;
+    }
+
+    const trimmed = item.icon.trim();
+    const normalized = normalizeIconName(trimmed);
+
+    if (!ALLOWED_LESSON_PLAN_ICONS.has(normalized)) {
+      pushBlockProblem(
+        context,
+        `Ícone "${item.icon}" em "${source}[${index}]" não é suportado. Use um dos valores: ${[
+          ...ALLOWED_LESSON_PLAN_ICONS,
+        ]
+          .map((value) => `"${value}"`)
+          .join(', ')}.`
+      );
+      return;
+    }
+
+    if (normalized !== trimmed) {
+      pushBlockProblem(
+        context,
+        `Ícone em "${source}[${index}]" deve usar o formato canônico "${normalized}".`
+      );
+    }
+  });
+}
+
+function normalizeIconName(name) {
+  const withCamelSeparators = name.replace(/([a-z0-9])([A-Z])/g, '$1-$2');
+  return withCamelSeparators.replace(/[\s_]+/g, '-').toLowerCase();
+}
+
+function validateCardGridBlock(block, context) {
+  const cards = normalizeArray(block.cards);
+  const legacyItems = normalizeArray(block.items);
+
+  if (typeof block.columns !== 'undefined') {
+    if (typeof block.columns !== 'number' || !Number.isFinite(block.columns)) {
+      pushBlockProblem(
+        context,
+        'Campo "columns" do bloco "cardGrid" deve ser um número inteiro entre 1 e 4 quando presente.'
+      );
+    } else {
+      const rounded = Math.round(block.columns);
+      if (rounded !== block.columns || rounded < 1 || rounded > 4) {
+        pushBlockProblem(
+          context,
+          'Campo "columns" do bloco "cardGrid" deve ser um número inteiro entre 1 e 4.'
+        );
+      }
+    }
+  }
+
+  if (cards.length === 0 && legacyItems.length === 0) {
+    pushBlockProblem(context, 'Bloco "cardGrid" requer "cards" ou "items" com pelo menos um card.');
+    return;
+  }
+
+  cards.forEach((card, index) => {
+    validateCardGridEntry(card, index, context, 'cards', {
+      allowVariants: false,
+    });
+  });
+
+  legacyItems.forEach((item, index) => {
+    validateCardGridEntry(item, index, context, 'items', {
+      allowVariants: true,
+    });
+  });
+}
+
+function validateCardGridEntry(entry, index, context, source, options = {}) {
+  if (!isPlainObject(entry)) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: cada card deve ser um objeto com título e conteúdo.`
+    );
+    return;
+  }
+
+  if (!isNonEmptyString(entry.title)) {
+    pushBlockProblem(context, `${source}[${index}]: campo "title" deve ser uma string não vazia.`);
+  }
+
+  if (entry.subtitle !== undefined && !isNonEmptyString(entry.subtitle)) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: campo "subtitle" deve ser uma string não vazia quando informado.`
+    );
+  }
+
+  if (entry.badge !== undefined && !isNonEmptyString(entry.badge)) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: campo "badge" deve ser uma string não vazia quando informado.`
+    );
+  }
+
+  if (entry.icon !== undefined && !isNonEmptyString(entry.icon)) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: campo "icon" deve ser uma string não vazia quando informado.`
+    );
+  }
+
+  if (entry.tone !== undefined) {
+    validateCardTone(entry.tone, context, source, index);
+  }
+
+  if (options.allowVariants && entry.variant !== undefined) {
+    validateCardVariant(entry.variant, context, source, index);
+  } else if (!options.allowVariants && entry.variant !== undefined) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: use apenas "tone" nos cards modernos. O campo legacy "variant" deve ser removido.`
+    );
+  }
+
+  if (entry.actions !== undefined) {
+    validateCardActions(entry.actions, context, source, index);
+  }
+
+  if (entry.items !== undefined) {
+    if (!Array.isArray(entry.items) || entry.items.length === 0) {
+      pushBlockProblem(
+        context,
+        `${source}[${index}]: campo "items" deve ser um array com pelo menos um item quando informado.`
+      );
+    } else {
+      entry.items.forEach((item, itemIndex) => {
+        if (!isNonEmptyString(item)) {
+          pushBlockProblem(
+            context,
+            `${source}[${index}].items[${itemIndex}]: cada item deve ser uma string com conteúdo.`
+          );
+        }
+      });
+    }
+  }
+
+  const hasBody = isNonEmptyString(entry.body);
+  const hasContent = isNonEmptyString(entry.content);
+  const hasDescription = isNonEmptyString(entry.description);
+  const hasFooter = isNonEmptyString(entry.footer);
+  const hasItems = Array.isArray(entry.items) && entry.items.some((item) => isNonEmptyString(item));
+  const hasActions = Array.isArray(entry.actions) && entry.actions.length > 0;
+
+  if (!hasBody && !hasContent && !hasDescription && !hasFooter && !hasItems && !hasActions) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: inclua "content", "description", "body" ou outro campo com texto renderizável.`
+    );
+  }
+}
+
+function validateCardActions(actions, context, source, index) {
+  if (!Array.isArray(actions) || actions.length === 0) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: campo "actions" deve ser um array com pelo menos um objeto { label, href }.`
+    );
+    return;
+  }
+
+  actions.forEach((action, actionIndex) => {
+    if (!isPlainObject(action)) {
+      pushBlockProblem(
+        context,
+        `${source}[${index}].actions[${actionIndex}]: cada ação deve ser um objeto com "label" e "href".`
+      );
+      return;
+    }
+
+    if (!isNonEmptyString(action.label)) {
+      pushBlockProblem(
+        context,
+        `${source}[${index}].actions[${actionIndex}]: campo "label" deve ser string não vazia.`
+      );
+    }
+
+    if (!isNonEmptyString(action.href)) {
+      pushBlockProblem(
+        context,
+        `${source}[${index}].actions[${actionIndex}]: campo "href" deve ser string não vazia.`
+      );
+    }
+
+    if (action.external !== undefined && typeof action.external !== 'boolean') {
+      pushBlockProblem(
+        context,
+        `${source}[${index}].actions[${actionIndex}]: campo "external" deve ser booleano quando informado.`
+      );
+    }
+  });
+}
+
+function validateCardVariant(value, context, source, index) {
+  if (typeof value !== 'string') {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: campo "variant" deve ser uma string utilizando tokens canônicos.`
+    );
+    return;
+  }
+
+  const normalized = value.trim().toLowerCase();
+  if (!ALLOWED_CARD_GRID_VARIANTS.has(normalized)) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: valor de "variant" inválido ("${value}"). Use um dos valores: ${[
+        ...ALLOWED_CARD_GRID_VARIANTS,
+      ]
+        .map((token) => `"${token}"`)
+        .join(', ')}.`
+    );
+    return;
+  }
+
+  if (normalized === 'best-practice') {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: use o token canônico "good-practice" em vez de "best-practice".`
+    );
+  }
+
+  if (normalized !== value) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: valor de "variant" deve usar o formato canônico "${normalized}".`
+    );
+  }
+}
+
+function validateCardTone(value, context, source, index) {
+  if (typeof value !== 'string') {
+    pushBlockProblem(context, `${source}[${index}]: campo "tone" deve ser uma string.`);
+    return;
+  }
+
+  const normalized = value.trim().toLowerCase();
+  if (!ALLOWED_CARD_GRID_TONES.has(normalized)) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: valor de "tone" inválido ("${value}"). Use um dos valores: ${[
+        ...ALLOWED_CARD_GRID_TONES,
+      ]
+        .map((token) => `"${token}"`)
+        .join(', ')}.`
+    );
+    return;
+  }
+
+  if (normalized !== value) {
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: valor de "tone" deve usar o formato canônico "${normalized}".`
+    );
+  }
+}
+
+function validateBibliographyEntries(entries, source, context) {
+  entries.forEach((entry, index) => {
+    if (typeof entry === 'string') {
+      if (!isNonEmptyString(entry)) {
+        pushBlockProblem(context, `${source}[${index}]: referências devem ser strings não vazias.`);
+      }
+      return;
+    }
+
+    if (isPlainObject(entry)) {
+      if (!isNonEmptyString(entry.html)) {
+        pushBlockProblem(
+          context,
+          `${source}[${index}]: objetos devem incluir o campo "html" com conteúdo.`
+        );
+      }
+      return;
+    }
+
+    pushBlockProblem(
+      context,
+      `${source}[${index}]: referências devem ser strings ou objetos com o campo "html".`
+    );
+  });
 }
 
 function pushBlockProblem(context, message) {
@@ -460,16 +827,194 @@ const lessonsIndexSchema = Type.Array(
   )
 );
 
+const generationMetadataSchema = Type.Object(
+  {
+    generatedBy: Type.String({ minLength: 1 }),
+    model: Type.String({ minLength: 1 }),
+    timestamp: Type.String({ format: 'date-time' }),
+  },
+  { additionalProperties: false }
+);
+
+const exercisesIndexSchema = Type.Array(
+  Type.Object(
+    {
+      id: Type.String({ minLength: 1 }),
+      title: Type.String({ minLength: 1 }),
+      description: Type.String({ minLength: 1 }),
+      link: Type.Optional(Type.String({ minLength: 1 })),
+      file: Type.Optional(Type.String({ pattern: '^.+\\.(vue|json)$' })),
+      available: Type.Optional(Type.Boolean()),
+      type: Type.Optional(Type.String({ minLength: 1 })),
+      metadata: generationMetadataSchema,
+    },
+    { additionalProperties: true }
+  )
+);
+
+const SUPPLEMENT_TYPES = ['reading', 'lab', 'project', 'slide', 'video', 'reference'];
+
+const supplementsIndexSchema = Type.Array(
+  Type.Object(
+    {
+      id: Type.String({ minLength: 1 }),
+      title: Type.String({ minLength: 1 }),
+      description: Type.Optional(Type.String({ minLength: 1 })),
+      type: Type.String({ enum: SUPPLEMENT_TYPES }),
+      link: Type.Optional(Type.String({ minLength: 1 })),
+      file: Type.Optional(Type.String({ minLength: 1 })),
+      available: Type.Optional(Type.Boolean()),
+      metadata: generationMetadataSchema,
+    },
+    { additionalProperties: true }
+  )
+);
+
 const compiler = TypeCompiler.Compile(lessonSchema);
 const ajv = new Ajv({ allErrors: true, allowUnionTypes: true, strict: false });
 addFormats(ajv);
 const validateLesson = ajv.compile(lessonSchema);
 const validateLessonsIndex = ajv.compile(lessonsIndexSchema);
+const validateExercisesIndex = ajv.compile(exercisesIndexSchema);
+const validateSupplementsIndex = ajv.compile(supplementsIndexSchema);
 const lessonIdRegex = new RegExp(LESSON_ID_PATTERN);
+
+function isIsoDateString(value) {
+  if (typeof value !== 'string' || value.length === 0) {
+    return false;
+  }
+
+  const parsed = Date.parse(value);
+  return Number.isFinite(parsed);
+}
 
 async function readJson(filePath) {
   const data = await fs.readFile(filePath, 'utf-8');
   return JSON.parse(data);
+}
+
+async function validateCourseMetaFile(course, problems) {
+  const filePath = path.join(contentRoot, course, 'meta.json');
+  let json;
+
+  try {
+    json = await readJson(filePath);
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      problems.push({
+        type: 'missing',
+        file: filePath,
+        course,
+        message:
+          'Curso precisa de meta.json com id, title, institution e description padronizados.',
+      });
+      return;
+    }
+
+    if (error instanceof SyntaxError) {
+      problems.push({
+        type: 'parse',
+        file: filePath,
+        course,
+        message: `Falha ao interpretar meta.json: ${error.message}.`,
+      });
+      return;
+    }
+
+    problems.push({ type: 'read', file: filePath, course, message: error.message });
+    return;
+  }
+
+  if (!isPlainObject(json)) {
+    problems.push({
+      type: 'schema',
+      file: filePath,
+      course,
+      message: 'meta.json deve conter um objeto com id, title, institution e description.',
+    });
+    return;
+  }
+
+  if (!isNonEmptyString(json.id)) {
+    problems.push({
+      type: 'schema',
+      file: filePath,
+      course,
+      message: 'Campo "id" de meta.json deve ser uma string não vazia igual ao slug do curso.',
+    });
+  } else if (json.id.trim() !== course) {
+    problems.push({
+      type: 'mismatch',
+      file: filePath,
+      course,
+      message: `Campo "id" (${json.id}) deve coincidir com o diretório do curso (${course}).`,
+    });
+  }
+
+  if (!isNonEmptyString(json.title)) {
+    problems.push({
+      type: 'schema',
+      file: filePath,
+      course,
+      message: 'Campo "title" de meta.json deve ser uma string não vazia.',
+    });
+  } else if (json.title.trim().length < MIN_META_TITLE_LENGTH) {
+    problems.push({
+      type: 'length',
+      file: filePath,
+      course,
+      message: `Campo "title" deve ter ao menos ${MIN_META_TITLE_LENGTH} caracteres úteis.`,
+    });
+  }
+
+  if (!isNonEmptyString(json.institution)) {
+    problems.push({
+      type: 'schema',
+      file: filePath,
+      course,
+      message:
+        'Campo "institution" deve ser uma string não vazia usando o nome canônico da instituição.',
+    });
+  } else {
+    const trimmed = json.institution.trim();
+    if (trimmed !== json.institution) {
+      problems.push({
+        type: 'whitespace',
+        file: filePath,
+        course,
+        message: 'Campo "institution" não deve conter espaços extras no início ou fim.',
+      });
+    }
+
+    if (!ALLOWED_INSTITUTIONS.has(trimmed)) {
+      problems.push({
+        type: 'institution',
+        file: filePath,
+        course,
+        message: `Institution "${json.institution}" não é reconhecida. Use um dos valores: ${[
+          ...ALLOWED_INSTITUTIONS,
+        ]
+          .map((value) => `"${value}"`)
+          .join(', ')}.`,
+      });
+    }
+  }
+
+  if (!isNonEmptyString(json.description)) {
+    problems.push({
+      type: 'schema',
+      file: filePath,
+      course,
+      message: 'Campo "description" de meta.json deve ser uma string não vazia.',
+    });
+  } else if (json.description.trim().length < MIN_META_DESCRIPTION_LENGTH) {
+    problems.push({
+      type: 'length',
+      file: filePath,
+      course,
+      message: `Campo "description" deve ter pelo menos ${MIN_META_DESCRIPTION_LENGTH} caracteres úteis.`,
+    });
+  }
 }
 
 async function validateLessonFile(course, filePath, problems, warnings) {
@@ -620,6 +1165,225 @@ async function validateLessonsIndexFile(course, filePath, problems) {
   }
 }
 
+function validateGenerationMetadata({ metadata, filePath, problems, course, entryId }) {
+  if (!metadata) {
+    problems.push({
+      type: 'metadata',
+      file: filePath,
+      course,
+      message: `Entrada "${entryId}" requer objeto "metadata" com generatedBy, model e timestamp.`,
+    });
+    return;
+  }
+
+  if (!isNonEmptyString(metadata.generatedBy)) {
+    problems.push({
+      type: 'metadata',
+      file: filePath,
+      course,
+      message: `Entrada "${entryId}" requer metadata.generatedBy preenchido.`,
+    });
+  }
+
+  if (!isNonEmptyString(metadata.model)) {
+    problems.push({
+      type: 'metadata',
+      file: filePath,
+      course,
+      message: `Entrada "${entryId}" requer metadata.model preenchido.`,
+    });
+  }
+
+  if (!isIsoDateString(metadata.timestamp)) {
+    problems.push({
+      type: 'metadata',
+      file: filePath,
+      course,
+      message: `Entrada "${entryId}" requer metadata.timestamp em formato ISO válido.`,
+    });
+  }
+}
+
+async function validateExercisesIndexFile(course, filePath, problems) {
+  try {
+    const json = await readJson(filePath);
+    if (!validateExercisesIndex(json)) {
+      problems.push({
+        type: 'schema',
+        file: filePath,
+        course,
+        message: ajv.errorsText(validateExercisesIndex.errors, { separator: '\n' }),
+      });
+      return [];
+    }
+
+    const seen = new Set();
+    const duplicates = [];
+    const linkPrefix = `courses/${course}/exercises/`;
+
+    json.forEach((item) => {
+      if (seen.has(item.id)) {
+        duplicates.push(item.id);
+      }
+      seen.add(item.id);
+
+      validateGenerationMetadata({
+        metadata: item.metadata,
+        filePath,
+        problems,
+        course,
+        entryId: item.id,
+      });
+
+      if (item.link && !item.link.startsWith(linkPrefix) && !/^https?:\/\//i.test(item.link)) {
+        problems.push({
+          type: 'link-pattern',
+          file: filePath,
+          course,
+          message: `Exercise "${item.id}" deve usar links começando com "${linkPrefix}" ou uma URL absoluta.`,
+        });
+      }
+
+      if (item.file) {
+        const baseName = path.parse(item.file).name;
+        if (baseName !== item.id) {
+          problems.push({
+            type: 'mismatch',
+            file: filePath,
+            course,
+            message: `Exercise file (${item.file}) deve corresponder ao id (${item.id}).`,
+          });
+        }
+      }
+
+      if (!item.file && !item.link) {
+        problems.push({
+          type: 'resource',
+          file: filePath,
+          course,
+          message: `Exercise "${item.id}" precisa informar "file" ou "link" para acesso ao conteúdo.`,
+        });
+      }
+
+      if (!isNonEmptyString(item.description)) {
+        problems.push({
+          type: 'description',
+          file: filePath,
+          course,
+          message: `Exercise "${item.id}" requer "description" preenchido.`,
+        });
+      }
+    });
+
+    if (duplicates.length > 0) {
+      problems.push({
+        type: 'duplicate',
+        file: filePath,
+        course,
+        message: `Duplicated exercise ids: ${[...new Set(duplicates)].join(', ')}`,
+      });
+    }
+
+    return json;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return [];
+    }
+    problems.push({ type: 'read', file: filePath, course, message: error.message });
+    return [];
+  }
+}
+
+async function validateSupplementsIndexFile(course, filePath, problems) {
+  try {
+    const json = await readJson(filePath);
+    if (!validateSupplementsIndex(json)) {
+      problems.push({
+        type: 'schema',
+        file: filePath,
+        course,
+        message: ajv.errorsText(validateSupplementsIndex.errors, { separator: '\n' }),
+      });
+      return [];
+    }
+
+    const seen = new Set();
+    const duplicates = [];
+    const linkPrefix = `courses/${course}/supplements/`;
+
+    json.forEach((item) => {
+      if (seen.has(item.id)) {
+        duplicates.push(item.id);
+      }
+      seen.add(item.id);
+
+      validateGenerationMetadata({
+        metadata: item.metadata,
+        filePath,
+        problems,
+        course,
+        entryId: item.id,
+      });
+
+      if (!SUPPLEMENT_TYPES.includes(item.type)) {
+        problems.push({
+          type: 'type',
+          file: filePath,
+          course,
+          message: `Supplement "${item.id}" requer campo "type" com valores válidos (${SUPPLEMENT_TYPES.join(', ')}).`,
+        });
+      }
+
+      if (item.file) {
+        const baseName = path.parse(item.file).name;
+        if (baseName !== item.id) {
+          problems.push({
+            type: 'mismatch',
+            file: filePath,
+            course,
+            message: `Supplement file (${item.file}) deve corresponder ao id (${item.id}).`,
+          });
+        }
+      }
+
+      if (item.link && !item.link.startsWith(linkPrefix) && !/^https?:\/\//i.test(item.link)) {
+        problems.push({
+          type: 'link-pattern',
+          file: filePath,
+          course,
+          message: `Supplement "${item.id}" deve usar links absolutos ou começar com "${linkPrefix}".`,
+        });
+      }
+
+      if (!item.file && !item.link) {
+        problems.push({
+          type: 'resource',
+          file: filePath,
+          course,
+          message: `Supplement "${item.id}" precisa informar "file" ou "link" para acesso ao material.`,
+        });
+      }
+    });
+
+    if (duplicates.length > 0) {
+      problems.push({
+        type: 'duplicate',
+        file: filePath,
+        course,
+        message: `Duplicated supplement ids: ${[...new Set(duplicates)].join(', ')}`,
+      });
+    }
+
+    return json;
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return [];
+    }
+    problems.push({ type: 'read', file: filePath, course, message: error.message });
+    return [];
+  }
+}
+
 async function ensureFilesExist(course, entries, problems) {
   const courseDir = path.join(contentRoot, course, 'lessons');
   await Promise.all(
@@ -665,6 +1429,83 @@ async function ensureFilesExist(course, entries, problems) {
   );
 }
 
+async function ensureExerciseFilesExist(course, entries, problems) {
+  const exercisesDir = path.join(contentRoot, course, 'exercises');
+  await Promise.all(
+    entries.map(async (entry) => {
+      if (!entry.available) {
+        return;
+      }
+
+      if (!entry.file) {
+        return;
+      }
+
+      const targetExt = path.extname(entry.file) || '.vue';
+      const targetPath = path.join(exercisesDir, entry.file);
+      try {
+        await fs.access(targetPath);
+      } catch (error) {
+        if (error.code === 'ENOENT') {
+          problems.push({
+            type: 'missing',
+            file: targetPath,
+            course,
+            message: `Listado em exercises.json mas ausente no disco (${entry.file}).`,
+          });
+        } else {
+          problems.push({ type: 'read', file: targetPath, course, message: error.message });
+        }
+      }
+
+      if (targetExt === '.vue') {
+        const jsonPath = path.join(exercisesDir, `${path.parse(entry.file).name}.json`);
+        try {
+          await fs.access(jsonPath);
+        } catch (error) {
+          if (error.code === 'ENOENT') {
+            problems.push({
+              type: 'missing-json',
+              file: jsonPath,
+              course,
+              message: `Wrapper ${entry.file} encontrado mas JSON do exercício ausente.`,
+            });
+          } else {
+            problems.push({ type: 'read', file: jsonPath, course, message: error.message });
+          }
+        }
+      }
+    })
+  );
+}
+
+async function ensureSupplementFilesExist(course, entries, problems) {
+  const supplementsDir = path.join(contentRoot, course, 'supplements');
+  await Promise.all(
+    entries.map(async (entry) => {
+      if (!entry.available || !entry.file) {
+        return;
+      }
+
+      const targetPath = path.join(supplementsDir, entry.file);
+      try {
+        await fs.access(targetPath);
+      } catch (error) {
+        if (error.code === 'ENOENT') {
+          problems.push({
+            type: 'missing',
+            file: targetPath,
+            course,
+            message: `Listado em supplements.json mas ausente no disco (${entry.file}).`,
+          });
+        } else {
+          problems.push({ type: 'read', file: targetPath, course, message: error.message });
+        }
+      }
+    })
+  );
+}
+
 async function collectLessonFiles(course) {
   const lessonsDir = path.join(contentRoot, course, 'lessons');
   try {
@@ -695,10 +1536,45 @@ async function main() {
     process.exit(1);
   }
 
+  const generationMetadata = {
+    exercises: new Map(),
+    supplements: new Map(),
+  };
+
   for (const course of courses) {
+    await validateCourseMetaFile(course, problems);
     const lessonsIndexPath = path.join(contentRoot, course, 'lessons.json');
     const entries = await validateLessonsIndexFile(course, lessonsIndexPath, problems);
     await ensureFilesExist(course, entries, problems);
+
+    const exercisesIndexPath = path.join(contentRoot, course, 'exercises.json');
+    const exerciseEntries = await validateExercisesIndexFile(course, exercisesIndexPath, problems);
+    recordGenerationMetadata(
+      generationMetadata.exercises,
+      course,
+      exerciseEntries,
+      ({ metadata, available }) => ({
+        generatedBy: metadata?.generatedBy ?? null,
+        model: metadata?.model ?? null,
+        timestamp: metadata?.timestamp ?? null,
+        available: available ?? null,
+      })
+    );
+    await ensureExerciseFilesExist(course, exerciseEntries, problems);
+
+    const supplementsIndexPath = path.join(contentRoot, course, 'supplements.json');
+    const supplementEntries = await validateSupplementsIndexFile(
+      course,
+      supplementsIndexPath,
+      problems
+    );
+    recordGenerationMetadata(generationMetadata.supplements, course, supplementEntries, (item) => ({
+      type: item.type,
+      generatedBy: item.metadata?.generatedBy ?? null,
+      model: item.metadata?.model ?? null,
+      timestamp: item.metadata?.timestamp ?? null,
+    }));
+    await ensureSupplementFilesExist(course, supplementEntries, problems);
 
     const lessonFiles = await collectLessonFiles(course);
     totalLessons += lessonFiles.length;
@@ -714,6 +1590,7 @@ async function main() {
     problems,
     warnings,
     lessonsPerCourse,
+    generationMetadata,
   });
 
   if (reportPath) {
@@ -809,7 +1686,104 @@ function groupByCourse(entries) {
   }, new Map());
 }
 
-function buildReport({ coursesValidated, totalLessons, problems, warnings, lessonsPerCourse }) {
+function recordGenerationMetadata(map, course, entries, mapper) {
+  if (!entries || entries.length === 0) {
+    return;
+  }
+
+  if (!map.has(course)) {
+    map.set(course, {
+      course,
+      total: 0,
+      missing: 0,
+      byGenerator: new Map(),
+      byModel: new Map(),
+      earliestTimestamp: null,
+      latestTimestamp: null,
+      entries: [],
+    });
+  }
+
+  const summary = map.get(course);
+
+  for (const entry of entries) {
+    summary.total += 1;
+
+    const payload = { id: entry.id, ...mapper(entry) };
+    const generatedBy = payload.generatedBy ?? null;
+    const model = payload.model ?? null;
+    const timestamp = payload.timestamp ?? null;
+
+    if (!generatedBy || !model || !timestamp) {
+      summary.missing += 1;
+    }
+
+    if (generatedBy) {
+      summary.byGenerator.set(generatedBy, (summary.byGenerator.get(generatedBy) ?? 0) + 1);
+    }
+
+    if (model) {
+      summary.byModel.set(model, (summary.byModel.get(model) ?? 0) + 1);
+    }
+
+    if (timestamp) {
+      const numeric = Date.parse(timestamp);
+      if (!Number.isNaN(numeric)) {
+        if (!summary.earliestTimestamp || numeric < summary.earliestTimestamp.numeric) {
+          summary.earliestTimestamp = { numeric, value: timestamp };
+        }
+        if (!summary.latestTimestamp || numeric > summary.latestTimestamp.numeric) {
+          summary.latestTimestamp = { numeric, value: timestamp };
+        }
+      }
+    }
+
+    summary.entries.push(payload);
+  }
+}
+
+function serializeGenerationMetadata({ exercises, supplements }) {
+  return {
+    exercises: serializeGenerationCollection(exercises),
+    supplements: serializeGenerationCollection(supplements),
+  };
+}
+
+function serializeGenerationCollection(map) {
+  return Array.from(map.values())
+    .map((summary) => {
+      const entries = summary.entries
+        .map((entry) => ({
+          ...entry,
+          generatedBy: entry.generatedBy ?? null,
+          model: entry.model ?? null,
+          timestamp: entry.timestamp ?? null,
+        }))
+        .sort((a, b) => a.id.localeCompare(b.id));
+
+      return {
+        course: summary.course,
+        total: summary.total,
+        withMetadata: summary.total - summary.missing,
+        missingMetadata: summary.missing,
+        byGenerator: Object.fromEntries(summary.byGenerator.entries()),
+        byModel: Object.fromEntries(summary.byModel.entries()),
+        earliestTimestamp: summary.earliestTimestamp?.value ?? null,
+        latestTimestamp: summary.latestTimestamp?.value ?? null,
+        entries,
+      };
+    })
+    .sort((a, b) => a.course.localeCompare(b.course));
+}
+
+function buildReport({
+  coursesValidated,
+  totalLessons,
+  problems,
+  warnings,
+  lessonsPerCourse,
+  generationMetadata,
+}) {
   const problemsByCourse = groupByCourse(problems);
   const warningsByCourse = groupByCourse(warnings);
   const courseIds = new Set([...problemsByCourse.keys(), ...warningsByCourse.keys()]);
@@ -875,6 +1849,7 @@ function buildReport({ coursesValidated, totalLessons, problems, warnings, lesso
       warnings: warnings.length,
     },
     courses,
+    generation: serializeGenerationMetadata(generationMetadata),
   };
 }
 

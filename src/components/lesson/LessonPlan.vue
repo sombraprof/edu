@@ -1,17 +1,14 @@
 <template>
   <div class="card p-6 my-8">
-    <h3 class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">
+    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-4">
       {{ data.title }}
     </h3>
 
-    <div v-if="data.unit" class="card surface-tonal p-6 mb-6">
-      <h4 class="text-title-large font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
+    <div v-if="data.unit" class="card md-surface-container p-6 mb-6">
+      <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
         {{ data.unit.title }}
       </h4>
-      <p
-        class="text-body-large text-[var(--md-sys-color-on-surface-variant)]"
-        v-html="data.unit.content"
-      ></p>
+      <p class="md-typescale-body-large text-on-surface-variant" v-html="data.unit.content"></p>
     </div>
 
     <div v-if="cards.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -22,15 +19,12 @@
       >
         <component
           :is="getIconComponent(card.icon)"
-          class="h-12 w-12 mb-4 text-[var(--md-sys-color-primary)]"
+          class="md-icon md-icon--lg mb-4 text-[var(--md-sys-color-primary)]"
         />
-        <h4 class="text-title-large font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
+        <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
           {{ card.title }}
         </h4>
-        <p
-          class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
-          v-html="card.content"
-        ></p>
+        <p class="md-typescale-body-medium text-on-surface-variant" v-html="card.content"></p>
       </div>
     </div>
   </div>
@@ -38,6 +32,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import type { Component } from 'vue';
 import {
   Target,
   Settings,
@@ -48,6 +43,9 @@ import {
   Code,
   Database,
   Cpu,
+  CalendarDays,
+  Clock,
+  ListChecks,
 } from 'lucide-vue-next';
 
 interface LessonPlanCard {
@@ -90,28 +88,51 @@ const cards = computed(() => {
     .filter((card) => card.title || card.content);
 });
 
-const getIconComponent = (iconName?: string) => {
-  // Map icon names to imported components
-  const iconMap: Record<string, any> = {
-    bullseye: Target,
-    gears: Settings,
-    desktop: Monitor,
-    target: Target,
-    settings: Settings,
-    monitor: Monitor,
-    'check-circle': CheckCircle,
-    users: Users,
-    'book-open': BookOpen,
-    code: Code,
-    database: Database,
-    cpu: Cpu,
-  };
+const iconRegistry: Record<string, Component> = {
+  bullseye: Target,
+  target: Target,
+  gears: Settings,
+  settings: Settings,
+  desktop: Monitor,
+  monitor: Monitor,
+  'check-circle': CheckCircle,
+  checkcircle: CheckCircle,
+  users: Users,
+  'book-open': BookOpen,
+  bookopen: BookOpen,
+  code: Code,
+  database: Database,
+  cpu: Cpu,
+  'calendar-days': CalendarDays,
+  calendardays: CalendarDays,
+  clock: Clock,
+  tasks: ListChecks,
+  'list-checks': ListChecks,
+};
 
+const getIconComponent = (iconName?: string) => {
   if (!iconName) {
     return Target;
   }
 
-  const normalized = iconName.toLowerCase();
-  return iconMap[normalized] || iconMap[iconName] || Target; // Default to Target if icon not found
+  for (const variation of createNameVariations(iconName)) {
+    const component = iconRegistry[variation];
+    if (component) {
+      return component;
+    }
+  }
+
+  return Target;
 };
+
+function createNameVariations(original: string): string[] {
+  const trimmed = original.trim();
+  const withCamelSeparators = trimmed.replace(/([a-z0-9])([A-Z])/g, '$1-$2');
+  const base = withCamelSeparators.replace(/[\s_]+/g, '-');
+  const lower = base.toLowerCase();
+
+  return Array.from(
+    new Set([trimmed, base, lower, lower.replace(/-/g, ''), trimmed.toLowerCase()])
+  );
+}
 </script>

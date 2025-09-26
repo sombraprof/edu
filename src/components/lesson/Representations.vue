@@ -1,21 +1,21 @@
 ﻿<template>
   <div class="card p-8 my-10">
-    <h3 class="text-headline-small font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
+    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-2">
       {{ data.title }}
     </h3>
     <p
       v-if="data.description"
-      class="text-body-large mb-6 text-[var(--md-sys-color-on-surface-variant)]"
+      class="md-typescale-body-large text-on-surface-variant mb-6"
       v-html="data.description"
     ></p>
 
     <div class="grid grid-cols-1 gap-8">
       <div v-for="(item, index) in data.items" :key="index" class="card !p-6 flex flex-col">
-        <h4 class="text-title-large font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">
+        <h4 class="md-typescale-title-large font-semibold text-on-surface mb-4">
           {{ item.title }}
         </h4>
         <p
-          class="text-body-medium text-[var(--md-sys-color-on-surface-variant)] flex-grow"
+          class="md-typescale-body-medium text-on-surface-variant flex-grow"
           v-html="item.content"
         ></p>
 

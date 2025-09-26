@@ -138,6 +138,12 @@ interface LessonRef {
   description?: string;
 }
 
+interface GenerationMetadata {
+  generatedBy: string;
+  model: string;
+  timestamp: string;
+}
+
 interface ExerciseRef {
   id: string;
   title: string;
@@ -145,6 +151,8 @@ interface ExerciseRef {
   file?: string;
   link?: string;
   available?: boolean;
+  metadata?: GenerationMetadata;
+  type?: string;
 }
 
 interface ContentItem {
