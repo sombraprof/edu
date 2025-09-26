@@ -5,14 +5,14 @@
 ### 1.1 Organização do código
 
 - **Framework**: Vue 3 + Vite, roteamento com `vue-router` e head management com `@vueuse/head`. O ponto de entrada monta `App.vue` e injeta o roteador sem outros providers globais, mantendo o shell leve.【F:src/main.ts†L1-L16】【F:src/router/index.ts†L1-L28】
-- **Estrutura de conteúdo**: Cursos vivem em `src/content/courses/<courseId>/` com metadados, índices (`lessons.json`/`exercises.json`) e pares JSON/Vue para cada aula ou exercício. O `LessonRenderer` converte os blocos declarativos em componentes específicos.【F:README.md†L21-L54】【F:src/components/lesson/LessonRenderer.vue†L1-L100】
+- **Estrutura de conteúdo**: Cursos vivem em `src/content/courses/<courseId>/` com metadados, índices (`lessons.json`/`exercises.json`) e pares JSON/Vue para cada aula ou exercício. O `LessonRenderer` converte os blocos declarativos em componentes específicos.【F:README.md†L31-L47】【F:src/components/lesson/LessonRenderer.vue†L1-L100】
 - **Camada de apresentação**: tokens MD3 e utilitários Tailwind estão centralizados em `src/assets/styles.css`, mas vários espaçamentos e dimensões ainda são aplicados inline (ex.: `LessonRenderer` usa `gap` via style literal).【F:src/assets/styles.css†L1-L120】【F:src/components/lesson/LessonRenderer.vue†L1-L8】
 
 ### 1.2 Pontos fortes
 
 - Separação clara entre dados (JSON) e renderização (Vue), que facilita reuso e internacionalização futura.
 - Documentação de autoria robusta (`docs/CONTENT_AUTHORING_GUIDE.md`) já orienta colaboradores e IA sobre os blocos disponíveis.【F:docs/CONTENT_AUTHORING_GUIDE.md†L1-L76】
-- Scripts para migração de HTML aceleram importação de conteúdo legado, reduzindo o tempo de onboarding.【F:README.md†L56-L75】
+- Scripts para migração de HTML aceleram importação de conteúdo legado, reduzindo o tempo de onboarding.【F:README.md†L63-L75】
 - IDs e arquivos agora seguem o padrão `lesson-XX`, reduzindo divergências entre `lessons.json`, wrappers Vue e JSON de conteúdo.【F:src/content/courses/algi/lessons.json†L1-L24】
 
 ### 1.3 Riscos e gargalos
@@ -90,7 +90,7 @@
 
 ### 6.1 Situação
 
-- Scripts como `create-lesson-from-html.mjs` aceleram migração, mas introduzem `legacySection` e retrabalho manual para componentizar depois.【F:README.md†L56-L75】
+- Scripts como `create-lesson-from-html.mjs` aceleram migração, mas introduzem `legacySection` e retrabalho manual para componentizar depois.【F:README.md†L63-L75】
 - A dependência de wrappers `.vue` significa que qualquer mudança de template exige regenerar todos os arquivos.
 
 ### 6.2 Recomendações
