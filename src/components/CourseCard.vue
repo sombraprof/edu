@@ -6,7 +6,7 @@
     @keydown.space.prevent="($event.target as HTMLElement).click()"
   >
     <div class="flex items-start justify-between gap-4">
-      <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
+      <div class="md-stack md-stack-2">
         <h3 class="text-headline-small font-semibold text-[var(--md-sys-color-on-surface)]">
           {{ meta.title }}
         </h3>
@@ -31,11 +31,7 @@
       >
         <span>Acessar disciplina</span>
         <ChevronRight
-          :style="{
-            height: 'var(--md-sys-icon-size-small)',
-            width: 'var(--md-sys-icon-size-small)',
-          }"
-          class="transition-transform duration-150 group-hover:translate-x-1"
+          class="md-icon md-icon--sm transition-transform duration-150 group-hover:translate-x-1"
         />
       </span>
     </div>

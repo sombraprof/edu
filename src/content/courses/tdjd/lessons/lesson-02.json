@@ -1,0 +1,350 @@
+{
+  "id": "lesson-02",
+  "title": "Aula 2: Gêneros e Tipos de Gameplay",
+  "objective": "Identificar e classificar os principais gêneros de jogos, reconhecendo suas características e mecânicas associadas.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "UNIDADE E CONTEÚDO",
+          "content": "Unidade I – Introdução ao Desenvolvimento de Jogos Digitais. Introdução aos gêneros de jogos digitais. Tipos de gameplay (singleplayer, multiplayer, coop, competitivo). Discussão sobre o que define um gênero."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Identificar e classificar os principais gêneros de jogos, reconhecendo suas características e mecânicas associadas."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva interativa com análise coletiva de trailers de diferentes gêneros (aprendizagem baseada em exemplos visuais)."
+        },
+        {
+          "icon": "desktop",
+          "title": "RECURSOS",
+          "content": "Slides, vídeos de gameplay (YouTube) e painel digital para anotações colaborativas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta Norteadora",
+      "content": "O que faz um jogo ser de \"Ação\" e não de \"Aventura\"? E o que diferencia um \"RPG\" de um \"Jogo de Estratégia\"? Quais são os ingredientes que definem um gênero de jogo?"
+    },
+    {
+      "type": "contentBlock",
+      "title": "📖 Glossário de Termos",
+      "content": [
+        {
+          "type": "definitionList",
+          "items": [
+            {
+              "term": "Core Loop",
+              "definition": "O ciclo principal de ações que o jogador repete no jogo (ex: coletar → evoluir → enfrentar desafios).<br>🎮 <strong>Exemplo:</strong> Em <em>Stardew Valley</em>, plantar → colher → vender → melhorar a fazenda."
+            },
+            {
+              "term": "Gameplay Emergente",
+              "definition": "Quando as interações dos sistemas criam experiências únicas que não foram rigidamente pré-programadas.<br>🎮 <strong>Exemplo:</strong> Em <em>Minecraft</em>, jogadores criam máquinas de redstone que os desenvolvedores não planejaram."
+            },
+            {
+              "term": "Gameplay Dirigido",
+              "definition": "Experiência mais linear e controlada pelo desenvolvedor, com foco narrativo e progressão definida.<br>🎮 <strong>Exemplo:</strong> <em>The Last of Us</em> guia o jogador por uma história cinematográfica com eventos fixos."
+            },
+            {
+              "term": "Sandbox",
+              "definition": "Jogos que oferecem liberdade para criar e experimentar sem objetivos rígidos.<br>🎮 <strong>Exemplo:</strong> <em>Grand Theft Auto V</em> permite explorar e interagir com o mundo aberto sem seguir uma missão principal."
+            },
+            {
+              "term": "Ludonarrativa",
+              "definition": "A forma como a narrativa e as mecânicas do jogo se complementam (ou entram em conflito).<br>🎮 <strong>Exemplo:</strong> Em <em>Spec Ops: The Line</em>, a jogabilidade de tiro entra em contraste com a mensagem anti-guerra da história."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "💡 Agora que conhecemos os principais termos, vamos entender como eles se aplicam na definição dos gêneros e na experiência de jogo."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Decodificando os Gêneros: Mais que Rótulos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Gêneros de jogos funcionam como <strong>linguagens de design</strong>. Eles comunicam ao jogador o que esperar de uma experiência e fornecem aos desenvolvedores uma estrutura de referência para criar mecânicas e narrativas. Porém, gêneros não são caixas rígidas: são <strong>paletas de mecânicas</strong> que podem ser combinadas de inúmeras formas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Em termos de design, cada gênero se define pela repetição de um <strong>core loop</strong> e por um conjunto de regras matemáticas e físicas. Um FPS depende de vetores, trajetória de projéteis e transformações matriciais; um RPG usa sistemas estatísticos para progressão; um jogo de estratégia se baseia em otimização de recursos e lógica combinatória."
+        },
+        {
+          "type": "blockquote",
+          "text": "Um gênero não é uma prisão, mas um ponto de partida. Os melhores jogos entendem as regras do seu gênero para, então, quebrá-las de forma inteligente."
+        },
+        {
+          "type": "paragraph",
+          "text": "Essa aula explora os gêneros não apenas como rótulos comerciais, mas como <strong>modelos matemáticos e sistemas de interação</strong>. Ao entender essas estruturas, você poderá criar experiências únicas, seja seguindo convenções ou criando híbridos inovadores."
+        },
+        {
+          "type": "contentBlock",
+          "title": "🔗 Como os Gêneros se Cruzam",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "➡️ Quando dois gêneros se encontram, surgem híbridos: <strong>Action RPG</strong>, <strong>FPS Tático</strong>, <strong>RTS com Progressão de Personagem</strong>. Entender essas interseções é essencial para inovar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🌐 Gêneros Híbridos e Tendências Atuais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A indústria de jogos está em constante evolução. Cada vez mais, vemos títulos que combinam elementos de múltiplos gêneros, criando experiências únicas e inovadoras."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Roguelike + Metroidvania:</strong> jogos como <em>Dead Cells</em> misturam exploração não-linear com progressão roguelike.",
+            "<strong>RPG + FPS:</strong> <em>Destiny 2</em> e <em>Borderlands</em> unem tiro em primeira pessoa com evolução de personagem e loot.",
+            "<strong>Survival + Crafting:</strong> <em>Valheim</em> e <em>Ark</em> combinam sobrevivência com construção e progressão sandbox.",
+            "<strong>Battle Royale + Construção:</strong> <em>Fortnite</em> adicionou mecânicas de criação ao gênero competitivo de última sobrevivência."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "content": "💡 <strong>Reflexão:</strong> Como a mistura de gêneros pode tornar um jogo mais atraente? Existe um limite para a hibridização antes de confundir o jogador?"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "📜 História dos Gêneros de Jogos",
+      "cards": [
+        {
+          "title": "🎮 Anos 70",
+          "content": "Nasce o gênero Arcade com títulos como <em>Pong</em> e <em>Space Invaders</em>. O foco era em pontuação e repetição."
+        },
+        {
+          "title": "🕹️ Anos 80",
+          "content": "Plataformas e aventuras ganham força com <em>Super Mario Bros.</em> e <em>The Legend of Zelda</em>."
+        },
+        {
+          "title": "💾 Anos 90",
+          "content": "Explosão dos FPS (<em>DOOM</em>, <em>Quake</em>) e popularização dos RPGs japoneses (<em>Final Fantasy</em>)."
+        },
+        {
+          "title": "🌐 Anos 2000+",
+          "content": "Crescem MMOs (<em>World of Warcraft</em>), MOBAs e gêneros híbridos. Surgem experiências online massivas e jogos como serviço."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎮 Oficina de Gêneros",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Nesta atividade, você vai colocar o conhecimento em prática identificando gêneros e mecânicas em exemplos reais. O objetivo é <strong>treinar seu olhar de game designer</strong> para reconhecer padrões e entender como matemática e física sustentam as experiências."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Assista os trechos de gameplay abaixo:</strong> Analise pelo menos 2 minutos de cada vídeo.",
+            "<strong>Identifique o gênero principal</strong> e, se houver, os gêneros secundários.",
+            "<strong>Liste 2 ou 3 mecânicas fundamentais</strong> e explique quais conceitos físicos ou matemáticos estão por trás (ex: vetores de movimento, IA baseada em grafos, colisões elásticasදහ).",
+            "<strong>Publique no Fórum:</strong> Poste suas respostas com imagens ou trechos de vídeo que sustentem sua análise."
+          ]
+        },
+        {
+          "type": "videosBlock",
+          "videos": [
+            {
+              "title": "🔫 FPS Tático – Valorant",
+              "youtubeId": "IhhjcB2ZjIM"
+            },
+            {
+              "title": "🛡️ RPG de Ação – Elden Ring",
+              "youtubeId": "E3Huy2cdih0"
+            },
+            {
+              "title": "🏗️ Estratégia/Construção – Cities: Skylines",
+              "youtubeId": "Iu8YwpngbzE"
+            },
+            {
+              "title": "🕹️ Plataforma Criativa – Super Mario Maker 2",
+              "youtubeId": "ISWqMgouaxs"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "content": "💡 <strong>Dica:</strong> Concentre-se em <u>como as regras do jogo criam a experiência</u> e não apenas no tema. Um RPG pode ter tiro em primeira pessoa, e um FPS pode ter progressão de personagem — o que importa é o <strong>core loop</strong> e as mecânicas centrais."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎬 Análise de Gêneros em Ação",
+      "content": [
+        {
+          "type": "cardGrid",
+          "cards": [
+            {
+              "title": "<i class=\"fa-solid fa-dragon text-red-600 mr-3\"></i>RPG (Role-Playing Game)",
+              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/1T22wNvoNiU\" title=\"Baldur's Gate 3 Trailer\" frameborder=\"0\" allowfullscreen></iframe></div><p class=\"text-slate-600 mt-3 mb-6\"><strong>Baldur's Gate 3</strong> é um RPG baseado em Dungeons & Dragons, com ênfase em narrativa ramificada e liberdade de escolha. Ele exemplifica o gênero com progressão profunda de personagem, combate tático e decisões que moldam o mundo.</p><h4 class=\"font-semibold text-lg text-indigo-700 mb-2\">Mecânicas Fundamentais:</h4><ul class=\"list-disc list-inside space-y-2 text-slate-700\"><li><strong>Sistemas de Atributos:</strong> Progressão de personagem (XP, stats, skills).</li><li><strong>Lógica de Decisão:</strong> Diálogos com escolhas que impactam a narrativa (árvores de decisão).</li><li><strong>Vetores e Transformações:</strong> Usados para movimento, posicionamento e targeting em combate.</li></ul><div class=\"bg-indigo-50 border border-indigo-200 p-4 rounded-lg mt-4\"><h4 class=\"font-semibold text-indigo-700 mb-2\">🔑 Mecânicas-Chave de RPG</h4><ul class=\"list-disc list-inside text-slate-700 text-sm space-y-1\"><li>Progressão de atributos e evolução de personagem.</li><li>Sistema de quests principais e secundárias.</li><li>Customização de personagens e equipamentos.</li><li>Decisões narrativas que alteram o mundo do jogo.</li></ul></div>"
+            },
+            {
+              "title": "<i class=\"fa-solid fa-hat-wizard text-green-600 mr-3\"></i>Ação / Aventura",
+              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/uHGShqcAHlQ\" title=\"Zelda: Tears of the Kingdom Trailer\" frameborder=\"0\" allowfullscreen></iframe></div><p class=\"text-slate-600 mt-3 mb-6\"><strong>The Legend of Zelda: Tears of the Kingdom</strong> combina exploração em mundo aberto, física avançada para puzzles e combate dinâmico. É um marco em Ação/Aventura por permitir resolver desafios de múltiplas formas usando sistemas interconectados.</p><h4 class=\"font-semibold text-lg text-indigo-700 mb-2\">Mecânicas Fundamentais:</h4><ul class=\"list-disc list-inside space-y-2 text-slate-700\"><li><strong>Física de Movimento:</strong> Leis da dinâmica para pulos, escaladas e nado.</li><li><strong>Detecção de Colisão:</strong> Uso de polígonos para interações com o cenário e inimigos.</li><li><strong>Resolução de Puzzles:</strong> Lógica espacial e interações baseadas em física.</li></ul><div class=\"bg-green-50 border border-green-200 p-4 rounded-lg mt-4\"><h4 class=\"font-semibold text-green-700 mb-2\">🔑 Mecânicas-Chave de Ação/Aventura</h4><ul class=\"list-disc list-inside text-slate-700 text-sm space-y-1\"><li>Exploração não-linear e backtracking.</li><li>Combate em tempo real com combos ou armas variadas.</li><li>Puzzles ambientais que exigem lógica espacial.</li><li>Aquisição de habilidades que desbloqueiam novas áreas.</li></ul></div>"
+            },
+            {
+              "title": "<i class=\"fa-solid fa-chess-board text-blue-600 mr-3\"></i>Estratégia (RTS/TBS)",
+              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/5TnynE3PuDE\" title=\"Age of Empires IV Trailer\" frameborder=\"0\" allowfullscreen></iframe></div><p class=\"text-slate-600 mt-3 mb-6\"><strong>Age of Empires IV</strong> representa o gênero RTS com ênfase em gerenciamento de recursos, construção de civilizações e táticas em tempo real. O jogo mostra como planejamento e execução estratégica definem a experiência.</p><h4 class=\"font-semibold text-lg text-indigo-700 mb-2\">Mecânicas Fundamentais:</h4><ul class=\"list-disc list-inside space-y-2 text-slate-700\"><li><strong>Coordenadas e Distâncias:</strong> Uso de grades para posicionamento e cálculo de movimento.</li><li><strong>Gerenciamento de Recursos:</strong> Algoritmos para coleta, gasto e otimização de recursos.</li><li><strong>IA e Pathfinding:</strong> Algoritmos para tomada de decisão e navegação de unidades.</li></ul><div class=\"bg-blue-50 border border-blue-200 p-4 rounded-lg mt-4\"><h4 class=\"font-semibold text-blue-700 mb-2\">🔑 Mecânicas-Chave de Estratégia</h4><ul class=\"list-disc list-inside text-slate-700 text-sm space-y-1\"><li>Gerenciamento de recursos limitados.</li><li>Construção de base e hierarquia de unidades.</li><li>Fog of War (área visível e oculta).</li><li>Planejamento a curto e longo prazo (tática vs estratégia).</li></ul></div>"
+            },
+            {
+              "title": "<i class=\"fa-solid fa-crosshairs text-orange-600 mr-3\"></i>FPS (Tiro em Primeira Pessoa)",
+              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/qgvV4GE8vVA\" title=\"DOOM Eternal Trailer\" frameborder=\"0\" allowfullscreen></iframe></div><p class=\"text-slate-600 mt-3 mb-6\"><strong>DOOM Eternal</strong> é um FPS rápido e visceral que destaca movimentação constante, física de projéteis e combate fluido. Ele reforça o gênero com ritmo intenso e mecânicas precisas de tiro em primeira pessoa.</p><h4 class=\"font-semibold text-lg text-indigo-700 mb-2\">Mecânicas Fundamentais:</h4><ul class=\"list-disc list-inside space-y-2 text-slate-700\"><li><strong>Física de Projéteis:</strong> Cálculo de trajetória balística para armas.</li><li><strong>Raycasting:</strong> Técnica de detecção instantânea para tiros (hitscan).</li><li><strong>Transformações Matriciais:</strong> Movimento de câmera e mira.</li></ul><div class=\"bg-orange-50 border border-orange-200 p-4 rounded-lg mt-4\"><h4 class=\"font-semibold text-orange-700 mb-2\">🔑 Mecânicas-Chave de FPS</h4><ul class=\"list-disc list-inside text-slate-700 text-sm space-y-1\"><li>Sistema de armas com diferentes alcances e cadências.</li><li>Gestão de munição e pontos de cobertura.</li><li>Mapas com rotas alternativas e pontos de controle.</li><li>Feedback imediato (som, animação, HUD responsivo).</li></ul></div>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "💼 Conexão com o Mercado de Jogos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os gêneros de jogos não são apenas categorias criativas – eles impactam diretamente o <strong>design, marketing e monetização</strong> de um título. Compreender as tendências atuais ajuda desenvolvedores a criar experiências alinhadas às expectativas do público e às demandas da indústria."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Free-to-Play e Multiplayer:</strong> Jogos competitivos e cooperativos são base para modelos de monetização com temporadas e microtransações.",
+            "<strong>Indies e Gêneros Híbridos:</strong> Pequenos estúdios inovam misturando gêneros clássicos para criar experiências únicas.",
+            "<strong>Mercado Mobile:</strong> Foco em mecânicas simples e loop de gameplay curto para capturar jogadores casuais.",
+            "<strong>AAA e Narrativa:</strong> Ação/Aventura e RPGs narrativos dominam a indústria de consoles e PC premium."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "content": "💡 <strong>Reflexão:</strong> Qual gênero você acha que terá mais relevância nos próximos anos? O que o mercado brasileiro pode oferecer de diferencial nesses segmentos?"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "⚛️ A Física da Interação: Tipos de Gameplay",
+      "cards": [
+        {
+          "title": "<i class=\"fa-solid fa-user text-sky-600 mr-2\"></i>Singleplayer (Jogador vs Ambiente)",
+          "content": "A experiência é focada na jornada de um jogador contra desafios criados pelo jogo (IA, puzzles, plataformas). A física governa a interação do jogador com um mundo previsível, onde as regras são constantes.<br><br><ul><li><strong>Colisão:</strong> Geralmente inelástica. O jogador colide com uma parede e para (conservação de momento, mas perda de energia cinética).</li><li><strong>Forças:</strong> Gravidade, forças de impulso (pulo), atrito são constantes e fundamentais para o level design.</li></ul>"
+        },
+        {
+          "title": "<i class=\"fa-solid fa-users text-purple-600 mr-2\"></i>Multiplayer (Jogador vs Jogador)",
+          "content": "A experiência é dinâmica e imprevisível, pois envolve a interação entre múltiplos agentes humanos. A física precisa ser robusta e sincronizada para garantir justiça e consistência para todos.<br><br><ul><li><strong>Colisão:</strong> Pode ser elástica (dois jogadores se empurram e se repelem, conservando momento e energia) ou inelástica (um ataque que causa dano e \"absorve\" a energia do movimento).</li><li><strong>Momento Linear:</strong> A conservação do momento é crucial para que interações como \"empurrões\" ou o impacto de projéteis em outros jogadores pareçam realistas e justas.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "dragAndDrop",
+      "title": "🧪 Laboratório de Gêneros",
+      "items": [
+        {
+          "label": "The Witcher 3",
+          "target": "rpg"
+        },
+        {
+          "label": "DOOM Eternal",
+          "target": "fps"
+        },
+        {
+          "label": "Age of Empires IV",
+          "target": "estrategia"
+        },
+        {
+          "label": "Zelda: Tears of the Kingdom",
+          "target": "acao"
+        }
+      ],
+      "targets": [
+        {
+          "id": "rpg",
+          "label": "RPG"
+        },
+        {
+          "id": "fps",
+          "label": "FPS"
+        },
+        {
+          "id": "estrategia",
+          "label": "Estratégia"
+        },
+        {
+          "id": "acao",
+          "label": "Ação/Aventura"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "🧐 Teste seu Conhecimento",
+      "items": [
+        {
+          "title": "1. A necessidade de calcular a trajetória de uma flecha em um jogo de fantasia se baseia em qual conceito da física?",
+          "content": "<strong>Resposta:</strong> Lançamento oblíquo de projéteis, considerando a velocidade inicial, o ângulo e a força da gravidade."
+        },
+        {
+          "title": "2. \"It Takes Two\" é um jogo que só pode ser jogado por duas pessoas juntas. Qual o seu tipo de gameplay principal?",
+          "content": "<strong>Resposta:</strong> Multiplayer Cooperativo (Co-op). A experiência é inteiramente construída em torno da colaboração."
+        },
+        {
+          "title": "3. Em um jogo de luta, quando um personagem acerta um soco em outro, qual princípio garante que ambos sintam o impacto?",
+          "content": "<strong>Resposta:</strong> A Terceira Lei de Newton (Ação e Reação). A força que o punho aplica no oponente é igual em módulo à força que o oponente aplica de volta no punho."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Analisando seu Jogo Favorito",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para a próxima aula, vamos aplicar os conceitos que vimos hoje."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Análise no Fórum:</strong> Escolha um jogo que você gosta e joga (ou jogou) bastante. Crie uma postagem no fórum do Moodle respondendo:<blockquote>\"Qual é o gênero principal do seu jogo? E quais outros gêneros secundários você consegue identificar nele? Justifique sua classificação apontando 2 ou 3 mecânicas principais (físicas ou matemáticas) que o definem.\"</blockquote>",
+            "<strong>Identifique o Gameplay:</strong> Na mesma postagem, classifique o tipo de gameplay predominante (Singleplayer, Competitivo, Cooperativo, etc.) e explique como ele contribui para a experiência."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "content": "💡 <strong>Exemplo de Postagem:</strong> \"Meu jogo é <strong>Rocket League</strong>. O gênero principal é <strong>Esporte/Ação</strong>. As mecânicas fundamentais são a <strong>física de colisões</strong> (elásticas entre carros e bola) e a <strong>dinâmica de movimento translacional</strong> para os saltos e voos. O gameplay é totalmente <strong>Multiplayer Competitivo</strong>, onde a previsibilidade da física permite jogadas de alta habilidade.\""
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia de Apoio",
+      "references": [
+        "<strong> MARTINHO, Carlos; SANTOS, Pedro; PRADA, Rui.</strong> <em>Design e desenvolvimento de jogos.</em> Lisboa: FCA, 2014.",
+        "<strong>MASTROCOLA, Vicente Martin.</strong> <em>Game design: modelos de negócio e processos criativos.</em> São Paulo: Cengage Learning, 2015."
+      ]
+    }
+  ]
+}

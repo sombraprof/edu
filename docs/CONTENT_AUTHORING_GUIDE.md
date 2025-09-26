@@ -7,7 +7,7 @@ This document explains how to produce new lessons and exercises that integrate s
 - All renderable content lives under `src/content/courses/<courseId>/`.
 - Every lesson or exercise is defined by a pair of files:
   - `<id>.json`: structured data consumed by `LessonRenderer.vue`.
-  - `<id>.md`: a thin wrapper that imports the JSON and mounts `<LessonRenderer :data="..." />`.
+  - `<id>.vue`: a thin wrapper that imports the JSON, exposes the `meta` object and mounts `<LessonRenderer :data="..." />`.
 - `lessons.json` and `exercises.json` act as indexes (`{ id, title, description/summary, file, available }`).
 - Vue pages (`LessonView.vue`, `ExerciseView.vue`, `CourseHome.vue`) dynamically import these indexes and render the JSON blocks.
 
@@ -50,11 +50,11 @@ Inside legacy sections the renderer automatically wraps blocks with MD3 cards (`
 
 ## 5. Workflow for New Content
 
-1. Create or update entries inside `lessons.json` / `exercises.json` for the course.
+1. Execute `npm run scaffold:lesson -- --course <slug> --number <NN> --title "Aula X"` (or pass `--id lesson-NN`) to scaffold the trio (`lessons.json`, `<id>.json`, `<id>.vue`). Lesson ids must follow the zero-padded pattern `lesson-01`, `lesson-02`, etc.
 2. Author the structured JSON describing the new lesson content. Reuse existing block schemas whenever possible.
-3. Generate the matching markdown wrapper (`<id>.md`) that imports the JSON and renders `<LessonRenderer>`.
-4. Run `npm run format` to apply Prettier formatting.
-5. Run `npm run build` to ensure the Vue compiler accepts the new content.
+3. Adjust the generated Vue wrapper if necessary (meta/objective or availability flags).
+4. Run `npm run validate:content` (or `npm run validate:report` to persist the aggregated JSON) to ensure the schema and file references remain consistent.
+5. Run `npm run format` followed by `npm run build` to ensure the Vue compiler accepts the new content.
 
 ### Automating HTML-first lessons
 
@@ -64,7 +64,7 @@ through `create-lesson-from-html.mjs`:
 ```bash
 node scripts/create-lesson-from-html.mjs \
   --course algi \
-  --id lesson42 \
+  --id lesson-42 \
   --title "Aula 42: Algoritmos Avançados" \
   --objective "Explorar técnicas de backtracking." \
   --input aula42.html
@@ -75,7 +75,7 @@ Or feed the HTML directly from the terminal/AI:
 ```bash
 pbpaste | node scripts/create-lesson-from-html.mjs \
   --course algi \
-  --id lesson42 \
+  --id lesson-42 \
   --title "Aula 42: Algoritmos Avançados" \
   --objective "Explorar técnicas de backtracking."
 ```
@@ -100,8 +100,8 @@ The helper scripts in `scripts/` (`structure-legacy-sections.mjs`, `apply-lesson
 
 ## 7. Checklist Before Submitting Content
 
-- [ ] JSON validates and mirrors the schema used in AlgI.
-- [ ] Markdown wrapper renders `<LessonRenderer :data="..." />` and nothing else.
+- [ ] JSON validates and mirrors the schema used in AlgI (`npm run validate:content` ou `npm run validate:report`).
+- [ ] Vue wrapper renders `<LessonRenderer :data="..." />` and nothing else.
 - [ ] Icons correspond to the Lucide palette (`GraduationCap`, `Target`, `BookOpen`, etc.) and will be mapped automatically when using `legacySection` ids.
 - [ ] Spacing, casing and tokens follow Material Design 3 conventions.
 - [ ] `npm run format` and `npm run build` succeed locally.

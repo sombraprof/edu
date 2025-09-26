@@ -1,0 +1,294 @@
+{
+  "id": "lesson-01",
+  "title": "Aula 1: Definição e Tipos de Sistemas",
+  "objective": "Apresentar os objetivos, estrutura e critérios da disciplina, introduzir os fundamentos do pensamento sistêmico e o conceito de sistema aplicado às organizações.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "UNIDADE E CONTEÚDO",
+          "content": "Unidade I – Definição e Tipos de Sistemas. Apresentação da disciplina. Introdução à Teoria Geral de Sistemas: contexto histórico, conceito de sistema, visão geral dos tipos."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Apresentar os objetivos, estrutura e critérios da disciplina, introduzir os fundamentos do pensamento sistêmico e o conceito de sistema aplicado às organizações."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva dialogada com dinâmicas de sondagem inicial e metodologias ativas (discussão em grupo e quiz)."
+        },
+        {
+          "icon": "desktop",
+          "title": "RECURSOS",
+          "content": "Slides, quadro, texto de apoio, diagramas visuais e vídeo complementar."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta Norteadora",
+      "content": "Antes de começarmos, pense um pouco: você consegue listar 5 sistemas diferentes que usou hoje, antes mesmo de chegar a esta aula? O que eles têm em comum?"
+    },
+    {
+      "type": "contentBlock",
+      "title": "🌍 Contexto Inicial: O Mundo como um Sistema",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vivemos imersos em sistemas. Do ecossistema que nos cerca ao aplicativo em nosso smartphone, tudo pode ser visto como um conjunto de partes interconectadas. Mas como essa ideia surgiu e por que ela é tão crucial hoje, especialmente na tecnologia?"
+        },
+        {
+          "type": "blockquote",
+          "text": "\"A realidade, ou ao menos a parte dela que nos interessa, é constituída por sistemas. A Teoria Geral de Sistemas é a exploração científica do 'todo' e da 'totalidade'.\"",
+          "source": "— Adaptado de Ludwig von Bertalanffy"
+        },
+        {
+          "type": "paragraph",
+          "text": "A Teoria Geral de Sistemas (TGS) nos oferece uma lente poderosa para entender a complexidade. Ela propõe uma mudança de foco: em vez de analisar as partes isoladamente, devemos compreender as <strong>relações</strong> e as <strong>interconexões</strong> que formam o todo. Este é o cerne do <strong>pensamento sistêmico</strong>, uma habilidade essencial para qualquer profissional de Sistemas de Informação."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "⏳ Evolução do Pensamento Sistêmico",
+      "steps": [
+        {
+          "title": "1940-1960: As Origens na Biologia",
+          "content": "Ludwig von Bertalanffy critica a visão mecanicista e propõe que organismos vivos são \"sistemas abertos\", em constante troca com o ambiente. Nasce a TGS."
+        },
+        {
+          "title": "1960-1970: Expansão para a Administração",
+          "content": "As teorias organizacionais adotam a TGS. Empresas passam a ser vistas como sistemas sociotécnicos, com subsistemas (departamentos) que interagem para atingir objetivos."
+        },
+        {
+          "title": "1980-1990: Fundamento para Sistemas de Informação",
+          "content": "A TGS torna-se a base para a análise e o projeto de sistemas. Conceitos como \"entrada-processamento-saída\" e \"feedback\" são formalizados em metodologias de desenvolvimento."
+        },
+        {
+          "title": "2000-Hoje: Relevância na TI Moderna e IA",
+          "content": "Essencial para entender arquiteturas complexas (microserviços), a integração via APIs, a Internet das Coisas (IoT) e sistemas de Inteligência Artificial, que são sistemas adaptativos complexos por natureza."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Anatomia de um Sistema",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://sombraprof.github.io/tdjd/imagens/aula_1_imagem_2.svg",
+          "alt": "Diagrama de um sistema aberto"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🔑 Conceitos-Chave Interativos",
+      "cards": [
+        {
+          "title": "Entradas (Inputs)",
+          "content": "Recursos que o sistema consome do ambiente para operar. Ex: Dados, energia, materiais, cliques."
+        },
+        {
+          "title": "Processamento",
+          "content": "A transformação das entradas em saídas. É o \"cérebro\" do sistema. Ex: Cálculos, validações, algoritmos."
+        },
+        {
+          "title": "Saídas (Outputs)",
+          "content": "O resultado do processamento, entregue ao ambiente. Ex: Relatórios, produtos, notificações."
+        },
+        {
+          "title": "Feedback",
+          "content": "Informação sobre as saídas que retorna ao sistema para ajustar seu comportamento. Ex: Logs de erro, avaliações."
+        },
+        {
+          "title": "Ambiente",
+          "content": "O contexto externo que influencia e é influenciado pelo sistema. Ex: Usuários, mercado, outros sistemas."
+        },
+        {
+          "title": "Fronteira",
+          "content": "A linha (muitas vezes conceitual) que separa o sistema de seu ambiente. Define o escopo."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "<i class=\"fa-solid fa-pause-circle mr-2\"></i>Pausa para Reflexão: Mapeando seu Dia",
+      "content": "Pense rápido: qual foi o primeiro sistema tecnológico que você usou hoje? (Ex: despertador do celular, cafeteira, Waze, Spotify...). Tente mapear mentalmente: <br><strong>1. Entrada:</strong> Qual foi o seu comando? (Ex: Apertar o botão \"soneca\"). <br><strong>2. Processamento:</strong> O que o sistema fez? (Ex: Adiou o alarme por 10 minutos). <br><strong>3. Saída:</strong> Qual foi o resultado? (Ex: O alarme tocou novamente depois de 10 minutos). <br>Essa simples análise é o primeiro passo do pensamento sistêmico!"
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-users mr-2 text-sky-600\"></i>Discussão em Grupo: Gamificando o Conhecimento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Agora, vamos aplicar! Em grupos de 3 a 4 pessoas:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Cada grupo deve listar 5 sistemas diferentes que utilizam no dia a dia da faculdade.",
+            "Para cada sistema, classifiquem-no usando as categorias da tabela que vimos (Aberto/Fechado, Dinâmico/Estável, etc.).",
+            "Preparem-se para compartilhar um exemplo com a turma, justificando a classificação."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "O objetivo é ver como os mesmos conceitos se aplicam a diferentes contextos e gerar debate sobre as classificações."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🔗 A Ponte entre TGS e Sistemas de Informação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A Teoria Geral de Sistemas não é apenas uma abstração filosófica; ela é o alicerce sobre o qual construímos e entendemos a tecnologia moderna. Sem a TGS, conceitos que usamos todos os dias seriam muito mais difíceis de modelar."
+        },
+        {
+          "type": "blockquote",
+          "text": "Um sistema de informação é um conjunto de componentes inter-relacionados que coletam, processam, armazenam e distribuem informações para apoiar a tomada de decisão, a coordenação e o controle em uma organização.",
+          "source": "— Adaptado de Stair & Reynolds, \"Princípios de Sistemas de Informação\""
+        },
+        {
+          "type": "contentBlock",
+          "title": "Arquitetura de Software",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Quando um arquiteto de software decide entre uma <strong>arquitetura monolítica</strong> (um grande sistema único e coeso) e uma de <strong>microserviços</strong> (múltiplos pequenos sistemas independentes que se comunicam), ele está, na essência, definindo as <strong>fronteiras</strong>, os <strong>componentes</strong> e as <strong>relações de interdependência</strong> do sistema, conceitos puros da TGS."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Sistemas Integrados (ERPs) e APIs",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Um sistema ERP (como o SAP ou TOTVS) é um exemplo clássico de um sistema complexo composto por subsistemas (financeiro, RH, estoque). A TGS nos ajuda a entender como a integração desses subsistemas cria um todo que é maior que a soma das partes. Da mesma forma, quando um aplicativo como o iFood (sistema) se conecta à API do Google Maps (ambiente) para obter rotas, ele está realizando uma troca de <strong>entradas e saídas</strong> através de sua fronteira, operando como um <strong>sistema aberto</strong>."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Engenharia de Software e Gestão de Projetos",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A TGS também fundamenta a gestão. Metodologias ágeis como <strong>Scrum</strong> ou <strong>Kanban</strong> são, em si, sistemas de trabalho. O backlog é a <strong>entrada</strong>, as sprints são o <strong>processamento</strong>, o incremento de software é a <strong>saída</strong>, e as retrospectivas são o <strong>feedback</strong> que ajusta o sistema para o próximo ciclo. Entender o fluxo de trabalho como um sistema ajuda a identificar gargalos e otimizar a entrega de valor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "📊 Classificação Detalhada dos Sistemas",
+      "headers": ["Categoria", "Tipo 1", "Exemplo", "Tipo 2", "Exemplo"],
+      "rows": [
+        [
+          "Interação",
+          "Aberto",
+          "Uma rede social, uma empresa",
+          "Fechado",
+          "Um relógio, um sistema de vácuo"
+        ],
+        ["Comportamento", "Dinâmico", "Mercado de criptomoedas", "Estável", "As regras do xadrez"],
+        [
+          "Origem",
+          "Natural",
+          "Sistema solar, ecossistema",
+          "Artificial",
+          "Software, carro, prédio"
+        ],
+        [
+          "Complexidade",
+          "Simples",
+          "Uma calculadora de app",
+          "Complexo",
+          "Sistema de controle de tráfego aéreo"
+        ],
+        [
+          "Causalidade",
+          "Linear",
+          "Linha de montagem industrial",
+          "Não-Linear",
+          "O clima, uma conversa humana"
+        ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "💡 Exemplos Práticos do Cotidiano",
+      "cards": [
+        {
+          "title": "<i class=\"fa-brands fa-whatsapp text-green-500 mr-2\"></i>WhatsApp",
+          "content": "<ul><li><strong>Tipo:</strong> Aberto, Dinâmico, Artificial, Complexo.</li><li><strong>Entrada:</strong> Mensagem digitada, upload de foto.</li><li><strong>Processamento:</strong> Criptografia, envio pelos servidores.</li><li><strong>Saída:</strong> Notificação no celular do destinatário.</li><li><strong>Feedback:</strong> Tiques azuis de confirmação de leitura.</li></ul>"
+        },
+        {
+          "title": "<i class=\"fa-solid fa-piggy-bank text-blue-500 mr-2\"></i>Internet Banking",
+          "content": "<ul><li><strong>Tipo:</strong> Aberto, Estável, Artificial, Complexo.</li><li><strong>Entrada:</strong> Login, senha, valor do PIX.</li><li><strong>Processamento:</strong> Validação de segurança, débito na conta.</li><li><strong>Saída:</strong> Comprovante da transação, extrato atualizado.</li><li><strong>Feedback:</strong> Mensagem de \"Transação concluída com sucesso\".</li></ul>"
+        },
+        {
+          "title": "<i class=\"fa-solid fa-graduation-cap text-purple-500 mr-2\"></i>Sistema Acadêmico",
+          "content": "<ul><li><strong>Tipo:</strong> Aberto, Estável, Artificial, Complexo.</li><li><strong>Entrada:</strong> Lançamento de notas pelo professor.</li><li><strong>Processamento:</strong> Cálculo automático da média final.</li><li><strong>Saída:</strong> Boletim disponível para o aluno.</li><li><strong>Feedback:</strong> Alerta de pendência de documentos.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para consolidar o conhecimento, você tem duas tarefas:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Reflexão no Fórum (Obrigatório):</strong> Realize a leitura comentada do capítulo introdutório de <strong>Stair et al. (2021)</strong> e poste no fórum sua resposta para a questão:<blockquote>\"Qual sistema você observa no seu cotidiano e como ele se ajusta ao ambiente?\"</blockquote>Ao final, inclua um comentário de até 2 linhas sobre como o pensamento sistêmico pode ser útil na sua formação em Sistemas de Informação.",
+            "<strong>Diagrama Prático (Recomendado):</strong> Escolha um sistema simples do seu dia a dia (ex: fazer café, pedir um Uber, usar o micro-ondas) e crie um mini-diagrama. Identifique visualmente suas <strong>entradas, processos, saídas e feedback</strong>. Pode ser feito no papel ou em uma ferramenta como o <a href=\"https://draw.io\">draw.io</a>."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "items": [
+        {
+          "title": "1. A capacidade de um sistema se autoajustar com base em informações sobre seu próprio desempenho é chamada de...",
+          "content": "<strong>Resposta:</strong> Feedback (ou Retroalimentação). É o mecanismo que permite a um sistema aprender e se adaptar."
+        },
+        {
+          "title": "2. Um sistema de ERP, que foca em processos internos padronizados, é predominantemente classificado como...",
+          "content": "<strong>Resposta:</strong> Estável e relativamente Fechado. Ele busca consistência e controle, com interações bem definidas com o ambiente externo."
+        },
+        {
+          "title": "3. A Teoria Geral de Sistemas foi inicialmente proposta por um estudioso de qual área?",
+          "content": "<strong>Resposta:</strong> Biologia. Ludwig von Bertalanffy usou o estudo de organismos vivos como base para a TGS."
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia e Leitura Complementar",
+      "references": [
+        "<strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021.",
+        "<strong>MEIRELES, Manuel; SORDI, J. O. de.</strong> <em>Administração de sistemas de informação.</em> 2. ed. São Paulo: Atlas, 2019.",
+        "<strong>BERTALANFFY, Ludwig von.</strong> <em>Teoria geral dos sistemas.</em> Petrópolis: Vozes, 2008. (Leitura clássica para aprofundamento)",
+        "<strong>Leitura Complementar Online:</strong> <a href=\"https://www.significados.com.br/teoria-geral-dos-sistemas/\">O que é a Teoria dos Sistemas? - Significados.com.br</a>",
+        "<strong>Vídeo Sugerido:</strong> <a href=\"https://www.youtube.com/watch?v=TnYjJl5PHHw\">📺 Vídeo: Entenda o que é um sistema (Explicado em 5 minutos)</a>"
+      ]
+    }
+  ]
+}

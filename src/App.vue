@@ -1,8 +1,8 @@
 <template>
   <!-- App root layout -->
-  <div class="min-h-screen text-[var(--md-sys-color-on-background)]">
+  <div class="app-shell">
     <SiteHeader />
-    <main class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-4 pb-16 pt-10">
+    <main class="md-page">
       <router-view />
     </main>
     <SiteFooter />
@@ -15,12 +15,7 @@
         @click="scrollToTop"
         aria-label="Voltar ao topo"
       >
-        <ArrowUp
-          :style="{
-            height: 'var(--md-sys-icon-size-small)',
-            width: 'var(--md-sys-icon-size-small)',
-          }"
-        />
+        <ArrowUp class="md-icon md-icon--sm" />
       </button>
     </transition>
   </div>

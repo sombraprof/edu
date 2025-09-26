@@ -1,0 +1,242 @@
+{
+  "id": "lesson-01",
+  "title": "Aula 1: Unidade I – Fundamentos do Android",
+  "objective": "Apresentação da disciplina, seus objetivos, métodos e a importância do Android no mercado.",
+  "content": [
+    {
+      "type": "audioBlock",
+      "title": "Resumo em Áudio da Aula",
+      "src": "assets/resumo_aula_1.mp3"
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula (1h 40min)",
+      "items": [
+        "<strong>(15 min) Check-in e Apresentação da Disciplina:</strong> Discussão sobre o plano de ensino, metodologia, avaliação e expectativas da turma.",
+        "<strong>(40 min) A Revolução Móvel e a História do Android:</strong> Uma viagem interativa desde a fundação da Android Inc. até aos dias de hoje.",
+        "<strong>(30 min) O Ecossistema Android:</strong> Análise da dominância de mercado, o modelo de negócio (AOSP vs GMS) e a importância do Kotlin.",
+        "<strong>(15 min) Encerramento e Próximos Passos:</strong> Explicação da tarefa (TED), apresentação da bibliografia e espaço para dúvidas."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Check-in Inicial: Vamos Conversar!",
+      "content": "Antes de começarmos, vamos aquecer os motores. Qual foi a aplicação que mais usaram hoje? O que te fascinou nela? A sua experiência como usuário é o ponto de partida para se tornarem excelentes desenvolvedores."
+    },
+    {
+      "type": "accordion",
+      "items": [
+        {
+          "title": "Plano de Ensino e Objetivos",
+          "content": "<h4 class=\"font-bold mb-2 text-indigo-700\">Objetivo Geral:</h4><p class=\"mb-4\">Capacitar o aluno para projetar, implementar e testar aplicativos móveis Android, utilizando a linguagem <strong>Kotlin</strong> e ferramentas modernas do ecossistema Android. O curso abrange tanto móveis nativas e híbridas, compreendendo boas práticas de persistência local, consumo de APIs e integração com serviços backend modernos.</p><h4 class=\"font-bold mb-2 text-indigo-700\">Objetivos Específicos:</h4><ul class=\"list-disc list-inside space-y-1\"><li>Criar interfaces e controlar a navegação em apps Android com <strong>Kotlin</strong>.</li><li>Implementar persistência local com <strong>SharedPreferences</strong> e <strong>Room</strong>.</li><li>Consumir APIs <strong>RESTful</strong> com <strong>Retrofit</strong> e corrotinas.</li><li>Integrar funcionalidades com <strong>Firebase</strong> (Firestore e Autenticação).</li><li>Aplicar boas práticas com <strong>ViewModel</strong> e <strong>LiveData</strong>.</li><li>Compreender os fundamentos do desenvolvimento híbrido com <strong>React Native</strong>.</li></ul>"
+        },
+        {
+          "title": "Metodologia e Avaliação",
+          "content": "<h4 class=\"font-bold mb-2 text-indigo-700\">Metodologia:</h4><p>Aulas expositivas e dialogadas com apoio de slides, exploração do ambiente institucional (AVA/Moodle, biblioteca digital) e abertura para perguntas. A participação ativa é fundamental!</p><h4 class=\"font-bold mt-4 mb-2 text-indigo-700\">Critérios de Avaliação:</h4><ul class=\"list-disc list-inside space-y-2 font-mono\"><li><strong>NP1:</strong> (Trabalho + Prova * 2) / 3</li><li><strong>NP2:</strong> (Trabalho + Prova * 2) / 3</li><li><strong>NP3:</strong> 10,0</li><li><strong>NF:</strong> (NP1 + NP2 + NP3) / 3</li></ul><h5 class=\"font-semibold mt-4 mb-2\">Para aprovação, o aluno deve atender a três condições:</h5><ol class=\"list-decimal list-inside space-y-1\"><li>Mínimo de 75% de presença na disciplina.</li><li>Nota Final (NF) maior ou igual a 5,0.</li><li>Nota da NP3 maior ou igual a 4,0.</li></ol>"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "A Anatomia de uma Aplicação Móvel",
+      "cards": [
+        {
+          "title": "1. Interface do Usuário (UI)",
+          "content": "É a parte visual, com a qual o usuário interage: os botões, textos, imagens e telas. Vamos construir isto com XML e, mais tarde, com Jetpack Compose."
+        },
+        {
+          "title": "2. Lógica de Negócio",
+          "content": "É o \"cérebro\" da aplicação. Onde as regras, os cálculos e as decisões acontecem. É aqui que o nosso código <strong>Kotlin</strong> vai brilhar."
+        },
+        {
+          "title": "3. Dados",
+          "content": "É a informação que a nossa app manipula. Pode ser armazenada localmente no dispositivo (com <strong>Room</strong>) ou na nuvem (com <strong>Firebase</strong>)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "O Palco da Revolução Móvel: O Mundo Pré-Android",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Antes do Android e do iPhone, o mundo dos celulares era muito diferente. Era dominado por sistemas como <strong>Symbian</strong> (Nokia), <strong>BlackBerry OS</strong> e <strong>Windows Mobile</strong>. Cada um era um \"jardim murado\", com desafios significativos:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Para o Usuário:</strong> A experiência era fragmentada. A \"loja de apps\" de um Nokia era completamente diferente da de um BlackBerry. Instalar uma aplicação era muitas vezes um processo complicado e pouco intuitivo.",
+            "<strong>Para o Desenvolvedor:</strong> Este era o maior obstáculo. O desenvolvimento era caro e complexo. Para lançar uma aplicação, era preciso criar e manter versões completamente diferentes para cada sistema operativo. O Android propôs uma plataforma unificada, de código aberto e gratuita, o que foi absolutamente revolucionário e democratizou o desenvolvimento de apps."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "A História do Android",
+      "steps": [
+        {
+          "title": "2003: A Fundação",
+          "content": "Andy Rubin, Rich Miner, Nick Sears e Chris White fundam a Android Inc. com a visão de criar sistemas operativos mais inteligentes para câmaras digitais."
+        },
+        {
+          "title": "2005: A Aquisição pela Google",
+          "content": "A Google adquire a Android Inc. por cerca de 50 milhões de dólares, um dos melhores negócios da história da tecnologia."
+        },
+        {
+          "title": "2007: O Anúncio",
+          "content": "A Google anuncia oficialmente o Android e a formação da Open Handset Alliance (OHA), um consórcio de empresas para desenvolver padrões abertos para dispositivos móveis."
+        },
+        {
+          "title": "2008: O Primeiro Dispositivo",
+          "content": "O HTC Dream (ou T-Mobile G1) é lançado, o primeiro smartphone comercial a correr o sistema operativo Android."
+        },
+        {
+          "title": "2010-2014: A Ascensão",
+          "content": "O Android cresce exponencialmente, ultrapassando o Symbian e o iOS em quota de mercado, impulsionado por fabricantes como a Samsung, HTC e LG."
+        },
+        {
+          "title": "2019: Kotlin-First",
+          "content": "A Google declara o Kotlin como a linguagem preferencial para o desenvolvimento Android, um marco na evolução da plataforma."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Importância e Ecossistema do Android",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O domínio do Android no mercado global é inegável, detendo a maior fatia do mercado de sistemas operacionais móveis. Mas o que isso significa na prática?"
+        },
+        {
+          "type": "chart",
+          "chartType": "pie",
+          "data": {
+            "labels": ["Android", "iOS", "Outros"],
+            "datasets": [
+              {
+                "label": "Market Share",
+                "data": [71.8, 27.6, 0.6],
+                "backgroundColor": ["#4CAF50", "#9E9E9E", "#F44336"]
+              }
+            ]
+          }
+        },
+        {
+          "type": "contentBlock",
+          "title": "AOSP vs. GMS: O Coração Aberto e a Mente do Google",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Esta é uma das distinções mais importantes no mundo Android. Não são a mesma coisa!"
+            },
+            {
+              "type": "cardGrid",
+              "cards": [
+                {
+                  "title": "AOSP (Android Open Source Project)",
+                  "content": "É a base, o \"coração\" do Android. Um sistema operativo de código aberto e gratuito que qualquer fabricante pode modificar e usar nos seus dispositivos. Inclui o kernel Linux, as bibliotecas base e uma interface de usuário simples.<br><p class=\"mt-2 text-sm\"><strong>Exemplo:</strong> O sistema Fire OS da Amazon é baseado no AOSP, mas não inclui os serviços da Google.</p>"
+                },
+                {
+                  "title": "GMS (Google Mobile Services)",
+                  "content": "É a camada de software proprietária da Google que roda por cima do AOSP. Inclui as aplicativos móveis Android, utilizando a linguagem <strong>Kotlin</strong> e ferramentas modernas do ecossistema Android. O curso abrange tanto e APIs que a maioria dos usuários associa ao Android: Google Play Store, Gmail, Google Maps, YouTube, e serviços essenciais como o Firebase Cloud Messaging.<br><p class=\"mt-2 text-sm\"><strong>Importância:</strong> Para um fabricante ter acesso à Play Store, precisa de licenciar o GMS e seguir as regras da Google.</p>"
+                }
+              ]
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Para o Desenvolvedor",
+              "content": "Saber esta diferença é crucial. Se a sua aplicação depende de uma API do Google Maps, por exemplo, ela não funcionará num dispositivo que só tem o AOSP. Pode aprender mais na <a href=\"https://source.android.com/\">página oficial do AOSP</a>."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Kotlin-First: A Evolução da Programação Android",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Em 2019, a Google anunciou que o desenvolvimento Android seria \"Kotlin-first\". Mas porquê abandonar o Java, que foi a linguagem principal durante tantos anos?"
+            },
+            {
+              "type": "code",
+              "language": "kotlin",
+              "code": "// Java (O Clássico)\nbutton.setOnClickListener(new View.OnClickListener() {\n    @Override\n    public void onClick(View v) {\n        System.out.println(\"Botão clicado!\");\n    }\n});\n\n// Kotlin (O Moderno)\nbutton.setOnClickListener {    println(\"Botão clicado!\")\n}"
+            },
+            {
+              "type": "paragraph",
+              "text": "Como o exemplo acima ilustra, o Kotlin é muito mais <strong>conciso</strong>. Mas as vantagens vão além:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "<strong>Segurança contra Nulos (Null Safety):</strong> O sistema de tipos do Kotlin ajuda a eliminar os <code>NullPointerException</code>, os erros mais temidos pelos desenvolvedores Java.",
+                "<strong>Interoperabilidade:</strong> Pode ter código Kotlin e Java a coexistir no mesmo projeto sem qualquer problema, permitindo uma migração gradual.",
+                "<strong>Corrotinas:</strong> Simplificam drasticamente a programação assíncrona (tarefas que rodam em segundo plano, como chamadas de rede), tornando o código mais legível e menos propenso a erros.",
+                "<strong>Preparado para o Futuro:</strong> O Kotlin é a base para as tecnologias mais modernas do ecossistema, como o <strong>Jetpack Compose</strong>, o novo toolkit declarativo para a construção de interfaces de usuário."
+              ]
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Assista ao Anúncio!",
+              "content": "A decisão de tornar o Kotlin a linguagem principal foi um marco. Pode ver mais sobre a visão da Google no <a href=\"https://youtu.be/ldM6QZy9e0s\">anúncio oficial durante o Google I/O 2019</a>."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "O Nosso Primeiro Projeto: O Que Vamos Construir?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para que a teoria não fique abstrata, vamos ter um objetivo prático desde o início. Ao longo das próximas aulas da Unidade I, vamos aplicar os conceitos que aprendemos para construir uma aplicação simples de \"Boas-vindas\"."
+        },
+        {
+          "type": "image",
+          "src": "https://placehold.co/200x400/e0e7ff/3730a3?text=App+Ol%C3%A1+Mundo",
+          "alt": "Mockup da aplicação Olá Mundo"
+        },
+        {
+          "type": "contentBlock",
+          "title": "App \"Olá, [Nome]!\"",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "A nossa meta será criar um tela onde o usuário pode inserir o seu nome num campo de texto. Ao clicar num botão, a aplicação irá exibir uma mensagem de saudação personalizada, como \"Olá, Tiago!\"."
+            },
+            {
+              "type": "paragraph",
+              "text": "Com este projeto simples, vamos aprender na prática a usar componentes de UI, manipular eventos de clique e gerir dados básicos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Encerramento e Próximos Passos",
+      "content": [
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Tarefa para a próxima aula (TED)",
+          "content": "<p class=\"mb-4\">Para aprofundar o nosso conhecimento sobre a evolução do Android e refletir sobre a disciplina, a tarefa é a seguinte:</p><ol class=\"list-decimal list-inside space-y-2\"><li>Ler o Capítulo 1 da obra \"Desenvolvimento para Dispositivos Móveis\" (SAGAH, 2019).</li><li>Listar pelo menos 5 marcos importantes da evolução do Android para discutirmos na próxima aula.</li><li>Acesse ao Moodle e postar no fórum da \"Aula 1\" um parágrafo respondendo: <strong>“Como espero usar programação no meu futuro profissional?”</strong>.</li></ol>"
+        },
+        {
+          "type": "bibliographyBlock",
+          "title": "Bibliografia Recomendada",
+          "references": [
+            "OLIVEIRA, Diego Bittencourt de et al. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Porto Alegre: SAGAH, 2019. v. 1.",
+            "URMA, Raoul-Gabriel; WARBURTON, Richard. <strong>Desenvolvimento Real de Software: Um Guia de Projetos para Fundamentos em Java</strong>. Alta Books, 2021."
+          ]
+        }
+      ]
+    }
+  ]
+}

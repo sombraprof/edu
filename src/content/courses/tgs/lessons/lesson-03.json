@@ -1,0 +1,280 @@
+{
+  "id": "lesson-03",
+  "title": "Aula 3: Componentes e Características dos Sistemas",
+  "objective": "Compreender os principais elementos e características que compõem um sistema e sua aplicação em diferentes contextos organizacionais e de TI.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Unidade I – Definição e Tipos de Sistemas. Componentes essenciais (entradas, processamento, saídas, feedback), características (propósito, fronteira, ambiente) e tipos de sistemas."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO ESPECÍFICO",
+          "content": "Compreender os principais elementos e características que compõem um sistema e sua aplicação em diferentes contextos organizacionais e de TI."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA E RECURSOS",
+          "content": "Aula expositiva com exemplos progressivos, utilizando esquemas visuais, tabelas comparativas e estudo de caso para conectar a teoria com a prática."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta Norteadora",
+      "content": "Como um analista de sistemas pode usar o conceito de entradas, processamento, saídas e feedback para melhorar um processo organizacional? Pense num sistema que usa no seu dia a dia e reflita: o que aconteceria se um desses elementos falhasse?"
+    },
+    {
+      "type": "contentBlock",
+      "title": "⚙️ Decompondo a Máquina: A Anatomia de um Sistema",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Se a Teoria Geral de Sistemas nos deu os \"óculos\" para enxergar o mundo de forma conectada, agora vamos ajustar o foco para entender a anatomia de tudo o que vemos. Todo sistema, de um simples micro-ondas a um complexo sistema de e-commerce, opera sobre os mesmos princípios fundamentais. Ele existe para cumprir um <strong>propósito</strong>, dentro de uma <strong>fronteira</strong> definida, interagindo com o seu <strong>ambiente</strong>."
+        },
+        {
+          "type": "paragraph",
+          "text": "Em Sistemas de Informação, dominar essa anatomia não é apenas teoria, é a base da nossa profissão. Identificar corretamente as <strong>entradas</strong> (o que o sistema recebe), os <strong>processos</strong> (o que ele faz), as <strong>saídas</strong> (o que ele entrega) e o <strong>feedback</strong> (como ele aprende) é o primeiro passo para analisar requisitos, projetar software e garantir que a tecnologia realmente resolva um problema. Um erro nesta fase inicial pode levar a falhas críticas, como sistemas que não atendem às necessidades do utilizador ou não se adaptam às mudanças do negócio."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🔭 As Lentes do Analista: Características de Todo o Sistema",
+      "cards": [
+        {
+          "title": "Propósito (ou Objetivo)",
+          "content": "Todo o sistema existe por uma razão. É a meta principal que justifica a sua existência e guia as suas ações.<br><strong>Exemplo:</strong> O propósito de uma aplicação de música é permitir que o utilizador ouça qualquer canção, a qualquer momento."
+        },
+        {
+          "title": "Ambiente",
+          "content": "É tudo o que está fora do sistema, mas que o influencia ou é influenciado por ele.<br><strong>Exemplo:</strong> Para um sistema de transporte urbano, o ambiente inclui os passageiros, o trânsito, o clima e as leis municipais."
+        },
+        {
+          "title": "Fronteira",
+          "content": "A linha (física ou conceptual) que separa o sistema do seu ambiente. Define o âmbito do que podemos controlar.<br><strong>Exemplo:</strong> A fronteira de um sistema de e-commerce termina onde a transportadora (ambiente) assume a entrega."
+        },
+        {
+          "title": "Subsistemas",
+          "content": "Sistemas menores que compõem um sistema maior. Cada um tem o seu próprio propósito, mas trabalham juntos para o objetivo geral.<br><strong>Exemplo:</strong> Num carro, o motor, os travões e o sistema elétrico são subsistemas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "O Ciclo de Vida da Informação em um Sistema",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://sombraprof.github.io/tgs/imagens/aula_3_imagen_1.png",
+          "alt": "Diagrama de fluxo mostrando quatro caixas conectadas por setas. A primeira, 'Entrada', aponta para 'Processamento'. 'Processamento' aponta para 'Saída'. Uma seta curva sai de 'Saída' e volta para 'Entrada', rotulada como 'Feedback'."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🛠️ Os 4 Componentes Essenciais de Todo Sistema",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "1. Entradas (Inputs): O Combustível do Sistema",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "As entradas são todos os recursos que o sistema coleta de seu ambiente para poder operar. São a matéria-prima, os dados brutos, a energia ou os comandos que iniciam uma ação."
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "content": "<strong>Exemplos:</strong><ul><li><strong>Sistema Hospitalar (ERP):</strong> Dados de cadastro de um novo paciente, resultados de exames.</li><li><strong>Sistema de CRM:</strong> Informações de um novo lead, registro de uma ligação de vendas.</li></ul>"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "2. Processamento: O Motor da Transformação",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "O processamento é o conjunto de ações, regras e algoritmos que transformam as entradas em algo novo e útil. É o \"cérebro\" da operação, onde a mágica acontece."
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "content": "<strong>Exemplos:</strong><ul><li><strong>Sistema Hospitalar (ERP):</strong> Cruzar dados do paciente com o histórico para sugerir diagnósticos, agendar cirurgia.</li><li><strong>Sistema de CRM:</strong> Qualificar o lead com base em seu perfil e interações, gerar um relatório de funil de vendas.</li></ul>"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "3. Saídas (Outputs): O Resultado Final",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "As saídas são os resultados gerados pelo processamento, que são entregues de volta ao ambiente. É o produto final, o serviço prestado ou a informação gerada."
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "content": "<strong>Exemplos:</strong><ul><li><strong>Sistema Hospitalar (ERP):</strong> Prontuário eletrônico atualizado, fatura do plano de saúde.</li><li><strong>Sistema de CRM:</strong> E-mail de marketing enviado para o lead, dashboard de performance para o gestor.</li></ul>"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "4. Retroalimentação (Feedback): O Mecanismo de Ajuste",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "O feedback é a informação sobre a saída que retorna ao sistema para avaliar e corrigir seu desempenho. É o que permite que um sistema aprenda, se adapte e melhore continuamente."
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "content": "<strong>Exemplos:</strong><ul><li><strong>Sistema Hospitalar (ERP):</strong> Alerta de estoque baixo de um medicamento, pesquisa de satisfação do paciente.</li><li><strong>Sistema de CRM:</strong> Taxa de abertura de e-mails, motivo de perda de uma venda registrado pelo vendedor.</li></ul>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "<i class=\"fa-solid fa-landmark mr-2\"></i>Conexão com a Teoria",
+      "content": "Ludwig von Bertalanffy, o pai da TGS, observou este ciclo em sistemas biológicos. Ele viu que um organismo (sistema) consome nutrientes (entradas), os metaboliza (processamento) para gerar energia (saída) e usa sinais internos (feedback) para manter seu equilíbrio. A genialidade foi perceber que este mesmo modelo se aplica a qualquer sistema, seja ele vivo ou artificial."
+    },
+    {
+      "type": "cardGrid",
+      "title": "🚨 Erros Comuns ao Mapear Sistemas",
+      "cards": [
+        {
+          "title": "Esquecer o Feedback",
+          "content": "Muitos focam apenas no fluxo linear de entrada-processo-saída e esquecem de mapear como o sistema se monitora e se corrige. Um sistema sem feedback é um sistema \"cego\", incapaz de se adaptar."
+        },
+        {
+          "title": "Confundir Entradas e Processos",
+          "content": "Lembre-se que a entrada é o \"o quê\" (o dado, o recurso), enquanto o processo é o \"como\" (a ação, a transformação). \"Dados do cliente\" é uma entrada; \"validar dados do cliente\" é um processo."
+        },
+        {
+          "title": "Definir Fronteiras Vagas",
+          "content": "Não saber onde o sistema termina e o ambiente começa gera o \"escopo infinito\". A API de um banco é parte do sistema do banco ou do ambiente para o app que a consome? Definir isso é crucial para o sucesso de um projeto."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "<i class=\"fa-solid fa-hospital mr-2\"></i>Caso Real: ERP de um Hospital",
+      "content": "Vamos aplicar estes conceitos a um sistema complexo:<ul><li><strong>Propósito:</strong> Gerir todas as operações do hospital para garantir o melhor atendimento ao paciente.</li><li><strong>Subsistemas:</strong> Agendamento, internamento, farmácia, faturação, processo clínico eletrónico.</li><li><strong>Entrada:</strong> Registo de um novo paciente.</li><li><strong>Processamento:</strong> O sistema verifica a disponibilidade de camas, aloca médicos e agenda exames.</li><li><strong>Saída:</strong> A fatura enviada ao plano de saúde e o histórico médico do paciente.</li><li><strong>Feedback:</strong> Um alerta de que o estoque de um medicamento está baixo, forçando uma nova compra (ajuste no sistema).</li></ul>"
+    },
+    {
+      "type": "md3Table",
+      "title": "🔄 Mapeando Componentes: Do Físico ao Digital",
+      "headers": [
+        "Componente",
+        "Sistema Físico (Micro-ondas)",
+        "Sistema de Informação (App de Música)"
+      ],
+      "rows": [
+        [
+          "Entrada",
+          "Comida fria, tempo (2 minutos), potência (alta)",
+          "Pesquisa por \"Queen\", clique no play"
+        ],
+        [
+          "Processamento",
+          "Gerar micro-ondas para aquecer a comida",
+          "Algoritmo procura a música no servidor e faz o streaming"
+        ],
+        [
+          "Saída",
+          "Comida quente, aviso sonoro de \"pronto\"",
+          "A música a tocar nos auscultadores"
+        ],
+        [
+          "Feedback",
+          "O sensor que desliga o aparelho se a porta for aberta",
+          "O sistema recolhe dados de que ouviu a música inteira e recomenda-a a outros utilizadores"
+        ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🗂️ Tipos de Sistemas: Uma Prévia",
+      "cards": [
+        {
+          "title": "Naturais vs. Artificiais",
+          "content": "O corpo humano vs. um software."
+        },
+        {
+          "title": "Abertos vs. Fechados",
+          "content": "Uma empresa vs. um relógio."
+        },
+        {
+          "title": "Simples vs. Complexos",
+          "content": "Uma calculadora vs. um sistema de controlo de tráfego aéreo."
+        },
+        {
+          "title": "Determinísticos vs. Probabilísticos",
+          "content": "Um cálculo matemático vs. a previsão do tempo."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Análise Crítica de um Sistema",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A sua tarefa é escolher um sistema (físico ou de informação) e fazer uma análise crítica dos seus componentes."
+        },
+        {
+          "type": "list",
+          "title": "Instruções:",
+          "items": [
+            "Escolha um sistema e descreva o seu <strong>propósito</strong>.",
+            "Mapeie as suas <strong>Entradas, Processamento, Saídas e Feedback</strong>.",
+            "<strong>Justifique a importância</strong> de cada um destes quatro componentes para que o sistema atinja o seu propósito. O que falharia se um deles não existisse?",
+            "(Opcional) Se possível, relacione o sistema escolhido com um sistema de informação organizacional que poderia geri-lo ou interagir com ele."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Entrega:</strong> Apresente a sua análise por escrito no fórum da disciplina no Moodle."
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "items": [
+        {
+          "title": "1. Num sistema de e-commerce, qual das seguintes opções é um exemplo de FEEDBACK?",
+          "content": "<ul><li>a) O clique do utilizador no botão \"comprar\".</li><li>b) A validação do número do cartão de crédito.</li><li>c) O e-mail de confirmação de compra enviado ao cliente.</li><li><strong>d) O relatório de produtos mais visitados que o sistema gera para o gestor.</strong></li></ul><p class=\"mt-2\"><strong>Resposta correta: d.</strong> O relatório é uma informação sobre as saídas (visitas) que retorna ao sistema (gestores) para ajustar futuras estratégias (processamento).</p>"
+        },
+        {
+          "title": "2. O conceito de \"melhoria contínua\" em Sistemas de Informação está mais diretamente ligado a qual componente do sistema?",
+          "content": "<strong>Resposta:</strong> Ao Feedback. É através do ciclo de feedback que um sistema recolhe dados sobre o seu desempenho, permitindo que os programadores e gestores façam ajustes e melhorias contínuas."
+        },
+        {
+          "title": "3. Verdadeiro ou Falso: A palavra-passe que digita numa caixa multibanco é uma SAÍDA do sistema.",
+          "content": "<strong>Resposta:</strong> Falso. A palavra-passe é uma ENTRADA, um dado que fornece ao sistema para que ele possa processar (validar) a sua identidade."
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "<strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021.",
+        "<strong>SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C.</strong> <em>Sistemas de informações gerenciais.</em> Porto Alegre: Grupo A, 2019."
+      ]
+    }
+  ]
+}

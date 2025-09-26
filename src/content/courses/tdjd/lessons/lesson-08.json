@@ -1,0 +1,279 @@
+{
+  "id": "lesson-08",
+  "title": "Aula 8: Level Design com ProBuilder",
+  "objective": "Desenvolver habilidades na construção de ambientes 3D com ProBuilder, aplicando princípios de usabilidade e teste iterativo de cenário.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Level design com ProBuilder: criação de estruturas, colisores, navegação e espaços interativos. Teste e refinamento de layouts."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Desenvolver habilidades na construção de ambientes 3D com ProBuilder, aplicando princípios de usabilidade e teste iterativo de cenário."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula prática com orientação por desafios (metodologia ativa: hands-on com feedback em tempo real)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Arquitetura da Diversão: Introdução ao Level Design",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Na aula anterior, aprendemos a conceituar um jogo com o GDD e a criar formas básicas com ProBuilder. Hoje, vamos aprofundar o uso dessa ferramenta para praticar o <strong>Level Design</strong> — a arte e a ciência de criar os ambientes, fases e missões de um jogo."
+        },
+        {
+          "type": "blockquote",
+          "text": "\"Um bom level design guia o jogador sutilmente, fazendo-o sentir-se inteligente e poderoso. Ele não apenas cria um espaço, mas também dita o ritmo da experiência.\"",
+          "source": "— Adaptado de Schuytema, \"Design de games: uma abordagem prática\""
+        },
+        {
+          "type": "paragraph",
+          "text": "O objetivo é ir além da simples construção de \"caixas\". Vamos aprender a pensar como arquitetos de experiências, usando o ProBuilder para criar espaços que contam histórias, propõem desafios e, acima de tudo, são divertidos de navegar."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "<i class=\"fa-solid fa-lightbulb mr-2\"></i>Princípios do Bom Level Design",
+      "cards": [
+        {
+          "title": "Fluxo do Jogador",
+          "content": "Guiar o jogador de forma intuitiva pelo cenário, usando luz, cor e composição para indicar o caminho."
+        },
+        {
+          "title": "Pontos de Interesse",
+          "content": "Criar marcos visuais (landmarks) que ajudam na orientação e despertam a curiosidade para a exploração."
+        },
+        {
+          "title": "Ritmo e Cadência",
+          "content": "Alternar entre momentos de alta tensão (combate, puzzles difíceis) e de calma (exploração, narrativa)."
+        },
+        {
+          "title": "Risco vs. Recompensa",
+          "content": "Oferecer desafios opcionais mais difíceis que recompensam o jogador com itens ou segredos valiosos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-book mr-2\"></i>História e Referências do Level Design",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O conceito de <strong>level design</strong> evoluiu junto com a própria indústria de jogos. Nos anos 80, títulos como <em>Super Mario Bros.</em> (1985) já usavam o design de níveis para ensinar regras sem precisar de tutoriais escritos:"
+        },
+        {
+          "type": "blockquote",
+          "text": "\"O primeiro nível de Mario é um tutorial invisível — cada obstáculo ensina uma nova habilidade ao jogador.\"",
+          "source": "— Miyamoto, criador da série Mario"
+        },
+        {
+          "type": "paragraph",
+          "text": "A partir dos anos 90, jogos em 3D como <em>Doom</em> (1993) e <em>Half-Life</em> (1998) expandiram as possibilidades, trazendo ritmo, narrativa e exploração. Atualmente, obras como <em>The Last of Us</em> e <em>Dark Souls</em> exemplificam o uso de <em>landmarks</em>, guias visuais e controle de ritmo para criar experiências imersivas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Segundo Paul Schuytema (2008), <em>\"o level design é a ponte entre a mecânica e a emoção do jogador\"</em>, reforçando que não se trata apenas de construir cenários, mas de <strong>arquitetar experiências</strong>."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-gamepad mr-2\"></i>Exemplos Reais de Level Design",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "<strong>🎮 Super Mario Bros. (1985)</strong>: O primeiro nível é projetado para ensinar movimento, pulo e colisão sem texto. Blocos e inimigos são introduzidos gradualmente para guiar o jogador a experimentar as regras.",
+            "<strong>🎮 The Legend of Zelda: Ocarina of Time (1998)</strong>: Introduz o <em>Dungeon Design</em>, onde cada sala ensina uma mecânica que será exigida em puzzles futuros. Esse modelo é referência até hoje para jogos de aventura.",
+            "<strong>🎮 Dark Souls (2011)</strong>: Conhecido pelo <em>level design interconectado</em>, onde atalhos e landmarks (como a chama da bonfire) criam uma sensação de descoberta e domínio do espaço. A dificuldade é equilibrada pelo próprio design do cenário.",
+            "<strong>🎮 The Last of Us (2013)</strong>: Utiliza o cenário para <strong>contar histórias ambientais</strong> (environmental storytelling). Um prédio destruído, pichações ou objetos no chão comunicam a narrativa sem cutscenes."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-wrench mr-2\"></i>Ferramentas Avançadas do ProBuilder",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "Modos de Edição",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Para esculpir suas malhas, você precisa dominar os três modos de seleção de elementos:"
+            },
+            {
+              "type": "cardGrid",
+              "cards": [
+                {
+                  "title": "<i class=\"fa-solid fa-circle-nodes mr-2\"></i>Vertex",
+                  "content": "Edita os pontos individuais."
+                },
+                {
+                  "title": "<i class=\"fa-solid fa-draw-polygon mr-2\"></i>Edge",
+                  "content": "Edita as linhas que conectam os pontos."
+                },
+                {
+                  "title": "<i class=\"fa-solid fa-square-check mr-2\"></i>Face",
+                  "content": "Edita as superfícies poligonais."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Principais Ferramentas de Modelagem",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "<strong>Extrude:</strong> \"Puxa\" uma face para fora, criando nova geometria. Essencial para criar paredes, degraus e detalhes.",
+                "<strong>Bevel:</strong> Suaviza as bordas, chanfrando-as. Útil para criar rampas e acabamentos mais orgânicos.",
+                "<strong>Connect Edges/Vertices:</strong> Cria novas arestas ou vértices entre os elementos selecionados, permitindo maior detalhamento.",
+                "<strong>Triangulate Faces:</strong> Garante que as faces sejam renderizadas corretamente, especialmente após edições complexas."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-puzzle-piece mr-2\"></i>Mini-Desafio: Criando uma Ponte",
+          "content": "Vamos praticar: crie um cubo longo e fino para ser a base da ponte. Use <strong>Connect Edges</strong> para adicionar segmentos no meio. Selecione as faces de cima desses novos segmentos e use <strong>Extrude</strong> para criar as laterais da ponte. Use <strong>Bevel</strong> nas bordas para suavizar."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "<i class=\"fa-solid fa-map-location-dot mr-2\"></i>Construindo Espaços Interativos",
+      "cards": [
+        {
+          "title": "Criação de Cobertura",
+          "content": "Em jogos de tiro, use cubos e formas baixas para criar cover. Varie a altura (cobertura total vs. parcial) para incentivar diferentes táticas.",
+          "image": "https://placehold.co/400x250/f0f9ff/0369a1?text=Cobertura+(Cover)"
+        },
+        {
+          "title": "Plataformas e Vãos",
+          "content": "Em jogos de plataforma, a distância e a altura entre as plataformas são cruciais. Meça a capacidade de pulo do seu personagem e projete os vãos de acordo.",
+          "image": "https://placehold.co/400x250/f0f9ff/0369a1?text=Plataformas+e+Vãos"
+        },
+        {
+          "title": "Corredores vs. Arenas",
+          "content": "Use corredores estreitos para criar tensão e guiar o jogador. Use espaços abertos (arenas) para batalhas contra chefes ou momentos de maior liberdade.",
+          "image": "https://placehold.co/400x250/f0f9ff/0369a1?text=Corredores+vs.+Arenas"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-user-check mr-2\"></i>Playtesting e Refinamento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Level design é um processo iterativo. Crie, teste, refine, repita. O feedback do playtest é a ferramenta mais valiosa que você tem. Use seu controlador de personagem básico para \"jogar\" seu próprio nível constantemente."
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-list-check mr-2\"></i>Checklist de Playtest do Blockout",
+          "content": "<ul><li><strong>Clareza:</strong> O caminho principal está claro? O jogador sabe para onde ir?</li><li><strong>Navegação:</strong> Existem lugares onde o jogador pode ficar preso (em cantos, buracos)?</li><li><strong>Escala:</strong> As portas, corredores e coberturas parecem do tamanho certo em relação ao personagem?</li><li><strong>Desafio:</strong> Os pulos são possíveis? A distância da cobertura é justa?</li><li><strong>Diversão:</strong> O simples ato de se mover pelo espaço é agradável?</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎬 Vídeos recomendados (Aula 8)",
+      "videos": [
+        {
+          "youtubeId": "SmSZ4e6b-sg",
+          "title": "Unity para iniciantes – O Primeiro Passo",
+          "description": "Introdução à Unity em português — essencial para quem está começando."
+        },
+        {
+          "youtubeId": "xxgutoxxx",
+          "title": "Guto + Game Dev (Unity e C#)",
+          "description": "Programação C# aplicada à Unity — ideal para trazer lógica aos seus níveis."
+        },
+        {
+          "youtubeId": "GamesIndie",
+          "title": "GamesIndie – Unity 2D/3D (iniciante)",
+          "description": "Passo a passo para criar jogos na Unity — útil para entender layout e navegação."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Protótipo de Cenário Funcional",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O objetivo desta tarefa é aplicar as técnicas de level design para criar um pequeno cenário interativo e testável."
+        },
+        {
+          "type": "list",
+          "title": "Passo a Passo:",
+          "items": [
+            "Partindo de um projeto-base com um controlador de personagem simples, use o ProBuilder para construir um pequeno percurso.",
+            "O cenário deve incluir, no mínimo: diferentes elevações (rampas ou escadas), uma plataforma que exija um pulo e um obstáculo simples que precise ser contornado.",
+            "Teste exaustivamente seu layout para garantir que não há bugs de colisão ou locais onde o jogador possa ficar preso.",
+            "<strong>Entrega:</strong> Grave e suba no Moodle um curto vídeo (30-60 segundos) mostrando a movimentação do personagem pelo seu protótipo de cenário funcional."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-star mr-2\"></i>Extensões (Opcional)",
+          "content": "Para um desafio extra, adicione um caminho vertical que exija uma sequência de pulos, ou uma \"armadilha\" simples (como um buraco no chão) que o jogador precise desviar."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📚 Recursos Adicionais",
+      "content": [
+        {
+          "type": "button",
+          "text": "Tutorial Oficial: Level design com ProBuilder (Unity Learn)",
+          "href": "https://unity.com/features/probuilder"
+        },
+        {
+          "type": "button",
+          "text": "Tutorial Prático: Design de nível simples com ProBuilder (LogRocket)",
+          "href": "https://blog.logrocket.com/design-level-probuilder-unity/"
+        },
+        {
+          "type": "button",
+          "text": "Artigo: 35 maneiras de guiar o jogador (Medium)",
+          "href": "https://jacobryanwheeler.medium.com/game-level-design-35-ways-to-guide-the-player-4bbc324204f4"
+        },
+        {
+          "type": "button",
+          "text": "Princípios de bom level design — resumo inspirado no GDC",
+          "href": "https://www.gamedeveloper.com/design/level-design-practices-for-player-guidance"
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021.",
+        "SCHUYTEMA, Paul. <strong>Design de games: uma abordagem prática.</strong> São Paulo: Cengage Learning, 2008."
+      ]
+    }
+  ]
+}

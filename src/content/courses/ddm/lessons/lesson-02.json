@@ -1,0 +1,99 @@
+{
+  "id": "lesson-02",
+  "title": "Aula 2: Unidade I – Configuração do Ambiente de Desenvolvimento",
+  "objective": "Preparar o ambiente Android, instalando e configurando as ferramentas essenciais para a criação de aplicativos.",
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula",
+      "items": [
+        "<strong>Objetivo Principal:</strong> Ao final desta aula, todos deverão ter o Android Studio instalado e um primeiro projeto \"Olá, Mundo!\" funcionando no emulador ou em um dispositivo físico.",
+        "<strong>Componentes do Ambiente:</strong> O que é o JDK, o Android Studio e o SDK? Por que precisamos de cada um?",
+        "<strong>Instalação Guiada:</strong> Foco nos pontos chave e nas opções importantes durante a instalação.",
+        "<strong>Primeiro Projeto:</strong> Criação passo a passo de um aplicativo \"Olá, Mundo!\".",
+        "<strong>Tour pelo Android Studio:</strong> Uma exploração guiada pela interface para nos sentirmos \"em casa\".",
+        "<strong>Tarefa (TED):</strong> Reforçar a importância de replicar o processo em casa."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Os Três Pilares do Nosso Ambiente",
+      "cards": [
+        {
+          "title": "1. JDK (Java Development Kit)",
+          "content": "Apesar de programarmos em Kotlin, o Android ainda é construído sobre a plataforma Java. O JDK é a <strong>fundação</strong> que fornece as bibliotecas e a máquina virtual essenciais para que tudo funcione.<br><p class=\"mt-4 text-sm font-semibold\">Hoje em dia, o Android Studio já inclui sua própria versão do JDK (o JRE), simplificando a instalação.</p>"
+        },
+        {
+          "title": "2. Android Studio",
+          "content": "Esta é a nossa <strong>oficina principal</strong>. É o Ambiente de Desenvolvimento Integrado (IDE) oficial, criado pela Google. Ele inclui o editor de código, ferramentas de depuração, assistentes de layout e tudo o que precisamos para escrever, testar e compilar nossos aplicativos."
+        },
+        {
+          "title": "3. Android SDK & Emulador",
+          "content": "Estas são as nossas <strong>ferramentas específicas</strong>. O SDK (Software Development Kit) contém as APIs e bibliotecas de cada versão do Android. O Emulador (AVD - Android Virtual Device) nos permite criar e testar nossos apps em celulares virtuais diretamente no computador."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Instalação e Criação do Primeiro Projeto",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A instalação do Android Studio hoje em dia é um processo bastante direto. Vamos focar nos passos e decisões mais importantes, que serão a base para todo o nosso trabalho."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Download do Android Studio</strong><p class=\"mt-2\">Acesse o site oficial <a href=\"https://developer.android.com/studio\">Android Developer</a> e faça o download da versão mais recente. O site geralmente detecta seu sistema operacional automaticamente.</p><img src=\"https://placehold.co/800x400/e0e7ff/3730a3?text=Página+de+Download+do+Android+Studio\" alt=\"Página de download do Android Studio\" class=\"mt-4 rounded-lg shadow-sm\"/>",
+            "<strong>Instalação Guiada</strong><p class=\"mt-2\">Execute o instalador e siga os passos do assistente. Na maioria dos casos, as opções padrão são suficientes.</p><div class=\"callout callout-info\"><h5 class=\"font-bold mb-2\">Dica Importante</h5><p>Certifique-se de que a opção <strong>\"Android Virtual Device\"</strong> está selecionada durante a instalação. Isso garante que o gerenciador de emuladores será instalado, nos permitindo criar dispositivos virtuais para teste.</p></div>",
+            "<strong>Primeiro Lançamento e Gerenciador de SDK</strong><p class=\"mt-2\">Ao abrir o Android Studio pela primeira vez, ele irá apresentar um assistente de configuração para baixar os componentes mais recentes do SDK. Este processo pode demorar algum tempo e requer uma conexão com a internet estável.</p>",
+            "<strong>Criação de um Novo Projeto \"Olá, Mundo!\"</strong><p class=\"mt-2\">Este é o ritual de passagem de qualquer programador. Vamos criar nosso primeiro aplicativo.</p><ul class=\"list-disc list-inside mt-4 pl-6 space-y-4\"><li>Na janela de boas-vindas, selecione \"New Project\".</li><li>Escolha o template <strong>\"Empty Views Activity\"</strong>. Isso nos dá uma estrutura de projeto limpa, com uma única tela (Activity) e um arquivo de layout, ideal para começar a aprender.</li><img src=\"https://placehold.co/800x500/e0e7ff/3730a3?text=Seleção+de+Template\" alt=\"Seleção de template no Android Studio\" class=\"mt-4 rounded-lg shadow-sm\"/><li class=\"pt-4\"><strong>Configure os detalhes do projeto:</strong><ul class=\"list-['-_'] list-inside mt-2 pl-6 font-mono text-sm space-y-2 bg-slate-50 p-4 rounded-md\"><li><strong>Name:</strong> <code>OlaMundoAndroid</code><br><span class=\"font-sans text-slate-600 text-xs\">O nome do seu aplicativo.</span></li><li><strong>Package name:</strong> <code>br.com.unichristus.ads.olamundoandroid</code><br><span class=\"font-sans text-slate-600 text-xs\">Um identificador único para seu app na Play Store. A convenção é usar um domínio invertido.</span></li><li><strong>Language:</strong> <code>Kotlin</code><br><span class=\"font-sans text-slate-600 text-xs\">Nossa linguagem de programação principal.</span></li><li><strong>Minimum SDK:</strong> <code>API 26: Android 8.0 (Oreo)</code><br><span class=\"font-sans text-slate-600 text-xs\">Esta é uma decisão importante! Define a versão mais antiga do Android que seu app irá suportar. O assistente mostra a porcentagem de dispositivos compatíveis. Escolher uma API mais recente dá acesso a mais funcionalidades, mas reduz o alcance. API 26 é um bom equilíbrio.</span></li></ul></li><li>Clique em \"Finish\". O Android Studio irá agora construir o seu projeto. Este processo, chamado <strong>Gradle Sync</strong>, pode demorar alguns minutos na primeira vez, pois baixa todas as dependências necessárias.</li></ul>",
+            "<strong>Execução do Aplicativo</strong><p class=\"mt-2\">Com o projeto criado, o passo final é vê-lo funcionando!</p><ul class=\"list-disc list-inside mt-4 pl-6 space-y-2\"><li><strong>Opção A: Emulador (AVD):</strong> Acesse <code-text>Tools &gt; Device Manager</code-text>. Clique em \"Create Device\", escolha um modelo de celular (ex: Pixel 7), uma imagem de sistema (ex: Tiramisu - API 33), e finalize a criação.</li><li><strong>Opção B: Dispositivo Físico (Recomendado):</strong> Para testar em um celular real, ative as \"Opções do Desenvolvedor\" e a \"Depuração USB\" no seu aparelho. <a href=\"https://developer.android.com/studio/debug/dev-options\">Siga o guia oficial aqui</a>.</li><li>Com seu emulador ou dispositivo físico selecionado na barra de ferramentas, clique no botão verde de \"Play\" (Run 'app'). Seu aplicativo \"Olá, Mundo!\" deverá aparecer na tela após alguns instantes.</li></ul>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Tour Guiado pelo Android Studio",
+      "cards": [
+        {
+          "title": "1. Janela de Projeto (Esquerda)",
+          "content": "É o seu explorador de arquivos. Mostra a estrutura de pastas do seu projeto. Inicialmente, use a visão \"Android\" que organiza os arquivos de forma lógica (manifests, java, res)."
+        },
+        {
+          "title": "2. Janela do Editor (Centro)",
+          "content": "É aqui que a magia acontece. É onde você irá escrever seu código Kotlin e editar seus arquivos de layout XML. Pode ter vários arquivos abertos em abas."
+        },
+        {
+          "title": "3. Barra de Ferramentas (Topo)",
+          "content": "Contém os atalhos mais importantes: Executar (Play), Depurar (Debug), selecionar o dispositivo (emulador ou físico) e sincronizar o projeto (Gradle Sync)."
+        },
+        {
+          "title": "4. Logcat (Fundo)",
+          "content": "Sua ferramenta de depuração mais importante. É um console que mostra mensagens do sistema e, mais importante, as mensagens que imprimimos no nosso código para verificar valores e fluxos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Encerramento e Próximos Passos",
+      "content": [
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Tarefa para a próxima aula (TED)",
+          "content": "<p class=\"mb-4\">O objetivo desta tarefa é garantir que todos tenham o ambiente de desenvolvimento funcional em casa, para que possamos avançar sem problemas técnicos nas próximas aulas práticas.</p><ol class=\"list-decimal list-inside space-y-2\"><li><strong>Instalar o Android Studio</strong> no seu computador pessoal (se possível).</li><li><strong>Criar um projeto inicial</strong> com o template \"Empty Views Activity\", tal como fizemos na aula.</li><li><strong>Testar a execução</strong> no emulador ou, se preferir, em um dispositivo Android físico (requer a ativação do modo de desenvolvedor e depuração USB no celular).</li><li>Tire um print (captura de tela) do seu \"Olá, Mundo!\" funcionando e envie no portal do Moodle.</li></ol>"
+        },
+        {
+          "type": "bibliographyBlock",
+          "title": "Bibliografia Recomendada",
+          "references": [
+            "OLIVEIRA, Diego Bittencourt de et al. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Porto Alegre: SAGAH, 2019. v. 1.",
+            "SIMAS, V. L. et al. <strong>Desenvolvimento para Dispositivos Móveis – Volume 2</strong>. Grupo A, 2019."
+          ]
+        }
+      ]
+    }
+  ]
+}
