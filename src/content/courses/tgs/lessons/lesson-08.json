@@ -1,0 +1,345 @@
+{
+  "id": "lesson-08",
+  "title": "Aula 8: Modelagem Sistêmica e Representação Gráfica",
+  "objective": "Compreender e aplicar ferramentas de modelagem sistêmica para representar o funcionamento de sistemas organizacionais de forma clara e estruturada.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Unidade II – A organização como um sistema aberto. Modelagem sistêmica; representação gráfica e simbólica de sistemas organizacionais."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO ESPECÍFICO",
+          "content": "Compreender e aplicar ferramentas de modelagem sistêmica para representar o funcionamento de sistemas organizacionais de forma clara e estruturada."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA E RECURSOS",
+          "content": "Aula expositiva com demonstrações práticas de diagramas e mapas sistêmicos, com uso de exemplos reais (quadro/slide + ferramenta digital)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎯 Ao final desta aula, você será capaz de:",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Diferenciar <strong>fluxo de controle</strong> (Fluxograma) de <strong>fluxo de dados</strong> (DFD).",
+            "Produzir um <strong>Fluxograma</strong> simples e um <strong>DFD Nível 0</strong> corretos e legíveis.",
+            "Aplicar <strong>regras de níveis e balanceamento</strong> ao decompor DFDs."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta Norteadora",
+      "content": "Se tivesse de desenhar o fluxo de um pedido no iFood, do seu clique até a entrega, você usaria <strong>fluxograma</strong> ou <strong>DFD</strong>? Por quê? Quais símbolos representariam você, o restaurante, o entregador e os <em>dados</em> trocados?"
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎨 Traduzindo a Realidade: O Poder da Modelagem",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um bom modelo é como um mapa: simplifica o território para destacar o essencial, permitindo que gestores, usuários e desenvolvedores compartilhem uma visão comum. Modelos diferentes atendem perguntas diferentes."
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "content": "<strong>Mapa ≠ Território:</strong> DFDs são lógico-funcionais (sem tecnologia específica). Fluxogramas mostram ordem/decisão, não <em>o que</em> circula de dados entre fronteiras."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🧭 Fundamentos: Fluxogramas (Flowcharts)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O fluxograma é um <strong>modelo de fluxo de controle</strong>: descreve a <em>sequência</em> de etapas e as <em>decisões</em> de um processo. É ideal para algoritmos, procedimentos e regras de negócio em que importa o <strong>“o que vem a seguir?”</strong>."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Boas práticas de notação",
+          "content": "<ul><li><strong>Início/Fim</strong> (elipses) claros; um ponto de entrada e saída do processo.</li><li><strong>Processos</strong> (retângulos) nomeados com <strong>verbo + objeto</strong> (ex.: “Validar Pedido”).</li><li><strong>Decisões</strong> (losangos) com saídas <em>rotuladas</em> (“Sim/Não”).</li><li>Fluxo preferencial <strong>topo→baixo</strong> ou <strong>esquerda→direita</strong>; evite cruzamento de setas.</li><li>Use <strong>conectores</strong> se o diagrama ficar longo; mantenha a <strong>granularidade</strong> consistente.</li></ul>"
+        },
+        {
+          "type": "contentBlock",
+          "title": "Microexemplo (atendimento de clínica)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "<em>Início → Recepcionar Paciente → Verificar Cadastro?</em> → <strong>Sim</strong>: <em>Confirmar Dados</em> → <em>Encaminhar para Triagem</em> → <em>Fim</em> • <strong>Não</strong>: <em>Realizar Cadastro</em> → <em>Confirmar Dados</em> …"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📡 Fundamentos: Diagrama de Fluxo de Dados (DFD)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O DFD modela o <strong>fluxo de informações</strong> entre <em>processos</em>, <em>entidades externas</em> e <em>armazenamentos</em>. Responde a <strong>“de onde vêm e para onde vão os dados?”</strong>. É uma visão <strong>lógica</strong> (não tecnológica) do sistema."
+        },
+        {
+          "type": "cardGrid",
+          "cards": [
+            {
+              "title": "Entidade Externa",
+              "content": "Origem/destino de dados fora da fronteira (ex.: Cliente, Sistema Financeiro)."
+            },
+            {
+              "title": "Processo",
+              "content": "Transforma dados (nomeie com <strong>verbo + objeto</strong>, ex.: “Emitir Boleto”)."
+            },
+            {
+              "title": "Armazenamento",
+              "content": "Dados persistidos (ex.: Registros de Alunos, Vagas Disponíveis)."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Regras essenciais",
+          "content": "<ul><li>Nomeie <strong>todos os fluxos</strong> com <strong>substantivos</strong> (ex.: “Dados de Inscrição”).</li><li>Evite <strong>Entidade↔Entidade</strong> e <strong>Store↔Store</strong> diretos; <em>sempre</em> passe por um <strong>Processo</strong>.</li><li>Cada <strong>Processo</strong> possui <strong>≥1 entrada</strong> e <strong>≥1 saída</strong>.</li><li>Mantenha coerência de nomes entre níveis (ver “Níveis e Balanceamento” abaixo).</li></ul>"
+        },
+        {
+          "type": "contentBlock",
+          "title": "Níveis e Balanceamento",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Inicie pelo <strong>Diagrama de Contexto</strong> (visão macro do sistema e suas entidades), detalhe em <strong>Nível 0</strong> (processos principais) e, quando necessário, decomponha em <strong>Nível 1</strong> (subprocessos). O <strong>balanceamento</strong> garante que entradas/saídas vistas num nível <em>reapareçam</em> (de forma somada ou decomposta) nos níveis inferiores — sem “criar” ou “sumir” dados."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Microexemplo (matrícula)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "<em>Contexto:</em> Aluno ↔ <strong>Sistema de Matrícula</strong> ↔ Financeiro. <em>Nível 0:</em> “Processar Matrícula” recebe <em>Dados</em>, consulta <em>Vagas</em>, grava <em>Registros</em>, envia <em>Confirmação</em> ao Aluno e <em>Dados de Pagamento</em> ao Financeiro. <em>Nível 1:</em> “Processar Matrícula” se decompõe em <em>Validar Documentos</em>, <em>Checar Elegibilidade</em>, <em>Confirmar Vaga</em>."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🔀 Quando usar Fluxograma vs. DFD (e erros comuns)",
+      "cards": [
+        {
+          "title": "Use Fluxograma quando…",
+          "content": "<ul><li>há <strong>regras de decisão</strong> e <strong>ordem de passos</strong> importantes;</li><li>precisa explicar um procedimento a alguém (ex.: <em>triagem</em> na clínica);</li><li>vai programar um algoritmo e quer validar a lógica com o time.</li></ul>"
+        },
+        {
+          "title": "Use DFD quando…",
+          "content": "<ul><li>precisa definir <strong>fronteiras</strong> do sistema e <strong>interfaces</strong> com externos;</li><li>deseja mapear <strong>o que circula</strong> (dados) e <strong>onde persiste</strong> (stores);</li><li>vai elicitar requisitos lógicos antes de telas/tecnologia.</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Ferramentas Essenciais",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "<i class=\"fa-solid fa-sitemap text-sky-600 mr-3\"></i>Fluxogramas (Flowcharts)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Foco na <strong>sequência lógica</strong> de um processo. Responde: <em>o que acontece em seguida?</em> Útil para algoritmos e regras de negócio."
+            },
+            {
+              "type": "image",
+              "src": "https://sombraprof.github.io/tgs/imagens/aula_8_imagem_1.svg",
+              "alt": "Fluxograma de checkout em e-commerce"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "<i class=\"fa-solid fa-database text-purple-600 mr-3\"></i>Diagrama de Fluxo de Dados (DFD)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Foco no <strong>fluxo de informações</strong> entre processos, entidades externas e armazenamentos. Responde: <em>de onde vêm e para onde vão os dados?</em>"
+            },
+            {
+              "type": "image",
+              "src": "https://sombraprof.github.io/tgs/imagens/aula_8_imagem_2.svg",
+              "alt": "DFD Nível 0 do processo de matrícula"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "🗂️ Legenda de Símbolos",
+      "headers": ["Ícone", "Nome", "Uso típico", "Rotulagem"],
+      "rows": [
+        [
+          "Elipse",
+          "Início / Fim",
+          "Marca início ou término do fluxo",
+          "Substantivo curto (ex.: \"Início\", \"Fim\")"
+        ],
+        [
+          "Retângulo",
+          "Processo",
+          "Ação / atividade",
+          "<strong>Verbo + objeto</strong> (ex.: \"Validar Pedido\")"
+        ],
+        [
+          "Losango",
+          "Decisão",
+          "Condição com saídas (geralmente 2)",
+          "Rotular saídas (\"Sim/Não\")"
+        ],
+        [
+          "Conector",
+          "Conector",
+          "Evitar cruzar linhas / pular seção",
+          "Letra/identificador (A, B, C…)"
+        ]
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "DFD",
+      "headers": ["Ícone", "Nome", "Uso típico", "Rotulagem"],
+      "rows": [
+        [
+          "Círculo",
+          "Processo",
+          "Transformação de dados",
+          "<strong>Verbo + objeto</strong> (ex.: \"Emitir Boleto\")"
+        ],
+        [
+          "Retângulo (store)",
+          "Armazenamento",
+          "Dados persistidos",
+          "Substantivo (ex.: \"Registros de Alunos\")"
+        ],
+        [
+          "Retângulo",
+          "Entidade Externa",
+          "Origem/destino de dados fora do sistema",
+          "Substantivo (ex.: \"Aluno\", \"Financeiro\")"
+        ],
+        [
+          "➝",
+          "Fluxo de Dados",
+          "Movimento da informação",
+          "<strong>Substantivo</strong> (ex.: \"Dados de Inscrição\")"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "<i class=\"fa-solid fa-pen-ruler mr-2\"></i>Vamos Modelar Juntos: Processo de Matrícula",
+      "content": "<p>Imagine que precisamos criar um sistema para o processo de matrícula de um novo aluno. Como modelar o fluxo de informação?</p><div class=\"bg-white/50 p-4 rounded-md\"><p class=\"font-semibold\">Análise Rápida (DFD Nível 0):</p><ul class=\"list-disc list-inside mt-2 space-y-2\"><li><strong>Entidade Externa:</strong> Aluno.</li><li><strong>Entradas:</strong> \"Dados de Inscrição\" e \"Documentos\".</li><li><strong>Processo Central:</strong> \"Processar Matrícula\".</li><li><strong>Armazenamentos:</strong> \"Vagas Disponíveis\" (consulta) e \"Registros de Alunos\" (gravação).</li><li><strong>Saídas:</strong> \"Confirmação de Matrícula\" ao Aluno e \"Dados de Pagamento\" ao Financeiro.</li></ul><p class=\"mt-4\">Esse DFD oferece uma visão clara das interações, servindo de mapa inicial para o projeto.</p></div>"
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Elaboração de Diagrama",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Coloque em prática as competências de modelagem criando um diagrama de um processo do cotidiano."
+        },
+        {
+          "type": "list",
+          "title": "Instruções:",
+          "items": [
+            "Escolha <strong>um</strong>: matrícula, delivery, ou atendimento em clínica.",
+            "Crie um <strong>Fluxograma</strong> (sequência e decisões) ou um <strong>DFD Nível 0</strong> (fluxo de dados).",
+            "Use ferramenta digital (<strong>draw.io/diagrams.net</strong>, <strong>Lucidchart</strong> ou similar).",
+            "Garanta legibilidade e padronização dos símbolos/rotulações."
+          ]
+        },
+        {
+          "type": "accordion",
+          "items": [
+            {
+              "title": "✅ Checklist de Qualidade (anexe preenchido à entrega)",
+              "content": "<ul><li>Todos os <strong>fluxos</strong> têm <strong>rótulos substantivos</strong>.</li><li><strong>Processos</strong> com <strong>verbo + objeto</strong>.</li><li>Sem ligações diretas <strong>entidade↔entidade</strong> ou <strong>store↔store</strong>.</li><li>Cada processo tem <strong>≥1 entrada</strong> e <strong>≥1 saída</strong>.</li><li><strong>Nomes consistentes</strong> entre níveis (balanceamento).</li><li>Fluxograma: decisões binárias rotuladas; início e fim claros; sem cruzamento de setas.</li><li>Tamanho de fonte e espaçamento legíveis.</li></ul>"
+            },
+            {
+              "title": "📏 Rubrica de Avaliação (0–10)",
+              "content": "<div class=\"overflow-x-auto\"><table class=\"min-w-full text-sm border border-slate-200 rounded-lg\"><thead><tr><th>Critério</th><th>Excelente (2)</th><th>Adequado (1)</th><th>Insuficiente (0)</th></tr></thead><tbody><tr><td><strong>Correção da notação</strong></td><td>Vários erros</td><td>Alguns erros</td><td>Sem erros</td></tr><tr><td><strong>Clareza e legibilidade</strong></td><td>Confuso</td><td>Razoável</td><td>Claro</td></tr><tr><td><strong>Completude</strong> (entradas/saídas, processos mínimos)</td><td>Lacunas</td><td>Quase completo</td><td>Completo</td></tr><tr><td><strong>Consistência/Balanceamento (DFD)</strong></td><td>Inconsistente</td><td>Pequenas falhas</td><td>Consistente</td></tr></tbody></table></div>"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Entrega:</strong> Exporte em PNG/JPG ou PDF e envie no AVA até a próxima aula. <br> <span class=\"text-slate-600 text-sm\">Dica: anexe também o arquivo fonte (.drawio ou .vsdx) para feedback.</span>"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "items": [
+        {
+          "title": "1. Qual diagrama destaca a sequência lógica e decisões (se/então) em um processo?",
+          "content": "<strong>Resposta:</strong> Fluxograma — detalha a lógica e o controle passo a passo."
+        },
+        {
+          "title": "2. Em um DFD, um \"Cliente\" que envia um formulário é:",
+          "content": "<strong>Resposta:</strong> Entidade Externa — origem/destino de dados fora da fronteira do sistema."
+        },
+        {
+          "title": "3. Verdadeiro ou falso: DFD mostra a ordem temporal de execução dos processos.",
+          "content": "<strong>Resposta:</strong> Falso — DFD foca no <strong>fluxo de dados</strong>; sequência temporal é papel do fluxograma."
+        },
+        {
+          "title": "4. (Diagnóstico) Em um DFD, é correto ligar uma entidade diretamente a um armazenamento?",
+          "content": "<strong>Resposta:</strong> Não — o fluxo de dados deve passar por um <strong>processo</strong>."
+        },
+        {
+          "title": "5. (Diagnóstico) Um fluxograma possui uma decisão com três saídas. Correto?",
+          "content": "<strong>Resposta:</strong> Em geral, não — reestruture em decisões binárias encadeadas para manter clareza."
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎥 Vídeos Recomendados (curtos e gratuitos)",
+      "videos": [
+        {
+          "youtubeId": "E8cbpOE0s0w",
+          "title": "Fluxograma no diagrams.net (draw.io) — passo a passo básico"
+        },
+        {
+          "youtubeId": "zA0Xnb2_Cok",
+          "title": "DFD (Diagrama de Contexto / Nível 0) no draw.io"
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "<strong>PALMISANO, Angelo; ROSINI, Alessandro Marco.</strong> <em>Administração de sistemas de informação e a gestão do conhecimento.</em> 2. ed. São Paulo: Cengage Learning, 2012.",
+        "<strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021."
+      ]
+    }
+  ]
+}

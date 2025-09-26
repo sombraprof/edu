@@ -1,0 +1,274 @@
+{
+  "id": "lesson-07",
+  "title": "Aula 7: Homeostase e Adaptação Organizacional",
+  "objective": "Compreender os mecanismos que permitem que os sistemas organizacionais mantenham equilíbrio diante de estímulos externos e se adaptem às mudanças.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Unidade II – A organização como um sistema aberto. Homeostase organizacional; adaptação e autorregulação nos sistemas."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO ESPECÍFICO",
+          "content": "Compreender os mecanismos que permitem que os sistemas organizacionais mantenham equilíbrio diante de estímulos externos e se adaptem às mudanças."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA E RECURSOS",
+          "content": "Aula expositiva dialogada com uso de analogias biológicas, exemplos contemporâneos e esquemas visuais."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta Norteadora",
+      "content": "Como o termostato do ar-condicionado, que liga e desliga para manter a sala a 22°C, se parece com a forma como o gerente de uma loja ajusta o estoque de um produto que está a vender muito ou pouco?"
+    },
+    {
+      "type": "contentBlock",
+      "title": "🌡️ O Termostato Organizacional: Equilíbrio em Meio ao Caos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Se as organizações são sistemas abertos em constante interação com um ambiente turbulento, como é que elas não se desintegram? A resposta está em dois conceitos-chave emprestados da biologia e da cibernética: <strong>homeostase</strong> e <strong>autorregulação</strong>."
+        },
+        {
+          "type": "paragraph",
+          "text": "A homeostase é a capacidade de um sistema manter um estado de equilíbrio interno dinâmico, mesmo quando o ambiente externo muda drasticamente. Pense no corpo humano mantendo a temperatura em torno de 36,5°C, seja num dia de calor intenso ou de frio rigoroso. As organizações bem-sucedidas fazem o mesmo: ajustam as suas operações, estratégias e recursos para se manterem estáveis e funcionais perante crises económicas, novas tecnologias ou a entrada de concorrentes. O mecanismo por trás dessa magia é a <strong>autorregulação</strong>, impulsionada pelos ciclos de feedback que já estudámos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎯 Modelo de Controle: do Setpoint à Ação",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "<strong>Variável controlada:</strong> nível de serviço (OTIF), tempo médio de atendimento, taxa de defeitos.",
+            "<strong>Setpoint (meta):</strong> alvo desejado (ex.: OTIF ≥ 96%).",
+            "<strong>Sensor (medição):</strong> KPI/telemetria/encuestas NPS/ERP.",
+            "<strong>Controlador (regra/política):</strong> gatilhos de decisão (ex.: reabastecer, escalonar, abrir turno).",
+            "<strong>Atuador (ação física/digital):</strong> compra de insumos, alocação de equipe, ajuste de preço.",
+            "<strong>Distúrbios & atrasos:</strong> sazonalidade, ruptura de fornecedor, tempo de aprovação, fila de TI."
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://sombraprof.github.io/tgs/imagens/aula_7_imagem_1.svg",
+          "alt": "Loop de Controle Homeostático"
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Os Dois Lados do Feedback: Estabilizar ou Amplificar?",
+      "headers": [
+        "<i class=\"fa-solid fa-circle-minus mr-2\"></i>Feedback Negativo (de Equilíbrio)",
+        "<i class=\"fa-solid fa-circle-plus mr-2\"></i>Feedback Positivo (de Reforço)"
+      ],
+      "rows": [
+        [
+          "Busca <strong>estabilizar</strong> o sistema, corrigindo desvios para retornar a um estado desejado. Age como um freio.",
+          "Busca <strong>amplificar</strong> uma tendência, criando um efeito \"bola de neve\" que afasta o sistema do seu estado inicial. Age como um acelerador."
+        ],
+        [
+          "<strong>Analogia:</strong> O termostato do ar-condicionado. Se a temperatura sobe, ele liga para resfriar. Se arrefece demais, ele desliga.",
+          "<strong>Analogia:</strong> Um microfone perto da sua própria caixa de som. O som é captado, amplificado, emitido, captado novamente e amplificado, gerando microfonia."
+        ],
+        [
+          "<p class=\"font-semibold\">Exemplos Organizacionais:</p><ul class=\"list-disc list-inside mt-2\"><li><strong>Controlo de estoque:</strong> Se o estoque de um produto cai abaixo do mínimo, o sistema gera uma ordem de compra para repor.</li><li><strong>Gestão de Projetos:</strong> Se o projeto está atrasado, o gestor aloca mais recursos para voltar ao cronograma.</li><li><strong>Suporte ao Cliente:</strong> Um aumento no número de reclamações (feedback) aciona uma revisão dos processos de atendimento.</li></ul>",
+          "<p class=\"font-semibold\">Exemplos Organizacionais:</p><ul class=\"list-disc list-inside mt-2\"><li><strong>Marketing Viral:</strong> Um post popular é partilhado, o que aumenta a sua visibilidade, gerando mais partilhas.</li><li><strong>Crise de Reputação:</strong> Uma notícia negativa gera desconfiança, que leva à queda das ações, o que gera mais notícias negativas.</li><li><strong>Efeito de Rede (Uber/iFood):</strong> Mais utilizadores atraem mais motoristas/restaurantes, o que torna o serviço melhor e atrai ainda mais utilizadores.</li></ul>"
+        ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📦 Controle de Estoque como Loop de Feedback",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://sombraprof.github.io/tgs/imagens/aula_7_imagem_2.svg",
+          "alt": "CLD de Estoque (Feedback Negativo)"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "⏩ Feedforward & 🔄 Alostase",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "<strong>Feedforward</strong> antecipa perturbações antes do erro aparecer na saída. Exemplos: reabastecimento sazonal com base em previsão, autoscaling de servidores por tendência de tráfego."
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Alostase</strong> é a capacidade do sistema de <em>ajustar o setpoint</em> (meta) quando o ambiente muda de forma persistente (ex.: rever prazo \"padrão\" de entrega em mercados com nova logística urbana)."
+        },
+        {
+          "type": "md3Table",
+          "headers": ["Técnica", "Quando usar", "Risco comum"],
+          "rows": [
+            [
+              "Feedback (negativo)",
+              "Desvio pontual do alvo",
+              "Oscilação se atrasos/histerese mal configurados"
+            ],
+            [
+              "Feedforward",
+              "Antecipar sazonalidade/rupturas",
+              "Previsão ruim gera sobre/baixo ajuste"
+            ],
+            [
+              "Alostase",
+              "Novo \"normal\" no ambiente",
+              "Mudar metas cedo demais (perde comparabilidade)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎬 Vídeos para fixar o conteúdo",
+      "videos": [
+        {
+          "youtubeId": "CWJ8KDM5PAY",
+          "title": "Pensamento Sistêmico: relações causais e ciclos de feedback (aplicação em organizações)"
+        },
+        {
+          "youtubeId": "TlwpY5pHveM",
+          "title": "Teoria dos Sistemas | Organização como Sistema Aberto — visão sistêmica na Administração"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "<i class=\"fa-solid fa-head-side-virus mr-2\"></i>Estudo de Caso: A Resposta Organizacional à Pandemia",
+      "content": "<p>A pandemia de COVID-19 foi um dos maiores estímulos ambientais da história recente. As empresas que sobreviveram foram aquelas que melhor se autorregularam. Em grupo, discutam:</p><div class=\"bg-white/50 p-4 rounded-md\"><ol class=\"list-decimal list-inside mt-2 space-y-2\"><li>A necessidade súbita de trabalho remoto foi um estímulo que exigiu qual tipo de feedback para a maioria das empresas?</li><li>O aumento da procura por serviços de streaming e delivery é um exemplo de feedback positivo ou negativo para essas empresas? Porquê?</li><li>Como os sistemas de informação (ferramentas de colaboração, e-commerce, sistemas de logística) foram cruciais para permitir a adaptação e a busca por um novo equilíbrio (homeostase)?</li></ol></div>"
+    },
+    {
+      "type": "cardGrid",
+      "title": "📈 Indicadores que Regulam o Sistema",
+      "cards": [
+        {
+          "title": "Leading vs Lagging",
+          "content": "<ul><li><strong>Leading (antecipam):</strong> tempo de picking, fila no chat, taxa de abandono do carrinho.</li><li><strong>Lagging (resultados):</strong> OTIF, NPS mensal, ticket médio.</li></ul>"
+        },
+        {
+          "title": "Histerese (faixa de tolerância)",
+          "content": "Evita \"liga-desliga\" constante: só agir quando a variável sai de uma faixa (ex.: 94–98% de OTIF)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Resposta Argumentativa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para a próxima aula, você deverá produzir uma resposta argumentativa curta, baseada nos conceitos de adaptação e autorregulação."
+        },
+        {
+          "type": "blockquote",
+          "text": "\"Em sua opinião, o home office tornou as empresas mais adaptáveis? Por quê?\""
+        },
+        {
+          "type": "list",
+          "title": "Instruções:",
+          "items": [
+            "Elabore uma resposta curta e objetiva (um ou dois parágrafos).",
+            "Use os conceitos de sistema aberto, ambiente e feedback na sua argumentação.",
+            "Poste a sua resposta no fórum da disciplina no AVA. Prepare-se para comentar sobre o tema na próxima aula."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "🧐 Mini-Quiz de Autoavaliação",
+      "items": [
+        {
+          "title": "1. Quando um banco central aumenta as taxas de juro para controlar a inflação, está a aplicar um ciclo de feedback...",
+          "content": "<strong>Resposta:</strong> Negativo (de Equilíbrio). O objetivo é corrigir um desvio (inflação alta) e trazer o sistema económico de volta a um estado de estabilidade."
+        },
+        {
+          "title": "2. A capacidade de uma organização manter a sua cultura e identidade mesmo após uma grande mudança, como uma fusão, é um exemplo de...",
+          "content": "<strong>Resposta:</strong> Homeostase. É a tendência do sistema de manter as suas variáveis internas essenciais estáveis, apesar das perturbações externas."
+        },
+        {
+          "title": "3. Verdadeiro ou Falso: Em sistemas de informação, o feedback positivo é sempre desejável.",
+          "content": "<strong>Resposta:</strong> Falso. O feedback positivo pode ser desejável (ex: marketing viral), mas também pode ser perigoso (ex: uma pequena falha de sistema que causa uma sobrecarga em cascata e derruba todo o serviço)."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "title": "🧪 Quiz Extra",
+      "questions": [
+        {
+          "question": "Em um sistema com atrasos significativos, a ação de controle deve:",
+          "options": [
+            "A) Ser mais frequente e com maior ganho",
+            "B) Incluir faixa de histerese e ganho moderado",
+            "C) Desconsiderar medições para evitar ruído",
+            "D) Alterar o setpoint para baixo sempre",
+            "E) Ser aleatória para \"quebrar padrão\""
+          ],
+          "answer": "B"
+        },
+        {
+          "question": "O uso de previsão de demanda para ajustar compras antes do pico é exemplo de:",
+          "options": [
+            "A) Feedback negativo",
+            "B) Feedback positivo",
+            "C) Feedforward",
+            "D) Histerese",
+            "E) Alostase"
+          ],
+          "answer": "C"
+        },
+        {
+          "question": "Ao revisar metas diante de mudança estrutural e persistente no ambiente, a técnica adequada é:",
+          "options": [
+            "A) Manter metas e aumentar o ganho do controlador",
+            "B) Aplicar feedforward apenas",
+            "C) Reduzir a medição (sensor) para estabilizar",
+            "D) Adotar alostase (ajuste de setpoint)",
+            "E) Desligar o controlador"
+          ],
+          "answer": "D"
+        }
+      ]
+    },
+    {
+      "type": "accordion",
+      "title": "📑 Glossário & Leituras",
+      "items": [
+        {
+          "title": "Glossário rápido",
+          "content": "<ul><li><strong>SIPOC:</strong> Fornecedores-Entradas-Processo-Saídas-Clientes.</li><li><strong>VSM:</strong> Mapeamento do Fluxo de Valor (tempo de espera vs. processamento).</li><li><strong>WMS/TMS/ERP:</strong> Sistemas que orquestram fluxos de informação e materiais.</li></ul>"
+        },
+        {
+          "title": "Leituras curtas sugeridas",
+          "content": "<ul><li>Cap. introdutórios de cadeias de suprimentos (qualquer manual de logística).</li><li>Capítulos sobre processos e métricas nos livros já citados (Stair & Reynolds; Silva et al.).</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "<strong>MEIRELES, Manuel; SORDI, J. O. de.</strong> <em>Administração de sistemas de informação.</em> 2. ed. São Paulo: Atlas, 2019.",
+        "<strong>IMONIANA, Joshua Onome.</strong> <em>Auditoria de sistemas de informação.</em> 3. ed. São Paulo: Atlas, 2016."
+      ]
+    }
+  ]
+}

@@ -1,36 +1,18 @@
-﻿<template>
+<template>
   <!-- Sticky header with Material 3 styling -->
-  <header
-    class="sticky top-0 z-50 border-b border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)]/90 backdrop-blur"
-  >
-    <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4">
-      <router-link to="/" class="inline-flex items-center gap-3">
-        <span
-          class="grid h-10 w-10 place-items-center bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)] shadow-elevation-1"
-          :style="{ borderRadius: 'var(--md-sys-border-radius-full)' }"
-        >
-          <GraduationCap
-            :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
-            }"
-          />
+  <header class="app-top-bar">
+    <div class="app-top-bar__content">
+      <router-link to="/" class="brand">
+        <span class="brand-mark">
+          <GraduationCap class="md-icon md-icon--sm" />
         </span>
-        <span class="hidden flex-col leading-tight sm:flex">
-          <span
-            class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]"
-            >Disciplinas</span
-          >
-          <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]"
-            >Prof. Tiago Sombra</span
-          >
+        <span class="brand-text">
+          <span class="brand-subtitle">Disciplinas</span>
+          <span class="brand-title">Prof. Tiago Sombra</span>
         </span>
-        <span
-          class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)] sm:hidden"
-          >Tiago Sombra</span
-        >
+        <span class="brand-title--mobile">Tiago Sombra</span>
       </router-link>
-      <nav class="flex items-center gap-2">
+      <nav class="app-top-bar__actions">
         <router-link
           v-if="navAction"
           class="nav-link"
@@ -38,13 +20,7 @@
           :to="navAction.to"
           :aria-label="navAction.label"
         >
-          <component
-            :is="navAction.icon"
-            :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
-            }"
-          />
+          <component :is="navAction.icon" class="md-icon md-icon--sm" />
           <span>{{ navAction.label }}</span>
         </router-link>
         <ThemeToggle />

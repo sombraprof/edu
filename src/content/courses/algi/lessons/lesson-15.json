@@ -1,0 +1,191 @@
+{
+  "id": "lesson-15",
+  "title": "Aula 15: Correção da NP1 e Aprofundamento",
+  "objective": "Consolidar pontos críticos identificados na prova e fortalecer a escrita de condições compostas e cadeias de decisão claras.",
+  "content": [
+    {
+      "type": "html",
+      "html": "<p class=\"text-body-large\" style=\"color: var(--md-sys-color-on-surface);\" mt-2\">Devolutiva da avaliação, análise de erros comuns e reforço de condicionais compostas.</p>"
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Correção comentada da NP1, erros recorrentes, boas práticas e aprofundamento em <code>if</code>/<code>else if</code> com operadores lógicos."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Consolidar pontos críticos identificados na prova e fortalecer a escrita de condições compostas e cadeias de decisão claras."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Discussão guiada de soluções, exemplificação de correções e exercícios curtos de reescrita e refatoração."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Devolutiva da NP1",
+      "content": [
+        {
+          "type": "html",
+          "html": "<ul class=\"list-disc list-inside space-y-2\" style=\"color: var(--md-sys-color-on-surface);\"><li>Critérios de correção relembrados: fidelidade ao enunciado, correção lógica e organização do código.</li><li>Panorama geral das notas e distribuição por questão.</li><li>Trechos representativos de respostas corretas e incorretas (sem identificação).</li></ul>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Erros Comuns e Como Corrigir",
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "1) Atribuição (=) vs. Comparação (==)",
+          "items": [
+            "<p class=\"mb-2\">Confundir <code>=</code> com <code>==</code> altera a lógica. Compare sempre com <code>==</code>.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "// Ruim\nif (opcao = 1) { /* sempre verdadeiro */ }\n\n// Correto\nif (opcao == 1) { /* compara valor */ }\n"
+        },
+        {
+          "type": "subBlock",
+          "title": "2) Intervalos e Fronteiras",
+          "items": [
+            "<p class=\"mb-2\">Defina claramente os limites e evite sobreposição nas cadeias <code>else if</code>.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "// Classificar media: A (>=9), B (>=7), C (>=5), D (<5)\nif (media >= 9.0) {\n    // A\n} else if (media >= 7.0) {\n    // B\n} else if (media >= 5.0) {\n    // C\n} else {\n    // D\n}\n"
+        },
+        {
+          "type": "subBlock",
+          "title": "3) Combinações Lógicas (&&, ||, !)",
+          "items": [
+            "<p class=\"mb-2\">Agrupe condições relacionadas e use parênteses para deixar a intenção clara.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "// Elegibilidade: (estudante OU idoso) E cadastro ativo\nif ((estudante == 1 || idoso == 1) && cadastroAtivo == 1) {\n    printf(\"Tem direito a desconto.\\n\");\n} else {\n    printf(\"Nao tem direito a desconto.\\n\");\n}\n"
+        },
+        {
+          "type": "subBlock",
+          "title": "4) Entrada/Saída e Formatação",
+          "items": [
+            "<p class=\"mb-2\">Atenção aos especificadores de formato e aos espaços/linhas na saída.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int idade; float renda;\nscanf(\"%d %f\", &idade, &renda); // tipos corretos\nprintf(\"Idade: %d\\nRenda: %.2f\\n\", idade, renda);\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Aprofundamento: Condições Compostas e Estruturação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use cadeias <code>else if</code> quando os casos forem <em>mutuamente exclusivos</em>. Para validações independentes, prefira <code>if</code> separados."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "// Ex.: Faixas de IMC com mensagens mutuamente exclusivas\nif (imc < 18.5) {\n    printf(\"Abaixo do peso\\n\");\n} else if (imc < 25.0) {\n    printf(\"Peso normal\\n\");\n} else if (imc < 30.0) {\n    printf(\"Sobrepeso\\n\");\n} else {\n    printf(\"Obesidade\\n\");\n}\n"
+        },
+        {
+          "type": "paragraph",
+          "text": "Para deixar o fluxo mais limpo, considere <em>guard clauses</em> (saídas antecipadas) em funções."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int podeAcessar(int ativo, int tentativas, int bloqueado) {\n    if (!ativo) return 0;\n    if (bloqueado) return 0;\n    if (tentativas >= 3) return 0;\n    return 1;\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Mini-laboratório de Recuperação",
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "Exercício 1: Classificação de Triângulos",
+          "items": [
+            "<p>Leia três lados e indique se formam triângulo. Se sim, classifique em equilátero, isósceles ou escaleno.</p>"
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "Exercício 2: Reembolso de Despesas",
+          "items": [
+            "<p>Funcionário recebe reembolso se for <em>interno</em> e despesa ≤ teto, ou se for <em>externo</em> com autorização prévia.</p>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Próximos Passos e Tarefa (TED)",
+      "content": "<h4>Tarefa para a próxima aula</h4><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie o programa <code>aula15_revisao_condicionais.c</code>.</li><li>Leia: <em>idade</em>, <em>renda</em> e <em>temDeficiencia</em> (0/1).</li><li>Regras: elegível se (idade ≥ 60) OU (idade ≥ 18 E renda ≤ 2 SM) OU (temDeficiencia == 1) — e cadastro ativo.</li><li>Imprima \"Elegível\"/\"Não elegível\". Use <code>&&</code>, <code>||</code> e <code>!</code> de forma clara.</li><li>Poste o arquivo <code>.c</code> na atividade \"Aula 15\" no Moodle.</li></ol>"
+    },
+    {
+      "type": "contentBlock",
+      "title": "💻 Área de Testes Interativa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
+        },
+        {
+          "type": "html",
+          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeos de Apoio",
+      "videos": [
+        {
+          "title": "Cadeias if / else if / else",
+          "src": "https://www.youtube-nocookie.com/embed/JBFgiNJevqc"
+        },
+        {
+          "title": "Operadores lógicos (&&, ||, !)",
+          "src": "https://www.youtube-nocookie.com/embed/LpVDGm-FT78"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "items": [
+        "Reconhecer e corrigir os erros mais frequentes da NP1.",
+        "Escrever cadeias <code>if/else if/else</code> sem sobreposição.",
+        "Combinar <code>&&</code>, <code>||</code> e <code>!</code> em regras claras."
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "📚 Bibliografia de Apoio",
+      "items": [
+        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
+        "<strong>MANZANO, José Augusto N.G.; OLIVEIRA, Jayr Figueiredo.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Érica, 2019."
+      ]
+    }
+  ]
+}

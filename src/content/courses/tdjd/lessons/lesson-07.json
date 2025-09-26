@@ -1,0 +1,341 @@
+{
+  "id": "lesson-07",
+  "title": "Aula 7: Prototipagem Rápida e GDD",
+  "objective": "Utilizar ferramentas de prototipagem para criar e testar layouts básicos de níveis e introduzir o conceito e estrutura de um GDD.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Ferramentas de prototipagem rápida (ProBuilder), introdução ao Game Design Document (GDD) e criação de blocos de cenário."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Utilizar ferramentas de prototipagem para criar e testar layouts básicos de níveis e introduzir o conceito e estrutura de um GDD."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula prática com mini-lab (aprendizagem baseada em projeto + aprendizagem baseada em problemas)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "A Ponte Entre a Ideia e o Jogo: Prototipagem",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Até agora, discutimos ideias, gêneros e conceitos. A prototipagem é o processo que transforma essas abstrações em algo tangível e, mais importante, <strong>testável</strong>. O objetivo de um protótipo não é ser bonito, mas sim responder a uma pergunta fundamental: <strong>\"A ideia é divertida?\"</strong>."
+        },
+        {
+          "type": "blockquote",
+          "text": "\"Prototipar é a conversa que você tem com suas ideias.\"",
+          "source": "— Adaptado de Schuytema, \"Design de games: uma abordagem prática\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Nesta fase, focamos em \"blockouts\" ou \"white-boxing\", usando formas geométricas simples para construir o layout do nível, testar a escala, o fluxo de movimento e a diversão do core loop antes de investir tempo em arte detalhada."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-cubes mr-2\"></i>Prototipagem Rápida com ProBuilder",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "O que é o ProBuilder?",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ProBuilder é um pacote da Unity que transforma o editor em uma ferramenta de modelagem 3D simplificada. Ele permite criar, editar e texturizar malhas geométricas diretamente na Scene View, tornando-o perfeito para criar rapidamente os \"blocos\" do seu nível (blockouts)."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Instalação e Configuração",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Abra o Package Manager via <strong>Window &gt; Package Manager</strong>.",
+                "No topo, certifique-se de que \"Packages: Unity Registry\" está selecionado.",
+                "Na barra de busca, digite \"ProBuilder\" e clique em <strong>Install</strong>.",
+                "Após a instalação, a barra de ferramentas do ProBuilder estará disponível em <strong>Tools &gt; ProBuilder &gt; ProBuilder Window</strong>."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "https://docs.unity3d.com/Packages/com.unity.probuilder@3.0/manual/images/toolbar_example.png",
+          "alt": "ProBuilder Toolbar — visão geral dos ícones principais"
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-flask-vial mr-2\"></i>Mini-Lab: Sua Primeira Sala",
+          "content": "Vamos fazer juntos: usando a janela do ProBuilder (<strong>New Shape</strong>), crie um cubo grande para ser o chão. Em seguida, use a ferramenta <strong>Extrude Faces</strong> para \"puxar\" as paredes para cima a partir das bordas do chão. Por fim, crie um cubo menor para ser uma plataforma."
+        },
+        {
+          "type": "videosBlock",
+          "videos": [
+            {
+              "youtubeId": "YsBniZ5ya7k",
+              "title": "Vídeo de Apoio: Introdução ao ProBuilder (Unity)"
+            },
+            {
+              "youtubeId": "7RRTnimMZqU",
+              "title": "Vídeo 2: ProBuilder Primer (Level Tutorial)"
+            },
+            {
+              "youtubeId": "Brg5_Vj7X_c",
+              "title": "Vídeo 3: ProBuilder - Basics (Passo a passo)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-gamepad mr-2\"></i>Prototipagem 2D Rápida com Unity Playground",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O <strong>Unity Playground</strong> é um \"sandbox\" educacional (principalmente 2D) com componentes prontos para validar mecânicas simples sem escrever muito código. Ótimo para <em>brainstorm</em> jogável e testes rápidos de regras."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Quando usar:</strong> ideias 2D, protótipos de interação, desafios de tempo curto.",
+            "<strong>Limites:</strong> foco educacional; ao escalar, migre para scripts/arquitetura própria."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-flask-vial mr-2\"></i>Microdesafio (15')",
+          "content": "Crie uma cena 2D onde o jogador coleta 3 itens para abrir a saída. Registre no GDD: <em>regra de vitória</em> e <em>feedback</em> ao concluir."
+        },
+        {
+          "type": "paragraph",
+          "text": "Links úteis: <a href=\"https://learn.unity.com/tutorial/playground-get-started\">Unity Learn — Playground</a> · <a href=\"https://github.com/Unity-Technologies/UnityPlayground\">Repositório no GitHub</a>"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-file-lines mr-2\"></i>Game Design Document (GDD): do \"one-pager\" ao documento vivo",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "1) Por que documentar?",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "O GDD alinha visão, reduz retrabalho e registra decisões. Ele não é \"burocracia\": é um <em>artefato vivo</em> que guia o time enquanto o protótipo evolui. Em curso, um GDD claro acelera feedback do professor/colegas e encurta o ciclo de iteração."
+            },
+            {
+              "type": "callout",
+              "variant": "info",
+              "title": "Leituras de referência",
+              "content": "<ul><li><a href=\"https://www.gamedeveloper.com/design/creating-a-great-design-document\">Creating a Great Design Document — Game Developer</a></li><li><a href=\"https://www.gdcvault.com/play/1012211/One-Page-Design-\">One-Page Design Doc — Stone Librande (GDC)</a></li><li><a href=\"https://en.wikipedia.org/wiki/MDA_framework\">MDA Framework (resumo)</a></li></ul>"
+            }
+          ]
+        },
+        {
+          "type": "cardGrid",
+          "title": "2) Níveis de detalhe (escolha o adequado)",
+          "cards": [
+            {
+              "title": "One-Pager",
+              "content": "1 página. Excelente para pitch inicial e foco. Inspiração: <em>One-Page Design Doc</em> (GDC)."
+            },
+            {
+              "title": "Lean GDD (este curso)",
+              "content": "3–6 páginas. Cobrir visão, core loop, regras, níveis, UI essencial e riscos. Atualiza rápido."
+            },
+            {
+              "title": "GDD Completo",
+              "content": "Documento extenso com sistemas, economia, narrativa, pipelines e métricas. Útil em produção."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "3) Estrutura enxuta (recomendada para o protótipo)",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "<strong>High Concept</strong> (1 frase): \"Elevator pitch\".",
+                "<strong>Público-alvo & Plataforma</strong>: quem joga e onde (PC/mobile/console).",
+                "<strong>Pilares de Design</strong> (3 palavras/frases): ex. <em>clareza visual</em>, <em>ritmo ágil</em>, <em>descoberta</em>.",
+                "<strong>Core Loop</strong> (MDA): ações do jogador → dinâmicas geradas → estética/emoções esperadas.",
+                "<strong>Regras & Mecânicas</strong>: movimentos, interações, vitória/derrota, <em>fail states</em>, física relevante.",
+                "<strong>Nível/Blockout</strong>: layout inicial (ProBuilder), objetivos, progressão mínima.",
+                "<strong>UI/UX</strong>: controles, HUD essencial, feedback (som, partículas, mensagens).",
+                "<strong>Conteúdo & Escopo</strong>: o que entra no protótipo (e o que fica fora agora).",
+                "<strong>Riscos & Hipóteses</strong>: o que precisa ser provado com o protótipo (diversão, clareza, performance).",
+                "<strong>Plano de Playtest</strong>: perguntas, métricas e critérios de sucesso."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Nota: a ligação entre <em>mecânicas→dinâmicas→estética</em> vem do MDA; use-a para justificar seus pilares e seu loop central."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "4) Template (copiar/colar em Google Docs ou Markdown)",
+          "content": [
+            {
+              "type": "code",
+              "language": "markdown",
+              "code": "# Título do Jogo (vX.Y)\n**High Concept:** <1 frase>\n**Plataforma/Público:** <alvo, acessibilidade, sessão média>\n\n## Pilares de Design\n- Pilar 1 — por quê?\n- Pilar 2 — por quê?\n- Pilar 3 — por quê?\n\n## Core Loop (MDA)\n- Mecânicas (M): <ações, regras, recursos>\n- Dinâmicas (D): <comportamentos emergentes esperados>\n- Estética (A): <emoções/experiência-alvo>\n\n## Mecânicas & Regras\n- Movimento, interação, combate/puzzle, vitória/derrota, falhas\n\n## Nível/Blockout inicial\n- Objetivo, fluxo, desafios; print do layout (ProBuilder)\n\n## UI/UX & Feedback\n- Controles (teclado/gamepad), HUD/Hints, áudio, efeitos\n\n## Conteúdo & Escopo do Protótipo\n- In/out do corte vertical (vertical slice)\n\n## Riscos & Hipóteses\n- Técnicos, de design ou produção; como validar\n\n## Plano de Playtest\n- Perguntas, tarefas, métricas, critérios de sucesso\n\n## Changelog\n- [data] mudança/resumo das decisões"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "5) Exemplo (mini)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "<strong>High Concept:</strong> \"Plataforma 3D onde o jogador alterna a gravidade para atravessar salas enigmáticas cronometradas.\" <strong>Pilares:</strong> clareza, ritmo, descoberta. <strong>Core Loop:</strong> observar → alternar gravidade → reposicionar → avançar. <strong>Objetivo do nível:</strong> ativar 3 chaves e alcançar a saída. <strong>Hipótese:</strong> alternância de gravidade é intuitiva e divertida em 2 min."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "6) Checklist de revisão & playtest",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Pitch cabe em 1 frase e alinha com os 3 pilares.",
+                "Loop central está claro no GDD e <em>visível</em> no blockout.",
+                "Objetivo e regras de vitória/derrota escritos sem ambiguidade.",
+                "Mapa de controles/UI mínimo definido.",
+                "Riscos listados com plano de validação.",
+                "Critérios de sucesso do playtest (ex.: \"80% concluem em <3 min\")."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "7) Erros comuns (evite!)",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "<strong>Enciclopédia sem foco</strong>: muita \"lore\", pouco loop jogável.",
+                "<strong>Documento estático</strong>: não registrar decisões/ mudanças (use <em>Changelog</em>).",
+                "<strong>Sem plano de teste</strong>: falta de critérios de sucesso → iteração cega."
+              ]
+            },
+            {
+              "type": "callout",
+              "variant": "good-practice",
+              "title": "Dica prática",
+              "content": "Trate o GDD como sprint notes: atualize após cada aula/lab e anexe prints/GIFs do protótipo."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "8) Referências & Links úteis",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Schuytema, P. <em>Design de games: uma abordagem prática</em> (cap. sobre documentação).",
+                "Alves, W. P. <em>Unity: design e desenvolvimento de jogos</em> (boas práticas de projeto).",
+                "<a href=\"https://www.gamedeveloper.com/design/creating-a-great-design-document\">Creating a Great Design Document — Game Developer</a>",
+                "<a href=\"https://www.gdcvault.com/play/1012211/One-Page-Design-\">One-Page Design Doc — Stone Librande</a>",
+                "<a href=\"https://en.wikipedia.org/wiki/MDA_framework\">MDA Framework (resumo e referências)</a>"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): GDD e Cena Prototipada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A tarefa desta semana é dupla: documentar sua ideia inicial e construir a primeira versão jogável dela."
+        },
+        {
+          "type": "contentBlock",
+          "title": "Parte 1: Rascunho do GDD",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Preencha o modelo de GDD simplificado com as quatro seções principais: High Concept, Gênero/Público, Mecânica Central e Objetivo."
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Parte 2: Cena Prototipada na Unity",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Crie um novo projeto Unity (URP).",
+                "Instale o ProBuilder.",
+                "Usando o ProBuilder, crie um \"blockout\" de uma pequena fase ou sala que permita testar sua mecânica central.",
+                "<strong>Entrega:</strong> Poste no Moodle o link para seu GDD (Google Docs) e um print OU vídeo curto da sua cena prototipada."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📚 Recursos Adicionais",
+      "content": [
+        {
+          "type": "button",
+          "text": "Documentação Oficial do ProBuilder",
+          "href": "https://docs.unity3d.com/Packages/com.unity.probuilder@5.0/manual/index.html"
+        },
+        {
+          "type": "button",
+          "text": "Vídeo: Level Design Blockout (Brackeys)",
+          "href": "https://www.youtube.com/watch?v=1n4Z5o-Y8sE"
+        },
+        {
+          "type": "button",
+          "text": "Artigo: How to Write a GDD (Game Developer)",
+          "href": "https://www.gamedeveloper.com/design/how-to-write-a-game-design-document"
+        },
+        {
+          "type": "button",
+          "text": "Vídeo: O que é um GDD? (GDC)",
+          "href": "https://www.youtube.com/watch?v=q1i2Y_Q_yYU"
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "SCHUYTEMA, Paul. <strong>Design de games: uma abordagem prática.</strong> São Paulo: Cengage Learning, 2008.",
+        "ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019."
+      ]
+    }
+  ]
+}

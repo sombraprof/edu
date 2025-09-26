@@ -1,0 +1,228 @@
+{
+  "id": "lesson-07",
+  "title": "Aula 7: Classes Abstratas e Interfaces",
+  "objective": "Capacitar o aluno a projetar e implementar hierarquias de classes flexíveis usando classes abstratas e a definir contratos com interfaces.",
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Ementa e Contextualização",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Até agora, trabalhamos com classes concretas, que podem ser instanciadas diretamente. No entanto, ao modelar sistemas complexos, muitas vezes precisamos de um nível maior de abstração. As <strong>classes abstratas</strong> nos permitem criar \"modelos\" de classes incompletas, forçando as subclasses a fornecerem implementações específicas. Já as <strong>interfaces</strong> levam a abstração a um novo patamar, definindo \"contratos\" de comportamento que classes completamente diferentes podem seguir. Dominar esses dois conceitos é crucial para projetar sistemas desacoplados, flexíveis e que seguem os princípios de design SOLID."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Classes Abstratas, Métodos Abstratos, Interfaces, palavra-chave `implements`, e a diferença entre os dois conceitos."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Capacitar o aluno a projetar e implementar hierarquias de classes flexíveis usando classes abstratas e a definir contratos com interfaces."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva, exemplos comparativos de código, uma tabela de diferenças e uma atividade prática de modelagem de sistema."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📜 Definindo Contratos e Modelos",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "1. Classes Abstratas: O Modelo Incompleto",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Uma classe abstrata é uma classe que <strong>não pode ser instanciada</strong>. Ela serve como um modelo base para outras classes. Pode conter tanto métodos concretos (com implementação) quanto métodos abstratos (sem implementação)."
+            },
+            {
+              "type": "list",
+              "items": [
+                "<strong>Palavra-chave `abstract`:</strong> Usada para declarar tanto a classe quanto os métodos abstratos.",
+                "<strong>Métodos Abstratos:</strong> São como uma promessa. Eles declaram uma assinatura de método, mas sem corpo. Qualquer classe concreta que herda da classe abstrata é <strong>obrigada</strong> a implementar todos os métodos abstratos.",
+                "<strong>Quando usar?</strong> Quando você tem uma relação \"é-um\" (herança) e quer fornecer um comportamento base comum para todas as subclasses, mas ao mesmo tempo forçar que cada uma delas implemente uma parte específica do comportamento."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "2. Interfaces: O Contrato de Comportamento",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Uma interface é uma referência de tipo completamente abstrata. Ela só pode conter assinaturas de métodos e constantes (`public static final`). Uma classe pode <strong>implementar</strong> uma ou mais interfaces."
+            },
+            {
+              "type": "list",
+              "items": [
+                "<strong>Palavra-chave `interface` e `implements`:</strong> `interface` para declarar e `implements` para uma classe implementar a interface.",
+                "<strong>100% Abstrata (antes do Java 8):</strong> Todos os métodos são implicitamente `public` e `abstract`. Todos os atributos são `public static final`.",
+                "<strong>Quando usar?</strong> Quando você quer definir um \"contrato\" de comportamento que pode ser implementado por classes de diferentes hierarquias. É a base para um design de software desacoplado e a forma como Java simula a \"herança múltipla\"."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "md3Table",
+          "title": "Classe Abstrata vs. Interface",
+          "headers": ["Característica", "Classe Abstrata", "Interface (Java 8+)"],
+          "rows": [
+            [
+              "Instanciação",
+              "Não pode ser instanciada; pode ter construtor (chamado via `super()`).",
+              "Não pode ser instanciada; sem construtor."
+            ],
+            [
+              "Métodos",
+              "Pode ter métodos abstratos e concretos.",
+              "Abstratos, <strong>default</strong>, <strong>static</strong> e (Java 9+) <strong>private</strong>."
+            ],
+            [
+              "Atributos/Estado",
+              "Pode ter qualquer tipo de atributo (static, final, non-final).",
+              "Só pode ter constantes (`public static final`)."
+            ],
+            [
+              "Herança",
+              "Uma classe pode herdar de apenas <strong>uma</strong> classe abstrata (`extends`).",
+              "Pode `extends` múltiplas interfaces (herança múltipla de tipo)."
+            ],
+            [
+              "Construtor",
+              "Pode ter construtores (chamados via `super()` pelas subclasses).",
+              "Não pode ter construtores."
+            ],
+            [
+              "Propósito",
+              "Definir um modelo base com comportamento comum para uma hierarquia (relação \"é-um\").",
+              "Definir um contrato de capacidades que podem ser compartilhadas por classes não relacionadas."
+            ],
+            [
+              "Extras modernos",
+              "Pode ser <em>sealed</em> (Java 17+) para controlar subclasses.",
+              "Conflitos de `default`; `@FunctionalInterface`; também pode ser <em>sealed</em>."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "💻 Abstração na Prática",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "Exemplo 1: Classe Abstrata FormaGeometrica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "`FormaGeometrica` define o conceito de \"área\", mas não sabe como calculá-la. `Retangulo` e `Circulo` são obrigados a fornecer a fórmula."
+            },
+            {
+              "type": "code",
+              "language": "java",
+              "code": "// Abstract base class with state and constructor\npublic abstract class FormaGeometrica {\n    private final String nome;\n\n    public FormaGeometrica(String nome) {\n        this.nome = nome;\n    }\n\n    public String getNome() { // Exposes read-only state\n        return nome;\n    }\n\n    public abstract double calcularArea(); // Must be implemented by subclasses\n}\n\npublic class Retangulo extends FormaGeometrica {\n    private final double largura;\n    private final double altura;\n\n    public Retangulo(double largura, double altura) {\n        super(\"Retangulo\");\n        this.largura = largura;\n        this.altura = altura;\n    }\n\n    @Override\n    public double calcularArea() {\n        return largura * altura;\n    }\n}\n\npublic class Circulo extends FormaGeometrica {\n    private final double raio;\n\n    public Circulo(double raio) {\n        super(\"Circulo\");\n        this.raio = raio;\n    }\n\n    @Override\n    public double calcularArea() {\n        return Math.PI * raio * raio;\n    }\n}"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Exemplo 2: Interface Tributavel",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Tanto uma `ContaCorrente` quanto um `SeguroDeVida` podem ser tributáveis, mas não têm uma relação de herança. A interface `Tributavel` cria um contrato comum."
+            },
+            {
+              "type": "code",
+              "language": "java",
+              "code": "// Contract for taxable entities (Java 8+ features demonstrated)\npublic interface Tributavel {\n    double getValorImposto();             // Abstract method (must be implemented)\n\n    default double aplicarAcrescimo(double valor) {\n        // Default method provides reusable behavior for implementors\n        return valor + calcularAcrescimo(valor);\n    }\n\n    private double calcularAcrescimo(double valor) { // Java 9+ private reuse\n        return valor * 0.02; // 2% extra fee as an example\n    }\n\n    static double arredonda(double v) {   // Utility static method\n        return Math.round(v * 100.0) / 100.0;\n    }\n}\n\n// Simple account (educational)\nclass Conta {\n    private double saldo;\n    public Conta(double saldo) { this.saldo = saldo; }\n    public double getSaldo() { return saldo; }\n}\n\nclass ContaCorrente extends Conta implements Tributavel {\n    public ContaCorrente(double saldo) { super(saldo); }\n    @Override public double getValorImposto() {\n        return getSaldo() * 0.01; // 1% of balance\n    }\n}\n\nclass SeguroDeVida implements Tributavel {\n    @Override public double getValorImposto() {\n        return 42.0; // fixed tax\n    }\n}\n\nimport java.util.List;\n\nclass CalculadoraImpostos {\n    public static void main(String[] args) {\n        // Polymorphism with interfaces: unrelated classes share a contract\n        List<Tributavel> itens = List.of(\n            new ContaCorrente(2500.0),\n            new SeguroDeVida()\n        );\n\n        double total = 0;\n        for (Tributavel t : itens) {\n            double base = t.getValorImposto();\n            // Using default + static methods from the interface\n            double comAcrescimo = Tributavel.arredonda(t.aplicarAcrescimo(base));\n            total += comAcrescimo;\n            System.out.println(\\\"Item -> imposto: \\\" + comAcrescimo);\n        }\n        System.out.println(\\\"Total: \\\" + Tributavel.arredonda(total));\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎥 Vídeos e Links de Apoio",
+      "videos": [
+        {
+          "title": "Classes Abstratas (Curso em Vídeo)",
+          "youtubeId": "ws1NVBGeegs"
+        },
+        {
+          "title": "Interfaces em Java (Loiane Groner)",
+          "youtubeId": "6uLLfRNgRA4"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leituras Recomendadas",
+      "content": [
+        {
+          "type": "button",
+          "text": "Abstract Methods and Classes (Oracle)",
+          "href": "https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html"
+        },
+        {
+          "type": "button",
+          "text": "Java Interfaces (Baeldung)",
+          "href": "https://www.baeldung.com/java-interfaces"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática (TED): Modelando um Zoológico",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos projetar um sistema simples para um zoológico, combinando classes abstratas e interfaces."
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Crie a classe abstrata `Animal.java`</strong>. Ela deve ter um atributo `nome` e um método abstrato `public abstract void emitirSom()`.",
+            "<strong>Crie as classes concretas `Leao.java` e `Passaro.java`</strong>, ambas herdando de `Animal`. Implemente o método `emitirSom()` em cada uma (ex: \"Rugido!\" e \"Pio!\").",
+            "<strong>Crie a interface `Voavel.java`</strong>. Ela deve ter um único método: `public void voar()`.",
+            "<strong>Faça a classe `Passaro` implementar a interface `Voavel`</strong> e forneça uma implementação para o método `voar()`. O Leão não deve implementar esta interface.",
+            "<strong>Crie uma classe `Zoologico.java` com um método `main`</strong>. Crie um `Leao` e um `Passaro`. Use polimorfismo para chamar `emitirSom()` de ambos. Verifique se o pássaro pode voar, mas o leão não."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de Aprendizagem da Aula",
+      "items": [
+        "Definir e criar uma classe abstrata com métodos abstratos e concretos.",
+        "Compreender que classes abstratas não podem ser instanciadas.",
+        "Definir e implementar uma interface em uma ou mais classes.",
+        "Explicar as diferenças cruciais entre uma classe abstrata e uma interface.",
+        "Escolher entre uma classe abstrata e uma interface com base no problema de design."
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia de Apoio",
+      "references": [
+        "<strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.",
+        "<strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015.",
+        "<strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong> <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013."
+      ]
+    }
+  ]
+}
