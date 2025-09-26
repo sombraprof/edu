@@ -6,11 +6,16 @@
     @keydown.space.prevent="($event.target as HTMLElement).click()"
   >
     <div class="flex items-start justify-between gap-4">
-      <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
-        <h3 class="text-headline-small font-semibold text-[var(--md-sys-color-on-surface)]">
+      <div class="md-stack md-stack-2">
+        <h3 class="md-typescale-headline-small font-semibold text-on-surface">
           {{ meta.title }}
         </h3>
-        <p v-if="meta.description" class="supporting-text max-w-lg">{{ meta.description }}</p>
+        <p
+          v-if="meta.description"
+          class="supporting-text md-typescale-body-medium text-on-surface-variant max-w-lg"
+        >
+          {{ meta.description }}
+        </p>
       </div>
       <span class="badge" :style="badgeStyle">{{ institutionLabel }}</span>
     </div>
@@ -22,20 +27,16 @@
     >
       <div
         v-if="$slots.meta"
-        class="flex flex-wrap gap-2 md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]"
+        class="flex flex-wrap gap-2 md-typescale-body-small text-on-surface-variant"
       >
         <slot name="meta" />
       </div>
       <span
-        class="inline-flex items-center gap-2 text-label-medium font-medium text-[var(--md-sys-color-on-surface-variant)] transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow"
+        class="inline-flex items-center gap-2 md-typescale-label-medium font-medium text-on-surface-variant transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow"
       >
         <span>Acessar disciplina</span>
         <ChevronRight
-          :style="{
-            height: 'var(--md-sys-icon-size-small)',
-            width: 'var(--md-sys-icon-size-small)',
-          }"
-          class="transition-transform duration-150 group-hover:translate-x-1"
+          class="md-icon md-icon--sm transition-transform duration-150 group-hover:translate-x-1"
         />
       </span>
     </div>

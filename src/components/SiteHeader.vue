@@ -1,51 +1,28 @@
-﻿<template>
+<template>
   <!-- Sticky header with Material 3 styling -->
-  <header
-    class="sticky top-0 z-50 border-b border-[var(--md-sys-color-outline)] bg-[var(--md-sys-color-surface)]/90 backdrop-blur"
-  >
-    <div class="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4">
-      <router-link to="/" class="inline-flex items-center gap-3">
-        <span
-          class="grid h-10 w-10 place-items-center bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)] shadow-elevation-1"
-          :style="{ borderRadius: 'var(--md-sys-border-radius-full)' }"
-        >
-          <GraduationCap
-            :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
-            }"
-          />
+  <header class="app-top-bar">
+    <div class="app-top-bar__content">
+      <router-link to="/" class="brand">
+        <span class="brand-mark">
+          <GraduationCap class="md-icon md-icon--sm" />
         </span>
-        <span class="hidden flex-col leading-tight sm:flex">
-          <span
-            class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]"
-            >Disciplinas</span
-          >
-          <span class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]"
-            >Prof. Tiago Sombra</span
-          >
+        <span class="brand-text">
+          <span class="brand-subtitle">Disciplinas</span>
+          <span class="brand-title">Prof. Tiago Sombra</span>
         </span>
-        <span
-          class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)] sm:hidden"
-          >Tiago Sombra</span
-        >
+        <span class="brand-title--mobile">Tiago Sombra</span>
       </router-link>
-      <nav class="flex items-center gap-2">
+      <nav class="app-top-bar__actions">
         <router-link
-          v-if="navAction"
+          v-for="action in navLinks"
+          :key="action.label"
           class="nav-link"
-          :class="{ 'nav-link--active': navAction.to.name === route.name }"
-          :to="navAction.to"
-          :aria-label="navAction.label"
+          :class="{ 'nav-link--active': isActive(action) }"
+          :to="action.to"
+          :aria-label="action.label"
         >
-          <component
-            :is="navAction.icon"
-            :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
-            }"
-          />
-          <span>{{ navAction.label }}</span>
+          <component :is="action.icon" class="md-icon md-icon--sm" />
+          <span>{{ action.label }}</span>
         </router-link>
         <ThemeToggle />
       </nav>
@@ -56,32 +33,57 @@
 <script setup lang="ts">
 // Header uses lucide icons and the theme toggle
 import { computed } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, type RouteLocationRaw } from 'vue-router';
 import ThemeToggle from './ThemeToggle.vue';
-import { GraduationCap, Grid3x3, ArrowLeft } from 'lucide-vue-next';
+import { GraduationCap, Grid3x3, ArrowLeft, ClipboardList } from 'lucide-vue-next';
 
 const route = useRoute();
 
-const navAction = computed(() => {
+type NavAction = {
+  label: string;
+  to: RouteLocationRaw;
+  icon: unknown;
+  targetName?: string;
+};
+
+const navLinks = computed<NavAction[]>(() => {
+  const actions: NavAction[] = [];
+
   if (route.name === 'lesson' || route.name === 'exercise') {
     const courseId = route.params.courseId ? String(route.params.courseId) : null;
     if (courseId) {
-      return {
+      const toCourse: RouteLocationRaw = { name: 'course-home', params: { courseId } };
+      actions.push({
         label: 'Voltar para a disciplina',
-        to: { name: 'course-home', params: { courseId } },
+        to: toCourse,
         icon: ArrowLeft,
-      } as const;
+        targetName: 'course-home',
+      });
     }
   }
 
   if (route.name === 'course-home') {
-    return {
+    const toHome: RouteLocationRaw = { name: 'home' };
+    actions.push({
       label: 'Todas as disciplinas',
-      to: { name: 'home' as const },
+      to: toHome,
       icon: Grid3x3,
-    } as const;
+      targetName: 'home',
+    });
   }
 
-  return null;
+  const toReport: RouteLocationRaw = { name: 'validation-report' };
+  actions.push({
+    label: 'Relatório de validação',
+    to: toReport,
+    icon: ClipboardList,
+    targetName: 'validation-report',
+  });
+
+  return actions;
 });
+
+function isActive(action: NavAction) {
+  return action.targetName !== undefined && action.targetName === route.name;
+}
 </script>

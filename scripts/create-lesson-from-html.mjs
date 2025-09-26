@@ -5,7 +5,7 @@
  * Usage:
  *   node scripts/create-lesson-from-html.mjs \
  *     --course algi \
- *     --id lesson42 \
+ *     --id lesson-42 \
  *     --title "Aula 42" \
  *     --objective "Objetivo da aula" \
  *     --input caminho/para/aula.html
@@ -208,6 +208,10 @@ async function run() {
 
   const courseId = requireArg(args, 'course');
   const lessonId = requireArg(args, 'id');
+  if (!/^lesson-[0-9]{2,}$/.test(lessonId)) {
+    console.error('The lesson id must follow the pattern lesson-XX (two or more digits).');
+    process.exit(1);
+  }
   const title = requireArg(args, 'title');
   const objective = typeof args.objective === 'string' ? args.objective : '';
   const available = args.available === 'false' ? false : true;

@@ -1,0 +1,355 @@
+{
+  "generatedAt": "2025-09-26T21:24:28.267Z",
+  "status": "passed-with-warnings",
+  "totals": {
+    "courses": 5,
+    "lessons": 69,
+    "lessonsWithIssues": 4,
+    "problems": 0,
+    "warnings": 4
+  },
+  "courses": [
+    {
+      "id": "ddm",
+      "lessonsTotal": 14,
+      "lessonsWithIssues": 1,
+      "problems": 0,
+      "warnings": 1,
+      "lessons": [
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-03.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "legacy-block",
+              "message": "Bloco legado em content[2]: \"fileTree\" requer refino futuro."
+            }
+          ],
+          "lessonId": "lesson-03"
+        }
+      ]
+    },
+    {
+      "id": "tdjd",
+      "lessonsTotal": 15,
+      "lessonsWithIssues": 1,
+      "problems": 0,
+      "warnings": 1,
+      "lessons": [
+        {
+          "file": "src/content/courses/tdjd/lessons/lesson-02.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "legacy-block",
+              "message": "Bloco legado em content[10]: \"dragAndDrop\" requer refino futuro."
+            }
+          ],
+          "lessonId": "lesson-02"
+        }
+      ]
+    },
+    {
+      "id": "tgs",
+      "lessonsTotal": 15,
+      "lessonsWithIssues": 2,
+      "problems": 0,
+      "warnings": 2,
+      "lessons": [
+        {
+          "file": "src/content/courses/tgs/lessons/lesson-06.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "legacy-block",
+              "message": "Bloco legado em content[10]: \"quiz\" requer refino futuro."
+            }
+          ],
+          "lessonId": "lesson-06"
+        },
+        {
+          "file": "src/content/courses/tgs/lessons/lesson-07.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "legacy-block",
+              "message": "Bloco legado em content[12]: \"quiz\" requer refino futuro."
+            }
+          ],
+          "lessonId": "lesson-07"
+        }
+      ]
+    }
+  ],
+  "generation": {
+    "exercises": [
+      {
+        "course": "algi",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "lista1",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "lista2",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "ddm",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "api-sync",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "ux-audit",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "lpoo",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "modelagem-uml",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "refatoracao",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "tdjd",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "protótipo-papel",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "vertical-slice",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      },
+      {
+        "course": "tgs",
+        "total": 2,
+        "withMetadata": 2,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 2
+        },
+        "byModel": {
+          "manual": 2
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "loop-feedback",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "mapa-sistema",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z",
+            "available": false
+          }
+        ]
+      }
+    ],
+    "supplements": [
+      {
+        "course": "algi",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "guia-estudos",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "ddm",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "glossario-ui",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "lpoo",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "patterns-cheatsheet",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "tdjd",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "bibliografia-base",
+            "type": "reading",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      },
+      {
+        "course": "tgs",
+        "total": 1,
+        "withMetadata": 1,
+        "missingMetadata": 0,
+        "byGenerator": {
+          "Equipe EDU": 1
+        },
+        "byModel": {
+          "manual": 1
+        },
+        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "entries": [
+          {
+            "id": "template-relatorio",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2024-06-14T00:00:00.000Z"
+          }
+        ]
+      }
+    ]
+  }
+}

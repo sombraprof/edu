@@ -32,11 +32,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { Info, CheckCircle2, AlertTriangle, BookOpen } from 'lucide-vue-next';
+import { Info, CheckCircle2, AlertTriangle, BookOpen, ListChecks } from 'lucide-vue-next';
 
 const props = withDefaults(
   defineProps<{
-    variant?: 'info' | 'academic' | 'good-practice' | 'warning' | 'error';
+    variant?: 'info' | 'academic' | 'good-practice' | 'warning' | 'task' | 'error';
     title?: string;
     content: string;
   }>(),
@@ -55,6 +55,8 @@ const icon = computed(() => {
       return AlertTriangle;
     case 'academic':
       return BookOpen;
+    case 'task':
+      return ListChecks;
     default:
       return null;
   }
@@ -71,6 +73,8 @@ const variantClasses = computed(() => {
       return `md-bg-warning-container md-border-warning`;
     case 'academic':
       return `md-bg-secondary-container md-border-secondary`;
+    case 'task':
+      return `md-bg-primary-container md-border-primary`;
     case 'error':
       return `md-bg-error-container md-border-error`;
     default:
@@ -88,6 +92,8 @@ const variantTextClasses = computed(() => {
       return 'md-text-warning';
     case 'academic':
       return 'md-text-secondary';
+    case 'task':
+      return 'md-text-primary';
     case 'error':
       return 'md-text-error';
     default:

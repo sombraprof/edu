@@ -1,0 +1,258 @@
+{
+  "id": "lesson-15",
+  "title": "Aula 16: O Framework MDA - Design da Experiência do Jogador",
+  "description": "Introdução ao framework MDA (Mechanics, Dynamics, Aesthetics) e sua aplicação na análise e estruturação da experiência do jogador.",
+  "metadata": {
+    "unit": "Unidade IV – Design de Jogos e Experiência do Jogador"
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano de Aula: Projeto de Experiência (MDA)",
+      "content": [
+        {
+          "icon": "target",
+          "title": "Objetivo",
+          "text": "Compreender o MDA Framework e aplicá-lo na análise e estruturação da experiência do jogador em jogos digitais. Desenvolver a habilidade de projetar mecânicas e dinâmicas que provoquem experiências estéticas intencionais."
+        },
+        {
+          "icon": "graduation-cap",
+          "title": "Conteúdo",
+          "text": "Introdução e aprofundamento do framework MDA (Mechanics, Dynamics, Aesthetics). Análise de jogos conhecidos segundo os três eixos do modelo."
+        },
+        {
+          "icon": "users",
+          "title": "Metodologia",
+          "text": "Aula teórico-prática com análise crítica de jogos + discussão em grupos (metodologia ativa: game-based analysis + thinking-based learning)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "O Framework MDA: Mecânicas, Dinâmicas e Estética",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "O Framework MDA (Mechanics, Dynamics, Aesthetics) é uma ferramenta essencial para o Game Design, proposta para ajudar os designers a separar e entender como as regras do jogo se traduzem em experiência emocional para o jogador. Ele inverte a perspectiva: o designer começa pelas <strong>Mecânicas</strong> e espera que elas gerem certas <strong>Dinâmicas</strong>, que por sua vez, levarão a uma <strong>Estética</strong> (experiência) desejada. O jogador percebe na ordem inversa: primeiro a Estética, depois as Dinâmicas e, por fim, as Mecânicas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "💡 Por que o MDA importa no projeto",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Ao explicitar a relação entre regras, comportamentos e emoções, o MDA cria uma linguagem comum entre <strong>designers</strong>, <strong>programadores</strong>, equipes de <strong>arte</strong> e stakeholders. A equipe deixa de discutir apenas features isoladas e passa a negociar qual experiência deve emergir do produto jogável."
+        },
+        {
+          "type": "paragraph",
+          "html": "Documentar a intenção de estética permite validar o design com jogadoras e jogadores cedo, antes de investir meses em conteúdo. Seguindo a formulação de <strong>Hunicke, LeBlanc e Zubek (2004)</strong>, o foco está em como cada decisão de mecânica reforça (ou atrapalha) a experiência pretendida."
+        },
+        {
+          "type": "subBlock",
+          "title": "🧭 Perguntas norteadoras para o time",
+          "items": [
+            "<p><strong>Estética:</strong> Que emoções ou fantasias queremos que a pessoa jogadora vivencie? Como mediremos isso em testes?</p>",
+            "<p><strong>Dinâmica:</strong> Que comportamentos emergentes esperamos? Como estimularemos colaboração, competição ou exploração?</p>",
+            "<p><strong>Mecânica:</strong> Quais sistemas concretos garantem que essas dinâmicas aconteçam? Há regras em conflito?</p>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🔺 Os Três Pilares do Design",
+      "columns": 3,
+      "items": [
+        {
+          "title": "1. Mecânicas (M)",
+          "subtitle": "As Regras do Jogo",
+          "icon": "Settings",
+          "variant": "info",
+          "description": "Componentes de dados e algoritmos. São as regras básicas, as ações permitidas, os recursos, o sistema de pontuação e o motor do jogo (ex: <em>Pular</em>, <em>Coletar Moedas</em>, <em>Dano por Colisão</em>)."
+        },
+        {
+          "title": "2. Dinâmicas (D)",
+          "subtitle": "O Comportamento Emergente",
+          "icon": "Activity",
+          "variant": "good-practice",
+          "description": "Comportamentos que surgem da interação do jogador com as Mecânicas e com outros jogadores. São as estratégias, táticas e o ritmo de jogo (ex: <em>Gerenciamento de recursos</em>, <em>Evasão tática de inimigos</em>, <em>Corrida contra o tempo</em>)."
+        },
+        {
+          "title": "3. Estética (A)",
+          "subtitle": "A Experiência Emocional",
+          "icon": "Heart",
+          "variant": "academic",
+          "description": "As respostas emocionais e a experiência sensorial evoca. O <em>sentimento</em> do jogo (ex: <em>Desafio</em>, <em>Descoberta</em>, <em>Narrativa</em>, <em>Companheirismo</em>, <em>Medo</em>)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎭 As 8 Estéticas clássicas",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Para Hunicke, LeBlanc e Zubek (GDC, 2004), categorizar experiências facilita comunicar o \"tipo de diversão\" almejada. Use a lista abaixo como guia para alinhar expectativas com a equipe e com playtesters."
+        },
+        {
+          "type": "subBlock",
+          "title": "🗂️ Catálogo rápido de experiências",
+          "items": [
+            "<p><strong>Sensação:</strong> foco nos estímulos audiovisuais e táteis. Ex.: <em>Rez</em>, jogos VR musicais.</p>",
+            "<p><strong>Fantasia:</strong> permite viver papéis e mundos impossíveis. Ex.: RPGs como <em>The Elder Scrolls</em>.</p>",
+            "<p><strong>Narrativa:</strong> experiência centrada em histórias fortes. Ex.: <em>Life is Strange</em>.</p>",
+            "<p><strong>Desafio:</strong> testes de habilidade e superação. Ex.: <em>Celeste</em>, <em>Super Meat Boy</em>.</p>",
+            "<p><strong>Companheirismo:</strong> cooperação e laços sociais. Ex.: <em>Journey</em>, party games.</p>",
+            "<p><strong>Descoberta:</strong> exploração de espaços e sistemas. Ex.: <em>Subnautica</em>, metroidvanias.</p>",
+            "<p><strong>Expressão:</strong> possibilidade de se expressar ou personalizar. Ex.: <em>The Sims</em>, jogos de criação.</p>",
+            "<p><strong>Rendição (Submission):</strong> jogo como passatempo e rotina, ideal para loops relaxantes. Ex.: jogos mobile de relaxamento.</p>"
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "🎯 Use nas avaliações",
+          "content": "Inclua as estéticas alvo nos formulários de playtest e peça que a pessoa jogadora identifique quais sentimentos realmente percebeu. O contraste aponta onde iterar."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "🧪 Recursos em Sala: Análise de Caso",
+      "content": "Utilizaremos jogos conhecidos como <strong>Celeste</strong> (foco em Desafio/Frustração), <strong>Journey</strong> (foco em Companheirismo/Descoberta) e <strong>Hollow Knight</strong> (foco em Exploração/Mistério) para preencher formulários de análise (M -> D -> A)."
+    },
+    {
+      "type": "timeline",
+      "title": "🔁 Fluxo iterativo com o MDA",
+      "description": "Cada ciclo de prototipagem reforça a conexão entre intenção estética e sistemas jogáveis. Use este passo a passo durante o projeto semestral.",
+      "steps": [
+        {
+          "title": "1. Definir a experiência alvo",
+          "content": "Liste as estéticas desejadas e descreva cenas ou sentimentos que devem emergir. Concorde com o time sobre os critérios de sucesso."
+        },
+        {
+          "title": "2. Mapear mecânicas essenciais",
+          "content": "Escolha regras, recursos e feedbacks que suportem a experiência. Documente como cada mecânica deverá influenciar o comportamento do jogador."
+        },
+        {
+          "title": "3. Prototipar e observar dinâmicas",
+          "content": "Implemente um protótipo focado em testar o comportamento emergente. Faça sessões de observação ou gravação para identificar padrões reais de jogo."
+        },
+        {
+          "title": "4. Ajustar e comunicar aprendizados",
+          "content": "Compare a experiência percebida com a experiência planejada. Ajuste mecânicas, comunique mudanças e repita o ciclo em sprints curtos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🧩 Atividade em sala: Canvas MDA",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "Em equipes, cada grupo escolhe um jogo de referência (ou o próprio protótipo) e preenche um canvas MDA em um quadro colaborativo. O objetivo é tornar visível o vínculo entre intenções estéticas e decisões de design."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "🎯 Identificar Estéticas",
+              "text": "Enumere até três experiências que o jogo referencia desperta. Use a lista de estéticas clássicas como guia."
+            },
+            {
+              "title": "🔄 Relacionar Dinâmicas",
+              "text": "Descreva comportamentos emergentes esperados. Como os jogadoras/jogadores cooperam, competem ou exploram?"
+            },
+            {
+              "title": "⚙️ Selecionar Mecânicas",
+              "text": "Liste regras, recursos ou loops centrais responsáveis por provocar essas dinâmicas. Registre também riscos ou conflitos."
+            },
+            {
+              "title": "📏 Planejar Métricas",
+              "text": "Defina evidências observáveis durante playtests (ex.: tempo para dominar um movimento, frequência de cooperação, relatos emocionais)."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "🤝 Compartilhar e comparar",
+          "content": "Cada equipe apresenta o canvas em 3 minutos, recebendo feedbacks focados nas conexões entre M, D e A. Registre aprendizados para a iteração seguinte."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeo de Apoio: Entendendo o MDA Framework",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=H0MFJwQH2fo",
+          "title": "MIT OCW: Mechanics, Dynamics, Aesthetics — The MDA Framework",
+          "caption": "Aula do curso MIT CMS.608 (Spring 2014) explicando o framework MDA com exemplos práticos. (em inglês; há transcript e download no OCW)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=DM4a4jAX7ms",
+          "title": "Conceitos: O que é MDA Framework? | Fábrica de Jogos",
+          "caption": "Introdução em português ao MDA (Mecânicas, Dinâmicas e Estéticas), adequada para iniciantes."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Aplicando o MDA ao seu Jogo",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "🎮 Escolha do Jogo",
+              "text": "Selecione um jogo digital que você conhece bem, ou utilize o protótipo do projeto de sua equipe."
+            },
+            {
+              "title": "🧠 Análise MDA em Parágrafo",
+              "text": "Escreva um parágrafo que detalhe o ciclo MDA do jogo escolhido, respondendo: quais Mecânicas (regras) levam a quais Dinâmicas (comportamentos/estratégias), e qual Estética (experiência emocional) é o resultado intencional desse ciclo."
+            },
+            {
+              "title": "📤 Entrega",
+              "text": "Poste sua análise em um parágrafo único no fórum de discussão da disciplina, iniciando com <em>MDA de [Nome do Jogo]:...</em>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Checklist da aplicação do MDA",
+      "items": [
+        "A estética desejada foi registrada com exemplos concretos de emoções ou fantasias?",
+        "Existe ao menos uma mecânica explícita para cada dinâmica pretendida?",
+        "Os playtests coletam dados qualitativos (relatos) e quantitativos (métricas) sobre a experiência?",
+        "Os ajustes planejados após o teste indicam qual parte do ciclo MDA será alterada no próximo sprint?"
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "Bibliografia Essencial",
+      "content": [
+        {
+          "html": "<strong>SALEN, Katie; ZIMMERMAN, Eric.</strong> <em>Regras do jogo: fundamentos do design de jogos.</em> São Paulo: Blucher, 2012."
+        },
+        {
+          "html": "<strong>MASTROCOLA, Vicente Martin.</strong> <em>Game design: modelos de negócio e processos criativos.</em> São Paulo: Cengage Learning, 2015."
+        },
+        {
+          "html": "<strong>HUNICKE, Robin; LEBLANC, Marc; ZUBEK, Robert.</strong> <em>MDA: A Formal Approach to Game Design and Game Research.</em> Proceedings of the AAAI Workshop on Challenges in Game AI, 2004. Disponível na GDC Vault."
+        },
+        {
+          "html": "<strong>MIT OpenCourseWare.</strong> <em>CMS.608/863, Game Design (Spring 2014).</em> Aula \"Mechanics, Dynamics, Aesthetics — The MDA Framework\". Disponível em: <a href=\"https://ocw.mit.edu\" target=\"_blank\" rel=\"noreferrer\">ocw.mit.edu</a>. Acesso em 25/09/2025."
+        },
+        {
+          "html": "<strong>Fábrica de Jogos.</strong> Vídeo \"Conceitos: O que é MDA Framework?\" YouTube, 2020. Disponível em: <a href=\"https://www.youtube.com/watch?v=DM4a4jAX7ms\" target=\"_blank\" rel=\"noreferrer\">youtube.com</a>."
+        }
+      ]
+    }
+  ]
+}

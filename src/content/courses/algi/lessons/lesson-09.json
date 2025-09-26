@@ -1,0 +1,149 @@
+{
+  "id": "lesson-09",
+  "title": "Aula 9: Problemas Sequenciais Aplicados em C",
+  "objective": "Resolvendo problemas do cotidiano com leitura, processamento e saída de dados.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Resolução de problemas sequenciais clássicos: cálculo de salário líquido, IMC e descontos cumulativos, integrando <code class=\"inline-code\">scanf</code> e <code class=\"inline-code\">printf</code>."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Construir programas em C que resolvam problemas do cotidiano, integrando leitura de dados, processamento e saída detalhada."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula expositiva com resolução de problemas clássicos, seguida de atividade colaborativa em duplas para codificar e testar soluções, desenvolvendo autonomia."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de Voo da Aula de Hoje",
+      "items": [
+        "Revisão do fluxo Entrada → Processamento → Saída.",
+        "Estudo de Caso 1: Desvendando o cálculo do Salário Líquido.",
+        "Estudo de Caso 2: Construindo uma Calculadora de IMC.",
+        "Atividade prática em duplas: Algoritmo de Desconto Cumulativo.",
+        "Apresentação da tarefa (TED) da Aula 9."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de Caso 1: Cálculo do Salário Líquido",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um dos problemas mais comuns em sistemas de negócios é o cálculo de um salário líquido a partir de um salário base, aplicando gratificações e descontos. Vamos decompor este problema."
+        },
+        {
+          "type": "subBlock",
+          "title": "Etapas",
+          "items": [
+            "<p><strong>1. Entrada:</strong> Precisamos do salário-base do funcionário.</p>",
+            "<p><strong>2. Processamento:</strong></p><ul class=\"list-disc list-inside ml-5\"><li>Calcular uma gratificação de 5% sobre o salário-base.</li><li>Calcular um imposto de 7% sobre o salário-base.</li><li>Calcular o salário líquido: <code>Salario Base + Gratificação - Imposto</code>.</li></ul>",
+            "<p><strong>3. Saída:</strong> Exibir o salário a receber.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main() {\n    // Input variable\n    float salario_base;\n\n    // Processing variables\n    float gratificacao, imposto, salario_liquido;\n\n    // 1. INPUT\n    printf(\"Digite o salario-base do funcionario: R$ \");\n    scanf(\"%f\", &salario_base);\n\n    // 2. PROCESSING\n    gratificacao = salario_base * 0.05f; // 5% bonus\n    imposto = salario_base * 0.07f;      // 7% tax\n    salario_liquido = salario_base + gratificacao - imposto;\n\n    // 3. OUTPUT\n    printf(\"\\n--- Holerite ---\\n\");\n    printf(\"Salario Base: R$ %10.2f\\n\", salario_base);\n    printf(\"Gratificacao: R$ %10.2f\\n\", gratificacao);\n    printf(\"Imposto:      R$ %10.2f\\n\", imposto);\n    printf(\"--------------------------\\n\");\n    printf(\"Salario Liquido: R$ %8.2f\\n\", salario_liquido);\n\n    return 0;\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de Caso 2: Calculadora de IMC",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O Índice de Massa Corporal (IMC) é uma medida internacional usada para saber se uma pessoa está no peso ideal. A sua fórmula é <code>IMC = Peso / (Altura * Altura)</code>."
+        },
+        {
+          "type": "subBlock",
+          "title": "Etapas",
+          "items": [
+            "<p><strong>1. Entrada:</strong> O peso (em kg) e a altura (em metros) da pessoa.</p>",
+            "<p><strong>2. Processamento:</strong> Aplicar a fórmula do IMC.</p>",
+            "<p><strong>3. Saída:</strong> Exibir o valor do IMC calculado.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main() {\n    // Input variables\n    float peso, altura;\n\n    // Processing variable\n    float imc;\n\n    // 1. INPUT\n    printf(\"Digite seu peso (em kg): \");\n    scanf(\"%f\", &peso);\n    printf(\"Digite sua altura (em metros): \");\n    scanf(\"%f\", &altura);\n\n    // 2. PROCESSING\n    imc = peso / (altura * altura);\n\n    // 3. OUTPUT\n    printf(\"\\n--- Resultado do IMC ---\\n\");\n    printf(\"Peso: %.2f kg\\n\", peso);\n    printf(\"Altura: %.2f m\\n\", altura);\n    printf(\"Seu IMC e: %.2f\\n\", imc);\n\n    return 0;\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade Prática em Duplas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Agora é a vossa vez! Em duplas, escolham um dos problemas abaixo, discutam a lógica (Entrada, Processamento, Saída) e implementem a solução em C."
+        },
+        {
+          "type": "subBlock",
+          "title": "Problemas",
+          "items": [
+            "<div class=\"grid md:grid-cols-2 gap-6 mt-4\"><div style=\"background-color: var(--md-sys-color-primary-container); padding: 1.5rem; border-radius: 1rem;\"><h5 style=\"font-weight: 700; color: var(--md-sys-color-on-primary-container); margin-bottom: 0.5rem;\">Problema A: Desconto Cumulativo</h5><p style=\"color: var(--md-sys-color-on-surface);\">Uma loja oferece 12% de desconto sobre o valor de um produto. Crie um programa que leia o preço original e exiba o preço final com o desconto e o valor do desconto economizado.</p></div><div style=\"background-color: var(--md-sys-color-primary-container); padding: 1.5rem; border-radius: 1rem;\"><h5 style=\"font-weight: 700; color: var(--md-sys-color-on-primary-container); margin-bottom: 0.5rem;\">Problema B: Conversor de Moedas</h5><p style=\"color: var(--md-sys-color-on-surface);\">Crie um programa que leia um valor em Reais (R$) e a cotação do Dólar Americano (US$). O programa deve calcular e exibir o valor correspondente em dólares.</p></div></div>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Próximos Passos e Tarefa (TED)",
+      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O objetivo é desenvolver autonomia na resolução de problemas sequenciais.</p><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Escolha um problema <strong>diferente</strong> dos trabalhados em sala (pode ser da lista de exercícios ou um que você crie).</li><li>Crie um programa em C completo, com entradas, processamento e saídas bem formatadas.</li><li>Adicione comentários em inglês no seu código explicando a lógica.</li><li>Poste o ficheiro <code class=\"inline-code\">.c</code> na Atividade da \"Aula 9\" no Moodle.</li></ol>"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "💻 Área de Testes Interativa",
+      "content": "<p class=\"mb-4\">Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C.</p><a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+    },
+    {
+      "type": "videos",
+      "title": "🎥 Vídeos de Apoio",
+      "videos": [
+        {
+          "title": "Função printf e scanf – Português (BR)",
+          "src": "https://www.youtube.com/embed/if6pvcwrW10"
+        },
+        {
+          "title": "Introdução à programação C – parte 2: scanf e printf",
+          "src": "https://www.youtube.com/embed/PtlSgJLq2XA"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "items": [
+        "Analisar um problema e identificar as etapas de Entrada, Processamento e Saída.",
+        "Implementar cálculos matemáticos simples em C.",
+        "Construir um programa sequencial completo e funcional.",
+        "Explicar a importância de saídas de dados bem formatadas."
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "📚 Bibliografia de Apoio",
+      "items": [
+        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
+        "<strong>MANZANO, José Augusto N.G.; OLIVEIRA, Jayr Figueiredo.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Érica, 2019.",
+        "<strong>KERNIGHAN, Brian W.; RITCHIE, Dennis M.</strong> <em>A Linguagem de Programação C.</em> 2. ed. Rio de Janeiro: LTC, 2018. (Leitura complementar)"
+      ]
+    }
+  ]
+}

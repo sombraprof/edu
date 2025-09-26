@@ -1,0 +1,262 @@
+{
+  "generatedAt": "2025-09-26T21:24:29.932Z",
+  "totals": {
+    "courses": 5,
+    "lessons": {
+      "total": 92,
+      "available": 69,
+      "unavailable": 23,
+      "legacyLessons": 27,
+      "md3Blocks": 520,
+      "legacyBlocks": 28,
+      "totalBlocks": 548
+    },
+    "exercises": {
+      "total": 10,
+      "available": 1,
+      "withMetadata": 10
+    },
+    "supplements": {
+      "total": 5,
+      "available": 0,
+      "withMetadata": 5
+    }
+  },
+  "courses": [
+    {
+      "id": "algi",
+      "title": "Algoritmos e Programação I",
+      "institution": "Unichristus",
+      "lessons": {
+        "total": 40,
+        "available": 17,
+        "unavailable": 23,
+        "totalBlocks": 170,
+        "md3Blocks": 164,
+        "legacyBlocks": 6,
+        "legacyLessons": 5,
+        "legacyLessonIds": ["lesson-04", "lesson-14", "lesson-15", "lesson-29", "lesson-39"],
+        "blocksByType": {
+          "accordion": 1,
+          "bibliography": 17,
+          "callout": 25,
+          "checklist": 14,
+          "code": 1,
+          "component": 1,
+          "contentBlock": 65,
+          "flightPlan": 12,
+          "html": 6,
+          "lessonPlan": 12,
+          "representations": 1,
+          "timeline": 1,
+          "videos": 14
+        },
+        "legacyBlocksByType": {
+          "html": 6
+        }
+      },
+      "exercises": {
+        "total": 2,
+        "available": 0,
+        "withMetadata": 2,
+        "legacyEntries": 2,
+        "legacyIds": ["lista1", "lista2"]
+      },
+      "supplements": {
+        "total": 1,
+        "available": 0,
+        "withMetadata": 1
+      }
+    },
+    {
+      "id": "ddm",
+      "title": "Desenvolvimento para Dispositivos Móveis",
+      "institution": "Unichristus",
+      "lessons": {
+        "total": 14,
+        "available": 14,
+        "unavailable": 0,
+        "totalBlocks": 57,
+        "md3Blocks": 49,
+        "legacyBlocks": 8,
+        "legacyLessons": 8,
+        "legacyLessonIds": [
+          "lesson-03",
+          "lesson-06",
+          "lesson-07",
+          "lesson-08",
+          "lesson-09",
+          "lesson-10",
+          "lesson-13",
+          "lesson-14"
+        ],
+        "blocksByType": {
+          "accordion": 1,
+          "audioBlock": 1,
+          "bibliography": 2,
+          "callout": 4,
+          "cardGrid": 4,
+          "contentBlock": 31,
+          "fileTree": 1,
+          "flightPlan": 5,
+          "html": 7,
+          "timeline": 1
+        },
+        "legacyBlocksByType": {
+          "fileTree": 1,
+          "html": 7
+        }
+      },
+      "exercises": {
+        "total": 2,
+        "available": 0,
+        "withMetadata": 2,
+        "legacyEntries": 2,
+        "legacyIds": ["api-sync", "ux-audit"]
+      },
+      "supplements": {
+        "total": 1,
+        "available": 0,
+        "withMetadata": 1
+      }
+    },
+    {
+      "id": "lpoo",
+      "title": "Linguagens de Programação Orientada a Objetos",
+      "institution": "Unifametro",
+      "lessons": {
+        "total": 8,
+        "available": 8,
+        "unavailable": 0,
+        "totalBlocks": 62,
+        "md3Blocks": 61,
+        "legacyBlocks": 1,
+        "legacyLessons": 1,
+        "legacyLessonIds": ["lesson-01"],
+        "blocksByType": {
+          "accordion": 1,
+          "bibliographyBlock": 7,
+          "checklist": 7,
+          "contentBlock": 34,
+          "html": 1,
+          "lessonPlan": 7,
+          "videosBlock": 5
+        },
+        "legacyBlocksByType": {
+          "html": 1
+        }
+      },
+      "exercises": {
+        "total": 2,
+        "available": 0,
+        "withMetadata": 2,
+        "legacyEntries": 2,
+        "legacyIds": ["modelagem-uml", "refatoracao"]
+      },
+      "supplements": {
+        "total": 1,
+        "available": 0,
+        "withMetadata": 1
+      }
+    },
+    {
+      "id": "tdjd",
+      "title": "Tecnologia e Desenvolvimento para Jogos Digitais",
+      "institution": "Unichristus",
+      "lessons": {
+        "total": 15,
+        "available": 15,
+        "unavailable": 0,
+        "totalBlocks": 133,
+        "md3Blocks": 128,
+        "legacyBlocks": 5,
+        "legacyLessons": 5,
+        "legacyLessonIds": ["lesson-02", "lesson-10", "lesson-11", "lesson-12", "lesson-13"],
+        "blocksByType": {
+          "accordion": 2,
+          "bibliography": 2,
+          "bibliographyBlock": 9,
+          "callout": 7,
+          "cardGrid": 14,
+          "checklist": 1,
+          "contentBlock": 73,
+          "dragAndDrop": 1,
+          "html": 4,
+          "lessonPlan": 11,
+          "timeline": 4,
+          "videos": 1,
+          "videosBlock": 4
+        },
+        "legacyBlocksByType": {
+          "dragAndDrop": 1,
+          "html": 4
+        }
+      },
+      "exercises": {
+        "total": 2,
+        "available": 1,
+        "withMetadata": 2,
+        "legacyEntries": 2,
+        "legacyIds": ["protótipo-papel", "vertical-slice"]
+      },
+      "supplements": {
+        "total": 1,
+        "available": 0,
+        "withMetadata": 1
+      }
+    },
+    {
+      "id": "tgs",
+      "title": "Teoria Geral de Sistemas",
+      "institution": "Unichristus",
+      "lessons": {
+        "total": 15,
+        "available": 15,
+        "unavailable": 0,
+        "totalBlocks": 126,
+        "md3Blocks": 118,
+        "legacyBlocks": 8,
+        "legacyLessons": 8,
+        "legacyLessonIds": [
+          "lesson-06",
+          "lesson-07",
+          "lesson-10",
+          "lesson-11",
+          "lesson-12",
+          "lesson-13",
+          "lesson-14",
+          "lesson-15"
+        ],
+        "blocksByType": {
+          "accordion": 11,
+          "bibliographyBlock": 9,
+          "callout": 20,
+          "cardGrid": 15,
+          "contentBlock": 42,
+          "html": 6,
+          "lessonPlan": 9,
+          "md3Table": 7,
+          "quiz": 2,
+          "timeline": 1,
+          "videosBlock": 4
+        },
+        "legacyBlocksByType": {
+          "html": 6,
+          "quiz": 2
+        }
+      },
+      "exercises": {
+        "total": 2,
+        "available": 0,
+        "withMetadata": 2,
+        "legacyEntries": 2,
+        "legacyIds": ["loop-feedback", "mapa-sistema"]
+      },
+      "supplements": {
+        "total": 1,
+        "available": 0,
+        "withMetadata": 1
+      }
+    }
+  ]
+}

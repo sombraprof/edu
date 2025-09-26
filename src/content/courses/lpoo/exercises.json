@@ -5,7 +5,12 @@
     "description": "Crie diagrama de classes com relacionamentos, atributos e multiplicidades.",
     "link": "courses/lpoo/exercises/modelagem-uml.html",
     "available": false,
-    "file": "modelagem-uml.vue"
+    "file": "modelagem-uml.vue",
+    "metadata": {
+      "generatedBy": "Equipe EDU",
+      "model": "manual",
+      "timestamp": "2024-06-14T00:00:00.000Z"
+    }
   },
   {
     "id": "refatoracao",
@@ -13,6 +18,11 @@
     "description": "Aplique princípios SOLID para melhorar um código legado simples.",
     "link": "courses/lpoo/exercises/refatoracao.html",
     "available": false,
-    "file": "refatoracao.vue"
+    "file": "refatoracao.vue",
+    "metadata": {
+      "generatedBy": "Equipe EDU",
+      "model": "manual",
+      "timestamp": "2024-06-14T00:00:00.000Z"
+    }
   }
 ]

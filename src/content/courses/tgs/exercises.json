@@ -5,7 +5,12 @@
     "description": "Modele as fronteiras, entradas e saídas de um sistema real escolhido pelo grupo.",
     "link": "courses/tgs/exercises/mapa-sistema.html",
     "available": false,
-    "file": "mapa-sistema.vue"
+    "file": "mapa-sistema.vue",
+    "metadata": {
+      "generatedBy": "Equipe EDU",
+      "model": "manual",
+      "timestamp": "2024-06-14T00:00:00.000Z"
+    }
   },
   {
     "id": "loop-feedback",
@@ -13,6 +18,11 @@
     "description": "Construa diagramas causais destacando ciclos de reforço e balanço.",
     "link": "courses/tgs/exercises/loop-feedback.html",
     "available": false,
-    "file": "loop-feedback.vue"
+    "file": "loop-feedback.vue",
+    "metadata": {
+      "generatedBy": "Equipe EDU",
+      "model": "manual",
+      "timestamp": "2024-06-14T00:00:00.000Z"
+    }
   }
 ]

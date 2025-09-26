@@ -1,0 +1,427 @@
+{
+  "id": "lesson-06",
+  "title": "Aula 6: Importação de Assets e Organização de Projeto",
+  "objective": "Habilitar o aluno a importar e integrar assets no projeto Unity aplicando boas práticas de organização de arquivos, pastas e cenas.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Importação de assets via Asset Store e repositórios externos; estruturação e organização de arquivos no projeto Unity."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Habilitar o aluno a importar e integrar assets no projeto Unity aplicando boas práticas de organização de arquivos, pastas e cenas."
+        },
+        {
+          "icon": "gears",
+          "title": "METODOLOGIA",
+          "content": "Aula prática com resolução de tarefa orientada (aprendizagem baseada em tarefas reais)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎯 Resultados de Aprendizagem (Aula 6)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Ao final desta aula, o(a) estudante será capaz de:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "<strong>Importar</strong> pelo menos 3 assets (modelo 3D, textura/material e áudio) via Asset Store ou fonte externa, aplicando as configurações de importação adequadas.",
+            "<strong>Organizar</strong> a estrutura de pastas do projeto segundo o padrão proposto (<code>_Project/Art, Prefabs, Scenes, Scripts</code>) e separar assets de terceiros em <code>Plugins/</code> quando aplicável.",
+            "<strong>Configurar compatibilidade</strong> com URP (resolver materiais \"rosa\" e ajustar escala/colisores de modelos).",
+            "<strong>Criar</strong> pelo menos 1 <em>Prefab</em> funcional a partir de um modelo importado, com colisor apropriado.",
+            "<strong>Versionar</strong> o projeto em um repositório Git com <code>.gitignore</code> e Git LFS para binários, registrando ao menos 3 commits com mensagens descritivas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "✅ Critérios de Avaliação da TED (Aula 6)",
+      "content": [
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "1) Importação & Compatibilidade (25%)",
+          "content": "<ul><li><strong>0–10%</strong>: Assets importados com problemas de materiais/escala; ajustes ausentes.</li><li><strong>11–20%</strong>: Importação ok; alguns ajustes feitos (ex.: conversão URP), mas ainda há inconsistências.</li><li><strong>21–25%</strong>: Importação correta; materiais compatíveis, escala adequada e configurações ajustadas.</li></ul>"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "2) Organização de Projeto (25%)",
+          "content": "<ul><li><strong>0–10%</strong>: Estrutura de pastas ausente ou confusa; convenções de nomes não seguidas.</li><li><strong>11–20%</strong>: Estrutura parcialmente correta; pequenos desvios de padrão.</li><li><strong>21–25%</strong>: Estrutura completa conforme proposto; nomes consistentes e separação de terceiros em <code>Plugins/</code>.</li></ul>"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "3) Cena Funcional (20%)",
+          "content": "<ul><li><strong>0–8%</strong>: Cena incompleta ou não executa como esperado.</li><li><strong>9–16%</strong>: Cena simples e funcional; composição básica.</li><li><strong>17–20%</strong>: Cena funcional com composição coerente (iluminação básica, posicionamento, uso dos assets).</li></ul>"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "4) Prefab com Colisor (15%)",
+          "content": "<ul><li><strong>0–6%</strong>: Prefab ausente ou sem colisor funcional.</li><li><strong>7–12%</strong>: Prefab criado; colisor presente mas com ajustes pendentes.</li><li><strong>13–15%</strong>: Prefab correto; colisor apropriado e reutilizável.</li></ul>"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "5) Versionamento (Git + LFS) (15%)",
+          "content": "<ul><li><strong>0–6%</strong>: Repositório ausente ou sem <code>.gitignore</code>/LFS.</li><li><strong>7–12%</strong>: Repo criado; <code>.gitignore</code> ok; LFS parcial; commits pouco descritivos.</li><li><strong>13–15%</strong>: Repo com <code>.gitignore</code> + LFS corretos e ≥3 commits com mensagens claras.</li></ul>"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "content": "<strong>Entrega (conferência formal):</strong> print/vídeo curto mostrando a cena e a estrutura de pastas no Project. Nome do projeto: <code>NOME_SOBRENOME_TDJD_AULA6</code>. Qualquer referência externa deve citar a fonte e licença."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Construindo Mundos: A Arte de Montar o Quebra-Cabeça",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Na aula anterior, configuramos nosso ambiente de trabalho na Unity. Agora, vamos começar a preenchê-lo. Um jogo é um \"quebra-cabeça\" montado com diversas peças: modelos 3D, texturas, sons, scripts, etc. Essas peças são os <strong>assets</strong>. Saber como encontrar, importar e, principalmente, organizar esses assets é uma habilidade que acelera drasticamente a prototipagem e evita dores de cabeça no futuro."
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "<i class=\"fa-solid fa-scale-balanced mr-2\"></i>Atenção às Licenças de Uso",
+          "content": "Nem todo asset encontrado na internet é gratuito para uso em projetos, especialmente comerciais. Sempre verifique a licença (ex: CC0, MIT, Creative Commons). A Unity Asset Store deixa isso claro, mas em repositórios externos, a responsabilidade é sua."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-box-open mr-2\"></i>Importação de Assets",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "1. Unity Asset Store (Oficial)",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "Abra a Asset Store via <strong>Window > Asset Store</strong> (ou acesse o site).",
+                "Pesquise pelo asset desejado (use filtros como \"Free Assets\").",
+                "Clique em <strong>\"Add to My Assets\"</strong>.",
+                "No Unity, abra <strong>Window > Package Manager</strong>. No topo, selecione <strong>\"My Assets\"</strong>.",
+                "Encontre o asset, clique em <strong>\"Download\"</strong> e depois em <strong>\"Import\"</strong>.",
+                "Uma janela mostrará todos os arquivos do pacote. Revise e desmarque o que não for necessário (ex: cenas de demonstração) e clique em <strong>\"Import\"</strong>."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "2. Repositórios Externos (GitHub, Itch.io)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Assets de fora da loja oficial vêm em vários formatos:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "<strong>.unitypackage:</strong> Dê um duplo clique no arquivo ou vá em <strong>Assets > Import Package > Custom Package</strong>.",
+                "<strong>URL de Git:</strong> No Package Manager, clique no ícone <strong>\"+\" > \"Add package from git URL...\"</strong> e cole o link.",
+                "<strong>.zip / Arquivos Soltos:</strong> Descompacte e arraste as pastas (ou arquivos como .fbx, .png, .wav) diretamente para a janela <strong>Project</strong> da Unity."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "3. Ajustes de Compatibilidade e Otimização",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Após importar, quase sempre é necessário fazer ajustes no Inspector:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "<strong>Materiais Rosas (URP):</strong> Use <strong>Window > Rendering > Render Pipeline Converter</strong> para converter os materiais.",
+                "<strong>Modelos 3D (.fbx):</strong> Verifique o <strong>Scale Factor</strong>, habilite <strong>Generate Colliders</strong> se necessário, e ajuste as configurações de <strong>Normals</strong> e <strong>Rig</strong>.",
+                "<strong>Texturas (.png):</strong> Altere <strong>Texture Type</strong> (ex: Normal Map), habilite/desabilite <strong>sRGB</strong>, e ajuste <strong>Compression</strong> para otimizar o tamanho.",
+                "<strong>Áudio (.wav):</strong> Habilite <strong>Force To Mono</strong> para sons 3D, e ajuste <strong>Load Type</strong> e <strong>Compression Format</strong> para otimizar o uso de memória."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Checklist: Primeiros 5 Minutos Pós-Import",
+          "content": "✅ O asset está na pasta correta? ✅ Os materiais estão funcionando (sem rosa)? ✅ A escala do modelo 3D está correta na cena? ✅ As texturas estão com a configuração adequada (Normal, sRGB)?"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-folder-tree mr-2\"></i>Organização do Projeto",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um projeto bem organizado é mais fácil de manter, escalar e trabalhar em equipe. A estrutura de pastas é a espinha dorsal da organização."
+        },
+        {
+          "type": "contentBlock",
+          "title": "Padrão de Pastas",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Crie uma pasta principal (ex: <strong>_Project</strong> ou <strong>Game</strong>) para separar seus assets dos assets importados."
+            },
+            {
+              "type": "code",
+              "language": "text",
+              "code": "Assets/\n  _Project/\n    Art/\n      Models/\n      Textures/\n      Materials/\n      Audio/\n        SFX/\n        Music/\n    Prefabs/\n      Characters/\n      Props/\n    Scenes/\n      Main.unity\n      Sandbox.unity\n    Scripts/\n      Player/\n      Systems/\n      UI/\n  Plugins/  (Para assets de terceiros)"
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Convenções de Nomes",
+          "content": [
+            {
+              "type": "list",
+              "items": [
+                "<strong>Arquivos e Pastas:</strong> Use <strong>PascalCase</strong> (Ex: <code>PlayerController</code>, <code>Art</code>, <code>Prefabs</code>). Evite espaços e caracteres especiais.",
+                "<strong>Prefixos/Sufixos:</strong> Ajuda a identificar o tipo de asset rapidamente (Ex: <code>mat_Player</code>, <code>tex_Ground_D</code>, <code>sfx_Jump</code>, <code>Player_Prefab</code>)."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Dica de Ouro: Prefabs",
+          "content": "Sempre transforme GameObjects complexos em <strong>Prefabs</strong>. Isso permite reutilizá-los facilmente e qualquer mudança no Prefab original atualiza todas as suas instâncias na cena, evitando trabalho repetido e referências quebradas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "<i class=\"fa-solid fa-code-branch mr-2\"></i>Versionamento com Git/GitHub",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Versionar seu projeto é crucial. O Git permite que você salve \"fotos\" (commits) do seu progresso, reverta mudanças e trabalhe em equipe sem sobrescrever o trabalho dos outros."
+        },
+        {
+          "type": "contentBlock",
+          "title": "Configuração Essencial",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Dois arquivos são essenciais na raiz do seu projeto Unity para que o Git funcione corretamente:"
+            },
+            {
+              "type": "cardGrid",
+              "cards": [
+                {
+                  "title": ".gitignore",
+                  "content": "<div class=\"code-block text-xs\"><pre><code># Unity-specific ignores\n/[Ll]ibrary/\n/[Tt]emp/\n/[Oo]bj/\n/[Bb]uild/\n/[Bb]uilds/\n/[Ll]ogs/\n/[Uu]ser[Ss]ettings/\n\n# Visual Studio / Rider files\n.vs/\n*.csproj\n*.sln</code></pre></div>"
+                },
+                {
+                  "title": ".gitattributes (para Git LFS)",
+                  "content": "<div class=\"code-block text-xs\"><pre><code># Git LFS for large binary files\n*.fbx filter=lfs diff=lfs merge=lfs -text\n*.png filter=lfs diff=lfs merge=lfs -text\n*.jpg filter=lfs diff=lfs merge=lfs -text\n*.psd filter=lfs diff=lfs merge=lfs -text\n*.wav filter=lfs diff=lfs merge=lfs -text\n*.mp3 filter=lfs diff=lfs merge=lfs -text\n</code></pre></div>"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "<i class=\"fa-solid fa-database mr-2\"></i>Use Git LFS!",
+          "content": "O Git não é bom com arquivos grandes e binários (modelos, texturas). O <strong>Git LFS (Large File Storage)</strong> é uma extensão que resolve isso. É <strong>essencial</strong> para projetos de jogos."
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎬 Vídeos recomendados (Aula 6)",
+      "videos": [
+        {
+          "youtubeId": "8weyrOxcLOE",
+          "title": "Importar da Asset Store (passo a passo)",
+          "description": "Fluxo básico de download e import."
+        },
+        {
+          "youtubeId": "MCxodymLvA8",
+          "title": "Importando e usando assets",
+          "description": "Visão geral para iniciantes."
+        },
+        {
+          "youtubeId": "FcdESnWsoBE",
+          "title": "Organização de projeto (9 dicas)",
+          "description": "Pastas, nomeação e boas práticas."
+        },
+        {
+          "youtubeId": "nVieP57TD20",
+          "title": "5 dicas de organização",
+          "description": "Estrutura e fluxo de trabalho."
+        },
+        {
+          "youtubeId": "C8Hh1FcCZs8",
+          "title": "Git + Unity (conceitos/prática)",
+          "description": "Por que usar e como começar."
+        },
+        {
+          "youtubeId": "eMbWVflDxw0",
+          "title": "Modelos externos → Unity",
+          "description": "Fluxo Sketchfab → Unity atualizado."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🧭 Roteiro de Atividade Guiada (45–60 min)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Objetivo: importar assets, ajustar compatibilidade, organizar o projeto e montar uma cena funcional, registrando o progresso com Git/LFS."
+        },
+        {
+          "type": "cardGrid",
+          "cards": [
+            {
+              "title": "<i class=\"fa-solid fa-list-check mr-2\"></i>Pré-requisitos",
+              "content": "<ul><li>Projeto <strong>URP</strong> aberto (Aula 5).</li><li>Pacote de assets pré-selecionado <em>(local)</em> disponível ou acesso à Asset Store.</li><li>Git e Git LFS instalados na máquina.</li></ul>"
+            },
+            {
+              "title": "<i class=\"fa-solid fa-people-arrows mr-2\"></i>Dinâmica",
+              "content": "Trabalho em duplas com papéis alternados:<ul><li><strong>Driver</strong>: executa as ações.</li><li><strong>Navegador</strong>: confere checklist e pergunta \"o que verificamos agora?\".</li></ul><p class=\"text-xs text-slate-500 mt-2\">Trocar papéis aos 25 minutos.</p>"
+            },
+            {
+              "title": "<i class=\"fa-solid fa-triangle-exclamation mr-2\"></i>Planos B",
+              "content": "<ul><li><strong>Sem internet:</strong> usar pacote local (.zip / .unitypackage).</li><li><strong>Máquina lenta:</strong> importar só 1 modelo + 1 textura + 1 áudio.</li></ul>"
+            }
+          ]
+        },
+        {
+          "type": "timeline",
+          "steps": [
+            {
+              "title": "0–5 min — Alinhamento & Verificação Rápida",
+              "content": "<ul><li>Abrir o projeto (URP). Confirmar <em>Graphics</em> e <em>Quality</em> com asset URP definido.</li><li>Garantir que está em <strong>Edit Mode</strong> (não em Play).</li></ul><div class=\"callout callout-info mt-3\" role=\"note\"><p class=\"text-sm\"><strong>Checkpoint 1:</strong> Cena aberta e URP ativo (sem erros de pipeline).</p></div>"
+            },
+            {
+              "title": "5–15 min — Importação de Assets",
+              "content": "<ol><li>Importar 3 assets: <strong>1 modelo 3D</strong>, <strong>1 textura/material</strong>, <strong>1 áudio</strong>.</li><li>Ao importar, desmarcar conteúdos não essenciais (ex.: cenas de demo grandes).</li><li>Se for .zip: arrastar pastas/arquivos para a janela <em>Project</em>.</li></ol><div class=\"callout callout-practice mt-3\" role=\"note\"><p class=\"text-sm\"><strong>Checklist:</strong> assets aparecem no <em>Project</em>; nomes legíveis; pastas de terceiros separadas (ex.: <code>Plugins/</code>).</p></div>"
+            },
+            {
+              "title": "15–25 min — Compatibilidade & Ajustes",
+              "content": "<ul><li>Materiais \"rosa\" → usar <em>Render Pipeline Converter</em> para URP.</li><li>Modelos 3D: checar <strong>Scale Factor</strong>, normais e <em>Generate Colliders</em> (se fizer sentido).</li><li>Texturas: definir tipo (ex.: <em>Normal map</em>), checar sRGB e compressão.</li><li>Áudio: <em>Force To Mono</em> (se 3D), ajustar <em>Load Type</em> e compressão.</li></ul><div class=\"callout callout-info mt-3\" role=\"note\"><p class=\"text-sm\"><strong>Checkpoint 2:</strong> Sem materiais \"rosa\"; escala coerente (1u ≈ 1m) e colisor funcionando.</p></div>"
+            },
+            {
+              "title": "25–35 min — Organização do Projeto",
+              "content": "<p class=\"text-sm text-slate-700 mt-2\">Criar a espinha dorsal do projeto e padronizar nomes.</p><div class=\"code-block text-xs mt-3\"><pre><code>Assets/\n  _Project/\n    Art/{Models,Textures,Materials,Audio/{SFX,Music}}\n    Prefabs/{Characters,Props}\n    Scenes/{Main.unity,Sandbox.unity}\n    Scripts/{Player,Systems,UI}\n  Plugins/   ← assets de terceiros (sem modificar)</code></pre></div><ul><li>Mover o que for \"nosso\" para <code>_Project/</code>; manter terceiros em <code>Plugins/</code>.</li><li>Criar um <strong>Prefab</strong> a partir do modelo 3D (com colisor).</li><li>Aplicar convenções: <em>PascalCase</em> para arquivos/pastas e prefixos quando útil (ex.: <code>mat_</code>, <code>tex_</code>, <code>sfx_</code>).</li></ul><div class=\"callout callout-info mt-3\" role=\"note\"><p class=\"text-sm\"><strong>Checkpoint 3:</strong> Estrutura finalizada e Prefab criado em <code>_Project/Prefabs/</code>.</p></div>"
+            },
+            {
+              "title": "35–45 min — Montagem da Cena",
+              "content": "<ul><li>Criar/abrir <code>_Project/Scenes/Main.unity</code>.</li><li>Compor o cenário com o Prefab e outros objetos; ajustar luz direcional/skybox se necessário.</li><li>Adicionar um <em>AudioSource</em> simples (efeito ou música ambiente).</li><li>Play test (colisão, escala e áudio).</li></ul><div class=\"callout callout-info mt-3\" role=\"note\"><p class=\"text-sm\"><strong>Checkpoint 4:</strong> Cena roda sem erros; composição básica coerente.</p></div>"
+            },
+            {
+              "title": "45–55 min — Versionamento (Git + LFS)",
+              "content": "<p class=\"text-sm text-slate-700 mt-2\">Inicializar repositório, configurar LFS e fazer commits significativos.</p><div class=\"grid grid-cols-1 md:grid-cols-2 gap-4 mt-3\"><div><h4 class=\"font-semibold text-center mb-2\">.gitignore (essencial)</h4><div class=\"code-block text-xs\"><pre><code>/[Ll]ibrary/\n/[Tt]emp/\n/[Oo]bj/\n/[Bb]uilds?//[Ll]ogs/\n/[Uu]ser[Ss]ettings/\n.vs/\n*.csproj\n*.sln</code></pre></div></div><div><h4 class=\"font-semibold text-center mb-2\">.gitattributes (LFS)</h4><div class=\"code-block text-xs\"><pre><code>*.fbx filter=lfs diff=lfs merge=lfs -text\n*.png filter=lfs diff=lfs merge=lfs -text\n*.jpg filter=lfs diff=lfs merge=lfs -text\n*.psd filter=lfs diff=lfs merge=lfs -text\n*.wav filter=lfs diff=lfs merge=lfs -text\n*.mp3 filter=lfs diff=lfs merge=lfs -text</code></pre></div></div></div><div class=\"code-block text-xs mt-3\"><pre><code># No diretório raiz do projeto Unity\ngit init\ngit lfs install\ngit add .gitattributes .gitignore\ngit commit -m \"chore: configura Git LFS e .gitignore\"\n\n# Adicionar estrutura e assets em etapas para commits descritivos\ngit add Assets/_Project\ngit commit -m \"feat: estrutura básica de pastas e cena Main\"\n\ngit add Assets/Plugins\ngit commit -m \\\"chore: adiciona assets de terceiros em Plugins\\\"\n\ngit add .\ngit commit -m \\\"feat: prefab com colisor e ajustes de compatibilidade URP\\\"</code></pre></div><div class=\"callout callout-practice mt-3\" role=\"note\"><p class=\"text-sm\"><strong>Dica:</strong> Commits pequenos contam a história do projeto e facilitam rollback.</p></div>"
+            },
+            {
+              "title": "55–60 min — Exit Ticket",
+              "content": "<ul><li>Tirar um print da janela <em>Project</em> mostrando a estrutura e um print/curto vídeo da cena rodando.</li><li>Responder rapidamente: \"Qual ajuste de importação foi mais necessário hoje e por quê?\"</li></ul>"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📝 Tarefa (TED): Cena com Assets Importados + Organização",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O objetivo é aplicar os conceitos da aula para montar uma cena simples, mas bem organizada."
+        },
+        {
+          "type": "list",
+          "title": "Passo a Passo:",
+          "items": [
+            "Crie um novo projeto Unity (URP).",
+            "Importe ao menos 3 assets gratuitos (um modelo 3D, uma textura/material e um áudio) da Asset Store ou de repositórios externos.",
+            "Aplique a organização de pastas padrão (<code>_Project/Art, Prefabs, Scenes, Scripts</code>).",
+            "Crie uma cena simples em <code>_Project/Scenes/Main.unity</code> usando os assets importados.",
+            "<strong>Entrega:</strong> Poste no Moodle um print OU um vídeo curto mostrando a <strong>estrutura de pastas</strong> na janela Project e a <strong>cena funcional</strong>.",
+            "<strong>Nome do Projeto:</strong> <code>NOME_SOBRENOME_TDJD_AULA6</code>"
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "<i class=\"fa-solid fa-star mr-2\"></i>Extensões (Opcional)",
+          "content": "Para um desafio extra: crie um Prefab com o modelo 3D e um colisor configurado; corrija a escala de um FBX importado; adicione um efeito de pós-processamento leve à cena."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📚 Recursos Oficiais e Ferramentas",
+      "content": [
+        {
+          "type": "button",
+          "text": "Unity Asset Store",
+          "href": "https://assetstore.unity.com/"
+        },
+        {
+          "type": "button",
+          "text": "Package Manager (Add from git URL)",
+          "href": "https://docs.unity3d.com/Manual/upm-ui-git.html"
+        },
+        {
+          "type": "button",
+          "text": "Importando Modelos 3D",
+          "href": "https://docs.unity3d.com/Manual/models-importing.html"
+        },
+        {
+          "type": "button",
+          "text": "Importando Texturas",
+          "href": "https://docs.unity3d.com/Manual/ImportingTextures.html"
+        },
+        {
+          "type": "button",
+          "text": "Importando Áudio",
+          "href": "https://docs.unity3d.com/Manual/class-AudioClip.html"
+        },
+        {
+          "type": "button",
+          "text": "Documentação do Git LFS",
+          "href": "https://git-lfs.github.com/"
+        },
+        {
+          "type": "button",
+          "text": ".gitignore Padrão para Unity",
+          "href": "https://github.com/github/gitignore/blob/main/Unity.gitignore"
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "📚 Bibliografia",
+      "references": [
+        "ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021.",
+        "ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019."
+      ]
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 <template>
   <div class="card p-6 my-8">
-    <h3 class="text-headline-small font-semibold mb-4 text-[var(--md-sys-color-on-surface)]">
+    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-4">
       {{ data.title }}
     </h3>
 
     <div v-if="videos.length" class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div v-for="(video, index) in videos" :key="index" class="card p-4 space-y-4">
-        <h4 class="text-title-large font-semibold mb-2 text-[var(--md-sys-color-on-surface)]">
+        <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
           {{ video.title }}
         </h4>
         <div
@@ -21,10 +21,7 @@
             allowfullscreen
           ></iframe>
         </div>
-        <p
-          v-if="video.caption"
-          class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
-        >
+        <p v-if="video.caption" class="md-typescale-body-medium text-on-surface-variant">
           {{ video.caption }}
         </p>
       </div>

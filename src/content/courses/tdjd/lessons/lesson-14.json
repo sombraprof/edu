@@ -1,0 +1,82 @@
+{
+  "id": "lesson-14",
+  "title": "Aula 15: Atividade de Análise e Reforço Pós-Avaliação NP1",
+  "description": "Consolidação dos conceitos das Unidades I a III por meio da análise crítica da avaliação NP1 e prática guiada, reforçando pontos frágeis detectados nas provas.",
+  "metadata": {
+    "date": "18/09/2025 (Quinta)"
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano de Ação: Devolutiva Formativa",
+      "content": [
+        {
+          "icon": "target",
+          "title": "Objetivo Central",
+          "text": "Promover a consolidação dos conceitos das Unidades I a III por meio da análise crítica da NP1, reforçando pontos frágeis detectados."
+        },
+        {
+          "icon": "graduation-cap",
+          "title": "Conteúdo",
+          "text": "Apresentação dos critérios de correção, análise dos principais erros e acertos e resolução orientada de questões selecionadas. Desafio prático breve de reforço."
+        },
+        {
+          "icon": "calendar-days",
+          "title": "Data/Período",
+          "text": "18/09/2025 (Quinta-Feira)"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Metodologia: Feedback e Prática Guiada",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Análise da NP1 e Devolutiva",
+              "text": "Apresentação dos critérios de correção e análise dos principais erros e acertos em aula interativa, promovendo a devolutiva formativa."
+            },
+            {
+              "title": "Resolução Orientada",
+              "text": "Resolução orientada de questões selecionadas que exigiram a aplicação de conceitos de Unity, C# ou Game Design das Unidades I a III."
+            },
+            {
+              "title": "Desafio Prático de Reforço",
+              "text": "Aplicação de um desafio prático breve no Unity ou Visual Studio (metodologia ativa: prática com reforço) para consolidar a lógica ou a integração de componentes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Recursos em Sala de Aula",
+      "content": "Prova corrigida, projetor para análise coletiva, ambientes Unity e Visual Studio para o desafio prático, e a rubrica comentada por critério."
+    },
+    {
+      "type": "contentBlock",
+      "title": "Tarefa Extra-Domiciliar (TED): Reflexão e GDD",
+      "content": [
+        {
+          "type": "paragraph",
+          "html": "A TED será uma <strong>Miniatualização no GDD (Game Design Document)</strong> do projeto em grupo. O objetivo é que o grupo reflita sobre os erros e acertos da NP1 e incorpore correções ou refinamentos em seu projeto. O documento deve ter um novo tópico chamado <em>Ações Pós-NP1</em>, detalhando o que foi aprendido ao testar a jogabilidade ou lógica do protótipo e como isso influenciará a próxima iteração."
+        }
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "Referências de Reforço",
+      "content": [
+        {
+          "html": "O conteúdo e exercícios que compuseram a avaliação NP1 (Unidades I a III) servem como material principal de revisão."
+        },
+        {
+          "html": "As referências bibliográficas já utilizadas nas aulas anteriores (ex.: Alves, W. P.; Schuytema, Paul)."
+        }
+      ]
+    }
+  ]
+}
