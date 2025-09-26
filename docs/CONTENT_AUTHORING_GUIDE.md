@@ -56,6 +56,40 @@ Inside legacy sections the renderer automatically wraps blocks with MD3 cards (`
 4. Run `npm run format` to apply Prettier formatting.
 5. Run `npm run build` to ensure the Vue compiler accepts the new content.
 
+### Automating HTML-first lessons
+
+When an AI or collaborator delivers the lesson as `<section>`-structured HTML, skip manual JSON editing by piping the markup
+through `create-lesson-from-html.mjs`:
+
+```bash
+node scripts/create-lesson-from-html.mjs \
+  --course algi \
+  --id lesson42 \
+  --title "Aula 42: Algoritmos Avançados" \
+  --objective "Explorar técnicas de backtracking." \
+  --input aula42.html
+```
+
+Or feed the HTML directly from the terminal/AI:
+
+```bash
+pbpaste | node scripts/create-lesson-from-html.mjs \
+  --course algi \
+  --id lesson42 \
+  --title "Aula 42: Algoritmos Avançados" \
+  --objective "Explorar técnicas de backtracking."
+```
+
+The script will:
+
+- Transform each `<section>` into a `legacySection` block (preserving IDs and headings as titles).
+- Generate/overwrite `src/content/courses/<course>/lessons/<id>.json`.
+- Scaffold the matching Vue wrapper (`<id>.vue`).
+- Insert or update the lesson entry inside `lessons.json` (keeping alphabetical order).
+
+You can still refine the generated JSON afterwards, migrating chunks from `legacySection` to richer block types when time
+allows.
+
 The helper scripts in `scripts/` (`structure-legacy-sections.mjs`, `apply-lesson-template.mjs`, `convert-exercises-to-json.mjs`) can speed up migrations when scraping legacy HTML, but hand-crafted lessons should follow the structured format from the start.
 
 ## 6. Accessibility & Media
