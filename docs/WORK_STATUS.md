@@ -91,13 +91,18 @@ Esses materiais dão visibilidade sobre o estado atual do projeto e aceleram a c
 - O workflow de deploy agora roda `npm run report:observability:check` após a validação, publica `reports/content-observability.json` como artefato e falha quando há exercícios ou suplementos sem metadados obrigatórios.
 - Mantém os snapshots de validação e observabilidade disponíveis para download direto no GitHub Actions, reforçando a rastreabilidade das métricas a cada execução.
 
+20. **Governança automatizada em CI/CD**
+
+- `npm run report:governance` cruza validação e observabilidade gerando `reports/governance-alert.md`/`.json` com problemas, avisos, blocos legados e lacunas de metadados por curso.
+- O workflow de deploy publica o alerta como artefato e mantém atualizada uma issue automática (`governanca-automatica`) com o resumo das pendências, facilitando o acompanhamento contínuo da redução de blocos legados.
+
 ## O que ainda pode ser feito
 
 A partir das recomendações listadas na revisão de arquitetura, seguem frentes prioritárias:
 
 1. **Automação e validação**
-   - Disparar notificações ou abrir issues automaticamente quando a pipeline falhar, destacando o curso afetado e o tipo de problema (validação vs. metadados).
-   - Estender os relatórios para cruzar métricas de observabilidade com progresso de migrações MD3 (ex.: evolução semanal de blocos legados).
+   - Complementar o alerta automático com comparação histórica (ex.: anexar diferença de blocos legados entre execuções) e publicar snapshot semanal em `reports/`.
+   - Estender os relatórios para incluir séries temporais e evolução percentual da migração MD3.
 2. **Refinamento do front-end**
    - Montar Storybook ou Chromatic para validar visualmente componentes críticos e garantir regressão visual sobre os novos utilitários.
    - Converter wrappers `.vue` redundantes para carregamento dinâmico baseado em JSON, reduzindo retrabalho.
@@ -120,3 +125,4 @@ Seguir essas etapas transforma a revisão em plano operacional, permitindo que a
 | Observabilidade de conteúdo                   | ✅ Concluída | `npm run report:observability` gera métricas sobre blocos MD3 x legados, lições disponíveis e cobertura de metadados.              |
 | Observabilidade automatizada no CI            | ✅ Concluída | Workflow gera o relatório, publica artefato dedicado e falha quando faltam metadados obrigatórios em exercícios/suplementos.       |
 | Proveniência exibida no painel                | ✅ Concluída | Painel traz cobertura de metadados, autores recorrentes e modelos utilizados por curso.                                            |
+| Governança automática no CI                   | ✅ Concluída | Workflow gera `reports/governance-alert.{md,json}` e mantém issue `governanca-automatica` com problemas/avisos e blocos legados.   |

@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write
 
 jobs:
   build:
@@ -25,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate content and generate report
+      - name: Validar conteúdo e gerar relatório
         id: validate_report
         run: npm run validate:report
         continue-on-error: true
@@ -38,25 +39,103 @@ jobs:
           path: reports/content-validation-report.json
           if-no-files-found: error
 
-      - name: Fail if content validation failed
-        if: steps.validate_report.outcome == 'failure'
-        run: |
-          echo "Content validation failed. Consulte o artefato gerado para detalhes."
-          exit 1
-
       - name: Generate observability report
-        if: steps.validate_report.outcome == 'success'
         id: observability
         run: npm run report:observability:check
         continue-on-error: true
 
       - name: Upload observability report
-        if: steps.validate_report.outcome == 'success'
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: content-observability-report
           path: reports/content-observability.json
           if-no-files-found: error
+
+      - name: Generate governance summary
+        if: always()
+        run: npm run report:governance
+
+      - name: Upload governance summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-governance-alert
+          path: |
+            reports/governance-alert.md
+            reports/governance-alert.json
+          if-no-files-found: error
+
+      - name: Atualizar issue de governança
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const core = require('@actions/core');
+            const fs = require('fs');
+            const path = require('path');
+            const issueTitle = 'Governança de conteúdo: alerta automático';
+            const summaryPath = path.join(process.cwd(), 'reports', 'governance-alert.md');
+            const metaPath = path.join(process.cwd(), 'reports', 'governance-alert.json');
+
+            if (!fs.existsSync(metaPath)) {
+              core.warning('Arquivo de metadados do alerta não encontrado. Pulando atualização de issue.');
+              return;
+            }
+
+            const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+            const body = fs.existsSync(summaryPath)
+              ? fs.readFileSync(summaryPath, 'utf8')
+              : 'Relatório de governança indisponível.';
+
+            const { data: existingIssues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+
+            const current = existingIssues.find((issue) => issue.title === issueTitle);
+
+            if (meta.flags.shouldOpenIssue) {
+              if (current) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: current.number,
+                  body,
+                  labels: ['governanca-automatica'],
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: issueTitle,
+                  body,
+                  labels: ['governanca-automatica'],
+                });
+              }
+            } else if (current) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: current.number,
+                state: 'closed',
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: current.number,
+                body: '✅ Nenhum apontamento pendente. Issue fechada automaticamente.',
+              });
+            }
+
+      - name: Fail if content validation failed
+        if: steps.validate_report.outcome == 'failure'
+        run: |
+          echo "Content validation failed. Consulte o artefato gerado para detalhes."
+          exit 1
 
       - name: Fail if observability reported metadata gaps
         if: steps.observability.outcome == 'failure'

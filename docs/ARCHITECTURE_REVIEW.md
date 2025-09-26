@@ -71,6 +71,7 @@
 ### 4.2 Observabilidade
 
 - Incluir metadados no JSON (`generatedBy`, `model`, `timestamp`) para auditar quando uma aula veio de LLM e exigir revisão antes do publish.
+- Consolidar validação + observabilidade via `npm run report:governance`, gerando o par `reports/governance-alert.{md,json}`; o workflow do GitHub Actions publica esses artefatos e mantém uma issue automática com o resumo das pendências (problemas, avisos, blocos legados e metadados faltantes).
 
 ## 5. Material Design 3
 
