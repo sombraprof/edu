@@ -85,6 +85,8 @@ Inside legacy sections the renderer automatically wraps blocks with MD3 cards (`
 - Após rodar `npm run validate:report`, consulte `reports/content-validation-report.json` para ver o consolidado por curso (totais por autor/modelo, intervalo temporal e entradas individuais) antes de enviar mudanças.
 - Use `npm run report:observability` para acompanhar quantas lições continuam com blocos legados, qual a cobertura de blocos MD3 em cada curso e se exercícios/suplementos mantêm metadados completos.
 - Rode `npm run report:observability:check` quando quiser reproduzir o mesmo guardrail do CI/CD; o workflow de deploy falha automaticamente se encontrar exercícios ou suplementos sem `metadata` obrigatório.
+- Execute `npm run report:governance` para gerar `reports/governance-alert.md`/`.json` com um resumo dos cursos que ainda têm problemas/avisos, blocos legados e lacunas de metadados (combinação direta dos dois relatórios anteriores).
+- O GitHub Actions atualiza automaticamente uma issue com label `governanca-automatica` a cada execução da pipeline, usando esse resumo para indicar prioridades e acompanhar a redução de blocos legados ao longo do tempo.
 - A página `/relatorios/validacao-conteudo` exibe os mesmos dados com cobertura por curso, autores recorrentes e modelos utilizados, facilitando a conferência visual dos metadados antes do deploy.
 
 ### Automating HTML-first lessons
