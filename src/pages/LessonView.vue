@@ -12,7 +12,7 @@
     </nav>
 
     <article
-      v-if="lessonComponent"
+      v-if="lessonData"
       class="card max-w-none p-8"
       :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }"
     >
@@ -30,7 +30,10 @@
 
       <div class="divider" role="presentation"></div>
 
-      <component :is="lessonComponent" class="lesson-content prose max-w-none dark:prose-invert" />
+      <LessonRenderer
+        :data="lessonData"
+        class="lesson-content prose max-w-none dark:prose-invert"
+      />
     </article>
 
     <article
@@ -43,10 +46,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineAsyncComponent, nextTick, onMounted, ref, shallowRef, watch } from 'vue';
+import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { ChevronRight } from 'lucide-vue-next';
 import Prism from 'prismjs';
+import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-javascript';
@@ -68,7 +72,7 @@ interface LessonRef {
 }
 
 const lessonIndexes = import.meta.glob('../content/courses/*/lessons.json');
-const lessonModules = import.meta.glob('../content/courses/*/lessons/*.vue');
+const lessonModules = import.meta.glob('../content/courses/*/lessons/*.json');
 
 const route = useRoute();
 const courseId = computed(() => String(route.params.courseId));
@@ -76,7 +80,14 @@ const lessonId = computed(() => String(route.params.lessonId));
 
 const lessonTitle = ref<string>('');
 const lessonObjective = ref<string>('');
-const lessonComponent = shallowRef<any | null>(null);
+interface LessonContent {
+  id: string;
+  title: string;
+  objective?: string;
+  content: unknown[];
+}
+
+const lessonData = shallowRef<LessonContent | null>(null);
 
 function highlight() {
   requestAnimationFrame(() => {
@@ -85,7 +96,7 @@ function highlight() {
 }
 
 async function loadLesson() {
-  lessonComponent.value = null;
+  lessonData.value = null;
   lessonTitle.value = '';
   lessonObjective.value = '';
 
@@ -108,20 +119,16 @@ async function loadLesson() {
     const lessonImporter = lessonModules[lessonPath];
     if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
 
-    const loader = async () => {
-      const mod: any = await lessonImporter();
-      const meta = mod.meta ?? {};
-      lessonTitle.value = meta.title ?? entry.title;
-      lessonObjective.value = meta.objective ?? entry.description ?? '';
-      await nextTick();
-      highlight();
-      return mod.default;
-    };
+    const mod: any = await lessonImporter();
+    const data: LessonContent = mod.default ?? mod;
+    if (!data || typeof data !== 'object') throw new Error('Lesson payload is invalid.');
 
-    lessonComponent.value = defineAsyncComponent({
-      loader,
-      suspensible: false,
-    });
+    lessonTitle.value = data.title ?? entry.title;
+    lessonObjective.value = data.objective ?? entry.description ?? '';
+    lessonData.value = data;
+
+    await nextTick();
+    highlight();
   } catch (error) {
     console.error('[LessonView] Failed to load lesson:', error);
     lessonTitle.value = 'Erro ao carregar aula';
