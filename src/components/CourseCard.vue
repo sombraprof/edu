@@ -1,43 +1,36 @@
 ﻿<template>
   <router-link
-    class="card card--interactive group flex h-full flex-col gap-6 p-6"
+    class="card card--interactive course-card flex h-full flex-col p-6"
     :to="{ name: 'course-home', params: { courseId: meta.id } }"
     :aria-label="`Acessar disciplina ${meta.title}`"
     @keydown.space.prevent="($event.target as HTMLElement).click()"
   >
-    <div class="flex items-start justify-between gap-4">
-      <div class="md-stack md-stack-2">
+    <div class="course-card__header">
+      <div class="course-card__title-row">
         <h3 class="md-typescale-headline-small font-semibold text-on-surface">
           {{ meta.title }}
         </h3>
-        <p
-          v-if="meta.description"
-          class="supporting-text md-typescale-body-medium text-on-surface-variant max-w-lg"
-        >
-          {{ meta.description }}
-        </p>
+        <span class="badge course-card__institution" :style="badgeStyle">
+          {{ institutionLabel }}
+        </span>
       </div>
-      <span class="badge" :style="badgeStyle">{{ institutionLabel }}</span>
+      <p
+        v-if="meta.description"
+        class="course-card__description supporting-text md-typescale-body-medium text-on-surface-variant"
+      >
+        {{ meta.description }}
+      </p>
     </div>
-    <div
-      :class="[
-        'mt-auto flex w-full items-end gap-4',
-        $slots.meta ? 'justify-between' : 'justify-end',
-      ]"
-    >
+    <div class="course-card__footer mt-auto w-full">
       <div
         v-if="$slots.meta"
         class="flex flex-wrap gap-2 md-typescale-body-small text-on-surface-variant"
       >
         <slot name="meta" />
       </div>
-      <span
-        class="inline-flex items-center gap-2 md-typescale-label-medium font-medium text-on-surface-variant transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow"
-      >
+      <span class="course-card__action md-typescale-label-medium font-medium">
         <span>Acessar disciplina</span>
-        <ChevronRight
-          class="md-icon md-icon--sm transition-transform duration-150 group-hover:translate-x-1"
-        />
+        <ChevronRight class="md-icon" />
       </span>
     </div>
   </router-link>

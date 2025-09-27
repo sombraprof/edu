@@ -1,15 +1,15 @@
 <template>
-  <section class="course-page">
-    <header class="course-page__hero card p-6 md:p-8">
-      <nav class="course-page__breadcrumbs" aria-label="Navegação">
+  <section class="course-page page-section">
+    <header class="course-page__hero card md-stack md-stack-5 p-6 md:p-8">
+      <nav class="course-page__breadcrumbs page-breadcrumb" aria-label="Navegação">
         <router-link class="btn btn-text" :to="{ name: 'home' }">
           <ArrowLeft class="md-icon md-icon--sm" />
           Todas as disciplinas
         </router-link>
-        <span class="course-page__breadcrumbs-separator" aria-hidden="true">/</span>
-        <span class="course-page__breadcrumbs-current">{{ meta?.title ?? 'Disciplina' }}</span>
+        <span class="page-breadcrumb__separator" aria-hidden="true">/</span>
+        <span class="page-breadcrumb__current">{{ meta?.title ?? 'Disciplina' }}</span>
       </nav>
-      <div class="course-page__headline">
+      <div class="course-page__headline md-stack md-stack-3">
         <span class="chip">Disciplina</span>
         <h1 class="text-headline-medium font-semibold text-[var(--md-sys-color-on-surface)]">
           {{ meta?.title ?? 'Disciplina' }}
@@ -132,12 +132,6 @@ watch(
 </script>
 
 <style scoped>
-.course-page {
-  display: flex;
-  flex-direction: column;
-  gap: var(--md-sys-spacing-8);
-}
-
 .course-page__hero {
   display: flex;
   flex-direction: column;
@@ -145,29 +139,18 @@ watch(
 }
 
 .course-page__breadcrumbs {
-  display: flex;
-  align-items: center;
-  gap: var(--md-sys-spacing-2);
   color: var(--md-sys-color-on-surface-variant);
-  font-size: var(--md-sys-typescale-body-small-size);
-}
-
-.course-page__breadcrumbs .btn {
-  padding-inline: 0;
-}
-
-.course-page__breadcrumbs-separator {
-  opacity: 0.5;
-}
-
-.course-page__breadcrumbs-current {
-  font-weight: 500;
 }
 
 .course-page__headline {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-3);
+  align-items: flex-start;
+}
+
+.course-page__headline > .chip {
+  align-self: flex-start;
 }
 
 .course-page__stats {
