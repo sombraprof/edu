@@ -47,8 +47,9 @@
 
       <div class="mt-6">
         <button
-          class="btn btn-tonal inline-flex items-center gap-2"
+          :class="['btn', filtersOpen ? 'btn-tonal' : 'btn-text']"
           type="button"
+          :aria-expanded="filtersOpen"
           @click="toggleFilters"
         >
           <component

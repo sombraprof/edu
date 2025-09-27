@@ -7,12 +7,12 @@
   >
     <div class="course-card__header">
       <div class="course-card__title-row">
-        <h3 class="md-typescale-headline-small font-semibold text-on-surface">
-          {{ meta.title }}
-        </h3>
         <span class="badge course-card__institution" :style="badgeStyle">
           {{ institutionLabel }}
         </span>
+        <h3 class="md-typescale-headline-small font-semibold text-on-surface">
+          {{ meta.title }}
+        </h3>
       </div>
       <p
         v-if="meta.description"

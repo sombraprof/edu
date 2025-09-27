@@ -37,7 +37,7 @@
             class="md-icon md-icon--sm"
             aria-hidden="true"
           />
-          <span>{{ teacherMode ? 'Sair do modo professor' : 'Professor' }}</span>
+          <span>{{ teacherMode ? 'Professor' : 'Professor' }}</span>
         </button>
       </div>
     </div>
