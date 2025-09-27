@@ -49,24 +49,25 @@
             <strong>username estiver correto E a password estiver correta</strong>."
           </p>
         </div>
-        <div class="card shadow-elevation-2 p-6">
-          <h5
-            class="font-semibold text-body-large text-center"
-            :style="{ marginBottom: 'var(--md-sys-spacing-4)' }"
-          >
-            Tabela-Verdade do E (AND)
-          </h5>
-          <TruthTable
-            title=""
-            :headers="['Condição A', 'Condição B', 'Resultado (A e B)']"
-            :rows="[
-              [{ value: 'Verdadeiro' }, { value: 'Verdadeiro' }, { isTrue: true }],
-              [{ value: 'Verdadeiro' }, { value: 'Falso' }, { isFalse: true }],
-              [{ value: 'Falso' }, { value: 'Verdadeiro' }, { isFalse: true }],
-              [{ value: 'Falso' }, { value: 'Falso' }, { isFalse: true }],
-            ]"
-          />
-        </div>
+        <TruthTable
+          class="self-stretch"
+          title="Tabela-Verdade do E (AND)"
+          description="O resultado só permanece verdadeiro quando todas as entradas são verdadeiras."
+          caption="Combinações possíveis para o operador lógico AND."
+          :legend="resultLegend"
+          :headers="['Condição A', 'Condição B', 'Resultado (A e B)']"
+          :rows="[
+            [
+              { value: 'Verdadeiro' },
+              { value: 'Verdadeiro' },
+              { state: 'true', display: 'Verdadeiro' },
+            ],
+            [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
+            [{ value: 'Falso' }, { value: 'Verdadeiro' }, { state: 'false', display: 'Falso' }],
+            [{ value: 'Falso' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
+          ]"
+          dense
+        />
       </div>
     </div>
 
@@ -111,24 +112,25 @@
             <strong>administrador OU o dono do documento</strong>."
           </p>
         </div>
-        <div class="card shadow-elevation-2" :style="{ padding: 'var(--md-sys-spacing-6)' }">
-          <h5
-            class="font-semibold text-body-large text-center"
-            :style="{ marginBottom: 'var(--md-sys-spacing-4)' }"
-          >
-            Tabela-Verdade do OU (OR)
-          </h5>
-          <TruthTable
-            title=""
-            :headers="['Condição A', 'Condição B', 'Resultado (A ou B)']"
-            :rows="[
-              [{ value: 'Verdadeiro' }, { value: 'Verdadeiro' }, { isTrue: true }],
-              [{ value: 'Verdadeiro' }, { value: 'Falso' }, { isTrue: true }],
-              [{ value: 'Falso' }, { value: 'Verdadeiro' }, { isTrue: true }],
-              [{ value: 'Falso' }, { value: 'Falso' }, { isFalse: true }],
-            ]"
-          />
-        </div>
+        <TruthTable
+          class="self-stretch"
+          title="Tabela-Verdade do OU (OR)"
+          description="Basta que uma das condições seja verdadeira para que o resultado seja verdadeiro."
+          caption="Saídas do operador lógico OR para cada par de entradas."
+          :legend="resultLegend"
+          :headers="['Condição A', 'Condição B', 'Resultado (A ou B)']"
+          :rows="[
+            [
+              { value: 'Verdadeiro' },
+              { value: 'Verdadeiro' },
+              { state: 'true', display: 'Verdadeiro' },
+            ],
+            [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'true', display: 'Verdadeiro' }],
+            [{ value: 'Falso' }, { value: 'Verdadeiro' }, { state: 'true', display: 'Verdadeiro' }],
+            [{ value: 'Falso' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
+          ]"
+          dense
+        />
       </div>
     </div>
 
@@ -173,22 +175,19 @@
             >)
           </p>
         </div>
-        <div class="card shadow-elevation-2 p-6">
-          <h5
-            class="font-semibold text-body-large text-center"
-            :style="{ marginBottom: 'var(--md-sys-spacing-4)' }"
-          >
-            Tabela-Verdade do NÃO (NOT)
-          </h5>
-          <TruthTable
-            title=""
-            :headers="['Condição A', 'Resultado (não A)']"
-            :rows="[
-              [{ value: 'Verdadeiro' }, { isFalse: true }],
-              [{ value: 'Falso' }, { isTrue: true }],
-            ]"
-          />
-        </div>
+        <TruthTable
+          class="self-stretch"
+          title="Tabela-Verdade do NÃO (NOT)"
+          description="O operador inverte o valor lógico recebido."
+          caption="Resultados do operador NOT para cada valor de entrada."
+          :legend="resultLegend"
+          :headers="['Condição A', 'Resultado (não A)']"
+          :rows="[
+            [{ value: 'Verdadeiro' }, { state: 'false', display: 'Falso' }],
+            [{ value: 'Falso' }, { state: 'true', display: 'Verdadeiro' }],
+          ]"
+          dense
+        />
       </div>
     </div>
   </div>
@@ -196,6 +195,19 @@
 
 <script setup lang="ts">
 import TruthTable from './TruthTable.vue';
+
+const resultLegend = [
+  {
+    label: 'Verdadeiro',
+    state: 'true',
+    description: 'Saída igual a 1 (verdadeiro).',
+  },
+  {
+    label: 'Falso',
+    state: 'false',
+    description: 'Saída igual a 0 (falso).',
+  },
+];
 </script>
 
 <style scoped>

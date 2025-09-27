@@ -229,7 +229,7 @@ watch(
 }
 
 /* Dark Theme */
-html:not(.light) {
+html[data-theme='dark'] {
   --prism-color-text: var(--md-sys-color-on-surface);
   --prism-color-comment: var(--md-sys-color-on-surface-variant);
   --prism-color-keyword: var(--md-sys-color-primary);

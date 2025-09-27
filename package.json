@@ -20,6 +20,7 @@
     "report:governance": "node scripts/generate-governance-alert.mjs"
   },
   "dependencies": {
+    "@material/material-color-utilities": "^0.2.7",
     "@vueuse/head": "^2.0.0",
     "lucide-vue-next": "^0.472.0",
     "turndown": "^7.2.1",
