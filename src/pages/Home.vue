@@ -1,5 +1,5 @@
 ﻿<template>
-  <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-10)' }">
+  <section class="page-section page-section--roomy">
     <header class="card p-6 md:p-8" :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }">
       <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div
@@ -122,8 +122,8 @@
       </div>
     </header>
 
-    <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }">
-      <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-1)' }">
+    <section class="md-stack md-stack-4">
+      <div class="md-stack md-stack-2">
         <h2 class="text-title-large font-semibold text-[var(--md-sys-color-on-surface)]">
           Disciplinas disponíveis
         </h2>

@@ -1,22 +1,16 @@
 ﻿<template>
-  <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }">
-    <nav class="flex items-center gap-2 md-sys-typescale-body-small">
-      <router-link class="btn btn-text" :to="{ name: 'course-home', params: { courseId } }"
-        >Voltar para a disciplina</router-link
-      >
-      <ChevronRight
-        :style="{ height: 'var(--md-sys-icon-size-small)', width: 'var(--md-sys-icon-size-small)' }"
-        class="text-[var(--md-sys-color-on-surface-variant)]"
-      />
-      <span class="text-[var(--md-sys-color-on-surface-variant)]">{{ lessonTitle }}</span>
+  <section class="page-section">
+    <nav class="page-breadcrumb">
+      <router-link class="btn btn-text" :to="{ name: 'course-home', params: { courseId } }">
+        <ArrowLeft class="md-icon md-icon--sm" />
+        <span>Voltar para a disciplina</span>
+      </router-link>
+      <ChevronRight class="md-icon md-icon--sm page-breadcrumb__separator" />
+      <span class="page-breadcrumb__current">{{ lessonTitle }}</span>
     </nav>
 
-    <article
-      v-if="lessonData"
-      class="card max-w-none p-8"
-      :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-6)' }"
-    >
-      <header :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
+    <article v-if="lessonData" class="card max-w-none md-stack md-stack-6 p-8">
+      <header class="md-stack md-stack-2">
         <p
           class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]/80"
         >
@@ -38,7 +32,7 @@
 
     <article
       v-else
-      class="card max-w-none p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
+      class="card max-w-none md-stack md-stack-3 p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
     >
       Não foi possível carregar esta aula.
     </article>
@@ -48,7 +42,7 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { ChevronRight } from 'lucide-vue-next';
+import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Prism from 'prismjs';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
