@@ -15,7 +15,7 @@
         {
           "icon": "bullseye",
           "title": "OBJETIVOS",
-          "content": "<ul><li>Definir <strong>SI</strong> e situar no contexto organizacional.</li><li>Relacionar SI aos níveis <strong>operacional, tático e estratégico</strong>.</li><li>Analisar casos reais e discutir benefícios e desafios <em>sociotécnicos</em>.</li></ul>"
+          "content": "- Definir SI e situar no contexto organizacional.\n- Relacionar SI aos níveis operacional, tático e estratégico.\n- Analisar casos reais e discutir benefícios e desafios sociotécnicos."
         },
         {
           "icon": "gears",
@@ -30,12 +30,17 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Um <strong>Sistema de Informação (SI)</strong> integra <em>pessoas</em>, <em>processos</em>, <em>dados</em> e <em>tecnologia</em> para coletar, processar, armazenar e disseminar informações que suportam operações e decisão. É o tecido conjuntivo que conecta áreas e acelera o ciclo <em>dados → informação → ação → resultado</em>."
+          "text": "Um Sistema de Informação (SI) integra pessoas, processos, dados e tecnologia para coletar, processar, armazenar e disseminar informações que suportam operações e decisão. É o tecido conjuntivo que conecta áreas e acelera o ciclo dados → informação → ação → resultado."
         },
         {
           "type": "callout",
           "variant": "info",
-          "content": "<strong>Em uma frase:</strong> SI converte dados em decisão e decisão em valor (tempo, custo, qualidade, receita, conformidade)."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Em uma frase: SI converte dados em decisão e decisão em valor (tempo, custo, qualidade, receita, conformidade)."
+            }
+          ]
         }
       ]
     },
@@ -49,7 +54,7 @@
         },
         {
           "title": "Organização",
-          "content": "Estrutura, processos, políticas e estratégia. SI precisa <strong>alinhar</strong> com o negócio."
+          "content": "Estrutura, processos, políticas e estratégia. SI precisa alinhar com o negócio."
         },
         {
           "title": "Pessoas",
@@ -90,7 +95,17 @@
       "type": "callout",
       "variant": "warning",
       "title": "Erros comuns:",
-      "content": "<ul><li>Confundir <em>tecnologia</em> com <em>SI</em> (SI ≠ “só software”).</li><li>Esperar resultados estratégicos de um SI que atende apenas rotinas operacionais.</li><li>Ignorar governança de dados (qualidade, segurança, privacidade) e adoção pelos usuários.</li></ul>"
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Confundir tecnologia com SI (SI ≠ “só software”).",
+            "Esperar resultados estratégicos de um SI que atende apenas rotinas operacionais.",
+            "Ignorar governança de dados (qualidade, segurança, privacidade) e adoção pelos usuários."
+          ]
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -160,27 +175,37 @@
       "cards": [
         {
           "title": "ERP (SAP)",
-          "content": "Integra finanças, compras e estoque.<br><strong>Benefícios:</strong> dado único, fechamento ágil.<br><strong>Desafios:</strong> custo, mudança cultural."
+          "content": "Integra finanças, compras e estoque. Benefícios: dado único, fechamento ágil. Desafios: custo, mudança cultural."
         },
         {
           "title": "ERP (TOTVS)",
-          "content": "Aderência fiscal brasileira.<br><strong>Benefícios:</strong> conformidade.<br><strong>Desafios:</strong> parametrização, atualização."
+          "content": "Aderência fiscal brasileira. Benefícios: conformidade. Desafios: parametrização, atualização."
         },
         {
           "title": "Varejo Digital (Magalu)",
-          "content": "Omnicanalidade e logística.<br><strong>Benefícios:</strong> experiência integrada.<br><strong>Desafios:</strong> escalabilidade."
+          "content": "Omnicanalidade e logística. Benefícios: experiência integrada. Desafios: escalabilidade."
         },
         {
           "title": "Plataformas (Amazon)",
-          "content": "Automação, dados e serviços.<br><strong>Benefícios:</strong> elasticidade.<br><strong>Desafios:</strong> custos e governança."
+          "content": "Automação, dados e serviços. Benefícios: elasticidade. Desafios: custos e governança."
         }
       ]
     },
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "<i class=\"fa-solid fa-comments mr-2\"></i>Perguntas para debate",
-      "content": "<ul><li>Qual <strong>processo crítico</strong> o SI apoia no caso?</li><li>Quais <strong>benefícios mensuráveis</strong> (tempo, custo, qualidade, receita, compliance)?</li><li>Quais <strong>riscos</strong> (dados, pessoas, tecnologia) e como mitigá-los?</li></ul>"
+      "title": "Perguntas para debate",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Qual processo crítico o SI apoia no caso?",
+            "Quais benefícios mensuráveis (tempo, custo, qualidade, receita, compliance)?",
+            "Quais riscos (dados, pessoas, tecnologia) e como mitigá-los?"
+          ]
+        }
+      ]
     },
     {
       "type": "videosBlock",
@@ -203,12 +228,12 @@
         {
           "type": "list",
           "items": [
-            "<strong>Utilidade:</strong> resolve o problema certo? apoia o objetivo de negócio?",
-            "<strong>Usabilidade & Adoção:</strong> usuários querem/ conseguem usar?",
-            "<strong>Dados:</strong> qualidade, segurança, privacidade, disponibilidade.",
-            "<strong>Integração:</strong> conversa com outros sistemas (APIs/ETL)?",
-            "<strong>Medição:</strong> há KPIs claros (tempo, custo, qualidade, receita, compliance)?",
-            "<strong>Sustentação:</strong> manutenção, custo total (TCO), evolução."
+            "Utilidade: resolve o problema certo? apoia o objetivo de negócio?",
+            "Usabilidade & Adoção: usuários querem/ conseguem usar?",
+            "Dados: qualidade, segurança, privacidade, disponibilidade.",
+            "Integração: conversa com outros sistemas (APIs/ETL)?",
+            "Medição: há KPIs claros (tempo, custo, qualidade, receita, compliance)?",
+            "Sustentação: manutenção, custo total (TCO), evolução."
           ]
         }
       ]
@@ -219,21 +244,32 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "No AVA, responda: <strong>“Qual sistema de informação você mais utiliza no seu cotidiano (ex.: Google Agenda, WhatsApp, CRM, app de banco)? Ele cumpre bem sua função? Por quê?</strong>”"
+          "text": "No AVA, responda: “Qual sistema de informação você mais utiliza no seu cotidiano (ex.: Google Agenda, WhatsApp, CRM, app de banco)? Ele cumpre bem sua função? Por quê?”"
         },
         {
           "type": "list",
           "items": [
-            "Escreva ao menos <strong>1 parágrafo</strong> (5–8 linhas).",
-            "Inclua <strong>1 comentário construtivo</strong> na postagem de um colega.",
-            "Cite um <strong>benefício mensurável</strong> e um <strong>desafio</strong> percebido."
+            "Escreva ao menos 1 parágrafo (5–8 linhas).",
+            "Inclua 1 comentário construtivo na postagem de um colega.",
+            "Cite um benefício mensurável e um desafio percebido."
           ]
         },
         {
           "type": "callout",
           "variant": "info",
-          "title": "<i class=\"fa-solid fa-list-check mr-2\"></i>Rubrica (0–10)",
-          "content": "<ul><li><strong>Clareza e objetividade</strong> (0–3): escreve de forma compreensível e direta.</li><li><strong>Exemplos e evidências</strong> (0–3): traz caso real, métrica ou evidência.</li><li><strong>Relação com conceitos</strong> (0–2): conecta com taxonomia/níveis ou checklist.</li><li><strong>Interação</strong> (0–2): comentário construtivo ao colega.</li></ul>"
+          "title": "Rubrica (0–10)",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Clareza e objetividade (0–3): escreve de forma compreensível e direta.",
+                "Exemplos e evidências (0–3): traz caso real, métrica ou evidência.",
+                "Relação com conceitos (0–2): conecta com taxonomia/níveis ou checklist.",
+                "Interação (0–2): comentário construtivo ao colega."
+              ]
+            }
+          ]
         },
         {
           "type": "paragraph",
@@ -266,10 +302,10 @@
         {
           "type": "list",
           "items": [
-            "<strong>(4)</strong> Analisar dados para apoiar decisões organizacionais.",
-            "<strong>(11)</strong> Utilizar métodos e ferramentas adequadas ao desenvolvimento e gestão de SI.",
-            "<strong>(12)</strong> Produzir e interpretar diagramas, gráficos e tabelas.",
-            "<strong>(14)</strong> Especificar requisitos a partir de necessidades organizacionais."
+            "(4) Analisar dados para apoiar decisões organizacionais.",
+            "(11) Utilizar métodos e ferramentas adequadas ao desenvolvimento e gestão de SI.",
+            "(12) Produzir e interpretar diagramas, gráficos e tabelas.",
+            "(14) Especificar requisitos a partir de necessidades organizacionais."
           ]
         }
       ]
@@ -278,8 +314,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia",
       "references": [
-        "<strong>MEIRELES, Manuel; SORDI, J. O. de.</strong> <em>Administração de sistemas de informação.</em> 2. ed. São Paulo: Atlas, 2019.",
-        "<strong>SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C.</strong> <em>Sistemas de informações gerenciais.</em> Porto Alegre: Grupo A, 2019."
+        "MEIRELES, Manuel; SORDI, J. O. de. Administração de sistemas de informação. 2. ed. São Paulo: Atlas, 2019.",
+        "SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C. Sistemas de informações gerenciais. Porto Alegre: Grupo A, 2019."
       ]
     }
   ],

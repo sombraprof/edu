@@ -1,13 +1,54 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "api-sync",
-  "title": "Sincronização com API",
-  "objective": "Implemente cache local e sincronização incremental para uma lista de itens.",
+  "title": "Exercício — Sincronização com API",
+  "summary": "Implemente um app que consome dados de uma API, mantém cache local e lida com modo offline.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "api-sync",
-      "title": "Sincronização com API",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './api-sync.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Descrição",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Crie um aplicativo com listagem de itens sincronizada com uma API pública ou mock. O app deve funcionar sem conexão e atualizar o cache quando a rede retornar."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Requisitos mínimos",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Consumo de API",
+              "text": "Utilize biblioteca HTTP (Retrofit, Ktor ou equivalente) para buscar dados e tratar erros."
+            },
+            {
+              "title": "Persistência local",
+              "text": "Armazene resposta em banco local (Room, Realm ou DataStore) e sirva dados mesmo offline."
+            },
+            {
+              "title": "Sincronização",
+              "text": "Detecte retorno da conexão e atualize o cache exibindo feedback ao usuário."
+            },
+            {
+              "title": "Resiliência",
+              "text": "Cubra cenários de falha (timeout, conflito de dados) com mensagens claras."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Entregáveis",
+      "items": [
+        "Projeto versionado com instruções de build.",
+        "Registro de testes offline/online no README.",
+        "Capturas ou vídeo demonstrando sincronização."
+      ]
     }
   ]
 }

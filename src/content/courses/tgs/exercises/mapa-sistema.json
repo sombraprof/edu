@@ -1,13 +1,58 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "mapa-sistema",
-  "title": "Mapa de sistema",
-  "objective": "Modele as fronteiras, entradas e saídas de um sistema real escolhido pelo grupo.",
+  "title": "Exercício — Mapa de sistema",
+  "summary": "Construa um mapa visual destacando elementos, fronteiras e indicadores de um sistema tecnológico escolhido.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "mapa-sistema",
-      "title": "Mapa de sistema",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './mapa-sistema.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Instruções",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Selecione um sistema real (plataforma, serviço público, aplicação interna). Identifique atores, recursos e processos essenciais."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Elementos obrigatórios",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Atores",
+              "text": "Usuários primários, secundários e intermediários."
+            },
+            {
+              "title": "Recursos",
+              "text": "Dados, infraestrutura e tecnologias de suporte."
+            },
+            {
+              "title": "Processos",
+              "text": "Principais fluxos de valor que conectam os atores."
+            },
+            {
+              "title": "Indicadores",
+              "text": "Métricas que revelam saúde e desempenho do sistema."
+            },
+            {
+              "title": "Riscos",
+              "text": "Pontos de falha, gargalos e riscos externos relevantes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Entrega",
+      "items": [
+        "Mapa visual em PNG ou PDF com legenda clara.",
+        "Breve texto (até 5 minutos de apresentação) destacando aprendizados.",
+        "Registro das decisões do grupo no portfólio."
+      ]
     }
   ]
 }

@@ -42,8 +42,8 @@
     }
   ],
   "bibliography": [
-    "LECHETA, Ricardo. <strong>Google Android</strong>. Novatec, 2019. Cap. 7.",
-    "GOOGLE. <strong>Navigate between activities</strong>. Android Developers, 2024."
+    "LECHETA, Ricardo. Google Android. Novatec, 2019. Cap. 7.",
+    "GOOGLE. Navigate between activities. Android Developers, 2024."
   ],
   "assessment": {
     "type": "practice",
@@ -55,19 +55,24 @@
       "type": "flightPlan",
       "title": "Plano de voo da aula (1h 50min)",
       "items": [
-        "<strong>(10 min) Pergunta disparadora:</strong> como apps organizam múltiplas telas?",
-        "<strong>(20 min) Anatomia de uma Intent explícita:</strong> contexto, classe destino e extras.",
-        "<strong>(25 min) Passando dados:</strong> strings, objetos Parcelable e argumentos obrigatórios.",
-        "<strong>(20 min) Back stack e flags:</strong> boas práticas ao navegar para telas já abertas.",
-        "<strong>(20 min) Laboratório guiado:</strong> cadastro → resumo → retorno.",
-        "<strong>(15 min) TED e checklist de validação.</strong>"
+        "(10 min) Pergunta disparadora: como apps organizam múltiplas telas?",
+        "(20 min) Anatomia de uma Intent explícita: contexto, classe destino e extras.",
+        "(25 min) Passando dados: strings, objetos Parcelable e argumentos obrigatórios.",
+        "(20 min) Back stack e flags: boas práticas ao navegar para telas já abertas.",
+        "(20 min) Laboratório guiado: cadastro → resumo → retorno.",
+        "(15 min) TED e checklist de validação."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Cenário profissional",
-      "content": "Você precisa enviar dados de cadastro para uma tela de confirmação sem duplicar Activities na pilha. Qual seria o fluxo ideal?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Você precisa enviar dados de cadastro para uma tela de confirmação sem duplicar Activities na pilha. Qual seria o fluxo ideal?"
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -168,7 +173,12 @@
           "type": "callout",
           "variant": "warning",
           "title": "Valide antes de navegar",
-          "content": "Checar campos obrigatórios evita que a Activity destino receba dados nulos ou inconsistentes."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Checar campos obrigatórios evita que a Activity destino receba dados nulos ou inconsistentes."
+            }
+          ]
         }
       ]
     },
@@ -244,7 +254,12 @@
           "type": "callout",
           "variant": "task",
           "title": "TED",
-          "content": "<p>Grave um vídeo curto demonstrando o fluxo e descreva duas melhorias planejadas (ex.: animações, validação assíncrona).</p>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Grave um vídeo curto demonstrando o fluxo e descreva duas melhorias planejadas (ex.: animações, validação assíncrona)."
+            }
+          ]
         }
       ]
     },
@@ -252,8 +267,8 @@
       "type": "bibliographyBlock",
       "title": "Referências complementares",
       "references": [
-        "GOOGLE. <strong>Build a multi-screen app with intents</strong>. 2024.",
-        "MEDNIEKS, Zigurd. <strong>Programming Android</strong>. O'Reilly, 4ª ed., 2022. Cap. 5."
+        "GOOGLE. Build a multi-screen app with intents. 2024.",
+        "MEDNIEKS, Zigurd. Programming Android. O'Reilly, 4ª ed., 2022. Cap. 5."
       ]
     }
   ],

@@ -415,7 +415,12 @@
       "type": "callout",
       "variant": "warning",
       "title": "Cuidado com sobreposições",
-      "content": "<p>Condições genéricas no topo da cadeia capturam valores demais. Comece pelos cenários mais específicos e deixe o <code>else</code> para os casos residuais.</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Condições genéricas no topo da cadeia capturam valores demais. Comece pelos cenários mais específicos e deixe o else para os casos residuais."
+        }
+      ]
     },
     {
       "type": "contentBlock",

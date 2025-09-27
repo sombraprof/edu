@@ -40,6 +40,7 @@
         },
         {
           "type": "list",
+          "ordered": false,
           "items": [
             "Qual foi o elemento principal que o tornou memorável (história, jogabilidade, arte, desafio)?",
             "Após a conversa, vamos listar no quadro os fatores mais comuns que tornam um jogo especial."
@@ -53,7 +54,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "A indústria de games é um gigante do entretenimento que supera os mercados de cinema e música somados. Ela não apenas dita tendências tecnológicas, mas também molda a cultura, a interação social e novas economias. Ser um desenvolvedor de jogos hoje significa estar no centro de um ecossistema vibrante, atuando em áreas como <strong>programação de gameplay</strong>, <strong>design de narrativas</strong>, <strong>arte 2D/3D</strong>, <strong>garantia de qualidade (QA)</strong>, <strong>design de som</strong> e muito mais."
+          "text": "A indústria de games é um gigante do entretenimento que supera os mercados de cinema e música somados. Ela não apenas dita tendências tecnológicas, mas também molda a cultura, a interação social e novas economias. Ser um desenvolvedor de jogos hoje significa estar no centro de um ecossistema vibrante, atuando em áreas como programação de gameplay, design de narrativas, arte 2D/3D, garantia de qualidade (QA), design de som e muito mais."
         },
         {
           "type": "blockquote",
@@ -61,7 +62,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Nesta disciplina, vamos desvendar os segredos por trás da magia. Vocês não serão apenas jogadores, mas os arquitetos de novos mundos. Nosso objetivo é transformar a paixão por jogar na habilidade de criar, combinando <strong>criatividade</strong> com <strong>tecnologia</strong>."
+          "text": "Nesta disciplina, vamos desvendar os segredos por trás da magia. Vocês não serão apenas jogadores, mas os arquitetos de novos mundos. Nosso objetivo é transformar a paixão por jogar na habilidade de criar, combinando criatividade com tecnologia."
         }
       ]
     },
@@ -143,7 +144,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Um jogo de sucesso depende da interação entre o time de <strong>Desenvolvimento</strong> (que cria o jogo), a <strong>Publicadora</strong> (que cuida do marketing e distribuição) e a <strong>Comunidade</strong> (que joga, dá feedback e mantém o jogo vivo)."
+          "text": "Um jogo de sucesso depende da interação entre o time de Desenvolvimento (que cria o jogo), a Publicadora (que cuida do marketing e distribuição) e a Comunidade (que joga, dá feedback e mantém o jogo vivo)."
         }
       ]
     },
@@ -171,11 +172,11 @@
       "cards": [
         {
           "title": "Principais Gêneros",
-          "content": "<ul><li><strong>RPG (Role-Playing Game):</strong> Foco em progressão de personagem e história. (Ex: The Witcher, Final Fantasy)</li><li><strong>Ação/Aventura:</strong> Combina combate, exploração e puzzles. (Ex: Zelda, God of War)</li><li><strong>Estratégia (RTS/TBS):</strong> Requer planejamento e gerenciamento de recursos. (Ex: Age of Empires, XCOM)</li><li><strong>Simulação:</strong> Recria atividades do mundo real. (Ex: The Sims, Flight Simulator)</li><li><strong>Indie:</strong> Jogos criados por estúdios pequenos, focados em inovação e arte. (Ex: Celeste, Hollow Knight)</li></ul>"
+          "content": "- RPG (Role-Playing Game): Foco em progressão de personagem e história. (Ex: The Witcher, Final Fantasy)\n- Ação/Aventura: Combina combate, exploração e puzzles. (Ex: Zelda, God of War)\n- Estratégia (RTS/TBS): Requer planejamento e gerenciamento de recursos. (Ex: Age of Empires, XCOM)\n- Simulação: Recria atividades do mundo real. (Ex: The Sims, Flight Simulator)\n- Indie: Jogos criados por estúdios pequenos, focados em inovação e arte. (Ex: Celeste, Hollow Knight)"
         },
         {
           "title": "Principais Plataformas",
-          "content": "<ul><li><strong>PC:</strong> Flexibilidade, poder gráfico e distribuição digital (Steam, Epic Games).</li><li><strong>Consoles:</strong> Experiência otimizada e ecossistemas exclusivos (PlayStation, Xbox, Nintendo).</li><li><strong>Mobile:</strong> Acessibilidade massiva, jogos casuais e monetização via apps.</li><li><strong>XR (VR/AR):</strong> A nova fronteira da imersão, com realidade virtual e aumentada.</li></ul>"
+          "content": "- PC: Flexibilidade, poder gráfico e distribuição digital (Steam, Epic Games).\n- Consoles: Experiência otimizada e ecossistemas exclusivos (PlayStation, Xbox, Nintendo).\n- Mobile: Acessibilidade massiva, jogos casuais e monetização via apps.\n- XR (VR/AR): A nova fronteira da imersão, com realidade virtual e aumentada."
         }
       ]
     },
@@ -185,15 +186,15 @@
       "cards": [
         {
           "title": "The Witcher 3: Wild Hunt",
-          "content": "<ul><li><strong>Gênero:</strong> RPG de Ação / Mundo Aberto</li><li><strong>Plataforma:</strong> PC, PlayStation, Xbox, Nintendo Switch</li><li><strong>Inovação Chave:</strong> Narrativa madura e complexa com missões secundárias que possuem o mesmo nível de profundidade da campanha principal, estabelecendo um novo padrão para storytelling em RPGs.</li><li><strong>Impacto:</strong> Considerado um dos melhores RPGs já feitos, elevou o padrão de qualidade para mundos abertos e mostrou como narrativas interativas podem ter peso literário.</li></ul>"
+          "content": "- Gênero: RPG de Ação / Mundo Aberto\n- Plataforma: PC, PlayStation, Xbox, Nintendo Switch\n- Inovação Chave: Narrativa madura e complexa com missões secundárias que possuem o mesmo nível de profundidade da campanha principal, estabelecendo um novo padrão para storytelling em RPGs.\n- Impacto: Considerado um dos melhores RPGs já feitos, elevou o padrão de qualidade para mundos abertos e mostrou como narrativas interativas podem ter peso literário."
         },
         {
           "title": "Among Us",
-          "content": "<ul><li><strong>Gênero:</strong> Social Deduction / Indie</li><li><strong>Plataforma:</strong> Mobile, PC, Consoles</li><li><strong>Inovação Chave:</strong> Mecânica simples de dedução social com interação intensa entre jogadores, provando que jogos de baixo orçamento podem se tornar fenômenos culturais globais.</li><li><strong>Impacto:</strong> Popularizou jogos de dedução social no ambiente digital, destacando o papel da comunidade e streamers na propagação de jogos independentes.</li></ul>"
+          "content": "- Gênero: Social Deduction / Indie\n- Plataforma: Mobile, PC, Consoles\n- Inovação Chave: Mecânica simples de dedução social com interação intensa entre jogadores, provando que jogos de baixo orçamento podem se tornar fenômenos culturais globais.\n- Impacto: Popularizou jogos de dedução social no ambiente digital, destacando o papel da comunidade e streamers na propagação de jogos independentes."
         },
         {
           "title": "Minecraft",
-          "content": "<ul><li><strong>Gênero:</strong> Sandbox / Sobrevivência / Criativo</li><li><strong>Plataforma:</strong> Todas (PC, Consoles, Mobile)</li><li><strong>Inovação Chave:</strong> Mundo procedural que oferece liberdade criativa quase infinita, permitindo que jogadores construam suas próprias experiências e narrativas.</li><li><strong>Impacto:</strong> Transformou o conceito de sandbox, tornou-se uma ferramenta de educação e colaboração, e é um dos jogos mais vendidos e influentes da história.</li></ul>"
+          "content": "- Gênero: Sandbox / Sobrevivência / Criativo\n- Plataforma: Todas (PC, Consoles, Mobile)\n- Inovação Chave: Mundo procedural que oferece liberdade criativa quase infinita, permitindo que jogadores construam suas próprias experiências e narrativas.\n- Impacto: Transformou o conceito de sandbox, tornou-se uma ferramenta de educação e colaboração, e é um dos jogos mais vendidos e influentes da história."
         }
       ]
     },
@@ -204,7 +205,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Vamos assistir a um vídeo curto que destaca os <strong>melhores games brasileiros de fevereiro de 2025</strong>. Durante a exibição, anotem um dado ou tendência que mais chamou a atenção e discutiremos em seguida."
+          "text": "Vamos assistir a um vídeo curto que destaca os melhores games brasileiros de fevereiro de 2025. Durante a exibição, anotem um dado ou tendência que mais chamou a atenção e discutiremos em seguida."
         },
         {
           "type": "video",
@@ -219,15 +220,15 @@
       "items": [
         {
           "title": "1. Qual gênero de jogo, simbolizado por \"RTS\", foca em gerenciamento de recursos e exércitos em tempo real?",
-          "content": "<strong>Resposta:</strong> Estratégia em Tempo Real (Real-Time Strategy), como Age of Empires ou StarCraft."
+          "content": "Resposta: Estratégia em Tempo Real (Real-Time Strategy), como Age of Empires ou StarCraft."
         },
         {
           "title": "2. A Steam é a principal plataforma de distribuição digital para qual ambiente de jogos?",
-          "content": "<strong>Resposta:</strong> PC (Computador). É a maior loja digital para jogos de PC no mundo."
+          "content": "Resposta: PC (Computador). É a maior loja digital para jogos de PC no mundo."
         },
         {
           "title": "3. Jogos como \"Celeste\" e \"Stardew Valley\", criados por equipes pequenas com foco em inovação, pertencem a qual categoria?",
-          "content": "<strong>Resposta:</strong> Indie (Independentes). Eles são conhecidos pela liberdade criativa e por não terem grandes publicadoras por trás."
+          "content": "Resposta: Indie (Independentes). Eles são conhecidos pela liberdade criativa e por não terem grandes publicadoras por trás."
         }
       ]
     },
@@ -238,11 +239,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Ao longo da disciplina, vocês irão trabalhar em <strong>equipes multidisciplinares</strong> para conceber, desenvolver e apresentar um jogo digital completo. Este projeto não será apenas uma avaliação: será a primeira peça sólida do <strong>portfólio profissional</strong> de cada um, mostrando suas habilidades técnicas, de design e colaboração."
+          "text": "Ao longo da disciplina, vocês irão trabalhar em equipes multidisciplinares para conceber, desenvolver e apresentar um jogo digital completo. Este projeto não será apenas uma avaliação: será a primeira peça sólida do portfólio profissional de cada um, mostrando suas habilidades técnicas, de design e colaboração."
         },
         {
           "type": "paragraph",
-          "text": "O jogo deve ser pensado com <strong>design de mecânicas, experiência do jogador</strong> e <strong>viabilidade de publicação</strong>. A ideia é simular o ciclo real de desenvolvimento, incluindo documentação, prototipagem, implementação e apresentação final."
+          "text": "O jogo deve ser pensado com design de mecânicas, experiência do jogador e viabilidade de publicação. A ideia é simular o ciclo real de desenvolvimento, incluindo documentação, prototipagem, implementação e apresentação final."
         },
         {
           "type": "roadmap",
@@ -267,7 +268,7 @@
         },
         {
           "type": "paragraph",
-          "text": "💡 <strong>Dica:</strong> Documentem todo o processo. Screenshots, protótipos e decisões de design serão parte do seu portfólio e podem ser usados em entrevistas e apresentações futuras."
+          "text": "💡 Dica: Documentem todo o processo. Screenshots, protótipos e decisões de design serão parte do seu portfólio e podem ser usados em entrevistas e apresentações futuras."
         }
       ]
     },
@@ -277,19 +278,24 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Para a próxima aula, a tarefa tem dois objetivos: entender as <strong>profissões</strong> e o que o <strong>mercado</strong> exige."
+          "text": "Para a próxima aula, a tarefa tem dois objetivos: entender as profissões e o que o mercado exige."
         },
         {
           "type": "list",
           "items": [
-            "<strong>Fórum - A Minha Profissão Gamer:</strong> Leia um dos artigos recomendados abaixo e participe do fórum no Moodle respondendo:<blockquote>\"Com qual profissão dentro da indústria de jogos você mais se identifica e por quê?\"</blockquote><p class=\"mt-3 font-semibold\">📚 Leitura recomendada:</p><ul><li><a href=\"https://ebaconline.com.br/blog/games-mercado-de-trabalho-em-expansao-no-brasil\" target=\"_blank\">Games: um mercado de trabalho em expansão no Brasil (EBAC)</a></li><li><a href=\"https://blog.uniasselvi.com.br/carreira-em-jogos-digitais/\" target=\"_blank\">Carreira em Jogos Digitais: como trabalhar na indústria dos games (Uniasselvi)</a></li></ul>",
-            "<strong>Pesquisa de Mercado - Vaga Real:</strong> Pesquise em sites como <a href=\"https://www.linkedin.com/jobs/\" target=\"_blank\">LinkedIn</a> ou <a href=\"https://www.catho.com.br/vagas/\" target=\"_blank\">Catho</a> por uma vaga real na área de jogos que te interesse (ex: \"Programador Unity Júnior\", \"Game Designer\", \"Artista 3D\"). Anote e traga para a próxima aula:<ul><li>O nome da vaga e da empresa.</li><li>Pelo menos 3 habilidades (skills) técnicas ou comportamentais exigidas na descrição.</li></ul>"
+            "Fórum - A Minha Profissão Gamer: Leia um dos artigos recomendados abaixo e participe do fórum no Moodle respondendo:\"Com qual profissão dentro da indústria de jogos você mais se identifica e por quê?\" 📚 Leitura recomendada: - Games: um mercado de trabalho em expansão no Brasil (EBAC) (https://ebaconline.com.br/blog/games-mercado-de-trabalho-em-expansao-no-brasil) - Carreira em Jogos Digitais: como trabalhar na indústria dos games (Uniasselvi) (https://blog.uniasselvi.com.br/carreira-em-jogos-digitais/)",
+            "Pesquisa de Mercado - Vaga Real: Pesquise em sites como LinkedIn (https://www.linkedin.com/jobs/) ou Catho (https://www.catho.com.br/vagas/) por uma vaga real na área de jogos que te interesse (ex: \"Programador Unity Júnior\", \"Game Designer\", \"Artista 3D\"). Anote e traga para a próxima aula: - O nome da vaga e da empresa. - Pelo menos 3 habilidades (skills) técnicas ou comportamentais exigidas na descrição."
           ]
         },
         {
           "type": "callout",
           "variant": "info",
-          "content": "💡 <strong>Dica:</strong> Ao escolher a vaga, observe quais habilidades se repetem entre diferentes empresas. Isso dará uma visão clara de quais competências são mais valorizadas na indústria de jogos."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "💡 Dica: Ao escolher a vaga, observe quais habilidades se repetem entre diferentes empresas. Isso dará uma visão clara de quais competências são mais valorizadas na indústria de jogos."
+            }
+          ]
         }
       ]
     },
@@ -297,8 +303,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia de Apoio",
       "references": [
-        "<strong>ALVES, W. P.</strong> <em>Unity: design e desenvolvimento de jogos.</em> Rio de Janeiro: Alta Books, 2019.",
-        "<strong>SCHUYTEMA, Paul.</strong> <em>Design de games: uma abordagem prática.</em> São Paulo: Cengage Learning, 2008."
+        "ALVES, W. P. Unity: design e desenvolvimento de jogos. Rio de Janeiro: Alta Books, 2019.",
+        "SCHUYTEMA, Paul. Design de games: uma abordagem prática. São Paulo: Cengage Learning, 2008."
       ]
     }
   ],

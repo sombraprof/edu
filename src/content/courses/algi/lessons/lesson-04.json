@@ -65,17 +65,22 @@
           "text": "O Portugol padroniza entradas, processamento e saídas. Mantemos a mesma estrutura ao migrar para C, apenas adaptando sintaxe e tipos."
         },
         {
-          "type": "subBlock",
-          "title": "Estrutura base",
-          "items": [
-            "<pre class=\"language-pseudocode\">ALGORITMO \"Processo\"\nVAR\n  variavel : TIPO\nINICIO\n  LEIA(variavel)\n  variavel <- variavel + 1\n  ESCREVA(variavel)\nFIM_ALGORITMO</pre>",
+          "type": "paragraph",
+          "text": "Modelo base em Portugol"
+        },
+        {
+          "type": "code",
+          "language": "pseudocode",
+          "code": "ALGORITMO \"Processo\"\nVAR\n  variavel : TIPO\nINICIO\n  LEIA(variavel)\n  variavel <- variavel + 1\n  ESCREVA(variavel)\nFIM_ALGORITMO"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Observação",
+          "content": [
             {
-              "component": "Callout",
-              "props": {
-                "variant": "info",
-                "title": "Observação",
-                "content": "Use nomes de variáveis significativos e comentários que expliquem decisões."
-              }
+              "type": "paragraph",
+              "text": "Use nomes de variáveis significativos e comentários que expliquem decisões."
             }
           ]
         }
@@ -90,12 +95,26 @@
           "text": "Compare os mesmos passos em Portugol e em C."
         },
         {
-          "type": "subBlock",
-          "title": "Somar dois números",
-          "items": [
-            "<div class=\"grid lg:grid-cols-2 gap-6\"><div class=\"card p-4\"><h5 class=\"font-bold mb-3\">Portugol</h5><pre class=\"language-plaintext\">ALGORITMO \"Soma\"\nVAR\n  num1, num2, soma: INTEIRO\nINICIO\n  ESCREVA(\"Digite o primeiro número: \")\n  LEIA(num1)\n  ESCREVA(\"Digite o segundo número: \")\n  LEIA(num2)\n  soma <- num1 + num2\n  ESCREVA(\"A soma é: \", soma)\nFIM_ALGORITMO</pre></div><div class=\"card p-4\"><h5 class=\"font-bold mb-3\">Linguagem C</h5><pre class=\"language-c\">#include <stdio.h>\n\nint main(void) {\n  int num1, num2, soma;\n\n  printf(\"Digite o primeiro número: \");\n  scanf(\"%d\", &num1);\n\n  printf(\"Digite o segundo número: \");\n  scanf(\"%d\", &num2);\n\n  soma = num1 + num2;\n  printf(\"A soma é: %d\\n\", soma);\n\n  return 0;\n}</pre></div></div>",
-            "<p>Observe como cada comando possui equivalente direto, mas exige atenção à sintaxe e tipos.</p>"
-          ]
+          "type": "paragraph",
+          "text": "Algoritmo em Portugol"
+        },
+        {
+          "type": "code",
+          "language": "pseudocode",
+          "code": "ALGORITMO \"Soma\"\nVAR\n  num1, num2, soma: INTEIRO\nINICIO\n  ESCREVA(\"Digite o primeiro número: \")\n  LEIA(num1)\n  ESCREVA(\"Digite o segundo número: \")\n  LEIA(num2)\n  soma <- num1 + num2\n  ESCREVA(\"A soma é: \", soma)\nFIM_ALGORITMO"
+        },
+        {
+          "type": "paragraph",
+          "text": "Implementação equivalente em C"
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n  int num1, num2, soma;\n\n  printf(\"Digite o primeiro número: \");\n  scanf(\"%d\", &num1);\n\n  printf(\"Digite o segundo número: \");\n  scanf(\"%d\", &num2);\n\n  soma = num1 + num2;\n  printf(\"A soma é: %d\\n\", soma);\n\n  return 0;\n}"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe como cada comando possui equivalente direto, mas exige atenção à sintaxe e aos tipos utilizados."
         }
       ]
     },
@@ -140,7 +159,12 @@
       "type": "callout",
       "variant": "task",
       "title": "TED da Aula 4",
-      "content": "Carregue no Moodle o código em C com comentários explicando as linhas-chave e um print da execução."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Carregue no Moodle o código em C com comentários explicando as linhas-chave e um print da execução."
+        }
+      ]
     },
     {
       "type": "checklist",

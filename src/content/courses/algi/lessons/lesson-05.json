@@ -217,7 +217,12 @@
       "type": "callout",
       "variant": "task",
       "title": "TED da Aula 5",
-      "content": "Envie no Moodle o fluxograma final (PDF ou link) e um parágrafo justificando decisões críticas."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie no Moodle o fluxograma final (PDF ou link) e um parágrafo justificando decisões críticas."
+        }
+      ]
     },
     {
       "type": "checklist",

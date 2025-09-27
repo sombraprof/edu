@@ -29,7 +29,36 @@
         :style="{ maxHeight: openIndex === index ? '1000px' : '0px' }"
       >
         <div class="prose-container p-4 border-t border-[var(--md-sys-color-outline)]">
-          <div class="prose max-w-none lesson-content" v-html="sanitizeContent(item.content)"></div>
+          <div v-if="hasRichContent(item)" class="prose max-w-none lesson-content space-y-3">
+            <template v-for="(block, blockIndex) in richBlocks(item)" :key="blockIndex">
+              <p v-if="block.type === 'paragraph'" v-html="sanitize(block.text)"></p>
+              <ul
+                v-else-if="block.type === 'list' && !block.ordered"
+                class="list-disc list-inside space-y-1"
+              >
+                <li
+                  v-for="(entry, entryIndex) in block.items"
+                  :key="entryIndex"
+                  v-html="sanitize(entry)"
+                ></li>
+              </ul>
+              <ol
+                v-else-if="block.type === 'list' && block.ordered"
+                class="list-decimal list-inside space-y-1"
+              >
+                <li
+                  v-for="(entry, entryIndex) in block.items"
+                  :key="entryIndex"
+                  v-html="sanitize(entry)"
+                ></li>
+              </ol>
+            </template>
+          </div>
+          <div
+            v-else
+            class="prose max-w-none lesson-content"
+            v-html="sanitizeContent(item.content)"
+          ></div>
         </div>
       </div>
     </div>
@@ -41,9 +70,15 @@ import { ref } from 'vue';
 import { ChevronDown } from 'lucide-vue-next';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
+type RichParagraph = { type: 'paragraph'; text: string };
+type RichList = { type: 'list'; ordered?: boolean; items: string[] };
+type RichContentBlock = RichParagraph | RichList;
+
+type AccordionContent = string | RichContentBlock[] | undefined;
+
 interface AccordionItem {
   title: string;
-  content: string;
+  content?: AccordionContent;
 }
 
 interface AccordionData {
@@ -64,8 +99,25 @@ function toggle(index: number) {
   }
 }
 
-function sanitizeContent(value: unknown): string {
+function sanitizeContent(value: AccordionContent): string {
+  if (Array.isArray(value)) {
+    return '';
+  }
+  return sanitizeHtml(value ?? '');
+}
+
+function hasRichContent(item: AccordionItem): item is AccordionItem & {
+  content: RichContentBlock[];
+} {
+  return Array.isArray(item.content) && item.content.length > 0;
+}
+
+function sanitize(value: string): string {
   return sanitizeHtml(value);
+}
+
+function richBlocks(item: AccordionItem): RichContentBlock[] {
+  return Array.isArray(item.content) ? item.content : [];
 }
 </script>
 

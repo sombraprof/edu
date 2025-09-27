@@ -26,11 +26,11 @@
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-diagram-project mr-2\"></i>A Trindade do Design: Cena, Narrativa e Mecânica",
+      "title": "A Trindade do Design: Cena, Narrativa e Mecânica",
       "content": [
         {
           "type": "paragraph",
-          "text": "Um jogo coeso surge quando <strong>layout</strong> (level design), <strong>história</strong> e <strong>mecânicas</strong> se reforçam mutuamente. Use o GDD como contrato entre visão e execução."
+          "text": "Um jogo coeso surge quando layout (level design), história e mecânicas se reforçam mutuamente. Use o GDD como contrato entre visão e execução."
         },
         {
           "type": "image",
@@ -40,18 +40,28 @@
         {
           "type": "callout",
           "variant": "warning",
-          "title": "<i class=\"fa-solid fa-screwdriver-wrench mr-2\"></i>Integração técnica rápida (checar no protótipo)",
-          "content": "<ul><li><strong>Colisão e Física:</strong> verifique <em>Colliders</em> corretos por objeto e se o <em>Rigidbody</em> do player está configurado para o tipo de movimento. Referência: <a href=\"https://docs.unity3d.com/Manual/CollidersOverview.html\">Colliders</a> e <a href=\"https://docs.unity3d.com/ScriptReference/Rigidbody.html\">Rigidbody</a>.</li><li><strong>UI/HUD:</strong> os elementos de feedback (vida, pontuação, objetivo atual) devem refletir as regras descritas no GDD. Referência: <a href=\"https://docs.unity3d.com/Manual/UISystem.html\">UI (uGUI)</a>.</li><li><strong>Level → Mecânica:</strong> ramps/plataformas precisam respeitar as métricas do personagem (altura de salto, velocidade, aceleração). Documente essas métricas no GDD.</li></ul>"
+          "title": "Integração técnica rápida (checar no protótipo)",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Colisão e Física: verifique Colliders corretos por objeto e se o Rigidbody do player está configurado para o tipo de movimento. Referência: Colliders (https://docs.unity3d.com/Manual/CollidersOverview.html) e Rigidbody (https://docs.unity3d.com/ScriptReference/Rigidbody.html).",
+                "UI/HUD: os elementos de feedback (vida, pontuação, objetivo atual) devem refletir as regras descritas no GDD. Referência: UI (uGUI) (https://docs.unity3d.com/Manual/UISystem.html).",
+                "Level → Mecânica: ramps/plataformas precisam respeitar as métricas do personagem (altura de salto, velocidade, aceleração). Documente essas métricas no GDD."
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-ruler-combined mr-2\"></i>Métricas de Personagem e Level (balizas objetivas)",
+      "title": "Métricas de Personagem e Level (balizas objetivas)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Trabalhe em escala real (em Unity, 1 unidade geralmente representa ~1 metro) para obter física/iluminação mais previsíveis. <a href=\"https://docs.unity3d.com/2023.2/Documentation/Manual/UnderstandingScaleAndUnits.html\">Ver diretrizes de escala</a>."
+          "text": "Trabalhe em escala real (em Unity, 1 unidade geralmente representa ~1 metro) para obter física/iluminação mais previsíveis. Ver diretrizes de escala (https://docs.unity3d.com/2023.2/Documentation/Manual/UnderstandingScaleAndUnits.html)."
         },
         {
           "type": "md3Table",
@@ -91,14 +101,19 @@
         {
           "type": "callout",
           "variant": "info",
-          "title": "<i class=\"fa-solid fa-flask mr-2\"></i>Nota rápida (física do pulo)",
-          "content": "Defina as curvas do pulo pela altura/time-to-apex (ex.: <em>v0 = sqrt(2·g·altura)</em>). Teste colisão e física com <strong>Colliders</strong> e <strong>Rigidbody</strong> configurados corretamente, como visto nos PDFs do IMD."
+          "title": "Nota rápida (física do pulo)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Defina as curvas do pulo pela altura/time-to-apex (ex.: v0 = sqrt(2·g·altura)). Teste colisão e física com Colliders e Rigidbody configurados corretamente, como visto nos PDFs do IMD."
+            }
+          ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-map mr-2\"></i>Mapa de rastreabilidade: GDD ↔ Cena (Unity)",
+      "title": "Mapa de rastreabilidade: GDD ↔ Cena (Unity)",
       "content": [
         {
           "type": "paragraph",
@@ -136,34 +151,54 @@
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-list-check mr-2\"></i>Checklist de validação (rápida)",
-          "content": "<ul><li><strong>Clareza de objetivos:</strong> o jogador entende o que fazer nos 10s iniciais?</li><li><strong>Escala e métrica:</strong> portas, corredores, rampas e gaps batem com as métricas do personagem?</li><li><strong>Performance:</strong> objetos estáticos marcados como <em>Static</em>; colisores simples onde possível.</li></ul>"
+          "title": "Checklist de validação (rápida)",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Clareza de objetivos: o jogador entende o que fazer nos 10s iniciais?",
+                "Escala e métrica: portas, corredores, rampas e gaps batem com as métricas do personagem?",
+                "Performance: objetos estáticos marcados como Static; colisores simples onde possível."
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-screwdriver-wrench mr-2\"></i>Checklist técnico: Colliders, Física e HUD",
+      "title": "Checklist técnico: Colliders, Física e HUD",
       "content": [
         {
           "type": "list",
           "items": [
-            "<strong>Colliders:</strong> use formas simples (Box/Sphere) para cenário; malhas complexas somente quando necessário. Atente a <em>IsTrigger</em> vs eventos de colisão.",
-            "<strong>Rigidbody (player/itens):</strong> defina <em>Mass</em>, <em>Drag</em> e <em>Use Gravity</em> coerentes com as métricas do personagem.",
-            "<strong>HUD:</strong> elementos (vida, objetivos) refletindo regras do GDD; texto legível; feedback em eventos-chave (coleta, dano, checkpoint)."
+            "Colliders: use formas simples (Box/Sphere) para cenário; malhas complexas somente quando necessário. Atente a IsTrigger vs eventos de colisão.",
+            "Rigidbody (player/itens): defina Mass, Drag e Use Gravity coerentes com as métricas do personagem.",
+            "HUD: elementos (vida, objetivos) refletindo regras do GDD; texto legível; feedback em eventos-chave (coleta, dano, checkpoint)."
           ]
         },
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-clipboard-check mr-2\"></i>Validar agora",
-          "content": "<ol><li>Empurre o player contra quinas/bordas: há <em>snagging</em>? Ajuste colliders/step offset.</li><li>Suba rampas/escadas: a velocidade se mantém? Reveja física/métricas.</li><li>Execute um fluxo “10 segundos”: objetivo visível + HUD atualizando.</li></ol>"
+          "title": "Validar agora",
+          "content": [
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "Empurre o player contra quinas/bordas: há snagging? Ajuste colliders/step offset.",
+                "Suba rampas/escadas: a velocidade se mantém? Reveja física/métricas.",
+                "Execute um fluxo “10 segundos”: objetivo visível + HUD atualizando."
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "type": "cardGrid",
-      "title": "<i class=\"fa-solid fa-magnifying-glass-chart mr-2\"></i>Estudos de Caso: Integração em Ação",
+      "title": "Estudos de Caso: Integração em Ação",
       "cards": [
         {
           "title": "Journey",
@@ -212,7 +247,7 @@
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-route mr-2\"></i>Navegação (NavMesh) & Fluxo do Jogador",
+      "title": "Navegação (NavMesh) & Fluxo do Jogador",
       "content": [
         {
           "type": "paragraph",
@@ -221,29 +256,34 @@
         {
           "type": "list",
           "items": [
-            "<strong>Marque cenário estático</strong> (Static) e gere o <em>NavMesh</em> (pacote NavMesh Components).",
-            "<strong>NavMeshAgent</strong> em NPCs e pontos de interesse para rotas simples (patrulha/fuga).",
-            "<strong>Teste gargalos</strong>: corredores estreitos, rampas, plataformas — revise colisores e métricas."
+            "Marque cenário estático (Static) e gere o NavMesh (pacote NavMesh Components).",
+            "NavMeshAgent em NPCs e pontos de interesse para rotas simples (patrulha/fuga).",
+            "Teste gargalos: corredores estreitos, rampas, plataformas — revise colisores e métricas."
           ]
         },
         {
           "type": "callout",
           "variant": "info",
-          "title": "<i class=\"fa-solid fa-circle-info mr-2\"></i>Docs úteis",
-          "content": "<a href=\"https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/index.html\">Unity AI Navigation (NavMesh)</a>"
+          "title": "Docs úteis",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Unity AI Navigation (NavMesh) (https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/index.html)"
+            }
+          ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-gauge-high mr-2\"></i>Performance no Blockout: Static Batching & Occlusion Culling",
+      "title": "Performance no Blockout: Static Batching & Occlusion Culling",
       "content": [
         {
           "type": "list",
           "items": [
-            "<strong>Static Batching:</strong> combine objetos estáticos para reduzir draw calls (custo de memória aumenta).",
-            "<strong>Occlusion Culling:</strong> evita renderizar o que está totalmente oculto (bom para salas/corredores).",
-            "<strong>Colisores simples</strong> e marcar cenário como <em>Static</em> já no blockout."
+            "Static Batching: combine objetos estáticos para reduzir draw calls (custo de memória aumenta).",
+            "Occlusion Culling: evita renderizar o que está totalmente oculto (bom para salas/corredores).",
+            "Colisores simples e marcar cenário como Static já no blockout."
           ]
         },
         {
@@ -260,7 +300,7 @@
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-universal-access mr-2\"></i>Acessibilidade & UX (itens mínimos)",
+      "title": "Acessibilidade & UX (itens mínimos)",
       "content": [
         {
           "type": "list",
@@ -272,19 +312,37 @@
         },
         {
           "type": "paragraph",
-          "text": "Consulte <a href=\"https://gameaccessibilityguidelines.com\">Game Accessibility Guidelines</a> (níveis Beginner/Intermediate) para uma lista objetiva."
+          "text": "Consulte Game Accessibility Guidelines (https://gameaccessibilityguidelines.com) (níveis Beginner/Intermediate) para uma lista objetiva."
         }
       ]
     },
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "<i class=\"fa-solid fa-brain mr-2\"></i>Reflexão Crítica: MDA + Environmental Storytelling",
-      "content": "<p>Revise o protótipo conectando <strong>Mecânicas→Dinâmicas→Estéticas</strong> (MDA) e o que o ambiente \"narra\" sem texto.</p><ul><li><strong>Mecânicas</strong> (regras/ações) estão gerando as <strong>dinâmicas</strong> desejadas (ritmo, risco/recompensa)?</li><li>As <strong>estéticas</strong> (emoções visadas) emergem do espaço/jogabilidade (ex.: tensão em corredores)?</li><li>Seu cenário \"conta\" a história por pistas visuais coerentes (composição, iluminação, marcos)?</li></ul><p class=\"text-xs text-slate-500 mt-2\">Referência: MDA (Hunicke et al., 2004) e práticas de environmental storytelling.</p>"
+      "title": "Reflexão Crítica: MDA + Environmental Storytelling",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o protótipo conectando Mecânicas→Dinâmicas→Estéticas (MDA) e o que o ambiente \"narra\" sem texto."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Mecânicas (regras/ações) estão gerando as dinâmicas desejadas (ritmo, risco/recompensa)?",
+            "As estéticas (emoções visadas) emergem do espaço/jogabilidade (ex.: tensão em corredores)?",
+            "Seu cenário \"conta\" a história por pistas visuais coerentes (composição, iluminação, marcos)?"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Referência: MDA (Hunicke et al., 2004) e práticas de environmental storytelling."
+        }
+      ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-people-arrows mr-2\"></i>Rubrica de avaliação por pares (0–10)",
+      "title": "Rubrica de avaliação por pares (0–10)",
       "content": [
         {
           "type": "md3Table",
@@ -311,9 +369,9 @@
           "type": "list",
           "title": "Passo a Passo:",
           "items": [
-            "<strong>Atualize seu GDD:</strong> verifique se mecânicas, metas e métricas batem com a cena. Inclua um print atual da cena funcional.",
-            "<strong>Troque feedback com um colega:</strong> peça avaliação da clareza e da conexão GDD↔Cena. Registre as sugestões-chave.",
-            "<strong>Publique no Fórum:</strong> poste no Moodle o GDD e um resumo do feedback recebido e as ações que você fará."
+            "Atualize seu GDD: verifique se mecânicas, metas e métricas batem com a cena. Inclua um print atual da cena funcional.",
+            "Troque feedback com um colega: peça avaliação da clareza e da conexão GDD↔Cena. Registre as sugestões-chave.",
+            "Publique no Fórum: poste no Moodle o GDD e um resumo do feedback recebido e as ações que você fará."
           ]
         }
       ]
@@ -368,8 +426,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia",
       "references": [
-        "MASTROCOLA, Vicente Martin. <strong>Game design: modelos de negócio e processos criativos.</strong> São Paulo: Cengage Learning, 2015.",
-        "ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019."
+        "MASTROCOLA, Vicente Martin. Game design: modelos de negócio e processos criativos. São Paulo: Cengage Learning, 2015.",
+        "ALVES, W. P. Unity: design e desenvolvimento de jogos. Rio de Janeiro: Alta Books, 2019."
       ]
     }
   ],

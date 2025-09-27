@@ -94,7 +94,12 @@
       "type": "callout",
       "variant": "warning",
       "title": "Atenção ao pacote",
-      "content": "Garanta que o nome do pacote no topo da classe corresponde ao diretório onde o arquivo está salvo. Inconsistências quebram a compilação."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Garanta que o nome do pacote no topo da classe corresponde ao diretório onde o arquivo está salvo. Inconsistências quebram a compilação."
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -108,10 +113,10 @@
           "type": "subBlock",
           "title": "Elementos-chave",
           "items": [
-            "<p><strong>Declaração de pacote:</strong> Mantém o código organizado e evita colisões de nomes.</p>",
-            "<p><strong>Imports:</strong> Tornam classes externas disponíveis sem precisar do nome completo.</p>",
-            "<p><strong>Classe pública:</strong> Container principal de atributos e métodos.</p>",
-            "<p><strong>Método <code>main</code>:</strong> Executado pela JVM, recebe argumentos da linha de comando.</p>"
+            "Declaração de pacote: Mantém o código organizado e evita colisões de nomes.",
+            "Imports: Tornam classes externas disponíveis sem precisar do nome completo.",
+            "Classe pública: Container principal de atributos e métodos.",
+            "Método main: Executado pela JVM, recebe argumentos da linha de comando."
           ]
         }
       ]
@@ -148,19 +153,58 @@
         "title": "Pipeline de compilação Java",
         "summary": "Representação das etapas percorridas por um arquivo `.java` até gerar um programa executável.",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Código-fonte Java" },
-          { "id": "compile", "type": "process", "title": "Compilar com javac" },
-          { "id": "bytecode", "type": "data", "title": "Gerar bytecode (.class)" },
-          { "id": "jvm", "type": "process", "title": "Carregar na JVM" },
-          { "id": "runtime", "type": "output", "title": "Programa em execução" },
-          { "id": "end", "type": "end", "title": "Resultado no console" }
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Código-fonte Java"
+          },
+          {
+            "id": "compile",
+            "type": "process",
+            "title": "Compilar com javac"
+          },
+          {
+            "id": "bytecode",
+            "type": "data",
+            "title": "Gerar bytecode (.class)"
+          },
+          {
+            "id": "jvm",
+            "type": "process",
+            "title": "Carregar na JVM"
+          },
+          {
+            "id": "runtime",
+            "type": "output",
+            "title": "Programa em execução"
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Resultado no console"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "compile" },
-          { "from": "compile", "to": "bytecode" },
-          { "from": "bytecode", "to": "jvm" },
-          { "from": "jvm", "to": "runtime" },
-          { "from": "runtime", "to": "end" }
+          {
+            "from": "start",
+            "to": "compile"
+          },
+          {
+            "from": "compile",
+            "to": "bytecode"
+          },
+          {
+            "from": "bytecode",
+            "to": "jvm"
+          },
+          {
+            "from": "jvm",
+            "to": "runtime"
+          },
+          {
+            "from": "runtime",
+            "to": "end"
+          }
         ]
       }
     }

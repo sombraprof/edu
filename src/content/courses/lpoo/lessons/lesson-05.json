@@ -95,7 +95,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Pergunta norteadora",
-      "content": "Qual comportamento realmente precisa ser herdado? Há riscos de dependências rígidas se a hierarquia crescer demais?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Qual comportamento realmente precisa ser herdado? Há riscos de dependências rígidas se a hierarquia crescer demais?"
+        }
+      ]
     },
     {
       "type": "timeline",
@@ -150,7 +155,11 @@
       "props": {
         "title": "Fluxo de construção da hierarquia",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Identificar características comuns" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Identificar características comuns"
+          },
           {
             "id": "super",
             "type": "process",
@@ -161,8 +170,16 @@
             "type": "decision",
             "title": "Existe comportamento específico?",
             "branches": [
-              { "id": "sim", "label": "Sim", "target": "subclasse" },
-              { "id": "nao", "label": "Não", "target": "usar" }
+              {
+                "id": "sim",
+                "label": "Sim",
+                "target": "subclasse"
+              },
+              {
+                "id": "nao",
+                "label": "Não",
+                "target": "usar"
+              }
             ]
           },
           {
@@ -170,16 +187,44 @@
             "type": "process",
             "title": "Implementar subclass e sobrescrever métodos"
           },
-          { "id": "usar", "type": "output", "title": "Instanciar objetos e testar polimorfismo" },
-          { "id": "end", "type": "end", "title": "Hierarquia validada" }
+          {
+            "id": "usar",
+            "type": "output",
+            "title": "Instanciar objetos e testar polimorfismo"
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Hierarquia validada"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "super" },
-          { "from": "super", "to": "decisao" },
-          { "from": "decisao", "to": "subclasse", "label": "Sim" },
-          { "from": "decisao", "to": "usar", "label": "Não" },
-          { "from": "subclasse", "to": "usar" },
-          { "from": "usar", "to": "end" }
+          {
+            "from": "start",
+            "to": "super"
+          },
+          {
+            "from": "super",
+            "to": "decisao"
+          },
+          {
+            "from": "decisao",
+            "to": "subclasse",
+            "label": "Sim"
+          },
+          {
+            "from": "decisao",
+            "to": "usar",
+            "label": "Não"
+          },
+          {
+            "from": "subclasse",
+            "to": "usar"
+          },
+          {
+            "from": "usar",
+            "to": "end"
+          }
         ]
       }
     }

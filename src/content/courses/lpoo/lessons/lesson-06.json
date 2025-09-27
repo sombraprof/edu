@@ -94,7 +94,12 @@
       "type": "callout",
       "variant": "warning",
       "title": "Sinal amarelo",
-      "content": "Se sua hierarquia depende de muitos `instanceof`, talvez esteja faltando uma interface ou método abstrato."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Se sua hierarquia depende de muitos `instanceof`, talvez esteja faltando uma interface ou método abstrato."
+        }
+      ]
     },
     {
       "type": "cardGrid",

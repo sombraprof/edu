@@ -54,15 +54,15 @@
         },
         {
           "title": "2008–2010",
-          "content": "Plataformas digitais como Steam e App Store democratizam a distribuição. Motores como <strong>Unity</strong> e <strong>Unreal</strong> tornam-se acessíveis, abrindo caminho para o <strong>movimento Indie</strong>."
+          "content": "Plataformas digitais como Steam e App Store democratizam a distribuição. Motores como Unity e Unreal tornam-se acessíveis, abrindo caminho para o movimento Indie."
         },
         {
           "title": "2012–2015",
-          "content": "Crowdfunding (Kickstarter) e comunidades online impulsionam projetos independentes. Jogos como <em>Undertale</em> e <em>Shovel Knight</em> mostram a força dos indies."
+          "content": "Crowdfunding (Kickstarter) e comunidades online impulsionam projetos independentes. Jogos como Undertale e Shovel Knight mostram a força dos indies."
         },
         {
           "title": "2016–2020",
-          "content": "Consolidação dos AAA como experiências cinematográficas (<em>The Last of Us Part II</em>) enquanto indies exploram narrativas autorais (<em>Celeste</em>, <em>Hollow Knight</em>)."
+          "content": "Consolidação dos AAA como experiências cinematográficas (The Last of Us Part II) enquanto indies exploram narrativas autorais (Celeste, Hollow Knight)."
         },
         {
           "title": "2020+",
@@ -76,7 +76,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "A indústria de jogos digitais possui dois polos que representam modelos de produção distintos: os <strong>Jogos Indie</strong> (independentes) e os <strong>Jogos AAA</strong> (grandes produções). Ambos são essenciais para o ecossistema, equilibrando inovação e sustentabilidade."
+          "text": "A indústria de jogos digitais possui dois polos que representam modelos de produção distintos: os Jogos Indie (independentes) e os Jogos AAA (grandes produções). Ambos são essenciais para o ecossistema, equilibrando inovação e sustentabilidade."
         },
         {
           "type": "contentBlock",
@@ -89,7 +89,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Desenvolvidos por equipes pequenas ou indivíduos, com orçamentos reduzidos e grande liberdade criativa. O foco está em <strong>inovação mecânica</strong> e <strong>autoria pessoal</strong>. Exemplos: <em>Hollow Knight</em>, <em>Celeste</em>, <em>Undertale</em>."
+              "text": "Desenvolvidos por equipes pequenas ou indivíduos, com orçamentos reduzidos e grande liberdade criativa. O foco está em inovação mecânica e autoria pessoal. Exemplos: Hollow Knight, Celeste, Undertale."
             }
           ]
         },
@@ -104,7 +104,7 @@
             },
             {
               "type": "paragraph",
-              "text": "Produzidos por grandes estúdios com centenas de profissionais e orçamentos multimilionários. Priorizam <strong>alta qualidade audiovisual</strong> e <strong>apelo de mercado massivo</strong>. Exemplos: <em>The Last of Us Part II</em>, <em>Elden Ring</em>, <em>Assassin's Creed</em>."
+              "text": "Produzidos por grandes estúdios com centenas de profissionais e orçamentos multimilionários. Priorizam alta qualidade audiovisual e apelo de mercado massivo. Exemplos: The Last of Us Part II, Elden Ring, Assassin's Creed."
             }
           ]
         },
@@ -129,7 +129,12 @@
         {
           "type": "callout",
           "variant": "info",
-          "content": "<strong>Resumo:</strong> Indies trazem liberdade e inovação; AAAs oferecem escala e estabilidade de mercado. O desenvolvedor ideal entende como absorver o melhor dos dois mundos para criar experiências significativas."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Resumo: Indies trazem liberdade e inovação; AAAs oferecem escala e estabilidade de mercado. O desenvolvedor ideal entende como absorver o melhor dos dois mundos para criar experiências significativas."
+            }
+          ]
         }
       ]
     },
@@ -139,7 +144,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "O pipeline de desenvolvimento define como uma equipe transforma ideias em um produto final. A estrutura e o ritmo diferem radicalmente entre jogos <strong>Indie</strong> e <strong>AAA</strong>, impactando orçamento, prazo e design."
+          "text": "O pipeline de desenvolvimento define como uma equipe transforma ideias em um produto final. A estrutura e o ritmo diferem radicalmente entre jogos Indie e AAA, impactando orçamento, prazo e design."
         },
         {
           "type": "contentBlock",
@@ -148,11 +153,11 @@
             {
               "type": "list",
               "items": [
-                "<strong>Conceito:</strong> Ideias rápidas, prototipagem leve.",
-                "<strong>Protótipo Jogável:</strong> Iterações curtas e feedback constante.",
-                "<strong>Produção:</strong> Equipe reduzida, funções acumuladas.",
-                "<strong>Teste e Ajuste:</strong> Testes com comunidade e refinamento.",
-                "<strong>Lançamento:</strong> Publicação digital (Steam, Itch.io, etc.)."
+                "Conceito: Ideias rápidas, prototipagem leve.",
+                "Protótipo Jogável: Iterações curtas e feedback constante.",
+                "Produção: Equipe reduzida, funções acumuladas.",
+                "Teste e Ajuste: Testes com comunidade e refinamento.",
+                "Lançamento: Publicação digital (Steam, Itch.io, etc.)."
               ]
             }
           ]
@@ -164,11 +169,11 @@
             {
               "type": "list",
               "items": [
-                "<strong>Pré-produção:</strong> Design Doc, protótipo de conceito, alinhamento executivo.",
-                "<strong>Produção:</strong> Equipes especializadas, milestones rígidas.",
-                "<strong>QA Massivo:</strong> Equipes de testes dedicadas e polimento audiovisual.",
-                "<strong>Marketing Paralelo:</strong> Hype building e campanhas de mídia.",
-                "<strong>Lançamento:</strong> Publicação multiplataforma com suporte pós-release."
+                "Pré-produção: Design Doc, protótipo de conceito, alinhamento executivo.",
+                "Produção: Equipes especializadas, milestones rígidas.",
+                "QA Massivo: Equipes de testes dedicadas e polimento audiovisual.",
+                "Marketing Paralelo: Hype building e campanhas de mídia.",
+                "Lançamento: Publicação multiplataforma com suporte pós-release."
               ]
             }
           ]
@@ -186,7 +191,12 @@
         {
           "type": "callout",
           "variant": "info",
-          "content": "<strong>Insight:</strong> Um bom desenvolvedor entende que o pipeline define mais do que etapas técnicas: ele influencia o próprio design do jogo. Projetos híbridos podem combinar a agilidade Indie com o polimento AAA, adaptando processos para equipes médias."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Insight: Um bom desenvolvedor entende que o pipeline define mais do que etapas técnicas: ele influencia o próprio design do jogo. Projetos híbridos podem combinar a agilidade Indie com o polimento AAA, adaptando processos para equipes médias."
+            }
+          ]
         }
       ]
     },
@@ -196,7 +206,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Jogos digitais vão muito além do entretenimento. Eles são expressões culturais que refletem valores, narrativas e contextos sociais. Tanto <strong>Indies</strong> quanto <strong>AAAs</strong> moldam a forma como percebemos histórias, tecnologia e até identidade coletiva."
+          "text": "Jogos digitais vão muito além do entretenimento. Eles são expressões culturais que refletem valores, narrativas e contextos sociais. Tanto Indies quanto AAAs moldam a forma como percebemos histórias, tecnologia e até identidade coletiva."
         },
         {
           "type": "contentBlock",
@@ -204,7 +214,7 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "Costumam explorar narrativas pessoais e temas sociais. Exemplos: <em>Papers, Please</em> (migração e política), <em>Celeste</em> (saúde mental), <em>Hades</em> (mitologia reimaginada). São reflexos de autoria individual e diversidade cultural."
+              "text": "Costumam explorar narrativas pessoais e temas sociais. Exemplos: Papers, Please (migração e política), Celeste (saúde mental), Hades (mitologia reimaginada). São reflexos de autoria individual e diversidade cultural."
             }
           ]
         },
@@ -214,7 +224,7 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "Grandes produções moldam tendências globais e se tornam marcos culturais. Exemplos: <em>The Last of Us</em> (narrativa cinematográfica e inclusão), <em>Assassin’s Creed</em> (representação histórica), <em>Elden Ring</em> (imersão em mitologias fictícias)."
+              "text": "Grandes produções moldam tendências globais e se tornam marcos culturais. Exemplos: The Last of Us (narrativa cinematográfica e inclusão), Assassin’s Creed (representação histórica), Elden Ring (imersão em mitologias fictícias)."
             }
           ]
         },
@@ -224,7 +234,7 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "Jogos como <em>Pokémon GO</em> e <em>Free Fire</em> mostram como o mobile influencia comportamentos sociais, cria comunidades e até movimenta economias locais."
+              "text": "Jogos como Pokémon GO e Free Fire mostram como o mobile influencia comportamentos sociais, cria comunidades e até movimenta economias locais."
             }
           ]
         },
@@ -246,7 +256,12 @@
         {
           "type": "callout",
           "variant": "good-practice",
-          "content": "<strong>Reflexão:</strong> Qual jogo mais impactou sua visão de mundo? Ele trouxe uma narrativa, mecânica ou estética que mudou a forma como você entende cultura e sociedade?"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Reflexão: Qual jogo mais impactou sua visão de mundo? Ele trouxe uma narrativa, mecânica ou estética que mudou a forma como você entende cultura e sociedade?"
+            }
+          ]
         }
       ]
     },
@@ -256,13 +271,13 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "O objetivo desta atividade é criar um <strong>conceito de jogo híbrido</strong> que combine elementos de um projeto <strong>Indie</strong> (inovação, autoria) com características de um <strong>AAA</strong> (polimento, escala). Isso reforça a compreensão de pipelines, mecânicas centrais e alinhamento com público-alvo."
+          "text": "O objetivo desta atividade é criar um conceito de jogo híbrido que combine elementos de um projeto Indie (inovação, autoria) com características de um AAA (polimento, escala). Isso reforça a compreensão de pipelines, mecânicas centrais e alinhamento com público-alvo."
         },
         {
           "type": "list",
           "items": [
-            "Defina o <strong>gênero principal</strong> e uma mecânica central inovadora (core loop).",
-            "Escolha um <strong>tema narrativo</strong> e defina o público-alvo (casual, hardcore, etc.).",
+            "Defina o gênero principal e uma mecânica central inovadora (core loop).",
+            "Escolha um tema narrativo e defina o público-alvo (casual, hardcore, etc.).",
             "Liste 3 elementos que dariam “escala AAA” ao projeto (ex: gráficos, dublagem, marketing).",
             "Escreva em 3 a 4 frases como seu jogo se diferencia no mercado."
           ]
@@ -271,18 +286,45 @@
           "type": "callout",
           "variant": "info",
           "title": "📌 Exemplo de Resposta:",
-          "content": "<p><strong>Gênero:</strong> Plataforma narrativa com elementos de puzzle.</p><p><strong>Mecânica Central:</strong> Manipulação do tempo para resolver desafios e alterar a narrativa.</p><p><strong>Tema e Público-Alvo:</strong> Viagem emocional sobre perda e superação. Público: jogadores que buscam experiências imersivas e reflexivas.</p><p><strong>Escala AAA:</strong> Dublagem profissional, trilha sonora orquestrada, marketing global.</p>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Gênero: Plataforma narrativa com elementos de puzzle."
+            },
+            {
+              "type": "paragraph",
+              "text": "Mecânica Central: Manipulação do tempo para resolver desafios e alterar a narrativa."
+            },
+            {
+              "type": "paragraph",
+              "text": "Tema e Público-Alvo: Viagem emocional sobre perda e superação. Público: jogadores que buscam experiências imersivas e reflexivas."
+            },
+            {
+              "type": "paragraph",
+              "text": "Escala AAA: Dublagem profissional, trilha sonora orquestrada, marketing global."
+            }
+          ]
         },
         {
           "type": "callout",
           "variant": "info",
-          "content": "<strong>Dica:</strong> Pense no equilíbrio entre <em>coração Indie</em> (autoria e inovação) e <em>acabamento AAA</em> (polimento, escala). Pergunte-se: <em>“O que torna meu jogo único e como ele se conecta com o público?”</em>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Dica: Pense no equilíbrio entre coração Indie (autoria e inovação) e acabamento AAA (polimento, escala). Pergunte-se: “O que torna meu jogo único e como ele se conecta com o público?”"
+            }
+          ]
         },
         {
           "type": "callout",
           "variant": "good-practice",
           "title": "💡 Atividade Complementar:",
-          "content": "Desenhe rapidamente (pode ser no papel) a tela inicial e uma tela de gameplay do seu conceito. Não foque em arte, mas na comunicação das mecânicas e interface."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Desenhe rapidamente (pode ser no papel) a tela inicial e uma tela de gameplay do seu conceito. Não foque em arte, mas na comunicação das mecânicas e interface."
+            }
+          ]
         }
       ]
     },
@@ -292,27 +334,27 @@
       "cards": [
         {
           "title": "AAA",
-          "content": "Jogos de alto orçamento, grandes equipes e apelo de mercado massivo.<br><p class=\"text-xs mt-2 text-slate-500\"><strong>Exemplo:</strong> <em>The Last of Us Part II</em>, pela escala de produção e polimento cinematográfico.</p>"
+          "content": "Jogos de alto orçamento, grandes equipes e apelo de mercado massivo.\nExemplo: The Last of Us Part II, pela escala de produção e polimento cinematográfico."
         },
         {
           "title": "Indie",
-          "content": "Produções independentes com foco em inovação mecânica e autoria criativa.<br><p class=\"text-xs mt-2 text-slate-500\"><strong>Exemplo:</strong> <em>Celeste</em>, narrativa íntima com mecânicas precisas desenvolvidas por equipe pequena.</p>"
+          "content": "Produções independentes com foco em inovação mecânica e autoria criativa.\nExemplo: Celeste, narrativa íntima com mecânicas precisas desenvolvidas por equipe pequena."
         },
         {
           "title": "Core Loop",
-          "content": "Conjunto de ações centrais que o jogador repete durante o jogo.<br><p class=\"text-xs mt-2 text-slate-500\"><strong>Exemplo:</strong> Em <em>Hollow Knight</em>: explorar → lutar → evoluir habilidades → explorar mais.</p>"
+          "content": "Conjunto de ações centrais que o jogador repete durante o jogo.\nExemplo: Em Hollow Knight: explorar → lutar → evoluir habilidades → explorar mais."
         },
         {
           "title": "Game Feel",
-          "content": "Sensação tátil e emocional que o jogador tem ao interagir com o jogo.<br><p class=\"text-xs mt-2 text-slate-500\"><strong>Exemplo:</strong> O peso dos golpes em <em>Elden Ring</em> dá sensação de impacto e desafio.</p>"
+          "content": "Sensação tátil e emocional que o jogador tem ao interagir com o jogo.\nExemplo: O peso dos golpes em Elden Ring dá sensação de impacto e desafio."
         },
         {
           "title": "ABP",
-          "content": "Aprendizagem Baseada em Problemas: metodologia ativa usada para esta aula.<br><p class=\"text-xs mt-2 text-slate-500\"><strong>Exemplo:</strong> Analisar diferenças Indie vs AAA e aplicar em projeto autoral.</p>"
+          "content": "Aprendizagem Baseada em Problemas: metodologia ativa usada para esta aula.\nExemplo: Analisar diferenças Indie vs AAA e aplicar em projeto autoral."
         },
         {
           "title": "Hitbox",
-          "content": "Área invisível que define a detecção de colisões e acertos.<br><p class=\"text-xs mt-2 text-slate-500\"><strong>Exemplo:</strong> Precisão das hitboxes em <em>Celeste</em> e <em>Hollow Knight</em> garante controle exato.</p>"
+          "content": "Área invisível que define a detecção de colisões e acertos.\nExemplo: Precisão das hitboxes em Celeste e Hollow Knight garante controle exato."
         }
       ]
     },
@@ -321,24 +363,176 @@
       "title": "🔬 Estudos de Caso: Indie vs. AAA",
       "content": [
         {
-          "type": "cardGrid",
-          "cards": [
+          "type": "paragraph",
+          "text": "Analise como escala de produção, orçamento e escolhas de design se manifestam em jogos independentes e AAA. Os casos abaixo conectam narrativa, mecânicas e fundamentos físico-matemáticos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Indie — Hollow Knight",
+      "content": [
+        {
+          "type": "video",
+          "youtubeId": "UAO2urG23S4",
+          "title": "Trailer de Hollow Knight"
+        },
+        {
+          "type": "paragraph",
+          "text": "Produzido por uma equipe de três pessoas, Hollow Knight combina exploração metroidvania, combate desafiador e narrativa ambiental. É referência de como projetos indie podem atingir profundidade e reconhecimento crítico."
+        },
+        {
+          "type": "list",
+          "title": "Destaques de design",
+          "items": [
+            "Mecânicas emergentes: ações simples (pular, atacar, dash) geram combates complexos.",
+            "Progressão não linear: exige mapeamento mental e incentiva backtracking inteligente.",
+            "Atmosfera: narrativa ambiental construída por cenários e trilha sonora."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Conexão físico-matemática",
+          "content": [
             {
-              "title": "Indie: Hollow Knight",
-              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/UAO2urG23S4\" title=\"Trailer de Gameplay de Hollow Knight, um jogo Indie do gênero Metroidvania aclamado pela crítica.\" frameborder=\"0\" allowfullscreen></iframe></div><div class=\"prose prose-slate max-w-none\"><p class=\"text-sm\">Desenvolvido por uma equipe de 3 pessoas (Team Cherry), Hollow Knight é um marco do gênero Metroidvania que combina exploração, combate desafiador e uma narrativa ambiental profunda.</p><h4>Análise Crítica das Mecânicas</h4><p>O jogo exemplifica o conceito de que \"regras simples podem gerar uma complexidade surpreendente\" (Salen & Zimmerman, 2012), onde ações básicas (pular, atacar) criam um combate emergente. A progressão não linear exige que o jogador mapeie mentalmente o mundo, uma abordagem prática de design defendida por Schuytema.</p><h4>Público-Alvo e Impacto</h4><p>Destinado a jogadores que apreciam desafio, exploração e narrativas sutis. Seu sucesso comercial provou a viabilidade de projetos indie ambiciosos, influenciando uma onda de jogos do mesmo gênero.</p><h4>Conexão Físico-Matemática</h4><div class=\"callout callout-info mt-4\"><p><strong>Equação da Física:</strong> O pulo segue a equação do movimento uniformemente variado: <code>h = v₀² / (2g)</code>, onde <em>h</em> é a altura máxima, <em>v₀</em> a velocidade inicial e <em>g</em> a gravidade simulada.</p></div><ul class=\"text-sm\"><li><strong>Física do Pulo:</strong> Trajetória parabólica precisa, com altura controlada pelo tempo que o botão é pressionado.</li><li><strong>IA dos Inimigos:</strong> Padrões de ataque baseados em máquinas de estados finitos e pathfinding simples.</li><li><strong>Detecção de Colisão:</strong> Hitboxes e hurtboxes precisos, essenciais para o combate desafiador.</li></ul></div>"
-            },
-            {
-              "title": "AAA: The Last of Us Part II",
-              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/vhII1qlcZ4E\" title=\"Trailer Oficial de The Last of Us Part II - PlayStation\" frameborder=\"0\" allowfullscreen></iframe></div><div class=\"prose prose-slate max-w-none\"><p class=\"text-sm\">Produzido pela Naughty Dog, um estúdio com centenas de funcionários, este jogo é um expoente da narrativa cinematográfica em Ação-Aventura, com altíssimo valor de produção.</p><h4>Análise Crítica das Mecânicas</h4><p>A experiência é altamente dirigida para criar tensão emocional. As mecânicas de stealth e combate são \"regras significativas\" que reforçam o tema da sobrevivência brutal. A abordagem de Schuytema (2008) é vista no polimento extremo de cada interação, criando uma experiência fluida e imersiva.</p><h4>Público-Alvo e Impacto</h4><p>Focado em um público maduro que busca narrativas complexas e experiências cinematográficas. O jogo gerou extenso debate cultural e estabeleceu novos padrões para animação, atuação e design de som em jogos.</p><h4>Conexão Físico-Matemática</h4><div class=\"callout callout-info mt-4\"><p><strong>Equação aplicada:</strong> A física de ragdoll usa a conservação do momento linear: <code>p = m * v</code>, onde <em>p</em> é o momento, <em>m</em> a massa do corpo e <em>v</em> a velocidade no instante do impacto.</p><p>Essa simulação cria reações realistas a tiros e explosões, ajustando <em>m</em> e <em>v</em> por tipo de objeto e força aplicada.</p></div><ul class=\"text-sm\"><li><strong>IA Comportamental:</strong> Inimigos usam grafos de navegação complexos para flanquear, se comunicar e reagir ao ambiente.</li><li><strong>Física de Ragdoll e Impacto:</strong> Simulações físicas realistas para reações a tiros e explosões, utilizando conceitos de momento e força.</li><li><strong>Sistema de Animação:</strong> Cinemática inversa e motion matching para criar movimentos fluidos e contextuais.</li></ul></div>"
-            },
-            {
-              "title": "Indie: Celeste",
-              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/70d9irlxiB4\" title=\"Trailer de Gameplay de Celeste, um jogo Indie de plataforma com forte apelo narrativo.\" frameborder=\"0\" allowfullscreen></iframe></div><div class=\"prose prose-slate max-w-none\"><p class=\"text-sm\">Criado por uma pequena equipe, Celeste é um jogo de plataforma que une mecânicas extremamente precisas a uma narrativa aclamada sobre saúde mental e superação.</p><h4>Análise Crítica das Mecânicas</h4><p>O core loop é simples (pulo, escalada, dash), mas o level design explora essas \"regras\" ao máximo, criando desafios complexos. O jogo demonstra a \"abordagem prática\" de Schuytema ao ensinar novas interações ao jogador sem tutoriais explícitos, apenas através do design das fases.</p><h4>Público-Alvo e Impacto</h4><p>Atrai tanto jogadores hardcore de plataforma quanto aqueles interessados em narrativas emocionantes. Celeste é um exemplo de como a dissonância ludonarrativa pode ser evitada, unindo perfeitamente o desafio do gameplay com a jornada da protagonista.</p><h4>Conexão Físico-Matemática</h4><div class=\"callout callout-info mt-4\"><p><strong>Equação aplicada:</strong> O dash é um vetor de velocidade aplicado instantaneamente: <code>v = v₀ * û</code>, onde <em>v₀</em> é a magnitude fixa da velocidade e <em>û</em> é um vetor unitário indicando a direção escolhida pelo jogador.</p><p>Isso permite oito direções precisas (N, S, L, O, e diagonais) com controle matemático sobre a trajetória.</p></div><ul class=\"text-sm\"><li><strong>Controle de Vetores:</strong> O dash é um vetor de velocidade aplicado instantaneamente, com direções precisas em 8 eixos.</li><li><strong>Física de Plataforma:</strong> Controle apurado sobre a gravidade, aceleração e atrito para permitir movimentos de alta precisão.</li></ul></div>"
-            },
-            {
-              "title": "AAA: Elden Ring",
-              "content": "<div class=\"aspect-video mb-4\"><iframe class=\"w-full h-full rounded-lg\" src=\"https://www.youtube.com/embed/E3Huy2cdih0\" title=\"Trailer de Gameplay de Elden Ring, um jogo AAA de RPG de Ação em mundo aberto.\" frameborder=\"0\" allowfullscreen></iframe></div><div class=\"prose prose-slate max-w-none\"><p class=\"text-sm\">Da FromSoftware, Elden Ring transporta a fórmula \"Souls\" para um vasto mundo aberto, combinando a escala de produção AAA com um design que incentiva a descoberta e a autonomia do jogador.</p><h4>Análise Crítica das Mecânicas</h4><p>O jogo cria \"gameplay emergente\" ao dar ao jogador um conjunto de ferramentas e um mundo cheio de sistemas que interagem de formas não previstas. A dificuldade elevada força o jogador a dominar as \"regras\" do combate, como timing e gerenciamento de estamina, um pilar do design da série.</p><h4>Público-Alvo e Impacto</h4><p>Direcionado a jogadores que buscam desafio e um senso de conquista. Elden Ring redefiniu as expectativas para jogos de mundo aberto, mostrando que é possível ter escala massiva sem sacrificar a densidade de conteúdo e o design intencional.</p><h4>Conexão Físico-Matemática</h4><div class=\"callout callout-info mt-4\"><p><strong>Equação aplicada:</strong> O peso do equipamento afeta o movimento usando o momento de inércia: <code>τ = I * α</code>, onde <em>τ</em> é o torque, <em>I</em> o momento de inércia (relacionado à massa) e <em>α</em> a aceleração angular.</p><p>Rolamentos mais lentos em personagens pesados são resultado do aumento de <em>I</em>, criando uma sensação física coerente.</p></div><ul class=\"text-sm\"><li><strong>Sistema de Colisão (Hitbox):</strong> Detecção de colisão poligonal extremamente precisa que define o sucesso ou falha dos ataques.</li><li><strong>Física de Equipamentos:</strong> O peso do equipamento (massa) afeta diretamente a dinâmica do movimento do personagem (velocidade de rolamento, consumo de estamina).</li></ul></div>"
+              "type": "paragraph",
+              "text": "Equação da Física: o pulo segue h = v₀² / (2g), controlando altura pelo tempo de pressão do botão."
             }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Física do pulo: trajetória parabólica precisa, essencial para o desafio platformer.",
+            "IA dos inimigos: máquinas de estados e pathfinding simples mantêm o ritmo.",
+            "Detecção de colisão: hitboxes e hurtboxes calibradas garantem justiça ao jogador."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "AAA — The Last of Us Part II",
+      "content": [
+        {
+          "type": "video",
+          "youtubeId": "vhII1qlcZ4E",
+          "title": "Trailer de The Last of Us Part II"
+        },
+        {
+          "type": "paragraph",
+          "text": "O estúdio Naughty Dog entrega uma experiência cinematográfica com grande investimento em narrativa, animação e áudio. Cada mecânica reforça a sensação de sobrevivência brutal."
+        },
+        {
+          "type": "list",
+          "title": "Destaques de design",
+          "items": [
+            "Stealth e combate: sistemas polidos criam tensão emocional constante.",
+            "Produção AAA: atuações, captura de movimento e áudio no padrão cinematográfico.",
+            "Experiência dirigida: ritmo cuidadosamente coreografado para impacto narrativo."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Conexão físico-matemática",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Equação aplicada: física de ragdoll utiliza a conservação do momento linear p = m · v para reações realistas."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "IA comportamental: inimigos usam grafos complexos para flanquear e comunicar intenções.",
+            "Ragdoll e impacto: parâmetros de massa e velocidade definem reações a tiros e explosões.",
+            "Animação reativa: motion matching e IK garantem transições fluidas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Indie — Celeste",
+      "content": [
+        {
+          "type": "video",
+          "youtubeId": "70d9irlxiB4",
+          "title": "Trailer de Celeste"
+        },
+        {
+          "type": "paragraph",
+          "text": "Celeste é um platformer de alta precisão que une desafios técnicos a uma narrativa sobre saúde mental e superação."
+        },
+        {
+          "type": "list",
+          "title": "Destaques de design",
+          "items": [
+            "Core loop enxuto: pulo, escalada e dash são explorados ao máximo pelo level design.",
+            "Aprendizagem orgânica: fases introduzem novas interações sem tutoriais explícitos.",
+            "Feedback imediato: resposta precisa aos comandos sustenta a sensação de controle."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Conexão físico-matemática",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Equação aplicada: o dash segue v = v₀ · û, permitindo oito direções com magnitude constante."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Controle de vetores: dash instantâneo com vetor unitário direciona o movimento.",
+            "Física de plataforma: gravidade, aceleração e atrito calibrados para movimentos de precisão."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "AAA — Elden Ring",
+      "content": [
+        {
+          "type": "video",
+          "youtubeId": "E3Huy2cdih0",
+          "title": "Trailer de Elden Ring"
+        },
+        {
+          "type": "paragraph",
+          "text": "Elden Ring amplia a fórmula Souls para um mundo aberto denso, incentivando exploração, descoberta e domínio das mecânicas de combate."
+        },
+        {
+          "type": "list",
+          "title": "Destaques de design",
+          "items": [
+            "Gameplay emergente: sistemas abertos permitem múltiplas abordagens.",
+            "Desafio autoral: gerenciamento de estamina, tempo de ataque e construção de builds."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Conexão físico-matemática",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Equação aplicada: o momento de inércia τ = I · α explica como peso de equipamento altera rolamentos."
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hitboxes e hurtboxes: detecção precisa define sucesso ou falha nos ataques.",
+            "Física de equipamentos: massa influencia velocidade, consumo de estamina e tempo de recuperação."
           ]
         }
       ]
@@ -349,7 +543,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Agora, vamos debater em grupo. A análise crítica é uma das ferramentas mais importantes de um game designer. Não se trata de dizer se um jogo é <em>bom</em> ou <em>ruim</em>, mas de entender <strong>por que</strong> ele funciona (ou não) para seu público."
+          "text": "Agora, vamos debater em grupo. A análise crítica é uma das ferramentas mais importantes de um game designer. Não se trata de dizer se um jogo é bom ou ruim, mas de entender por que ele funciona (ou não) para seu público."
         },
         {
           "type": "list",
@@ -367,8 +561,13 @@
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-users-rays mr-2\"></i>Atividade em Grupo (5 min)",
-          "content": "Acessem o link do Padlet/Miro compartilhado. Cada grupo deve postar um \"insight\" principal da discussão: uma conclusão, uma nova pergunta ou uma observação interessante sobre as diferenças entre o desenvolvimento Indie e AAA."
+          "title": "Atividade em Grupo (5 min)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Acessem o link do Padlet/Miro compartilhado. Cada grupo deve postar um \"insight\" principal da discussão: uma conclusão, uma nova pergunta ou uma observação interessante sobre as diferenças entre o desenvolvimento Indie e AAA."
+            }
+          ]
         }
       ]
     },
@@ -377,23 +576,23 @@
       "title": "🚀 Tendências e Inovações na Indústria",
       "cards": [
         {
-          "title": "<i class=\"fa-solid fa-cloud mr-2\"></i>Cloud Gaming",
+          "title": "Cloud Gaming",
           "content": "Serviços como Xbox Cloud Gaming e GeForce NOW, que permitem jogar títulos AAA em qualquer dispositivo via streaming."
         },
         {
-          "title": "<i class=\"fa-solid fa-people-arrows mr-2\"></i>Crossplay",
+          "title": "Crossplay",
           "content": "Unificação de ecossistemas, permitindo que jogadores de diferentes plataformas (PC, PlayStation, Xbox) joguem juntos."
         },
         {
-          "title": "<i class=\"fa-solid fa-arrows-spin mr-2\"></i>Jogos como Serviço (GaaS)",
+          "title": "Jogos como Serviço (GaaS)",
           "content": "Modelos de negócio baseados em atualizações contínuas, passes de batalha e conteúdo sazonal para manter os jogadores engajados."
         },
         {
-          "title": "<i class=\"fa-solid fa-robot mr-2\"></i>IA Gerativa em Jogos",
+          "title": "IA Gerativa em Jogos",
           "content": "Uso de IA para criar diálogos dinâmicos, assets, texturas e até mesmo quests, prometendo revolucionar a criação de conteúdo."
         },
         {
-          "title": "<i class=\"fa-solid fa-vr-cardboard mr-2\"></i>VR/AR",
+          "title": "VR/AR",
           "content": "Realidade Virtual e Aumentada continuam a evoluir, buscando criar experiências mais imersivas e interativas."
         }
       ]
@@ -419,16 +618,28 @@
         {
           "type": "list",
           "items": [
-            "<strong>Escolha dos Jogos:</strong> Selecione dois jogos de gêneros diferentes. Pode ser um que você já jogou ou um que você irá observar através de vídeos de gameplay.",
-            "<strong>Análise Individual:</strong> Para cada jogo, analise e anote os seguintes pontos:<ul><li><strong>Gênero e Hibridismo:</strong> Qual o gênero principal e quais elementos de outros gêneros ele incorpora?</li><li><strong>Mecânicas Centrais:</strong> Quais são as 2-3 ações que formam o core loop do jogo?</li><li><strong>Público-Alvo:</strong> Para quem você acredita que este jogo foi feito? (Casual, hardcore, família, etc.)</li><li><strong>Conceitos Físico-Matemáticos:</strong> Quais conceitos de física (colisão, gravidade, momento) ou matemática (vetores, IA, grafos) você identificou?</li></ul>",
-            "<strong>Publicação no Fórum:</strong> Crie uma postagem no Moodle com o título \"Análise Comparativa: [Jogo 1] vs. [Jogo 2]\". Na postagem, apresente sua análise de forma comparativa, destacando as principais diferenças e semelhanças no design, mecânicas e público-alvo dos dois jogos."
+            "Escolha dos Jogos: Selecione dois jogos de gêneros diferentes. Pode ser um que você já jogou ou um que você irá observar através de vídeos de gameplay.",
+            "Análise Individual: Para cada jogo, analise e anote os seguintes pontos: - Gênero e Hibridismo: Qual o gênero principal e quais elementos de outros gêneros ele incorpora? - Mecânicas Centrais: Quais são as 2-3 ações que formam o core loop do jogo? - Público-Alvo: Para quem você acredita que este jogo foi feito? (Casual, hardcore, família, etc.) - Conceitos Físico-Matemáticos: Quais conceitos de física (colisão, gravidade, momento) ou matemática (vetores, IA, grafos) você identificou?",
+            "Publicação no Fórum: Crie uma postagem no Moodle com o título \"Análise Comparativa: [Jogo 1] vs. [Jogo 2]\". Na postagem, apresente sua análise de forma comparativa, destacando as principais diferenças e semelhanças no design, mecânicas e público-alvo dos dois jogos."
           ]
         },
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-check-double mr-2\"></i>Checklist de Avaliação",
-          "content": "<ul><li>A comparação está bem estruturada e clara.</li><li>Usei corretamente os conceitos de gênero, mecânica e público-alvo.</li><li>Minha análise conectou as mecânicas com a experiência do jogador.</li><li>Identifiquei os conceitos de física/matemática aplicados.</li><li>Citei as fontes (Salen & Zimmerman, 2012; Schuytema, 2008) para fortalecer a argumentação.</li></ul>"
+          "title": "Checklist de Avaliação",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "A comparação está bem estruturada e clara.",
+                "Usei corretamente os conceitos de gênero, mecânica e público-alvo.",
+                "Minha análise conectou as mecânicas com a experiência do jogador.",
+                "Identifiquei os conceitos de física/matemática aplicados.",
+                "Citei as fontes (Salen & Zimmerman, 2012; Schuytema, 2008) para fortalecer a argumentação."
+              ]
+            }
+          ]
         }
       ]
     },
@@ -436,9 +647,9 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia e Referências",
       "references": [
-        "FULLERTON, Tracy. <strong>Game Design Workshop:</strong> A Playcentric Approach to Creating Innovative Games. 4th ed. CRC Press, 2018.",
-        "SALEN, Katie; ZIMMERMAN, Eric. <strong>Regras do jogo:</strong> fundamentos do design de jogos. v. 1. São Paulo: Blucher, 2012.",
-        "SCHUYTEMA, Paul. <strong>Design de games:</strong> uma abordagem prática. São Paulo: Cengage Learning, 2008."
+        "FULLERTON, Tracy. Game Design Workshop: A Playcentric Approach to Creating Innovative Games. 4th ed. CRC Press, 2018.",
+        "SALEN, Katie; ZIMMERMAN, Eric. Regras do jogo: fundamentos do design de jogos. v. 1. São Paulo: Blucher, 2012.",
+        "SCHUYTEMA, Paul. Design de games: uma abordagem prática. São Paulo: Cengage Learning, 2008."
       ]
     }
   ],

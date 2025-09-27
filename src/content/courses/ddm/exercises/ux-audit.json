@@ -1,13 +1,66 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "ux-audit",
-  "title": "Auditoria de UX mobile",
-  "objective": "Mapeie fluxos de um aplicativo existente e proponha melhorias alinhadas às guidelines.",
+  "title": "Exercício — Auditoria de UX mobile",
+  "summary": "Analise um aplicativo real identificando boas práticas, problemas e sugestões alinhadas ao Material Design 3 ou HIG.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "ux-audit",
-      "title": "Auditoria de UX mobile",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './ux-audit.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Escopo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escolha um aplicativo Android ou iOS que você usa com frequência. Avalie fluxos principais e telas críticas."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Entrega",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Apresente relatório em PDF ou slides com prints anotados, tabela de problemas e recomendações."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Passos recomendados",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapeie o fluxo",
+              "text": "Documente o objetivo principal e cada etapa necessária para concluí-lo."
+            },
+            {
+              "title": "Analise componentes",
+              "text": "Compare com as guidelines oficiais (Material Design 3 ou Human Interface Guidelines)."
+            },
+            {
+              "title": "Classifique problemas",
+              "text": "Utilize uma escala de impacto (baixo, médio, alto) e justifique com evidências."
+            },
+            {
+              "title": "Sugira melhorias",
+              "text": "Descreva soluções apoiadas em boas práticas e apresente rascunho ou wireframe opcional."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de avaliação",
+      "items": [
+        "Fluxo mapeado com capturas de tela.",
+        "Tabela de achados com impacto e recomendação.",
+        "Referências às guidelines citadas.",
+        "Proposta visual ou descrição textual das melhorias."
+      ]
     }
   ]
 }

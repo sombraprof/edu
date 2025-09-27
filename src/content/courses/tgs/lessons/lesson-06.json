@@ -28,7 +28,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Pergunta Norteadora",
-      "content": "Como a Amazon consegue entregar um produto na sua casa tão rápido? Que fluxos de informação e de materiais você acha que acontecem desde o clique em \"comprar\" até a campainha tocar?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Como a Amazon consegue entregar um produto na sua casa tão rápido? Que fluxos de informação e de materiais você acha que acontecem desde o clique em \"comprar\" até a campainha tocar?"
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -36,11 +41,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Na aula anterior, estabelecemos que uma organização é um sistema aberto. Hoje, vamos aprofundar essa ideia, entendendo que esse sistema não é estático; ele é um organismo dinâmico, pulsante, movido por <strong>fluxos</strong> constantes. Assim como o corpo humano depende do fluxo sanguíneo para transportar oxigênio e nutrientes, uma empresa depende de fluxos de <strong>materiais, informação e energia</strong> para sobreviver e crescer."
+          "text": "Na aula anterior, estabelecemos que uma organização é um sistema aberto. Hoje, vamos aprofundar essa ideia, entendendo que esse sistema não é estático; ele é um organismo dinâmico, pulsante, movido por fluxos constantes. Assim como o corpo humano depende do fluxo sanguíneo para transportar oxigênio e nutrientes, uma empresa depende de fluxos de materiais, informação e energia para sobreviver e crescer."
         },
         {
           "type": "paragraph",
-          "text": "O \"coração\" da empresa é o seu <strong>processo de transformação</strong>: a capacidade de converter recursos (entradas) em produtos e serviços de valor (saídas). Compreender como esses fluxos alimentam a transformação e como as diferentes partes da organização (subsistemas) são interdependentes é fundamental para qualquer profissional de SI que deseje projetar tecnologias que otimizem e acelerem esses processos."
+          "text": "O \"coração\" da empresa é o seu processo de transformação: a capacidade de converter recursos (entradas) em produtos e serviços de valor (saídas). Compreender como esses fluxos alimentam a transformação e como as diferentes partes da organização (subsistemas) são interdependentes é fundamental para qualquer profissional de SI que deseje projetar tecnologias que otimizem e acelerem esses processos."
         }
       ]
     },
@@ -50,11 +55,11 @@
       "cards": [
         {
           "title": "Fluxo de Materiais e Energia",
-          "content": "Refere-se ao movimento físico de recursos através da organização. É o fluxo tangível, que podemos ver e tocar.<br><ul class=\"list-disc list-inside mt-4 text-slate-700\"><li><strong>Exemplo:</strong> Numa fábrica de automóveis, é o fluxo do aço que chega do fornecedor, passa pela linha de montagem e sai como um carro pronto.</li><li><strong>Em SI:</strong> O hardware (servidores, computadores) e a energia elétrica que os alimenta.</li></ul>"
+          "content": "Refere-se ao movimento físico de recursos através da organização. É o fluxo tangível, que podemos ver e tocar. - Exemplo: numa fábrica de automóveis, é o fluxo do aço que chega do fornecedor, passa pela linha de montagem e sai como um carro pronto. - Em SI: envolve hardware (servidores, computadores) e a energia elétrica que os alimenta."
         },
         {
           "title": "Fluxo de Informação",
-          "content": "É o fluxo intangível de dados, ordens, conhecimento e comunicação que coordena e controla o fluxo de materiais. É o \"sistema nervoso\" da empresa.<br><ul class=\"list-disc list-inside mt-4 text-slate-700\"><li><strong>Exemplo:</strong> O pedido de compra que aciona o fornecedor, a nota fiscal, o código de rastreamento da entrega.</li><li><strong>Em SI:</strong> É a nossa matéria-prima. Cada linha de código, cada registo na base de dados, cada e-mail.</li></ul>"
+          "content": "É o fluxo intangível de dados, ordens, conhecimento e comunicação que coordena e controla o fluxo de materiais. É o \"sistema nervoso\" da empresa. - Exemplo: o pedido de compra que aciona o fornecedor, a nota fiscal e o código de rastreamento. - Em SI: é nossa matéria-prima: linhas de código, registros em banco de dados, mensagens e integrações."
         }
       ]
     },
@@ -74,8 +79,8 @@
         {
           "type": "list",
           "items": [
-            "O <strong>Fluxo de Materiais</strong> (o produto físico) move-se numa direção: da matéria-prima ao cliente.",
-            "O <strong>Fluxo de Informação</strong> (pedidos, pagamentos, rastreamento, feedback) move-se em <strong>ambas as direções</strong>, coordenando toda a operação. Um pedido do cliente (informação) inicia todo o fluxo de materiais."
+            "O Fluxo de Materiais (o produto físico) move-se numa direção: da matéria-prima ao cliente.",
+            "O Fluxo de Informação (pedidos, pagamentos, rastreamento, feedback) move-se em ambas as direções, coordenando toda a operação. Um pedido do cliente (informação) inicia todo o fluxo de materiais."
           ]
         }
       ]
@@ -83,8 +88,23 @@
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "<i class=\"fa-brands fa-amazon mr-2\"></i>Estudo de Caso: A Máquina Logística da Amazon",
-      "content": "<p>Vamos usar o exemplo da Amazon para identificar os fluxos em ação. Em grupo, discutam e mapeiem:</p><div class=\"bg-white/50 p-4 rounded-md\"><ol class=\"list-decimal list-inside mt-2 space-y-2\"><li><strong>Fluxo de Informação Inicial:</strong> O que acontece no sistema da Amazon quando você clica em \"Comprar\"? (Entrada de informação).</li><li><strong>Fluxo de Materiais no Armazém:</strong> Como a informação do seu pedido se transforma num fluxo físico dentro do centro de distribuição?</li><li><strong>Fluxo de Informação Externo:</strong> Como o sistema da Amazon se comunica com a transportadora (ambiente)? Qual informação é trocada?</li><li><strong>Feedback:</strong> Qual o papel do código de rastreamento e da sua avaliação da entrega no sistema da Amazon?</li></ol></div>"
+      "title": "📦 Estudo de Caso: A Máquina Logística da Amazon",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos usar o exemplo da Amazon para identificar os fluxos em ação. Em grupo, discutam e mapeiem:"
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Fluxo de informação inicial: o que acontece no sistema quando você clica em \"Comprar\"?",
+            "Fluxo de materiais no armazém: como o pedido vira movimentação física dentro do centro de distribuição?",
+            "Fluxo de informação externo: de que forma o sistema conversa com a transportadora e quais dados circulam?",
+            "Feedback: qual o papel do código de rastreamento e das avaliações pós-entrega?"
+          ]
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -128,8 +148,8 @@
         {
           "type": "list",
           "items": [
-            "<strong>Onde a informação vira ação?</strong> No gatilho do pedido (ERP/WMS), que movimenta picking/packing (fluxo de materiais).",
-            "<strong>Como reduzir lead time?</strong> Diminuindo esperas (filas), equilibrando WIP e aliviando o gargalo."
+            "Onde a informação vira ação? No gatilho do pedido (ERP/WMS), que movimenta picking/packing (fluxo de materiais).",
+            "Como reduzir lead time? Diminuindo esperas (filas), equilibrando WIP e aliviando o gargalo."
           ]
         }
       ]
@@ -138,7 +158,17 @@
       "type": "callout",
       "variant": "good-practice",
       "title": "⚡ Atividade Relâmpago (10–12 min)",
-      "content": "<ol class=\"list-decimal list-inside space-y-1 text-slate-700\"><li>Marque no diagrama SIPOC onde um <em>dado</em> dispara uma <em>ação física</em>.</li><li>Liste 2 pontos de espera e 1 gargalo provável. Sugira 1 métrica (ex.: OTIF).</li><li>Explique em 2 linhas como um webhook (evento) pode reduzir o lead time.</li></ol>"
+      "content": [
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Marque no diagrama SIPOC onde um dado dispara uma ação física.",
+            "Liste dois pontos de espera e um gargalo provável. Sugira uma métrica (ex.: OTIF).",
+            "Explique em poucas linhas como um webhook pode reduzir o lead time."
+          ]
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -177,11 +207,11 @@
       "items": [
         {
           "title": "Glossário rápido",
-          "content": "<ul><li><strong>SIPOC:</strong> Fornecedores-Entradas-Processo-Saídas-Clientes.</li><li><strong>VSM:</strong> Mapeamento do Fluxo de Valor (tempo de espera vs. processamento).</li><li><strong>WMS/TMS/ERP:</strong> Sistemas que orquestram fluxos de informação e materiais.</li></ul>"
+          "content": "- SIPOC: Fornecedores-Entradas-Processo-Saídas-Clientes.\n- VSM: Mapeamento do Fluxo de Valor (tempo de espera vs. processamento).\n- WMS/TMS/ERP: Sistemas que orquestram fluxos de informação e materiais."
         },
         {
           "title": "Leituras curtas sugeridas",
-          "content": "<ul><li>Cap. introdutórios de cadeias de suprimentos (qualquer manual de logística).</li><li>Capítulos sobre processos e métricas nos livros já citados (Stair & Reynolds; Silva et al.).</li></ul>"
+          "content": "- Cap. introdutórios de cadeias de suprimentos (qualquer manual de logística).\n- Capítulos sobre processos e métricas nos livros já citados (Stair & Reynolds; Silva et al.)."
         }
       ]
     },
@@ -205,7 +235,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "<strong>Objetivo:</strong> Completar o fluxograma, preenchendo os blocos <code>[Preencher]</code> e validando o caminho das decisões."
+          "text": "Objetivo: Completar o fluxograma, preenchendo os blocos [Preencher] e validando o caminho das decisões."
         },
         {
           "type": "image",
@@ -234,7 +264,7 @@
         },
         {
           "type": "paragraph",
-          "text": "<strong>Entrega:</strong> Individual, via upload do PDF preenchido no AVA."
+          "text": "Entrega: Individual, via upload do PDF preenchido no AVA."
         }
       ]
     },
@@ -244,15 +274,15 @@
       "items": [
         {
           "title": "1. Numa cadeia de suprimentos, o código de rastreamento de um pedido é um exemplo de qual fluxo?",
-          "content": "<strong>Resposta:</strong> Fluxo de Informação. Ele é um dado que representa e permite monitorizar o fluxo de materiais (o pacote físico)."
+          "content": "Resposta: Fluxo de Informação. Ele é um dado que representa e permite monitorizar o fluxo de materiais (o pacote físico)."
         },
         {
           "title": "2. A \"Transformação Digital\" nas empresas foca principalmente em otimizar qual dos fluxos?",
-          "content": "<strong>Resposta:</strong> O Fluxo de Informação. A transformação digital usa a tecnologia para tornar o fluxo de informação mais rápido, inteligente e automatizado, o que, por consequência, otimiza o fluxo de materiais e a tomada de decisão."
+          "content": "Resposta: O Fluxo de Informação. A transformação digital usa a tecnologia para tornar o fluxo de informação mais rápido, inteligente e automatizado, o que, por consequência, otimiza o fluxo de materiais e a tomada de decisão."
         },
         {
           "title": "3. Verdadeiro ou Falso: Um organograma representa apenas a hierarquia de poder numa empresa.",
-          "content": "<strong>Resposta:</strong> Falso. Além da hierarquia, um organograma representa o fluxo formal de comunicação e autoridade, que é uma forma de fluxo de informação."
+          "content": "Resposta: Falso. Além da hierarquia, um organograma representa o fluxo formal de comunicação e autoridade, que é uma forma de fluxo de informação."
         }
       ]
     },
@@ -260,8 +290,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia",
       "references": [
-        "<strong>SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C.</strong> <em>Sistemas de informações gerenciais.</em> Porto Alegre: Grupo A, 2019.",
-        "<strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021."
+        "SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C. Sistemas de informações gerenciais. Porto Alegre: Grupo A, 2019.",
+        "STAIR, Ralph M.; REYNOLDS, George W. Princípios de sistemas de informação. 14. ed. São Paulo: Cengage Learning, 2021."
       ]
     }
   ],

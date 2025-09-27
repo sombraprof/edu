@@ -95,7 +95,12 @@
       "type": "callout",
       "variant": "good-practice",
       "title": "Trio do sucesso",
-      "content": "Cada história deve ter requisito claro, teste automatizado e documentação mínima no README."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cada história deve ter requisito claro, teste automatizado e documentação mínima no README."
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -104,9 +109,9 @@
         {
           "type": "list",
           "items": [
-            "<strong>Como cliente</strong>, desejo abrir uma conta para movimentar meu dinheiro.",
-            "<strong>Como gerente</strong>, preciso consultar relatórios de clientes e contas ativas.",
-            "<strong>Como auditor</strong>, desejo rastrear transações suspeitas para garantir conformidade."
+            "Como cliente, desejo abrir uma conta para movimentar meu dinheiro.",
+            "Como gerente, preciso consultar relatórios de clientes e contas ativas.",
+            "Como auditor, desejo rastrear transações suspeitas para garantir conformidade."
           ]
         }
       ]
@@ -167,7 +172,12 @@
             "to": "domain",
             "description": "Orquestra regras de negócio"
           },
-          { "id": "c3", "from": "domain", "to": "repo", "description": "Persistência e consultas" },
+          {
+            "id": "c3",
+            "from": "domain",
+            "to": "repo",
+            "description": "Persistência e consultas"
+          },
           {
             "id": "c4",
             "from": "service",

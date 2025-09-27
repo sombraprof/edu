@@ -43,11 +43,11 @@
       "type": "flightPlan",
       "title": "Plano de Voo da Aula",
       "items": [
-        "<strong>Recapitulação:</strong> Revisão rápida da criação do projeto \"Olá, Mundo!\".",
-        "<strong>O Mapa do Tesouro:</strong> Por que a estrutura de pastas é o nosso guia.",
-        "<strong>Análise dos Arquivos Essenciais:</strong> Um mergulho profundo no que cada arquivo principal faz.",
-        "<strong>Atividade Prática:</strong> Exploração orientada da estrutura do nosso projeto no Android Studio.",
-        "<strong>Tarefa (TED):</strong> Preparação para a consolidação do conhecimento."
+        "Recapitulação: Revisão rápida da criação do projeto \"Olá, Mundo!\".",
+        "O Mapa do Tesouro: Por que a estrutura de pastas é o nosso guia.",
+        "Análise dos Arquivos Essenciais: Um mergulho profundo no que cada arquivo principal faz.",
+        "Atividade Prática: Exploração orientada da estrutura do nosso projeto no Android Studio.",
+        "Tarefa (TED): Preparação para a consolidação do conhecimento."
       ]
     },
     {
@@ -76,10 +76,10 @@
           "type": "subBlock",
           "title": "Principais diretórios",
           "items": [
-            "<p><strong>app/</strong> — núcleo do módulo principal, reunindo manifests, código Kotlin e recursos.</p>",
-            "<p><strong>manifests/</strong> — declara permissões, activities e configurações globais via <code>AndroidManifest.xml</code>.</p>",
-            "<p><strong>java/</strong> — abriga os pacotes Kotlin com Activities, ViewModels e classes utilitárias.</p>",
-            "<p><strong>res/</strong> — concentra recursos declarativos: <em>drawable</em> para ícones, <em>layout</em> para telas XML, <em>mipmap</em> para variações de ícones e <em>values</em> para strings, temas e cores.</p>"
+            "app/ — núcleo do módulo principal, reunindo manifests, código Kotlin e recursos.",
+            "manifests/ — declara permissões, activities e configurações globais via AndroidManifest.xml.",
+            "java/ — abriga os pacotes Kotlin com Activities, ViewModels e classes utilitárias.",
+            "res/ — concentra recursos declarativos: drawable para ícones, layout para telas XML, mipmap para variações de ícones e values para strings, temas e cores."
           ]
         }
       ]
@@ -94,22 +94,37 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "<strong>Função:</strong> É o \"RG\" do seu aplicativo. Este arquivo contém metadados essenciais que o sistema Android precisa para poder executar seu código."
+              "text": "Função: É o \"RG\" do seu aplicativo. Este arquivo contém metadados essenciais que o sistema Android precisa para poder executar seu código."
             },
             {
               "type": "paragraph",
-              "text": "<strong>Analogia:</strong> Pense nele como a capa de um livro, que informa o título, o autor e um resumo do que se trata, antes mesmo de você começar a ler."
+              "text": "Analogia: Pense nele como a capa de um livro, que informa o título, o autor e um resumo do que se trata, antes mesmo de você começar a ler."
             },
             {
               "type": "code",
               "language": "xml",
-              "code": "<manifest ...>\n    <!-- Futuramente, permissões como a de internet serão declaradas aqui -->\n    <!-- <uses-permission android:name=\"android.permission.INTERNET\" /> -->\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.OlaMundoAndroid\"&gt;\n        \n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\"&gt;\n            <intent-filter&gt;\n                <action android:name=\"android.intent.action.MAIN\" />\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        \n    </application>\n</manifest>"
+              "code": "<manifest ...>\n    <!-- Futuramente, permissões como a de internet serão declaradas aqui -->\n    <!-- <uses-permission android:name=\"android.permission.INTERNET\" /> -->\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.OlaMundoAndroid\"&gt;\n        \n        <activity\n            android:name=\".MainActivity\"\n            android:exported=\"true\"&gt;\n            \n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n        \n    </application>\n</manifest>"
             },
             {
               "type": "callout",
               "variant": "info",
               "title": "Pontos-Chave a Observar",
-              "content": "<ul><li><code>android:icon</code> e <code>android:label</code>: Definem o ícone e o nome do aplicativo que aparecem na tela inicial do celular.</li><li><code>&lt;activity&gt;</code>: Cada tela (Activity) do seu app deve ser declarada aqui. Por enquanto, só temos uma: a <code-text>MainActivity</code-text>.</li><li><code>&lt;intent-filter&gt;</code>: Este bloco dentro da activity, com as tags <code>MAIN</code> e <code>LAUNCHER</code>, é especial. Ele diz ao sistema Android: \"Esta é a tela principal, a primeira a ser aberta quando o usuário clicar no ícone do app\".</li><li><strong>Permissões:</strong> Futuramente, quando nosso app precisar acessar recursos como a internet, a câmera ou a localização, teremos que solicitar permissões aqui.</li></ul><p class=\"mt-4\">Para um mergulho mais fundo, consulte a <a href=\"https://developer.android.com/guide/topics/manifest/manifest-intro\">documentação oficial do AndroidManifest.xml</a>.</p>"
+              "content": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    "android:icon e android:label: Definem o ícone e o nome do aplicativo que aparecem na tela inicial do celular.",
+                    ": Cada tela (Activity) do seu app deve ser declarada aqui. Por enquanto, só temos uma: a MainActivity.",
+                    ": Este bloco dentro da activity, com as tags MAIN e LAUNCHER, é especial. Ele diz ao sistema Android: \"Esta é a tela principal, a primeira a ser aberta quando o usuário clicar no ícone do app\".",
+                    "Permissões: Futuramente, quando nosso app precisar acessar recursos como a internet, a câmera ou a localização, teremos que solicitar permissões aqui."
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Para um mergulho mais fundo, consulte a documentação oficial do AndroidManifest.xml (https://developer.android.com/guide/topics/manifest/manifest-intro)."
+                }
+              ]
             }
           ]
         },
@@ -119,11 +134,11 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "<strong>Função:</strong> É o \"cérebro\" da sua tela principal. Este arquivo Kotlin contém a lógica que controla o comportamento da interface."
+              "text": "Função: É o \"cérebro\" da sua tela principal. Este arquivo Kotlin contém a lógica que controla o comportamento da interface."
             },
             {
               "type": "paragraph",
-              "text": "<strong>Analogia:</strong> Se o arquivo de layout é a planta da casa, o arquivo Kotlin é o eletricista e o encanador que fazem as luzes acenderem e a água correr."
+              "text": "Analogia: Se o arquivo de layout é a planta da casa, o arquivo Kotlin é o eletricista e o encanador que fazem as luzes acenderem e a água correr."
             },
             {
               "type": "code",
@@ -134,7 +149,21 @@
               "type": "callout",
               "variant": "info",
               "title": "Analisando o Código",
-              "content": "<ul><li><code>class MainActivity : AppCompatActivity()</code>: Estamos a criar uma classe chamada <code-text>MainActivity</code-text> que \"herda\" comportamentos e características de <code-text>AppCompatActivity</code-text>, uma classe base do Android que nos dá funcionalidades essenciais.</li><li><code>override fun onCreate(...)</code>: Este é um método do ciclo de vida da Activity. O código dentro dele é executado assim que a tela é criada. É aqui que configuramos o nosso layout.</li><li><code>setContentView(R.layout.activity_main)</code>: Esta é a linha que conecta a lógica (Kotlin) ao visual (XML). Ela diz: \"Para esta tela, use o design definido no arquivo <code-text>activity_main.xml</code-text> que está na pasta <code-text>layout</code-text>\".</li></ul><p class=\"mt-4\">Aprenda mais sobre o ciclo de vida na <a href=\"https://developer.android.com/guide/components/activities/activity-lifecycle\">documentação oficial sobre Activities</a>.</p>"
+              "content": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    "class MainActivity : AppCompatActivity(): Estamos a criar uma classe chamada MainActivity que \"herda\" comportamentos e características de AppCompatActivity, uma classe base do Android que nos dá funcionalidades essenciais.",
+                    "override fun onCreate(...): Este é um método do ciclo de vida da Activity. O código dentro dele é executado assim que a tela é criada. É aqui que configuramos o nosso layout.",
+                    "setContentView(R.layout.activity_main): Esta é a linha que conecta a lógica (Kotlin) ao visual (XML). Ela diz: \"Para esta tela, use o design definido no arquivo activity_main.xml que está na pasta layout\"."
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Aprenda mais sobre o ciclo de vida na documentação oficial sobre Activities (https://developer.android.com/guide/components/activities/activity-lifecycle)."
+                }
+              ]
             }
           ]
         },
@@ -144,19 +173,19 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "<strong>Função:</strong> Esta é a pasta mais importante para a parte visual e estática do seu app. Ela contém todos os recursos que não são código, como layouts, imagens, textos e cores."
+              "text": "Função: Esta é a pasta mais importante para a parte visual e estática do seu app. Ela contém todos os recursos que não são código, como layouts, imagens, textos e cores."
             },
             {
               "type": "paragraph",
-              "text": "<strong>Boa Prática:</strong> A principal vantagem de usar a pasta <code-text>res</code-text> é a separação de responsabilidades. Manter o design (XML), textos (strings) e lógica (Kotlin) em arquivos separados torna o projeto muito mais organizado e fácil de manter."
+              "text": "Boa Prática: A principal vantagem de usar a pasta res é a separação de responsabilidades. Manter o design (XML), textos (strings) e lógica (Kotlin) em arquivos separados torna o projeto muito mais organizado e fácil de manter."
             },
             {
               "type": "list",
               "items": [
-                "<strong>drawable:</strong> Contém imagens (PNG, JPG), vetores (XML) e outros recursos gráficos.",
-                "<strong>layout:</strong> Contém os arquivos XML que definem a estrutura visual de cada tela do seu app. O nosso <code-text>activity_main.xml</code-text> vive aqui.",
-                "<strong>mipmap:</strong> Similar ao <code-text>drawable</code-text>, mas é usado especificamente para os ícones do aplicativo. O Android usa esta pasta para fornecer a versão do ícone com a melhor qualidade dependendo da densidade da tela do dispositivo.",
-                "<strong>values:</strong> Uma pasta crucial para a organização e boas práticas.<ul><li><code>strings.xml</code>: Onde você deve definir TODOS os textos do seu app. Em vez de escrever \"Olá, Mundo!\" diretamente no layout, você cria uma string com um nome (ex: <code-text>app_name</code-text>) e a referencia no layout (<code-text>@string/app_name</code-text>). Isso facilita a tradução do app para outros idiomas.</li><li><code>colors.xml</code>: Onde você define a paleta de cores do seu app.</li><li><code>themes.xml</code>: Onde você define o estilo visual geral do seu app (cores primárias, fontes, etc.).</li></ul>"
+                "drawable: Contém imagens (PNG, JPG), vetores (XML) e outros recursos gráficos.",
+                "layout: Contém os arquivos XML que definem a estrutura visual de cada tela do seu app. O nosso activity_main.xml vive aqui.",
+                "mipmap: Similar ao drawable, mas é usado especificamente para os ícones do aplicativo. O Android usa esta pasta para fornecer a versão do ícone com a melhor qualidade dependendo da densidade da tela do dispositivo.",
+                "values: Uma pasta crucial para a organização e boas práticas. - strings.xml: Onde você deve definir TODOS os textos do seu app. Em vez de escrever \"Olá, Mundo!\" diretamente no layout, você cria uma string com um nome (ex: app_name) e a referencia no layout (@string/app_name). Isso facilita a tradução do app para outros idiomas. - colors.xml: Onde você define a paleta de cores do seu app. - themes.xml: Onde você define o estilo visual geral do seu app (cores primárias, fontes, etc.)."
               ]
             }
           ]
@@ -174,10 +203,10 @@
         {
           "type": "list",
           "items": [
-            "Abra o arquivo <code>AndroidManifest.xml</code>. Qual é o nome do tema (theme) do seu aplicativo?",
-            "Navegue até a pasta <code>res/values</code> e abra o arquivo <code>strings.xml</code>. Altere o valor da string <code-text>app_name</code-text> para \"Meu Primeiro App\". Execute o aplicativo novamente. O que mudou?",
-            "Abra o arquivo <code>activity_main.xml</code>. Mude o valor do atributo <code>android:text</code> no <code-text>TextView</code-text> de \"Hello World!\" para o seu nome. Execute o aplicativo e veja o resultado.",
-            "Abra a <code>MainActivity.kt</code>. Encontre a linha que carrega o layout. Tente comentá-la (adicionando <code-text>//</code-text> no início da linha) e execute o app. O que acontece? (Não se esqueça de descomentar depois!)."
+            "Abra o arquivo AndroidManifest.xml. Qual é o nome do tema (theme) do seu aplicativo?",
+            "Navegue até a pasta res/values e abra o arquivo strings.xml. Altere o valor da string app_name para \"Meu Primeiro App\". Execute o aplicativo novamente. O que mudou?",
+            "Abra o arquivo activity_main.xml. Mude o valor do atributo android:text no TextView de \"Hello World!\" para o seu nome. Execute o aplicativo e veja o resultado.",
+            "Abra a MainActivity.kt. Encontre a linha que carrega o layout. Tente comentá-la (adicionando // no início da linha) e execute o app. O que acontece? (Não se esqueça de descomentar depois!)."
           ]
         }
       ]
@@ -190,14 +219,29 @@
           "type": "callout",
           "variant": "task",
           "title": "Tarefa para a próxima aula (TED)",
-          "content": "<p class=\"mb-4\">Para consolidar o que aprendemos hoje, a tarefa é criar um mapa mental ou um diagrama que represente a estrutura de um projeto Android.</p><ol class=\"list-decimal list-inside space-y-2\"><li>Utilize uma ferramenta de sua preferência (como <a href=\"https://app.diagrams.net/\">draw.io</a>, um software de mapa mental, ou até mesmo papel e caneta).</li><li>Elabore um diagrama que mostre as principais pastas (<code-text>manifests</code-text>, <code-text>java</code-text>, <code-text>res</code-text>) e arquivos (<code-text>AndroidManifest.xml</code-text>, <code-text>MainActivity.kt</code-text>, <code-text>activity_main.xml</code-text>).</li><li>Para cada item, escreva uma breve descrição da sua função, com base no que discutimos em aula.</li><li>Submeta uma imagem ou PDF do seu diagrama no Moodle.</li></ol>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Para consolidar o que aprendemos hoje, a tarefa é criar um mapa mental ou um diagrama que represente a estrutura de um projeto Android."
+            },
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "Utilize uma ferramenta de sua preferência (como draw.io (https://app.diagrams.net/), um software de mapa mental, ou até mesmo papel e caneta).",
+                "Elabore um diagrama que mostre as principais pastas (manifests, java, res) e arquivos (AndroidManifest.xml, MainActivity.kt, activity_main.xml).",
+                "Para cada item, escreva uma breve descrição da sua função, com base no que discutimos em aula.",
+                "Submeta uma imagem ou PDF do seu diagrama no Moodle."
+              ]
+            }
+          ]
         },
         {
           "type": "bibliographyBlock",
           "title": "Bibliografia Recomendada",
           "references": [
-            "OLIVEIRA, Diego Bittencourt de et al. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Porto Alegre: SAGAH, 2019. v. 1.",
-            "URMA, Raoul-Gabriel; WARBURTON, Richard. <strong>Desenvolvimento Real de Software: Um Guia de Projetos para Fundamentos em Java</strong>. Alta Books, 2021."
+            "OLIVEIRA, Diego Bittencourt de et al. Desenvolvimento para Dispositivos Móveis. Porto Alegre: SAGAH, 2019. v. 1.",
+            "URMA, Raoul-Gabriel; WARBURTON, Richard. Desenvolvimento Real de Software: Um Guia de Projetos para Fundamentos em Java. Alta Books, 2021."
           ]
         }
       ]

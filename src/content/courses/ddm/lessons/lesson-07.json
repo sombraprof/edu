@@ -42,8 +42,8 @@
     }
   ],
   "bibliography": [
-    "GOOGLE. <strong>Guide to App Architecture</strong>. Android Developers, 2024.",
-    "SAGAH. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Cap. 4 – Ciclo de Vida e Estados, 2019."
+    "GOOGLE. Guide to App Architecture. Android Developers, 2024.",
+    "SAGAH. Desenvolvimento para Dispositivos Móveis. Cap. 4 – Ciclo de Vida e Estados, 2019."
   ],
   "assessment": {
     "type": "practice",
@@ -55,19 +55,24 @@
       "type": "flightPlan",
       "title": "Plano de voo da aula (1h 50min)",
       "items": [
-        "<strong>(10 min) Check-in profissional:</strong> casos reais em que o ciclo de vida causou bugs ou reviews negativas.",
-        "<strong>(20 min) Diagrama oficial:</strong> visita guiada pelos estados <em>created → started → resumed → paused → stopped → destroyed</em>.",
-        "<strong>(25 min) Callbacks na prática:</strong> instrumentação com logs e inspeção do Logcat.",
-        "<strong>(20 min) Mudanças de configuração:</strong> estratégias com `onSaveInstanceState`, `savedStateHandle` e ViewModel.",
-        "<strong>(20 min) Lifecycle-aware components:</strong> utilizando `LifecycleObserver` para desacoplar listeners.",
-        "<strong>(15 min) Laboratório guiado + TED:</strong> ajustes no app e definição da tarefa assíncrona."
+        "(10 min) Check-in profissional: casos reais em que o ciclo de vida causou bugs ou reviews negativas.",
+        "(20 min) Diagrama oficial: visita guiada pelos estados created → started → resumed → paused → stopped → destroyed.",
+        "(25 min) Callbacks na prática: instrumentação com logs e inspeção do Logcat.",
+        "(20 min) Mudanças de configuração: estratégias com `onSaveInstanceState`, `savedStateHandle` e ViewModel.",
+        "(20 min) Lifecycle-aware components: utilizando `LifecycleObserver` para desacoplar listeners.",
+        "(15 min) Laboratório guiado + TED: ajustes no app e definição da tarefa assíncrona."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Pergunta geradora",
-      "content": "O que acontece com a experiência do usuário quando o sistema recria a sua Activity sem você perceber?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O que acontece com a experiência do usuário quando o sistema recria a sua Activity sem você perceber?"
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -153,7 +158,12 @@
           "type": "callout",
           "variant": "warning",
           "title": "Atenção às transições rápidas",
-          "content": "Mudanças de app (home button) disparam <code>onPause → onStop</code> rapidamente; certifique-se de não depender do usuário voltar imediatamente."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Mudanças de app (home button) disparam onPause → onStop rapidamente; certifique-se de não depender do usuário voltar imediatamente."
+            }
+          ]
         }
       ]
     },
@@ -174,7 +184,12 @@
           "type": "callout",
           "variant": "info",
           "title": "Por que ViewModel?",
-          "content": "O <code>ViewModel</code> sobrevive a recriações e mantém dados pesados em memória sem depender do bundle serializado. Combine com <code>SavedStateHandle</code> para persistir apenas o essencial."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "O ViewModel sobrevive a recriações e mantém dados pesados em memória sem depender do bundle serializado. Combine com SavedStateHandle para persistir apenas o essencial."
+            }
+          ]
         }
       ]
     },
@@ -249,7 +264,16 @@
           "type": "callout",
           "variant": "task",
           "title": "Tarefa assíncrona (TED)",
-          "content": "<p>Implemente um medidor de sessão que conta quanto tempo a Activity ficou ativa e publica o valor no Firebase Analytics ou Logcat.</p><p>Traga os insights na próxima aula com capturas de tela do Logcat.</p>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Implemente um medidor de sessão que conta quanto tempo a Activity ficou ativa e publica o valor no Firebase Analytics ou Logcat."
+            },
+            {
+              "type": "paragraph",
+              "text": "Traga os insights na próxima aula com capturas de tela do Logcat."
+            }
+          ]
         }
       ]
     },
@@ -257,8 +281,8 @@
       "type": "bibliographyBlock",
       "title": "Referências complementares",
       "references": [
-        "GOOGLE. <strong>Manage your app's lifecycle with Lifecycle libraries</strong>. 2024.",
-        "MEDNIEKS, Zigurd et al. <strong>Programming Android</strong>. O'Reilly, 4ª ed., 2022. Cap. 3."
+        "GOOGLE. Manage your app's lifecycle with Lifecycle libraries. 2024.",
+        "MEDNIEKS, Zigurd et al. Programming Android. O'Reilly, 4ª ed., 2022. Cap. 3."
       ]
     }
   ],

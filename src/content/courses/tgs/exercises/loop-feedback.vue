@@ -1,31 +1,21 @@
 <script lang="ts">
+import metaData from './loop-feedback.json';
+
 export const meta = {
-  id: 'loop-feedback',
-  title: 'Análise de feedback loops',
-  summary: 'Construa diagramas causais destacando ciclos de reforço e balanço.',
+  id: metaData.id,
+  title: metaData.title,
+  summary: metaData.summary,
   available: false,
 };
+
 export default {};
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import LegacyHtml from '@/components/lesson/LegacyHtml.vue';
-
-const content = computed(
-  () => `<section>
-  <h2>Exercício — Análise de feedback loops</h2>
-  <p>Identifique ciclos de reforço e de balanço em um sistema definido pelo grupo.</p>
-  <ol>
-    <li>Mapeie no mínimo dois ciclos reforçadores e dois balanceadores.</li>
-    <li>Marque atrasos que dificultam a percepção de causa e efeito.</li>
-    <li>Proponha indicadores para monitorar cada ciclo.</li>
-  </ol>
-  <p>Compartilhe o diagrama e um texto curto explicando possíveis intervenções.</p>
-</section>`
-);
+import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
+import exerciseData from './loop-feedback.json';
 </script>
 
 <template>
-  <LegacyHtml :html="content" />
+  <LessonRenderer :data="exerciseData" />
 </template>

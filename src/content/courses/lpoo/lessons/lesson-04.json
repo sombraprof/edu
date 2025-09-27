@@ -94,7 +94,12 @@
       "type": "callout",
       "variant": "warning",
       "title": "Armadilha comum",
-      "content": "Transformar todos os campos em `private` e gerar `getters/setters` automaticamente não significa encapsular. Questione a necessidade de expor cada dado."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Transformar todos os campos em `private` e gerar `getters/setters` automaticamente não significa encapsular. Questione a necessidade de expor cada dado."
+        }
+      ]
     },
     {
       "type": "truthTable",
@@ -102,32 +107,88 @@
       "headers": ["Modificador", "Mesma classe", "Mesmo pacote", "Subclasses", "Outros pacotes"],
       "rows": [
         [
-          { "value": "public" },
-          { "state": "true", "display": "✔" },
-          { "state": "true", "display": "✔" },
-          { "state": "true", "display": "✔" },
-          { "state": "true", "display": "✔" }
+          {
+            "value": "public"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          }
         ],
         [
-          { "value": "protected" },
-          { "state": "true", "display": "✔" },
-          { "state": "true", "display": "✔" },
-          { "state": "true", "display": "✔" },
-          { "state": "false", "display": "✖" }
+          {
+            "value": "protected"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "false",
+            "display": "✖"
+          }
         ],
         [
-          { "value": "package-private" },
-          { "state": "true", "display": "✔" },
-          { "state": "true", "display": "✔" },
-          { "state": "false", "display": "✖" },
-          { "state": "false", "display": "✖" }
+          {
+            "value": "package-private"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "false",
+            "display": "✖"
+          },
+          {
+            "state": "false",
+            "display": "✖"
+          }
         ],
         [
-          { "value": "private" },
-          { "state": "true", "display": "✔" },
-          { "state": "false", "display": "✖" },
-          { "state": "false", "display": "✖" },
-          { "state": "false", "display": "✖" }
+          {
+            "value": "private"
+          },
+          {
+            "state": "true",
+            "display": "✔"
+          },
+          {
+            "state": "false",
+            "display": "✖"
+          },
+          {
+            "state": "false",
+            "display": "✖"
+          },
+          {
+            "state": "false",
+            "display": "✖"
+          }
         ]
       ]
     },
@@ -148,14 +209,26 @@
       "props": {
         "title": "Fluxo para expor funcionalidades com segurança",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Necessidade de expor dado" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Necessidade de expor dado"
+          },
           {
             "id": "avaliar",
             "type": "decision",
             "title": "Dado faz parte do contrato público?",
             "branches": [
-              { "id": "sim", "label": "Sim", "target": "forma" },
-              { "id": "nao", "label": "Não", "target": "privado" }
+              {
+                "id": "sim",
+                "label": "Sim",
+                "target": "forma"
+              },
+              {
+                "id": "nao",
+                "label": "Não",
+                "target": "privado"
+              }
             ]
           },
           {
@@ -163,19 +236,58 @@
             "type": "process",
             "title": "Definir forma de acesso (getter, DTO, evento)"
           },
-          { "id": "validar", "type": "process", "title": "Aplicar validações e cópias defensivas" },
-          { "id": "documentar", "type": "output", "title": "Documentar contratos públicos" },
-          { "id": "privado", "type": "process", "title": "Manter campo privado e encapsulado" },
-          { "id": "end", "type": "end", "title": "Classe pronta" }
+          {
+            "id": "validar",
+            "type": "process",
+            "title": "Aplicar validações e cópias defensivas"
+          },
+          {
+            "id": "documentar",
+            "type": "output",
+            "title": "Documentar contratos públicos"
+          },
+          {
+            "id": "privado",
+            "type": "process",
+            "title": "Manter campo privado e encapsulado"
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Classe pronta"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "avaliar" },
-          { "from": "avaliar", "to": "forma", "label": "Sim" },
-          { "from": "forma", "to": "validar" },
-          { "from": "validar", "to": "documentar" },
-          { "from": "documentar", "to": "end" },
-          { "from": "avaliar", "to": "privado", "label": "Não" },
-          { "from": "privado", "to": "end" }
+          {
+            "from": "start",
+            "to": "avaliar"
+          },
+          {
+            "from": "avaliar",
+            "to": "forma",
+            "label": "Sim"
+          },
+          {
+            "from": "forma",
+            "to": "validar"
+          },
+          {
+            "from": "validar",
+            "to": "documentar"
+          },
+          {
+            "from": "documentar",
+            "to": "end"
+          },
+          {
+            "from": "avaliar",
+            "to": "privado",
+            "label": "Não"
+          },
+          {
+            "from": "privado",
+            "to": "end"
+          }
         ]
       }
     }

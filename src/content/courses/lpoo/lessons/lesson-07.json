@@ -94,7 +94,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Pergunta orientadora",
-      "content": "O que muda quando você precisa suportar múltiplas implementações de um comportamento sem compartilhar estado?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O que muda quando você precisa suportar múltiplas implementações de um comportamento sem compartilhar estado?"
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -156,24 +161,48 @@
       "props": {
         "title": "Decisão: classe abstrata ou interface?",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Novo comportamento compartilhado" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Novo comportamento compartilhado"
+          },
           {
             "id": "estado",
             "type": "decision",
             "title": "Precisa compartilhar estado?",
             "branches": [
-              { "id": "sim", "label": "Sim", "target": "classe" },
-              { "id": "nao", "label": "Não", "target": "multiplas" }
+              {
+                "id": "sim",
+                "label": "Sim",
+                "target": "classe"
+              },
+              {
+                "id": "nao",
+                "label": "Não",
+                "target": "multiplas"
+              }
             ]
           },
-          { "id": "classe", "type": "process", "title": "Utilize classe abstrata" },
+          {
+            "id": "classe",
+            "type": "process",
+            "title": "Utilize classe abstrata"
+          },
           {
             "id": "multiplas",
             "type": "decision",
             "title": "Precisa de múltiplas implementações em classes sem relação?",
             "branches": [
-              { "id": "sim2", "label": "Sim", "target": "interface" },
-              { "id": "nao2", "label": "Não", "target": "avaliar" }
+              {
+                "id": "sim2",
+                "label": "Sim",
+                "target": "interface"
+              },
+              {
+                "id": "nao2",
+                "label": "Não",
+                "target": "avaliar"
+              }
             ]
           },
           {
@@ -181,18 +210,54 @@
             "type": "process",
             "title": "Defina interface com métodos necessários"
           },
-          { "id": "avaliar", "type": "process", "title": "Reavalie com composição ou refatoração" },
-          { "id": "end", "type": "end", "title": "Contrato decidido" }
+          {
+            "id": "avaliar",
+            "type": "process",
+            "title": "Reavalie com composição ou refatoração"
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Contrato decidido"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "estado" },
-          { "from": "estado", "to": "classe", "label": "Sim" },
-          { "from": "estado", "to": "multiplas", "label": "Não" },
-          { "from": "classe", "to": "end" },
-          { "from": "multiplas", "to": "interface", "label": "Sim" },
-          { "from": "multiplas", "to": "avaliar", "label": "Não" },
-          { "from": "interface", "to": "end" },
-          { "from": "avaliar", "to": "end" }
+          {
+            "from": "start",
+            "to": "estado"
+          },
+          {
+            "from": "estado",
+            "to": "classe",
+            "label": "Sim"
+          },
+          {
+            "from": "estado",
+            "to": "multiplas",
+            "label": "Não"
+          },
+          {
+            "from": "classe",
+            "to": "end"
+          },
+          {
+            "from": "multiplas",
+            "to": "interface",
+            "label": "Sim"
+          },
+          {
+            "from": "multiplas",
+            "to": "avaliar",
+            "label": "Não"
+          },
+          {
+            "from": "interface",
+            "to": "end"
+          },
+          {
+            "from": "avaliar",
+            "to": "end"
+          }
         ]
       }
     },

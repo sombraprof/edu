@@ -24,7 +24,39 @@
         >
           {{ title }}
         </h5>
-        <div v-html="safeContent" :class="['prose prose-sm max-w-none', variantTextClasses]"></div>
+        <div
+          v-if="hasRichContent"
+          :class="['prose prose-sm max-w-none space-y-3', variantTextClasses]"
+        >
+          <template v-for="(block, index) in richBlocks" :key="index">
+            <p v-if="block.type === 'paragraph'" v-html="sanitize(block.text)"></p>
+            <ul
+              v-else-if="block.type === 'list' && !block.ordered"
+              class="list-disc list-inside space-y-1"
+            >
+              <li
+                v-for="(item, itemIndex) in block.items"
+                :key="itemIndex"
+                v-html="sanitize(item)"
+              ></li>
+            </ul>
+            <ol
+              v-else-if="block.type === 'list' && block.ordered"
+              class="list-decimal list-inside space-y-1"
+            >
+              <li
+                v-for="(item, itemIndex) in block.items"
+                :key="itemIndex"
+                v-html="sanitize(item)"
+              ></li>
+            </ol>
+          </template>
+        </div>
+        <div
+          v-else
+          v-html="safeContent"
+          :class="['prose prose-sm max-w-none', variantTextClasses]"
+        ></div>
       </div>
     </div>
   </div>
@@ -35,14 +67,28 @@ import { computed } from 'vue';
 import { Info, CheckCircle2, AlertTriangle, BookOpen, ListChecks } from 'lucide-vue-next';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
+type RichParagraph = {
+  type: 'paragraph';
+  text: string;
+};
+
+type RichList = {
+  type: 'list';
+  ordered?: boolean;
+  items: string[];
+};
+
+type RichContentBlock = RichParagraph | RichList;
+
 const props = withDefaults(
   defineProps<{
     variant?: 'info' | 'academic' | 'good-practice' | 'warning' | 'task' | 'error';
     title?: string;
-    content: string;
+    content?: string | RichContentBlock[];
   }>(),
   {
     variant: 'info',
+    content: '',
   }
 );
 
@@ -102,7 +148,17 @@ const variantTextClasses = computed(() => {
   }
 });
 
-const safeContent = computed(() => sanitizeHtml(props.content));
+const richBlocks = computed(() => (Array.isArray(props.content) ? props.content : []));
+
+const hasRichContent = computed(() => richBlocks.value.length > 0);
+
+function sanitize(value: string): string {
+  return sanitizeHtml(value);
+}
+
+const safeContent = computed(() =>
+  Array.isArray(props.content) ? '' : sanitize(props.content ?? '')
+);
 </script>
 
 <style scoped>

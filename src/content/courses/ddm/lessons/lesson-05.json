@@ -48,14 +48,14 @@
       "type": "flightPlan",
       "title": "Plano de Voo da Aula",
       "items": [
-        "<strong>Recapitulação:</strong> Da interface estática da Aula 4 para a interatividade.",
-        "<strong>Conceitos Fundamentais:</strong> O que são Listeners e Callbacks?",
-        "<strong>Conectando Mundos:</strong> Acessando Views do XML no código Kotlin.",
-        "<strong>Ouvindo o Usuário:</strong> Explorando <code>setOnClickListener</code> e outros tipos de eventos.",
-        "<strong>O Melhor Amigo do Desenvolvedor:</strong> Um mergulho profundo no Logcat e suas boas práticas.",
-        "<strong>Atividade Prática:</strong> Dando vida ao nosso app \\\"Olá, [Nome]!\\\" de forma incremental.",
-        "<strong>Relevância Profissional:</strong> Por que estas ferramentas são cruciais no mercado de trabalho.",
-        "<strong>Quiz Rápido e Tarefa (TED):</strong> Consolidando o conhecimento."
+        "Recapitulação: Da interface estática da Aula 4 para a interatividade.",
+        "Conceitos Fundamentais: O que são Listeners e Callbacks?",
+        "Conectando Mundos: Acessando Views do XML no código Kotlin.",
+        "Ouvindo o Usuário: Explorando setOnClickListener e outros tipos de eventos.",
+        "O Melhor Amigo do Desenvolvedor: Um mergulho profundo no Logcat e suas boas práticas.",
+        "Atividade Prática: Dando vida ao nosso app \\\"Olá, [Nome]!\\\" de forma incremental.",
+        "Relevância Profissional: Por que estas ferramentas são cruciais no mercado de trabalho.",
+        "Quiz Rápido e Tarefa (TED): Consolidando o conhecimento."
       ]
     },
     {
@@ -64,17 +64,22 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Na <strong>Aula 4</strong>, construímos nossa primeira interface com <code>TextView</code>, <code>EditText</code> e <code>Button</code>. Criamos uma tela estática, uma \\\"planta baixa\\\" visual. Agora, precisamos fazer com que essa tela \\\"sem vida\\\" se torne interativa. A lógica para isso vive no nosso arquivo <strong><code>MainActivity.kt</code></strong>, especificamente dentro do método <strong><code>onCreate()</code></strong>."
+          "text": "Na Aula 4, construímos nossa primeira interface com TextView, EditText e Button. Criamos uma tela estática, uma \\\"planta baixa\\\" visual. Agora, precisamos fazer com que essa tela \\\"sem vida\\\" se torne interativa. A lógica para isso vive no nosso arquivo MainActivity.kt, especificamente dentro do método onCreate()."
         },
         {
           "type": "paragraph",
-          "text": "O <code>onCreate()</code> é o local ideal para configurar nossos <code>listeners</code> porque ele é chamado apenas uma vez quando a tela é criada. Isso garante que nossos \\\"vigias\\\" de eventos sejam posicionados assim que os componentes visuais existem, prontos para responder às ações do usuário."
+          "text": "O onCreate() é o local ideal para configurar nossos listeners porque ele é chamado apenas uma vez quando a tela é criada. Isso garante que nossos \\\"vigias\\\" de eventos sejam posicionados assim que os componentes visuais existem, prontos para responder às ações do usuário."
         },
         {
           "type": "callout",
           "variant": "info",
           "title": "O que são Listeners e Callbacks?",
-          "content": "Esses são padrões de programação fundamentais. Um <strong>Listener</strong> (\\\"ouvinte\\\") é um objeto que \\\"escuta\\\" por um evento específico (como um clique). Um <strong>Callback</strong> (\\\"chamada de volta\\\") é a função que o listener executa quando o evento ocorre. Em resumo: nós registramos um listener em um botão e fornecemos uma função de callback para ser chamada de volta quando o clique acontecer."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Esses são padrões de programação fundamentais. Um Listener (\\\"ouvinte\\\") é um objeto que \\\"escuta\\\" por um evento específico (como um clique). Um Callback (\\\"chamada de volta\\\") é a função que o listener executa quando o evento ocorre. Em resumo: nós registramos um listener em um botão e fornecemos uma função de callback para ser chamada de volta quando o clique acontecer."
+            }
+          ]
         }
       ]
     },
@@ -84,7 +89,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Para manipular uma View no Kotlin, primeiro precisamos obter uma referência a ela. A forma tradicional é usando o método <strong><code>findViewById()</code></strong>."
+          "text": "Para manipular uma View no Kotlin, primeiro precisamos obter uma referência a ela. A forma tradicional é usando o método findViewById()."
         },
         {
           "type": "code",
@@ -95,7 +100,12 @@
           "type": "callout",
           "variant": "info",
           "title": "Tópico Avançado: View Binding",
-          "content": "Embora <code>findViewById()</code> funcione, a abordagem moderna e recomendada pela Google é o <strong>View Binding</strong>. Ele gera uma classe de vinculação que permite acessar as Views diretamente, com segurança de nulos e de tipos, eliminando a necessidade do <code>findViewById()</code>. Veremos isso em detalhes mais à frente, mas é importante saber que existe uma forma mais segura e eficiente!"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Embora findViewById() funcione, a abordagem moderna e recomendada pela Google é o View Binding. Ele gera uma classe de vinculação que permite acessar as Views diretamente, com segurança de nulos e de tipos, eliminando a necessidade do findViewById(). Veremos isso em detalhes mais à frente, mas é importante saber que existe uma forma mais segura e eficiente!"
+            }
+          ]
         }
       ]
     },
@@ -105,7 +115,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Com a referência ao botão em mãos, podemos configurar seu <code>OnClickListener</code>. Esta é a forma mais comum de responder a cliques."
+          "text": "Com a referência ao botão em mãos, podemos configurar seu OnClickListener. Esta é a forma mais comum de responder a cliques."
         },
         {
           "type": "image",
@@ -118,7 +128,7 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "O Kotlin torna a definição de listeners extremamente concisa com a sintaxe de lambda (o bloco de código entre <code>{}</code>)."
+              "text": "O Kotlin torna a definição de listeners extremamente concisa com a sintaxe de lambda (o bloco de código entre {})."
             },
             {
               "type": "code",
@@ -148,7 +158,7 @@
           "content": [
             {
               "type": "paragraph",
-              "text": "Existem muitos outros tipos de eventos. Por exemplo, para detectar um clique longo, usamos o <code>setOnLongClickListener</code>."
+              "text": "Existem muitos outros tipos de eventos. Por exemplo, para detectar um clique longo, usamos o setOnLongClickListener."
             },
             {
               "type": "code",
@@ -159,7 +169,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Para saber mais, explore a <a href=\"https://developer.android.com/guide/topics/ui/ui-events\" target=\"_blank\" class=\"text-indigo-600 hover:underline font-semibold\">documentação oficial sobre Eventos de Interface</a>."
+          "text": "Para saber mais, explore a documentação oficial sobre Eventos de Interface (https://developer.android.com/guide/topics/ui/ui-events)."
         }
       ]
     },
@@ -178,23 +188,37 @@
         },
         {
           "type": "paragraph",
-          "text": "Para enviar mensagens para o Logcat, usamos a classe <code>Log</code>. Cada nível de prioridade tem uma cor associada no Android Studio para fácil identificação:"
+          "text": "Para enviar mensagens para o Logcat, usamos a classe Log. Cada nível de prioridade tem uma cor associada no Android Studio para fácil identificação:"
         },
         {
           "type": "list",
           "items": [
-            "<span class=\"log-v\">Log.v(\"TAG\", \"Verbose\")</span>: Para logs detalhados.",
-            "<span class=\"log-d\">Log.d(\"TAG\", \"Debug\")</span>: O que mais usaremos para depuração.",
-            "<span class=\"log-i\">Log.i(\"TAG\", \"Info\")</span>: Para informações de execução normal.",
-            "<span class=\"log-w\">Log.w(\"TAG\", \"Warning\")</span>: Para alertar sobre algo inesperado.",
-            "<span class=\"log-e\">Log.e(\"TAG\", \"Error\")</span>: Para registrar erros e exceções."
+            "Log.v(\"TAG\", \"Verbose\"): Para logs detalhados.",
+            "Log.d(\"TAG\", \"Debug\"): O que mais usaremos para depuração.",
+            "Log.i(\"TAG\", \"Info\"): Para informações de execução normal.",
+            "Log.w(\"TAG\", \"Warning\"): Para alertar sobre algo inesperado.",
+            "Log.e(\"TAG\", \"Error\"): Para registrar erros e exceções."
           ]
         },
         {
           "type": "callout",
           "variant": "info",
           "title": "Boas Práticas de Logging",
-          "content": "<ul><li><strong>Use TAGs Consistentes:</strong> Defina uma <code-text>TAG</code-text> constante no início de cada classe para filtrar facilmente seus logs.</li><li><strong>Escolha o Nível Certo:</strong> Use <code-text>Log.d</code-text> para depuração durante o desenvolvimento e <code-text>Log.i</code-text> para eventos importantes. <code-text>Log.e</code-text> deve ser reservado para erros reais.</li><li><strong>Não Exponha Dados Sensíveis:</strong> Nunca, jamais, imprima senhas, tokens de API ou informações pessoais do usuário nos logs. Em um app publicado, esses logs podem ser lidos.</li></ul><p class=\"mt-4\">Aprenda a usar esta ferramenta de forma eficaz na <a href=\"https://developer.android.com/studio/debug/logcat\" target=\"_blank\" class=\"font-semibold underline\">documentação oficial do Logcat</a>.</p>"
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Use TAGs Consistentes: Defina uma TAG constante no início de cada classe para filtrar facilmente seus logs.",
+                "Escolha o Nível Certo: Use Log.d para depuração durante o desenvolvimento e Log.i para eventos importantes. Log.e deve ser reservado para erros reais.",
+                "Não Exponha Dados Sensíveis: Nunca, jamais, imprima senhas, tokens de API ou informações pessoais do usuário nos logs. Em um app publicado, esses logs podem ser lidos."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Aprenda a usar esta ferramenta de forma eficaz na documentação oficial do Logcat (https://developer.android.com/studio/debug/logcat)."
+            }
+          ]
         }
       ]
     },
@@ -204,13 +228,13 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Vamos juntar tudo! O objetivo agora é fazer com que, ao clicar no botão, o nome digitado no <code-text>EditText</code-text> seja exibido no <code-text>Logcat</code-text>."
+          "text": "Vamos juntar tudo! O objetivo agora é fazer com que, ao clicar no botão, o nome digitado no EditText seja exibido no Logcat."
         },
         {
           "type": "list",
           "items": [
             "Abra o seu projeto \\\"Olá, Mundo!\\\" no Android Studio.",
-            "Navegue até o arquivo <strong><code-text>MainActivity.kt</code-text></strong>.",
+            "Navegue até o arquivo MainActivity.kt.",
             "Substitua o conteúdo do arquivo pelo código completo abaixo."
           ]
         },
@@ -225,7 +249,7 @@
           "items": [
             "Execute o aplicativo no emulador ou no seu dispositivo.",
             "No Android Studio, abra a janela do Logcat (geralmente na parte inferior da tela).",
-            "Na barra de busca do Logcat, digite a TAG que usamos: <code-text>MainActivity</code-text>.",
+            "Na barra de busca do Logcat, digite a TAG que usamos: MainActivity.",
             "No aplicativo, digite seu nome no campo de texto e clique no botão \\\"Exibir Mensagem\\\".",
             "Observe a mensagem aparecer na janela do Logcat!"
           ]
@@ -240,20 +264,40 @@
           "type": "callout",
           "variant": "info",
           "title": "Ponte para a Aula 6",
-          "content": "Excelente! Você agora sabe reagir a eventos e depurar com o Logcat. Na próxima aula (Aula 6), vamos dar um passo além: <strong>atualizar a interface dinamicamente</strong> (ex.: exibir uma saudação na tela) e explorar recursos como <code>Toast</code> e <code>TextView.setText()</code> para feedback imediato ao usuário."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Excelente! Você agora sabe reagir a eventos e depurar com o Logcat. Na próxima aula (Aula 6), vamos dar um passo além: atualizar a interface dinamicamente (ex.: exibir uma saudação na tela) e explorar recursos como Toast e TextView.setText() para feedback imediato ao usuário."
+            }
+          ]
         },
         {
           "type": "callout",
           "variant": "task",
           "title": "Tarefa para a próxima aula (TED)",
-          "content": "<p class=\"mb-4\">O desafio é comprovar que você conseguiu executar os passos da aula de hoje e sabe usar a ferramenta de depuração mais essencial.</p><ol class=\"list-decimal list-inside space-y-2\"><li>Siga os passos da atividade prática para fazer seu aplicativo exibir uma mensagem no Logcat ao clicar no botão.</li><li>Execute o app, digite seu nome e clique no botão.</li><li>Tire um print (captura de tela) da janela do Logcat no Android Studio, mostrando claramente a mensagem com seu nome.</li><li>Submeta a imagem no Moodle.</li></ol>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "O desafio é comprovar que você conseguiu executar os passos da aula de hoje e sabe usar a ferramenta de depuração mais essencial."
+            },
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "Siga os passos da atividade prática para fazer seu aplicativo exibir uma mensagem no Logcat ao clicar no botão.",
+                "Execute o app, digite seu nome e clique no botão.",
+                "Tire um print (captura de tela) da janela do Logcat no Android Studio, mostrando claramente a mensagem com seu nome.",
+                "Submeta a imagem no Moodle."
+              ]
+            }
+          ]
         },
         {
           "type": "bibliographyBlock",
           "title": "Bibliografia Recomendada",
           "references": [
-            "OLIVEIRA, Diego Bittencourt de et al. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Porto Alegre: SAGAH, 2019. v. 1.",
-            "SIMAS, V. L. et al. <strong>Desenvolvimento para Dispositivos Móveis – Volume 2</strong>. Grupo A, 2019."
+            "OLIVEIRA, Diego Bittencourt de et al. Desenvolvimento para Dispositivos Móveis. Porto Alegre: SAGAH, 2019. v. 1.",
+            "SIMAS, V. L. et al. Desenvolvimento para Dispositivos Móveis – Volume 2. Grupo A, 2019."
           ]
         }
       ]

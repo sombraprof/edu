@@ -42,8 +42,8 @@
     }
   ],
   "bibliography": [
-    "SAGAH. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Cap. 6 – Comunicação entre telas, 2019.",
-    "GOOGLE. <strong>Activity results</strong>. Android Developers, 2024."
+    "SAGAH. Desenvolvimento para Dispositivos Móveis. Cap. 6 – Comunicação entre telas, 2019.",
+    "GOOGLE. Activity results. Android Developers, 2024."
   ],
   "assessment": {
     "type": "practice",
@@ -55,19 +55,24 @@
       "type": "flightPlan",
       "title": "Plano de voo da aula (1h 45min)",
       "items": [
-        "<strong>(10 min) Relembrando Intents:</strong> diferenças entre extras obrigatórios e opcionais.",
-        "<strong>(20 min) Contratos de navegação:</strong> centralizando chaves e defaults.",
-        "<strong>(20 min) Parcelable com @Parcelize:</strong> enviando objetos complexos.",
-        "<strong>(20 min) Activity Result API:</strong> retornando alterações para a tela anterior.",
-        "<strong>(15 min) Laboratório:</strong> ida e volta entre cadastro e resumo.",
-        "<strong>(10 min) TED e próximos passos.</strong>"
+        "(10 min) Relembrando Intents: diferenças entre extras obrigatórios e opcionais.",
+        "(20 min) Contratos de navegação: centralizando chaves e defaults.",
+        "(20 min) Parcelable com @Parcelize: enviando objetos complexos.",
+        "(20 min) Activity Result API: retornando alterações para a tela anterior.",
+        "(15 min) Laboratório: ida e volta entre cadastro e resumo.",
+        "(10 min) TED e próximos passos."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Situação",
-      "content": "O usuário ajusta dados na tela de resumo. Como devolver as alterações para a tela anterior sem recriar tudo?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O usuário ajusta dados na tela de resumo. Como devolver as alterações para a tela anterior sem recriar tudo?"
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -134,7 +139,12 @@
           "type": "callout",
           "variant": "warning",
           "title": "Parcelize exige plugin",
-          "content": "Adicione `kotlin-parcelize` no Gradle module e sincronize o projeto antes de usar a anotação."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Adicione `kotlin-parcelize` no Gradle module e sincronize o projeto antes de usar a anotação."
+            }
+          ]
         }
       ]
     },
@@ -202,7 +212,12 @@
           "type": "callout",
           "variant": "task",
           "title": "TED",
-          "content": "<p>Criar uma variante do app que envia a foto do usuário (URI) e valida o retorno com Activity Result.</p>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Criar uma variante do app que envia a foto do usuário (URI) e valida o retorno com Activity Result."
+            }
+          ]
         }
       ]
     },
@@ -210,8 +225,8 @@
       "type": "bibliographyBlock",
       "title": "Referências complementares",
       "references": [
-        "GOOGLE. <strong>Guide to Parcelable</strong>. 2024.",
-        "ANDROID DEVELOPERS. <strong>Get results from activities</strong>. 2024."
+        "GOOGLE. Guide to Parcelable. 2024.",
+        "ANDROID DEVELOPERS. Get results from activities. 2024."
       ]
     }
   ],

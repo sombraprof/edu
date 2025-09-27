@@ -168,8 +168,8 @@
           "type": "subBlock",
           "title": "Checklist rápido",
           "items": [
-            "<p>Leia a condição em voz alta: \"se o saldo for maior ou igual ao valor do saque\".</p>",
-            "<p>Garanta que a mensagem fora do if execute sempre, independentemente da condição.</p>"
+            "Leia a condição em voz alta: \"se o saldo for maior ou igual ao valor do saque\".",
+            "Garanta que a mensagem fora do if execute sempre, independentemente da condição."
           ]
         }
       ]
@@ -273,7 +273,12 @@
       "type": "callout",
       "variant": "warning",
       "title": "Cuidado com a atribuição",
-      "content": "<p>Use <code>==</code> para comparar valores e <code>=</code> apenas para atribuir. Um único símbolo pode mudar completamente a lógica e sempre retornará verdadeiro, causando bugs difíceis de rastrear.</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use == para comparar valores e = apenas para atribuir. Um único símbolo pode mudar completamente a lógica e sempre retornará verdadeiro, causando bugs difíceis de rastrear."
+        }
+      ]
     },
     {
       "type": "contentBlock",

@@ -190,7 +190,12 @@
       "type": "callout",
       "variant": "task",
       "title": "TED da Aula 6",
-      "content": "Submeta no Moodle o código do cadastro com comentários explicando a escolha de cada tipo."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Submeta no Moodle o código do cadastro com comentários explicando a escolha de cada tipo."
+        }
+      ]
     },
     {
       "type": "checklist",
