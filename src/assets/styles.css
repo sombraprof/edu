@@ -154,11 +154,9 @@
 }
 
 html {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(30, 136, 229, 0.08), transparent 55%),
-    radial-gradient(circle at 80% 0%, rgba(194, 24, 91, 0.06), transparent 50%),
-    var(--md-sys-color-background);
+  background-color: var(--md-sys-color-surface-container-lowest);
   color: var(--md-sys-color-on-background);
+  font-family: var(--md-sys-typescale-font);
   scroll-behavior: smooth;
 }
 
@@ -209,7 +207,7 @@ html {
       -apple-system,
       BlinkMacSystemFont,
       sans-serif;
-    background: transparent;
+    background-color: var(--md-sys-color-surface-container-lowest);
     color: var(--md-sys-color-on-background);
     min-height: 100vh;
     display: flex;
@@ -429,17 +427,44 @@ html {
     display: flex;
     flex-direction: column;
     color: var(--md-sys-color-on-background);
+    background-color: var(--md-sys-color-surface-container-lowest);
     width: 100%;
   }
 
   .md-page {
     margin-inline: auto;
-    width: min(100%, 72rem);
+    width: min(100%, var(--md-sys-layout-container-medium, 72rem));
     display: flex;
     flex-direction: column;
     gap: var(--md-sys-spacing-12);
     padding-inline: clamp(1.5rem, 5vw, 3rem);
-    padding-block: var(--md-sys-spacing-10) var(--md-sys-spacing-16);
+    padding-block: clamp(3rem, 6vw, 4.5rem) clamp(4rem, 8vw, 6rem);
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--md-sys-color-surface) 94%, transparent) 0%,
+      color-mix(in srgb, var(--md-sys-color-surface-container) 86%, transparent) 60%,
+      color-mix(in srgb, var(--md-sys-color-surface-container-high) 88%, transparent) 100%
+    );
+    border-radius: clamp(2rem, 3vw, 2.5rem);
+    box-shadow: 0 0 0 1px
+      color-mix(
+        in srgb,
+        var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 50%,
+        transparent
+      );
+    position: relative;
+    isolation: isolate;
+  }
+
+  .md-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+    box-shadow: 0 24px 64px -40px
+      color-mix(in srgb, var(--md-sys-color-surface-variant) 60%, transparent);
   }
 
   .md-page--dense {
@@ -1128,16 +1153,22 @@ html {
   }
 
   .btn {
-    @apply inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium transition-all duration-200 ease-out;
+    @apply inline-flex items-center gap-2 font-medium transition-all duration-200 ease-out;
     font-family: var(--md-sys-typescale-font);
     font-size: var(--md-sys-typescale-label-large-size);
     line-height: var(--md-sys-typescale-label-large-line-height);
     letter-spacing: var(--md-sys-typescale-label-large-tracking);
+    min-height: 2.5rem;
+    padding-inline: 1.25rem;
+    padding-block: 0.25rem;
+    border-radius: 9999px;
     background-color: transparent;
     color: var(--md-sys-color-primary);
     border: 1px solid transparent;
     position: relative;
     overflow: hidden;
+    box-shadow: none;
+    text-decoration: none;
   }
 
   .btn::after {
@@ -1155,12 +1186,12 @@ html {
 
   .btn:focus-visible {
     @apply outline-none ring-2 ring-offset-2;
-    --tw-ring-color: color-mix(in srgb, var(--md-sys-color-primary) 60%, transparent);
-    --tw-ring-offset-color: var(--md-sys-color-surface);
+    --tw-ring-color: color-mix(in srgb, var(--md-sys-color-primary) 55%, transparent);
+    --tw-ring-offset-color: var(--md-sys-color-surface, var(--md-sys-color-surface-container));
   }
 
   .btn:disabled {
-    color: rgba(28, 27, 31, 0.38);
+    color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
     cursor: not-allowed;
   }
 
@@ -1189,6 +1220,11 @@ html {
   .btn-tonal {
     background-color: var(--md-sys-color-primary-container);
     color: var(--md-sys-color-on-primary-container);
+    border-color: color-mix(
+      in srgb,
+      var(--md-sys-color-primary) 35%,
+      var(--md-sys-color-primary-container) 65%
+    );
     box-shadow: var(--shadow-elevation-1);
   }
 
@@ -1196,6 +1232,8 @@ html {
     color: var(--md-sys-color-primary);
     padding-inline: 0.5rem;
     width: fit-content;
+    min-height: auto;
+    padding-block: 0.25rem;
   }
 
   .btn-text::after {
@@ -1203,7 +1241,10 @@ html {
   }
 
   .btn-icon {
-    @apply inline-grid h-10 w-10 place-items-center rounded-full;
+    @apply inline-grid place-items-center;
+    height: 2.75rem;
+    width: 2.75rem;
+    border-radius: 9999px;
     border: 1px solid transparent;
     color: var(--md-sys-color-primary);
     font-family: var(--md-sys-typescale-font);
@@ -1215,16 +1256,27 @@ html {
 
   .card {
     position: relative;
-    background: var(--md-sys-color-surface);
+    background: color-mix(
+      in srgb,
+      var(--md-sys-color-surface-container-highest, var(--md-sys-color-surface)) 94%,
+      var(--md-sys-color-surface) 6%
+    );
     color: var(--md-sys-color-on-surface);
-    border: 1px solid var(--md-sys-color-outline);
-    border-radius: 1.5rem;
+    border: 1px solid
+      color-mix(
+        in srgb,
+        var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 55%,
+        transparent
+      );
+    border-radius: var(--md-sys-shape-corner-extra-large, 1.5rem);
     box-shadow: var(--shadow-elevation-1);
     transition:
       transform 180ms ease,
       box-shadow 180ms ease,
-      border-color 180ms ease;
+      border-color 180ms ease,
+      background-color 180ms ease;
     overflow: hidden;
+    backdrop-filter: saturate(120%);
   }
 
   .card--interactive::after {
