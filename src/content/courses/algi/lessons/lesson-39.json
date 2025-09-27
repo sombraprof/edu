@@ -49,5 +49,61 @@
       "title": "TED",
       "content": "Não aplicável nesta aula (substituído pela avaliação NP3)."
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  },
+  "formatVersion": "md3.lesson.v1",
+  "slug": "avaliacao-np3",
+  "summary": "Avaliação integradora que cobre todo o percurso da disciplina, exigindo aplicação articulada de lógica, estruturas de dados básicas e modularização.",
+  "objectives": [
+    "Avaliar domínio de algoritmos sequenciais, condicionais e iterativos.",
+    "Verificar a manipulação correta de vetores, matrizes e registros.",
+    "Mensurar a habilidade de decompor problemas complexos com funções."
+  ],
+  "competencies": [
+    "Pensamento computacional avançado",
+    "Estruturação e análise de algoritmos",
+    "Modelagem de dados em baixo nível"
+  ],
+  "skills": [
+    "Selecionar estruturas de controle adequadas a diferentes cenários.",
+    "Implementar operações sobre coleções lineares com eficiência.",
+    "Comunicar soluções completas em pseudocódigo e fluxogramas."
+  ],
+  "outcomes": [
+    "Resolve questões integradoras que combinam múltiplas estruturas de dados.",
+    "Justifica escolhas algorítmicas considerando corretude e clareza.",
+    "Entrega documentação organizada que facilita a leitura do avaliador."
+  ],
+  "prerequisites": [
+    "Todos os conteúdos das Unidades I a V da disciplina.",
+    "Prática prévia com listas de exercícios integradoras."
+  ],
+  "tags": ["avaliacao", "algoritmos", "integrador"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Roteiro de revisão NP3",
+      "url": "https://example.edu/algi/roteiro-np3",
+      "type": "guide"
+    },
+    {
+      "label": "Checklist de preparação para avaliações integrais",
+      "url": "https://example.edu/algi/checklist-integrador",
+      "type": "checklist"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. N. Algoritmos – Lógica para Desenvolvimento de Programos. Saraiva, 2022.",
+    "SZWARCFITER, J. L.; MARKENZON, L. Estruturas de Dados e seus Algoritmos. LTC, 2021."
+  ],
+  "assessment": {
+    "type": "summative",
+    "description": "Prova NP3 presencial com questões discursivas e problemas de implementação."
+  }
 }

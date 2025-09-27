@@ -49,5 +49,62 @@
       "title": "TED",
       "content": "Não aplicável nesta aula (substituído pela avaliação NP2)."
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  },
+  "formatVersion": "md3.lesson.v1",
+  "slug": "avaliacao-np2",
+  "summary": "Avaliação escrita que sintetiza estruturas condicionais, laços de repetição e modularização com funções em problemas contextualizados.",
+  "objectives": [
+    "Aplicar condicionais encadeadas em algoritmos de tomada de decisão.",
+    "Combinar laços de repetição com contadores e acumuladores.",
+    "Modularizar soluções com funções reutilizáveis e parâmetros bem definidos."
+  ],
+  "competencies": [
+    "Raciocínio lógico aplicado",
+    "Construção de algoritmos estruturados",
+    "Modularização e reutilização de código"
+  ],
+  "skills": [
+    "Traduzir requisitos de problemas em fluxos condicionais claros.",
+    "Projetar loops eficientes com validação de entrada.",
+    "Especificar funções com assinaturas e retornos adequados."
+  ],
+  "outcomes": [
+    "Resolve problemas avaliativos que combinam estruturas condicionais e laços.",
+    "Demonstra domínio da comunicação de algoritmos em pseudocódigo ou fluxograma.",
+    "Entrega soluções funcionais que respeitam critérios de modularização."
+  ],
+  "prerequisites": [
+    "Estruturas condicionais com if/else.",
+    "Laços de repetição (while, for, do-while).",
+    "Funções com parâmetros e retorno."
+  ],
+  "tags": ["avaliacao", "algoritmos", "estruturas-de-controle"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia de estudos NP2",
+      "url": "https://example.edu/algi/guia-np2",
+      "type": "guide"
+    },
+    {
+      "label": "Rubrica de avaliação de algoritmos",
+      "url": "https://example.edu/algi/rubrica-np",
+      "type": "rubric"
+    }
+  ],
+  "bibliography": [
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos. Prentice Hall, 2021."
+  ],
+  "assessment": {
+    "type": "summative",
+    "description": "Prova escrita presencial contemplando cenários práticos das Unidades IV e V."
+  }
 }

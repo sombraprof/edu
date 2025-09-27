@@ -1,7 +1,7 @@
 {
   "id": "lesson-02",
   "title": "Aula 2: Gêneros e Tipos de Gameplay",
-  "objective": "Identificar e classificar os principais gêneros de jogos, reconhecendo suas características e mecânicas associadas.",
+  "objective": "Classificar gêneros e identificar como mecânicas e dinâmicas influenciam a experiência do jogador.",
   "content": [
     {
       "type": "lessonPlan",
@@ -259,42 +259,22 @@
       ]
     },
     {
-      "type": "dragAndDrop",
+      "type": "contentBlock",
       "title": "🧪 Laboratório de Gêneros",
-      "items": [
+      "content": [
         {
-          "label": "The Witcher 3",
-          "target": "rpg"
+          "type": "paragraph",
+          "text": "Associe mentalmente cada título ao gênero predominante e discuta quais elementos sustentam essa classificação."
         },
         {
-          "label": "DOOM Eternal",
-          "target": "fps"
-        },
-        {
-          "label": "Age of Empires IV",
-          "target": "estrategia"
-        },
-        {
-          "label": "Zelda: Tears of the Kingdom",
-          "target": "acao"
-        }
-      ],
-      "targets": [
-        {
-          "id": "rpg",
-          "label": "RPG"
-        },
-        {
-          "id": "fps",
-          "label": "FPS"
-        },
-        {
-          "id": "estrategia",
-          "label": "Estratégia"
-        },
-        {
-          "id": "acao",
-          "label": "Ação/Aventura"
+          "type": "subBlock",
+          "title": "Correspondências de referência",
+          "items": [
+            "<p><strong>The Witcher 3</strong> → RPG narrativo focado em escolhas, progressão de personagem e mundo aberto.</p>",
+            "<p><strong>DOOM Eternal</strong> → FPS de alta intensidade, baseado em reflexos rápidos e combate rítmico.</p>",
+            "<p><strong>Age of Empires IV</strong> → Estratégia em tempo real com gerenciamento de recursos e táticas militares.</p>",
+            "<p><strong>The Legend of Zelda: Tears of the Kingdom</strong> → Ação/aventura em mundo aberto com exploração sistêmica.</p>"
+          ]
         }
       ]
     },
@@ -346,5 +326,57 @@
         "<strong>MASTROCOLA, Vicente Martin.</strong> <em>Game design: modelos de negócio e processos criativos.</em> São Paulo: Cengage Learning, 2015."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "generos-e-tipos-de-gameplay",
+  "summary": "Mapeia os principais gêneros e subgêneros de jogos, destacando mecânicas recorrentes e experiências de jogador associadas.",
+  "objectives": [
+    "Reconhecer elementos característicos de gêneros clássicos e híbridos.",
+    "Comparar exemplos de gameplay e suas implicações no design.",
+    "Construir um vocabulário comum para discussões de referência durante o curso."
+  ],
+  "competencies": ["Análise crítica de jogos", "Curadoria de referências", "Comunicação técnica"],
+  "skills": [
+    "Identificar padrões de mecânicas e loops de gameplay.",
+    "Relacionar experiências desejadas com escolhas de gênero.",
+    "Documentar referências com descrições objetivas."
+  ],
+  "outcomes": [
+    "Classifica jogos em gêneros e subgêneros com justificativa.",
+    "Apresenta exemplos de mecânicas chave para diferentes experiências.",
+    "Produz fichas de referência para apoiar projetos futuros."
+  ],
+  "prerequisites": [
+    "Panorama geral da indústria de jogos.",
+    "Vivência prévia como jogador em pelo menos dois gêneros distintos."
+  ],
+  "tags": ["gameplay", "generos", "analise"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Game Genre Taxonomy (Extra Credits)",
+      "url": "https://www.youtube.com/watch?v=jTl0t7xJ7Uc",
+      "type": "video"
+    },
+    {
+      "label": "Board of Innovation – Game Mechanics Cards",
+      "url": "https://www.boardofinnovation.com/toolkit/game-mechanics-cards/",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "ADAMS, E.; DORMANS, J. Game Mechanics: Advanced Game Design. New Riders, 2012.",
+    "HUNICK, R. et al. MDA: A Formal Approach to Game Design and Game Research. 2004."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Mapa colaborativo de gêneros com exemplos discutidos em sala."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

@@ -210,45 +210,6 @@
       ]
     },
     {
-      "type": "quiz",
-      "title": "🧪 Quiz Extra",
-      "questions": [
-        {
-          "question": "Em um sistema com atrasos significativos, a ação de controle deve:",
-          "options": [
-            "A) Ser mais frequente e com maior ganho",
-            "B) Incluir faixa de histerese e ganho moderado",
-            "C) Desconsiderar medições para evitar ruído",
-            "D) Alterar o setpoint para baixo sempre",
-            "E) Ser aleatória para \"quebrar padrão\""
-          ],
-          "answer": "B"
-        },
-        {
-          "question": "O uso de previsão de demanda para ajustar compras antes do pico é exemplo de:",
-          "options": [
-            "A) Feedback negativo",
-            "B) Feedback positivo",
-            "C) Feedforward",
-            "D) Histerese",
-            "E) Alostase"
-          ],
-          "answer": "C"
-        },
-        {
-          "question": "Ao revisar metas diante de mudança estrutural e persistente no ambiente, a técnica adequada é:",
-          "options": [
-            "A) Manter metas e aumentar o ganho do controlador",
-            "B) Aplicar feedforward apenas",
-            "C) Reduzir a medição (sensor) para estabilizar",
-            "D) Adotar alostase (ajuste de setpoint)",
-            "E) Desligar o controlador"
-          ],
-          "answer": "D"
-        }
-      ]
-    },
-    {
       "type": "accordion",
       "title": "📑 Glossário & Leituras",
       "items": [
@@ -270,5 +231,61 @@
         "<strong>IMONIANA, Joshua Onome.</strong> <em>Auditoria de sistemas de informação.</em> 3. ed. São Paulo: Atlas, 2016."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-7-homeostase-e-adaptacao-organizacional",
+  "summary": "Explora o tema \"Homeostase e Adaptação Organizacional\" conectando teoria e prática para compreender os mecanismos que permitem que os sistemas organizacionais mantenham equilíbrio diante de estímulos externos e se adaptem às mudanças..",
+  "objectives": [
+    "Compreender os mecanismos que permitem que os sistemas organizacionais mantenham equilíbrio diante de estímulos externos e se adaptem às mudanças.",
+    "Relacionar conceitos da aula a desafios organizacionais reais.",
+    "Planejar como aplicar os aprendizados em projetos acadêmicos ou profissionais."
+  ],
+  "competencies": [
+    "Pensamento sistêmico aplicado",
+    "Análise crítica organizacional",
+    "Comunicação interdisciplinar"
+  ],
+  "skills": [
+    "Elaborar sínteses estruturadas sobre o tema da aula.",
+    "Conectar evidências práticas aos fundamentos teóricos.",
+    "Registrar recomendações acionáveis para a organização estudada."
+  ],
+  "outcomes": [
+    "Produz análise alinhada ao foco sistêmico da aula.",
+    "Apresenta argumentos que sustentam decisões de gestão.",
+    "Documenta próximos passos para aprofundar o tema em projetos."
+  ],
+  "prerequisites": [
+    "Revisar conceitos fundamentais das aulas anteriores.",
+    "Ler o material preparatório indicado no AVA."
+  ],
+  "tags": ["aula-7-homeostase"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia de apoio da aula",
+      "url": "https://example.edu/tgs/apoio-aula",
+      "type": "guide"
+    },
+    {
+      "label": "Estudo de caso para discussão",
+      "url": "https://example.edu/tgs/caso-estudo",
+      "type": "case"
+    }
+  ],
+  "bibliography": [
+    "BERTALANFFY, L. Teoria Geral dos Sistemas. Vozes, 2015.",
+    "SENGE, P. A Quinta Disciplina. Best Seller, 2020."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Registro reflexivo no portfólio com evidências da aprendizagem da aula."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "lesson-01",
   "title": "Aula 1: Introdução ao Desenvolvimento de Jogos Digitais",
-  "objective": "Compreender o escopo da disciplina, analisar o mercado, identificar gêneros e contextualizar o papel do desenvolvedor.",
+  "objective": "Contextualizar a disciplina e posicionar o estudante dentro da cadeia de produção de jogos digitais.",
   "content": [
     {
       "type": "lessonPlan",
@@ -301,5 +301,61 @@
         "<strong>SCHUYTEMA, Paul.</strong> <em>Design de games: uma abordagem prática.</em> São Paulo: Cengage Learning, 2008."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "introducao-ao-desenvolvimento-de-jogos-digitais",
+  "summary": "Panorama inicial sobre a indústria de jogos, seus atores e expectativas da disciplina, conectando tendências do mercado à atuação do desenvolvedor.",
+  "objectives": [
+    "Reconhecer os principais segmentos da indústria de jogos e suas métricas.",
+    "Identificar papéis e responsabilidades dentro de um time multidisciplinar.",
+    "Estabelecer combinados de acompanhamento, avaliação e entrega da disciplina."
+  ],
+  "competencies": [
+    "Análise de mercado de jogos",
+    "Trabalho colaborativo em equipes multidisciplinares",
+    "Comunicação profissional"
+  ],
+  "skills": [
+    "Interpretar dados de mercado e hábitos de consumo de jogos.",
+    "Relacionar papéis de produção com entregáveis práticos.",
+    "Planejar rotinas pessoais de estudo e checkpoints da disciplina."
+  ],
+  "outcomes": [
+    "Apresenta o escopo da disciplina e critérios de avaliação.",
+    "Mapeia áreas de atuação do desenvolvedor de jogos.",
+    "Define metas pessoais alinhadas ao cronograma do curso."
+  ],
+  "prerequisites": [
+    "Vivência como jogador ou interesse em mídia interativa.",
+    "Familiaridade básica com ferramentas digitais colaborativas."
+  ],
+  "tags": ["mercado", "panorama", "introducao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Newzoo Global Games Market Report 2024 (resumo)",
+      "url": "https://newzoo.com/insights/trend-reports/global-games-market-report",
+      "type": "report"
+    },
+    {
+      "label": "Painel de carreiras na indústria de jogos (vídeo)",
+      "url": "https://www.gdcvault.com/play/1029652/Careers-in-Games-2024",
+      "type": "video"
+    }
+  ],
+  "bibliography": [
+    "SCHELL, J. The Art of Game Design. CRC Press, 2020.",
+    "FULLERTON, T. Game Design Workshop. CRC Press, 2021."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Dinâmica de expectativas e preenchimento do canvas de objetivos pessoais."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

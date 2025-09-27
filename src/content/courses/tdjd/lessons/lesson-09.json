@@ -1,7 +1,7 @@
 {
   "id": "lesson-09",
   "title": "Aula 9: Consolidação de Protótipo e GDD",
-  "objective": "Consolidar Unity + ProBuilder + GDD, promovendo integração entre estrutura visual (cena) e documentação técnica/criativa.",
+  "objective": "Consolidar o protótipo jogável e alinhar o GDD com as decisões técnicas da equipe.",
   "content": [
     {
       "type": "lessonPlan",
@@ -372,5 +372,57 @@
         "ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "consolidacao-de-prototipo-e-gdd",
+  "summary": "Integra cenário, mecânicas e documentação para consolidar o protótipo base antes da avaliação NP1.",
+  "objectives": [
+    "Revisar escopo e funcionalidades prioritárias.",
+    "Garantir consistência entre protótipo e documentação.",
+    "Planejar ajustes finais e critérios da avaliação NP1."
+  ],
+  "competencies": ["Gestão de projeto", "Integração multidisciplinar", "Comunicação de produto"],
+  "skills": [
+    "Conduzir reuniões de revisão com registro de decisões.",
+    "Testar protótipo para validar objetivos da unidade.",
+    "Atualizar GDD e backlog pós-revisão."
+  ],
+  "outcomes": [
+    "Entrega build consolidada para feedback docente.",
+    "Mantém GDD sincronizado com o estado atual do jogo.",
+    "Define plano de ação para próximas iterações."
+  ],
+  "prerequisites": [
+    "Protótipo inicial com mecânicas básicas.",
+    "GDD com seções principais preenchidas."
+  ],
+  "tags": ["prototipo", "gdd", "gestao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de reunião de revisão",
+      "url": "https://www.atlassian.com/team-playbook/plays/retrospective",
+      "type": "template"
+    },
+    {
+      "label": "Checklist pré-avaliação",
+      "url": "https://example.edu/tdjd/checklist-np1",
+      "type": "checklist"
+    }
+  ],
+  "bibliography": [
+    "SCHREIBER, I. Game Design Concepts. ETC Press, 2009.",
+    "SCHELL, J. The Art of Game Design. CRC Press, 2020."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Feedback estruturado do protótipo e documentação alinhada."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

@@ -3,7 +3,10 @@
   "title": "Aula 15: Atividade de Análise e Reforço Pós-Avaliação NP1",
   "description": "Consolidação dos conceitos das Unidades I a III por meio da análise crítica da avaliação NP1 e prática guiada, reforçando pontos frágeis detectados nas provas.",
   "metadata": {
-    "date": "18/09/2025 (Quinta)"
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
   },
   "content": [
     {
@@ -78,5 +81,52 @@
         }
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "analise-e-reforco-pos-avaliacao-np1",
+  "summary": "Sessão de diagnóstico pós-NP1 para revisar erros recorrentes, reforçar conceitos-chave e planejar retomada do protótipo.",
+  "objective": "Analisar resultados da NP1, corrigir lacunas e alinhar plano de recuperação do protótipo.",
+  "objectives": [
+    "Interpretar métricas e feedback da NP1.",
+    "Revisar conceitos técnicos e de design com maior índice de erro.",
+    "Planejar ações corretivas integradas ao roadmap do jogo."
+  ],
+  "competencies": ["Autoavaliação", "Gestão de aprendizagem", "Resiliência em projetos"],
+  "skills": [
+    "Ler rubricas e identificar padrões de erro.",
+    "Priorizar conteúdos para estudo complementar.",
+    "Atualizar backlog do projeto com tarefas de recuperação."
+  ],
+  "outcomes": [
+    "Apresenta plano de ação pós-NP1 com responsáveis e prazos.",
+    "Revisa exercícios práticos corrigindo erros de lógica ou design.",
+    "Registra compromissos da equipe para a próxima iteração."
+  ],
+  "prerequisites": [
+    "Participação na avaliação NP1.",
+    "Entrega do protótipo consolidado da unidade."
+  ],
+  "tags": ["avaliacao", "reforco", "planejamento"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Relatório de desempenho NP1",
+      "url": "https://example.edu/tdjd/relatorio-np1",
+      "type": "report"
+    },
+    {
+      "label": "Guia de boas práticas pós-avaliação",
+      "url": "https://example.edu/tdjd/pos-np1-checklist",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "FULLERTON, T. Game Design Workshop. CRC Press, 2021.",
+    "BROOKE, M. Agile Game Development. Addison-Wesley, 2020."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Plano individual e de equipe com foco em ações corretivas priorizadas."
+  }
 }

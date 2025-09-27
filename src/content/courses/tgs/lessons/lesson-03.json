@@ -1,7 +1,7 @@
 {
   "id": "lesson-03",
   "title": "Aula 3: Componentes e Características dos Sistemas",
-  "objective": "Compreender os principais elementos e características que compõem um sistema e sua aplicação em diferentes contextos organizacionais e de TI.",
+  "objective": "Reconhecer componentes e propriedades que definem o comportamento sistêmico.",
   "content": [
     {
       "type": "lessonPlan",
@@ -276,5 +276,57 @@
         "<strong>SILVA, K.C.N.D.; BARBOSA, C.; JUNIOR, R.S.C.</strong> <em>Sistemas de informações gerenciais.</em> Porto Alegre: Grupo A, 2019."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "componentes-e-caracteristicas-dos-sistemas",
+  "summary": "Investiga elementos estruturais dos sistemas e como características como retroalimentação e sinergia aparecem em contextos organizacionais.",
+  "objectives": [
+    "Listar componentes fundamentais de sistemas organizacionais.",
+    "Diferenciar propriedades como sinergia, entropia e feedback.",
+    "Aplicar conceitos a estudos de caso de TI."
+  ],
+  "competencies": ["Análise sistêmica", "Pensamento crítico", "Modelagem organizacional"],
+  "skills": [
+    "Mapear entradas, processos e saídas de sistemas reais.",
+    "Identificar laços de realimentação positivos e negativos.",
+    "Relacionar falhas sistêmicas a desequilíbrios de componentes."
+  ],
+  "outcomes": [
+    "Produz mapa conceitual dos componentes de um sistema escolhido.",
+    "Explica efeitos de feedback e entropia em cenários organizacionais.",
+    "Propõe melhorias sistêmicas com base na análise realizada."
+  ],
+  "prerequisites": [
+    "Definição de sistemas e tipos básicos.",
+    "Leitura dos materiais da aula 1 e 2."
+  ],
+  "tags": ["componentes", "caracteristicas", "feedback"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Artigo: Feedback loops em organizações",
+      "url": "https://example.edu/tgs/feedback-loops",
+      "type": "article"
+    },
+    {
+      "label": "Estudo de caso: Sistema logístico integrado",
+      "url": "https://example.edu/tgs/case-logistica",
+      "type": "case"
+    }
+  ],
+  "bibliography": [
+    "BERTALANFFY, L. Teoria Geral dos Sistemas. Vozes, 2015.",
+    "SENGE, P. A Quinta Disciplina. Best Seller, 2020."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Mapa conceitual em grupo com devolutiva em sala."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
 }

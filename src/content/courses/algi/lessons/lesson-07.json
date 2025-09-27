@@ -121,29 +121,69 @@
       "headers": ["Operador", "Descrição", "Exemplo"],
       "rows": [
         [
-          { "value": "+", "mono": true },
-          { "value": "Adição" },
-          { "value": "total = preco + frete;", "code": true }
+          {
+            "value": "+",
+            "mono": true
+          },
+          {
+            "value": "Adição"
+          },
+          {
+            "value": "total = preco + frete;",
+            "code": true
+          }
         ],
         [
-          { "value": "-", "mono": true },
-          { "value": "Subtração" },
-          { "value": "saldo = deposito - saque;", "code": true }
+          {
+            "value": "-",
+            "mono": true
+          },
+          {
+            "value": "Subtração"
+          },
+          {
+            "value": "saldo = deposito - saque;",
+            "code": true
+          }
         ],
         [
-          { "value": "*", "mono": true },
-          { "value": "Multiplicação" },
-          { "value": "area = base * altura;", "code": true }
+          {
+            "value": "*",
+            "mono": true
+          },
+          {
+            "value": "Multiplicação"
+          },
+          {
+            "value": "area = base * altura;",
+            "code": true
+          }
         ],
         [
-          { "value": "/", "mono": true },
-          { "value": "Divisão" },
-          { "value": "media = soma / quantidade;", "code": true }
+          {
+            "value": "/",
+            "mono": true
+          },
+          {
+            "value": "Divisão"
+          },
+          {
+            "value": "media = soma / quantidade;",
+            "code": true
+          }
         ],
         [
-          { "value": "%", "mono": true },
-          { "value": "Resto da divisão inteira" },
-          { "value": "par = numero % 2 == 0;", "code": true }
+          {
+            "value": "%",
+            "mono": true
+          },
+          {
+            "value": "Resto da divisão inteira"
+          },
+          {
+            "value": "par = numero % 2 == 0;",
+            "code": true
+          }
         ]
       ]
     },
@@ -152,34 +192,76 @@
       "headers": ["Operador", "Significado", "Quando usar"],
       "rows": [
         [
-          { "value": "==", "mono": true },
-          { "value": "Igualdade" },
-          { "value": "Comparar respostas ou estados" }
+          {
+            "value": "==",
+            "mono": true
+          },
+          {
+            "value": "Igualdade"
+          },
+          {
+            "value": "Comparar respostas ou estados"
+          }
         ],
         [
-          { "value": "!=", "mono": true },
-          { "value": "Diferença" },
-          { "value": "Validar que entradas são distintas" }
+          {
+            "value": "!=",
+            "mono": true
+          },
+          {
+            "value": "Diferença"
+          },
+          {
+            "value": "Validar que entradas são distintas"
+          }
         ],
         [
-          { "value": ">", "mono": true },
-          { "value": "Maior que" },
-          { "value": "Checar metas atingidas" }
+          {
+            "value": ">",
+            "mono": true
+          },
+          {
+            "value": "Maior que"
+          },
+          {
+            "value": "Checar metas atingidas"
+          }
         ],
         [
-          { "value": "<", "mono": true },
-          { "value": "Menor que" },
-          { "value": "Monitorar limites mínimos" }
+          {
+            "value": "<",
+            "mono": true
+          },
+          {
+            "value": "Menor que"
+          },
+          {
+            "value": "Monitorar limites mínimos"
+          }
         ],
         [
-          { "value": ">=", "mono": true },
-          { "value": "Maior ou igual" },
-          { "value": "Validar faixa superior inclusiva" }
+          {
+            "value": ">=",
+            "mono": true
+          },
+          {
+            "value": "Maior ou igual"
+          },
+          {
+            "value": "Validar faixa superior inclusiva"
+          }
         ],
         [
-          { "value": "<=", "mono": true },
-          { "value": "Menor ou igual" },
-          { "value": "Garantir teto máximo" }
+          {
+            "value": "<=",
+            "mono": true
+          },
+          {
+            "value": "Menor ou igual"
+          },
+          {
+            "value": "Garantir teto máximo"
+          }
         ]
       ]
     },
@@ -204,32 +286,84 @@
       "headers": ["A", "B", "A && B", "A || B", "!A"],
       "rows": [
         [
-          { "value": 1 },
-          { "value": 1 },
-          { "state": "true", "display": "1" },
-          { "state": "true", "display": "1" },
-          { "state": "false", "display": "0" }
+          {
+            "value": 1
+          },
+          {
+            "value": 1
+          },
+          {
+            "state": "true",
+            "display": "1"
+          },
+          {
+            "state": "true",
+            "display": "1"
+          },
+          {
+            "state": "false",
+            "display": "0"
+          }
         ],
         [
-          { "value": 1 },
-          { "value": 0 },
-          { "state": "false", "display": "0" },
-          { "state": "true", "display": "1" },
-          { "state": "false", "display": "0" }
+          {
+            "value": 1
+          },
+          {
+            "value": 0
+          },
+          {
+            "state": "false",
+            "display": "0"
+          },
+          {
+            "state": "true",
+            "display": "1"
+          },
+          {
+            "state": "false",
+            "display": "0"
+          }
         ],
         [
-          { "value": 0 },
-          { "value": 1 },
-          { "state": "false", "display": "0" },
-          { "state": "true", "display": "1" },
-          { "state": "true", "display": "1" }
+          {
+            "value": 0
+          },
+          {
+            "value": 1
+          },
+          {
+            "state": "false",
+            "display": "0"
+          },
+          {
+            "state": "true",
+            "display": "1"
+          },
+          {
+            "state": "true",
+            "display": "1"
+          }
         ],
         [
-          { "value": 0 },
-          { "value": 0 },
-          { "state": "false", "display": "0" },
-          { "state": "false", "display": "0" },
-          { "state": "true", "display": "1" }
+          {
+            "value": 0
+          },
+          {
+            "value": 0
+          },
+          {
+            "state": "false",
+            "display": "0"
+          },
+          {
+            "state": "false",
+            "display": "0"
+          },
+          {
+            "state": "true",
+            "display": "1"
+          }
         ]
       ]
     },
@@ -283,5 +417,11 @@
         }
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }

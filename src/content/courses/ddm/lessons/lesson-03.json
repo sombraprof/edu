@@ -65,55 +65,21 @@
       ]
     },
     {
-      "type": "fileTree",
+      "type": "contentBlock",
       "title": "A Estrutura de Pastas Desmistificada",
-      "tree": [
+      "content": [
         {
-          "name": "app",
-          "children": [
-            {
-              "name": "manifests",
-              "children": [
-                {
-                  "name": "AndroidManifest.xml"
-                }
-              ]
-            },
-            {
-              "name": "java",
-              "children": [
-                {
-                  "name": "br.com.unichristus.ads.olamundoandroid",
-                  "children": [
-                    {
-                      "name": "MainActivity.kt"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "res (Recursos)",
-              "children": [
-                {
-                  "name": "drawable (Imagens, formas, ícones)"
-                },
-                {
-                  "name": "layout (Telas do App)",
-                  "children": [
-                    {
-                      "name": "activity_main.xml"
-                    }
-                  ]
-                },
-                {
-                  "name": "mipmap (Ícones do App para diferentes densidades)"
-                },
-                {
-                  "name": "values (Textos, Cores, Temas)"
-                }
-              ]
-            }
+          "type": "paragraph",
+          "text": "Visualize a árvore do projeto Android em camadas e associe cada pasta às responsabilidades do aplicativo."
+        },
+        {
+          "type": "subBlock",
+          "title": "Principais diretórios",
+          "items": [
+            "<p><strong>app/</strong> — núcleo do módulo principal, reunindo manifests, código Kotlin e recursos.</p>",
+            "<p><strong>manifests/</strong> — declara permissões, activities e configurações globais via <code>AndroidManifest.xml</code>.</p>",
+            "<p><strong>java/</strong> — abriga os pacotes Kotlin com Activities, ViewModels e classes utilitárias.</p>",
+            "<p><strong>res/</strong> — concentra recursos declarativos: <em>drawable</em> para ícones, <em>layout</em> para telas XML, <em>mipmap</em> para variações de ícones e <em>values</em> para strings, temas e cores.</p>"
           ]
         }
       ]

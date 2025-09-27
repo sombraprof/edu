@@ -90,21 +90,49 @@
       "headers": ["Questão", "Média", "Principais erros"],
       "rows": [
         [
-          { "value": "Q1" },
-          { "value": "1,4/2,0" },
-          { "value": "Fluxos alternativos ausentes no fluxograma" }
+          {
+            "value": "Q1"
+          },
+          {
+            "value": "1,4/2,0"
+          },
+          {
+            "value": "Fluxos alternativos ausentes no fluxograma"
+          }
         ],
         [
-          { "value": "Q2" },
-          { "value": "1,7/2,0" },
-          { "value": "Pseudocódigo sem declaração de variáveis" }
+          {
+            "value": "Q2"
+          },
+          {
+            "value": "1,7/2,0"
+          },
+          {
+            "value": "Pseudocódigo sem declaração de variáveis"
+          }
         ],
         [
-          { "value": "Q3" },
-          { "value": "2,1/3,0" },
-          { "value": "Uso incorreto de operadores relacionais" }
+          {
+            "value": "Q3"
+          },
+          {
+            "value": "2,1/3,0"
+          },
+          {
+            "value": "Uso incorreto de operadores relacionais"
+          }
         ],
-        [{ "value": "Q4" }, { "value": "1,8/3,0" }, { "value": "Cadeias else if com sobreposição" }]
+        [
+          {
+            "value": "Q4"
+          },
+          {
+            "value": "1,8/3,0"
+          },
+          {
+            "value": "Cadeias else if com sobreposição"
+          }
+        ]
       ]
     },
     {
@@ -113,28 +141,67 @@
       "headers": ["Estudante", "Condição escrita", "Estado", "Correção sugerida"],
       "rows": [
         [
-          { "value": "A" },
-          { "value": "if (idade > 18 || idade < 60)" },
-          { "state": "false", "display": "Aceita menores de idade" },
-          { "state": "true", "display": "Use && para garantir intervalo" }
+          {
+            "value": "A"
+          },
+          {
+            "value": "if (idade > 18 || idade < 60)"
+          },
+          {
+            "state": "false",
+            "display": "Aceita menores de idade"
+          },
+          {
+            "state": "true",
+            "display": "Use && para garantir intervalo"
+          }
         ],
         [
-          { "value": "B" },
-          { "value": "if (ativo = 1)" },
-          { "state": "false", "display": "Atribuição em vez de comparação" },
-          { "state": "true", "display": "Trocar por ==" }
+          {
+            "value": "B"
+          },
+          {
+            "value": "if (ativo = 1)"
+          },
+          {
+            "state": "false",
+            "display": "Atribuição em vez de comparação"
+          },
+          {
+            "state": "true",
+            "display": "Trocar por =="
+          }
         ],
         [
-          { "value": "C" },
-          { "value": "if (!(tentativas > 3))" },
-          { "state": "neutral", "display": "Expressão confusa" },
-          { "state": "true", "display": "Reescrever como tentativas <= 3" }
+          {
+            "value": "C"
+          },
+          {
+            "value": "if (!(tentativas > 3))"
+          },
+          {
+            "state": "neutral",
+            "display": "Expressão confusa"
+          },
+          {
+            "state": "true",
+            "display": "Reescrever como tentativas <= 3"
+          }
         ]
       ],
       "legend": [
-        { "label": "Ajuste necessário", "state": "false" },
-        { "label": "Sugestão de melhoria", "state": "true" },
-        { "label": "Rever clareza", "state": "neutral" }
+        {
+          "label": "Ajuste necessário",
+          "state": "false"
+        },
+        {
+          "label": "Sugestão de melhoria",
+          "state": "true"
+        },
+        {
+          "label": "Rever clareza",
+          "state": "neutral"
+        }
       ]
     },
     {
@@ -144,8 +211,16 @@
         "title": "Guard clauses para acesso",
         "summary": "Fluxo refatorado a partir de erros observados na prova.",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Início" },
-          { "id": "input", "type": "input", "title": "Ler ativo, bloqueado, tentativas" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Início"
+          },
+          {
+            "id": "input",
+            "type": "input",
+            "title": "Ler ativo, bloqueado, tentativas"
+          },
           {
             "id": "decision-ativo",
             "type": "decision",
@@ -208,14 +283,34 @@
             "type": "process",
             "title": "Imprimir \"Acesso permitido\""
           },
-          { "id": "process-negado", "type": "process", "title": "Imprimir \"Acesso negado\"" },
-          { "id": "end", "type": "end", "title": "Fim" }
+          {
+            "id": "process-negado",
+            "type": "process",
+            "title": "Imprimir \"Acesso negado\""
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Fim"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "input" },
-          { "from": "input", "to": "decision-ativo" },
-          { "from": "process-permitido", "to": "end" },
-          { "from": "process-negado", "to": "end" }
+          {
+            "from": "start",
+            "to": "input"
+          },
+          {
+            "from": "input",
+            "to": "decision-ativo"
+          },
+          {
+            "from": "process-permitido",
+            "to": "end"
+          },
+          {
+            "from": "process-negado",
+            "to": "end"
+          }
         ]
       }
     },
@@ -255,19 +350,37 @@
       "headers": ["Ponto crítico", "Evidência na prova", "Ação de estudo"],
       "rows": [
         [
-          { "value": "Operadores lógicos" },
-          { "value": "Errei ao combinar && e || na Q4" },
-          { "value": "Refazer exercícios da Aula 13 e registrar testes" }
+          {
+            "value": "Operadores lógicos"
+          },
+          {
+            "value": "Errei ao combinar && e || na Q4"
+          },
+          {
+            "value": "Refazer exercícios da Aula 13 e registrar testes"
+          }
         ],
         [
-          { "value": "Fluxogramas" },
-          { "value": "Deixei caminhos sem saída na Q1" },
-          { "value": "Desenhar fluxo corrigido e validar com colega" }
+          {
+            "value": "Fluxogramas"
+          },
+          {
+            "value": "Deixei caminhos sem saída na Q1"
+          },
+          {
+            "value": "Desenhar fluxo corrigido e validar com colega"
+          }
         ],
         [
-          { "value": "Documentação" },
-          { "value": "Não expliquei a escolha da condição na Q3" },
-          { "value": "Criar checklist de comentários para próximas entregas" }
+          {
+            "value": "Documentação"
+          },
+          {
+            "value": "Não expliquei a escolha da condição na Q3"
+          },
+          {
+            "value": "Criar checklist de comentários para próximas entregas"
+          }
         ]
       ]
     },
@@ -322,5 +435,11 @@
         "Criar testes adicionais que validem as correções realizadas."
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }

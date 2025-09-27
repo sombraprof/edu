@@ -1,7 +1,7 @@
 {
   "id": "lesson-05",
   "title": "Aula 5: Fundamentos da Unity e Prototipagem",
-  "objective": "Compreender a estrutura da interface da Unity, configurar um projeto com URP e utilizar o Input System para eventos básicos de entrada.",
+  "objective": "Configurar um projeto Unity com URP e implementar interações básicas de usuário para prototipar rapidamente.",
   "content": [
     {
       "type": "lessonPlan",
@@ -358,5 +358,61 @@
         "ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "fundamentos-da-unity-e-prototipagem",
+  "summary": "Introduz a interface da Unity, configura projetos com URP e explora entradas básicas usando o Input System em protótipos simples.",
+  "objectives": [
+    "Reconhecer painéis e fluxos principais da interface da Unity.",
+    "Configurar um projeto com Universal Render Pipeline.",
+    "Mapear entradas do jogador usando o novo Input System."
+  ],
+  "competencies": [
+    "Prototipagem ágil",
+    "Domínio de ferramentas técnicas",
+    "Experiência do usuário"
+  ],
+  "skills": [
+    "Organizar hierarquia de GameObjects em cenas.",
+    "Aplicar URP e ajustar iluminação base.",
+    "Configurar ações e eventos no Input System."
+  ],
+  "outcomes": [
+    "Cria um projeto Unity funcional com URP.",
+    "Implementa interações básicas via teclado ou controle.",
+    "Documenta decisões de setup para referência da equipe."
+  ],
+  "prerequisites": [
+    "Conhecimento introdutório de engines e mercado.",
+    "Computador com Unity instalado."
+  ],
+  "tags": ["unity", "prototipagem", "input-system"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Unity Learn – Introdução ao Editor",
+      "url": "https://learn.unity.com/pathway/junior-programmer",
+      "type": "course"
+    },
+    {
+      "label": "Configuring the Universal Render Pipeline",
+      "url": "https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest",
+      "type": "documentation"
+    }
+  ],
+  "bibliography": [
+    "PENNY, J. Introduction to Game Programming with Unity. CRC Press, 2022.",
+    "Unity Technologies. Input System Manual. 2024."
+  ],
+  "assessment": {
+    "type": "practical",
+    "description": "Checklist de configuração do projeto base entregue no final da aula."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

@@ -3,7 +3,10 @@
   "title": "Aula 16: O Framework MDA - Design da Experiência do Jogador",
   "description": "Introdução ao framework MDA (Mechanics, Dynamics, Aesthetics) e sua aplicação na análise e estruturação da experiência do jogador.",
   "metadata": {
-    "unit": "Unidade IV – Design de Jogos e Experiência do Jogador"
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
   },
   "content": [
     {
@@ -254,5 +257,52 @@
         }
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "framework-mda-design-da-experiencia",
+  "summary": "Explora o framework MDA (Mecânicas, Dinâmicas e Estéticas) para orientar decisões de design focadas na experiência do jogador.",
+  "objective": "Aplicar o framework MDA para avaliar e ajustar experiências de jogo.",
+  "objectives": [
+    "Diferenciar mecânicas, dinâmicas e estéticas com exemplos práticos.",
+    "Mapear objetivos de experiência para métricas observáveis.",
+    "Utilizar MDA como ferramenta de avaliação e iteração do projeto."
+  ],
+  "competencies": ["Design centrado na experiência", "Avaliação de jogos", "Pensamento crítico"],
+  "skills": [
+    "Construir matrizes MDA para jogos de referência.",
+    "Relatar impactos das mudanças de mecânicas em dinâmicas.",
+    "Planejar playtests orientados a objetivos de experiência."
+  ],
+  "outcomes": [
+    "Apresenta análise MDA do protótipo atual.",
+    "Recomenda ajustes nas mecânicas com base nas estéticas desejadas.",
+    "Define métricas qualitativas para acompanhar a experiência."
+  ],
+  "prerequisites": [
+    "Conhecimento dos elementos do protótipo em desenvolvimento.",
+    "Vivência com testes de jogabilidade."
+  ],
+  "tags": ["mda", "experiencia-do-jogador", "analise"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Framework MDA original",
+      "url": "https://users.cs.northwestern.edu/~hunicke/MDA.pdf",
+      "type": "paper"
+    },
+    {
+      "label": "Ferramenta de análise MDA colaborativa",
+      "url": "https://miro.com/templates/mda-framework/",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "HUNICK, R.; LEBLANC, M.; ZUBEK, R. MDA: A Formal Approach to Game Design and Game Research. 2004.",
+    "SCHELL, J. The Art of Game Design. CRC Press, 2020."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Apresentação de mapa MDA do projeto com feedback coletivo."
+  }
 }

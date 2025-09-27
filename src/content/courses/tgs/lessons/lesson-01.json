@@ -1,7 +1,7 @@
 {
   "id": "lesson-01",
   "title": "Aula 1: Definição e Tipos de Sistemas",
-  "objective": "Apresentar os objetivos, estrutura e critérios da disciplina, introduzir os fundamentos do pensamento sistêmico e o conceito de sistema aplicado às organizações.",
+  "objective": "Introduzir conceitos basilares de sistemas e alinhar expectativas da disciplina.",
   "content": [
     {
       "type": "lessonPlan",
@@ -290,5 +290,54 @@
         "<strong>Vídeo Sugerido:</strong> <a href=\"https://www.youtube.com/watch?v=TnYjJl5PHHw\">📺 Vídeo: Entenda o que é um sistema (Explicado em 5 minutos)</a>"
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "definicao-e-tipos-de-sistemas",
+  "summary": "Apresenta a disciplina e introduz o pensamento sistêmico, diferenciando tipos de sistemas e suas aplicações nas organizações.",
+  "objectives": [
+    "Definir sistema, subsistema, ambiente e fronteira.",
+    "Classificar sistemas quanto à natureza, estrutura e interação com o ambiente.",
+    "Relacionar pensamento sistêmico com desafios organizacionais atuais."
+  ],
+  "competencies": ["Pensamento sistêmico", "Visão analítica", "Comunicação organizacional"],
+  "skills": [
+    "Identificar componentes e limites de sistemas reais.",
+    "Explicar diferenças entre sistemas fechados e abertos.",
+    "Articular expectativas de aprendizagem com a turma."
+  ],
+  "outcomes": [
+    "Apresenta o plano da disciplina com critérios de avaliação.",
+    "Reconhece tipos de sistemas em exemplos cotidianos.",
+    "Relaciona pensamento sistêmico com desafios profissionais."
+  ],
+  "prerequisites": ["Leitura prévia da ementa do curso.", "Interesse em estudos organizacionais."],
+  "tags": ["introducao", "sistemas", "pensamento-sistemico"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia introdutório de Teoria Geral de Sistemas",
+      "url": "https://example.edu/tgs/guia-introdutorio",
+      "type": "guide"
+    },
+    {
+      "label": "Vídeo: O que é pensamento sistêmico?",
+      "url": "https://www.youtube.com/watch?v=Q1E6qGk8OCM",
+      "type": "video"
+    }
+  ],
+  "bibliography": [
+    "BERTALANFFY, L. Teoria Geral dos Sistemas. Vozes, 2015.",
+    "CHIAVENATO, I. Teoria Geral da Administração. Elsevier, 2021."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Questionário de percepção inicial sobre sistemas e expectativas da disciplina."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "lesson-05",
   "title": "Aula 5: A Organização como um Sistema Aberto",
-  "objective": "Compreender os elementos que caracterizam uma organização como sistema aberto e analisar como ela se relaciona com o ambiente externo.",
+  "objective": "Examinar como organizações interagem com o ambiente externo mantendo equilíbrio interno.",
   "content": [
     {
       "type": "lessonPlan",
@@ -191,5 +191,57 @@
         "<strong>BATISTA, Emerson de Oliveira.</strong> <em>Sistemas de informação: o uso consciente da tecnologia para o gerenciamento.</em> São Paulo: Saraiva, 2014."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "organizacao-como-sistema-aberto",
+  "summary": "Analisa organizações como sistemas abertos, destacando relações com ambiente, entradas, saídas e mecanismos de adaptação.",
+  "objectives": [
+    "Mapear entradas, transformações e saídas em organizações reais.",
+    "Discutir papéis do ambiente e das fronteiras organizacionais.",
+    "Avaliar impactos de variáveis externas na estabilidade do sistema."
+  ],
+  "competencies": ["Análise ambiental", "Pensamento sistêmico", "Gestão organizacional"],
+  "skills": [
+    "Representar organizações com diagramas de sistemas abertos.",
+    "Identificar indicadores de equilíbrio e desequilíbrio.",
+    "Propor estratégias de alinhamento com stakeholders."
+  ],
+  "outcomes": [
+    "Entrega diagrama de sistema aberto referente a uma organização escolhida.",
+    "Explica relações de dependência entre subsistemas e ambiente.",
+    "Apresenta recomendações para fortalecer interações externas."
+  ],
+  "prerequisites": [
+    "Conhecimento sobre componentes e classificações de sistemas.",
+    "Leitura de casos organizacionais prévios."
+  ],
+  "tags": ["sistema-aberto", "organizacao", "ambiente"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Vídeo: Organizações como sistemas abertos",
+      "url": "https://example.edu/tgs/video-sistema-aberto",
+      "type": "video"
+    },
+    {
+      "label": "Canvas de análise ambiental",
+      "url": "https://example.edu/tgs/canvas-ambiental",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "CHIAVENATO, I. Teoria Geral da Administração. Elsevier, 2021.",
+    "SENGE, P. A Quinta Disciplina. Best Seller, 2020."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Apresentação breve do diagrama com feedback em grupo."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
 }

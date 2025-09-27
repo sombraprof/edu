@@ -119,8 +119,16 @@
         "title": "Classificação de faixa etária",
         "summary": "Decisão encadeada avaliando intervalos em ordem crescente.",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Início" },
-          { "id": "input", "type": "input", "title": "Ler idade" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Início"
+          },
+          {
+            "id": "input",
+            "type": "input",
+            "title": "Ler idade"
+          },
           {
             "id": "decision",
             "type": "decision",
@@ -178,19 +186,57 @@
               }
             ]
           },
-          { "id": "process-crianca", "type": "process", "title": "Imprimir \"Criança\"" },
-          { "id": "process-adolescente", "type": "process", "title": "Imprimir \"Adolescente\"" },
-          { "id": "process-adulto", "type": "process", "title": "Imprimir \"Adulto\"" },
-          { "id": "process-idoso", "type": "process", "title": "Imprimir \"Idoso\"" },
-          { "id": "end", "type": "end", "title": "Fim" }
+          {
+            "id": "process-crianca",
+            "type": "process",
+            "title": "Imprimir \"Criança\""
+          },
+          {
+            "id": "process-adolescente",
+            "type": "process",
+            "title": "Imprimir \"Adolescente\""
+          },
+          {
+            "id": "process-adulto",
+            "type": "process",
+            "title": "Imprimir \"Adulto\""
+          },
+          {
+            "id": "process-idoso",
+            "type": "process",
+            "title": "Imprimir \"Idoso\""
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Fim"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "input" },
-          { "from": "input", "to": "decision" },
-          { "from": "process-crianca", "to": "end" },
-          { "from": "process-adolescente", "to": "end" },
-          { "from": "process-adulto", "to": "end" },
-          { "from": "process-idoso", "to": "end" }
+          {
+            "from": "start",
+            "to": "input"
+          },
+          {
+            "from": "input",
+            "to": "decision"
+          },
+          {
+            "from": "process-crianca",
+            "to": "end"
+          },
+          {
+            "from": "process-adolescente",
+            "to": "end"
+          },
+          {
+            "from": "process-adulto",
+            "to": "end"
+          },
+          {
+            "from": "process-idoso",
+            "to": "end"
+          }
         ]
       }
     },
@@ -199,9 +245,39 @@
       "title": "Cobertura das faixas",
       "headers": ["Condição", "Intervalo tratado", "Saída"],
       "rows": [
-        [{ "value": "media >= 7.0" }, { "value": "[7.0, 10.0]" }, { "value": "Aprovado" }],
-        [{ "value": "media >= 5.0" }, { "value": "[5.0, 7.0)" }, { "value": "Recuperação" }],
-        [{ "value": "else" }, { "value": "(-∞, 5.0)" }, { "value": "Reprovado" }]
+        [
+          {
+            "value": "media >= 7.0"
+          },
+          {
+            "value": "[7.0, 10.0]"
+          },
+          {
+            "value": "Aprovado"
+          }
+        ],
+        [
+          {
+            "value": "media >= 5.0"
+          },
+          {
+            "value": "[5.0, 7.0)"
+          },
+          {
+            "value": "Recuperação"
+          }
+        ],
+        [
+          {
+            "value": "else"
+          },
+          {
+            "value": "(-∞, 5.0)"
+          },
+          {
+            "value": "Reprovado"
+          }
+        ]
       ]
     },
     {
@@ -286,5 +362,11 @@
         "Validar limites superior e inferior para cada faixa implementada."
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }
