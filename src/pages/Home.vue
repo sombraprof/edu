@@ -47,16 +47,15 @@
 
       <div class="mt-6">
         <button
-          :class="['btn', filtersOpen ? 'btn-text' : 'btn-tonal']"
+          class="btn btn-filled home-filter-toggle"
           type="button"
           :aria-expanded="filtersOpen"
           @click="toggleFilters"
         >
-          <component
-            :is="filtersOpen ? ChevronUp : ChevronDown"
+          <ChevronDown
+            class="md-icon md-icon--sm home-filter-toggle__icon"
             :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
+              transform: filtersOpen ? 'rotate(180deg)' : 'rotate(0deg)',
             }"
           />
           <span>{{ filtersOpen ? 'Ocultar filtros' : 'Mostrar filtros' }}</span>
@@ -152,7 +151,7 @@
 <script setup lang="ts">
 // Home lists all available courses with Material 3 styling and Portuguese copy
 import { computed, ref, watch } from 'vue';
-import { Search, ChevronDown, ChevronUp } from 'lucide-vue-next';
+import { Search, ChevronDown } from 'lucide-vue-next';
 import { courses } from '../data/courses';
 import CourseCard from '../components/CourseCard.vue';
 
@@ -198,6 +197,14 @@ function clearFilters() {
 .fade-expand-enter-active,
 .fade-expand-leave-active {
   transition: all 180ms ease;
+}
+
+.home-filter-toggle {
+  gap: var(--md-sys-spacing-2);
+}
+
+.home-filter-toggle__icon {
+  transition: transform 180ms ease;
 }
 
 .fade-expand-enter-from,
