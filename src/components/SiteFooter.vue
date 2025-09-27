@@ -26,11 +26,66 @@
           Contato
         </a>
       </nav>
+      <div class="app-footer__teacher">
+        <button class="teacher-link" type="button" @click="handleTeacherAccess">
+          {{ teacherMode ? 'Sair do modo professor' : 'Área do professor' }}
+        </button>
+      </div>
     </div>
   </footer>
 </template>
 
 <script setup lang="ts">
 // Minimal footer component using Material 3 tokens
+import { computed } from 'vue';
 import { Globe, Github, Mail } from 'lucide-vue-next';
+import { useTeacherMode } from '../composables/useTeacherMode';
+
+const { teacherMode, enableTeacherMode, disableTeacherMode } = useTeacherMode();
+
+const teacherPin = computed(() => import.meta.env.VITE_TEACHER_PIN ?? 'TS-2024');
+
+function handleTeacherAccess() {
+  if (teacherMode.value) {
+    const confirmExit = window.confirm('Deseja sair do modo professor?');
+    if (confirmExit) {
+      disableTeacherMode();
+    }
+    return;
+  }
+
+  const provided = window.prompt('Digite o código do professor para acessar os relatórios:');
+  if (provided === null) {
+    return;
+  }
+
+  if (provided.trim() === teacherPin.value) {
+    enableTeacherMode();
+    window.alert('Modo professor ativado. Relatórios liberados.');
+  } else {
+    window.alert('Código inválido. Tente novamente.');
+  }
+}
 </script>
+
+<style scoped>
+.app-footer__teacher {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.teacher-link {
+  font: inherit;
+  background: none;
+  border: none;
+  color: var(--md-sys-color-on-surface-variant);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: pointer;
+  padding: 0.25rem 0;
+}
+
+.teacher-link:hover {
+  color: var(--md-sys-color-primary);
+}
+</style>

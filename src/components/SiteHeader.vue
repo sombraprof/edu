@@ -39,8 +39,10 @@ import { RouterLink, useRoute, type RouteLocationRaw } from 'vue-router';
 import Md3TopAppBar from './layout/Md3TopAppBar.vue';
 import ThemeToggle from './ThemeToggle.vue';
 import { GraduationCap, Grid3x3, ArrowLeft, ClipboardList } from 'lucide-vue-next';
+import { useTeacherMode } from '../composables/useTeacherMode';
 
 const route = useRoute();
+const { teacherMode } = useTeacherMode();
 
 type NavAction = {
   label: string;
@@ -75,13 +77,15 @@ const navLinks = computed<NavAction[]>(() => {
     });
   }
 
-  const toReport: RouteLocationRaw = { name: 'validation-report' };
-  actions.push({
-    label: 'Relatório de validação',
-    to: toReport,
-    icon: ClipboardList,
-    targetName: 'validation-report',
-  });
+  if (teacherMode.value) {
+    const toReport: RouteLocationRaw = { name: 'validation-report' };
+    actions.push({
+      label: 'Relatório de validação',
+      to: toReport,
+      icon: ClipboardList,
+      targetName: 'validation-report',
+    });
+  }
 
   return actions;
 });
