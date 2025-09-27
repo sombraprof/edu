@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface BibliographyEntry {
   html?: string;
@@ -35,14 +36,14 @@ const props = defineProps<{
 
 const items = computed(() => {
   if (Array.isArray(props.data.items) && props.data.items.length) {
-    return props.data.items;
+    return props.data.items.map(sanitizeEntry);
   }
 
   if (Array.isArray(props.data.content)) {
     return props.data.content
       .map((entry) => {
         if (typeof entry === 'string') {
-          return entry;
+          return sanitizeEntry(entry);
         }
 
         if (!entry) {
@@ -50,11 +51,11 @@ const items = computed(() => {
         }
 
         if (typeof entry.html === 'string') {
-          return entry.html;
+          return sanitizeEntry(entry.html);
         }
 
         if (typeof entry.text === 'string') {
-          return entry.text;
+          return sanitizeEntry(entry.text);
         }
 
         return '';
@@ -64,4 +65,8 @@ const items = computed(() => {
 
   return [];
 });
+
+function sanitizeEntry(value: unknown): string {
+  return sanitizeHtml(value);
+}
 </script>

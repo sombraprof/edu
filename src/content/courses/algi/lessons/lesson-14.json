@@ -1,53 +1,181 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-14",
   "title": "Aula 14: Avaliação NP1",
-  "objective": "Avaliar o domínio dos conceitos fundamentais de algoritmos e programação em C trabalhados até o momento, medindo a capacidade de aplicar lógica e sintaxe correta para resolver problemas computacionais básicos.",
+  "summary": "Aplica a primeira avaliação formal para medir domínio de lógica, fluxogramas e condicionais simples.",
+  "objective": "Avaliar de forma individual a aplicação correta da lógica sequencial e das decisões condicionais estudadas nas aulas anteriores.",
+  "objectives": [
+    "Verificar a compreensão dos conceitos fundamentais de algoritmos e programação em C.",
+    "Identificar lacunas de aprendizagem em lógica booleana e estruturas condicionais.",
+    "Coletar evidências para orientar a devolutiva e os planos de reforço da próxima aula."
+  ],
+  "competencies": ["Raciocínio algorítmico", "Pensamento computacional", "Comunicação técnica"],
+  "skills": [
+    "Interpretar enunciados e traduzir em algoritmos estruturados.",
+    "Escrever código C com sintaxe, entrada e saída corretas sem apoio externo.",
+    "Justificar respostas com clareza quando solicitado."
+  ],
+  "outcomes": [
+    "Submete avaliação manuscrita contendo algoritmos corretos e bem apresentados.",
+    "Registra justificativas claras para decisões tomadas durante a prova.",
+    "Entrega folha de rascunho anexada com eventuais fluxogramas de apoio."
+  ],
+  "prerequisites": ["Revisar aulas 01-13, incluindo operadores, fluxogramas e cadeias de decisão."],
+  "tags": ["avaliacao", "np1", "diagnostico"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Prova impressa NP1",
+      "type": "assessment",
+      "url": "https://example.edu/algi/avaliacoes/np1-2025.pdf"
+    },
+    {
+      "label": "Folha de respostas padrão",
+      "type": "handout",
+      "url": "https://example.edu/algi/avaliacoes/folha-respostas.pdf"
+    }
+  ],
+  "bibliography": [
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019.",
+    "SANTOS, M. G. Linguagem de Programação. Novatec, 2021."
+  ],
+  "assessment": {
+    "type": "exam",
+    "description": "Avaliação presencial manuscrita cobrindo lógica, fluxogramas e condicionais simples e compostas."
+  },
   "content": [
     {
-      "type": "html",
-      "html": "<p class=\"text-body-large style=\"color: var(--md-sys-color-on-surface);\" style=\"color: var(--md-sys-color-on-surface);\" mt-2\">Abrange conteúdos das Unidades I, II, III e início da IV. Data de aplicação: <strong>22/09/2025</strong>.</p>"
+      "type": "lessonPlan",
+      "title": "Formato da aplicação",
+      "cards": [
+        {
+          "icon": "calendar-days",
+          "title": "Data",
+          "content": "22/09/2025 – início às 19h10 e término às 21h00."
+        },
+        {
+          "icon": "clock",
+          "title": "Duração",
+          "content": "Até 110 minutos com entrega obrigatória mesmo em caso de saída antecipada."
+        },
+        {
+          "icon": "bullseye",
+          "title": "Objetivo",
+          "content": "Mensurar domínio dos fundamentos trabalhados até a Aula 13 e orientar a devolutiva formativa."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Roteiro da aula",
+      "items": [
+        "(10 min) Orientações gerais, distribuição das provas e preenchimento dos dados.",
+        "(80 min) Resolução individual da avaliação com acompanhamento do professor.",
+        "(10 min) Revisão final das respostas e entrega das folhas.",
+        "(10 min) Registro de percepções rápidas para a aula de devolutiva."
+      ]
     },
     {
       "type": "contentBlock",
-      "title": "Escopo da Avaliação",
+      "title": "Escopo da avaliação",
       "content": [
         {
-          "type": "html",
-          "html": "<ul class=\"list-disc list-inside space-y-2 style=\"color: var(--md-sys-color-on-surface);\"\"><li>Unidade I – Noções básicas de lógica e de algoritmos.</li><li>Unidade II – Pensamento Algorítmico: pseudocódigo e fluxogramas.</li><li>Unidade III – Modelo Algoritmo em C: variáveis, constantes, operadores, entrada/saída e problemas sequenciais.</li><li>Início da Unidade IV – Estruturas condicionais simples (if/else).</li></ul>"
+          "type": "unorderedList",
+          "items": [
+            "Unidade I – Noções básicas de lógica e algoritmos.",
+            "Unidade II – Pseudocódigo, fluxogramas e representação de processos.",
+            "Unidade III – Programas sequenciais em C com entrada e saída.",
+            "Início da Unidade IV – Estruturas condicionais simples e compostas."
+          ]
         }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Estrutura da prova",
+      "headers": ["Questão", "Tema", "Peso"],
+      "rows": [
+        [{ "value": "Q1" }, { "value": "Fluxograma com decisões" }, { "value": "2,0" }],
+        [
+          { "value": "Q2" },
+          { "value": "Pseudocódigo para problema sequencial" },
+          { "value": "2,0" }
+        ],
+        [{ "value": "Q3" }, { "value": "Implementação em C com if/else" }, { "value": "3,0" }],
+        [{ "value": "Q4" }, { "value": "Análise de condições compostas" }, { "value": "3,0" }]
       ]
     },
     {
       "type": "callout",
       "variant": "academic",
-      "title": "Procedimentos e Regras",
-      "content": "<ul class=\"list-disc list-inside space-y-2\"><li>Avaliação individual, silenciosa, em papel e <strong>sem consulta</strong>.</li><li>Mantenha celulares e dispositivos eletrónicos <strong>desligados</strong>.</li><li>Responda com <strong>clareza</strong>, identação e <strong>boa formatação</strong> quando houver código C.</li><li>Quando solicitado, descreva o raciocínio (passos do algoritmo) de forma objetiva.</li></ul>"
+      "title": "Procedimentos e regras",
+      "content": "<ul class=\"list-disc list-inside space-y-2\"><li>Avaliação individual, silenciosa e sem consulta.</li><li>Celulares e dispositivos devem permanecer desligados e guardados.</li><li>Utilize caneta azul ou preta e mantenha a letra legível.</li><li>Justifique algoritmos ou escolhas de fluxo sempre que solicitado.</li></ul>"
     },
     {
-      "type": "contentBlock",
-      "title": "Critérios de Correção",
-      "content": [
-        {
-          "type": "html",
-          "html": "<ul class=\"list-disc list-inside space-y-2 style=\"color: var(--md-sys-color-on-surface);\"\"><li><strong>Correção lógica</strong> e fidelidade ao enunciado.</li><li><strong>Organização</strong> do algoritmo/código e legibilidade.</li><li>Uso apropriado de <code>scanf</code>/<code>printf</code> e tipos básicos.</li><li>Apresentação/formatação adequada de respostas e resultados.</li></ul>"
-        }
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "Bibliografia de Referência",
-      "items": [
-        "<strong>FORBELLONE, A. L. V.; EBERSPÄCHER, H. F.</strong> Lógica de Programação.",
-        "<strong>BACKES, André.</strong> Linguagem C: completa e descomplicada.",
-        "<strong>SANTOS, Marcelo Gonçalves dos.</strong> Linguagem de programação.",
-        "<strong>MANZANO, J. A. N. G.; OLIVEIRA, J. F.</strong> Algoritmos: lógica para desenvolvimento de programação de computadores."
+      "type": "md3Table",
+      "title": "Critérios de correção",
+      "headers": ["Critério", "Descrição", "Peso relativo"],
+      "rows": [
+        [
+          { "value": "Correção lógica" },
+          { "value": "Sequência de passos atende integralmente ao enunciado." },
+          { "value": "40%" }
+        ],
+        [
+          { "value": "Estrutura e sintaxe" },
+          { "value": "Uso adequado de comandos, indentação e nomenclatura." },
+          { "value": "25%" }
+        ],
+        [
+          { "value": "Documentação" },
+          { "value": "Explicações claras sobre decisões e resultados." },
+          { "value": "20%" }
+        ],
+        [
+          { "value": "Apresentação" },
+          { "value": "Organização da folha, legibilidade e limpeza." },
+          { "value": "15%" }
+        ]
       ]
     },
     {
       "type": "callout",
       "variant": "info",
+      "title": "Materiais permitidos",
+      "content": "<p>Somente caneta, lápis, borracha e documento de identificação. Calculadoras não são necessárias; utilize o espaço de rascunho para validar raciocínios.</p>"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Após entregar",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Preencha rapidamente o formulário de percepção: maior dificuldade, questão mais tranquila e conteúdo que deseja revisar."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Para quem terminar antes",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Releia cada questão verificando se há passos ou justificativas faltantes.",
+            "Cheque variáveis, tipos e mensagens antes de entregar.",
+            "Registre na ficha de percepção um tópico para retomada na aula 15."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
       "title": "TED",
-      "content": "Não aplicável nesta aula (substituído pela avaliação NP1)."
+      "content": "<p>Não há TED nesta aula. Utilize o tempo pós-prova para revisar as questões com as anotações pessoais e preparar dúvidas para a devolutiva.</p>"
     }
   ]
 }

@@ -1,161 +1,213 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-08",
-  "title": "Aula 8: Leitura Múltipla, Cálculos Encadeados e printf Formatado",
-  "objective": "Consolidando o fluxo sequencial: Entrada → Processamento → Saída",
+  "title": "Aula 8: Leituras múltiplas, cálculos encadeados e printf",
+  "summary": "Consolida o fluxo Entrada → Processamento → Saída combinando leituras com scanf, variáveis intermediárias para cálculos e formatação profissional com printf.",
+  "objective": "Construir programas sequenciais completos que recebem múltiplos dados, processam com clareza e exibem resultados formatados.",
+  "objectives": [
+    "Configurar leituras encadeadas com scanf evitando armadilhas do buffer.",
+    "Organizar cálculos em etapas reutilizando variáveis intermediárias.",
+    "Formatar saídas com printf usando máscaras, alinhamento e casas decimais adequadas."
+  ],
+  "competencies": ["Pensamento computacional", "Comunicação técnica", "Rigor matemático"],
+  "skills": [
+    "Ler diferentes tipos de dados em sequência.",
+    "Aplicar cálculos sucessivos controlando o estado intermediário.",
+    "Escrever recibos e relatórios claros usando printf."
+  ],
+  "outcomes": [
+    "Entrega um programa que gera recibo detalhado com descontos encadeados.",
+    "Explica como cada variável intermediária contribui para o resultado final.",
+    "Demonstra máscaras printf adequadas para moeda, porcentagem e campos alinhados."
+  ],
+  "prerequisites": ["Reforçar leitura e declaração de variáveis vistas nas aulas 5 e 6."],
+  "tags": ["sequencial", "scanf", "printf"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Folha-guia de máscaras printf",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/mask-printf.pdf"
+    },
+    {
+      "label": "Template de recibo em C",
+      "type": "repository",
+      "url": "https://example.edu/algi/repos/recibo-template"
+    }
+  ],
+  "bibliography": [
+    "PERRY, G. C Completo e Total. Novatec, 2021.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019."
+  ],
+  "assessment": {
+    "type": "pair-work",
+    "description": "Produção em dupla de um recibo digital com múltiplas leituras, descontos e formatação alinhada, entregue via repositório."
+  },
   "content": [
     {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Algoritmos sequenciais em C, múltiplas leituras com <code class=\"inline-code\">scanf</code>, cálculos com variáveis intermediárias e formatação avançada de saída com <code class=\"inline-code\">printf</code>."
+          "title": "Conteúdo",
+          "content": "Entrada com scanf, variáveis intermediárias, máscaras printf e recibo sequencial."
         },
         {
           "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Construir programas que realizem múltiplas leituras e cálculos combinados, exibindo resultados claros e formatados, consolidando o fluxo Entrada → Processamento → Saída."
+          "title": "Objetivo",
+          "content": "Conectar leitura, processamento e saída em um fluxo contínuo sem ambiguidades."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Aula expositiva dialogada com exemplos práticos, seguida de atividade colaborativa em duplas para a criação de um recibo formatado."
+          "title": "Metodologia",
+          "content": "Demonstração guiada, prática em pares e revisão coletiva do recibo."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de Voo da Aula de Hoje",
+      "title": "Plano de voo (2h00)",
       "items": [
-        "Aquecimento: Resolvendo um problema de descontos sucessivos.",
-        "Dominando o <code class=\"inline-code\">scanf</code> para múltiplas entradas de dados.",
-        "A importância de variáveis intermediárias para cálculos claros.",
-        "Explorando as máscaras do <code class=\"inline-code\">printf</code> para saídas profissionais.",
-        "Prática guiada em duplas: construção de um recibo de compras.",
-        "Apresentação da tarefa (TED) da Aula 8."
+        "(15 min) Aquecimento: revisando Entrada → Processamento → Saída.",
+        "(25 min) Leituras múltiplas com scanf (strings, floats e chars).",
+        "(20 min) Variáveis intermediárias e cálculo passo a passo.",
+        "(20 min) Máscaras printf, alinhamento e caracteres de escape.",
+        "(30 min) Oficina de recibo em duplas.",
+        "(10 min) Apresentação rápida dos recibos.",
+        "(20 min) TED e encaminhamentos finais."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Fluxo Sequencial e Múltiplas Leituras com <code class=\"inline-code\">scanf</code>",
+      "title": "Leitura múltipla com scanf",
       "content": [
         {
           "type": "paragraph",
-          "text": "Até agora, focámos em ler um ou dois valores. No mundo real, os programas precisam de lidar com múltiplas entradas de dados. A função <code class=\"inline-code\">scanf</code> é poderosa e permite-nos ler vários valores de uma só vez, consolidando a etapa de <strong>Entrada</strong> do nosso fluxo."
+          "text": "scanf permite capturar vários valores em uma única chamada. A ordem dos especificadores precisa refletir o tipo de cada variável."
         },
         {
           "type": "code",
           "language": "c",
-          "code": "// Read two prices in a single line\nfloat p1, p2;\nprintf(\"Digite o preço de dois produtos (ex: 10.50 8.75): \");\nscanf(\"%f %f\", &p1, &p2); // Make sure to pass addresses (&)\n"
+          "code": "float preco1, preco2;\nint quantidade;\nprintf(\"Informe dois preços e a quantidade: \");\nscanf(\"%f %f %d\", &preco1, &preco2, &quantidade);"
         },
         {
-          "type": "callout",
-          "variant": "warning",
-          "title": "Atenção com <code class=\"inline-code\">scanf</code>!",
-          "content": "<ul class=\"list-disc list-inside space-y-2\"><li><strong>O \"Enter\" Fantasma:</strong> Após ler um número, a tecla \"Enter\" (<code class=\"inline-code\">\\n</code>) que você pressiona fica no \"buffer\" de entrada. Se a próxima leitura for de um caractere (<code class=\"inline-code\">%c</code>), ela pode ler esse \"Enter\" em vez do que você quer. Uma forma de resolver é adicionar um espaço antes do <code class=\"inline-code\">%c</code>: <code class=\"inline-code\">scanf(\" %c\", &variavel);</code>.</li><li><strong>Tipos Corretos:</strong> Usar <code class=\"inline-code\">%d</code> para ler um <code class=\"inline-code\">float</code> (ou vice-versa) pode causar erros imprevisíveis. Verifique sempre se o especificador de formato corresponde ao tipo da variável.</li><li><strong>O <code class=\"inline-code\">&</code> é Obrigatório:</strong> Esquecer o <code class=\"inline-code\">&</code> antes do nome da variável em <code class=\"inline-code\">scanf</code> é um dos erros mais comuns. Lembre-se que <code class=\"inline-code\">scanf</code> precisa saber o <strong>endereço</strong> da \"caixa\" onde vai guardar o valor.</li></ul>"
+          "type": "paragraph",
+          "text": "O operador & indica o endereço onde o valor será armazenado. Sem ele, o programa não conseguirá alterar a variável."
         }
       ]
     },
     {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Cuidados com o buffer",
+      "content": "<ul><li>Consuma o <code>\\n</code> pendente antes de ler <code>char</code> ou <code>string</code>.</li><li>Garanta que o especificador corresponde ao tipo declarado.</li><li>Valide o retorno de <code>scanf</code> quando o dado vier de arquivos.</li></ul>"
+    },
+    {
       "type": "contentBlock",
-      "title": "Cálculos Encadeados e Variáveis Intermediárias",
+      "title": "Variáveis intermediárias esclarecem o fluxo",
       "content": [
         {
           "type": "paragraph",
-          "text": "Para problemas mais complexos, raramente chegamos ao resultado final num único passo. A etapa de <strong>Processamento</strong> muitas vezes envolve cálculos sequenciais, onde o resultado de uma operação serve de entrada para a próxima. Usar <strong>variáveis intermediárias</strong> para guardar estes resultados torna o código mais legível e fácil de depurar."
-        },
-        {
-          "type": "subBlock",
-          "title": "Exemplo: Descontos Sucessivos",
-          "items": [
-            "<p>Um desconto de 10% seguido por um de 5% não é o mesmo que um desconto de 15%. A ordem importa, e o segundo desconto aplica-se sobre o novo valor.</p>"
-          ]
+          "text": "Em cálculos encadeados, criar variáveis com nomes descritivos torna o passo a passo legível e facilita ajustes."
         },
         {
           "type": "code",
           "language": "c",
-          "code": "// Apply 10% then 5% sequential discounts\nfloat price = 100.0f;\nfloat afterFirst, finalPrice;\n\nafterFirst = price * 0.90f;          // First 10% discount (price becomes 90.00)\nfinalPrice = afterFirst * 0.95f;     // Then 5% discount over the new base (90.00 * 0.95)\n\nprintf(\"Final price: R$ %.2f\\n\", finalPrice); // Prints R$ 85.50\n"
+          "code": "float subtotal, desconto, total;\nsubtotal = preco1 + preco2;\ndesconto = subtotal * 0.10f;\ntotal = subtotal - desconto;"
         }
       ]
     },
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "Boas Práticas de <code class=\"inline-code\">printf</code>",
-      "content": "<p>A etapa de <strong>Saída</strong> é a forma como o nosso programa comunica os resultados ao utilizador. Uma saída bem formatada é crucial para que a informação seja clara e profissional.</p><ul class=\"list-disc list-inside space-y-2\"><li><strong>Controle de Decimais:</strong> Use <code class=\"inline-code\">%.2f</code> para formatar valores monetários ou outros números que precisem de exatamente duas casas decimais.</li><li><strong>Alinhamento:</strong> Pode controlar a largura de um campo. Por exemplo, <code class=\"inline-code\">%8.2f</code> reserva 8 espaços para o número, alinhando-o à direita, o que é ótimo para criar tabelas e recibos.</li><li><strong>Caracteres de Escape:</strong> Use <code class=\"inline-code\">\\n</code> para quebrar uma linha e <code class=\"inline-code\">\\t</code> para adicionar uma tabulação (um espaçamento padronizado).</li></ul>"
+      "title": "Máscaras printf úteis",
+      "content": "<p>Combine largura e casas decimais para simular colunas:</p><ul><li><code>%8.2f</code> → oito espaços com duas casas.</li><li><code>%03d</code> → inteiro com zeros à esquerda.</li><li><code>%-20s</code> → texto alinhado à esquerda.</li></ul>"
+    },
+    {
+      "type": "md3Table",
+      "headers": ["Máscara", "Descrição", "Exemplo de saída"],
+      "rows": [
+        [
+          { "value": "%.2f", "mono": true },
+          { "value": "Duas casas decimais" },
+          { "value": "R$ 12.50", "code": true }
+        ],
+        [
+          { "value": "%8.2f", "mono": true },
+          { "value": "Alinha números em tabela" },
+          { "value": "    85.40", "code": true }
+        ],
+        [
+          { "value": "%d%%", "mono": true },
+          { "value": "Imprime símbolo de porcentagem" },
+          { "value": "10%", "code": true }
+        ],
+        [
+          { "value": "%-12s", "mono": true },
+          { "value": "Texto alinhado à esquerda" },
+          { "value": "Produto A    ", "code": true }
+        ]
+      ]
     },
     {
       "type": "contentBlock",
-      "title": "Atividade Prática em Duplas: Recibo de Compras",
+      "title": "Oficina: recibo de compras",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Em duplas, vamos criar um programa que simula um recibo de compras. O programa deve ler o preço e a quantidade de 3 produtos, calcular o subtotal de cada um, o total geral, aplicar um desconto de 10% e exibir um recibo bem formatado."
+          "type": "orderedList",
+          "items": [
+            "Ler três produtos com preço e quantidade.",
+            "Calcular subtotais, total e desconto progressivo (10%).",
+            "Imprimir um recibo alinhado com cabeçalho, corpo e rodapé.",
+            "Registrar comentários explicando Entrada, Processamento e Saída."
+          ]
         },
         {
           "type": "code",
           "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    // --- INPUT VARIABLES ---\n    float price1, price2, price3;\n    int qty1, qty2, qty3;\n\n    // --- PROCESSING VARIABLES ---\n    float subtotal1, subtotal2, subtotal3;\n    float total, discount, finalTotal;\n\n    // --- INPUT STAGE ---\n    printf(\"Digite o preco e a quantidade do produto 1: \");\n    scanf(\"%f %d\", &price1, &qty1);\n\n    printf(\"Digite o preco e a quantidade do produto 2: \");\n    scanf(\"%f %d\", &price2, &qty2);\n    \n    printf(\"Digite o preco e a quantidade do produto 3: \");\n    scanf(\"%f %d\", &price3, &qty3);\n\n    // --- PROCESSING STAGE ---\n    subtotal1 = price1 * qty1;\n    subtotal2 = price2 * qty2;\n    subtotal3 = price3 * qty3;\n    total = subtotal1 + subtotal2 + subtotal3;\n    discount = total * 0.10f; // 10% discount\n    finalTotal = total - discount;\n\n    // --- OUTPUT STAGE ---\n    printf(\"\\n\\n--- RECIBO DE COMPRAS ---\\n\");\n    printf(\"Produto 1: %d x R$ %.2f = R$ %8.2f\\n\", qty1, price1, subtotal1);\n    printf(\"Produto 2: %d x R$ %.2f = R$ %8.2f\\n\", qty2, price2, subtotal2);\n    printf(\"Produto 3: %d x R$ %.2f = R$ %8.2f\\n\", qty3, price3, subtotal3);\n    printf(\"----------------------------------\\n\");\n    printf(\"Total Bruto:              R$ %8.2f\\n\", total);\n    printf(\"Desconto (10%%):           R$ %8.2f\\n\", discount);\n    printf(\"Total a Pagar:            R$ %8.2f\\n\", finalTotal);\n    printf(\"----------------------------------\\n\");\n\n    return 0;\n}\n"
+          "code": "printf(\"--- RECIBO ---\\n\");\nprintf(\"%-12s %3s %10s\\n\", \"Produto\", \"Qtd\", \"Subtotal\");\nprintf(\"%-12s %3d R$ %8.2f\\n\", nome1, qtd1, subtotal1);"
         }
       ]
     },
     {
-      "type": "callout",
-      "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O objetivo é praticar o conceito de cálculos sequenciais e a formatação de saída.</p><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie um programa em C chamado <code class=\"inline-code\">aula8_descontos_sucessivos.c</code>.</li><li>O programa deve ler o valor de um produto.</li><li>Aplique um desconto de 10% sobre o valor inicial.</li><li>Sobre o <strong>novo valor</strong>, aplique um segundo desconto de 5%.</li><li>Exiba o valor original, o valor após o primeiro desconto e o valor final, todos formatados com duas casas decimais. A saída deve ser clara e autoexplicativa.</li><li>Adicione comentários em inglês no seu código explicando cada etapa.</li><li>Teste com valores diferentes (ex: 100.00, 85.50, 123.45) para garantir que a lógica está correta.</li><li>Poste o ficheiro <code class=\"inline-code\">.c</code> na Atividade da \"Aula 8\" no Moodle.</li></ol>"
-    },
-    {
       "type": "contentBlock",
-      "title": "💻 Área de Testes Interativa",
+      "title": "Tarefa da semana",
       "content": [
         {
           "type": "paragraph",
-          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
-        },
-        {
-          "type": "html",
-          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+          "text": "Implemente individualmente um programa que leia três lançamentos financeiros, calcule descontos sucessivos e exporte um relatório com totais e percentual economizado."
         },
         {
           "type": "paragraph",
-          "text": "💡 <strong>Dica:</strong> Escreva, compile e execute seu programa em C diretamente nesta página. Use este espaço para testar a tarefa da Aula 8 ou criar novos experimentos com operadores."
+          "text": "Publique o arquivo .c no Moodle até domingo 23h59 com comentários em inglês para cada etapa."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
+      "title": "Vídeos de apoio",
       "videos": [
         {
-          "title": "Entrada e Saída em C (scanf e printf)",
+          "title": "Entrada e saída em C",
           "src": "https://www.youtube.com/embed/uX0r1JlyDFg"
         },
         {
-          "title": "Quase tudo que você precisa saber sobre printf",
+          "title": "Formatando printf na prática",
           "src": "https://www.youtube.com/embed/0EEXxcTa7Ok"
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "title": "Ao final da aula você consegue",
       "items": [
-        "Ler múltiplos valores numa única chamada <code class=\"inline-code\">scanf</code>.",
-        "Explicar a importância de variáveis intermediárias em cálculos complexos.",
-        "Formatar a saída de números <code class=\"inline-code\">float</code> com <code class=\"inline-code\">%.2f</code>.",
-        "Usar <code class=\"inline-code\">\\n</code> e <code class=\"inline-code\">\\t</code> para organizar a saída no console.",
-        "Construir um programa sequencial completo que lê, processa e exibe dados."
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
-        "<strong>MANZANO, José Augusto N.G.; OLIVEIRA, Jayr Figueiredo.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Érica, 2019.",
-        "<strong>KERNIGHAN, Brian W.; RITCHIE, Dennis M.</strong> <em>A Linguagem de Programação C.</em> 2. ed. Rio de Janeiro: LTC, 2018. (Leitura complementar)"
+        "Ler múltiplos valores com uma única chamada scanf.",
+        "Organizar cálculos em etapas reutilizáveis.",
+        "Escolher máscaras printf adequadas para cada campo.",
+        "Produzir recibos claros com totais e descontos."
       ]
     }
   ]

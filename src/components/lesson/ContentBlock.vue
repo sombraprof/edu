@@ -8,7 +8,7 @@
       <p
         v-if="item.type === 'paragraph'"
         class="md-typescale-body-large text-on-surface-variant mb-4"
-        v-html="item.html ?? item.text"
+        v-html="sanitizeContent(item.html ?? item.text)"
       ></p>
 
       <div v-else-if="item.type === 'subBlock'" class="card md-surface-container p-8 mb-8">
@@ -19,7 +19,7 @@
           <div
             v-if="isString(subItem)"
             class="prose max-w-none mb-4 lesson-content"
-            v-html="subItem"
+            v-html="sanitizeContent(subItem)"
           ></div>
           <component
             v-else-if="isComponent(subItem)"
@@ -66,6 +66,7 @@ import MemoryDiagram from './MemoryDiagram.vue';
 import Md3Table from './Md3Table.vue';
 import Md3LogicOperators from './Md3LogicOperators.vue';
 import OrderedList from './OrderedList.vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 const componentRegistry = {
   CardGrid,
@@ -118,21 +119,26 @@ function formatOrderedListItems(items: unknown): string[] {
   return items
     .map((entry) => {
       if (typeof entry === 'string') {
-        return entry;
+        return sanitizeContent(entry);
       }
 
       if (entry && typeof entry === 'object') {
         const title =
           typeof (entry as any).title === 'string'
-            ? `<strong>${(entry as any).title}:</strong> `
+            ? `<strong>${sanitizeContent((entry as any).title)}:</strong> `
             : '';
-        const text = typeof (entry as any).text === 'string' ? (entry as any).text : '';
+        const text =
+          typeof (entry as any).text === 'string' ? sanitizeContent((entry as any).text) : '';
         return `${title}${text}`.trim();
       }
 
       return '';
     })
     .filter((value): value is string => Boolean(value));
+}
+
+function sanitizeContent(value: unknown): string {
+  return sanitizeHtml(value);
 }
 </script>
 

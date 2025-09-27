@@ -2,107 +2,167 @@
   {
     "id": "lesson-01",
     "title": "Aula 1: Introdução à Lógica e Algoritmos",
-    "file": "lesson-01.vue",
+    "file": "lesson-01.json",
     "available": true,
-    "description": "O objetivo desta aula é conhecer o plano de ensino e entender a lógica como a base para criar soluções computacionais."
+    "description": "Apresenta a disciplina, as expectativas avaliativas e o papel da lógica como fundamento para resolver problemas computacionais.",
+    "summary": "Ambientação da disciplina, introdução à lógica e primeiros exercícios de construção de algoritmos cotidianos.",
+    "tags": ["logica", "algoritmos", "planejamento"],
+    "duration": 100,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-02",
-    "title": "Aula 2: Raciocínio Lógico",
-    "file": "lesson-02.vue",
+    "title": "Aula 2: Raciocínio Lógico e Operadores",
+    "file": "lesson-02.json",
     "available": true,
-    "description": "Desenvolver o raciocínio lógico através de exemplos do cotidiano e introduzir operadores lógicos como base para estruturas de decisão em programação."
+    "description": "Aprofunda o pensamento computacional com operadores lógicos, tabelas-verdade e atividades colaborativas.",
+    "summary": "Decomposição de problemas, operadores AND/OR/NOT e validação com tabelas-verdade.",
+    "tags": ["logica", "operadores", "tabela-verdade"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-03",
     "title": "Aula 3: Estruturação de Algoritmos",
-    "file": "lesson-03.vue",
+    "file": "lesson-03.json",
     "available": true,
-    "description": "Desenvolver a capacidade de transformar ideias em sequências lógicas ordenadas, preparando o raciocínio para a implementação em código."
+    "description": "Organiza passos de algoritmos, promove revisão colaborativa e prepara a tradução para pseudocódigo.",
+    "summary": "Sequenciamento de instruções, dinâmica Fishbowl e produção de pseudocódigo padronizado.",
+    "tags": ["algoritmos", "pseudocodigo", "colaboracao"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-04",
     "title": "Aula 4: Do Pseudocódigo ao Primeiro Programa em C",
-    "file": "lesson-04.vue",
+    "file": "lesson-04.json",
     "available": true,
-    "description": "A transição do planeamento em Portugol para a implementação em Linguagem C."
+    "description": "Traduz algoritmos em Portugol para o primeiro programa em C com foco em sintaxe, compilação e testes.",
+    "summary": "Estrutura mínima de um programa C, comparação lado a lado com Portugol e laboratório guiado.",
+    "tags": ["linguagem-c", "pseudocodigo", "implementacao"],
+    "duration": 120,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-05",
-    "title": "Aula 5: Representação Gráfica com Fluxogramas",
-    "file": "lesson-05.vue",
+    "title": "Aula 5: Fluxogramas e Visualização da Lógica",
+    "file": "lesson-05.json",
     "available": true,
-    "description": "Aprender a representar algoritmos de forma gráfica e compreender como os fluxogramas ajudam na clareza da lógica."
+    "description": "Apresenta a simbologia de fluxogramas e orienta a documentação visual de algoritmos.",
+    "summary": "Simbologia essencial, Md3Flowchart de exemplo e oficina em duplas para construir fluxogramas.",
+    "tags": ["fluxograma", "visualizacao", "processos"],
+    "duration": 100,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-06",
-    "title": "Aula 6: Variáveis, Constantes e Tipos de Dados em C",
-    "file": "lesson-06.vue",
+    "title": "Aula 6: Variáveis, Constantes e Tipos de Dados",
+    "file": "lesson-06.json",
     "available": true,
-    "description": "Aprender a armazenar e manipular informações nos nossos programas."
+    "description": "Explora tipos primitivos, declaração de variáveis/constantes e formatação de entradas e saídas em C.",
+    "summary": "Declaração de variáveis, uso de constantes e exercícios de cadastro com validação.",
+    "tags": ["variaveis", "tipos", "linguagem-c"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-07",
     "title": "Aula 7: Operadores e Expressões em C",
-    "file": "lesson-07.vue",
+    "file": "lesson-07.json",
     "available": true,
-    "description": "Aprendendo a realizar cálculos, comparações e a tomar decisões lógicas."
+    "description": "Explora operadores aritméticos, relacionais e lógicos com foco em precedência e clareza de expressões.",
+    "summary": "Famílias de operadores em C, precedência, tabelas-verdade e laboratório de indicadores acadêmicos.",
+    "tags": ["operadores", "expressoes", "linguagem-c"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-08",
     "title": "Aula 8: Leitura Múltipla, Cálculos Encadeados e printf Formatado",
-    "file": "lesson-08.vue",
+    "file": "lesson-08.json",
     "available": true,
-    "description": "Consolidando o fluxo sequencial: Entrada → Processamento → Saída"
+    "description": "Consolida o fluxo sequencial usando scanf encadeado, variáveis intermediárias e printf formatado.",
+    "summary": "Leitura múltipla, cálculos passo a passo e recibos formatados com máscaras printf.",
+    "tags": ["sequencial", "scanf", "printf"],
+    "duration": 120,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-09",
     "title": "Aula 9: Problemas Sequenciais Aplicados em C",
-    "file": "lesson-09.vue",
+    "file": "lesson-09.json",
     "available": true,
-    "description": "Resolvendo problemas do cotidiano com leitura, processamento e saída de dados."
+    "description": "Aplica Entrada → Processamento → Saída em estudos de caso (salário, IMC, descontos) com comunicação clara.",
+    "summary": "Estudos de caso sequenciais, oficina em duplas e TED para consolidar padrões de solução.",
+    "tags": ["sequencial", "problemas", "pratica"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-10",
-    "title": "Aula 10: Estruturas de Controle Condicional com if e else",
-    "file": "lesson-10.vue",
+    "title": "Aula 10: Condicionais com if e else",
+    "file": "lesson-10.json",
     "available": true,
-    "description": "Escrever programas em C que alterem o fluxo do algoritmo com base em condições booleanas, utilizando if e else para decisões simples e compostas."
+    "description": "Escreve decisões binárias claras em C usando if e if-else, com testes para cada caminho.",
+    "summary": "Introduz condicionais com if/else para redirecionar o fluxo conforme regras de negócio bem definidas.",
+    "tags": ["condicionais", "if-else", "controle-de-fluxo"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-11",
-    "title": "Aula 11: Seleção Múltipla com <code>switch-case</code>",
-    "file": "lesson-11.vue",
+    "title": "Aula 11: Seleção múltipla com switch-case",
+    "file": "lesson-11.json",
     "available": true,
-    "description": "Organizando decisões complexas de forma limpa e eficiente."
+    "description": "Organiza menus e listas de opções com switch-case, evitando cadeias extensas de if-else.",
+    "summary": "Refatora cadeias de if-else para switch-case, documentando opções, fall-through e casos inválidos.",
+    "tags": ["condicionais", "switch-case", "controle-de-fluxo"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-12",
-    "title": "Aula 12: Condições Encadeadas com else if",
-    "file": "lesson-12.vue",
+    "title": "Aula 12: Cadeias de decisão com else if",
+    "file": "lesson-12.json",
     "available": true,
-    "description": "Criando múltiplos caminhos para decisões mais complexas e organizadas."
+    "description": "Projeta cadeias de else if e combinações lógicas para classificar faixas exclusivas.",
+    "summary": "Modela faixas e combinações lógicas com else if para garantir que cada cenário tenha um único resultado.",
+    "tags": ["condicionais", "else-if", "regras"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-13",
-    "title": "Aula 13: Condições Compostas e Encadeadas",
-    "file": "lesson-13.vue",
+    "title": "Aula 13: Condições compostas e encadeadas",
+    "file": "lesson-13.json",
     "available": true,
-    "description": "Formular condições compostas e organizar decisões múltiplas, escrevendo programas claros e corretos para cenários práticos."
+    "description": "Combina operadores lógicos e cadeias else if para validar regras com múltiplos critérios sem deixar lacunas.",
+    "summary": "Planeja decisões compostas com &&, || e ! garantindo que cada cenário execute um único caminho documentado.",
+    "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-14",
     "title": "Aula 14: Avaliação NP1",
-    "file": "lesson-14.vue",
+    "file": "lesson-14.json",
     "available": true,
-    "description": "Avaliar o domínio dos conceitos fundamentais de algoritmos e programação em C trabalhados até o momento, medindo a capacidade de aplicar lógica e sintaxe correta para resolver problemas computacionais básicos."
+    "description": "Aplica a primeira avaliação formal para mensurar domínio de lógica, fluxogramas e condicionais.",
+    "summary": "Avaliação presencial manuscrita cobrindo fundamentos de algoritmos e decisões condicionais estudados até a Aula 13.",
+    "tags": ["avaliacao", "np1", "diagnostico"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-15",
-    "title": "Aula 15: Correção da NP1 e Aprofundamento",
-    "file": "lesson-15.vue",
+    "title": "Aula 15: Correção da NP1 e aprofundamento",
+    "file": "lesson-15.json",
     "available": true,
-    "description": "Consolidar pontos críticos identificados na prova e fortalecer a escrita de condições compostas e cadeias de decisão claras."
+    "description": "Analisa resultados da NP1, corrige erros recorrentes e reforça condicionais compostas com prática guiada.",
+    "summary": "Transforma o feedback da NP1 em plano de melhoria com reescrita de decisões e planejamento de testes adicionais.",
+    "tags": ["condicionais", "revisao", "avaliacao"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-16",

@@ -12,7 +12,7 @@
           class="list-disc list-inside md-typescale-body-large text-on-surface-variant"
           :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-3)' }"
         >
-          <li v-for="(item, index) in data.items" :key="index" v-html="item"></li>
+          <li v-for="(item, index) in data.items" :key="index" v-html="sanitizeItem(item)"></li>
         </ul>
       </div>
     </div>
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import { Rocket } from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface FlightPlanData {
   title: string;
@@ -30,4 +31,8 @@ interface FlightPlanData {
 defineProps<{
   data: FlightPlanData;
 }>();
+
+function sanitizeItem(value: unknown): string {
+  return sanitizeHtml(value);
+}
 </script>

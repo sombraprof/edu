@@ -1,7 +1,50 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-07",
   "title": "Aula 7: Operadores e Expressões em C",
-  "objective": "Aprendendo a realizar cálculos, comparações e a tomar decisões lógicas.",
+  "summary": "Apresenta as famílias de operadores da linguagem C, mostra como combinar expressões com precedência correta e conecta os resultados às decisões lógicas do algoritmo.",
+  "objective": "Construir expressões aritméticas e lógicas corretas em C, respeitando precedência e usando operadores apropriados para cada situação.",
+  "objectives": [
+    "Identificar a função das principais categorias de operadores em C.",
+    "Aplicar precedência e agrupamento para evitar ambiguidades em expressões.",
+    "Interpretar resultados lógicos para alimentar decisões e fluxos de controle."
+  ],
+  "competencies": ["Raciocínio lógico", "Pensamento computacional", "Programação estruturada"],
+  "skills": [
+    "Selecionar operadores adequados para cálculos matemáticos e comparações.",
+    "Reescrever expressões utilizando parênteses para tornar a intenção explícita.",
+    "Avaliar o resultado de operações booleanas para controlar o fluxo do programa."
+  ],
+  "outcomes": [
+    "Produz um programa que combina operadores aritméticos, relacionais e lógicos para resolver um caso realista.",
+    "Explica oralmente como a precedência impacta o resultado de expressões compostas.",
+    "Elabora uma tabela-verdade simples para validar condições críticas do algoritmo."
+  ],
+  "prerequisites": ["Revisar variáveis, tipos e leitura com scanf trabalhados na Aula 6."],
+  "tags": ["operadores", "expressoes", "linguagem-c"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia rápido de operadores C (PDF)",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/operadores-c.pdf"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "type": "tool",
+      "url": "https://www.onlinegdb.com/online_c_compiler"
+    }
+  ],
+  "bibliography": [
+    "KERNIGHAN, B.; RITCHIE, D. A Linguagem de Programação C. Prentice Hall, 2020.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Entrega individual de um programa que calcula indicadores compostos (médias ponderadas e faixas) destacando o uso correto de operadores e precedência."
+  },
   "content": [
     {
       "type": "lessonPlan",
@@ -9,383 +52,235 @@
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Operadores aritméticos, relacionais, lógicos, de atribuição e unários. Precedência de operadores e uso de parênteses."
+          "title": "Conteúdo",
+          "content": "Operadores aritméticos, relacionais, lógicos, de atribuição composta e unários aplicados a expressões reais."
         },
         {
           "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Identificar e aplicar corretamente os operadores em C, compreendendo o impacto da precedência e boas práticas na criação de expressões."
+          "title": "Objetivo",
+          "content": "Garantir que toda expressão escrita em C comunique com clareza a lógica desejada."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Aula expositiva dialogada com exemplos práticos, seguida de atividade colaborativa em duplas e TED postada no Moodle."
+          "title": "Metodologia",
+          "content": "Aula dialogada com experimentos no console, seguida de laboratório guiado e validação em pares."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de Voo da Aula de Hoje",
+      "title": "Plano de voo (1h55)",
       "items": [
-        "Introdução aos operadores em C: a base para o processamento de dados.",
-        "Operadores Aritméticos: realizando cálculos matemáticos.",
-        "Operadores Relacionais: fazendo comparações.",
-        "Operadores Lógicos: combinando condições.",
-        "Operadores de Atribuição e Unários: simplificando o código.",
-        "A regra mais importante: Precedência de Operadores.",
-        "Atividade prática em duplas: cálculo de média ponderada.",
-        "Apresentação da tarefa (TED) da Aula 7."
+        "(10 min) Aquecimento: revisando operadores conhecidos e erros comuns.",
+        "(20 min) Operadores aritméticos e de atribuição com exercícios rápidos.",
+        "(20 min) Operadores relacionais e leitura de comparações encadeadas.",
+        "(25 min) Operadores lógicos com tabelas-verdade e casos práticos.",
+        "(20 min) Oficina: calculadora de indicadores acadêmicos.",
+        "(20 min) Compartilhamento em pares e registro da TED."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "O Papel dos Operadores",
+      "title": "Por que operadores importam",
       "content": [
         {
           "type": "paragraph",
-          "text": "Se pensarmos no fluxo de um programa como <strong>Entrada → Processamento → Saída</strong>, os operadores são o coração do <strong>Processamento</strong>. São eles que nos permitem pegar os dados de entrada, transformá-los, combiná-los e tomar decisões para, no fim, gerar uma saída útil."
+          "text": "Operadores definem como transformamos dados no estágio de Processamento. São eles que permitem combinar entradas, aplicar regras de negócio e alimentar decisões futuras."
         },
         {
           "type": "paragraph",
-          "text": "Dominar os operadores é o primeiro passo para dar \"inteligência\" e funcionalidade aos nossos programas."
+          "text": "Escolher o operador errado ou esquecer a precedência pode produzir resultados completamente diferentes do esperado, mesmo que o programa compile sem erros."
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Operadores Aritméticos",
-      "content": [
+      "type": "cardGrid",
+      "title": "Famílias de operadores em C",
+      "columns": 2,
+      "cards": [
         {
-          "type": "paragraph",
-          "text": "São os símbolos que usamos para realizar as operações matemáticas básicas."
+          "title": "Aritméticos",
+          "content": "Somam, subtraem, multiplicam, dividem e capturam o resto de divisões para produzir novos valores numéricos."
         },
         {
-          "type": "component",
-          "component": "Md3Table",
-          "props": {
-            "headers": ["Operador", "Descrição", "Exemplo"],
-            "rows": [
-              [
-                {
-                  "value": "+",
-                  "mono": true
-                },
-                {
-                  "value": "Adição"
-                },
-                {
-                  "value": "5 + 3 // resulta em 8",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "-",
-                  "mono": true
-                },
-                {
-                  "value": "Subtração"
-                },
-                {
-                  "value": "5 - 3 // resulta em 2",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "*",
-                  "mono": true
-                },
-                {
-                  "value": "Multiplicação"
-                },
-                {
-                  "value": "5 * 3 // resulta em 15",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "/",
-                  "mono": true
-                },
-                {
-                  "value": "Divisão"
-                },
-                {
-                  "value": "10 / 2 // resulta em 5",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "%",
-                  "mono": true
-                },
-                {
-                  "value": "Módulo (resto da divisão inteira)"
-                },
-                {
-                  "value": "10 % 3 // resulta em 1",
-                  "code": true
-                }
-              ]
-            ]
-          }
+          "title": "Relacionais",
+          "content": "Comparam valores e retornam 0 ou 1 para indicar se a condição é satisfeita."
         },
         {
-          "type": "callout",
-          "variant": "good-practice",
-          "title": "Cuidado com a Divisão de Inteiros!",
-          "content": "<p>Em C, a divisão de dois números inteiros resulta sempre num número inteiro (a parte decimal é truncada). Por exemplo, <code>5 / 2</code> resulta em <code class=\"inline-code\">2</code>, e não <code class=\"inline-code\">2.5</code>. Para obter o resultado decimal, pelo menos um dos números deve ser do tipo <code class=\"inline-code\">float</code> ou <code class=\"inline-code\">double</code>: <code>5.0 / 2</code> resulta em <code class=\"inline-code\">2.5</code>.</p>"
+          "title": "Lógicos",
+          "content": "Combinam resultados booleanos com AND, OR e NOT para expressar regras mais ricas."
+        },
+        {
+          "title": "Atribuição e Unários",
+          "content": "Atualizam variáveis com incrementos, decrementos e composições como += ou -=, simplificando o código."
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Operadores Relacionais",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "São usados para comparar dois valores. O resultado de uma comparação é sempre um valor booleano: <strong>verdadeiro</strong> (representado por <code class=\"inline-code\">1</code> em C) ou <strong>falso</strong> (representado por <code class=\"inline-code\">0</code>)."
-        },
-        {
-          "type": "component",
-          "component": "Md3Table",
-          "props": {
-            "headers": ["Operador", "Descrição", "Exemplo"],
-            "rows": [
-              [
-                {
-                  "value": "==",
-                  "mono": true
-                },
-                {
-                  "value": "Igual a"
-                },
-                {
-                  "value": "5 == 5 // resulta em 1 (verdadeiro)",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "!=",
-                  "mono": true
-                },
-                {
-                  "value": "Diferente de"
-                },
-                {
-                  "value": "5 != 3 // resulta em 1 (verdadeiro)",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": ">",
-                  "mono": true
-                },
-                {
-                  "value": "Maior que"
-                },
-                {
-                  "value": "5 > 3 // resulta em 1 (verdadeiro)",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "<",
-                  "mono": true
-                },
-                {
-                  "value": "Menor que"
-                },
-                {
-                  "value": "5 < 3 // resulta em 0 (falso)",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": ">=",
-                  "mono": true
-                },
-                {
-                  "value": "Maior ou igual a"
-                },
-                {
-                  "value": "5 >= 5 // resulta em 1 (verdadeiro)",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "<=",
-                  "mono": true
-                },
-                {
-                  "value": "Menor ou igual a"
-                },
-                {
-                  "value": "5 <= 3 // resulta em 0 (falso)",
-                  "code": true
-                }
-              ]
-            ]
-          }
-        }
+      "type": "md3Table",
+      "headers": ["Operador", "Descrição", "Exemplo"],
+      "rows": [
+        [
+          { "value": "+", "mono": true },
+          { "value": "Adição" },
+          { "value": "total = preco + frete;", "code": true }
+        ],
+        [
+          { "value": "-", "mono": true },
+          { "value": "Subtração" },
+          { "value": "saldo = deposito - saque;", "code": true }
+        ],
+        [
+          { "value": "*", "mono": true },
+          { "value": "Multiplicação" },
+          { "value": "area = base * altura;", "code": true }
+        ],
+        [
+          { "value": "/", "mono": true },
+          { "value": "Divisão" },
+          { "value": "media = soma / quantidade;", "code": true }
+        ],
+        [
+          { "value": "%", "mono": true },
+          { "value": "Resto da divisão inteira" },
+          { "value": "par = numero % 2 == 0;", "code": true }
+        ]
+      ]
+    },
+    {
+      "type": "md3Table",
+      "headers": ["Operador", "Significado", "Quando usar"],
+      "rows": [
+        [
+          { "value": "==", "mono": true },
+          { "value": "Igualdade" },
+          { "value": "Comparar respostas ou estados" }
+        ],
+        [
+          { "value": "!=", "mono": true },
+          { "value": "Diferença" },
+          { "value": "Validar que entradas são distintas" }
+        ],
+        [
+          { "value": ">", "mono": true },
+          { "value": "Maior que" },
+          { "value": "Checar metas atingidas" }
+        ],
+        [
+          { "value": "<", "mono": true },
+          { "value": "Menor que" },
+          { "value": "Monitorar limites mínimos" }
+        ],
+        [
+          { "value": ">=", "mono": true },
+          { "value": "Maior ou igual" },
+          { "value": "Validar faixa superior inclusiva" }
+        ],
+        [
+          { "value": "<=", "mono": true },
+          { "value": "Menor ou igual" },
+          { "value": "Garantir teto máximo" }
+        ]
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Operadores Lógicos",
+      "title": "Atribuição composta e operadores unários",
       "content": [
         {
           "type": "paragraph",
-          "text": "Permitem-nos combinar múltiplas condições para criar decisões mais complexas."
+          "text": "Atualizações sucessivas de uma variável ficam mais legíveis com operadores compostos. Eles preservam a intenção e evitam repetição do nome da variável."
         },
         {
-          "type": "component",
-          "component": "Md3Table",
-          "props": {
-            "headers": ["Operador", "Nome Lógico", "Exemplo"],
-            "rows": [
-              [
-                {
-                  "value": "&&",
-                  "mono": true
-                },
-                {
-                  "value": "E (AND)"
-                },
-                {
-                  "value": "(idade >= 18 && temCarta == 1)",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "||",
-                  "mono": true
-                },
-                {
-                  "value": "OU (OR)"
-                },
-                {
-                  "value": "(dia == 6 || dia == 7) // Sábado ou Domingo",
-                  "code": true
-                }
-              ],
-              [
-                {
-                  "value": "!",
-                  "mono": true
-                },
-                {
-                  "value": "NÃO (NOT)"
-                },
-                {
-                  "value": "!(idade >= 18) // Verdadeiro se a idade NÃO for maior ou igual a 18",
-                  "code": true
-                }
-              ]
-            ]
-          }
+          "type": "code",
+          "language": "c",
+          "code": "int contador = 10;\ncontador += 3;    // equivale a contador = contador + 3;\ncontador -= 1;    // decrementa mantendo o histórico\ncontador++;        // incrementa de 1 em 1\n--contador;        // pré-decremento antes de usar o valor"
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Precedência de Operadores",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Quando temos uma expressão complexa como <code>5 + 3 * 2</code>, qual operação é feita primeiro? A linguagem C segue uma ordem de precedência, muito similar à da matemática."
-        },
-        {
-          "type": "html",
-          "html": "<ol class=\"list-decimal list-inside space-y-2 mt-4 font-semibold\"><li>Parênteses <code>()</code> (maior prioridade)</li><li>Operadores Aritméticos de Multiplicação e Divisão (<code>* / %</code>)</li><li>Operadores Aritméticos de Adição e Subtração (<code>+ -</code>)</li><li>Operadores Relacionais (<code>> < == !=</code> etc.)</li><li>Operadores Lógicos (<code>&&</code> e depois <code>||</code>) (menor prioridade)</li></ol>"
-        },
-        {
-          "type": "callout",
-          "variant": "good-practice",
-          "title": "Boa Prática: Use Parênteses!",
-          "content": "<p>Mesmo que saiba a ordem de precedência, use parênteses para agrupar as suas expressões. Isto torna o código muito mais fácil de ler e entender, tanto para si como para outros programadores, e evita erros lógicos difíceis de encontrar.</p>"
-        }
+      "type": "truthTable",
+      "title": "Combinações lógicas",
+      "headers": ["A", "B", "A && B", "A || B", "!A"],
+      "rows": [
+        [
+          { "value": 1 },
+          { "value": 1 },
+          { "state": "true", "display": "1" },
+          { "state": "true", "display": "1" },
+          { "state": "false", "display": "0" }
+        ],
+        [
+          { "value": 1 },
+          { "value": 0 },
+          { "state": "false", "display": "0" },
+          { "state": "true", "display": "1" },
+          { "state": "false", "display": "0" }
+        ],
+        [
+          { "value": 0 },
+          { "value": 1 },
+          { "state": "false", "display": "0" },
+          { "state": "true", "display": "1" },
+          { "state": "true", "display": "1" }
+        ],
+        [
+          { "value": 0 },
+          { "value": 0 },
+          { "state": "false", "display": "0" },
+          { "state": "false", "display": "0" },
+          { "state": "true", "display": "1" }
+        ]
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Atividade Prática em Duplas",
+      "title": "Precedência e agrupamento",
       "content": [
         {
           "type": "paragraph",
-          "text": "Em duplas, vamos criar um programa que calcula a média ponderada de três notas. A fórmula é: <code class=\"inline-code\">Media = (Nota1 * Peso1 + Nota2 * Peso2 + Nota3 * Peso3) / (Peso1 + Peso2 + Peso3)</code>."
+          "text": "C segue uma ordem de avaliação: primeiro operadores unários, depois multiplicação/divisão/módulo, em seguida soma/subtração, comparações e, por fim, operadores lógicos."
         },
         {
-          "type": "html",
-          "html": "<ol class=\"list-decimal list-inside space-y-4 mt-4\"><li>Declarem variáveis <code class=\"inline-code\">float</code> para as 3 notas e 3 pesos.</li><li>Peçam ao utilizador para inserir as notas e os pesos.</li><li>Calculem a média ponderada numa variável <code class=\"inline-code\">float</code> chamada <code class=\"inline-code\">mediaPonderada</code>. Usem parênteses para garantir a ordem correta dos cálculos!</li><li>Exibam o resultado de forma clara, mostrando as notas, os pesos e a média final.</li></ol>"
+          "type": "orderedList",
+          "items": [
+            "Use parênteses para deixar explícita a ordem desejada.",
+            "Evite misturar muitos operadores diferentes em uma única linha.",
+            "Teste expressões complexas isoladamente antes de inseri-las em decisões.",
+            "Documente com comentários quando a intenção não for óbvia."
+          ]
         }
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Objetivo da Tarefa</h4><p class=\"mb-4 leading-relaxed\">Consolidar o entendimento sobre operadores aritméticos, relacionais e lógicos em C, praticando <strong>precedência de operações</strong> e a <strong>formatação detalhada da saída</strong> no console. Esta atividade reforça a importância de escrever código legível e explicativo.</p><h4 class=\"font-bold text-title-large mt-6 mb-4\">Instruções</h4><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Elabore um programa em <code class=\"inline-code\">C</code> que calcule a <strong>média ponderada</strong> de três notas com pesos diferentes. Você pode reutilizar os valores usados em aula ou criar novos.</li><li>A saída deve ser <strong>autoexplicativa</strong>, mostrando o cálculo completo no <code class=\"inline-code\">printf</code>, por exemplo:<br /><code class=\"inline-code\">(Nota1 * Peso1 + Nota2 * Peso2 + Nota3 * Peso3) / (Peso1 + Peso2 + Peso3) = Resultado</code></li><li>Utilize <strong>parênteses</strong> para deixar clara a ordem das operações e evitar ambiguidades.</li><li>Comente o código explicando o papel de cada variável e a lógica aplicada. Isso ajudará a fixar os conceitos de forma mais profunda.</li><li>Salve o arquivo como <code class=\"inline-code\">aula7_media_ponderada.c</code> e poste o código na Atividade \"Aula 7\" no Moodle.</li></ol><div class=\"mt-6\"><a class=\"btn btn-tonal inline-flex items-center gap-2\" href=\"https://eadsp.unichristus.edu.br\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Acessar Moodle</span></a></div><div class=\"mt-8 style=\"background-color: var(--md-sys-color-primary-container);\" text-primary-900 p-4 rounded-2xl\"><h5 class=\"font-bold mb-2\"><i class=\"fa-solid fa-lightbulb mr-2\"></i>Dica Extra</h5><p class=\"text-body-small leading-relaxed\">Teste seu programa com diferentes combinações de notas e pesos, incluindo valores fracionários (ex.: <code class=\"inline-code\">8.5</code>) e pesos variados. Isso garantirá que seu código funciona para diversos cenários e que você entendeu bem o uso de <code class=\"inline-code\">float</code> e <code class=\"inline-code\">double</code>.</p></div>"
-    },
-    {
-      "type": "contentBlock",
-      "title": "💻 Área de Testes Interativa",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
-        },
-        {
-          "type": "html",
-          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
-        },
-        {
-          "type": "paragraph",
-          "text": "💡 <strong>Dica:</strong> Escreva, compile e execute seu programa em C diretamente nesta página. Use este espaço para testar a tarefa da Aula 7 ou criar novos experimentos com operadores."
-        }
-      ]
-    },
-    {
-      "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
-      "videos": [
-        {
-          "title": "Operadores em C (Introdução à Linguagem C)",
-          "src": "https://www.youtube.com/embed/nkZxJomZYoo"
-        },
-        {
-          "title": "Precedência de Operadores em C (Responde em Códigos)",
-          "src": "https://www.youtube.com/embed/42A4aZvnsX0"
-        }
-      ]
+      "variant": "warning",
+      "title": "Atenção com divisões inteiras",
+      "content": "<p>Dividir dois <code>int</code> descarta a parte decimal. Faça casting para <code>float</code> quando precisar de precisão: <code>(float)total / quantidade</code>.</p>"
     },
     {
       "type": "checklist",
-      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "title": "Checklist de domínio",
       "items": [
-        "Explicar o papel dos operadores no processamento.",
-        "Usar operadores aritméticos, relacionais e lógicos.",
-        "Aplicar precedência e parênteses corretamente.",
-        "Criar código com saída explicativa."
+        "Reconheço rapidamente a categoria de cada operador.",
+        "Consigo prever o resultado de expressões com combinações simples.",
+        "Aplico parênteses para comunicar claramente a ordem de execução.",
+        "Valido condições com tabelas-verdade antes de levar para o código."
       ]
     },
     {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> 2. ed. São Paulo: Novatec, 2020.",
-        "<strong>SANTOS, Marcelo Gonçalves dos.</strong> <em>Linguagem de Programação.</em> São Paulo: Pearson, 2018.",
-        "<strong>KERIGHAN, Brian; RITCHIE, Dennis.</strong> <em>A Linguagem de Programação C.</em> 2. ed. LTC, 2018."
+      "type": "contentBlock",
+      "title": "Laboratório guiado: indicadores acadêmicos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente no laboratório um programa que leia três notas, calcule a média ponderada (pesos 4, 3 e 3) e determine se o estudante está aprovado, em recuperação ou reprovado."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "float n1, n2, n3;\nfloat media;\n\nprintf(\"Digite as tres notas: \");\nscanf(\"%f %f %f\", &n1, &n2, &n3);\nmedia = (n1 * 4 + n2 * 3 + n3 * 3) / 10.0f;\nif (media >= 7.0f && media <= 10.0f) {\n  printf(\"Aprovado com media %.1f\\n\", media);\n} else if (media >= 5.0f) {\n  printf(\"Recuperacao com media %.1f\\n\", media);\n} else {\n  printf(\"Reprovado com media %.1f\\n\", media);\n}\n"
+        }
       ]
     }
   ]

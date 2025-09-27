@@ -1,7 +1,48 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-05",
   "title": "Aula 5: Unidade I – Manipulação de Eventos e Uso de Logcat",
+  "summary": "Manipulação de eventos de interface e uso do Logcat para depuração e análise de comportamento.",
   "objective": "Associar ações da interface gráfica (como cliques) a funções em Kotlin e usar o Logcat para depuração.",
+  "objectives": [
+    "Implementar ouvintes de eventos para interações do usuário.",
+    "Utilizar o Logcat para monitorar execução, erros e métricas durante o desenvolvimento."
+  ],
+  "competencies": ["Depuração e instrumentação de aplicativos móveis"],
+  "skills": [
+    "Registrar listeners e callbacks em componentes de UI.",
+    "Filtrar e interpretar mensagens no Logcat durante o desenvolvimento."
+  ],
+  "outcomes": [
+    "Entrega de uma tela com eventos implementados e registrados no Logcat.",
+    "Documenta filtros e níveis de log utilizados para diagnóstico."
+  ],
+  "prerequisites": [
+    "Conhecer componentes de UI e navegação básica implementados nas aulas anteriores."
+  ],
+  "tags": ["eventos", "logcat", "depuracao"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Handle user input",
+      "url": "https://developer.android.com/training/interaction",
+      "type": "guide"
+    },
+    {
+      "label": "Logcat command-line tool",
+      "url": "https://developer.android.com/tools/logcat",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "Google. \"Handle user input.\" 2024.",
+    "Google. \"Logcat command-line tool.\" 2024."
+  ],
+  "assessment": {
+    "type": "lab",
+    "description": "Checkpoint prático registrando eventos e capturando evidências no Logcat."
+  },
   "content": [
     {
       "type": "flightPlan",
@@ -217,5 +258,11 @@
         }
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-09T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Plano de laboratório DDM – Eventos e Logcat"]
+  }
 }

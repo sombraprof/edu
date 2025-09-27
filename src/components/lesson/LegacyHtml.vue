@@ -240,15 +240,15 @@ watch(
   padding: var(--md-sys-spacing-5);
 }
 
-html:not(.light) .legacy-html :deep(section),
-html:not(.light) .legacy-html :deep(article),
-html:not(.light) .legacy-html :deep(.bg-white),
-html:not(.light) .legacy-html :deep(.bg-white\/80),
-html:not(.light) .legacy-html :deep(.shadow),
-html:not(.light) .legacy-html :deep(.shadow-lg),
-html:not(.light) .legacy-html :deep(.shadow-sm),
-html:not(.light) .legacy-html :deep(.rounded-lg),
-html:not(.light) .legacy-html :deep(.rounded-xl) {
+html[data-theme='dark'] .legacy-html :deep(section),
+html[data-theme='dark'] .legacy-html :deep(article),
+html[data-theme='dark'] .legacy-html :deep(.bg-white),
+html[data-theme='dark'] .legacy-html :deep(.bg-white\/80),
+html[data-theme='dark'] .legacy-html :deep(.shadow),
+html[data-theme='dark'] .legacy-html :deep(.shadow-lg),
+html[data-theme='dark'] .legacy-html :deep(.shadow-sm),
+html[data-theme='dark'] .legacy-html :deep(.rounded-lg),
+html[data-theme='dark'] .legacy-html :deep(.rounded-xl) {
   background-color: var(--md-sys-color-surface-container);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 50%, transparent);
   box-shadow: var(--shadow-elevation-2);

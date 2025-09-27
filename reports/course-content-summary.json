@@ -1,0 +1,697 @@
+{
+  "generatedAt": "2025-09-27T11:57:43.156Z",
+  "courses": [
+    {
+      "id": "algi",
+      "title": "Algoritmos e Programação I",
+      "institution": "Unichristus",
+      "summary": {
+        "lessons": {
+          "total": 40,
+          "published": 17,
+          "upcoming": 23,
+          "directory": {
+            "json": 17,
+            "vue": 2,
+            "other": []
+          },
+          "missingFiles": [
+            {
+              "id": "lesson-16",
+              "file": "lesson-16.json"
+            },
+            {
+              "id": "lesson-17",
+              "file": "lesson-17.json"
+            },
+            {
+              "id": "lesson-18",
+              "file": "lesson-18.json"
+            },
+            {
+              "id": "lesson-19",
+              "file": "lesson-19.json"
+            },
+            {
+              "id": "lesson-20",
+              "file": "lesson-20.json"
+            },
+            {
+              "id": "lesson-21",
+              "file": "lesson-21.json"
+            },
+            {
+              "id": "lesson-22",
+              "file": "lesson-22.json"
+            },
+            {
+              "id": "lesson-23",
+              "file": "lesson-23.json"
+            },
+            {
+              "id": "lesson-24",
+              "file": "lesson-24.json"
+            },
+            {
+              "id": "lesson-25",
+              "file": "lesson-25.json"
+            },
+            {
+              "id": "lesson-26",
+              "file": "lesson-26.json"
+            },
+            {
+              "id": "lesson-27",
+              "file": "lesson-27.json"
+            },
+            {
+              "id": "lesson-28",
+              "file": "lesson-28.json"
+            },
+            {
+              "id": "lesson-30",
+              "file": "lesson-30.json"
+            },
+            {
+              "id": "lesson-31",
+              "file": "lesson-31.json"
+            },
+            {
+              "id": "lesson-32",
+              "file": "lesson-32.json"
+            },
+            {
+              "id": "lesson-33",
+              "file": "lesson-33.json"
+            },
+            {
+              "id": "lesson-34",
+              "file": "lesson-34.json"
+            },
+            {
+              "id": "lesson-35",
+              "file": "lesson-35.json"
+            },
+            {
+              "id": "lesson-36",
+              "file": "lesson-36.json"
+            },
+            {
+              "id": "lesson-37",
+              "file": "lesson-37.json"
+            },
+            {
+              "id": "lesson-38",
+              "file": "lesson-38.json"
+            },
+            {
+              "id": "lesson-40",
+              "file": "lesson-40.json"
+            }
+          ],
+          "orphanFiles": [
+            {
+              "file": "lesson-29.json"
+            },
+            {
+              "file": "lesson-39.json"
+            }
+          ],
+          "duplicatedWrappers": [
+            {
+              "id": "lesson-29",
+              "baseFile": "lesson-29",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-39",
+              "baseFile": "lesson-39",
+              "duplicated": true
+            }
+          ]
+        },
+        "exercises": {
+          "total": 2,
+          "published": 0,
+          "upcoming": 2,
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "lista1.json"
+            },
+            {
+              "file": "lista2.json"
+            }
+          ]
+        },
+        "supplements": {
+          "total": 1,
+          "published": 0,
+          "upcoming": 1,
+          "missingFiles": [],
+          "orphanFiles": []
+        }
+      }
+    },
+    {
+      "id": "ddm",
+      "title": "Desenvolvimento para Dispositivos Móveis",
+      "institution": "Unichristus",
+      "summary": {
+        "lessons": {
+          "total": 14,
+          "published": 14,
+          "upcoming": 0,
+          "directory": {
+            "json": 14,
+            "vue": 8,
+            "other": []
+          },
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "lesson-07.json"
+            },
+            {
+              "file": "lesson-08.json"
+            },
+            {
+              "file": "lesson-09.json"
+            },
+            {
+              "file": "lesson-10.json"
+            },
+            {
+              "file": "lesson-11.json"
+            },
+            {
+              "file": "lesson-12.json"
+            },
+            {
+              "file": "lesson-13.json"
+            },
+            {
+              "file": "lesson-14.json"
+            }
+          ],
+          "duplicatedWrappers": [
+            {
+              "id": "lesson-07",
+              "baseFile": "lesson-07",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-08",
+              "baseFile": "lesson-08",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-09",
+              "baseFile": "lesson-09",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-10",
+              "baseFile": "lesson-10",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-11",
+              "baseFile": "lesson-11",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-12",
+              "baseFile": "lesson-12",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-13",
+              "baseFile": "lesson-13",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-14",
+              "baseFile": "lesson-14",
+              "duplicated": true
+            }
+          ]
+        },
+        "exercises": {
+          "total": 2,
+          "published": 0,
+          "upcoming": 2,
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "api-sync.json"
+            },
+            {
+              "file": "ux-audit.json"
+            }
+          ]
+        },
+        "supplements": {
+          "total": 1,
+          "published": 0,
+          "upcoming": 1,
+          "missingFiles": [],
+          "orphanFiles": []
+        }
+      }
+    },
+    {
+      "id": "lpoo",
+      "title": "Linguagens de Programação Orientada a Objetos",
+      "institution": "Unifametro",
+      "summary": {
+        "lessons": {
+          "total": 8,
+          "published": 8,
+          "upcoming": 0,
+          "directory": {
+            "json": 8,
+            "vue": 8,
+            "other": []
+          },
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "lesson-01.json"
+            },
+            {
+              "file": "lesson-02.json"
+            },
+            {
+              "file": "lesson-03.json"
+            },
+            {
+              "file": "lesson-04.json"
+            },
+            {
+              "file": "lesson-05.json"
+            },
+            {
+              "file": "lesson-06.json"
+            },
+            {
+              "file": "lesson-07.json"
+            },
+            {
+              "file": "lesson-08.json"
+            }
+          ],
+          "duplicatedWrappers": [
+            {
+              "id": "lesson-01",
+              "baseFile": "lesson-01",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-02",
+              "baseFile": "lesson-02",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-03",
+              "baseFile": "lesson-03",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-04",
+              "baseFile": "lesson-04",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-05",
+              "baseFile": "lesson-05",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-06",
+              "baseFile": "lesson-06",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-07",
+              "baseFile": "lesson-07",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-08",
+              "baseFile": "lesson-08",
+              "duplicated": true
+            }
+          ]
+        },
+        "exercises": {
+          "total": 2,
+          "published": 0,
+          "upcoming": 2,
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "modelagem-uml.json"
+            },
+            {
+              "file": "refatoracao.json"
+            }
+          ]
+        },
+        "supplements": {
+          "total": 1,
+          "published": 0,
+          "upcoming": 1,
+          "missingFiles": [],
+          "orphanFiles": []
+        }
+      }
+    },
+    {
+      "id": "tdjd",
+      "title": "Tecnologia e Desenvolvimento para Jogos Digitais",
+      "institution": "Unichristus",
+      "summary": {
+        "lessons": {
+          "total": 15,
+          "published": 15,
+          "upcoming": 0,
+          "directory": {
+            "json": 15,
+            "vue": 15,
+            "other": []
+          },
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "lesson-01.json"
+            },
+            {
+              "file": "lesson-02.json"
+            },
+            {
+              "file": "lesson-03.json"
+            },
+            {
+              "file": "lesson-04.json"
+            },
+            {
+              "file": "lesson-05.json"
+            },
+            {
+              "file": "lesson-06.json"
+            },
+            {
+              "file": "lesson-07.json"
+            },
+            {
+              "file": "lesson-08.json"
+            },
+            {
+              "file": "lesson-09.json"
+            },
+            {
+              "file": "lesson-10.json"
+            },
+            {
+              "file": "lesson-11.json"
+            },
+            {
+              "file": "lesson-12.json"
+            },
+            {
+              "file": "lesson-13.json"
+            },
+            {
+              "file": "lesson-14.json"
+            },
+            {
+              "file": "lesson-15.json"
+            }
+          ],
+          "duplicatedWrappers": [
+            {
+              "id": "lesson-01",
+              "baseFile": "lesson-01",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-02",
+              "baseFile": "lesson-02",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-03",
+              "baseFile": "lesson-03",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-04",
+              "baseFile": "lesson-04",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-05",
+              "baseFile": "lesson-05",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-06",
+              "baseFile": "lesson-06",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-07",
+              "baseFile": "lesson-07",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-08",
+              "baseFile": "lesson-08",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-09",
+              "baseFile": "lesson-09",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-10",
+              "baseFile": "lesson-10",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-11",
+              "baseFile": "lesson-11",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-12",
+              "baseFile": "lesson-12",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-13",
+              "baseFile": "lesson-13",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-14",
+              "baseFile": "lesson-14",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-15",
+              "baseFile": "lesson-15",
+              "duplicated": true
+            }
+          ]
+        },
+        "exercises": {
+          "total": 2,
+          "published": 1,
+          "upcoming": 1,
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "protótipo-papel.json"
+            },
+            {
+              "file": "vertical-slice.json"
+            }
+          ]
+        },
+        "supplements": {
+          "total": 1,
+          "published": 0,
+          "upcoming": 1,
+          "missingFiles": [],
+          "orphanFiles": []
+        }
+      }
+    },
+    {
+      "id": "tgs",
+      "title": "Teoria Geral de Sistemas",
+      "institution": "Unichristus",
+      "summary": {
+        "lessons": {
+          "total": 15,
+          "published": 15,
+          "upcoming": 0,
+          "directory": {
+            "json": 15,
+            "vue": 15,
+            "other": []
+          },
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "lesson-01.json"
+            },
+            {
+              "file": "lesson-02.json"
+            },
+            {
+              "file": "lesson-03.json"
+            },
+            {
+              "file": "lesson-04.json"
+            },
+            {
+              "file": "lesson-05.json"
+            },
+            {
+              "file": "lesson-06.json"
+            },
+            {
+              "file": "lesson-07.json"
+            },
+            {
+              "file": "lesson-08.json"
+            },
+            {
+              "file": "lesson-09.json"
+            },
+            {
+              "file": "lesson-10.json"
+            },
+            {
+              "file": "lesson-11.json"
+            },
+            {
+              "file": "lesson-12.json"
+            },
+            {
+              "file": "lesson-13.json"
+            },
+            {
+              "file": "lesson-14.json"
+            },
+            {
+              "file": "lesson-15.json"
+            }
+          ],
+          "duplicatedWrappers": [
+            {
+              "id": "lesson-01",
+              "baseFile": "lesson-01",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-02",
+              "baseFile": "lesson-02",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-03",
+              "baseFile": "lesson-03",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-04",
+              "baseFile": "lesson-04",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-05",
+              "baseFile": "lesson-05",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-06",
+              "baseFile": "lesson-06",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-07",
+              "baseFile": "lesson-07",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-08",
+              "baseFile": "lesson-08",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-09",
+              "baseFile": "lesson-09",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-10",
+              "baseFile": "lesson-10",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-11",
+              "baseFile": "lesson-11",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-12",
+              "baseFile": "lesson-12",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-13",
+              "baseFile": "lesson-13",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-14",
+              "baseFile": "lesson-14",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-15",
+              "baseFile": "lesson-15",
+              "duplicated": true
+            }
+          ]
+        },
+        "exercises": {
+          "total": 2,
+          "published": 0,
+          "upcoming": 2,
+          "missingFiles": [],
+          "orphanFiles": [
+            {
+              "file": "loop-feedback.json"
+            },
+            {
+              "file": "mapa-sistema.json"
+            }
+          ]
+        },
+        "supplements": {
+          "total": 1,
+          "published": 0,
+          "upcoming": 1,
+          "missingFiles": [],
+          "orphanFiles": []
+        }
+      }
+    }
+  ]
+}

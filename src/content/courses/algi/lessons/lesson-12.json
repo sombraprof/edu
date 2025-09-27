@@ -1,143 +1,289 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-12",
-  "title": "Aula 12: Condições Encadeadas com else if",
-  "objective": "Criando múltiplos caminhos para decisões mais complexas e organizadas.",
+  "title": "Aula 12: Cadeias de decisão com else if",
+  "summary": "Organiza múltiplas regras exclusivas priorizando faixas e combinações lógicas, garantindo que cada entrada encontre exatamente um caminho.",
+  "objective": "Modelar cadeias de else if que cobrem todos os cenários possíveis com clareza e sem lacunas.",
+  "objectives": [
+    "Planejar a ordem das condições para evitar sobreposição entre faixas.",
+    "Combinar operadores lógicos para refinar regras com múltiplos critérios.",
+    "Registrar resultados esperados para cada ramo antes de implementar."
+  ],
+  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Pensamento crítico"],
+  "skills": [
+    "Escrever cadeias else if com condições mutuamente exclusivas.",
+    "Aplicar && e || para unir verificações dentro do mesmo ramo.",
+    "Validar a cobertura de cenários usando planilhas de teste."
+  ],
+  "outcomes": [
+    "Entrega um programa que classifica entradas em três ou mais faixas sem ambiguidades.",
+    "Explica a escolha da ordem das condições em documentação curta.",
+    "Constrói tabela de testes que cobre limites inferior e superior de cada faixa."
+  ],
+  "prerequisites": ["Revisar if-else e switch-case trabalhados nas aulas 10 e 11."],
+  "tags": ["condicionais", "else-if", "regras"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Planilha de testes para cadeias de decisão",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/planilha-else-if.xlsx"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "type": "tool",
+      "url": "https://www.onlinegdb.com/online_c_compiler"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "FORBELLONE, A.; EBERSPÄCHER, H. Lógica de Programação. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Implementação de um classificador de faixas com relatório de testes incluindo limites e casos extremos."
+  },
   "content": [
     {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Estruturas condicionais encadeadas (else if), combinação com operadores lógicos (&&, ||) e a diferença entre else if e ifs independentes."
+          "title": "Conteúdo",
+          "content": "Cadeias else if, combinações com operadores lógicos e documentação de faixas."
         },
         {
           "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Escrever programas que tomem decisões mais elaboradas, envolvendo múltiplas condições, utilizando a estrutura if-else if-else de forma eficiente."
+          "title": "Objetivo",
+          "content": "Garantir que cada faixa de regra seja coberta por um único ramo claramente documentado."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Aula expositiva com exemplos clássicos (classificação de notas, faixas de idade), seguida de uma atividade prática em duplas para desenvolver pequenos programas com else if."
+          "title": "Metodologia",
+          "content": "Exposição dialogada, análise de estudos de caso e laboratório orientado para criar classificadores completos."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de Voo da Aula de Hoje",
+      "title": "Plano de voo (1h55)",
       "items": [
-        "A transição de programas sequenciais para programas dinâmicos.",
-        "A estrutura <code class=\"inline-code\">if</code>: como executar código apenas se uma condição for verdadeira.",
-        "A estrutura <code class=\"inline-code\">if-else</code>: a bifurcação que permite escolher entre dois caminhos.",
-        "A estrutura <code class=\"inline-code\">else if</code>: criando múltiplos caminhos para decisões complexas.",
-        "Atividade prática em duplas: resolvendo problemas com condicionais.",
-        "Apresentação da tarefa (TED) da Aula 10."
+        "(10 min) Aquecimento: revisão das decisões simples e múltiplas.",
+        "(20 min) Planejando cadeias else if sem sobreposição.",
+        "(25 min) Combinação de condições com operadores lógicos.",
+        "(25 min) Estudo de caso guiado: classificação de faixa etária e renda.",
+        "(20 min) Oficina em duplas com feedback cruzado.",
+        "(15 min) TED e checklist de testes obrigatórios."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Para Além da Bifurcação: Múltiplos Caminhos",
+      "title": "Por que encadear decisões",
       "content": [
         {
           "type": "paragraph",
-          "text": "Na Aula 10, aprendemos a usar o <code>if-else</code> para criar uma bifurcação, onde o programa escolhe entre dois caminhos. Mas e se tivermos três, quatro ou mais possibilidades? Poderíamos usar <code>if</code>s um dentro do outro (aninhados), mas o código ficaria confuso rapidamente."
+          "text": "Nem toda regra cabe em apenas dois caminhos. Muitas vezes precisamos de faixas, níveis ou prioridades diferentes que se excluem mutuamente."
         },
         {
           "type": "paragraph",
-          "text": "A estrutura <code>else if</code> é a solução elegante para este problema. Ela permite-nos criar uma \"escada\" de decisões, onde o programa testa uma condição de cada vez, e executa o bloco da primeira que for verdadeira."
+          "text": "Cadeias else if garantem que exatamente um bloco execute. A ordem importa: a primeira condição verdadeira interrompe a verificação das demais."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "A Estrutura \"if-else if-else\"",
+      "title": "Anatomia do else if",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "if (media >= 7.0f) {\n  printf(\"Aprovado\");\n} else if (media >= 5.0f) {\n  printf(\"Recuperacao\");\n} else {\n  printf(\"Reprovado\");\n}"
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Inicie pelo cenário mais restritivo ou prioritário.",
+            "Garanta que as faixas seguintes não incluam valores já tratados.",
+            "Finalize com else para lidar com todo o restante."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Classificação de faixa etária",
+        "summary": "Decisão encadeada avaliando intervalos em ordem crescente.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Início" },
+          { "id": "input", "type": "input", "title": "Ler idade" },
+          {
+            "id": "decision",
+            "type": "decision",
+            "title": "Idade < 13?",
+            "branches": [
+              {
+                "id": "branch-crianca",
+                "label": "Sim",
+                "target": "process-crianca",
+                "description": "Classificar como criança"
+              },
+              {
+                "id": "branch-proximo",
+                "label": "Não",
+                "target": "decision-adolescente",
+                "description": "Seguir para próxima faixa"
+              }
+            ]
+          },
+          {
+            "id": "decision-adolescente",
+            "type": "decision",
+            "title": "Idade < 18?",
+            "branches": [
+              {
+                "id": "branch-adolescente",
+                "label": "Sim",
+                "target": "process-adolescente",
+                "description": "Classificar como adolescente"
+              },
+              {
+                "id": "branch-proximo-adulto",
+                "label": "Não",
+                "target": "decision-idoso",
+                "description": "Verificar demais faixas"
+              }
+            ]
+          },
+          {
+            "id": "decision-idoso",
+            "type": "decision",
+            "title": "Idade >= 60?",
+            "branches": [
+              {
+                "id": "branch-idoso",
+                "label": "Sim",
+                "target": "process-idoso",
+                "description": "Classificar como idoso"
+              },
+              {
+                "id": "branch-adulto",
+                "label": "Não",
+                "target": "process-adulto",
+                "description": "Classificar como adulto"
+              }
+            ]
+          },
+          { "id": "process-crianca", "type": "process", "title": "Imprimir \"Criança\"" },
+          { "id": "process-adolescente", "type": "process", "title": "Imprimir \"Adolescente\"" },
+          { "id": "process-adulto", "type": "process", "title": "Imprimir \"Adulto\"" },
+          { "id": "process-idoso", "type": "process", "title": "Imprimir \"Idoso\"" },
+          { "id": "end", "type": "end", "title": "Fim" }
+        ],
+        "connections": [
+          { "from": "start", "to": "input" },
+          { "from": "input", "to": "decision" },
+          { "from": "process-crianca", "to": "end" },
+          { "from": "process-adolescente", "to": "end" },
+          { "from": "process-adulto", "to": "end" },
+          { "from": "process-idoso", "to": "end" }
+        ]
+      }
+    },
+    {
+      "type": "md3Table",
+      "title": "Cobertura das faixas",
+      "headers": ["Condição", "Intervalo tratado", "Saída"],
+      "rows": [
+        [{ "value": "media >= 7.0" }, { "value": "[7.0, 10.0]" }, { "value": "Aprovado" }],
+        [{ "value": "media >= 5.0" }, { "value": "[5.0, 7.0)" }, { "value": "Recuperação" }],
+        [{ "value": "else" }, { "value": "(-∞, 5.0)" }, { "value": "Reprovado" }]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Combinando condições",
       "content": [
         {
           "type": "paragraph",
-          "text": "Funciona como uma cadeia de verificações. O programa testa a primeira condição. Se for falsa, testa a segunda (<code>else if</code>), e assim por diante. Se nenhuma for verdadeira, o bloco <code>else</code> final é executado."
-        },
-        {
-          "type": "subBlock",
-          "title": "Exemplo: Classificação de Média",
-          "items": [
-            "<p>Vamos classificar a situação de um aluno: Aprovado (>= 7.0), Recuperação (>= 5.0) ou Reprovado.</p>"
-          ]
+          "text": "Quando a decisão depende de dois fatores, combine condições dentro do mesmo ramo."
         },
         {
           "type": "code",
           "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    float media;\n\n    printf(\"Digite a media do aluno: \");\n    scanf(\"%f\", &media);\n\n    if (media >= 7.0) {\n        printf(\"Situacao: APROVADO.\\n\");\n    } else if (media >= 5.0) { // So e testado se o primeiro \"if\" for falso\n        printf(\"Situacao: RECUPERACAO.\\n\");\n    } else { // Executado se nenhuma das condicoes anteriores for verdadeira\n        printf(\"Situacao: REPROVADO.\\n\");\n    }\n\n    return 0;\n}\n"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Atividade Prática em Duplas",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Em duplas, implementem a solução em C para o seguinte problema:"
-        },
-        {
-          "type": "subBlock",
-          "title": "Problema: Classificação de Faixa Etária",
-          "items": [
-            "<p>Crie um programa que leia a idade de uma pessoa e exiba a sua faixa etária, de acordo com as seguintes regras:</p><ul class=\"list-disc list-inside mt-2\"><li>0 a 12 anos: Criança</li><li>13 a 17 anos: Adolescente</li><li>18 a 59 anos: Adulto</li><li>60 anos ou mais: Idoso</li></ul>"
-          ]
+          "code": "if (renda < 2000.0f && dependentes >= 2) {\n  printf(\"Prioridade alta\");\n} else if (renda < 5000.0f || dependentes == 1) {\n  printf(\"Prioridade media\");\n} else {\n  printf(\"Prioridade padrao\");\n}"
         }
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O objetivo é praticar a lógica de comparação com estruturas condicionais para consolidar o que foi visto na Aula 10 e 12.</p><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie um programa em C chamado <code>aula12_maior_numero.c</code>.</li><li>O programa deve ler dois números inteiros.</li><li>Utilizando <code>if</code>, <code>else if</code> e <code>else</code>, o programa deve informar qual dos números é o maior, ou se eles são iguais.</li><li>Poste o ficheiro <code>.c</code> na Atividade da \"Aula 12\" no Moodle.</li></ol>"
+      "variant": "warning",
+      "title": "Ordem importa",
+      "content": "<p>Condições mais amplas colocadas no topo capturam valores demais e impedem que as faixas específicas sejam avaliadas. Comece pelo cenário mais restritivo.</p>"
     },
     {
       "type": "contentBlock",
-      "title": "💻 Área de Testes Interativa",
+      "title": "Estudo de caso guiado",
       "content": [
         {
           "type": "paragraph",
-          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
+          "text": "Em sala, construiremos um simulador de desconto progressivo para um e-commerce, documentando cada faixa em uma planilha e implementando os testes sugeridos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Oficina em duplas",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Escolham um cenário com três ou mais níveis (ex.: plano de assinatura, avaliação de risco, faixa salarial).",
+            "Mapeiem as entradas necessárias e planejem a ordem das condições em papel.",
+            "Implementem em C e registrem os limites testados para cada faixa."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Tarefa (TED)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Crie aula12_classificador.c para ler a nota final e frequência do aluno. Use else if para retornar Aprovado, Recuperação ou Reprovado considerando nota e presença mínima de 75%."
         },
         {
-          "type": "html",
-          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+          "type": "paragraph",
+          "text": "Envie junto uma planilha com os testes realizados (limites, casos de falha e sucesso)."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
+      "title": "Vídeos de apoio",
       "videos": [
         {
-          "title": "Estruturas Condicionais Aninhadas (else if) em C",
-          "src": "https://www.youtube-nocookie.com/embed/JBFgiNJevqc"
+          "title": "Cadeias else if sem mistério",
+          "src": "https://www.youtube.com/embed/JBFgiNJevqc"
         },
         {
-          "title": "Lógica de Programação – if, else if e else em C",
-          "src": "https://www.youtube-nocookie.com/embed/LpVDGm-FT78"
+          "title": "Combinando condições lógicas em C",
+          "src": "https://www.youtube.com/embed/LpVDGm-FT78"
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "title": "Você sai da aula capaz de",
       "items": [
-        "Explicar a diferença entre <code>if-else</code> e uma cadeia de <code>if-else if</code>.",
-        "Construir uma estrutura <code>else if</code> para lidar com múltiplas condições excludentes.",
-        "Combinar operadores lógicos (<code>&&</code>, <code>||</code>) nas condições para criar regras mais complexas."
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
-        "<strong>MANZANO, José Augusto N.G.; OLIVEIRA, Jayr Figueiredo.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Érica, 2019."
+        "Planejar cadeias else if cobrindo todos os cenários de uma regra.",
+        "Combinar condições com operadores lógicos respeitando a prioridade.",
+        "Validar limites superior e inferior para cada faixa implementada."
       ]
     }
   ]

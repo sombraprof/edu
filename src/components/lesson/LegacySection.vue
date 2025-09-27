@@ -28,6 +28,7 @@ import {
   Sparkles,
   Info,
 } from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 type Props = {
   id?: string;
@@ -39,7 +40,7 @@ const props = defineProps<Props>();
 
 const title = computed(() => props.title ?? '');
 const id = computed(() => props.id ?? '');
-const html = computed(() => props.html ?? '');
+const html = computed(() => sanitizeHtml(props.html));
 
 const iconRegistry: Record<string, any> = {
   ementa: GraduationCap,
@@ -79,7 +80,7 @@ const idLabel = computed(() => (id.value ? toTitleCase(id.value) : ''));
   box-shadow: var(--shadow-elevation-1);
 }
 
-html:not(.light) .legacy-section {
+html[data-theme='dark'] .legacy-section {
   background-color: var(--md-sys-color-surface-container);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 35%, transparent);
   box-shadow: var(--shadow-elevation-2);
@@ -146,7 +147,7 @@ html:not(.light) .legacy-section {
   gap: var(--md-sys-spacing-2);
 }
 
-html:not(.light) .legacy-section__body > :deep([data-legacy-card]) {
+html[data-theme='dark'] .legacy-section__body > :deep([data-legacy-card]) {
   background-color: var(--md-sys-color-surface-container-high);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 35%, transparent);
   box-shadow: var(--shadow-elevation-2);
@@ -189,7 +190,7 @@ html:not(.light) .legacy-section__body > :deep([data-legacy-card]) {
   overflow-x: auto;
 }
 
-html:not(.light) .legacy-section__body :deep(pre) {
+html[data-theme='dark'] .legacy-section__body :deep(pre) {
   background-color: color-mix(in srgb, var(--md-sys-color-surface-container-high) 90%, transparent);
 }
 
@@ -250,7 +251,7 @@ html:not(.light) .legacy-section__body :deep(pre) {
   gap: var(--md-sys-spacing-2);
 }
 
-html:not(.light) .legacy-section__body :deep([data-legacy-grid] > [data-legacy-card]) {
+html[data-theme='dark'] .legacy-section__body :deep([data-legacy-grid] > [data-legacy-card]) {
   background-color: var(--md-sys-color-surface-container-high);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 30%, transparent);
   box-shadow: var(--shadow-elevation-2);

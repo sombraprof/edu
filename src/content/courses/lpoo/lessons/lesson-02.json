@@ -1,248 +1,174 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-02",
   "title": "Aula 2: Estrutura de um Programa Java e Sintaxe Básica",
-  "objective": "Compreender e aplicar a estrutura e sintaxe fundamental do Java para criar programas simples que interagem com o usuário.",
-  "content": [
+  "summary": "Explora o esqueleto de um projeto Java, apresenta a sintaxe essencial e demonstra o ciclo de compilação e execução.",
+  "objective": "Dominar a anatomia de classes Java e preparar o ambiente para codificar com segurança.",
+  "objectives": [
+    "Criar e executar um projeto Java utilizando IntelliJ IDEA ou VS Code.",
+    "Reconhecer a estrutura mínima de uma classe Java e o papel do método `main`.",
+    "Experimentar a leitura de entrada e a impressão de resultados no console."
+  ],
+  "competencies": [
+    "Construção de programas orientados a objetos",
+    "Uso de ferramentas de desenvolvimento",
+    "Leitura e escrita de código Java"
+  ],
+  "skills": [
+    "Configurar projetos com Gradle ou Maven a partir de templates.",
+    "Utilizar o compilador `javac` e a JVM para testar alterações locais.",
+    "Interpretar mensagens de erro de compilação e corrigir problemas sintáticos."
+  ],
+  "outcomes": [
+    "Repositório com projeto base configurado e README de execução.",
+    "Snippet comentado explicando cada parte de uma classe.",
+    "Quadro de comandos úteis (`javac`, `java`, `gradlew`)."
+  ],
+  "prerequisites": [
+    "Instalação do JDK 21 e do IntelliJ IDEA Community ou VS Code.",
+    "Conhecimentos básicos de lógica e algoritmos."
+  ],
+  "tags": ["poo", "java", "sintaxe"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
     {
-      "type": "contentBlock",
-      "title": "Ementa e Contextualização",
-      "content": [
-        {
-          "type": "callout",
-          "variant": "info",
-          "content": "**Pré-requisito:** Certifique-se de que o `Java JDK` e uma IDE como `Eclipse`, `IntelliJ` ou `NetBeans` estão instalados. Esses passos foram abordados na **Aula 1**."
-        },
-        {
-          "type": "paragraph",
-          "text": "Antes de construirmos sistemas complexos, precisamos dominar os fundamentos. Nesta aula, vamos dissecar a estrutura de um programa `Java`, entender sua sintaxe e aprender a interagir com o usuário."
-        },
-        {
-          "type": "paragraph",
-          "text": "Dominar esses pilares é essencial para escrever código limpo, funcional e legível, habilidades que conectam diretamente esta unidade às **APS** e ao mercado de trabalho no desenvolvimento de software."
-        }
-      ]
+      "label": "Download IntelliJ IDEA",
+      "type": "tool",
+      "url": "https://www.jetbrains.com/idea/download/"
     },
     {
+      "label": "Guia oficial do Gradle para iniciantes",
+      "type": "article",
+      "url": "https://docs.gradle.org/current/userguide/getting_started.html"
+    }
+  ],
+  "bibliography": [
+    "DEITEL, P.; DEITEL, H. Java — Como Programar. 11. ed. Pearson, 2023.",
+    "ECKEL, B. Thinking in Java. 4. ed. Prentice Hall, 2022."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Configuração do projeto base com execução de um programa que lê dados do usuário e imprime um resumo formatado.",
+    "rubric": "Projeto executa sem erros, inclui README com comandos e captura de tela do console."
+  },
+  "content": [
+    {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade I — Fundamentos do Java",
+        "content": "Estrutura mínima de um programa orientado a objetos, ferramentas de compilação e execução e boas práticas iniciais."
+      },
       "cards": [
         {
-          "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Estrutura de um programa Java, sintaxe básica, método `main`, tipos primitivos, e entrada/saída de dados com `Scanner`."
+          "icon": "bullseye",
+          "title": "Arranque rápido",
+          "content": "Hands-on guiado no IDE para gerar e executar o primeiro projeto."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Compreender e aplicar a estrutura e sintaxe fundamental do Java para criar programas simples que interagem com o usuário."
+          "icon": "code",
+          "title": "Sintaxe essencial",
+          "content": "Declaração de classes, método `main`, variáveis, tipos primitivos e comentários."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Aula expositiva, exemplos de código comentados, e uma atividade prática para reforçar os conceitos de entrada e saída."
+          "title": "Ferramentas",
+          "content": "Fluxo de compilação com `javac`/`java` e automação com Gradle."
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "🔩 A Anatomia de um Programa Java",
-      "content": [
-        {
-          "type": "contentBlock",
-          "title": "1. Estrutura Geral de um Arquivo Java",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Um arquivo `.java` pode conter várias partes. Em programas simples, usamos apenas a classe e o método `main`, mas é importante conhecer a estrutura completa:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "**Package:** Define o pacote da classe. Ex.: `package br.edu.unifametro;`",
-                "**Imports:** Traz classes externas. Ex.: `import java.util.Scanner;`",
-                "**Classe:** Contém atributos e métodos. Ex.: `public class Programa { }`",
-                "**Método main:** Ponto de entrada. Ex.: `public static void main(String[] args)`"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "2. Estrutura Mínima de um Programa",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Todo programa executável em `Java` precisa de, no mínimo, uma classe pública e um método `main`. Pense na classe como o \"container\" do código e no método `main` como a porta de entrada."
-            },
-            {
-              "type": "list",
-              "items": [
-                "`public class NomeDaClasse { ... }`: O nome do arquivo deve ser idêntico ao da classe.",
-                "`{ ... }`: As chaves delimitam blocos de código.",
-                "`;`: Finaliza uma instrução, como um ponto final em uma frase."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "3. Tipos de Dados e Sintaxe Básica",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "O Java é uma linguagem fortemente tipada, ou seja, cada variável precisa ter um tipo definido. Os mais comuns são:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "`int`: números inteiros.",
-                "`double`: números com ponto flutuante.",
-                "`boolean`: valores lógicos (`true` ou `false`).",
-                "`char`: um único caractere.",
-                "`String`: sequência de caracteres (não é primitivo, mas usado como tal)."
-              ]
-            },
-            {
-              "type": "callout",
-              "variant": "good-practice",
-              "content": "**Dica:** Use nomes de variáveis que descrevam o propósito. Ex.: `idadeAluno` é melhor que `x`."
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "4. O Método main",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "A assinatura `public static void main(String[] args)` é onde tudo começa. A JVM procura por esse método como ponto de entrada."
-            },
-            {
-              "type": "list",
-              "items": [
-                "`public`: Acessível de qualquer lugar.",
-                "`static`: Pertence à classe, não a uma instância.",
-                "`void`: Não retorna valor.",
-                "`String[] args`: Recebe argumentos da linha de comando."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "5. Entrada e Saída de Dados",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Programas interativos precisam exibir informações e ler dados do usuário:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "**Saída:** `System.out.println()` imprime no console.",
-                "**Entrada:** A classe `Scanner` lê dados do teclado. Exige o import `import java.util.Scanner;`."
-              ]
-            }
-          ]
-        }
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Demonstração guiada: criar projeto Gradle no IDE.",
+        "(20 min) Anatomia da classe `HelloWorld` e papel do método `main`.",
+        "(25 min) Oficina: leitura de entrada com `Scanner` e impressão formatada.",
+        "(20 min) Diagnóstico de erros comuns de compilação.",
+        "(15 min) Introdução a Gradle tasks (`gradlew run`, `gradlew test`).",
+        "(10 min) Orientações para tarefa assíncrona e versão no GitHub."
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "💻 Exemplos Práticos",
-      "content": [
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 1: O Clássico \"Hello, World!\"",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Nosso primeiro programa. Ele apenas imprime uma mensagem no console."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "/**\n * A classic \"Hello, World!\" program in Java.\n * This demonstrates the basic structure of a Java class with the main method.\n */\npublic class HelloWorld {\n    public static void main(String[] args) {\n        // Prints the text \"Hello, LPOO World!\" to the console.\n        System.out.println(\"Hello, LPOO World!\");\n        \n        // Using printf for formatted output (no line break by default).\n        System.out.printf(\"Welcome to %s, Aula %d\\n\", \"LPOO\", 2);\n    }\n}"
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 2: Lendo o Nome do Usuário",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Este programa usa a classe `Scanner` para ler um nome digitado pelo usuário e depois exibe uma saudação personalizada."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "// Import the Scanner class from the java.util package to read user input.\nimport java.util.Scanner;\n\n/**\n * A program that reads the user's name and prints a personalized greeting.\n */\npublic class Greeting {\n    public static void main(String[] args) {\n        // Create a Scanner object to read input from the console.\n        Scanner inputReader = new Scanner(System.in);\n\n        System.out.print(\"Please, enter your name: \");\n        // Read the next line entered by the user.\n        String userName = inputReader.nextLine();\n\n        // Print a personalized greeting using printf.\n        System.out.printf(\"Hello, %s! Welcome to LPOO.\\n\", userName);\n\n        // Always close the Scanner to release resources.\n        inputReader.close();\n    }\n}"
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 3: Somando Dois Números",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Aqui, lemos dois números inteiros, realizamos a soma e exibimos o resultado."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "import java.util.Scanner;\n\n/**\n * A program that reads two integers, validates input, and prints their sum.\n */\npublic class SimpleCalculator {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n\n        System.out.print(\"Enter the first number: \");\n        int number1 = scanner.nextInt();\n\n        System.out.print(\"Enter the second number: \");\n        int number2 = scanner.nextInt();\n\n        int sum = number1 + number2;\n\n        // Using printf to format the output.\n        System.out.printf(\"The sum of %d and %d is: %d\\n\", number1, number2, sum);\n\n        // Basic validation example (just a demonstration)\n        if(sum < 0) {\n            System.out.println(\"Note: The sum is negative.\");\n        }\n\n        scanner.close();\n    }\n}"
-            }
-          ]
-        }
-      ]
+      "type": "callout",
+      "variant": "warning",
+      "title": "Atenção ao pacote",
+      "content": "Garanta que o nome do pacote no topo da classe corresponde ao diretório onde o arquivo está salvo. Inconsistências quebram a compilação."
     },
     {
       "type": "contentBlock",
-      "title": "Atividade Prática (TED): Cadastro Simples",
+      "title": "Desmontando o Hello World",
       "content": [
         {
           "type": "paragraph",
-          "text": "Vamos criar um programa que simula um cadastro simples, coletando nome e idade do usuário e exibindo uma mensagem formatada. Esta atividade é o primeiro passo para a APS, onde construiremos sistemas que gerenciam dados."
+          "text": "Cada arquivo `.java` contém exatamente uma classe pública cujo nome precisa coincidir com o arquivo. O método `main` funciona como ponto de entrada."
         },
         {
-          "type": "list",
+          "type": "subBlock",
+          "title": "Elementos-chave",
           "items": [
-            "Crie uma nova classe chamada `SimpleRegistration.java`.",
-            "Dentro do método `main`, crie um objeto `Scanner` para ler a entrada do teclado.",
-            "Peça para o usuário digitar seu nome completo e armazene em uma variável `String`.",
-            "Em seguida, peça para o usuário digitar sua idade e armazene em uma variável `int`.",
-            "No final, imprima uma frase formatada no console, como: `Cadastro realizado! Olá, [Nome], você tem [Idade] anos.`",
-            "Não se esqueça de fechar o `Scanner` no final do programa."
+            "<p><strong>Declaração de pacote:</strong> Mantém o código organizado e evita colisões de nomes.</p>",
+            "<p><strong>Imports:</strong> Tornam classes externas disponíveis sem precisar do nome completo.</p>",
+            "<p><strong>Classe pública:</strong> Container principal de atributos e métodos.</p>",
+            "<p><strong>Método <code>main</code>:</strong> Executado pela JVM, recebe argumentos da linha de comando.</p>"
           ]
-        },
-        {
-          "type": "callout",
-          "variant": "info",
-          "title": "Sugestão de Metodologia Ativa",
-          "content": "Tente resolver esta atividade em dupla (*pair programming*). Um colega digita (\"piloto\") enquanto o outro orienta e revisa (\"co-piloto\"). Troquem de papéis no meio da atividade. Isso ajuda a encontrar erros e a aprender mais rápido!"
         }
       ]
     },
     {
-      "type": "checklist",
-      "title": "Checklist de Aprendizagem da Aula",
-      "items": [
-        "Descrever a estrutura básica de uma classe Java com um método `main`.",
-        "Declarar variáveis de tipos primitivos como `String` e `int`.",
-        "Usar `System.out.println()` para exibir informações no console.",
-        "Utilizar a classe `Scanner` para ler dados do teclado."
+      "type": "cardGrid",
+      "title": "Ferramentas essenciais",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "JDK",
+          "subtitle": "Compilador + JVM",
+          "tone": "info",
+          "content": "Inclui `javac`, `java`, documentação e ferramentas adicionais."
+        },
+        {
+          "title": "IDE",
+          "subtitle": "Produtividade",
+          "tone": "success",
+          "content": "Sugestão de código, depuração, refatorações e integração com VCS."
+        },
+        {
+          "title": "Build Tool",
+          "subtitle": "Automação",
+          "tone": "neutral",
+          "content": "Gerencia dependências, compilações, empacotamento e testes automatizados."
+        }
       ]
     },
     {
-      "type": "bibliographyBlock",
-      "title": "📚 Bibliografia de Apoio",
-      "references": [
-        "**DEITEL, Harvey M.; DEITEL, Paul J.** <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.",
-        "**SCHILDT, Herbert.** <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015.",
-        "**GOODRICH, Michael T.; TAMASSIA, Roberto.** <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013."
-      ]
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Pipeline de compilação Java",
+        "summary": "Representação das etapas percorridas por um arquivo `.java` até gerar um programa executável.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Código-fonte Java" },
+          { "id": "compile", "type": "process", "title": "Compilar com javac" },
+          { "id": "bytecode", "type": "data", "title": "Gerar bytecode (.class)" },
+          { "id": "jvm", "type": "process", "title": "Carregar na JVM" },
+          { "id": "runtime", "type": "output", "title": "Programa em execução" },
+          { "id": "end", "type": "end", "title": "Resultado no console" }
+        ],
+        "connections": [
+          { "from": "start", "to": "compile" },
+          { "from": "compile", "to": "bytecode" },
+          { "from": "bytecode", "to": "jvm" },
+          { "from": "jvm", "to": "runtime" },
+          { "from": "runtime", "to": "end" }
+        ]
+      }
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-25T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Laboratório LPOO – roteiro 01", "Documentação Oracle Java 21"]
+  }
 }
