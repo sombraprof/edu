@@ -92,7 +92,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Check-in inicial",
-      "content": "Partilhe com a turma um processo do seu dia a dia que poderia ser descrito como um algoritmo. Quais passos nunca podem ser esquecidos?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Partilhe com a turma um processo do seu dia a dia que poderia ser descrito como um algoritmo. Quais passos nunca podem ser esquecidos?"
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -128,15 +133,15 @@
           "type": "subBlock",
           "title": "Estrutura básica de um argumento lógico",
           "items": [
-            "<p><strong>Premissas</strong>: fatos ou condições que assumimos como verdade.</p>",
-            "<p><strong>Regra</strong>: relação que conecta as premissas à conclusão.</p>",
-            "<p><strong>Conclusão</strong>: afirmação resultante da aplicação da regra.</p>",
+            "Premissas: fatos ou condições que assumimos como verdade.",
+            "Regra: relação que conecta as premissas à conclusão.",
+            "Conclusão: afirmação resultante da aplicação da regra.",
             {
               "component": "Callout",
               "props": {
                 "variant": "good-practice",
                 "title": "Exemplo",
-                "content": "Se a porta está fechada <strong>e</strong> há chave na minha mão, então consigo entrar."
+                "content": "Se a porta está fechada e há chave na minha mão, então consigo entrar."
               }
             }
           ]

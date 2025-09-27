@@ -4,50 +4,113 @@
   "objective": "Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas.",
   "content": [
     {
-      "type": "html",
-      "html": "<p class=\"text-body-large style=\"color: var(--md-sys-color-on-surface);\" style=\"color: var(--md-sys-color-on-surface);\" mt-2\">Avaliação integradora: lógica, pseudocódigo, fluxogramas, estruturas sequenciais, condicionais, repetição, funções, vetores, matrizes e structs. Data de aplicação: <strong>15/12/2025</strong>.</p>"
-    },
-    {
-      "type": "contentBlock",
-      "title": "Escopo da Avaliação",
-      "content": [
-        {
-          "type": "html",
-          "html": "<ul class=\"list-disc list-inside space-y-2 style=\"color: var(--md-sys-color-on-surface);\"\"><li>Lógica básica, pseudocódigo e fluxogramas.</li><li>Modelo sequencial em C: variáveis, constantes, operadores, entrada/saída.</li><li>Estruturas condicionais (<strong>if/else</strong>) e repetição (<strong>while</strong>, <strong>for</strong>, <strong>do-while</strong> e laços aninhados).</li><li>Modularização com <strong>funções</strong> (parâmetros, retorno, protótipos, escopo).</li><li>Estruturas de dados: <strong>vetores</strong>, <strong>matrizes</strong> e <strong>structs</strong>.</li></ul>"
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "academic",
-      "title": "Procedimentos e Regras",
-      "content": "<ul class=\"list-disc list-inside space-y-2\"><li>Avaliação individual, silenciosa, em papel e <strong>sem consulta</strong>.</li><li>Organize o código, use <strong>identação</strong> e escolha bons nomes de variáveis/funções.</li><li>Ao usar arrays/structs, deixe claros os índices/campos e a lógica de percorrer coleções.</li></ul>"
-    },
-    {
-      "type": "contentBlock",
-      "title": "Critérios de Correção",
-      "content": [
-        {
-          "type": "html",
-          "html": "<ul class=\"list-disc list-inside space-y-2 style=\"color: var(--md-sys-color-on-surface);\"\"><li>Correção das soluções e cobertura dos requisitos de cada questão.</li><li>Qualidade do raciocínio algorítmico e do <strong>design</strong> (modularização quando cabível).</li><li>Uso correto de <strong>vetores</strong>, <strong>matrizes</strong> e <strong>structs</strong> quando requisitado.</li><li>Clareza de saída e legibilidade (comentários sucintos quando necessário).</li></ul>"
-        }
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "Bibliografia de Referência",
+      "type": "flightPlan",
+      "title": "Mapa da avaliação integradora",
       "items": [
-        "<strong>FORBELLONE, A. L. V.; EBERSPÄCHER, H. F.</strong> Lógica de Programação.",
-        "<strong>BACKES, André.</strong> Linguagem C: completa e descomplicada.",
-        "<strong>SANTOS, Marcelo Gonçalves dos.</strong> Linguagem de programação.",
-        "<strong>MANZANO, J. A. N. G.; OLIVEIRA, J. F.</strong> Algoritmos: lógica para desenvolvimento de programação de computadores."
+        "Escopo: Prova NP3 presencial abrangendo todos os tópicos do semestre, com duração de 120 minutos.",
+        "Formato: Questões discursivas, resolução de algoritmos completos e análise de código existente.",
+        "Objetivo: Demonstrar domínio de lógica, estruturas de dados lineares e modularização em C.",
+        "Estratégia: Planejar tempo entre leitura, rascunho e revisão, priorizando clareza de raciocínio.",
+        "Entrega: Respostas devem conter pseudocódigo ou C legível, acompanhadas de explicações breves."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Componentes-chave da prova",
+      "cards": [
+        {
+          "title": "Fluxos completos",
+          "content": "Avalia a capacidade de ligar entrada, processamento e saída com estruturas sequenciais, condicionais e iterativas."
+        },
+        {
+          "title": "Coleções",
+          "content": "Questões com vetores, matrizes e structs, explorando percursos, buscas e agregações de dados."
+        },
+        {
+          "title": "Funções reutilizáveis",
+          "content": "Exige decomposição em funções bem nomeadas, com parâmetros e retorno adequados para reutilização."
+        },
+        {
+          "title": "Análise crítica",
+          "content": "Inclui identificação de erros lógicos, discussão de complexidade e sugestões de melhoria em códigos fornecidos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estrutura da avaliação",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Parte 1 — Diagnóstico",
+              "text": "Questões curtas para confirmar domínio de sintaxe, operadores e leitura de tabelas verdade."
+            },
+            {
+              "title": "Parte 2 — Desenvolvimento",
+              "text": "Problemas que pedem construção de algoritmos completos com vetores/matrizes e decisões encadeadas."
+            },
+            {
+              "title": "Parte 3 — Reflexão",
+              "text": "Questões sobre manutenção de código: justificar escolhas, propor refatorações ou estimar complexidade."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Utilize rascunho para mapear as etapas do algoritmo antes de codificar. A clareza na apresentação vale pontos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Critérios de avaliação",
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "Como a nota é distribuída",
+          "items": [
+            "Corretude (40%): resultados esperados, tratamento de bordas e validação de entrada.",
+            "Estrutura (30%): uso apropriado de laços, decisões e funções para organizar o algoritmo.",
+            "Dados (20%): manipulação correta de vetores, matrizes e registros, incluindo índices e inicializações.",
+            "Apresentação (10%): indentação, nomenclatura consistente e explicações concisas quando solicitadas."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Dica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Releia a rubrica oficial disponível no Ambiente Virtual para alinhar expectativas e autoavaliação."
+            }
+          ]
+        }
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "TED",
-      "content": "Não aplicável nesta aula (substituído pela avaliação NP3)."
+      "variant": "good-practice",
+      "title": "Checklist final",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revisar exercícios integradores, praticar leitura de código legado e simular a prova com tempo cronometrado."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Conduta",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prova individual, sem consulta. Entregue todo material de rascunho ao final e mantenha dispositivos desligados."
+        }
+      ]
     }
   ],
   "metadata": {

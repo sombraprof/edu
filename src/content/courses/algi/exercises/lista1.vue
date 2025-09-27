@@ -1,32 +1,21 @@
 <script lang="ts">
+import metaData from './lista1.json';
+
 export const meta = {
-  id: 'lista1',
-  title: 'Lista 1 — Algoritmos básicos',
-  summary: 'Problemas de entrada, processamento e saída para consolidar a lógica sequencial.',
+  id: metaData.id,
+  title: metaData.title,
+  summary: metaData.summary,
   available: false,
 };
+
 export default {};
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import LegacyHtml from '@/components/lesson/LegacyHtml.vue';
-
-const content = computed(
-  () => `<section>
-  <h2>Lista 1 — Algoritmos básicos</h2>
-  <p>Resolva os exercícios propostos utilizando pseudocódigo ou C. Registre o passo a passo e os testes realizados.</p>
-  <ol>
-    <li>Escreva um algoritmo que leia dois números inteiros e apresente a soma, subtração, multiplicação e divisão inteira.</li>
-    <li>Leia o nome de um aluno e três notas. Calcule a média aritmética simples e informe se o aluno está aprovado (média ≥ 6) ou em recuperação.</li>
-    <li>Construa um algoritmo que converta graus Celsius para Fahrenheit e Kelvin. Solicite apenas o valor em Celsius.</li>
-    <li>Faça um programa que leia o tempo gasto em uma viagem e a velocidade média em km/h. Exiba a distância percorrida em quilômetros.</li>
-  </ol>
-  <p>Entrega sugerida: <strong>arquivo .c</strong> por exercício ou um único projeto com funções separadas.</p>
-</section>`
-);
+import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
+import exerciseData from './lista1.json';
 </script>
 
 <template>
-  <LegacyHtml :html="content" />
+  <LessonRenderer :data="exerciseData" />
 </template>

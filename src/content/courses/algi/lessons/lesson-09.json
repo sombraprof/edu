@@ -92,9 +92,9 @@
           "type": "subBlock",
           "title": "Passos",
           "items": [
-            "<p><strong>Entrada:</strong> salário base.</p>",
-            "<p><strong>Processamento:</strong> calcular gratificação (5%) e imposto (7%), depois salário líquido.</p>",
-            "<p><strong>Saída:</strong> relatório com valores formatados.</p>"
+            "Entrada: salário base.",
+            "Processamento: calcular gratificação (5%) e imposto (7%), depois salário líquido.",
+            "Saída: relatório com valores formatados."
           ]
         },
         {
@@ -108,7 +108,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Dica de decomposição",
-      "content": "<p>Liste cada etapa em português antes de escrever o código. Transforme o checklist em comentários para orientar quem for revisar.</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Liste cada etapa em português antes de escrever o código. Transforme o checklist em comentários para orientar quem for revisar."
+        }
+      ]
     },
     {
       "type": "contentBlock",

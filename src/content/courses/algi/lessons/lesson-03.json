@@ -86,12 +86,37 @@
           "text": "Computadores executam instruções exatamente na ordem fornecida. Um passo fora de lugar pode invalidar toda a solução."
         },
         {
-          "type": "subBlock",
-          "title": "Estudo rápido",
-          "items": [
-            "<div class=\"grid md:grid-cols-2 gap-6\"><div class=\"callout callout-danger\"><h5 class=\"font-bold mb-2\">Sequência incorreta</h5><ol class=\"list-decimal list-inside\"><li>Pegar o sapato.</li><li>Calçar o sapato.</li><li>Pegar a meia.</li><li>Tentar calçar a meia. ❌</li></ol></div><div class=\"callout callout-success\"><h5 class=\"font-bold mb-2\">Sequência correta</h5><ol class=\"list-decimal list-inside\"><li>Pegar a meia.</li><li>Calçar a meia.</li><li>Pegar o sapato.</li><li>Calçar o sapato. ✅</li></ol></div></div>",
-            "<p>Reescreva o exemplo em dupla, destacando os verbos de ação e marcando onde decisões poderiam alterar a ordem.</p>"
+          "type": "callout",
+          "variant": "warning",
+          "title": "Sequência incorreta",
+          "content": [
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "Pegar o sapato.",
+                "Calçar o sapato.",
+                "Pegar a meia.",
+                "Tentar calçar a meia. ❌"
+              ]
+            }
           ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Sequência corrigida",
+          "content": [
+            {
+              "type": "list",
+              "ordered": true,
+              "items": ["Pegar a meia.", "Calçar a meia.", "Pegar o sapato.", "Calçar o sapato. ✅"]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Reescreva o exemplo em dupla, destacando os verbos de ação e marcando onde decisões poderiam alterar a ordem."
         }
       ]
     },
@@ -125,7 +150,7 @@
           "type": "subBlock",
           "title": "Template orientador",
           "items": [
-            "<pre class=\"language-pseudocode\">ALGORITMO &quot;NomeDoProcesso&quot;\nVARIAVEIS ...\nINICIO\n  PASSO_1\n  SE CONDICAO ENTAO\n    PASSO_2\n  SENAO\n    PASSO_ALTERNATIVO\n  FIM_SE\n  REPITA ...\nFIM_ALGORITMO</pre>",
+            "ALGORITMO \"NomeDoProcesso\" VARIAVEIS ... INICIO PASSO_1 SE CONDICAO ENTAO PASSO_2 SENAO PASSO_ALTERNATIVO FIM_SE REPITA ... FIM_ALGORITMO",
             {
               "component": "Callout",
               "props": {
@@ -150,7 +175,14 @@
           "type": "subBlock",
           "title": "Rubrica resumida",
           "items": [
-            "<ul class=\"list-disc list-inside space-y-1\"><li><strong>Sequência:</strong> passos ordenados e sem lacunas.</li><li><strong>Decisões:</strong> condições claras e justificadas.</li><li><strong>Resultados:</strong> saídas definidas e verificáveis.</li></ul>"
+            {
+              "type": "list",
+              "items": [
+                "Sequência: passos ordenados e sem lacunas.",
+                "Decisões: condições claras e justificadas.",
+                "Resultados: saídas definidas e verificáveis."
+              ]
+            }
           ]
         }
       ]
@@ -159,7 +191,12 @@
       "type": "callout",
       "variant": "task",
       "title": "TED da Aula 3",
-      "content": "Publique no Moodle o pseudocódigo gerado em sala, destacando a regra condicional mais crítica."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Publique no Moodle o pseudocódigo gerado em sala, destacando a regra condicional mais crítica."
+        }
+      ]
     },
     {
       "type": "checklist",

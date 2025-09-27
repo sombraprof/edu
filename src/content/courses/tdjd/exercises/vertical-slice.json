@@ -1,13 +1,54 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "vertical-slice",
-  "title": "Vertical slice digital",
-  "objective": "Implemente uma cena jogável com HUD básico, controles responsivos e build WebGL.",
+  "title": "Exercício — Vertical slice",
+  "summary": "Entregue uma fatia vertical jogável demonstrando ciclo completo de gameplay, UI e feedback.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "vertical-slice",
-      "title": "Vertical slice digital",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './vertical-slice.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Escopo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza uma build com uma fase curta ou missão que represente a experiência final. Inclua loop básico de jogo, interface e feedback audiovisual."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Requisitos",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Gameplay",
+              "text": "Implementar mecânicas principais (movimento, objetivo, falha/sucesso)."
+            },
+            {
+              "title": "UI",
+              "text": "Exibir HUD essencial e menus de início/fim."
+            },
+            {
+              "title": "Feedback",
+              "text": "Adicionar áudio e efeitos visuais que respondam às ações do jogador."
+            },
+            {
+              "title": "Estabilidade",
+              "text": "Corrigir bugs críticos e garantir taxa de quadros estável na plataforma alvo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Entrega",
+      "items": [
+        "Build jogável ou WebGL publicada.",
+        "Vídeo curto demonstrando a fatia vertical.",
+        "Notas de playtest com melhorias planejadas."
+      ]
     }
   ]
 }

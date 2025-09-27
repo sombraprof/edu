@@ -299,7 +299,12 @@
       "type": "callout",
       "variant": "warning",
       "title": "Ordem importa",
-      "content": "<p>Condições mais amplas colocadas no topo capturam valores demais e impedem que as faixas específicas sejam avaliadas. Comece pelo cenário mais restritivo.</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Condições mais amplas colocadas no topo capturam valores demais e impedem que as faixas específicas sejam avaliadas. Comece pelo cenário mais restritivo."
+        }
+      ]
     },
     {
       "type": "contentBlock",

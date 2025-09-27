@@ -148,7 +148,18 @@
       "type": "callout",
       "variant": "academic",
       "title": "Procedimentos e regras",
-      "content": "<ul class=\"list-disc list-inside space-y-2\"><li>Avaliação individual, silenciosa e sem consulta.</li><li>Celulares e dispositivos devem permanecer desligados e guardados.</li><li>Utilize caneta azul ou preta e mantenha a letra legível.</li><li>Justifique algoritmos ou escolhas de fluxo sempre que solicitado.</li></ul>"
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Avaliação individual, silenciosa e sem consulta.",
+            "Celulares e dispositivos devem permanecer desligados e guardados.",
+            "Utilize caneta azul ou preta e mantenha a letra legível.",
+            "Justifique algoritmos ou escolhas de fluxo sempre que solicitado."
+          ]
+        }
+      ]
     },
     {
       "type": "md3Table",
@@ -205,7 +216,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Materiais permitidos",
-      "content": "<p>Somente caneta, lápis, borracha e documento de identificação. Calculadoras não são necessárias; utilize o espaço de rascunho para validar raciocínios.</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Somente caneta, lápis, borracha e documento de identificação. Calculadoras não são necessárias; utilize o espaço de rascunho para validar raciocínios."
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -235,7 +251,12 @@
       "type": "callout",
       "variant": "task",
       "title": "TED",
-      "content": "<p>Não há TED nesta aula. Utilize o tempo pós-prova para revisar as questões com as anotações pessoais e preparar dúvidas para a devolutiva.</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Não há TED nesta aula. Utilize o tempo pós-prova para revisar as questões com as anotações pessoais e preparar dúvidas para a devolutiva."
+        }
+      ]
     }
   ],
   "metadata": {

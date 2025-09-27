@@ -94,8 +94,20 @@
           "type": "subBlock",
           "title": "Exemplo: Organizar um churrasco",
           "items": [
-            "<p>Listar tarefas e dependências expõe a ordem correta de execução:</p>",
-            "<ul class=\"list-disc list-inside space-y-1\"><li>Definir data e número de convidados.</li><li>Verificar orçamento disponível.</li><li>Comprar alimentos e carvão.</li><li>Preparar equipamentos e área de convivência.</li><li>Iniciar o fogo apenas após a preparação.</li></ul>",
+            {
+              "type": "paragraph",
+              "text": "Listar tarefas e dependências expõe a ordem correta de execução."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Definir data e número de convidados.",
+                "Verificar orçamento disponível.",
+                "Comprar alimentos e carvão.",
+                "Preparar equipamentos e área de convivência.",
+                "Iniciar o fogo apenas após a preparação."
+              ]
+            },
             {
               "component": "Callout",
               "props": {
@@ -124,7 +136,10 @@
           "type": "subBlock",
           "title": "Caso: Autorização de desconto",
           "items": [
-            "<p>Um cliente recebe desconto se o valor da compra for maior que R$ 200 <strong>e</strong> (o cliente for VIP <strong>ou</strong> tiver cupom).</p>",
+            {
+              "type": "paragraph",
+              "text": "Um cliente recebe desconto se o valor da compra for maior que R$ 200 e (o cliente for VIP ou tiver cupom)."
+            },
             {
               "component": "Callout",
               "props": {
@@ -296,7 +311,12 @@
       "type": "callout",
       "variant": "task",
       "title": "TED da Aula 2",
-      "content": "Publique no Moodle uma descrição do processo escolhido pela dupla, anexando a tabela-verdade construída em sala."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Publique no Moodle uma descrição do processo escolhido pela dupla, anexando a tabela-verdade construída em sala."
+        }
+      ]
     }
   ],
   "metadata": {

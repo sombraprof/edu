@@ -30,7 +30,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Na aula anterior, aprendemos a conceituar um jogo com o GDD e a criar formas básicas com ProBuilder. Hoje, vamos aprofundar o uso dessa ferramenta para praticar o <strong>Level Design</strong> — a arte e a ciência de criar os ambientes, fases e missões de um jogo."
+          "text": "Na aula anterior, aprendemos a conceituar um jogo com o GDD e a criar formas básicas com ProBuilder. Hoje, vamos aprofundar o uso dessa ferramenta para praticar o Level Design — a arte e a ciência de criar os ambientes, fases e missões de um jogo."
         },
         {
           "type": "blockquote",
@@ -45,7 +45,7 @@
     },
     {
       "type": "cardGrid",
-      "title": "<i class=\"fa-solid fa-lightbulb mr-2\"></i>Princípios do Bom Level Design",
+      "title": "Princípios do Bom Level Design",
       "cards": [
         {
           "title": "Fluxo do Jogador",
@@ -67,11 +67,11 @@
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-book mr-2\"></i>História e Referências do Level Design",
+      "title": "História e Referências do Level Design",
       "content": [
         {
           "type": "paragraph",
-          "text": "O conceito de <strong>level design</strong> evoluiu junto com a própria indústria de jogos. Nos anos 80, títulos como <em>Super Mario Bros.</em> (1985) já usavam o design de níveis para ensinar regras sem precisar de tutoriais escritos:"
+          "text": "O conceito de level design evoluiu junto com a própria indústria de jogos. Nos anos 80, títulos como Super Mario Bros. (1985) já usavam o design de níveis para ensinar regras sem precisar de tutoriais escritos:"
         },
         {
           "type": "blockquote",
@@ -80,32 +80,32 @@
         },
         {
           "type": "paragraph",
-          "text": "A partir dos anos 90, jogos em 3D como <em>Doom</em> (1993) e <em>Half-Life</em> (1998) expandiram as possibilidades, trazendo ritmo, narrativa e exploração. Atualmente, obras como <em>The Last of Us</em> e <em>Dark Souls</em> exemplificam o uso de <em>landmarks</em>, guias visuais e controle de ritmo para criar experiências imersivas."
+          "text": "A partir dos anos 90, jogos em 3D como Doom (1993) e Half-Life (1998) expandiram as possibilidades, trazendo ritmo, narrativa e exploração. Atualmente, obras como The Last of Us e Dark Souls exemplificam o uso de landmarks, guias visuais e controle de ritmo para criar experiências imersivas."
         },
         {
           "type": "paragraph",
-          "text": "Segundo Paul Schuytema (2008), <em>\"o level design é a ponte entre a mecânica e a emoção do jogador\"</em>, reforçando que não se trata apenas de construir cenários, mas de <strong>arquitetar experiências</strong>."
+          "text": "Segundo Paul Schuytema (2008), \"o level design é a ponte entre a mecânica e a emoção do jogador\", reforçando que não se trata apenas de construir cenários, mas de arquitetar experiências."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-gamepad mr-2\"></i>Exemplos Reais de Level Design",
+      "title": "Exemplos Reais de Level Design",
       "content": [
         {
           "type": "list",
           "items": [
-            "<strong>🎮 Super Mario Bros. (1985)</strong>: O primeiro nível é projetado para ensinar movimento, pulo e colisão sem texto. Blocos e inimigos são introduzidos gradualmente para guiar o jogador a experimentar as regras.",
-            "<strong>🎮 The Legend of Zelda: Ocarina of Time (1998)</strong>: Introduz o <em>Dungeon Design</em>, onde cada sala ensina uma mecânica que será exigida em puzzles futuros. Esse modelo é referência até hoje para jogos de aventura.",
-            "<strong>🎮 Dark Souls (2011)</strong>: Conhecido pelo <em>level design interconectado</em>, onde atalhos e landmarks (como a chama da bonfire) criam uma sensação de descoberta e domínio do espaço. A dificuldade é equilibrada pelo próprio design do cenário.",
-            "<strong>🎮 The Last of Us (2013)</strong>: Utiliza o cenário para <strong>contar histórias ambientais</strong> (environmental storytelling). Um prédio destruído, pichações ou objetos no chão comunicam a narrativa sem cutscenes."
+            "🎮 Super Mario Bros. (1985): O primeiro nível é projetado para ensinar movimento, pulo e colisão sem texto. Blocos e inimigos são introduzidos gradualmente para guiar o jogador a experimentar as regras.",
+            "🎮 The Legend of Zelda: Ocarina of Time (1998): Introduz o Dungeon Design, onde cada sala ensina uma mecânica que será exigida em puzzles futuros. Esse modelo é referência até hoje para jogos de aventura.",
+            "🎮 Dark Souls (2011): Conhecido pelo level design interconectado, onde atalhos e landmarks (como a chama da bonfire) criam uma sensação de descoberta e domínio do espaço. A dificuldade é equilibrada pelo próprio design do cenário.",
+            "🎮 The Last of Us (2013): Utiliza o cenário para contar histórias ambientais (environmental storytelling). Um prédio destruído, pichações ou objetos no chão comunicam a narrativa sem cutscenes."
           ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-wrench mr-2\"></i>Ferramentas Avançadas do ProBuilder",
+      "title": "Ferramentas Avançadas do ProBuilder",
       "content": [
         {
           "type": "contentBlock",
@@ -119,15 +119,15 @@
               "type": "cardGrid",
               "cards": [
                 {
-                  "title": "<i class=\"fa-solid fa-circle-nodes mr-2\"></i>Vertex",
+                  "title": "Vertex",
                   "content": "Edita os pontos individuais."
                 },
                 {
-                  "title": "<i class=\"fa-solid fa-draw-polygon mr-2\"></i>Edge",
+                  "title": "Edge",
                   "content": "Edita as linhas que conectam os pontos."
                 },
                 {
-                  "title": "<i class=\"fa-solid fa-square-check mr-2\"></i>Face",
+                  "title": "Face",
                   "content": "Edita as superfícies poligonais."
                 }
               ]
@@ -141,10 +141,10 @@
             {
               "type": "list",
               "items": [
-                "<strong>Extrude:</strong> \"Puxa\" uma face para fora, criando nova geometria. Essencial para criar paredes, degraus e detalhes.",
-                "<strong>Bevel:</strong> Suaviza as bordas, chanfrando-as. Útil para criar rampas e acabamentos mais orgânicos.",
-                "<strong>Connect Edges/Vertices:</strong> Cria novas arestas ou vértices entre os elementos selecionados, permitindo maior detalhamento.",
-                "<strong>Triangulate Faces:</strong> Garante que as faces sejam renderizadas corretamente, especialmente após edições complexas."
+                "Extrude: \"Puxa\" uma face para fora, criando nova geometria. Essencial para criar paredes, degraus e detalhes.",
+                "Bevel: Suaviza as bordas, chanfrando-as. Útil para criar rampas e acabamentos mais orgânicos.",
+                "Connect Edges/Vertices: Cria novas arestas ou vértices entre os elementos selecionados, permitindo maior detalhamento.",
+                "Triangulate Faces: Garante que as faces sejam renderizadas corretamente, especialmente após edições complexas."
               ]
             }
           ]
@@ -152,14 +152,19 @@
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-puzzle-piece mr-2\"></i>Mini-Desafio: Criando uma Ponte",
-          "content": "Vamos praticar: crie um cubo longo e fino para ser a base da ponte. Use <strong>Connect Edges</strong> para adicionar segmentos no meio. Selecione as faces de cima desses novos segmentos e use <strong>Extrude</strong> para criar as laterais da ponte. Use <strong>Bevel</strong> nas bordas para suavizar."
+          "title": "Mini-Desafio: Criando uma Ponte",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Vamos praticar: crie um cubo longo e fino para ser a base da ponte. Use Connect Edges para adicionar segmentos no meio. Selecione as faces de cima desses novos segmentos e use Extrude para criar as laterais da ponte. Use Bevel nas bordas para suavizar."
+            }
+          ]
         }
       ]
     },
     {
       "type": "cardGrid",
-      "title": "<i class=\"fa-solid fa-map-location-dot mr-2\"></i>Construindo Espaços Interativos",
+      "title": "Construindo Espaços Interativos",
       "cards": [
         {
           "title": "Criação de Cobertura",
@@ -180,7 +185,7 @@
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-user-check mr-2\"></i>Playtesting e Refinamento",
+      "title": "Playtesting e Refinamento",
       "content": [
         {
           "type": "paragraph",
@@ -189,8 +194,20 @@
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-list-check mr-2\"></i>Checklist de Playtest do Blockout",
-          "content": "<ul><li><strong>Clareza:</strong> O caminho principal está claro? O jogador sabe para onde ir?</li><li><strong>Navegação:</strong> Existem lugares onde o jogador pode ficar preso (em cantos, buracos)?</li><li><strong>Escala:</strong> As portas, corredores e coberturas parecem do tamanho certo em relação ao personagem?</li><li><strong>Desafio:</strong> Os pulos são possíveis? A distância da cobertura é justa?</li><li><strong>Diversão:</strong> O simples ato de se mover pelo espaço é agradável?</li></ul>"
+          "title": "Checklist de Playtest do Blockout",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Clareza: O caminho principal está claro? O jogador sabe para onde ir?",
+                "Navegação: Existem lugares onde o jogador pode ficar preso (em cantos, buracos)?",
+                "Escala: As portas, corredores e coberturas parecem do tamanho certo em relação ao personagem?",
+                "Desafio: Os pulos são possíveis? A distância da cobertura é justa?",
+                "Diversão: O simples ato de se mover pelo espaço é agradável?"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -230,14 +247,19 @@
             "Partindo de um projeto-base com um controlador de personagem simples, use o ProBuilder para construir um pequeno percurso.",
             "O cenário deve incluir, no mínimo: diferentes elevações (rampas ou escadas), uma plataforma que exija um pulo e um obstáculo simples que precise ser contornado.",
             "Teste exaustivamente seu layout para garantir que não há bugs de colisão ou locais onde o jogador possa ficar preso.",
-            "<strong>Entrega:</strong> Grave e suba no Moodle um curto vídeo (30-60 segundos) mostrando a movimentação do personagem pelo seu protótipo de cenário funcional."
+            "Entrega: Grave e suba no Moodle um curto vídeo (30-60 segundos) mostrando a movimentação do personagem pelo seu protótipo de cenário funcional."
           ]
         },
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-star mr-2\"></i>Extensões (Opcional)",
-          "content": "Para um desafio extra, adicione um caminho vertical que exija uma sequência de pulos, ou uma \"armadilha\" simples (como um buraco no chão) que o jogador precise desviar."
+          "title": "Extensões (Opcional)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Para um desafio extra, adicione um caminho vertical que exija uma sequência de pulos, ou uma \"armadilha\" simples (como um buraco no chão) que o jogador precise desviar."
+            }
+          ]
         }
       ]
     },
@@ -271,8 +293,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia",
       "references": [
-        "ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021.",
-        "SCHUYTEMA, Paul. <strong>Design de games: uma abordagem prática.</strong> São Paulo: Cengage Learning, 2008."
+        "ALVES, George Santiago. Projeto de jogos 3D: modelagem e programação. São Paulo: Platos, 2021.",
+        "SCHUYTEMA, Paul. Design de games: uma abordagem prática. São Paulo: Cengage Learning, 2008."
       ]
     }
   ],

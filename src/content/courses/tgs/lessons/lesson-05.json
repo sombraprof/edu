@@ -28,7 +28,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Pergunta Norteadora",
-      "content": "Pense na Netflix. Como a chegada de concorrentes como Disney+ e HBO Max (uma mudança no ambiente) forçou a Netflix a mudar suas 'entradas' (investimento em conteúdo) e 'processos' (produção original) para gerar novas 'saídas' (séries de sucesso)?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Pense na Netflix. Como a chegada de concorrentes como Disney+ e HBO Max (uma mudança no ambiente) forçou a Netflix a mudar suas 'entradas' (investimento em conteúdo) e 'processos' (produção original) para gerar novas 'saídas' (séries de sucesso)?"
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -40,7 +45,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Ela é um <strong>sistema aberto</strong>, em constante e vital interação com seu <strong>ambiente</strong>. Ela não sobrevive isolada; ela precisa \"respirar\" recursos do ambiente (entradas), transformá-los internamente (processamento) e entregar algo de valor de volta (saídas). Mais importante ainda, ela precisa ouvir os sinais do ambiente (feedback) para se adaptar e não ser extinta. Empresas que ignoram seu ambiente, como veremos, correm o risco de se tornarem irrelevantes."
+          "text": "Ela é um sistema aberto, em constante e vital interação com seu ambiente. Ela não sobrevive isolada; ela precisa \"respirar\" recursos do ambiente (entradas), transformá-los internamente (processamento) e entregar algo de valor de volta (saídas). Mais importante ainda, ela precisa ouvir os sinais do ambiente (feedback) para se adaptar e não ser extinta. Empresas que ignoram seu ambiente, como veremos, correm o risco de se tornarem irrelevantes."
         }
       ]
     },
@@ -61,7 +66,7 @@
       "content": [
         {
           "type": "contentBlock",
-          "title": "<i class=\"fa-solid fa-arrow-down-wide-short text-sky-600 mr-3\"></i>Entradas: Os Recursos Essenciais",
+          "title": "⬇️ Entradas: Os Recursos Essenciais",
           "content": [
             {
               "type": "paragraph",
@@ -70,17 +75,17 @@
             {
               "type": "list",
               "items": [
-                "<strong>Materiais:</strong> Matéria-prima, componentes, suprimentos.",
-                "<strong>Humanos:</strong> Talentos, mão de obra, conhecimento dos funcionários.",
-                "<strong>Financeiros:</strong> Capital, investimentos, empréstimos.",
-                "<strong>Informacionais:</strong> Pesquisas de mercado, dados de concorrentes, novas leis."
+                "Materiais: Matéria-prima, componentes, suprimentos.",
+                "Humanos: Talentos, mão de obra, conhecimento dos funcionários.",
+                "Financeiros: Capital, investimentos, empréstimos.",
+                "Informacionais: Pesquisas de mercado, dados de concorrentes, novas leis."
               ]
             }
           ]
         },
         {
           "type": "contentBlock",
-          "title": "<i class=\"fa-solid fa-cogs text-purple-600 mr-3\"></i>Processamento: O Coração da Empresa",
+          "title": "⚙️ Processamento: O Coração da Empresa",
           "content": [
             {
               "type": "paragraph",
@@ -89,16 +94,16 @@
             {
               "type": "list",
               "items": [
-                "<strong>Indústria:</strong> Linha de produção, montagem.",
-                "<strong>Empresa de Software:</strong> Desenvolvimento, testes, deploy.",
-                "<strong>Consultoria:</strong> Análise de dados, elaboração de relatórios."
+                "Indústria: Linha de produção, montagem.",
+                "Empresa de Software: Desenvolvimento, testes, deploy.",
+                "Consultoria: Análise de dados, elaboração de relatórios."
               ]
             }
           ]
         },
         {
           "type": "contentBlock",
-          "title": "<i class=\"fa-solid fa-truck-fast text-emerald-600 mr-3\"></i>Saídas: A Entrega de Valor",
+          "title": "🚚 Saídas: A Entrega de Valor",
           "content": [
             {
               "type": "paragraph",
@@ -107,17 +112,17 @@
             {
               "type": "list",
               "items": [
-                "<strong>Produtos ou Serviços:</strong> O bem final entregue ao cliente.",
-                "<strong>Resultados Financeiros:</strong> Lucros para acionistas, impostos para o governo.",
-                "<strong>Impacto Social:</strong> Geração de empregos, satisfação do cliente.",
-                "<strong>Saídas Não Intencionais:</strong> Poluição, resíduos."
+                "Produtos ou Serviços: O bem final entregue ao cliente.",
+                "Resultados Financeiros: Lucros para acionistas, impostos para o governo.",
+                "Impacto Social: Geração de empregos, satisfação do cliente.",
+                "Saídas Não Intencionais: Poluição, resíduos."
               ]
             }
           ]
         },
         {
           "type": "contentBlock",
-          "title": "<i class=\"fa-solid fa-comments text-orange-600 mr-3\"></i>Feedback: A Bússola Estratégica",
+          "title": "💬 Feedback: A Bússola Estratégica",
           "content": [
             {
               "type": "paragraph",
@@ -126,9 +131,9 @@
             {
               "type": "list",
               "items": [
-                "<strong>Dos Clientes:</strong> Pesquisas de satisfação, reclamações, reviews online.",
-                "<strong>Do Mercado:</strong> Dados de vendas, participação de mercado, ações de concorrentes.",
-                "<strong>Interno:</strong> Relatórios de performance, auditorias, feedback dos funcionários."
+                "Dos Clientes: Pesquisas de satisfação, reclamações, reviews online.",
+                "Do Mercado: Dados de vendas, participação de mercado, ações de concorrentes.",
+                "Interno: Relatórios de performance, auditorias, feedback dos funcionários."
               ]
             }
           ]
@@ -138,8 +143,27 @@
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "<i class=\"fa-solid fa-users mr-2\"></i>Metodologia Ativa: Análise de Caso Real",
-      "content": "<p>Vamos analisar um caso clássico de adaptação (e falta de adaptação) ao ambiente: <strong>Blockbuster vs. Netflix</strong>.</p><div class=\"bg-white/50 p-4 rounded-md\"><p class=\"font-semibold\">Discussão em Grupo:</p><ol class=\"list-decimal list-inside mt-2 space-y-2\"><li>Quais eram as principais <strong>entradas, processos e saídas</strong> da Blockbuster no seu auge (lojas físicas)?</li><li>Qual <strong>feedback</strong> crucial vindo do ambiente (surgimento da internet, mudança de comportamento do consumidor) a Blockbuster falhou em processar?</li><li>Como a Netflix, em seu início (DVDs pelo correio) e depois (streaming), usou o mesmo feedback para criar um sistema completamente diferente e mais adaptado?</li><li>Mapeiem os componentes do sistema da Netflix hoje. Como ela continua a usar o feedback para evoluir?</li></ol></div>"
+      "title": "👥 Metodologia Ativa: Análise de Caso Real",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos analisar um caso clássico de adaptação (e falta de adaptação) ao ambiente: Blockbuster vs. Netflix."
+        },
+        {
+          "type": "paragraph",
+          "text": "Discussão em grupo:"
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Quais eram as principais entradas, processos e saídas da Blockbuster no auge das locadoras físicas?",
+            "Que feedback vindo do ambiente (internet, mudança de comportamento) a Blockbuster deixou de interpretar?",
+            "Como a Netflix, primeiro com DVDs e depois com streaming, utilizou o feedback para reinventar seu sistema?",
+            "Mapeiem os componentes do sistema da Netflix hoje. Como o feedback contínuo sustenta sua evolução?"
+          ]
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -147,7 +171,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Para consolidar o conhecimento desta aula, sua tarefa é elaborar um <strong>mapa conceitual</strong> sobre os elementos que caracterizam uma organização como um sistema aberto."
+          "text": "Para consolidar o conhecimento desta aula, sua tarefa é elaborar um mapa conceitual sobre os elementos que caracterizam uma organização como um sistema aberto."
         },
         {
           "type": "list",
@@ -155,13 +179,13 @@
           "items": [
             "Utilize uma ferramenta digital de sua preferência (Canva, Lucidchart, Miro, etc.).",
             "O conceito central do mapa deve ser \"Organização como Sistema Aberto\".",
-            "Conecte a este conceito os elementos: <strong>Entradas, Processamento, Saídas e Retroalimentação (Feedback)</strong>.",
+            "Conecte a este conceito os elementos: Entradas, Processamento, Saídas e Retroalimentação (Feedback).",
             "Para cada elemento, adicione pelo menos dois exemplos práticos de uma empresa real ou fictícia."
           ]
         },
         {
           "type": "paragraph",
-          "text": "<strong>Entrega:</strong> Poste o link ou a imagem do seu mapa conceitual na atividade da disciplina no AVA."
+          "text": "Entrega: Poste o link ou a imagem do seu mapa conceitual na atividade da disciplina no AVA."
         }
       ]
     },
@@ -171,15 +195,15 @@
       "items": [
         {
           "title": "1. O capital recebido de um investidor é um exemplo de qual componente para uma startup?",
-          "content": "<strong>Resposta:</strong> Entrada (Financeira). É um recurso vindo do ambiente que a empresa usará para operar."
+          "content": "Resposta: Entrada (Financeira). É um recurso vindo do ambiente que a empresa usará para operar."
         },
         {
           "title": "2. Uma pesquisa de satisfação enviada a clientes após uma compra é um mecanismo de:",
-          "content": "<strong>Resposta:</strong> Feedback (Retroalimentação). A informação coletada serve para avaliar a saída (produto/serviço) e ajustar processos futuros."
+          "content": "Resposta: Feedback (Retroalimentação). A informação coletada serve para avaliar a saída (produto/serviço) e ajustar processos futuros."
         },
         {
           "title": "3. Verdadeiro ou Falso: Uma empresa pode prosperar a longo prazo ignorando as ações de seus concorrentes.",
-          "content": "<strong>Resposta:</strong> Falso. Os concorrentes são uma parte crucial do ambiente de um sistema aberto. Ignorá-los significa ignorar um feedback vital para a sobrevivência e adaptação."
+          "content": "Resposta: Falso. Os concorrentes são uma parte crucial do ambiente de um sistema aberto. Ignorá-los significa ignorar um feedback vital para a sobrevivência e adaptação."
         }
       ]
     },
@@ -187,8 +211,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia",
       "references": [
-        "<strong>MEIRELES, Manuel; SORDI, J. O. de.</strong> <em>Administração de sistemas de informação.</em> 2. ed. São Paulo: Atlas, 2019.",
-        "<strong>BATISTA, Emerson de Oliveira.</strong> <em>Sistemas de informação: o uso consciente da tecnologia para o gerenciamento.</em> São Paulo: Saraiva, 2014."
+        "MEIRELES, Manuel; SORDI, J. O. de. Administração de sistemas de informação. 2. ed. São Paulo: Atlas, 2019.",
+        "BATISTA, Emerson de Oliveira. Sistemas de informação: o uso consciente da tecnologia para o gerenciamento. São Paulo: Saraiva, 2014."
       ]
     }
   ],

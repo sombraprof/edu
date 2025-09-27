@@ -1,13 +1,56 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lista1",
   "title": "Lista 1 — Algoritmos básicos",
-  "objective": "",
+  "summary": "Problemas introdutórios para praticar entrada, processamento e saída utilizando pseudocódigo ou C.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "lista1",
-      "title": "Lista 1 — Algoritmos básicos",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './lista1.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Orientações gerais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Resolva os exercícios individualmente. Organize cada solução com identificação do problema, entrada, processamento e saída esperados."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Entrega sugerida",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Envie um arquivo por exercício ou um único projeto com funções separadas para cada questão."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Desafios",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Operações básicas",
+              "text": "Leia dois números inteiros e apresente soma, subtração, multiplicação e divisão inteira."
+            },
+            {
+              "title": "Média ponderada",
+              "text": "Leia o nome de um aluno e três notas. Calcule a média aritmética simples e indique se está aprovado (média ≥ 6) ou em recuperação."
+            },
+            {
+              "title": "Conversão de temperatura",
+              "text": "Converta graus Celsius informados pelo usuário para Fahrenheit e Kelvin."
+            },
+            {
+              "title": "Relatório de viagem",
+              "text": "Leia tempo gasto e velocidade média. Exiba distância percorrida e estimativa de consumo considerando 12 km/l."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

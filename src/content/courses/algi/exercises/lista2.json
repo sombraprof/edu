@@ -1,13 +1,56 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lista2",
-  "title": "Lista 2 — Condicionais e operadores",
-  "objective": "",
+  "title": "Lista 2 — Estruturas de decisão",
+  "summary": "Questões para treinar condicionais encadeadas, operadores lógicos e validação de entrada.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "lista2",
-      "title": "Lista 2 — Condicionais e operadores",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './lista2.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Como resolver",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente soluções em C ou pseudocódigo. Inclua comentários explicando cada condição crítica."
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Atenção",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Valide as entradas antes de processar e trate valores fora do intervalo esperado."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Problemas propostos",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Calculadora de tarifas",
+              "text": "Leia tipo de cliente e consumo mensal. Aplique descontos condicionais e mostre o valor final."
+            },
+            {
+              "title": "Classificador de triângulos",
+              "text": "Dado o tamanho de três lados, indique se forma triângulo e classifique como equilátero, isósceles ou escaleno."
+            },
+            {
+              "title": "Gestão de estoque",
+              "text": "Informe quantidade atual, mínima e máxima. Sugira compra ou venda e calcule quantidade ideal."
+            },
+            {
+              "title": "Simulador de imposto",
+              "text": "Receba renda anual e número de dependentes. Calcule faixa de imposto aplicando regras progressivas."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

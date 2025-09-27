@@ -103,7 +103,17 @@
       "type": "callout",
       "variant": "warning",
       "title": "Cuidados com o buffer",
-      "content": "<ul><li>Consuma o <code>\\n</code> pendente antes de ler <code>char</code> ou <code>string</code>.</li><li>Garanta que o especificador corresponde ao tipo declarado.</li><li>Valide o retorno de <code>scanf</code> quando o dado vier de arquivos.</li></ul>"
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Consuma o \\n pendente antes de ler char ou string.",
+            "Garanta que o especificador corresponde ao tipo declarado.",
+            "Valide o retorno de scanf quando o dado vier de arquivos."
+          ]
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -124,7 +134,21 @@
       "type": "callout",
       "variant": "good-practice",
       "title": "Máscaras printf úteis",
-      "content": "<p>Combine largura e casas decimais para simular colunas:</p><ul><li><code>%8.2f</code> → oito espaços com duas casas.</li><li><code>%03d</code> → inteiro com zeros à esquerda.</li><li><code>%-20s</code> → texto alinhado à esquerda.</li></ul>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Combine largura e casas decimais para simular colunas:"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "%8.2f → oito espaços com duas casas.",
+            "%03d → inteiro com zeros à esquerda.",
+            "%-20s → texto alinhado à esquerda."
+          ]
+        }
+      ]
     },
     {
       "type": "md3Table",

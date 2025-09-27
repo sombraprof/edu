@@ -390,7 +390,12 @@
       "type": "callout",
       "variant": "warning",
       "title": "Atenção com divisões inteiras",
-      "content": "<p>Dividir dois <code>int</code> descarta a parte decimal. Faça casting para <code>float</code> quando precisar de precisão: <code>(float)total / quantidade</code>.</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Dividir dois int descarta a parte decimal. Faça casting para float quando precisar de precisão: (float)total / quantidade."
+        }
+      ]
     },
     {
       "type": "checklist",

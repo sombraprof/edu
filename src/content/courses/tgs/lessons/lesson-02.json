@@ -33,7 +33,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Pergunta Norteadora",
-      "content": "Fora dos muros da universidade, como a tecnologia e o conhecimento que aprendemos aqui podem transformar a realidade da nossa comunidade?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Fora dos muros da universidade, como a tecnologia e o conhecimento que aprendemos aqui podem transformar a realidade da nossa comunidade?"
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -41,7 +46,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Normalmente, pensamos na universidade como um lugar para aprender (Ensino) e para descobrir coisas novas (Pesquisa). Mas existe um terceiro pilar, igualmente importante, que conecta tudo isso ao mundo real: a <strong>Extensão</strong>."
+          "text": "Normalmente, pensamos na universidade como um lugar para aprender (Ensino) e para descobrir coisas novas (Pesquisa). Mas existe um terceiro pilar, igualmente importante, que conecta tudo isso ao mundo real: a Extensão."
         },
         {
           "type": "paragraph",
@@ -49,7 +54,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Desde 2018, de acordo com a <strong>Resolução CNE/CES nº 7/2018</strong>, o Ministério da Educação (MEC) tornou obrigatória a Curricularização da Extensão. Isso significa que <strong>todos os cursos de graduação</strong> devem destinar, no mínimo, <strong>10% da carga horária total</strong> para atividades extensionistas. Portanto, participar de projetos de extensão não é opcional: faz parte do seu currículo acadêmico e é requisito para a colação de grau."
+          "text": "Desde 2018, de acordo com a Resolução CNE/CES nº 7/2018, o Ministério da Educação (MEC) tornou obrigatória a Curricularização da Extensão. Isso significa que todos os cursos de graduação devem destinar, no mínimo, 10% da carga horária total para atividades extensionistas. Portanto, participar de projetos de extensão não é opcional: faz parte do seu currículo acadêmico e é requisito para a colação de grau."
         }
       ]
     },
@@ -82,9 +87,9 @@
         {
           "type": "list",
           "items": [
-            "<strong class=\"text-sky-700\">A Pesquisa inova o Ensino:</strong> As descobertas científicas e tecnológicas da pesquisa atualizam o conteúdo que é ensinado em sala de aula, garantindo uma formação sempre relevante.",
-            "<strong class=\"text-emerald-700\">A Extensão dá propósito ao Ensino e à Pesquisa:</strong> Ao aplicar o conhecimento para resolver um problema real da comunidade, o aluno entende o propósito prático do que aprendeu. Muitas vezes, os desafios encontrados na extensão geram novas perguntas que viram temas de pesquisa.",
-            "<strong class=\"text-purple-700\">O Ensino prepara para a Pesquisa e a Extensão:</strong> A base teórica sólida adquirida em sala de aula é o que capacita o aluno a investigar novos temas (pesquisa) e a desenvolver soluções eficazes para a sociedade (extensão)."
+            "A Pesquisa inova o Ensino: As descobertas científicas e tecnológicas da pesquisa atualizam o conteúdo que é ensinado em sala de aula, garantindo uma formação sempre relevante.",
+            "A Extensão dá propósito ao Ensino e à Pesquisa: Ao aplicar o conhecimento para resolver um problema real da comunidade, o aluno entende o propósito prático do que aprendeu. Muitas vezes, os desafios encontrados na extensão geram novas perguntas que viram temas de pesquisa.",
+            "O Ensino prepara para a Pesquisa e a Extensão: A base teórica sólida adquirida em sala de aula é o que capacita o aluno a investigar novos temas (pesquisa) e a desenvolver soluções eficazes para a sociedade (extensão)."
           ]
         },
         {
@@ -99,11 +104,19 @@
       "cards": [
         {
           "title": "Exemplo 1: Inclusão Digital",
-          "content": "Alunos de SI organizam oficinas para ensinar idosos a usar smartphones, internet banking e redes sociais, promovendo autonomia e combatendo o isolamento digital.<br><ul class=\"text-sm text-slate-500 mt-3 list-disc list-inside\"><li><strong>Comunidade beneficiada:</strong> Idosos locais.</li><li><strong>Habilidades desenvolvidas:</strong> Didática, paciência, comunicação.</li></ul>"
+          "body": "Alunos de SI organizam oficinas para ensinar idosos a usar smartphones, internet banking e redes sociais, promovendo autonomia e combatendo o isolamento digital.",
+          "items": [
+            "Comunidade beneficiada: Idosos locais.",
+            "Habilidades desenvolvidas: Didática, paciência, comunicação."
+          ]
         },
         {
           "title": "Exemplo 2: Sistema para ONGs",
-          "content": "Uma equipe de estudantes desenvolve, voluntariamente, um sistema de gestão de doações e voluntários para uma organização não governamental do bairro, otimizando seus processos.<br><ul class=\"text-sm text-slate-500 mt-3 list-disc list-inside\"><li><strong>Comunidade beneficiada:</strong> ONG e seus assistidos.</li><li><strong>Habilidades desenvolvidas:</strong> Levantamento de requisitos, desenvolvimento, gestão de projetos.</li></ul>"
+          "body": "Uma equipe de estudantes desenvolve, voluntariamente, um sistema de gestão de doações e voluntários para uma organização não governamental do bairro, otimizando seus processos.",
+          "items": [
+            "Comunidade beneficiada: ONG e seus assistidos.",
+            "Habilidades desenvolvidas: Levantamento de requisitos, desenvolvimento, gestão de projetos."
+          ]
         }
       ]
     },
@@ -118,10 +131,10 @@
         {
           "type": "list",
           "items": [
-            "<strong>Enriquece seu currículo e portfólio:</strong> Projetos reais mostram sua capacidade de aplicar a teoria na prática.",
-            "<strong>Desenvolve Soft Skills:</strong> Liderança, trabalho em equipe, comunicação com clientes (a comunidade), resolução de problemas complexos e empatia são habilidades altamente valorizadas.",
-            "<strong>Cria Networking:</strong> Conecta você com professores, colegas e membros da comunidade, abrindo portas para futuras oportunidades.",
-            "<strong>Demonstra Proatividade e Engajamento:</strong> Mostra para recrutadores que você é um profissional que vai além do básico e se preocupa com o impacto do seu trabalho."
+            "Enriquece seu currículo e portfólio: Projetos reais mostram sua capacidade de aplicar a teoria na prática.",
+            "Desenvolve Soft Skills: Liderança, trabalho em equipe, comunicação com clientes (a comunidade), resolução de problemas complexos e empatia são habilidades altamente valorizadas.",
+            "Cria Networking: Conecta você com professores, colegas e membros da comunidade, abrindo portas para futuras oportunidades.",
+            "Demonstra Proatividade e Engajamento: Mostra para recrutadores que você é um profissional que vai além do básico e se preocupa com o impacto do seu trabalho."
           ]
         }
       ]
@@ -129,12 +142,17 @@
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "<i class=\"fa-solid fa-lightbulb mr-2\"></i>Desafio Prático: Ideia de Projeto",
-      "content": "Pense em uma necessidade real de tecnologia na sua comunidade (bairro, escola, grupo social, etc.). Descreva em poucas linhas como um projeto de extensão, liderado por alunos de SI, poderia ajudar a resolver ou amenizar esse problema.<br><br>Além de pensar no impacto social, reflita: como um projeto de extensão poderia fortalecer o seu currículo e mostrar para o mercado que você sabe aplicar tecnologia para resolver problemas reais?"
+      "title": "Desafio Prático: Ideia de Projeto",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Pense em uma necessidade real de tecnologia na sua comunidade (bairro, escola, grupo social, etc.). Descreva em poucas linhas como um projeto de extensão, liderado por alunos de SI, poderia ajudar a resolver ou amenizar esse problema. Além de pensar no impacto social, reflita: como um projeto de extensão poderia fortalecer o seu currículo e mostrar para o mercado que você sabe aplicar tecnologia para resolver problemas reais?"
+        }
+      ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-comments mr-2 text-sky-600\"></i>Roda de Conversa: Conectando Ideias",
+      "title": "Roda de Conversa: Conectando Ideias",
       "content": [
         {
           "type": "paragraph",
@@ -164,11 +182,11 @@
         },
         {
           "type": "paragraph",
-          "text": "<strong>Entrega:</strong> Poste sua pesquisa e reflexão no fórum da disciplina no AVA até a data da nossa próxima aula."
+          "text": "Entrega: Poste sua pesquisa e reflexão no fórum da disciplina no AVA até a data da nossa próxima aula."
         },
         {
           "type": "paragraph",
-          "text": "<strong>Dica:</strong> Pesquise sobre a <strong>Resolução CNE/CES nº 7/2018</strong> e traga na sua reflexão uma frase sobre como essa norma impacta a sua formação."
+          "text": "Dica: Pesquise sobre a Resolução CNE/CES nº 7/2018 e traga na sua reflexão uma frase sobre como essa norma impacta a sua formação."
         }
       ]
     },
@@ -178,15 +196,15 @@
       "items": [
         {
           "title": "1. Qual é o objetivo principal da extensão universitária?",
-          "content": "<strong>Resposta:</strong> O principal objetivo é criar uma ponte de mão dupla entre a universidade e a sociedade, aplicando o conhecimento acadêmico para resolver problemas reais da comunidade e, ao mesmo tempo, trazendo as experiências e saberes da comunidade para dentro da universidade, enriquecendo o ensino e a pesquisa."
+          "content": "Resposta: O principal objetivo é criar uma ponte de mão dupla entre a universidade e a sociedade, aplicando o conhecimento acadêmico para resolver problemas reais da comunidade e, ao mesmo tempo, trazendo as experiências e saberes da comunidade para dentro da universidade, enriquecendo o ensino e a pesquisa."
         },
         {
           "title": "2. O tripé que sustenta a universidade é composto por quais três pilares?",
-          "content": "<strong>Resposta:</strong> Ensino, Pesquisa e Extensão."
+          "content": "Resposta: Ensino, Pesquisa e Extensão."
         },
         {
           "title": "3. Verdadeiro ou Falso: Um projeto de extensão beneficia apenas a comunidade externa.",
-          "content": "<strong>Resposta:</strong> Falso. O projeto de extensão beneficia tanto a comunidade quanto os alunos e professores envolvidos, que desenvolvem habilidades técnicas, sociais e de comunicação, além de ganharem uma perspectiva prática sobre a aplicação de seus conhecimentos."
+          "content": "Resposta: Falso. O projeto de extensão beneficia tanto a comunidade quanto os alunos e professores envolvidos, que desenvolvem habilidades técnicas, sociais e de comunicação, além de ganharem uma perspectiva prática sobre a aplicação de seus conhecimentos."
         }
       ]
     },
@@ -194,8 +212,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia",
       "references": [
-        "<strong>RAINER, Jr., Kelly R.</strong> <em>Introdução a Sistemas de Informação.</em> 5. ed. Rio de Janeiro, 2016.",
-        "<strong>FREIRE, Paulo.</strong> <em>Extensão ou Comunicação?</em> 17. ed. Rio de Janeiro: Paz e Terra, 2011. (Leitura complementar sobre a filosofia da extensão)."
+        "RAINER, Jr., Kelly R. Introdução a Sistemas de Informação. 5. ed. Rio de Janeiro, 2016.",
+        "FREIRE, Paulo. Extensão ou Comunicação? 17. ed. Rio de Janeiro: Paz e Terra, 2011. (Leitura complementar sobre a filosofia da extensão)."
       ]
     }
   ],

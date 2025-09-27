@@ -283,7 +283,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Break é obrigatório?",
-      "content": "<p>Sem <code>break</code>, o programa continua executando os cases seguintes. Use esse comportamento apenas quando quiser compartilhar lógica entre opções (fall-through controlado).</p>"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Sem break, o programa continua executando os cases seguintes. Use esse comportamento apenas quando quiser compartilhar lógica entre opções (fall-through controlado)."
+        }
+      ]
     },
     {
       "type": "contentBlock",

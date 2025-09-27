@@ -229,7 +229,11 @@
             "label": "Serviço externo",
             "description": "Infraestrutura fora da aplicação."
           },
-          { "id": "control", "label": "Ação", "description": "Mensagens que orquestram fluxos." }
+          {
+            "id": "control",
+            "label": "Ação",
+            "description": "Mensagens que orquestram fluxos."
+          }
         ]
       }
     }

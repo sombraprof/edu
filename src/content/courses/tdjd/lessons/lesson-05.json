@@ -36,13 +36,18 @@
           "type": "callout",
           "variant": "info",
           "title": "Recomendação de Versão",
-          "content": "Para esta disciplina, recomendamos o uso da versão mais recente <strong>LTS (Long-Term Support)</strong> da Unity ou a <strong>Unity 6</strong>. Utilize o template <strong>3D (URP)</strong> ao criar novos projetos. Consulte os links na seção \"Recursos\" para download."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Para esta disciplina, recomendamos o uso da versão mais recente LTS (Long-Term Support) da Unity ou a Unity 6. Utilize o template 3D (URP) ao criar novos projetos. Consulte os links na seção \"Recursos\" para download."
+            }
+          ]
         }
       ]
     },
     {
       "type": "cardGrid",
-      "title": "<i class=\"fa-solid fa-book-bookmark mr-2\"></i>Glossário Essencial da Unity",
+      "title": "Glossário Essencial da Unity",
       "cards": [
         {
           "title": "GameObject",
@@ -72,7 +77,7 @@
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-compass-drafting mr-2\"></i>Anatomia da Interface da Unity",
+      "title": "Anatomia da Interface da Unity",
       "content": [
         {
           "type": "paragraph",
@@ -111,20 +116,30 @@
         {
           "type": "callout",
           "variant": "warning",
-          "title": "<i class=\"fa-solid fa-triangle-exclamation mr-2\"></i>Play Mode vs. Edit Mode",
-          "content": "Qualquer alteração feita enquanto o jogo está rodando (<strong>Play Mode</strong> - o editor fica com um tom azulado) <strong>será perdida</strong> ao parar a execução. Sempre faça alterações permanentes no <strong>Edit Mode</strong>."
+          "title": "Play Mode vs. Edit Mode",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Qualquer alteração feita enquanto o jogo está rodando (Play Mode - o editor fica com um tom azulado) será perdida ao parar a execução. Sempre faça alterações permanentes no Edit Mode."
+            }
+          ]
         },
         {
           "type": "callout",
           "variant": "info",
-          "title": "<i class=\"fa-solid fa-keyboard mr-2\"></i>Atalhos Essenciais",
-          "content": "<strong>Q:</strong> Mão (Pan), <strong>W:</strong> Mover, <strong>E:</strong> Rotacionar, <strong>R:</strong> Escala.<br><strong>F:</strong> Focar no objeto selecionado.<br><strong>Alt + Clique Direito:</strong> Zoom."
+          "title": "Atalhos Essenciais",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Q: Mão (Pan), W: Mover, E: Rotacionar, R: Escala. F: Focar no objeto selecionado. Alt + Clique Direito: Zoom."
+            }
+          ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-lightbulb mr-2\"></i>Configurando o Universal Render Pipeline (URP)",
+      "title": "Configurando o Universal Render Pipeline (URP)",
       "content": [
         {
           "type": "paragraph",
@@ -134,28 +149,28 @@
           "type": "list",
           "title": "Checklist de Configuração do URP:",
           "items": [
-            "<strong>Criar com Template:</strong> Sempre inicie projetos com o template <strong>3D (URP)</strong> no Unity Hub.",
-            "<strong>Verificar Graphics Settings:</strong> Em <code>Edit > Project Settings > Graphics</code>, confirme se um asset \"URP-HighFidelity\" ou similar está no campo <em>Scriptable Render Pipeline Settings</em>.",
-            "<strong>Verificar Quality Settings:</strong> Em <code>Edit > Project Settings > Quality</code>, certifique-se de que o mesmo asset URP está atribuído para cada nível de qualidade.",
-            "<strong>Converter Materiais:</strong> Se você importar assets antigos, eles podem aparecer rosa. Use <code>Window > Rendering > Render Pipeline Converter</code> para atualizá-los para o URP.",
-            "<strong>Configurações Recomendadas:</strong> Em <code>Project Settings > Player > Other Settings</code>, defina <strong>Color Space</strong> para <strong>Linear</strong> para cores mais realistas."
+            "Criar com Template: Sempre inicie projetos com o template 3D (URP) no Unity Hub.",
+            "Verificar Graphics Settings: Em Edit > Project Settings > Graphics, confirme se um asset \"URP-HighFidelity\" ou similar está no campo Scriptable Render Pipeline Settings.",
+            "Verificar Quality Settings: Em Edit > Project Settings > Quality, certifique-se de que o mesmo asset URP está atribuído para cada nível de qualidade.",
+            "Converter Materiais: Se você importar assets antigos, eles podem aparecer rosa. Use Window > Rendering > Render Pipeline Converter para atualizá-los para o URP.",
+            "Configurações Recomendadas: Em Project Settings > Player > Other Settings, defina Color Space para Linear para cores mais realistas."
           ]
         },
         {
           "type": "list",
           "title": "Pós-processamento com Volumes",
           "items": [
-            "Crie um GameObject na cena (<code>GameObject > Volume > Global Volume</code>).",
-            "No Inspector do Volume, crie um novo <strong>Profile</strong>.",
-            "Clique em <strong>Add Override > Post-processing</strong> e adicione efeitos como <strong>Bloom</strong> e <strong>Vignette</strong>. Marque as caixas para ativá-los e ajuste os valores.",
-            "Selecione sua <strong>Main Camera</strong> e, no Inspector, ative a opção <strong>Post Processing</strong>."
+            "Crie um GameObject na cena (GameObject > Volume > Global Volume).",
+            "No Inspector do Volume, crie um novo Profile.",
+            "Clique em Add Override > Post-processing e adicione efeitos como Bloom e Vignette. Marque as caixas para ativá-los e ajuste os valores.",
+            "Selecione sua Main Camera e, no Inspector, ative a opção Post Processing."
           ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "<i class=\"fa-solid fa-gamepad mr-2\"></i>Introdução ao Novo Input System",
+      "title": "Introdução ao Novo Input System",
       "content": [
         {
           "type": "paragraph",
@@ -165,10 +180,10 @@
           "type": "list",
           "title": "Checklist de Configuração do Input System:",
           "items": [
-            "<strong>Instalar o Pacote:</strong> Via <code>Window > Package Manager</code>, instale o pacote \"Input System\".",
-            "<strong>Habilitar Backend:</strong> Em <code>Project Settings > Player > Other Settings</code>, em <strong>Active Input Handling</strong>, selecione <strong>\"Input System Package (New)\"</strong> ou <strong>\"Both\"</strong>. O editor irá reiniciar.",
-            "<strong>Criar Input Actions:</strong> Crie um asset <code>Create > Input Actions</code>. Dentro dele, defina:<ul><li><strong>Action Maps:</strong> Contextos de controle (ex: \"Player\", \"UI\", \"Vehicle\").</li><li><strong>Actions:</strong> Ações semânticas (ex: \"Move\", \"Jump\", \"Fire\"). Defina o <strong>Action Type</strong> (<em>Value</em> para eixos, <em>Button</em> para cliques).</li><li><strong>Bindings:</strong> As teclas/botões físicos associados a cada Action. Use <strong>Composite Bindings</strong> para criar vetores 2D (ex: \"Up/Down/Left/Right WASD\").</li></ul>",
-            "<strong>Gerar Classe C#:</strong> No Inspector do asset de Input Actions, marque \"Generate C# Class\" e aplique."
+            "Instalar o Pacote: Via Window > Package Manager, instale o pacote \"Input System\".",
+            "Habilitar Backend: Em Project Settings > Player > Other Settings, em Active Input Handling, selecione \"Input System Package (New)\" ou \"Both\". O editor irá reiniciar.",
+            "Criar Input Actions: Crie um asset Create > Input Actions. Dentro dele, defina: - Action Maps: Contextos de controle (ex: \"Player\", \"UI\", \"Vehicle\"). - Actions: Ações semânticas (ex: \"Move\", \"Jump\", \"Fire\"). Defina o Action Type (Value para eixos, Button para cliques). - Bindings: As teclas/botões físicos associados a cada Action. Use Composite Bindings para criar vetores 2D (ex: \"Up/Down/Left/Right WASD\").",
+            "Gerar Classe C#: No Inspector do asset de Input Actions, marque \"Generate C# Class\" e aplique."
           ]
         },
         {
@@ -191,15 +206,15 @@
     },
     {
       "type": "cardGrid",
-      "title": "<i class=\"fa-solid fa-bug mr-2\"></i>Erros Comuns e Soluções",
+      "title": "Erros Comuns e Soluções",
       "cards": [
         {
           "title": "URP",
-          "content": "<ul><li><strong>Materiais Rosas:</strong> Use o Render Pipeline Converter.</li><li><strong>Pós-processamento não funciona:</strong> Verifique se o Post Processing está ativo na Câmera e se há um Volume na cena.</li><li><strong>Cena escura:</strong> Ajuste a luz direcional, o skybox ou a exposição (Exposure) no Volume.</li></ul>"
+          "content": "- Materiais Rosas: Use o Render Pipeline Converter.\n- Pós-processamento não funciona: Verifique se o Post Processing está ativo na Câmera e se há um Volume na cena.\n- Cena escura: Ajuste a luz direcional, o skybox ou a exposição (Exposure) no Volume."
         },
         {
           "title": "Input System",
-          "content": "<ul><li><strong>Input não funciona:</strong> Verifique se o Active Input Handling está como \"New\" ou \"Both\".</li><li><strong>UI não responde:</strong> Adicione o componente <strong>Input System UI Input Module</strong> ao seu EventSystem.</li><li><strong>Ações não salvas:</strong> Sempre clique em \"Save Asset\" na janela de Input Actions após modificar.</li></ul>"
+          "content": "- Input não funciona: Verifique se o Active Input Handling está como \"New\" ou \"Both\".\n- UI não responde: Adicione o componente Input System UI Input Module ao seu EventSystem.\n- Ações não salvas: Sempre clique em \"Save Asset\" na janela de Input Actions após modificar."
         }
       ]
     },
@@ -261,16 +276,21 @@
           "type": "list",
           "title": "Checklist de Entrega:",
           "items": [
-            "<strong>Nome do Projeto:</strong> <code>NOME_SOBRENOME_TDJD_AULA5</code>",
-            "<strong>Estrutura de Pastas:</strong> Crie pastas <code>_Project/Scenes</code>, <code>Scripts</code>, <code>Prefabs</code>.",
-            "<strong>Entrega:</strong> Poste um vídeo/GIF no Moodle mostrando o jogador se movendo. Anexe o projeto compactado (.zip, máx 50MB)."
+            "Nome do Projeto: NOME_SOBRENOME_TDJD_AULA5",
+            "Estrutura de Pastas: Crie pastas _Project/Scenes, Scripts, Prefabs.",
+            "Entrega: Poste um vídeo/GIF no Moodle mostrando o jogador se movendo. Anexe o projeto compactado (.zip, máx 50MB)."
           ]
         },
         {
           "type": "callout",
           "variant": "good-practice",
-          "title": "<i class=\"fa-solid fa-star mr-2\"></i>Extensões (Opcional)",
-          "content": "Para um desafio extra, tente implementar: um efeito de pós-processamento (Bloom), suporte a gamepad no Input Action, ou uma câmera que segue o jogador."
+          "title": "Extensões (Opcional)",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Para um desafio extra, tente implementar: um efeito de pós-processamento (Bloom), suporte a gamepad no Input Action, ou uma câmera que segue o jogador."
+            }
+          ]
         }
       ]
     },
@@ -354,8 +374,8 @@
       "type": "bibliographyBlock",
       "title": "📚 Bibliografia e Referências",
       "references": [
-        "ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019.",
-        "ALVES, George Santiago. <strong>Projeto de jogos 3D: modelagem e programação.</strong> São Paulo: Platos, 2021."
+        "ALVES, W. P. Unity: design e desenvolvimento de jogos. Rio de Janeiro: Alta Books, 2019.",
+        "ALVES, George Santiago. Projeto de jogos 3D: modelagem e programação. São Paulo: Platos, 2021."
       ]
     }
   ],

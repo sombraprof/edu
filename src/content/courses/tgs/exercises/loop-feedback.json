@@ -1,13 +1,54 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "loop-feedback",
-  "title": "Análise de feedback loops",
-  "objective": "Construa diagramas causais destacando ciclos de reforço e balanço.",
+  "title": "Exercício — Análise de feedback loops",
+  "summary": "Identifique ciclos reforçadores e balanceadores em um sistema real, propondo indicadores de monitoramento.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "loop-feedback",
-      "title": "Análise de feedback loops",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './loop-feedback.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Objetivo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escolha um sistema estudado em aula e descubra como loops de feedback sustentam ou desequilibram seu funcionamento."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Passos",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapeie o contexto",
+              "text": "Liste atores, recursos e fronteiras do sistema."
+            },
+            {
+              "title": "Identifique loops",
+              "text": "Registre ao menos dois loops reforçadores e dois balanceadores, destacando atrasos."
+            },
+            {
+              "title": "Defina indicadores",
+              "text": "Associe métricas que sinalizem quando o loop está saudável ou problemático."
+            },
+            {
+              "title": "Prepare síntese",
+              "text": "Produza um parágrafo explicando possíveis intervenções e seus impactos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Entrega",
+      "items": [
+        "Diagrama com loops identificados.",
+        "Tabela com indicadores e hipóteses de intervenção.",
+        "Texto-síntese com aprendizados do grupo."
+      ]
     }
   ]
 }

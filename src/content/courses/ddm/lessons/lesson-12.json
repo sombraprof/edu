@@ -42,8 +42,8 @@
     }
   ],
   "bibliography": [
-    "GOOGLE. <strong>Guide to app architecture</strong>. 2024.",
-    "SAGAH. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Cap. 7 – Integração de Funcionalidades, 2019."
+    "GOOGLE. Guide to app architecture. 2024.",
+    "SAGAH. Desenvolvimento para Dispositivos Móveis. Cap. 7 – Integração de Funcionalidades, 2019."
   ],
   "assessment": {
     "type": "project",
@@ -55,19 +55,24 @@
       "type": "flightPlan",
       "title": "Plano de voo da aula (2h)",
       "items": [
-        "<strong>(15 min) Kick-off:</strong> visão geral do mini app e critérios de avaliação.",
-        "<strong>(25 min) Arquitetura de navegação:</strong> definindo Activities, extras e Intents implícitas.",
-        "<strong>(25 min) Implementação guiada:</strong> cadastro → detalhes → compartilhamento.",
-        "<strong>(20 min) Persistência de estado:</strong> ViewModel, SavedStateHandle e bundles.",
-        "<strong>(20 min) Testes e ajustes finais:</strong> rotação, cenários inválidos, logs.",
-        "<strong>(15 min) Apresentações relâmpago e TED.</strong>"
+        "(15 min) Kick-off: visão geral do mini app e critérios de avaliação.",
+        "(25 min) Arquitetura de navegação: definindo Activities, extras e Intents implícitas.",
+        "(25 min) Implementação guiada: cadastro → detalhes → compartilhamento.",
+        "(20 min) Persistência de estado: ViewModel, SavedStateHandle e bundles.",
+        "(20 min) Testes e ajustes finais: rotação, cenários inválidos, logs.",
+        "(15 min) Apresentações relâmpago e TED."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Visão do produto",
-      "content": "O professor precisa de um app simples para registrar contatos de supervisores e compartilhar rapidamente durante visitas técnicas."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O professor precisa de um app simples para registrar contatos de supervisores e compartilhar rapidamente durante visitas técnicas."
+        }
+      ]
     },
     {
       "type": "timeline",
@@ -168,7 +173,12 @@
           "type": "callout",
           "variant": "warning",
           "title": "Evite duplicar Activities",
-          "content": "Ao retornar do resumo, finalize a Activity de detalhes ou utilize `ActivityResultContracts` para sincronizar alterações."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Ao retornar do resumo, finalize a Activity de detalhes ou utilize `ActivityResultContracts` para sincronizar alterações."
+            }
+          ]
         }
       ]
     },
@@ -220,7 +230,12 @@
           "type": "callout",
           "variant": "task",
           "title": "Entrega assíncrona",
-          "content": "<p>Envie o vídeo, checklist e link do repositório no Moodle até 23h59 do dia seguinte.</p>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Envie o vídeo, checklist e link do repositório no Moodle até 23h59 do dia seguinte."
+            }
+          ]
         }
       ]
     },
@@ -228,8 +243,8 @@
       "type": "bibliographyBlock",
       "title": "Referências complementares",
       "references": [
-        "GOOGLE. <strong>Sample apps: Sunflower</strong>. 2024.",
-        "DÍAZ, José. <strong>Kotlin for Android Developers</strong>. Leanpub, 2023. Cap. 9."
+        "GOOGLE. Sample apps: Sunflower. 2024.",
+        "DÍAZ, José. Kotlin for Android Developers. Leanpub, 2023. Cap. 9."
       ]
     }
   ],

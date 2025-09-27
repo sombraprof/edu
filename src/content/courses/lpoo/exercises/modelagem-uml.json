@@ -1,13 +1,50 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "modelagem-uml",
-  "title": "Modelagem UML de caso real",
-  "objective": "Crie diagrama de classes com relacionamentos, atributos e multiplicidades.",
+  "title": "Exercício — Modelagem UML",
+  "summary": "Desenhe diagramas UML representando casos de uso e classes para um cenário orientado a objetos.",
   "content": [
     {
-      "type": "legacySection",
-      "id": "modelagem-uml",
-      "title": "Modelagem UML de caso real",
-      "html": "<script setup lang=\"ts\">\nimport LessonRenderer from '@/components/lesson/LessonRenderer.vue';\nimport exerciseData from './modelagem-uml.json';\n</script>\n<LessonRenderer :data=\"exerciseData\" />"
+      "type": "contentBlock",
+      "title": "Cenário",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escolha um domínio (ex.: banco digital, biblioteca online, plataforma de streaming) e modele requisitos principais."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Entregas",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Casos de uso",
+              "text": "Identifique atores e fluxos primários, destacando extensões e inclusões quando necessário."
+            },
+            {
+              "title": "Diagrama de classes",
+              "text": "Mapeie classes principais, atributos, métodos e relacionamentos com multiplicidade."
+            },
+            {
+              "title": "Regras de negócio",
+              "text": "Liste regras derivadas da modelagem que impactam implementação."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Diagramas exportados em PDF ou imagem.",
+        "Descrições textuais dos casos de uso críticos.",
+        "Hipóteses e limitações registradas para discussão em sala."
+      ]
     }
   ]
 }

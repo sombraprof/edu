@@ -42,8 +42,8 @@
     }
   ],
   "bibliography": [
-    "GOOGLE. <strong>ViewModel overview</strong>. Android Developers, 2024.",
-    "SAGAH. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Cap. 5 – Persistência de Estado, 2019."
+    "GOOGLE. ViewModel overview. Android Developers, 2024.",
+    "SAGAH. Desenvolvimento para Dispositivos Móveis. Cap. 5 – Persistência de Estado, 2019."
   ],
   "assessment": {
     "type": "practice",
@@ -55,19 +55,24 @@
       "type": "flightPlan",
       "title": "Plano de voo da aula (1h 45min)",
       "items": [
-        "<strong>(10 min) Icebreaker:</strong> bugs clássicos de formulário que perdem dados.",
-        "<strong>(20 min) Revisão do ciclo de vida:</strong> ligando eventos às oportunidades de salvar estado.",
-        "<strong>(25 min) Bundle essencial:</strong> `onSaveInstanceState` e `onRestoreInstanceState` passo a passo.",
-        "<strong>(20 min) ViewModel + SavedStateHandle:</strong> preservando lógica e dados pesados.",
-        "<strong>(15 min) Boas práticas e limites:</strong> quando optar por Room/SharedPreferences.",
-        "<strong>(15 min) Laboratório + TED:</strong> checklist de cobertura e ajustes no app."
+        "(10 min) Icebreaker: bugs clássicos de formulário que perdem dados.",
+        "(20 min) Revisão do ciclo de vida: ligando eventos às oportunidades de salvar estado.",
+        "(25 min) Bundle essencial: `onSaveInstanceState` e `onRestoreInstanceState` passo a passo.",
+        "(20 min) ViewModel + SavedStateHandle: preservando lógica e dados pesados.",
+        "(15 min) Boas práticas e limites: quando optar por Room/SharedPreferences.",
+        "(15 min) Laboratório + TED: checklist de cobertura e ajustes no app."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Situação real",
-      "content": "Seu app fecha ao rotacionar durante uma apresentação para a gerência. Como impedir que a demo falhe novamente?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Seu app fecha ao rotacionar durante uma apresentação para a gerência. Como impedir que a demo falhe novamente?"
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -113,7 +118,12 @@
           "type": "callout",
           "variant": "warning",
           "title": "Cuidado com parcelables pesados",
-          "content": "Não coloque listas enormes ou bitmaps no Bundle – use repositórios persistentes para dados grandes."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Não coloque listas enormes ou bitmaps no Bundle – use repositórios persistentes para dados grandes."
+            }
+          ]
         }
       ]
     },
@@ -174,7 +184,12 @@
           "type": "callout",
           "variant": "info",
           "title": "Dica",
-          "content": "Use o comando <code>adb shell am kill</code> para simular o sistema finalizando o processo em segundo plano."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Use o comando adb shell am kill para simular o sistema finalizando o processo em segundo plano."
+            }
+          ]
         }
       ]
     },
@@ -207,7 +222,12 @@
           "type": "callout",
           "variant": "task",
           "title": "Entrega assíncrona",
-          "content": "<p>Publique o vídeo e o checklist no Moodle. Adicione notas sobre o que ainda precisa ser protegido no app final.</p>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Publique o vídeo e o checklist no Moodle. Adicione notas sobre o que ainda precisa ser protegido no app final."
+            }
+          ]
         }
       ]
     },
@@ -215,8 +235,8 @@
       "type": "bibliographyBlock",
       "title": "Leituras recomendadas",
       "references": [
-        "GOOGLE. <strong>Handle configuration changes</strong>. 2024.",
-        "DÍAZ, José. <strong>Kotlin for Android Developers</strong>. Leanpub, 2023. Cap. 6."
+        "GOOGLE. Handle configuration changes. 2024.",
+        "DÍAZ, José. Kotlin for Android Developers. Leanpub, 2023. Cap. 6."
       ]
     }
   ],

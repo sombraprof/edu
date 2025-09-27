@@ -34,7 +34,7 @@
         :is="Callout"
         :variant="(item as any).variant ?? 'info'"
         :title="(item as any).title"
-        :content="(item as any).content"
+        :content="(item as any).richContent ?? (item as any).content"
       />
 
       <CodeBlock

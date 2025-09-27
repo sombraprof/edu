@@ -42,8 +42,8 @@
     }
   ],
   "bibliography": [
-    "SIMAS, Vinícius. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Grupo A, 2019.",
-    "GOOGLE. <strong>Send simple data to other apps</strong>. Android Developers, 2024."
+    "SIMAS, Vinícius. Desenvolvimento para Dispositivos Móveis. Grupo A, 2019.",
+    "GOOGLE. Send simple data to other apps. Android Developers, 2024."
   ],
   "assessment": {
     "type": "practice",
@@ -55,19 +55,24 @@
       "type": "flightPlan",
       "title": "Plano de voo da aula (1h 40min)",
       "items": [
-        "<strong>(10 min) Check-in:</strong> onde os apps delegam tarefas hoje?",
-        "<strong>(20 min) Teoria:</strong> ação + dados + categoria em Intents implícitas.",
-        "<strong>(20 min) Ações comuns:</strong> abrir site, discar, compartilhar.",
-        "<strong>(20 min) Boas práticas:</strong> verificando apps disponíveis e tratando exceções.",
-        "<strong>(15 min) Laboratório guiado:</strong> mini app de ações.",
-        "<strong>(15 min) TED e checklist.</strong>"
+        "(10 min) Check-in: onde os apps delegam tarefas hoje?",
+        "(20 min) Teoria: ação + dados + categoria em Intents implícitas.",
+        "(20 min) Ações comuns: abrir site, discar, compartilhar.",
+        "(20 min) Boas práticas: verificando apps disponíveis e tratando exceções.",
+        "(15 min) Laboratório guiado: mini app de ações.",
+        "(15 min) TED e checklist."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
       "title": "Pergunta",
-      "content": "Seu app precisa compartilhar um comprovante por e-mail, mas o usuário pode ter vários clientes instalados. Como escolher o melhor fluxo?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Seu app precisa compartilhar um comprovante por e-mail, mas o usuário pode ter vários clientes instalados. Como escolher o melhor fluxo?"
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -115,7 +120,12 @@
           "type": "callout",
           "variant": "warning",
           "title": "URLs precisam de protocolo",
-          "content": "Sempre garanta que a URI contenha `http://` ou `https://` para evitar crashes."
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Sempre garanta que a URI contenha `http://` ou `https://` para evitar crashes."
+            }
+          ]
         }
       ]
     },
@@ -182,7 +192,12 @@
           "type": "callout",
           "variant": "task",
           "title": "TED",
-          "content": "<p>Estenda o app adicionando uma Intent implícita para abrir o aplicativo de mapas na localização da instituição.</p>"
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Estenda o app adicionando uma Intent implícita para abrir o aplicativo de mapas na localização da instituição."
+            }
+          ]
         }
       ]
     },
@@ -190,8 +205,8 @@
       "type": "bibliographyBlock",
       "title": "Referências complementares",
       "references": [
-        "ANDROID DEVELOPERS. <strong>Common intents</strong>. 2024.",
-        "MEDNIEKS, Zigurd. <strong>Programming Android</strong>. O'Reilly, 4ª ed., 2022. Cap. 6."
+        "ANDROID DEVELOPERS. Common intents. 2024.",
+        "MEDNIEKS, Zigurd. Programming Android. O'Reilly, 4ª ed., 2022. Cap. 6."
       ]
     }
   ],

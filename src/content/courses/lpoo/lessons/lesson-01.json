@@ -94,7 +94,12 @@
       "type": "callout",
       "variant": "info",
       "title": "Pergunta disparadora",
-      "content": "Quais problemas você já enfrentou em projetos estruturados que poderiam ser minimizados com encapsulamento e reuso?"
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Quais problemas você já enfrentou em projetos estruturados que poderiam ser minimizados com encapsulamento e reuso?"
+        }
+      ]
     },
     {
       "type": "cardGrid",
@@ -139,13 +144,13 @@
           "type": "subBlock",
           "title": "Encapsulamento",
           "items": [
-            "<p>Protege invariantes ao esconder detalhes de implementação atrás de interfaces públicas.</p>",
+            "Protege invariantes ao esconder detalhes de implementação atrás de interfaces públicas.",
             {
               "component": "Callout",
               "props": {
                 "variant": "good-practice",
                 "title": "Exemplo",
-                "content": "Classe <code>ContaBancaria</code> expõe métodos <code>depositar()</code> e <code>sacar()</code> sem revelar campos internos."
+                "content": "Classe ContaBancaria expõe métodos depositar() e sacar() sem revelar campos internos."
               }
             }
           ]
@@ -154,15 +159,13 @@
           "type": "subBlock",
           "title": "Abstração",
           "items": [
-            "<p>Foca no que o objeto faz, não em como faz. Permite representar conceitos do domínio.</p>"
+            "Foca no que o objeto faz, não em como faz. Permite representar conceitos do domínio."
           ]
         },
         {
           "type": "subBlock",
           "title": "Herança e Polimorfismo",
-          "items": [
-            "<p>Viabilizam famílias de tipos relacionados e substituição segura entre eles.</p>"
-          ]
+          "items": ["Viabilizam famílias de tipos relacionados e substituição segura entre eles."]
         }
       ]
     },

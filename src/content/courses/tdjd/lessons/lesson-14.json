@@ -57,7 +57,12 @@
       "type": "callout",
       "variant": "good-practice",
       "title": "Recursos em Sala de Aula",
-      "content": "Prova corrigida, projetor para análise coletiva, ambientes Unity e Visual Studio para o desafio prático, e a rubrica comentada por critério."
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prova corrigida, projetor para análise coletiva, ambientes Unity e Visual Studio para o desafio prático, e a rubrica comentada por critério."
+        }
+      ]
     },
     {
       "type": "contentBlock",
@@ -65,20 +70,16 @@
       "content": [
         {
           "type": "paragraph",
-          "html": "A TED será uma <strong>Miniatualização no GDD (Game Design Document)</strong> do projeto em grupo. O objetivo é que o grupo reflita sobre os erros e acertos da NP1 e incorpore correções ou refinamentos em seu projeto. O documento deve ter um novo tópico chamado <em>Ações Pós-NP1</em>, detalhando o que foi aprendido ao testar a jogabilidade ou lógica do protótipo e como isso influenciará a próxima iteração."
+          "text": "A TED será uma Miniatualização no GDD (Game Design Document) do projeto em grupo. O objetivo é que o grupo reflita sobre os erros e acertos da NP1 e incorpore correções ou refinamentos em seu projeto. O documento deve ter um novo tópico chamado Ações Pós-NP1, detalhando o que foi aprendido ao testar a jogabilidade ou lógica do protótipo e como isso influenciará a próxima iteração."
         }
       ]
     },
     {
       "type": "bibliography",
       "title": "Referências de Reforço",
-      "content": [
-        {
-          "html": "O conteúdo e exercícios que compuseram a avaliação NP1 (Unidades I a III) servem como material principal de revisão."
-        },
-        {
-          "html": "As referências bibliográficas já utilizadas nas aulas anteriores (ex.: Alves, W. P.; Schuytema, Paul)."
-        }
+      "items": [
+        "O conteúdo e exercícios que compuseram a avaliação NP1 (Unidades I a III) servem como material principal de revisão.",
+        "As referências bibliográficas já utilizadas nas aulas anteriores (ex.: Alves, W. P.; Schuytema, Paul)."
       ]
     }
   ],
