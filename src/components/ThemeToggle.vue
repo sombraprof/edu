@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-tonal" @click="toggle()" :aria-label="ariaLabel">
+  <button class="btn btn-filled app-theme-toggle" @click="toggle()" :aria-label="ariaLabel">
     <component :is="icon" class="md-icon md-icon--sm" />
     <span class="hidden sm:inline">{{ textLabel }}</span>
   </button>

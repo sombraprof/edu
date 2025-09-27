@@ -27,8 +27,17 @@
         </a>
       </nav>
       <div class="app-footer__teacher">
-        <button class="teacher-link" type="button" @click="handleTeacherAccess">
-          {{ teacherMode ? 'Sair do modo professor' : 'Área do professor' }}
+        <button
+          class="nav-link app-footer__teacher-link"
+          type="button"
+          @click="handleTeacherAccess"
+        >
+          <component
+            :is="teacherMode ? LogOut : UserCog"
+            class="md-icon md-icon--sm"
+            aria-hidden="true"
+          />
+          <span>{{ teacherMode ? 'Professor' : 'Professor' }}</span>
         </button>
       </div>
     </div>
@@ -38,7 +47,7 @@
 <script setup lang="ts">
 // Minimal footer component using Material 3 tokens
 import { computed } from 'vue';
-import { Globe, Github, Mail } from 'lucide-vue-next';
+import { Globe, Github, Mail, UserCog, LogOut } from 'lucide-vue-next';
 import { useTeacherMode } from '../composables/useTeacherMode';
 
 const { teacherMode, enableTeacherMode, disableTeacherMode } = useTeacherMode();
@@ -74,18 +83,7 @@ function handleTeacherAccess() {
   justify-content: flex-end;
 }
 
-.teacher-link {
-  font: inherit;
-  background: none;
-  border: none;
-  color: var(--md-sys-color-on-surface-variant);
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  cursor: pointer;
-  padding: 0.25rem 0;
-}
-
-.teacher-link:hover {
+.app-footer__teacher-link {
   color: var(--md-sys-color-primary);
 }
 </style>
