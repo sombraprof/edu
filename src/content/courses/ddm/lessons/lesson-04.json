@@ -1,7 +1,48 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-04",
   "title": "Aula 4: Unidade I – Componentes de UI",
+  "summary": "Introdução aos componentes visuais do Android e às diretrizes do Material Design 3 para construir interfaces consistentes.",
   "objective": "Apresentar os principais componentes de interface gráfica no Android e demonstrar como utilizá-los na construção de telas simples.",
+  "objectives": [
+    "Reconhecer componentes de UI nativos e suas boas práticas de uso.",
+    "Aplicar guidelines do Material Design na composição de telas responsivas."
+  ],
+  "competencies": ["Criação de interfaces mobile acessíveis e responsivas"],
+  "skills": [
+    "Compor telas utilizando ViewGroups e hierarquias eficientes.",
+    "Selecionar componentes Material adequados para cada cenário apresentado."
+  ],
+  "outcomes": [
+    "Apresenta um wireframe de tela utilizando componentes básicos do Material 3.",
+    "Justifica a escolha de componentes conforme os princípios de acessibilidade e consistência."
+  ],
+  "prerequisites": [
+    "Conhecer a estrutura básica de um projeto Android e organização de resources."
+  ],
+  "tags": ["ui", "componentes", "material-design"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Material Design 3 – Component Gallery",
+      "url": "https://m3.material.io/components",
+      "type": "reference"
+    },
+    {
+      "label": "Build a UI with Layout Editor",
+      "url": "https://developer.android.com/studio/write/layout-editor",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "Material Design. \"Components.\" 2024.",
+    "Google. \"Build a UI with Layout Editor.\" 2024."
+  ],
+  "assessment": {
+    "type": "design critique",
+    "description": "Apresentação e feedback coletivo sobre o wireframe criado na aula."
+  },
   "content": [
     {
       "type": "flightPlan",
@@ -241,5 +282,11 @@
         }
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-08T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Guia de Interface DDM – Sprint Descoberta"]
+  }
 }

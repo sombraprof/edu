@@ -1,174 +1,271 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-10",
-  "title": "Aula 10: Estruturas de Controle Condicional com if e else",
-  "objective": "Escrever programas em C que alterem o fluxo do algoritmo com base em condições booleanas, utilizando if e else para decisões simples e compostas.",
+  "title": "Aula 10: Condicionais com if e else",
+  "summary": "Transforma algoritmos sequenciais em decisões controladas por condições booleanas, introduzindo desvios simples e comunicação clara de cada caminho.",
+  "objective": "Empregar estruturas if e if-else para alterar o fluxo do programa conforme regras de negócio bem definidas.",
+  "objectives": [
+    "Reconhecer situações em que o fluxo sequencial precisa ser desviado por meio de uma condição.",
+    "Escrever e testar expressões booleanas que alimentam estruturas if e if-else.",
+    "Documentar cada caminho da decisão para garantir clareza e manutenção futura."
+  ],
+  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Comunicação técnica"],
+  "skills": [
+    "Traduzir regras de negócio em comparações booleanas usando operadores relacionais e lógicos.",
+    "Selecionar entre blocos if simples ou if-else para representar decisões exclusivas.",
+    "Validar resultados com casos de teste positivos e negativos, registrando saídas esperadas."
+  ],
+  "outcomes": [
+    "Implementa um programa que decide entre caminhos mutuamente exclusivos com base em entradas do usuário.",
+    "Explica o raciocínio por trás de cada condição e o efeito de alterá-la.",
+    "Entrega relatório curto com casos de teste cobrindo ambos os ramos da decisão."
+  ],
+  "prerequisites": [
+    "Revisar operadores aritméticos, relacionais e o fluxo sequencial abordados nas aulas 7 a 9."
+  ],
+  "tags": ["condicionais", "if-else", "controle-de-fluxo"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia rápido de condicionais em C (PDF)",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/condicionais-if-else.pdf"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "type": "tool",
+      "url": "https://www.onlinegdb.com/online_c_compiler"
+    }
+  ],
+  "bibliography": [
+    "KERNIGHAN, B.; RITCHIE, D. A Linguagem de Programação C. Prentice Hall, 2020.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Entrega individual de um programa com if-else documentado e conjunto mínimo de testes cobrindo ambos os ramos."
+  },
   "content": [
     {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Estrutura condicional simples (if), composta (if-else) e encadeada (else if), aplicando operadores relacionais e lógicos para controlar o fluxo do programa."
+          "title": "Conteúdo",
+          "content": "Estruturas if e if-else, leitura de expressões booleanas e validação com casos positivos/negativos."
         },
         {
           "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Escrever programas em C que alterem o fluxo do algoritmo com base em condições booleanas, utilizando if e else para decisões simples e compostas."
+          "title": "Objetivo",
+          "content": "Registrar decisões binárias de maneira clara e previsível em programas C."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Aula expositiva com exemplos clássicos (aprovação por média, comparação de valores), seguida de uma atividade prática em duplas para desenvolver pequenos programas com if-else."
+          "title": "Metodologia",
+          "content": "Discussão guiada, demonstrações no projetor e laboratório em duplas com feedback entre pares."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de Voo da Aula de Hoje",
+      "title": "Plano de voo (1h55)",
       "items": [
-        "A transição de programas sequenciais para programas dinâmicos.",
-        "A estrutura <code-text>if</code-text>: como executar código apenas se uma condição for verdadeira.",
-        "A estrutura <code-text>if-else</code-text>: a bifurcação que permite escolher entre dois caminhos.",
-        "A estrutura <code-text>else if</code-text>: criando múltiplos caminhos para decisões complexas.",
-        "Atividade prática em duplas: resolvendo problemas com condicionais.",
-        "Apresentação da tarefa (TED) da Aula 10."
+        "(10 min) Check-in: onde condicionais aparecem em sistemas reais.",
+        "(20 min) Estrutura if simples com leitura de expressões verdadeiras/falsas.",
+        "(25 min) Construindo if-else completos com saídas distintas.",
+        "(25 min) Oficina guiada: simulador de aprovação acadêmica.",
+        "(20 min) Duplas testam e registram cenários opostos.",
+        "(15 min) TED e alinhamento de expectativas para a próxima aula."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "A Decisão Simples: \"if\"",
+      "title": "Quando precisamos desviar do fluxo sequencial",
       "content": [
         {
           "type": "paragraph",
-          "text": "Até agora, os nossos programas eram como uma estrada reta: executavam uma instrução após a outra, sem desvios. A estrutura <code-text>if</code-text> é o nosso primeiro \"desvio condicional\". Ela permite que um bloco de código seja executado <strong>apenas se</strong> uma determinada condição for verdadeira."
+          "text": "Programas reais raramente seguem uma única linha reta. Precisamos tomar decisões: liberar acesso, calcular descontos ou exibir avisos dependendo da entrada do usuário."
         },
         {
-          "type": "subBlock",
-          "title": "Exemplo: Verificação de Maioridade",
-          "items": [
-            "<p>Vamos criar um programa que lê a idade de uma pessoa e exibe uma mensagem apenas se ela for maior de idade.</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    // Input variable\n    int idade;\n\n    // 1. INPUT\n    printf(\"Digite a sua idade: \");\n    scanf(\"%d\", &idade);\n\n    // 2. PROCESSING & DECISION\n    // The code inside the braces only runs if \"idade >= 18\" is true\n    if (idade >= 18) {\n        // 3. OUTPUT (Conditional)\n        printf(\"Voce e maior de idade.\\n\");\n    }\n\n    printf(\"Fim do programa.\\n\"); // This line always runs\n\n    return 0;\n}\n"
+          "type": "paragraph",
+          "text": "As estruturas condicionais representam essas bifurcações. Um if bem escrito deixa claro quando algo acontece e, tão importante quanto, quando nada deve acontecer."
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "A Escolha Dupla: \"if-else\"",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "E se quisermos executar uma ação diferente caso a condição seja falsa? Para isso, usamos a estrutura <code-text>if-else</code-text>. Ela cria uma \"bifurcação na estrada\": se a condição for verdadeira, o programa segue por um caminho; senão (<code-text>else</code-text>), ele segue pelo outro."
-        },
-        {
-          "type": "subBlock",
-          "title": "Exemplo: Par ou Ímpar",
-          "items": [
-            "<p>Este programa lê um número e informa se ele é par ou ímpar. Só existem estas duas possibilidades.</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    int numero;\n\n    printf(\"Digite um numero inteiro: \");\n    scanf(\"%d\", &numero);\n\n    // The condition is if the remainder of the division by 2 is 0\n    if (numero % 2 == 0) {\n        // Path 1: executed if the condition is true\n        printf(\"O numero %d e PAR.\\n\", numero);\n    } else {\n        // Path 2: executed if the condition is false\n        printf(\"O numero %d e IMPAR.\\n\", numero);\n    }\n\n    return 0;\n}\n"
-        }
+      "type": "truthTable",
+      "title": "Exemplo: autorização por idade",
+      "headers": ["Idade", "idade >= 18", "Ação"],
+      "rows": [
+        [
+          { "value": "16" },
+          { "state": "false", "display": "Falso" },
+          { "state": "false", "display": "Não exibe autorização" }
+        ],
+        [
+          { "value": "18" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "true", "display": "Imprime \"Acesso liberado\"" }
+        ],
+        [
+          { "value": "21" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "true", "display": "Imprime \"Acesso liberado\"" }
+        ]
+      ],
+      "legend": [
+        { "label": "Condição satisfeita", "state": "true" },
+        { "label": "Condição não satisfeita", "state": "false" }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Múltiplas Escolhas: \"else if\"",
+      "title": "Estrutura de um if",
       "content": [
         {
           "type": "paragraph",
-          "text": "Quando temos mais de duas possibilidades, podemos \"aninhar\" os <code-text>if</code-text>s ou, de forma mais limpa, usar a estrutura <code-text>else if</code-text>. Ela permite-nos testar uma série de condições em sequência até que uma delas seja verdadeira."
-        },
-        {
-          "type": "subBlock",
-          "title": "Exemplo: Classificação de Média",
-          "items": [
-            "<p>Vamos classificar a situação de um aluno com base na sua média: Aprovado (>= 7.0), Recuperação (>= 5.0) ou Reprovado.</p>"
-          ]
+          "text": "O bloco if executa apenas quando a condição é verdadeira. Para manter a leitura fluida, coloque a comparação dentro de parênteses e alinhe o bloco com chaves."
         },
         {
           "type": "code",
           "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    float media;\n\n    printf(\"Digite a media do aluno: \");\n    scanf(\"%f\", &media);\n\n    if (media >= 7.0) {\n        printf(\"Situacao: APROVADO.\\n\");\n    } else if (media >= 5.0) { // Only checked if the first \"if\" was false\n        printf(\"Situacao: RECUPERACAO.\\n\");\n    } else { // Executed if none of the above conditions were true\n        printf(\"Situacao: REPROVADO.\\n\");\n    }\n\n    return 0;\n}\n"
+          "code": "if (saldo >= valorSaque) {\n  saldo = saldo - valorSaque;\n  printf(\"Saque realizado.\");\n}\nprintf(\"Operacao encerrada.\");"
+        },
+        {
+          "type": "subBlock",
+          "title": "Checklist rápido",
+          "items": [
+            "<p>Leia a condição em voz alta: \"se o saldo for maior ou igual ao valor do saque\".</p>",
+            "<p>Garanta que a mensagem fora do if execute sempre, independentemente da condição.</p>"
+          ]
         }
       ]
     },
     {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Fluxo de aprovação por média",
+        "summary": "Decisão binária baseada na média calculada para um estudante.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Início" },
+          { "id": "input", "type": "input", "title": "Ler média" },
+          {
+            "id": "decision",
+            "type": "decision",
+            "title": "Média ≥ 7?",
+            "branches": [
+              {
+                "id": "branch-aprovado",
+                "label": "Sim",
+                "target": "process-aprovado",
+                "description": "Segue para registrar aprovação."
+              },
+              {
+                "id": "branch-reforco",
+                "label": "Não",
+                "target": "process-reforco",
+                "description": "Aciona plano de reforço."
+              }
+            ]
+          },
+          {
+            "id": "process-aprovado",
+            "type": "process",
+            "title": "Imprimir mensagem de aprovação"
+          },
+          { "id": "process-reforco", "type": "process", "title": "Agendar estudo adicional" },
+          { "id": "end", "type": "end", "title": "Fim" }
+        ],
+        "connections": [
+          { "from": "start", "to": "input" },
+          { "from": "input", "to": "decision" },
+          { "from": "process-aprovado", "to": "end" },
+          { "from": "process-reforco", "to": "end" }
+        ]
+      }
+    },
+    {
       "type": "contentBlock",
-      "title": "Atividade Prática em Duplas",
+      "title": "Construindo um if-else completo",
       "content": [
         {
           "type": "paragraph",
-          "text": "Em duplas, escolham um dos problemas abaixo e implementem a solução em C, utilizando as estruturas <code-text>if</code-text> e <code-text>else</code-text>."
+          "text": "Quando só pode existir um de dois resultados possíveis, use if-else. Assim cada caminho fica explícito e evita efeitos colaterais inesperados."
         },
         {
-          "type": "subBlock",
-          "title": "Problemas",
+          "type": "code",
+          "language": "c",
+          "code": "if (numero % 2 == 0) {\n  printf(\"O numero %d e PAR.\\n\", numero);\n} else {\n  printf(\"O numero %d e IMPAR.\\n\", numero);\n}"
+        },
+        {
+          "type": "orderedList",
           "items": [
-            "<div class=\"grid md:grid-cols-2 gap-6 mt-4\"><div class=\"bg-primary-50 p-6 rounded-2xl\"><h5 class=\"font-bold text-primary-800 mb-2\">Problema A: Comparação de Números</h5><p>Crie um programa que leia dois números inteiros e informe qual deles é o maior ou se são iguais. (Este é o aquecimento para o TED!)</p></div><div class=\"bg-primary-50 p-6 rounded-2xl\"><h5 class=\"font-bold text-primary-800 mb-2\">Problema B: Desconto por Valor</h5><p>Crie um programa que leia o valor de uma compra. Se o valor for maior que R$ 100,00, aplique um desconto de 10%. Caso contrário, não aplique desconto. Exiba o valor final.</p></div></div>"
+            "Teste com ao menos um valor para cada ramo.",
+            "Escreva comentários explicando o significado da condição.",
+            "Registre as saídas esperadas antes de compilar."
           ]
         }
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O objetivo é praticar a lógica de comparação com estruturas condicionais.</p><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie um programa em C chamado <code-text>aula10_maior_numero.c</code-text>.</li><li>O programa deve ler dois números inteiros.</li><li>Utilizando <code-text>if</code-text>, <code-text>else if</code-text> e <code-text>else</code-text>, o programa deve informar qual dos números é o maior, ou se eles são iguais.</li><li>Poste o ficheiro <code-text>.c</code-text> na Atividade da \"Aula 10\" no Moodle.</li></ol>"
+      "variant": "warning",
+      "title": "Cuidado com a atribuição",
+      "content": "<p>Use <code>==</code> para comparar valores e <code>=</code> apenas para atribuir. Um único símbolo pode mudar completamente a lógica e sempre retornará verdadeiro, causando bugs difíceis de rastrear.</p>"
     },
     {
       "type": "contentBlock",
-      "title": "💻 Área de Testes Interativa",
+      "title": "Laboratório guiado",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Em duplas, modelem um cenário que dependa de uma decisão binária (ex.: desconto fidelidade, envio de alerta).",
+            "Identifiquem quais entradas são necessárias e qual mensagem cada ramo deve exibir.",
+            "Implementem o programa em C, documentando os casos de teste utilizados."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Tarefa (TED)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
+          "text": "Implemente um programa chamado aula10_limite_credito.c que leia o limite mensal de um cliente e o total já utilizado."
         },
         {
-          "type": "html",
-          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+          "type": "paragraph",
+          "text": "Use if-else para informar se há saldo disponível ou se o usuário atingiu o limite. Anexe captura dos testes com valores dentro e fora do limite."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
+      "title": "Vídeos de apoio",
       "videos": [
         {
-          "title": "Estrutura de Decisão: if e else (PT-BR)",
+          "title": "Estrutura de decisão if/else em C",
           "src": "https://www.youtube.com/embed/PE4-xGdC9NM"
         },
         {
-          "title": "If…else em C (exemplos práticos)",
+          "title": "Boas práticas com condicionais",
           "src": "https://www.youtube.com/embed/KXHRiW2MlKk"
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "title": "Você sai da aula capaz de",
       "items": [
-        "Explicar a diferença entre <code>if</code>, <code>if-else</code> e <code-text>else if</code-text>.",
-        "Escrever um programa que usa <code-text>if-else</code-text> para tomar uma decisão.",
-        "Utilizar operadores relacionais (<code-text>></code-text>, <code-text>==</code-text>, <code-text>!=</code-text>) dentro de uma condição.",
-        "Construir uma estrutura <code-text>else if</code-text> para lidar com múltiplas condições."
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
-        "<strong>MANZANO, José Augusto N.G.; OLIVEIRA, Jayr Figueiredo.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Érica, 2019."
+        "Identificar quando aplicar if simples ou if-else.",
+        "Explicar verbalmente o que cada condição avalia.",
+        "Testar ambos os ramos antes de considerar o programa concluído."
       ]
     }
   ]

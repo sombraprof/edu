@@ -1,184 +1,269 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-11",
-  "title": "Aula 11: Seleção Múltipla com <code>switch-case</code>",
-  "objective": "Organizando decisões complexas de forma limpa e eficiente.",
+  "title": "Aula 11: Seleção múltipla com switch-case",
+  "summary": "Simplifica decisões com muitas alternativas ao agrupar lógicas repetitivas em rótulos claros de switch-case, mantendo o fluxo organizado.",
+  "objective": "Selecionar um entre vários blocos de código com base em uma única expressão usando switch-case de forma segura.",
+  "objectives": [
+    "Identificar quando cadeias longas de if-else podem ser substituídas por switch-case.",
+    "Configurar cases, break e default para controlar exatamente quais blocos executam.",
+    "Documentar menus e mapas de opções para orientar o usuário."
+  ],
+  "competencies": ["Raciocínio algorítmico", "Pensamento computacional", "Comunicação técnica"],
+  "skills": [
+    "Mapear valores discretos para blocos específicos de lógica.",
+    "Agrupar múltiplos cases que compartilham o mesmo comportamento.",
+    "Descrever o efeito de omitir break (fall-through) e quando isso é desejável."
+  ],
+  "outcomes": [
+    "Entrega um menu funcional com feedback para opções válidas e inválidas.",
+    "Justifica em documentação curta a escolha entre if-else e switch-case.",
+    "Apresenta casos de teste cobrindo todos os rótulos definidos no programa."
+  ],
+  "prerequisites": ["Revisar if-else e testes de condição apresentados na Aula 10."],
+  "tags": ["condicionais", "switch-case", "controle-de-fluxo"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Mapa de menus interativos (PDF)",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/menu-switch.pdf"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "type": "tool",
+      "url": "https://www.onlinegdb.com/online_c_compiler"
+    }
+  ],
+  "bibliography": [
+    "KERNIGHAN, B.; RITCHIE, D. A Linguagem de Programação C. Prentice Hall, 2020.",
+    "PERRY, G. C Completo e Total. Novatec, 2021.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Desenvolvimento de um menu de operações com relatório de testes cobrindo todos os cases e o default."
+  },
   "content": [
     {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Estrutura de seleção múltipla <code>switch-case</code>, a importância do <code>break</code> e do <code>default</code>, e a comparação com cadeias de <code>if-else if</code>."
+          "title": "Conteúdo",
+          "content": "Estrutura switch-case, rótulos, break/default e comparação com if-else."
         },
         {
           "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Escrever programas em C que selecionem um entre vários blocos de código com base no valor de uma variável, utilizando <code>switch-case</code> de forma eficiente."
+          "title": "Objetivo",
+          "content": "Reduzir repetição e tornar menus mais legíveis controlando decisões com uma variável central."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Aula expositiva com exemplos progressivos, demonstração de casos de uso e atividade prática em duplas para criar programas de seleção múltipla."
+          "title": "Metodologia",
+          "content": "Aula demonstrativa com refatoração ao vivo e laboratório em duplas para implementar menus guiados."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de Voo da Aula de Hoje",
+      "title": "Plano de voo (1h50)",
       "items": [
-        "A transição de programas sequenciais para programas dinâmicos.",
-        "A estrutura <code>if</code>: como executar código apenas se uma condição for verdadeira.",
-        "A estrutura <code>if-else</code>: a bifurcação que permite escolher entre dois caminhos.",
-        "A estrutura <code>else if</code>: criando múltiplos caminhos para decisões complexas.",
-        "Atividade prática em duplas: resolvendo problemas com condicionais.",
-        "Apresentação da tarefa (TED) da Aula 10."
+        "(10 min) Revisão das decisões binárias vistas na aula anterior.",
+        "(20 min) Anatomia do switch-case e exemplos básicos.",
+        "(20 min) Refatoração de if-else encadeado para switch-case.",
+        "(25 min) Oficina em duplas: menu de operações.",
+        "(20 min) Discussão sobre fall-through e agrupamento.",
+        "(15 min) TED e preparação para combinações avançadas (Aula 12)."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Quando o \"if-else\" não é suficiente?",
+      "title": "Quando if-else fica verboso demais",
       "content": [
         {
           "type": "paragraph",
-          "text": "Na última aula, vimos como o <code>else if</code> nos permite criar múltiplos caminhos. No entanto, quando todas as comparações são feitas contra a <strong>mesma variável</strong>, o código pode ficar repetitivo e menos legível."
+          "text": "Se cada condição compara a mesma variável a valores diferentes, uma cadeia de if-else começa a repetir muito código. Switch-case torna explícita a lista de opções aceitas."
         },
         {
           "type": "paragraph",
-          "text": "Imagine um menu onde o utilizador digita um número para escolher uma opção. Usar <code>if (opcao == 1)</code>, <code>else if (opcao == 2)</code>, <code>else if (opcao == 3)</code>... funciona, mas não é elegante."
-        },
-        {
-          "type": "paragraph",
-          "text": "O <code>switch-case</code> é uma estrutura de controlo desenhada exatamente para esta situação: selecionar um bloco de código para executar com base no valor de uma única variável ou expressão."
+          "text": "Além de mais legível, a estrutura facilita adicionar ou remover opções sem alterar a lógica principal do programa."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Anatomia do \"switch-case\"",
+      "title": "Anatomia do switch-case",
       "content": [
-        {
-          "type": "paragraph",
-          "text": "A estrutura <code>switch</code> avalia uma variável e \"salta\" para o <code>case</code> que corresponde ao valor encontrado."
-        },
         {
           "type": "code",
           "language": "c",
-          "code": "switch (variavel_ou_expressao) {\n    case valor1:\n        // Bloco de código para o valor1\n        break;\n    case valor2:\n        // Bloco de código para o valor2\n        break;\n    // ... outros cases\n    default:\n        // Bloco de código se nenhum case corresponder\n        break;\n}"
+          "code": "switch (opcao) {\n  case 1:\n    printf(\"Cadastrar\");\n    break;\n  case 2:\n    printf(\"Listar\");\n    break;\n  default:\n    printf(\"Opcao invalida\");\n    break;\n}"
         },
         {
-          "type": "subBlock",
-          "title": "Anatomia",
+          "type": "orderedList",
           "items": [
-            "<ul><li><strong><code>switch (variavel)</code>:</strong> A variável (do tipo <code>int</code> ou <code>char</code>) que será avaliada.</li><li><strong><code>case valor:</code>:</strong> Um rótulo que representa um possível valor para a variável. O valor deve ser uma constante.</li><li><strong><code>break;</code>:</strong> **Essencial!** Interrompe a execução do <code>switch</code>. Sem ele, o código continuaria a executar os <code>case</code>s seguintes (comportamento \"fall-through\").</li><li><strong><code>default:</code>:</strong> Opcional. Funciona como o <code>else</code> final, executando se nenhum dos <code>case</code>s anteriores corresponder ao valor da variável.</li></ul>"
+            "Avalie uma expressão inteira ou caractere (int, char ou enum).",
+            "Use break para impedir que o próximo case execute involuntariamente.",
+            "Reserve default para tratar entradas inesperadas."
           ]
         }
       ]
     },
     {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Menu de operações do sistema",
+        "summary": "Fluxo de decisão baseado na opção digitada pelo usuário.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Início" },
+          { "id": "input", "type": "input", "title": "Ler opção" },
+          {
+            "id": "decision",
+            "type": "decision",
+            "title": "Qual opção foi escolhida?",
+            "branches": [
+              {
+                "id": "branch-cadastrar",
+                "label": "1",
+                "target": "process-cadastrar",
+                "description": "Executa cadastro"
+              },
+              {
+                "id": "branch-listar",
+                "label": "2",
+                "target": "process-listar",
+                "description": "Mostra registros"
+              },
+              {
+                "id": "branch-sair",
+                "label": "3",
+                "target": "process-sair",
+                "description": "Finaliza o programa"
+              },
+              {
+                "id": "branch-default",
+                "label": "Outro",
+                "target": "process-erro",
+                "description": "Exibe aviso"
+              }
+            ]
+          },
+          { "id": "process-cadastrar", "type": "process", "title": "Executar cadastro" },
+          { "id": "process-listar", "type": "process", "title": "Listar dados" },
+          { "id": "process-sair", "type": "process", "title": "Encerrar aplicação" },
+          { "id": "process-erro", "type": "process", "title": "Exibir mensagem inválida" },
+          { "id": "end", "type": "end", "title": "Fim" }
+        ],
+        "connections": [
+          { "from": "start", "to": "input" },
+          { "from": "input", "to": "decision" },
+          { "from": "process-cadastrar", "to": "end" },
+          { "from": "process-listar", "to": "end" },
+          { "from": "process-sair", "to": "end" },
+          { "from": "process-erro", "to": "end" }
+        ]
+      }
+    },
+    {
       "type": "contentBlock",
-      "title": "Exemplo Prático 1: Menu de Opções",
+      "title": "Agrupando opções semelhantes",
       "content": [
         {
           "type": "paragraph",
-          "text": "Vamos implementar um menu de opções simples, um dos usos mais comuns para o <code>switch-case</code>."
+          "text": "Quando vários valores produzem o mesmo resultado, podemos agrupá-los omitindo o break até o final do grupo."
         },
         {
           "type": "code",
           "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    int opcao;\n\n    printf(\"--- MENU ---\\n\");\n    printf(\"1 - Cadastrar\\n\");\n    printf(\"2 - Listar\\n\");\n    printf(\"3 - Sair\\n\");\n    printf(\"Escolha uma opcao: \");\n    scanf(\"%d\", &opcao);\n\n    switch (opcao) {\n        case 1:\n            printf(\"Voce escolheu a opcao CADASTRAR.\\n\");\n            // Aqui entraria a lógica de cadastro\n            break;\n        case 2:\n            printf(\"Voce escolheu a opcao LISTAR.\\n\");\n            // Aqui entraria a lógica de listagem\n            break;\n        case 3:\n            printf(\"A sair do programa...\\n\");\n            break;\n        default:\n            printf(\"Opcao invalida!\\n\");\n            break;\n    }\n\n    return 0;\n}\n"
+          "code": "switch (mes) {\n  case 1: case 3: case 5: case 7: case 8: case 10: case 12:\n    printf(\"Mes com 31 dias\");\n    break;\n  case 4: case 6: case 9: case 11:\n    printf(\"Mes com 30 dias\");\n    break;\n  case 2:\n    printf(\"Fevereiro: 28 ou 29 dias\");\n    break;\n  default:\n    printf(\"Valor invalido\");\n    break;\n}"
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Agrupando \"cases\"",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Uma técnica poderosa é agrupar vários <code>case</code>s para que executem o mesmo bloco de código. Como a execução continua até encontrar um <code>break</code>, podemos omiti-lo para criar este efeito."
-        },
-        {
-          "type": "subBlock",
-          "title": "Exemplo: Dias do Mês",
-          "items": [
-            "<p>Este programa lê o número de um mês e informa quantos dias ele tem (ignorando anos bissextos).</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    int mes;\n    printf(\"Digite o numero do mes (1-12): \");\n    scanf(\"%d\", &mes);\n\n    switch (mes) {\n        // Meses com 31 dias\n        case 1:\n        case 3:\n        case 5:\n        case 7:\n        case 8:\n        case 10:\n        case 12:\n            printf(\"Este mes tem 31 dias.\\n\");\n            break;\n\n        // Meses com 30 dias\n        case 4:\n        case 6:\n        case 9:\n        case 11:\n            printf(\"Este mes tem 30 dias.\\n\");\n            break;\n\n        // Caso especial: Fevereiro\n        case 2:\n            printf(\"Este mes tem 28 ou 29 dias.\\n\");\n            break;\n\n        default:\n            printf(\"Mes invalido!\\n\");\n            break;\n    }\n\n    return 0;\n}\n"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Atividade Prática em Duplas",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Em duplas, criem um programa que leia um único caractere representando o estado civil de uma pessoa (<code>S</code> para Solteiro, <code>C</code> para Casado, <code>V</code> para Viúvo, <code>D</code> para Divorciado) e imprima o estado civil por extenso."
-        },
-        {
-          "type": "callout",
-          "variant": "good-practice",
-          "title": "Dica",
-          "content": "<p>O <code>switch</code> também funciona com o tipo <code>char</code>. Lembre-se de que os valores dos <code>case</code>s para caracteres devem estar entre aspas simples, como <code>case 'S':</code>.</p>"
-        }
+      "type": "md3Table",
+      "headers": ["Cenário", "if-else encadeado", "switch-case"],
+      "rows": [
+        [
+          { "value": "Poucas opções" },
+          { "value": "Leitura simples, pouca repetição" },
+          { "value": "Pode ser excesso de sintaxe" }
+        ],
+        [
+          { "value": "Muitas opções" },
+          { "value": "Código repetido e difícil de manter" },
+          { "value": "Lista compacta de cases" }
+        ],
+        [
+          { "value": "Comparações complexas" },
+          { "value": "Aceita qualquer expressão" },
+          { "value": "Limitado a valores inteiros/char" }
+        ],
+        [
+          { "value": "Fall-through intencional" },
+          { "value": "Necessita flags extras" },
+          { "value": "Natural com ausência de break" }
+        ]
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O objetivo é praticar a estrutura de seleção múltipla <code>switch-case</code>.</p><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie um programa em C chamado <code>aula11_dia_semana.c</code>.</li><li>O programa deve ler um número inteiro de 1 a 7.</li><li>Utilizando <code>switch-case</code>, o programa deve exibir o dia da semana correspondente (1 para Domingo, 2 para Segunda, etc.).</li><li>Se o número digitado estiver fora do intervalo de 1 a 7, o programa deve exibir a mensagem \"Dia inválido\" (use o <code>default</code>).</li><li>Poste o ficheiro <code>.c</code> na Atividade da \"Aula 11\" no Moodle.</li></ol>"
+      "title": "Break é obrigatório?",
+      "content": "<p>Sem <code>break</code>, o programa continua executando os cases seguintes. Use esse comportamento apenas quando quiser compartilhar lógica entre opções (fall-through controlado).</p>"
     },
     {
       "type": "contentBlock",
-      "title": "💻 Área de Testes Interativa",
+      "title": "Oficina em duplas",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Criem um menu para um sistema de biblioteca com opções de cadastrar, emprestar, devolver e sair.",
+            "Incluam um default que sugira ações válidas quando a opção for inválida.",
+            "Registrem em tabela os testes executados para cada case."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Tarefa (TED)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
+          "text": "Implemente aula11_calculadora.c com um menu que leia dois números e execute uma operação escolhida (somar, subtrair, multiplicar, dividir)."
         },
         {
-          "type": "html",
-          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+          "type": "paragraph",
+          "text": "Valide a divisão por zero e registre no relatório cada operação testada."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
+      "title": "Vídeos de apoio",
       "videos": [
         {
-          "title": "Entenda \"switch case\" em C (PT-BR)",
+          "title": "Entenda switch-case em C",
           "src": "https://www.youtube.com/embed/w78aBu9cByo"
         },
         {
-          "title": "Estrutura de decisão \"switch-case\" (C em Português)",
-          "src": "https://www.youtube.com/embed/TWMJkFnLjtw"
+          "title": "Menus com switch-case",
+          "src": "https://www.youtube.com/embed/QG9zNBo2yrw"
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "title": "Você sai da aula capaz de",
       "items": [
-        "Explicar quando usar <code>switch-case</code> em vez de <code>if-else</code>.",
-        "Escrever um programa funcional utilizando a sintaxe do <code>switch-case</code>.",
-        "Entender a função crítica da palavra-chave <code>break</code>.",
-        "Utilizar o <code>default</code> para lidar com casos inesperados."
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
-        "<strong>SANTOS, Marcelo Gonçalves dos.</strong> <em>Linguagem de programação.</em> São Paulo: Pearson, 2018."
+        "Refatorar cadeias de if-else em switch-case quando adequado.",
+        "Configurar break e default corretamente.",
+        "Explicar como testar cada opção do menu implementado."
       ]
     }
   ]

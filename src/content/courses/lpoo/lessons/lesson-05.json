@@ -1,228 +1,193 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-05",
   "title": "Aula 5: Resolução da AV1 e Introdução à Herança",
-  "objective": "Revisar os conceitos fundamentais de POO e introduzir a Herança como mecanismo de reuso e especialização de código em Java.",
+  "summary": "Analisa a avaliação diagnóstica da turma, discute padrões de erro e apresenta os fundamentos de herança em Java.",
+  "objective": "Consolidar aprendizados da primeira etapa e introduzir reutilização estrutural com herança controlada.",
+  "objectives": [
+    "Interpretar os resultados da AV1 identificando habilidades dominadas e lacunas prioritárias.",
+    "Refatorar uma classe base a partir de requisitos comuns.",
+    "Criar subclasses que especializam comportamento com sobrescrita segura."
+  ],
+  "competencies": [
+    "Avaliação diagnóstica de aprendizagem",
+    "Modelagem orientada a objetos",
+    "Refatoração incremental"
+  ],
+  "skills": [
+    "Aplicar boas práticas de feedback formativo e autoavaliação.",
+    "Definir hierarquias simples de classes usando `extends`.",
+    "Utilizar `super` para acessar construtores e métodos da superclasse."
+  ],
+  "outcomes": [
+    "Plano de ação individual pós-AV1.",
+    "Diagrama simples da hierarquia proposta.",
+    "Protótipo de código demonstrando herança e sobrescrita."
+  ],
+  "prerequisites": [
+    "Participação na AV1 e revisão das aulas 01-04.",
+    "Conhecimento sobre classes, encapsulamento e métodos."
+  ],
+  "tags": ["poo", "heranca", "avaliacao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Relatório consolidado da AV1",
+      "type": "document",
+      "url": "https://example.edu/lpoo/relatorios/av1"
+    },
+    {
+      "label": "Guia Oracle: Inheritance",
+      "type": "article",
+      "url": "https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html"
+    }
+  ],
+  "bibliography": [
+    "BARNES, D.; KÖLLING, M. Objects First with Java. 7. ed. Pearson, 2023.",
+    "GAMMA, E. et al. Design Patterns. Addison-Wesley, 2021."
+  ],
+  "assessment": {
+    "type": "remediation",
+    "description": "Entrega de plano de estudo personalizado e exercício prático de herança submetido ao repositório da disciplina.",
+    "rubric": "Plano com metas específicas, código com superclasse reutilizável e testes demonstrando polimorfismo."
+  },
   "content": [
     {
-      "type": "contentBlock",
-      "title": "Ementa e Contextualização",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Nesta aula, faremos uma pausa estratégica para consolidar o conhecimento adquirido até agora, com a resolução comentada da AV1. Em seguida, daremos um passo fundamental na Programação Orientada a Objetos ao introduzir a <strong>Herança</strong>. A herança é um mecanismo poderoso que permite criar novas classes a partir de outras já existentes, promovendo o reuso de código, evitando duplicação e organizando nosso software em hierarquias lógicas. É o pilar que nos permite modelar relacionamentos do tipo \"é-um\" (um Gerente \"é-um\" Funcionário), essencial para a construção de sistemas complexos e escaláveis."
-        }
-      ]
-    },
-    {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade II — Reutilização e evolução",
+        "content": "Retomar conteúdos da primeira etapa e introduzir herança como mecanismo de extensão."
+      },
       "cards": [
         {
-          "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Resolução comentada da AV1. Conceito de Herança, palavra-chave `extends`, superclasse (classe base) e subclasse (classe derivada)."
+          "icon": "database",
+          "title": "Análise da AV1",
+          "content": "Examinar indicadores por competência e discutir estratégias de reforço."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Revisar os conceitos fundamentais de POO e introduzir a Herança como mecanismo de reuso e especialização de código em Java."
+          "icon": "target",
+          "title": "Hierarquias",
+          "content": "Entender quando herdar e quando preferir composição."
         },
         {
-          "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Análise da avaliação, aula expositiva sobre Herança, e exemplos práticos de implementação de hierarquias de classes."
+          "icon": "users",
+          "title": "Feedback",
+          "content": "Definir ações individuais e coletivas para a próxima sprint."
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "📚 Teoria — Análise da AV1: Consolidando Nossos Conhecimentos",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Vamos revisar um problema típico da AV1, que aborda os conceitos essenciais que vimos até agora: classes, objetos, atributos, métodos e encapsulamento."
-        },
-        {
-          "type": "callout",
-          "variant": "academic",
-          "title": "Problema Exemplo: Modelar um Curso",
-          "content": "\"Crie uma classe `Curso` para representar um curso acadêmico. A classe deve ter os atributos privados `nome` (String) e `cargaHoraria` (int). Implemente um construtor que inicialize esses atributos e métodos getters e setters. O setter de `cargaHoraria` deve garantir que o valor não seja negativo. Crie uma classe de teste para instanciar e exibir os dados de um curso.\""
-        },
-        {
-          "type": "contentBlock",
-          "title": "Resolução Passo a Passo",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "A solução correta envolve criar a classe com atributos privados e fornecer acesso controlado através de métodos públicos."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "// File: Curso.java\npublic class Curso {\n    private String nome;\n    private int cargaHoraria;\n\n    public Curso(String nome, int cargaHoraria) {\n        this.nome = nome;\n        this.setCargaHoraria(cargaHoraria); // Use the setter to ensure validation\n    }\n\n    public String getNome() {\n        return this.nome;\n    }\n\n    public int getCargaHoraria() {\n        return this.cargaHoraria;\n    }\n\n    public void setNome(String nome) {\n        this.nome = nome;\n    }\n\n    public void setCargaHoraria(int cargaHoraria) {\n        if (cargaHoraria >= 0) {\n            this.cargaHoraria = cargaHoraria;\n        } else {\n            System.out.println(\"[ERRO] Carga horária não pode ser negativa.\");\n        }\n    }\n}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "🏗️ Construindo Hierarquias: O Poder da Herança",
-      "content": [
-        {
-          "type": "contentBlock",
-          "title": "1. O que é Herança?",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Herança é um mecanismo que permite que uma classe (subclasse) herde atributos e métodos de outra classe (superclasse). Isso cria uma relação \"é-um\". Por exemplo, um `Cachorro` <strong>é um</strong> `Animal`. A subclasse pode reutilizar todo o código da superclasse e ainda adicionar seus próprios atributos e métodos específicos."
-            },
-            {
-              "type": "list",
-              "items": [
-                "<strong>Superclasse (ou Classe Pai/Base):</strong> A classe que está sendo herdada. Contém os membros mais genéricos.",
-                "<strong>Subclasse (ou Classe Filha/Derivada):</strong> A classe que herda. É uma versão especializada da superclasse.",
-                "<strong>Palavra-chave `extends`:</strong> Usada em Java para estabelecer a relação de herança. Ex: `public class Cachorro extends Animal`."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "2. A Palavra-chave super",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "A palavra-chave `super` é usada dentro de uma subclasse para se referir a membros da sua superclasse. Ela tem dois usos principais:"
-            },
-            {
-              "type": "list",
-              "items": [
-                "`super()`: Para chamar o construtor da superclasse. Esta deve ser a <strong>primeira instrução</strong> no construtor da subclasse.",
-                "`super.metodo()`: Para chamar um método específico da superclasse, especialmente útil quando a subclasse sobrescreve esse método."
-              ]
-            }
-          ]
-        },
-        {
-          "type": "cardGrid",
-          "title": "3. Vantagens e Cuidados com a Herança",
-          "cards": [
-            {
-              "title": "Vantagens",
-              "content": "<ul><li><strong>Reuso de Código:</strong> Evita duplicação de atributos e métodos comuns.</li><li><strong>Organização:</strong> Cria hierarquias lógicas e fáceis de entender.</li><li><strong>Polimorfismo:</strong> Permite que objetos de subclasses sejam tratados como objetos da superclasse (veremos na próxima aula).</li></ul>"
-            },
-            {
-              "title": "Cuidados",
-              "content": "<ul><li><strong>Acoplamento Forte:</strong> Subclasses são fortemente acopladas às suas superclasses. Mudanças na superclasse podem quebrar as subclasses.</li><li><strong>Hierarquias Frágeis:</strong> Hierarquias muito profundas ou mal planejadas podem se tornar difíceis de manter.</li><li><strong>Uso Indevido:</strong> Herança deve representar uma relação \"é-um\". Para relações \"tem-um\", prefira composição.</li></ul>"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "💻 Exemplos Práticos: Criando Hierarquias",
-      "content": [
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 1: Animal e Cachorro",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Aqui, `Cachorro` herda `nome` de `Animal` e adiciona seu próprio atributo `raca`."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "// Superclass\npublic class Animal {\n    protected String nome;\n\n    public Animal(String nome) {\n        this.nome = nome;\n    }\n\n    public void comer() {\n        System.out.println(this.nome + \" está comendo.\");\n    }\n}\n\n// Subclass\npublic class Cachorro extends Animal {\n    private String raca;\n\n    public Cachorro(String nome, String raca) {\n        // Calls the constructor of the superclass (Animal)\n        super(nome); \n        this.raca = raca;\n    }\n\n    public void latir() {\n        System.out.println(this.nome + \" da raça \" + this.raca + \" está latindo: Au au!\");\n    }\n}"
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 2: Funcionario e Gerente",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Um `Gerente` é um tipo de `Funcionario` que tem um bônus adicional."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "// Superclass\npublic class Funcionario {\n    private String nome;\n    private double salario;\n\n    public Funcionario(String nome, double salario) {\n        this.nome = nome;\n        this.salario = salario;\n    }\n\n    public double getSalario() {\n        return this.salario;\n    }\n    \n    public String getNome() {\n        return this.nome;\n    }\n}\n\n// Subclass\npublic class Gerente extends Funcionario {\n    private double bonus;\n\n    public Gerente(String nome, double salario, double bonus) {\n        // Call the Funcionario constructor\n        super(nome, salario);\n        this.bonus = bonus;\n    }\n\n    // A better approach is to create a new method for the total salary.\n    public double getSalarioComBonus() {\n        // super.getSalario() calls the getSalario() method from the Funcionario class\n        return super.getSalario() + this.bonus;\n    }\n}"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "🎥 Vídeos e Links de Apoio",
-      "videos": [
-        {
-          "title": "Herança em Java (Curso de Java 39 – Loiane Groner)",
-          "youtubeId": "aRPal-8z4RQ"
-        },
-        {
-          "title": "Herança e super em Java (Curso de Java 37)",
-          "youtubeId": "MOXLCjL4Ik4"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "📖 Leituras Recomendadas",
-      "content": [
-        {
-          "type": "button",
-          "text": "Inheritance (Documentação Oficial da Oracle)",
-          "href": "https://docs.oracle.com/javase/tutorial/java/javaOO/inheritance.html"
-        },
-        {
-          "type": "button",
-          "text": "Inheritance in Java (Baeldung)",
-          "href": "https://www.baeldung.com/java-inheritance"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Atividade Prática (TED): Modelando Veículos",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Vamos praticar a herança modelando diferentes tipos de veículos."
-        },
-        {
-          "type": "list",
-          "items": [
-            "**Crie a superclasse `Veiculo.java`** com atributos `private String marca` e `private String modelo`. Adicione um construtor e getters para esses atributos.",
-            "**Crie a subclasse `Carro.java`** que herda de `Veiculo`. Adicione um atributo `private int numeroDePortas`. Crie um construtor que use `super()` para inicializar a marca e o modelo.",
-            "**Crie a subclasse `Moto.java`** que herda de `Veiculo`. Adicione um atributo `private int cilindradas`. Crie um construtor que também use `super()`.",
-            "**Crie uma classe `Garagem.java` com um método `main`** para testar. Crie um objeto `Carro` e um objeto `Moto`, e imprima as informações completas de cada um no console."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "checklist",
-      "title": "Checklist de Aprendizagem da Aula",
+      "type": "flightPlan",
+      "title": "Plano de voo (2h00)",
       "items": [
-        "Explicar o conceito de Herança e a relação \"é-um\".",
-        "Utilizar a palavra-chave `extends` para criar uma subclasse.",
-        "Chamar o construtor da superclasse usando `super()`.",
-        "Entender como subclasses herdam membros e podem adicionar os seus próprios."
+        "(20 min) Apresentação dos dados da AV1 e discussão em grupos.",
+        "(15 min) Check-in emocional e alinhamento de expectativas.",
+        "(30 min) Mini aula: conceitos de herança e reutilização.",
+        "(25 min) Exercício guiado: fatorando uma superclasse `Funcionario`.",
+        "(20 min) Pair programming: criando subclasses `Analista` e `Estagiario`.",
+        "(10 min) Compartilhamento de planos de ação.",
+        "(10 min) Orientações sobre tarefa assíncrona."
       ]
     },
     {
-      "type": "bibliographyBlock",
-      "title": "📚 Bibliografia de Apoio",
-      "references": [
-        "<strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.",
-        "<strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015.",
-        "<strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong> <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013."
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta norteadora",
+      "content": "Qual comportamento realmente precisa ser herdado? Há riscos de dependências rígidas se a hierarquia crescer demais?"
+    },
+    {
+      "type": "timeline",
+      "title": "Indicadores da AV1",
+      "steps": [
+        {
+          "title": "Objetivos atingidos",
+          "content": "70% dominaram criação de classes e construtores."
+        },
+        {
+          "title": "Alertas",
+          "content": "40% tiveram dificuldades com validação e tratamento de erros."
+        },
+        {
+          "title": "Próximas ações",
+          "content": "Oficinas extras sobre encapsulamento e plantão tira-dúvidas."
+        }
       ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Quando usar herança",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Herança favorece reutilização de código quando as classes compartilham identidade conceitual. Evite usar apenas para reaproveitar trechos isolados."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "Compartilhe contrato",
+                "text": "Superclasse define métodos que todas as subclasses devem fornecer."
+              },
+              {
+                "title": "Especialize comportamento",
+                "text": "Subclasses sobrescrevem métodos para adicionar regras específicas."
+              },
+              {
+                "title": "Evite herança acidental",
+                "text": "Se não houver relação `é-um`, prefira composição."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Fluxo de construção da hierarquia",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Identificar características comuns" },
+          {
+            "id": "super",
+            "type": "process",
+            "title": "Criar superclasse com atributos e métodos compartilhados"
+          },
+          {
+            "id": "decisao",
+            "type": "decision",
+            "title": "Existe comportamento específico?",
+            "branches": [
+              { "id": "sim", "label": "Sim", "target": "subclasse" },
+              { "id": "nao", "label": "Não", "target": "usar" }
+            ]
+          },
+          {
+            "id": "subclasse",
+            "type": "process",
+            "title": "Implementar subclass e sobrescrever métodos"
+          },
+          { "id": "usar", "type": "output", "title": "Instanciar objetos e testar polimorfismo" },
+          { "id": "end", "type": "end", "title": "Hierarquia validada" }
+        ],
+        "connections": [
+          { "from": "start", "to": "super" },
+          { "from": "super", "to": "decisao" },
+          { "from": "decisao", "to": "subclasse", "label": "Sim" },
+          { "from": "decisao", "to": "usar", "label": "Não" },
+          { "from": "subclasse", "to": "usar" },
+          { "from": "usar", "to": "end" }
+        ]
+      }
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-25T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Relatório AV1 2024.1", "Plano de aula LPOO – módulo 2"]
+  }
 }

@@ -1,7 +1,46 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-02",
   "title": "Aula 2: Unidade I – Configuração do Ambiente de Desenvolvimento",
+  "summary": "Instalação e configuração do Android Studio, SDKs e emuladores para iniciar o desenvolvimento com Kotlin.",
   "objective": "Preparar o ambiente Android, instalando e configurando as ferramentas essenciais para a criação de aplicativos.",
+  "objectives": [
+    "Configurar o ambiente oficial de desenvolvimento Android em diferentes sistemas operacionais.",
+    "Gerar o primeiro projeto Kotlin verificando dependências e execução no emulador."
+  ],
+  "competencies": ["Configuração de ambientes de desenvolvimento mobile profissionais"],
+  "skills": [
+    "Instalar Android Studio e componentes de SDK necessários.",
+    "Criar e executar um projeto inicial Kotlin no emulador ou dispositivo físico."
+  ],
+  "outcomes": [
+    "Entrega do checklist de instalação com capturas do Android Studio configurado.",
+    "Projeto base Kotlin criado e executado com sucesso no emulador."
+  ],
+  "prerequisites": ["Conhecimentos básicos de sistemas operacionais e permissões de software."],
+  "tags": ["android-studio", "ambiente", "kotlin"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Download do Android Studio",
+      "url": "https://developer.android.com/studio",
+      "type": "download"
+    },
+    {
+      "label": "Guia oficial do Android Emulator",
+      "url": "https://developer.android.com/studio/run/emulator",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "Google. \"Install Android Studio.\" 2024.",
+    "JetBrains. \"Kotlin Documentation.\" 2024."
+  ],
+  "assessment": {
+    "type": "lab",
+    "description": "Checklist prático de instalação e criação do projeto Hello Android."
+  },
   "content": [
     {
       "type": "flightPlan",
@@ -95,5 +134,11 @@
         }
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-06T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Guia de Laboratório DDM – Ambiente"]
+  }
 }

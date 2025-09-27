@@ -6,8 +6,20 @@ import {
   type Theme,
   type Scheme,
 } from '@material/material-color-utilities';
-
-type ThemeMode = 'light' | 'dark';
+import {
+  APP_BAR_HEIGHTS,
+  BREAKPOINTS,
+  COLOR_ROLE_TOKENS,
+  DIMENSION_SCALE,
+  ELEVATION_SHADOWS,
+  LAYOUT_CONTAINERS,
+  SHAPE_SCALE,
+  SPACING_SCALE,
+  STATE_LAYER_OPACITY,
+  STRONG_STATE_LAYER_OPACITY,
+  TYPOGRAPHY_SCALE,
+  type ThemeMode,
+} from './tokens';
 type ThemePreference = ThemeMode | 'system';
 
 interface MaterialThemeOptions {
@@ -33,6 +45,7 @@ const mediaQuery =
 const activeMode = ref<ThemeMode>('light');
 let followSystem = false;
 let initialized = false;
+let staticTokensApplied = false;
 let materialTheme: Theme | null = null;
 
 function toCssVarName(token: string): string {
@@ -60,32 +73,140 @@ function applyScheme(mode: ThemeMode) {
   }
 
   const scheme: Scheme = mode === 'dark' ? materialTheme.schemes.dark : materialTheme.schemes.light;
-  const palette = scheme.toJSON();
+  const palette = scheme.toJSON() as Record<string, number | string>;
 
-  Object.entries(palette).forEach(([token, value]) => {
-    document.documentElement.style.setProperty(toCssVarName(token), toHex(value));
+  COLOR_ROLE_TOKENS.forEach((token) => {
+    const value = palette[token];
+    if (value !== undefined) {
+      const cssVarName = toCssVarName(token);
+      document.documentElement.style.setProperty(cssVarName, toHex(value));
+    }
   });
 
   const primary = toHex(palette.primary);
   const onSurface = toHex(palette.onSurface);
 
-  // Derived tokens for state layers based on MD3 guidance.
   document.documentElement.style.setProperty(
     '--md-sys-state-layer-primary',
-    rgba(primary, mode === 'dark' ? 0.16 : 0.12)
+    rgba(primary, STATE_LAYER_OPACITY[mode].primary)
   );
   document.documentElement.style.setProperty(
     '--md-sys-state-layer-primary-strong',
-    rgba(primary, mode === 'dark' ? 0.24 : 0.2)
+    rgba(primary, STRONG_STATE_LAYER_OPACITY[mode])
   );
   document.documentElement.style.setProperty(
     '--md-sys-state-layer-on-surface',
-    rgba(onSurface, 0.12)
+    rgba(onSurface, STATE_LAYER_OPACITY[mode].onSurface)
   );
+
+  const elevation = ELEVATION_SHADOWS[mode];
+  document.documentElement.style.setProperty('--md-sys-elevation-level1', elevation.level1);
+  document.documentElement.style.setProperty('--md-sys-elevation-level2', elevation.level2);
+  document.documentElement.style.setProperty('--md-sys-elevation-level3', elevation.level3);
+  // Maintain legacy aliases while components migrate fully to the new tokens.
+  document.documentElement.style.setProperty('--shadow-elevation-1', elevation.level1);
+  document.documentElement.style.setProperty('--shadow-elevation-2', elevation.level2);
+  document.documentElement.style.setProperty('--shadow-elevation-3', elevation.level3);
 
   document.documentElement.dataset.theme = mode;
   document.documentElement.style.setProperty('color-scheme', mode);
   activeMode.value = mode;
+}
+
+function applyStaticTokens() {
+  if (staticTokensApplied || typeof window === 'undefined') {
+    return;
+  }
+
+  const rootStyle = document.documentElement.style;
+
+  rootStyle.setProperty('--md-sys-typescale-font', TYPOGRAPHY_SCALE.fontFamily);
+
+  (
+    Object.entries(TYPOGRAPHY_SCALE.display) as Array<
+      [string, { size: string; lineHeight: string; weight: number; tracking: string }]
+    >
+  ).forEach(([variant, settings]) => {
+    rootStyle.setProperty(`--md-sys-typescale-display-${variant}-size`, settings.size);
+    rootStyle.setProperty(`--md-sys-typescale-display-${variant}-line-height`, settings.lineHeight);
+    rootStyle.setProperty(`--md-sys-typescale-display-${variant}-weight`, String(settings.weight));
+    rootStyle.setProperty(`--md-sys-typescale-display-${variant}-tracking`, settings.tracking);
+  });
+
+  (
+    Object.entries(TYPOGRAPHY_SCALE.headline) as Array<
+      [string, { size: string; lineHeight: string; weight: number; tracking: string }]
+    >
+  ).forEach(([variant, settings]) => {
+    rootStyle.setProperty(`--md-sys-typescale-headline-${variant}-size`, settings.size);
+    rootStyle.setProperty(
+      `--md-sys-typescale-headline-${variant}-line-height`,
+      settings.lineHeight
+    );
+    rootStyle.setProperty(`--md-sys-typescale-headline-${variant}-weight`, String(settings.weight));
+    rootStyle.setProperty(`--md-sys-typescale-headline-${variant}-tracking`, settings.tracking);
+  });
+
+  (
+    Object.entries(TYPOGRAPHY_SCALE.title) as Array<
+      [string, { size: string; lineHeight: string; weight: number; tracking: string }]
+    >
+  ).forEach(([variant, settings]) => {
+    rootStyle.setProperty(`--md-sys-typescale-title-${variant}-size`, settings.size);
+    rootStyle.setProperty(`--md-sys-typescale-title-${variant}-line-height`, settings.lineHeight);
+    rootStyle.setProperty(`--md-sys-typescale-title-${variant}-weight`, String(settings.weight));
+    rootStyle.setProperty(`--md-sys-typescale-title-${variant}-tracking`, settings.tracking);
+  });
+
+  (
+    Object.entries(TYPOGRAPHY_SCALE.body) as Array<
+      [string, { size: string; lineHeight: string; weight: number; tracking: string }]
+    >
+  ).forEach(([variant, settings]) => {
+    rootStyle.setProperty(`--md-sys-typescale-body-${variant}-size`, settings.size);
+    rootStyle.setProperty(`--md-sys-typescale-body-${variant}-line-height`, settings.lineHeight);
+    rootStyle.setProperty(`--md-sys-typescale-body-${variant}-weight`, String(settings.weight));
+    rootStyle.setProperty(`--md-sys-typescale-body-${variant}-tracking`, settings.tracking);
+  });
+
+  (
+    Object.entries(TYPOGRAPHY_SCALE.label) as Array<
+      [string, { size: string; lineHeight: string; weight: number; tracking: string }]
+    >
+  ).forEach(([variant, settings]) => {
+    rootStyle.setProperty(`--md-sys-typescale-label-${variant}-size`, settings.size);
+    rootStyle.setProperty(`--md-sys-typescale-label-${variant}-line-height`, settings.lineHeight);
+    rootStyle.setProperty(`--md-sys-typescale-label-${variant}-weight`, String(settings.weight));
+    rootStyle.setProperty(`--md-sys-typescale-label-${variant}-tracking`, settings.tracking);
+  });
+
+  (Object.entries(SHAPE_SCALE) as Array<[string, string]>).forEach(([key, value]) => {
+    const normalizedKey = key.replace(/[A-Z]/g, '-$&').toLowerCase();
+    rootStyle.setProperty(`--md-sys-shape-${normalizedKey}`, value);
+    rootStyle.setProperty(`--md-sys-shape-corner-${normalizedKey}`, value);
+  });
+
+  (Object.entries(SPACING_SCALE) as Array<[string, string]>).forEach(([key, value]) => {
+    rootStyle.setProperty(`--md-sys-spacing-${key}`, value);
+  });
+
+  (Object.entries(DIMENSION_SCALE.icon) as Array<[string, string]>).forEach(([key, value]) => {
+    rootStyle.setProperty(`--md-sys-icon-size-${key}`, value);
+  });
+
+  (Object.entries(BREAKPOINTS) as Array<[string, string]>).forEach(([key, value]) => {
+    rootStyle.setProperty(`--md-sys-breakpoint-${key}`, value);
+  });
+
+  (Object.entries(LAYOUT_CONTAINERS) as Array<[string, string]>).forEach(([key, value]) => {
+    rootStyle.setProperty(`--md-sys-layout-container-${key}`, value);
+  });
+
+  (Object.entries(APP_BAR_HEIGHTS) as Array<[string, string]>).forEach(([key, value]) => {
+    rootStyle.setProperty(`--md-sys-app-bar-height-${key}`, value);
+  });
+
+  staticTokensApplied = true;
 }
 
 function handleSystemChange(event: MediaQueryListEvent) {
@@ -128,6 +249,7 @@ export function initMaterialTheme(options: MaterialThemeOptions = {}): Ref<Theme
   const merged = { ...DEFAULT_OPTIONS, ...options } as Required<MaterialThemeOptions>;
   materialTheme = createTheme(merged);
 
+  applyStaticTokens();
   const initialMode = resolveInitialMode();
   applyScheme(initialMode);
 

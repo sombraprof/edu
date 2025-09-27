@@ -10,8 +10,8 @@
 
 ### 2.1 Fundações de estilo
 
-- O arquivo `src/assets/styles.css` mantém tokens manuais de cor, tipografia e sombras que não seguem a paleta dinâmica do Material 3, nem aplicam esquemas derivados claros/escuros (p. ex. variáveis `--md-sys-color-*` com valores estáticos e inconsistentes). 【F:src/assets/styles.css†L1-L110】
-- A alternância de tema no `main.ts` limita-se a adicionar/remover a classe `light`, sem gerenciamento de contrastes, modos dinâmicos ou persistência multicanal (não há sincronização com `prefers-color-scheme`). 【F:src/main.ts†L1-L15】
+- Os tokens de cor, tipografia, elevação e espaçamento passaram a ser gerados dinamicamente pelo módulo `src/theme/tokens.ts`, garantindo consistência entre aplicação e Storybook. `initMaterialTheme` injeta as variáveis MD3 (`--md-sys-*`) e mantém aliases legados enquanto os componentes são migrados. 【F:src/theme/tokens.ts†L1-L126】【F:src/theme/material-theme.ts†L1-L229】
+- A alternância de tema agora respeita `prefers-color-scheme`, armazena a preferência do usuário e expõe `setMaterialTheme` para integrações externas (ex.: Storybook). 【F:src/theme/material-theme.ts†L231-L285】
 
 ### 2.2 Componentes didáticos existentes
 
@@ -21,8 +21,9 @@
 
 ### 2.3 Arquitetura de páginas
 
-- O cabeçalho `SiteHeader.vue` foi migrado para o novo `Md3TopAppBar`, garantindo hierarquia tipográfica MD3, slots declarativos e estado elevado automático conforme o scroll; a próxima etapa é alinhar layouts responsivos das páginas ao mesmo padrão estrutural. 【F:src/components/SiteHeader.vue†L1-L74】【F:src/components/layout/Md3TopAppBar.vue†L1-L87】
-- Não há camada de layout responsiva consolidada; páginas fazem uso direto de classes utilitárias sem tokens espaciais padronizados.
+- O cabeçalho `SiteHeader.vue` consome o `Md3TopAppBar` com variantes (`small`, `center-aligned`, `medium`, `large`) e densidades configuráveis, alinhando hierarquia tipográfica e estado elevado automático conforme o scroll. 【F:src/components/SiteHeader.vue†L1-L74】【F:src/components/layout/Md3TopAppBar.vue†L1-L94】
+- `Md3NavigationRail.vue` e `Md3NavigationDrawer.vue` introduzem navegação lateral padrão/collapsed e gavetas modal/padrão com badges e descrições, preparando o terreno para dashboards docentes e páginas de curso. 【F:src/components/layout/Md3NavigationRail.vue†L1-L123】【F:src/components/layout/Md3NavigationDrawer.vue†L1-L119】
+- A camada de layout global segue usando utilitários Tailwind para conteúdo principal; precisamos evoluir para contêineres responsivos compartilhados (app shell completo).
 
 ## 3. Diagnóstico dos Conteúdos Didáticos
 
@@ -61,9 +62,9 @@
 
 ### 5.3 Linguagens de Programação Orientada a Objetos (LPOO)
 
-- Consolidar aulas em torno de casos de uso reais, introduzindo diagramas UML interativos.
-- Criar componente "Class Designer" com suporte a herança, interfaces e relações.
-- Vincular exercícios a repositórios Git (templates) e definir rubricas de avaliação por competência.
+- As aulas 01-08 foram migradas para o schema `md3.lesson.v1`, reorganizando objetivos, planos de voo e novos blocos MD3 (fluxogramas, tabelas de visibilidade e diagramas de blocos). 【F:src/content/courses/lpoo/lessons/lesson-01.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-02.json†L1-L203】【F:src/content/courses/lpoo/lessons/lesson-03.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-04.json†L1-L227】【F:src/content/courses/lpoo/lessons/lesson-05.json†L1-L210】【F:src/content/courses/lpoo/lessons/lesson-06.json†L1-L208】【F:src/content/courses/lpoo/lessons/lesson-07.json†L1-L242】【F:src/content/courses/lpoo/lessons/lesson-08.json†L1-L211】
+- O índice `lessons.json` agora aponta para os arquivos JSON, traz resumo, tags, duração e `formatVersion`, permitindo que os relatórios de governança identifiquem o status real das aulas. 【F:src/content/courses/lpoo/lessons.json†L1-L64】
+- Próximos passos: preparar um componente "ClassDesigner" a partir do `Md3BlockDiagram` para ilustrar relações UML, migrar exercícios (`modelagem-uml.json`, `refatoracao.json`) para o novo schema e registrar rubricas alinhadas às competências de orientação a objetos.
 
 ### 5.4 Tecnologia e Desenvolvimento para Jogos Digitais (TDJD)
 
@@ -79,10 +80,16 @@
 
 ## 6. Arquitetura de Conteúdo Proposta
 
-1. **Formato único**: adotar Markdown enriquecido (MDX/MDC) ou JSON schema padronizado (`title`, `objectives`, `activities`, `resources`, `assessments`).
+1. **Formato único**: adotar Markdown enriquecido (MDX/MDC) ou JSON schema padronizado (`formatVersion`, `summary`, `competencies`, `outcomes`, `resources`, `assessment`, `metadata`).
 2. **Pipelines automáticos**: scripts para validar schema, gerar relatórios de consistência e sincronizar índices (`lessons.json`, `exercises.json`).
 3. **Metadados obrigatórios**: duração estimada, competências, recursos necessários, modalidade (presencial/assíncrona), avaliação associada.
 4. **Separação de responsabilidades**: conteúdos textuais separados dos componentes; renderização feita por componentes genéricos (e.g., `<md-content-block>`).
+
+### 6.1 Schema JSON Normalizado
+
+- O diretório `schemas/` centraliza os contratos `lesson`, `lessons-index`, `exercises-index` e `supplements-index`, padronizando `formatVersion`, `summary`, `competencies`, `outcomes`, `metadata` e links de recursos para todas as disciplinas. 【F:schemas/lesson.schema.json†L1-L205】【F:schemas/lessons-index.schema.json†L1-L34】【F:schemas/exercises-index.schema.json†L1-L42】【F:schemas/supplements-index.schema.json†L1-L42】
+- O módulo `src/content/schema/` expõe tipos TypeScript e os mesmos schemas JSON para consumo pelos renderizadores MD3, pipelines de geração e testes unitários. 【F:src/content/schema/index.ts†L1-L6】【F:src/content/schema/lesson.ts†L1-L70】
+- O script `npm run validate:content` usa os novos schemas no Ajv, gera alertas de metadados obrigatórios ausentes (`summary`, `competencies`, `metadata.updatedAt`, `metadata.owners`) e mantém o relatório em `reports/content-validation-report.json`. 【F:scripts/validate-content.mjs†L1-L200】【F:scripts/validate-content.mjs†L1000-L1095】
 
 ## 7. Roadmap de Implementação
 
@@ -95,9 +102,18 @@
 
 ## 8. Próximos Passos Imediatos
 
-- Montar squad de design + pedagogia para validar tokens e fluxos críticos.
-- Definir schema JSON/MDX definitivo e scripts de validação.
-- Planejar sessões de revisão com docentes para saneamento de conteúdos incorretos antes da migração técnica.
+- [x] Montar squad de design + pedagogia para validar tokens e fluxos críticos (ver `docs/governance/initial-squad-kickoff.md`).
+- [x] Definir schema JSON/MDX definitivo e scripts de validação.
+- [x] Planejar sessões de revisão com docentes para saneamento de conteúdos incorretos antes da migração técnica (ver `docs/governance/faculty-review-sessions.md`).
+
+### 8.1 Detalhamento do Passo 1 – Governança inicial
+
+O diretório `docs/governance/` reúne o plano de ativação da squad multidisciplinar, com composição sugerida, rituais, backlog
+inicial e métricas de acompanhamento. Essa estrutura deve ser atualizada semanalmente para registrar decisões, RACI e calendários de saneamento.
+
+### 8.2 Detalhamento do Passo 2 – Sessões de revisão com docentes
+
+O documento `docs/governance/faculty-review-sessions.md` organiza a agenda, indicadores e checklist operacional das quatro semanas de revisão por disciplina. Antes da migração técnica, a squad deve seguir o roteiro, registrar atas e atualizar o backlog com os encaminhamentos aprovados, garantindo que os conteúdos estejam saneados e com metadados completos.
 
 ## 9. Reconstrução da Biblioteca Didática
 
@@ -122,11 +138,27 @@
 
 ### 9.4 Barra superior (Top App Bar)
 
-- **Componente estrutural:** `Md3TopAppBar` encapsula a semântica de banner, slots para ícone principal, título e ações, além de elevar automaticamente a superfície conforme o scroll para reforçar hierarquia de navegação. 【F:src/components/layout/Md3TopAppBar.vue†L1-L87】
-- **Aplicação no shell:** `SiteHeader.vue` consome o componente com marca responsiva, links contextuais e toggle de tema, substituindo o cabeçalho legado baseado em utilitários soltos. 【F:src/components/SiteHeader.vue†L1-L74】
-- **Próximos passos:** publicar variantes compactas para páginas de exercícios e adicionar suporte a busca global e breadcrumbs antes de migrar os demais layouts estruturais.
+- **Componente estrutural:** `Md3TopAppBar` agora expõe variantes (`small`, `center-aligned`, `medium`, `large`), densidades (`default`, `comfortable`, `compact`) e slots contextuais (`breadcrumbs`, `search`, `supporting`), mantendo elevação automática conforme o scroll. 【F:src/components/layout/Md3TopAppBar.vue†L1-L129】
+- **Aplicação no shell:** `SiteHeader.vue` utiliza a variante `center-aligned` com densidade `comfortable`, enquanto o `Md3AppShell` injeta breadcrumbs, busca contextual e menus específicos por curso. 【F:src/components/SiteHeader.vue†L1-L74】【F:src/components/layout/Md3AppShell.vue†L1-L248】
+- **Testes e documentação:** a suíte `Md3TopAppBar.test.ts` cobre variantes, densidade, elevação e slots de suporte; as histórias do Storybook exibem os cenários `small`, `center-aligned`, `medium` e `large` com ações interativas. 【F:src/components/layout/**tests**/Md3TopAppBar.test.ts†L1-L78】【F:src/components/layout/Md3TopAppBar.stories.ts†L1-L88】
+- **Próximos passos:** capturar estados visuais (hover/focus) e validar componentes de busca/filtro no Storybook.
 
-### 9.5 Higienização de HTML estruturado
+### 9.5 Navegação lateral (Navigation Rail & Drawer)
+
+- **Rail MD3:** `Md3NavigationRail` oferece variantes `expanded`/`collapsed`, badges e seletor `density`, com eventos `select` e `update:activeId` para sincronizar com roteadores ou dashboards. 【F:src/components/layout/Md3NavigationRail.vue†L1-L123】
+- **Drawer MD3:** `Md3NavigationDrawer` suporta modos `standard`/`modal`, descrições auxiliares e badges para pendências, funcionando como navegação persistente ou overlay. 【F:src/components/layout/Md3NavigationDrawer.vue†L1-L119】
+- **Testes e stories:** suites dedicadas garantem seleção ativa e modifiers (`compact`, `modal`, `collapsed`); Storybook documenta cenários interativos para validação rápida com docentes. 【F:src/components/layout/**tests**/Md3NavigationRail.test.ts†L1-L51】【F:src/components/layout/**tests**/Md3NavigationDrawer.test.ts†L1-L47】【F:src/components/layout/Md3NavigationRail.stories.ts†L1-L71】【F:src/components/layout/Md3NavigationDrawer.stories.ts†L1-L63】
+- **Próximos passos:** conectar badges e descrições a indicadores reais (progresso de migração, pendências docentes) e orquestrar comportamentos combinados com o bottom app bar.
+
+### 9.7 App shell responsivo
+
+- **Componentização completa:** `Md3AppShell` centraliza top app bar, rail, drawer modal e bottom app bar, expondo slots `brand`, `actions`, `top-supporting`, `main`, `secondary` e integrações para breadcrumbs e busca. 【F:src/components/layout/Md3AppShell.vue†L1-L248】
+- **Busca e breadcrumbs:** o shell alimenta `CourseLayout.vue`, sincronizando o campo de busca com o roteador (`q`) e breadcrumbs dinâmicos para aulas/exercícios. 【F:src/pages/CourseLayout.vue†L1-L268】
+- **Tokens de layout:** novos tokens de breakpoints, contêineres e alturas de app bar abastecem o shell e demais componentes, garantindo consistência responsiva. 【F:src/theme/tokens.ts†L1-L148】【F:src/theme/material-theme.ts†L1-L229】
+- **Storybook e prototipagem:** histórias dedicadas documentam o shell completo, breadcrumbs, campo de busca e bottom app bar com roteador de memória para validar navegação e estados responsivos. 【F:src/components/layout/Md3AppShell.stories.ts†L1-L200】【F:src/components/layout/Md3Breadcrumbs.stories.ts†L1-L74】【F:src/components/layout/Md3SearchField.stories.ts†L1-L61】【F:src/components/layout/Md3BottomAppBar.stories.ts†L1-L83】
+- **Próximos passos:** ligar badges e contagens a dados reais do painel docente e adicionar testes end-to-end mobile/viewport para cobrir transições de drawer/rail/bottom bar.
+
+### 9.6 Higienização de HTML estruturado
 
 - **Utilitário central:** o novo helper `sanitizeHtml` usa DOMPurify para remover `<script>`, atributos perigosos e normalizar iframes antes de injetar trechos ricos vindos do conteúdo serializado. 【F:src/utils/sanitizeHtml.ts†L1-L35】
 - **Componentes blindados:** FlightPlan, ContentBlock, CardGrid, Accordion, LessonPlan e correlatos agora sanitizam cada `v-html`, preservando tipografia MD3 sem expor eventos inline ou código arbitrário. 【F:src/components/lesson/ContentBlock.vue†L1-L126】【F:src/components/lesson/CardGrid.vue†L1-L220】
@@ -143,6 +175,9 @@
 | Estruturas Condicionais | Aulas 10-18                                                       | Integrar as aulas de lógica ao novo `Md3Flowchart`, gerando dados compatíveis (`nodes`, `connections`) e preparando exercícios de decisão com feedback automático.                                                     |
 | Modularização e Vetores | Aulas 19-32                                                       | Definir projetos integradores com feedback automático, anexar metadados de tempo de estudo e competências obrigatórias.                                                                                                |
 
+- **Progresso atual:** as aulas `lesson-01.json` a `lesson-15.json` estão no schema `md3.lesson.v1`, incluindo planos de aula, fluxogramas, tabelas verdade, cronogramas de avaliação e devolutivas alinhadas à NP1. O índice `lessons.json` aponta para os novos arquivos JSON com resumo, duração, tags e `formatVersion` atualizados. 【F:src/content/courses/algi/lessons/lesson-07.json†L1-L258】【F:src/content/courses/algi/lessons/lesson-10.json†L1-L266】【F:src/content/courses/algi/lessons/lesson-12.json†L1-L308】【F:src/content/courses/algi/lessons/lesson-13.json†L1-L326】【F:src/content/courses/algi/lessons/lesson-14.json†L1-L230】【F:src/content/courses/algi/lessons/lesson-15.json†L1-L360】【F:src/content/courses/algi/lessons.json†L97-L204】
+- **Próximos passos imediatos:** migrar as aulas 16-18 (atividade prática assíncrona e introdução a laços `while`/`for`) para o schema unificado, iniciando a fase de estruturas de repetição e preparando materiais de laboratório específicos. 【F:src/content/courses/algi/lessons.json†L161-L204】
+
 ### 10.2 Desenvolvimento para Dispositivos Móveis (DDM)
 
 | Fase                     | Escopo                                      | Ações principais                                                                                                                                                                                  |
@@ -150,6 +185,9 @@
 | Curadoria inicial        | `lessons/lesson-01.json` a `lesson-12.json` | Substituir blocos com HTML inline e classes Tailwind personalizadas por componentes MD (accordion, timeline, callout) parametrizados.【F:src/content/courses/ddm/lessons/lesson-01.json†L1-L120】 |
 | Jornada por sprint       | Módulos descritos em `lessons.json`         | Reagrupar as aulas por sprint (Descoberta → Publicação) e garantir consistência de objetivos, duração e entregáveis.【F:src/content/courses/ddm/lessons.json†L1-L120】                            |
 | Exercícios e suplementos | `exercises/*.json` e `supplements.json`     | Transformar exercícios em roteiros práticos integrados ao Storybook dos componentes e revisar metadados obrigatórios (competências, modalidade).                                                  |
+
+- **Progresso atual:** as aulas `lesson-01.json` a `lesson-12.json` já estão no schema `md3.lesson.v1`, com navegação, ciclo de vida, Intents e mini projeto de contatos descritos em blocos MD3 estruturados. O índice `lessons.json` referencia os novos arquivos, inclui `summary`, `tags`, duração e `formatVersion`, eliminando os wrappers `.vue` remanescentes.
+- **Próximos passos imediatos:** migrar as aulas 13-14 (integração com sensores e publicação) e preparar a rodada final de exercícios/suplementos antes de iniciar o saneamento de LPOO.
 
 ### 10.3 Linguagens de Programação Orientada a Objetos (LPOO)
 

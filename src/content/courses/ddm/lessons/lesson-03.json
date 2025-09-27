@@ -1,7 +1,43 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-03",
   "title": "Aula 3: Unidade I – Estrutura Básica de um App Android",
+  "summary": "Mapeamento da anatomia de um app Android: Manifest, resources, Gradle e ciclo de build.",
   "objective": "Compreender a organização de um projeto, identificando os arquivos essenciais como AndroidManifest.xml, MainActivity.kt e a pasta res.",
+  "objectives": [
+    "Compreender como as camadas de um aplicativo Android se relacionam na execução.",
+    "Organizar pastas, recursos e dependências em um projeto base."
+  ],
+  "competencies": ["Modelagem de arquitetura de aplicações móveis nativas"],
+  "skills": [
+    "Identificar responsabilidades do AndroidManifest.xml e dos módulos Gradle.",
+    "Estruturar diretórios de resources para layouts, strings e drawables."
+  ],
+  "outcomes": [
+    "Explica as responsabilidades de Manifest, Gradle e resources para a turma.",
+    "Entrega um mapa de pastas documentando o fluxo de build do app exemplo."
+  ],
+  "prerequisites": ["Ambiente Android Studio instalado e validado na aula anterior."],
+  "tags": ["estrutura-app", "activity", "android"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Application Fundamentals",
+      "url": "https://developer.android.com/guide/components/fundamentals",
+      "type": "article"
+    },
+    {
+      "label": "Manage app resources",
+      "url": "https://developer.android.com/guide/topics/resources/providing-resources",
+      "type": "guide"
+    }
+  ],
+  "bibliography": ["Google. \"App Fundamentals.\" 2024.", "Google. \"Resource Management.\" 2024."],
+  "assessment": {
+    "type": "reflection",
+    "description": "Mapa mental documentando a estrutura e dependências do app exemplo."
+  },
   "content": [
     {
       "type": "flightPlan",
@@ -200,5 +236,11 @@
         }
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-07T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Plano de aula DDM – Estrutura de Apps"]
+  }
 }

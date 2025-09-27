@@ -1,138 +1,155 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-04",
   "title": "Aula 4: Do Pseudocódigo ao Primeiro Programa em C",
-  "objective": "A transição do planeamento em Portugol para a implementação em Linguagem C.",
+  "summary": "Mostra como traduzir algoritmos escritos em Portugol para um programa funcional em C, destacando sintaxe e boas práticas.",
+  "objective": "Conectar o planejamento em linguagem natural/pseudocódigo com a implementação inicial em C.",
+  "objectives": [
+    "Relembrar a estrutura padrão de um algoritmo em Portugol.",
+    "Mapear cada parte do pseudocódigo para a sintaxe equivalente em C.",
+    "Implementar um programa simples em C a partir de um algoritmo planejado."
+  ],
+  "competencies": ["Raciocínio algorítmico", "Tradução entre linguagens", "Precisão sintática"],
+  "skills": [
+    "Declarar variáveis, ler entradas e produzir saídas em C.",
+    "Utilizar comentários para documentar a lógica implementada.",
+    "Validar o comportamento do programa comparando com o algoritmo original."
+  ],
+  "outcomes": [
+    "Entrega um programa em C equivalente ao algoritmo em Portugol desenvolvido em aula.",
+    "Identifica diferenças críticas entre operadores e comandos nas duas representações.",
+    "Executa testes simples garantindo que as saídas correspondem às expectativas."
+  ],
+  "prerequisites": ["Trazer o pseudocódigo produzido na Aula 3."],
+  "tags": ["pseudocodigo", "linguagem-c", "implementacao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Computador com compilador C (GCC ou clang)",
+      "type": "equipment",
+      "url": "https://example.edu/labs/c-environment"
+    },
+    {
+      "label": "Template de projeto inicial (VS Code)",
+      "type": "repository",
+      "url": "https://example.edu/algi/c-template"
+    }
+  ],
+  "bibliography": [
+    "DEITEL, P.; DEITEL, H. C: Como Programar. Pearson, 2022.",
+    "SANTOS, I. Guia rápido de Portugol e C. TechPress, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Entrega de um programa em C com captura de tela da execução e comentários descrevendo a relação com o pseudocódigo."
+  },
   "content": [
     {
       "type": "flightPlan",
-      "title": "Plano de Voo da Aula de Hoje",
+      "title": "Plano de voo (2h)",
       "items": [
-        "O que é Pseudocódigo (Portugol) e por que é uma ferramenta essencial.",
-        "Estrutura e comandos básicos de um algoritmo em Portugol.",
-        "Introdução à Linguagem C: a sintaxe e a estrutura de um programa básico.",
-        "Comparativo lado a lado: traduzindo um algoritmo de Portugol para C.",
-        "Atividade prática em duplas: criar e traduzir pequenos algoritmos.",
-        "Apresentação da tarefa (TED) da Aula 4."
+        "(15 min) Revisão da estrutura de um algoritmo em Portugol.",
+        "(25 min) Sintaxe mínima de um programa C: diretivas, função main, variáveis.",
+        "(25 min) Tradução guiada de um algoritmo de soma.",
+        "(30 min) Laboratório: implementar variações em dupla (média, desconto, conversões).",
+        "(15 min) Testes, depuração e checklist de entrega."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Pseudocódigo: A Ponte Entre a Lógica e o Código",
+      "title": "Pseudocódigo como guia",
       "content": [
         {
           "type": "paragraph",
-          "text": "Até agora, planeámos os nossos algoritmos usando a linguagem do dia a dia. Isso é ótimo para a lógica, mas os computadores precisam de mais estrutura. É aqui que entra o <strong>Pseudocódigo</strong> (que chamaremos de <strong>Portugol</strong>)."
-        },
-        {
-          "type": "paragraph",
-          "text": "O Portugol é uma linguagem intermediária. Não é tão informal como o português, mas também não é tão rígida e cheia de regras como uma linguagem de programação real (como C). Ele permite-nos escrever a nossa lógica de forma estruturada, focando no \"o quê\" fazer, sem nos preocuparmos com os detalhes técnicos do \"como\"."
-        },
-        {
-          "type": "callout",
-          "variant": "good-practice",
-          "title": "Por que usar Portugol?",
-          "content": "<p>Ele força-nos a organizar o pensamento em variáveis, comandos de entrada, processamento e saída, tornando a tradução para qualquer linguagem de programação (C, Python, Java, etc.) uma tarefa muito mais simples e direta.</p>"
-        }
-      ]
-    },
-    {
-      "type": "html",
-      "html": "<h3>Estrutura e Comandos Básicos do Portugol</h3><p class=\"mb-4\">Um algoritmo em Portugol tem uma estrutura bem definida:</p>"
-    },
-    {
-      "type": "html",
-      "html": "<h4 class=\"font-semibold text-title-large\" style=\"color: var(--md-sys-color-primary);\" mt-6 mb-3\">Comandos Essenciais:</h4><ul class=\"list-disc list-inside space-y-3 mt-4\"><li><code>LEIA(variavel)</code>: Lê um valor digitado pelo utilizador e guarda-o na variável especificada.</li><li><code>ESCREVA(\"texto\", variavel)</code>: Mostra uma mensagem ou o conteúdo de uma variável no ecrã.</li><li><code>variavel <- valor_ou_expressao</code>: Atribui um valor (ou o resultado de um cálculo) a uma variável. A seta <code class=\"inline-code\"><-</code> significa \"recebe\".</li></ul>"
-    },
-    {
-      "type": "code",
-      "language": "pseudocodigo",
-      "code": "ALGORITMO \"nome_do_algoritmo\"\n// Seção de Declaração de Variáveis\nVAR\n  nome_variavel_1 : TIPO_DE_DADO\n  nome_variavel_2 : TIPO_DE_DADO\n\n// Seção de Comandos\nINICIO\n  // Comandos de entrada, processamento e saída\nFIM_ALGORITMO"
-    },
-    {
-      "type": "contentBlock",
-      "title": "Comparativo: Somar Dois Números",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "A melhor forma de entender a transição é ver um exemplo prático. Vamos traduzir um algoritmo que soma dois números de Portugol para C."
+          "text": "O Portugol padroniza entradas, processamento e saídas. Mantemos a mesma estrutura ao migrar para C, apenas adaptando sintaxe e tipos."
         },
         {
           "type": "subBlock",
-          "title": "Exemplo",
+          "title": "Estrutura base",
           "items": [
-            "<div class=\"grid lg:grid-cols-2 gap-8\"><div class=\"card\" style=\"box-shadow: var(--md-sys-elevation-level2);\"><h4 class=\"font-bold text-title-large\" style=\"color: var(--md-sys-color-on-surface);\" mb-4 text-center\">1. O Plano (Portugol)</h4><pre class=\"mt-2\"><code class=\"language-plaintext\">ALGORITMO \"SomaDoisNumeros\"\nVAR\n  num1, num2, soma: INTEIRO\n\nINICIO\n  ESCREVA(\"Digite o primeiro número: \")\n  LEIA(num1)\n  \n  ESCREVA(\"Digite o segundo número: \")\n  LEIA(num2)\n  \n  soma <- num1 + num2\n  \n  ESCREVA(\"A soma é: \", soma)\nFIM_ALGORITMO</code></pre></div><div class=\"card\" style=\"box-shadow: var(--md-sys-elevation-level2);\"><h4 class=\"font-bold text-title-large\" style=\"color: var(--md-sys-color-on-surface);\" mb-4 text-center\">2. A Execução (Linguagem C)</h4><pre class=\"mt-2\"><code class=\"language-c\">#include <stdio.h>\n\nint main() {\n  int num1, num2, soma;\n\n  printf(\"Digite o primeiro número: \");\n  scanf(\"%d\", &num1);\n  \n  printf(\"Digite o segundo número: \");\n  scanf(\"%d\", &num2);\n  \n  soma = num1 + num2;\n  \n  printf(\"A soma é: %d\\n\", soma);\n  \n  return 0;\n}</code></pre></div></div>"
-          ]
-        },
-        {
-          "type": "subBlock",
-          "title": "Análise da Tradução",
-          "items": [
-            "<ul class=\"list-disc list-inside space-y-2\"><li>A seção <code>VAR</code> em Portugol corresponde à declaração de variáveis em C (ex: <code>int num1;</code>).</li><li>O comando <code>ESCREVA</code> é traduzido para a função <code>printf()</code> em C.</li><li>O comando <code>LEIA</code> é traduzido para a função <code>scanf()</code> em C. Note os detalhes técnicos como <code>%d</code> e o <code>&</code>.</li><li>A atribuição <code><-</code> torna-se o sinal de igual <code>=</code> em C.</li><li>Todo programa em C precisa da estrutura <code>#include <stdio.h></code> e da função principal <code>int main() { ... }</code>.</li></ul>"
+            "<pre class=\"language-pseudocode\">ALGORITMO \"Processo\"\nVAR\n  variavel : TIPO\nINICIO\n  LEIA(variavel)\n  variavel <- variavel + 1\n  ESCREVA(variavel)\nFIM_ALGORITMO</pre>",
+            {
+              "component": "Callout",
+              "props": {
+                "variant": "info",
+                "title": "Observação",
+                "content": "Use nomes de variáveis significativos e comentários que expliquem decisões."
+              }
+            }
           ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Atividade Prática em Duplas",
+      "title": "Tradução lado a lado",
       "content": [
         {
           "type": "paragraph",
-          "text": "Agora, em duplas, escolham um dos problemas abaixo. Primeiro, criem a solução em <strong>Portugol</strong> no papel. Depois, abram um editor de texto e tentem traduzir o vosso algoritmo para a <strong>Linguagem C</strong>, usando o exemplo da soma como guia."
+          "text": "Compare os mesmos passos em Portugol e em C."
         },
         {
           "type": "subBlock",
-          "title": "Problemas para a Atividade:",
+          "title": "Somar dois números",
           "items": [
-            "<div class=\"grid md:grid-cols-2 gap-6 mt-4\"><div style=\"background-color: var(--md-sys-color-primary-container);\" class=\"p-6 rounded-2xl\"><h5 class=\"font-bold\" style=\"color: var(--md-sys-color-on-primary-container);\" mb-2\">Problema A: Área do Retângulo</h5><p>Crie um algoritmo que leia a base e a altura de um retângulo, calcule a sua área (Área = Base * Altura) e mostre o resultado.</p></div><div style=\"background-color: var(--md-sys-color-primary-container);\" class=\"p-6 rounded-2xl\"><h5 class=\"font-bold\" style=\"color: var(--md-sys-color-on-primary-container);\" mb-2\">Problema B: Antecessor e Sucessor</h5><p>Crie um algoritmo que leia um número inteiro e mostre na tela o seu antecessor e o seu sucessor.</p></div></div>"
+            "<div class=\"grid lg:grid-cols-2 gap-6\"><div class=\"card p-4\"><h5 class=\"font-bold mb-3\">Portugol</h5><pre class=\"language-plaintext\">ALGORITMO \"Soma\"\nVAR\n  num1, num2, soma: INTEIRO\nINICIO\n  ESCREVA(\"Digite o primeiro número: \")\n  LEIA(num1)\n  ESCREVA(\"Digite o segundo número: \")\n  LEIA(num2)\n  soma <- num1 + num2\n  ESCREVA(\"A soma é: \", soma)\nFIM_ALGORITMO</pre></div><div class=\"card p-4\"><h5 class=\"font-bold mb-3\">Linguagem C</h5><pre class=\"language-c\">#include <stdio.h>\n\nint main(void) {\n  int num1, num2, soma;\n\n  printf(\"Digite o primeiro número: \");\n  scanf(\"%d\", &num1);\n\n  printf(\"Digite o segundo número: \");\n  scanf(\"%d\", &num2);\n\n  soma = num1 + num2;\n  printf(\"A soma é: %d\\n\", soma);\n\n  return 0;\n}</pre></div></div>",
+            "<p>Observe como cada comando possui equivalente direto, mas exige atenção à sintaxe e tipos.</p>"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Diferenças importantes",
+      "cards": [
+        {
+          "title": "Declarações",
+          "content": "Em Portugol declaramos no bloco VAR; em C, declaramos após a abertura da função, informando o tipo."
+        },
+        {
+          "title": "Entrada e saída",
+          "content": "LEIA/ESCREVA viram scanf/printf; cuide de especificadores (%d, %f) e do operador & para endereços."
+        },
+        {
+          "title": "Comentários",
+          "content": "Use // ou /* */ em C para documentar trechos importantes do código."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Laboratório guiado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em dupla, escolham uma variação do problema (média, desconto progressivo ou conversão de temperatura) e traduzam para C."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Escrevam o algoritmo final em Portugol.",
+            "Criem o arquivo .c usando o template fornecido.",
+            "Compil em e executem registrando entradas e saídas.",
+            "Anotem divergências entre o previsto e o obtido."
           ]
         }
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "💻 Teste seu Código",
-      "content": "<p class=\"mb-4\">Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C.</p><a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"btn btn-tonal inline-flex items-center gap-2\"><span>Abrir OnlineGDB</span></a>"
-    },
-    {
-      "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
-      "videos": [
-        {
-          "title": "Algoritmos com Portugol Studio – Introdução",
-          "src": "https://www.youtube.com/embed/6OIADpFImtc"
-        },
-        {
-          "title": "Primeiro Programa em C – Hello World",
-          "src": "https://www.youtube.com/embed/Sn6vPf6H8g0"
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Tarefa para a próxima aula</h4><p class=\"mb-4\">O objetivo é praticar o ciclo completo: planear em Portugol e implementar em C.</p><ol class=\"list-decimal list-inside space-y-2 font-semibold\"><li>Acesse o Moodle da disciplina.</li><li>Encontre o fórum da \"Aula 4\".</li><li>Poste o algoritmo em <strong>Portugol</strong> e também o código em <strong>Linguagem C</strong> que leia dois números e mostre a soma deles.</li></ol><div class=\"mt-6\"><a class=\"btn btn-tonal inline-flex items-center gap-2\" href=\"https://eadsp.unichristus.edu.br\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Acessar Moodle</span></a></div>"
+      "variant": "task",
+      "title": "TED da Aula 4",
+      "content": "Carregue no Moodle o código em C com comentários explicando as linhas-chave e um print da execução."
     },
     {
       "type": "checklist",
-      "title": "✅ Checklist da Aula 4",
-      "description": "Marque os itens que você concluiu durante e após a aula:",
+      "title": "Checklist de saída",
+      "description": "Garanta antes de sair do laboratório:",
       "items": [
-        "Compreendi a diferença entre pseudocódigo (Portugol) e linguagem C.",
-        "Pratiquei a tradução de um algoritmo de Portugol para C.",
-        "Participei da atividade prática em duplas.",
-        "Assisti aos vídeos de apoio sobre Portugol e Linguagem C.",
-        "Concluí e postei a tarefa (TED) no Moodle."
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Novatec, 2020.",
-        "<strong>FORBELLONE, André L. V.</strong> <em>Lógica de Programação.</em> 3. ed. Pearson, 2020."
+        "Traduzi integralmente o algoritmo para C.",
+        "Compilei e testei o programa com valores distintos.",
+        "Documentei diferenças relevantes entre Portugol e C."
       ]
     }
   ]

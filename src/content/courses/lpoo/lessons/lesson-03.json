@@ -1,253 +1,243 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-03",
   "title": "Aula 3: Objetos, Atributos e Métodos",
-  "objective": "Modelar e implementar classes com atributos e métodos, e instanciar objetos a partir delas, manipulando seu estado e comportamento.",
+  "summary": "Aprofunda o conceito de classes, construtores e encapsulamento de estado/comportamento em objetos Java.",
+  "objective": "Construir classes coesas com atributos privados e métodos públicos que expressem regras do domínio.",
+  "objectives": [
+    "Diferenciar atributos de instância, atributos estáticos e constantes.",
+    "Implementar construtores e métodos que validam o estado do objeto.",
+    "Aplicar sobrecarga de métodos para criar APIs mais expressivas."
+  ],
+  "competencies": [
+    "Modelagem de domínio orientada a objetos",
+    "Domínio de sintaxe Java intermediária",
+    "Aplicação de boas práticas de encapsulamento"
+  ],
+  "skills": [
+    "Criar e inicializar objetos com construtores significativos.",
+    "Aplicar modificadores de acesso e métodos `getter/setter` quando necessários.",
+    "Utilizar `this` e `static` de maneira apropriada."
+  ],
+  "outcomes": [
+    "Classe modelada com testes rápidos no console.",
+    "Tabela comparativa de membros de instância x estáticos.",
+    "Checklist de boas práticas para criação de métodos."
+  ],
+  "prerequisites": [
+    "Projeto Java configurado na aula anterior.",
+    "Conhecimento sobre tipos primitivos e operadores básicos."
+  ],
+  "tags": ["poo", "java", "classes"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Documentação oficial: Classes e Objetos",
+      "type": "article",
+      "url": "https://docs.oracle.com/javase/tutorial/java/javaOO/classes.html"
+    },
+    {
+      "label": "Guia sobre sobrecarga de métodos",
+      "type": "article",
+      "url": "https://www.baeldung.com/java-method-overloading"
+    }
+  ],
+  "bibliography": [
+    "SIERRA, K.; BATES, B. Head First Java. 3. ed. O'Reilly, 2022.",
+    "FOWLER, M. UML Distilled. 4. ed. Addison-Wesley, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Implementação da classe `Cliente` com validações, construtores sobrecarregados e testes manuais no console.",
+    "rubric": "Atributos privados com validação, métodos nomeados com verbos no infinitivo e testes cobrindo cenários positivos/negativos."
+  },
   "content": [
     {
-      "type": "contentBlock",
-      "title": "Ementa e Contextualização",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Na aula anterior, vimos a estrutura básica de um programa. Agora, vamos mergulhar no coração da Programação Orientada a Objetos. Os objetos são a base de tudo o que construiremos. Entender como modelar entidades do mundo real (um produto, um cliente, uma transação) em objetos com estado (atributos) e comportamento (métodos) é a habilidade fundamental que nos permite criar software modular, reutilizável e fácil de manter."
-        }
-      ]
-    },
-    {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade I — Estruturação de classes",
+        "content": "Explorar como atributos e métodos colaboram para representar conceitos do domínio e garantir invariantes."
+      },
       "cards": [
         {
-          "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Definição de objetos, atributos (estado) e métodos (comportamento). Relação entre classes e instâncias."
+          "icon": "users",
+          "title": "Modelagem",
+          "content": "Identificar responsabilidades de uma classe e suas interações com o restante do sistema."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Modelar e implementar classes com atributos e métodos, e instanciar objetos a partir delas, manipulando seu estado e comportamento."
+          "icon": "check-circle",
+          "title": "Integridade",
+          "content": "Aplicar encapsulamento para proteger regras de negócio e evitar estados inválidos."
         },
         {
-          "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Exposição teórica com analogias, modelagem visual, codificação de exemplos práticos e atividade guiada."
+          "icon": "tasks",
+          "title": "Sobrecarga",
+          "content": "Demonstrar como métodos sobrecarregados oferecem APIs flexíveis sem duplicar lógica."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(15 min) Revisão rápida de classes e objetos.",
+        "(25 min) Oficina guiada: construindo a classe `Cliente` passo a passo.",
+        "(20 min) Discussão sobre atributos estáticos e contador de instâncias.",
+        "(20 min) Exercício prático: sobrecarga de construtores.",
+        "(20 min) Pair programming: validar estado e lançar exceções personalizadas.",
+        "(10 min) Reflexão e próximos passos."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Tipos de membros em uma classe",
+      "columns": 2,
+      "cards": [
+        {
+          "title": "Atributos de instância",
+          "subtitle": "Estado individual",
+          "tone": "info",
+          "content": "Cada objeto armazena o seu próprio valor. Ideal para dados que mudam por instância."
+        },
+        {
+          "title": "Atributos estáticos",
+          "subtitle": "Estado compartilhado",
+          "tone": "neutral",
+          "content": "Pertencem à classe como um todo. Úteis para contadores e cache de configuração."
+        },
+        {
+          "title": "Métodos de instância",
+          "subtitle": "Comportamentos dependem do estado",
+          "tone": "success",
+          "content": "Acessam atributos do objeto atual via `this`."
+        },
+        {
+          "title": "Métodos estáticos",
+          "subtitle": "Utilidades ou fábricas",
+          "tone": "warning",
+          "content": "Executados sem precisar de objeto; não acessam `this` e devem ser usados com parcimônia."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "🧱 Os Blocos de Construção da POO",
-      "content": [
-        {
-          "type": "contentBlock",
-          "title": "1. Classes, Objetos e Instâncias",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Segundo <strong>Deitel & Deitel (Java: Como Programar)</strong>, <em>\"uma classe descreve os atributos e comportamentos de um conjunto de objetos semelhantes; cada objeto é uma instância dessa classe.\"</em>"
-            },
-            {
-              "type": "paragraph",
-              "text": "A relação entre classe e objeto é como a de um <strong>molde</strong> e o <strong>item criado a partir dele</strong>. A classe define a estrutura e comportamento; o objeto é a concretização que usamos no código."
-            },
-            {
-              "type": "list",
-              "items": [
-                "<strong>Classe:</strong> O projeto, a planta baixa. Define atributos e métodos que todos os objetos daquele tipo terão.",
-                "<strong>Objeto (ou Instância):</strong> Uma cópia única criada a partir da classe. Cada objeto tem seu próprio estado."
-              ]
-            },
-            {
-              "type": "image",
-              "src": "https://placehold.co/400x250/e2e8f0/4f46e5?text=Classe+Molde",
-              "alt": "Diagrama de Classe"
-            },
-            {
-              "type": "image",
-              "src": "https://placehold.co/400x250/e2e8f0/16a34a?text=Objetos+Instanciados",
-              "alt": "Objetos criados a partir da classe"
-            },
-            {
-              "type": "html",
-              "html": "<div class=\"flex justify-center my-6\"><div class=\"bg-white border border-slate-300 rounded-lg shadow-lg w-80\"><div class=\"bg-indigo-600 text-white text-center font-bold py-2 rounded-t-lg\">Carro</div><div class=\"border-t border-b border-slate-300 p-4 text-slate-700 font-mono text-sm\">- cor : String <br />- modelo : String <br />- ano : int</div><div class=\"p-4 text-slate-700 font-mono text-sm\">+ ligar() : void <br />+ acelerar() : void <br />+ getVelocidadeAtual() : int</div></div></div>"
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "// Defining a simple class Car\npublic class Car {\n    String color;\n    String model;\n}\n\n// Creating objects (instances) in the main method\npublic class TestCar {\n    public static void main(String[] args) {\n        Car car1 = new Car();\n        car1.color = \"Red\";\n        car1.model = \"Sedan\";\n\n        Car car2 = new Car();\n        car2.color = \"Black\";\n        car2.model = \"SUV\";\n\n        System.out.println(car1.color); // Prints \"Red\"\n    }\n}"
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "2. Atributos: O Estado de um Objeto",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Atributos são <strong>variáveis internas da classe</strong> que guardam dados. Eles representam o <strong>estado</strong> de cada objeto."
-            },
-            {
-              "type": "paragraph",
-              "text": "Exemplo: A classe `Carro` pode ter os atributos `cor`, `modelo` e `ano`. Cada objeto terá seus próprios valores."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "public class Carro {\n    String cor;\n    String modelo;\n    int ano;\n}\n\npublic class TestCarro {\n    public static void main(String[] args) {\n        Carro meuCarro = new Carro();\n        meuCarro.cor = \"Vermelho\"; // Estado do objeto\n    }\n}"
-            },
-            {
-              "type": "callout",
-              "variant": "info",
-              "title": "💡 Dica:",
-              "content": "Atributos são geralmente <strong>privados</strong> em boas práticas de POO e acessados via métodos (getters/setters) para respeitar o encapsulamento."
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "3. Métodos: O Comportamento de um Objeto",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Métodos são <strong>funções dentro da classe</strong> que definem o comportamento do objeto. Eles podem ler/modificar atributos e interagir com outros objetos."
-            },
-            {
-              "type": "paragraph",
-              "text": "Na classe `Carro`, métodos como `ligar()` ou `acelerar()` alteram o estado do objeto."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "public class Carro {\n    String modelo;\n    int velocidade;\n\n    public void acelerar() {\n        velocidade += 10;\n        System.out.println(modelo + \" acelerou. Velocidade: \" + velocidade);\n    }\n}\n\nCarro carro1 = new Carro();\ncarro1.modelo = \"Sedan\";\ncarro1.acelerar(); // Output: Sedan acelerou. Velocidade: 10"
-            },
-            {
-              "type": "callout",
-              "variant": "good-practice",
-              "title": "📌 Exercício Rápido:",
-              "content": "Adicione um método `frear()` que reduza a velocidade em 5 e teste a chamada em dois objetos diferentes."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "💻 Exemplos Práticos: Modelando um Produto",
-      "content": [
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 1: Criando a Classe Produto",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Vamos modelar um produto de uma loja virtual. A classe terá atributos para nome, preço e um método para exibir suas informações."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "/**\n * Represents a product in an e-commerce system.\n */\npublic class Produto {\n    // Attributes that define the state of a product.\n    String nome;\n    double preco;\n    int quantidadeEmEstoque;\n\n    /**\n     * Displays the product's data sheet.\n     * This method accesses the object's own attributes.\n     */\n    public void exibirFichaTecnica() {\n        System.out.println(\"---- FICHA TÉCNICA ----\");\n        System.out.println(\"Produto: \" + nome);\n        System.out.println(\"Preço: R$ \" + preco);\n        System.out.println(\"Estoque: \" + quantidadeEmEstoque + \" unidades\");\n        System.out.println(\"-----------------------\");\n    }\n}"
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 2: Criando e Usando Objetos Produto",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Agora, em uma classe `Loja`, vamos criar instâncias de `Produto` e interagir com elas."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "public class Loja {\n    public static void main(String[] args) {\n        // Creating the first product object (instance of Produto).\n        Produto produto1 = new Produto();\n        produto1.nome = \"Smartphone Modelo X\";\n        produto1.preco = 1999.90;\n        produto1.quantidadeEmEstoque = 50;\n\n        // Creating the second product object.\n        Produto produto2 = new Produto();\n        produto2.nome = \"Notebook Gamer Y\";\n        produto2.preco = 4599.00;\n        produto2.quantidadeEmEstoque = 25;\n\n        // Calling the method on each object.\n        System.out.println(\"Produtos disponíveis:\");\n        produto1.exibirFichaTecnica();\n        produto2.exibirFichaTecnica();\n    }\n}"
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Exemplo 3: Método com Parâmetro e Retorno",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Vamos adicionar um método à classe `Produto` que calcula o preço com desconto. Ele recebe o percentual de desconto como parâmetro e retorna o novo preço."
-            },
-            {
-              "type": "code",
-              "language": "java",
-              "code": "// Add this method inside your Produto class.\n/**\n * Calculates the product price with a given discount.\n * @param percentualDesconto The discount percentage (e.g., 10 for 10%).\n * @return The new price after applying the discount.\n */\npublic double calcularPrecoComDesconto(double percentualDesconto) {\n    double valorDoDesconto = this.preco * (percentualDesconto / 100.0);\n    return this.preco - valorDoDesconto;\n}\n\n// How to use it in the main method of Loja class:\n// double precoCom10porcentoOff = produto1.calcularPrecoComDesconto(10.0);\n// System.out.println(\"Preço com desconto: R$ \" + precoCom10porcentoOff);"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "🎥 Vídeos e Links de Apoio",
-      "videos": [
-        {
-          "title": "Criando Classes e Objetos em Java (Curso POO Java)",
-          "youtubeId": "n1VZFmjuhqg"
-        },
-        {
-          "title": "Introduction to Classes and Objects in Java",
-          "youtubeId": "W-D71ZeMixQ"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "📖 Leituras Recomendadas",
-      "content": [
-        {
-          "type": "button",
-          "text": "What Is an Object? (Documentação Oficial da Oracle)",
-          "href": "https://docs.oracle.com/javase/tutorial/java/concepts/object.html"
-        },
-        {
-          "type": "button",
-          "text": "Java Classes and Objects (W3Schools)",
-          "href": "https://www.w3schools.com/java/java_classes.asp"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Atividade Prática (TED): Modelando Alunos e Cursos",
+      "title": "Designando responsabilidades",
       "content": [
         {
           "type": "paragraph",
-          "text": "Vamos praticar a modelagem criando um sistema acadêmico simples. O objetivo é representar um `Aluno` e o `Curso` em que ele está matriculado."
+          "text": "Antes de escrever código, defina claramente o que a classe deve conhecer e fazer. Evite classes anêmicas e métodos gigantes."
         },
         {
-          "type": "list",
-          "items": [
-            "**Crie a classe `Curso.java`** com os atributos `String nome` e `int duracaoHoras`.",
-            "**Crie a classe `Aluno.java`** com os atributos `String nome`, `String matricula` e `Curso cursoMatriculado`. Note que um atributo pode ser outro objeto!",
-            "Adicione um método `void exibirRelatorio()` na classe `Aluno` que imprima o nome do aluno, sua matrícula e o nome do curso em que está matriculado.",
-            "**Crie uma classe `Secretaria.java` com um método `main`** para testar. Nela, crie um objeto `Curso` (ex: \"Análise e Desenvolvimento de Sistemas\") e um objeto `Aluno`. Associe o curso ao aluno e chame o método `exibirRelatorio()`."
-          ]
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "Nomeie com substantivos",
+                "text": "Classes representam conceitos (ex.: `Cliente`, `Pedido`)."
+              },
+              {
+                "title": "Escolha atributos relevantes",
+                "text": "Pergunte-se: o objeto realmente precisa armazenar esse dado?"
+              },
+              {
+                "title": "Declare comportamentos",
+                "text": "Métodos expressam ações (ex.: `atualizarEndereco`, `calcularLimite`)."
+              },
+              {
+                "title": "Valide invariantes",
+                "text": "Construtores devem impedir estados inválidos e lançar exceções significativas."
+              }
+            ]
+          }
         }
       ]
     },
     {
-      "type": "checklist",
-      "title": "Checklist de Aprendizagem da Aula",
-      "items": [
-        "Diferenciar claramente os conceitos de Classe e Objeto.",
-        "Modelar uma entidade do mundo real em uma Classe Java com atributos e métodos.",
-        "Criar múltiplos objetos (instâncias) a partir de uma mesma classe.",
-        "Implementar e chamar métodos que recebem parâmetros e retornam valores."
-      ]
-    },
-    {
-      "type": "bibliographyBlock",
-      "title": "📚 Bibliografia de Apoio",
-      "references": [
-        "<strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.",
-        "<strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015.",
-        "<strong>GOODRICH, Michael T.; TAMASSIA, Roberto.</strong> <em>Estruturas de dados e algoritmos em Java.</em> 5. ed. Porto Alegre: Bookman, 2013."
-      ]
+      "type": "component",
+      "component": "Md3BlockDiagram",
+      "props": {
+        "title": "Colaboração entre objetos",
+        "summary": "Exemplo de relacionamento entre classes do domínio Varejo.",
+        "blocks": [
+          {
+            "id": "cliente",
+            "title": "Cliente",
+            "summary": "Dados cadastrais",
+            "layer": 1,
+            "kind": "process"
+          },
+          {
+            "id": "pedido",
+            "title": "Pedido",
+            "summary": "Itens e pagamentos",
+            "layer": 2,
+            "kind": "process"
+          },
+          {
+            "id": "pagamento",
+            "title": "Pagamento",
+            "summary": "Transações e recibos",
+            "layer": 3,
+            "kind": "data-store"
+          },
+          {
+            "id": "email",
+            "title": "Serviço de E-mail",
+            "summary": "Confirmações",
+            "layer": 4,
+            "kind": "external"
+          }
+        ],
+        "channels": [
+          {
+            "id": "c1",
+            "from": "cliente",
+            "to": "pedido",
+            "description": "Cliente cria pedidos e adiciona itens",
+            "kind": "control"
+          },
+          {
+            "id": "c2",
+            "from": "pedido",
+            "to": "pagamento",
+            "description": "Pedido calcula total e inicia cobrança",
+            "kind": "data"
+          },
+          {
+            "id": "c3",
+            "from": "pedido",
+            "to": "email",
+            "description": "Pedido envia confirmação ao cliente",
+            "kind": "feedback"
+          }
+        ],
+        "legend": [
+          {
+            "id": "process",
+            "label": "Objeto de domínio",
+            "description": "Entidades que concentram regras de negócio."
+          },
+          {
+            "id": "data-store",
+            "label": "Persistência",
+            "description": "Objetos que garantem armazenamento e histórico."
+          },
+          {
+            "id": "external",
+            "label": "Serviço externo",
+            "description": "Infraestrutura fora da aplicação."
+          },
+          { "id": "control", "label": "Ação", "description": "Mensagens que orquestram fluxos." }
+        ]
+      }
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-25T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Laboratório LPOO – roteiro 02", "Estudos de caso varejo 2023"]
+  }
 }

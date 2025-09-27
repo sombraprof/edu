@@ -3,10 +3,15 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
-import Ajv from 'ajv';
+import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import { Type } from '@sinclair/typebox';
-import { TypeCompiler } from '@sinclair/typebox/compiler';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const lessonSchema = require('../schemas/lesson.schema.json');
+const lessonsIndexSchema = require('../schemas/lessons-index.schema.json');
+const exercisesIndexSchema = require('../schemas/exercises-index.schema.json');
+const supplementsIndexSchema = require('../schemas/supplements-index.schema.json');
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +23,7 @@ const args = process.argv.slice(2);
 const reportPath = resolveReportPath(args);
 
 const LESSON_ID_PATTERN = '^lesson-[0-9]{2,}$';
+const SUPPLEMENT_TYPES = ['reading', 'lab', 'project', 'slide', 'video', 'reference'];
 
 const SUPPORTED_BLOCK_TYPES = [
   'html',
@@ -48,6 +54,8 @@ const LEGACY_BLOCK_TYPES = ['dragAndDrop', 'fileTree', 'quiz'];
 const SUPPORTED_CUSTOM_COMPONENTS = [
   'Md3Table',
   'Md3LogicOperators',
+  'Md3BlockDiagram',
+  'Md3Flowchart',
   'MemoryDiagram',
   'OrderedList',
   'CardGrid',
@@ -768,110 +776,7 @@ function pushBlockProblem(context, message) {
   });
 }
 
-const lessonContentSchema = Type.Object(
-  {
-    type: Type.String({
-      minLength: 1,
-      description: 'Each lesson block must declare its renderer type',
-    }),
-  },
-  { additionalProperties: true }
-);
-
-const lessonSchema = Type.Object(
-  {
-    id: Type.String({
-      pattern: LESSON_ID_PATTERN,
-      description: 'Use lesson IDs like lesson-01',
-    }),
-    title: Type.String({ minLength: 1 }),
-    objective: Type.Optional(Type.String()),
-    duration: Type.Optional(Type.Number({ exclusiveMinimum: 0 })),
-    content: Type.Array(lessonContentSchema, {
-      description: 'Lesson blocks',
-      minItems: 1,
-    }),
-    bibliography: Type.Optional(
-      Type.Array(Type.String({ minLength: 1 }), {
-        minItems: 1,
-      })
-    ),
-    resources: Type.Optional(
-      Type.Array(
-        Type.Object(
-          {
-            label: Type.String({ minLength: 1 }),
-            url: Type.String({
-              format: 'uri',
-            }),
-          },
-          { additionalProperties: true }
-        ),
-        { minItems: 1 }
-      )
-    ),
-  },
-  { additionalProperties: true }
-);
-
-const lessonsIndexSchema = Type.Array(
-  Type.Object(
-    {
-      id: Type.String({ pattern: LESSON_ID_PATTERN }),
-      title: Type.String({ minLength: 1 }),
-      file: Type.String({ pattern: '^lesson-[0-9]{2,}\\.(vue|json)$' }),
-      available: Type.Boolean(),
-      description: Type.Optional(Type.String()),
-    },
-    { additionalProperties: false }
-  )
-);
-
-const generationMetadataSchema = Type.Object(
-  {
-    generatedBy: Type.String({ minLength: 1 }),
-    model: Type.String({ minLength: 1 }),
-    timestamp: Type.String({ format: 'date-time' }),
-  },
-  { additionalProperties: false }
-);
-
-const exercisesIndexSchema = Type.Array(
-  Type.Object(
-    {
-      id: Type.String({ minLength: 1 }),
-      title: Type.String({ minLength: 1 }),
-      description: Type.String({ minLength: 1 }),
-      link: Type.Optional(Type.String({ minLength: 1 })),
-      file: Type.Optional(Type.String({ pattern: '^.+\\.(vue|json)$' })),
-      available: Type.Optional(Type.Boolean()),
-      type: Type.Optional(Type.String({ minLength: 1 })),
-      metadata: generationMetadataSchema,
-    },
-    { additionalProperties: true }
-  )
-);
-
-const SUPPLEMENT_TYPES = ['reading', 'lab', 'project', 'slide', 'video', 'reference'];
-
-const supplementsIndexSchema = Type.Array(
-  Type.Object(
-    {
-      id: Type.String({ minLength: 1 }),
-      title: Type.String({ minLength: 1 }),
-      description: Type.Optional(Type.String({ minLength: 1 })),
-      type: Type.String({ enum: SUPPLEMENT_TYPES }),
-      link: Type.Optional(Type.String({ minLength: 1 })),
-      file: Type.Optional(Type.String({ minLength: 1 })),
-      available: Type.Optional(Type.Boolean()),
-      metadata: generationMetadataSchema,
-    },
-    { additionalProperties: true }
-  )
-);
-
-const compiler = TypeCompiler.Compile(lessonSchema);
-const ajv = new Ajv({ allErrors: true, allowUnionTypes: true, strict: false });
+const ajv = new Ajv2020({ allErrors: true, allowUnionTypes: true, strict: false });
 addFormats(ajv);
 const validateLesson = ajv.compile(lessonSchema);
 const validateLessonsIndex = ajv.compile(lessonsIndexSchema);
@@ -1030,18 +935,6 @@ async function validateLessonFile(course, filePath, problems, warnings) {
       return;
     }
 
-    if (!compiler.Check(json)) {
-      problems.push({
-        type: 'schema',
-        file: filePath,
-        course,
-        message: compiler
-          .Errors(json)
-          .map((error) => `${error.path}: ${error.message}`)
-          .join('\n'),
-      });
-    }
-
     const expectedId = path.parse(filePath).name;
     if (json.id !== expectedId) {
       problems.push({
@@ -1051,6 +944,8 @@ async function validateLessonFile(course, filePath, problems, warnings) {
         message: `Lesson JSON id (${json.id}) must match file name (${expectedId}).`,
       });
     }
+
+    recordLessonMetadataWarnings({ json, filePath, course, warnings });
 
     json.content.forEach((block, index) => {
       if (LEGACY_BLOCK_TYPES.includes(block.type)) {
@@ -1106,6 +1001,66 @@ async function validateLessonFile(course, filePath, problems, warnings) {
     });
   } catch (error) {
     problems.push({ type: 'read', file: filePath, course, message: error.message });
+  }
+}
+
+function recordLessonMetadataWarnings({ json, filePath, course, warnings }) {
+  const metadataChecks = [
+    {
+      ok: () => typeof json.formatVersion === 'string',
+      message:
+        'Aula deve declarar "formatVersion" (use "md3.lesson.v1") para aderir ao schema unificado.',
+    },
+    {
+      ok: () => isNonEmptyString(json.summary),
+      message: 'Campo "summary" deve ser preenchido com resumo de 1-2 parágrafos.',
+    },
+    {
+      ok: () => isNonEmptyString(json.objective),
+      message: 'Campo "objective" precisa ser preenchido com o objetivo pedagógico principal.',
+    },
+    {
+      ok: () => Array.isArray(json.competencies) && json.competencies.length > 0,
+      message: 'Campo "competencies" deve listar as competências trabalhadas na aula.',
+    },
+    {
+      ok: () => Array.isArray(json.outcomes) && json.outcomes.length > 0,
+      message: 'Campo "outcomes" deve registrar resultados de aprendizagem mensuráveis.',
+    },
+    {
+      ok: () => Array.isArray(json.content) && json.content.length > 0,
+      message: 'Campo "content" precisa de pelo menos um bloco renderizável.',
+    },
+  ];
+
+  metadataChecks.forEach(({ ok, message }) => {
+    if (!ok()) {
+      warnings.push({
+        type: 'missing-metadata',
+        file: filePath,
+        course,
+        message,
+      });
+    }
+  });
+
+  if (!json.metadata || !isIsoDateString(json.metadata.updatedAt)) {
+    warnings.push({
+      type: 'missing-metadata',
+      file: filePath,
+      course,
+      message:
+        'Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança.',
+    });
+  }
+
+  if (!json.metadata || !Array.isArray(json.metadata.owners) || json.metadata.owners.length === 0) {
+    warnings.push({
+      type: 'missing-metadata',
+      file: filePath,
+      course,
+      message: 'Preencha metadata.owners com responsáveis pedagógicos/tecnológicos.',
+    });
   }
 }
 

@@ -17,5 +17,6 @@
     "skipLibCheck": true,
     "types": ["node", "vue", "vite/client", "vitest"]
   },
-  "include": ["src/**/*", "env.d.ts"]
+  "include": ["src/**/*", "env.d.ts"],
+  "exclude": ["src/**/*.stories.ts", "src/**/*.stories.tsx"]
 }

@@ -1,190 +1,325 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-15",
-  "title": "Aula 15: Correção da NP1 e Aprofundamento",
-  "objective": "Consolidar pontos críticos identificados na prova e fortalecer a escrita de condições compostas e cadeias de decisão claras.",
-  "content": [
+  "title": "Aula 15: Correção da NP1 e aprofundamento",
+  "summary": "Analisa os resultados da NP1, corrige erros recorrentes e reforça decisões compostas com exercícios direcionados.",
+  "objective": "Transformar o feedback da NP1 em plano de melhoria, revisando condicionais compostas e boas práticas de implementação.",
+  "objectives": [
+    "Apresentar panorama geral das notas e dos critérios avaliados na NP1.",
+    "Corrigir coletivamente os erros mais frequentes identificados nas questões.",
+    "Consolidar boas práticas para escrever cadeias condicionais claras e testáveis."
+  ],
+  "competencies": ["Pensamento crítico", "Raciocínio algorítmico", "Comunicação técnica"],
+  "skills": [
+    "Diagnosticar falhas lógicas em decisões compostas.",
+    "Reescrever código C aplicando boas práticas de clareza e indentação.",
+    "Planejar testes que previnam regressões após ajustes."
+  ],
+  "outcomes": [
+    "Entrega guia pessoal de correção com os pontos de melhoria e ações de estudo.",
+    "Reimplementa ao menos uma questão da prova corrigindo erros identificados.",
+    "Documenta novos casos de teste que garantam cobertura dos cenários críticos."
+  ],
+  "prerequisites": ["Trazer a prova NP1 corrigida e os rascunhos utilizados na avaliação."],
+  "tags": ["condicionais", "revisao", "avaliacao"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
     {
-      "type": "html",
-      "html": "<p class=\"text-body-large\" style=\"color: var(--md-sys-color-on-surface);\" mt-2\">Devolutiva da avaliação, análise de erros comuns e reforço de condicionais compostas.</p>"
+      "label": "Rubrica detalhada da NP1",
+      "type": "handout",
+      "url": "https://example.edu/algi/avaliacoes/rubrica-np1.pdf"
     },
     {
+      "label": "Planilha de reescrita de código",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/reescrita-condicionais.xlsx"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "type": "tool",
+      "url": "https://www.onlinegdb.com/online_c_compiler"
+    }
+  ],
+  "bibliography": [
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "reflection",
+    "description": "Produção de guia de correção individual com plano de estudo e reimplementação de uma questão crítica."
+  },
+  "content": [
+    {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Correção comentada da NP1, erros recorrentes, boas práticas e aprofundamento em <code>if</code>/<code>else if</code> com operadores lógicos."
+          "title": "Conteúdo",
+          "content": "Devolutiva da NP1, análise de erros, reescrita de condicionais e mini-laboratório orientado."
         },
         {
           "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Consolidar pontos críticos identificados na prova e fortalecer a escrita de condições compostas e cadeias de decisão claras."
+          "title": "Objetivo",
+          "content": "Converter feedback em ações práticas e reforçar os pontos frágeis observados na avaliação."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Discussão guiada de soluções, exemplificação de correções e exercícios curtos de reescrita e refatoração."
+          "title": "Metodologia",
+          "content": "Discussão guiada, exercícios de refatoração em duplas e construção de plano individual de estudos."
         }
       ]
     },
     {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Panorama de notas, distribuição por questão e critérios da rubrica.",
+        "(25 min) Correção guiada de erros recorrentes com exemplos reais.",
+        "(30 min) Oficina de reescrita: ajustes em condicionais compostas.",
+        "(20 min) Planejamento de testes adicionais e registro em planilha.",
+        "(15 min) Montagem do guia de correção individual.",
+        "(10 min) Orientações para a TED e próximos passos."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Panorama da NP1",
+      "headers": ["Questão", "Média", "Principais erros"],
+      "rows": [
+        [
+          { "value": "Q1" },
+          { "value": "1,4/2,0" },
+          { "value": "Fluxos alternativos ausentes no fluxograma" }
+        ],
+        [
+          { "value": "Q2" },
+          { "value": "1,7/2,0" },
+          { "value": "Pseudocódigo sem declaração de variáveis" }
+        ],
+        [
+          { "value": "Q3" },
+          { "value": "2,1/3,0" },
+          { "value": "Uso incorreto de operadores relacionais" }
+        ],
+        [{ "value": "Q4" }, { "value": "1,8/3,0" }, { "value": "Cadeias else if com sobreposição" }]
+      ]
+    },
+    {
+      "type": "truthTable",
+      "title": "Diagnóstico das combinações avaliadas",
+      "headers": ["Estudante", "Condição escrita", "Estado", "Correção sugerida"],
+      "rows": [
+        [
+          { "value": "A" },
+          { "value": "if (idade > 18 || idade < 60)" },
+          { "state": "false", "display": "Aceita menores de idade" },
+          { "state": "true", "display": "Use && para garantir intervalo" }
+        ],
+        [
+          { "value": "B" },
+          { "value": "if (ativo = 1)" },
+          { "state": "false", "display": "Atribuição em vez de comparação" },
+          { "state": "true", "display": "Trocar por ==" }
+        ],
+        [
+          { "value": "C" },
+          { "value": "if (!(tentativas > 3))" },
+          { "state": "neutral", "display": "Expressão confusa" },
+          { "state": "true", "display": "Reescrever como tentativas <= 3" }
+        ]
+      ],
+      "legend": [
+        { "label": "Ajuste necessário", "state": "false" },
+        { "label": "Sugestão de melhoria", "state": "true" },
+        { "label": "Rever clareza", "state": "neutral" }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Guard clauses para acesso",
+        "summary": "Fluxo refatorado a partir de erros observados na prova.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Início" },
+          { "id": "input", "type": "input", "title": "Ler ativo, bloqueado, tentativas" },
+          {
+            "id": "decision-ativo",
+            "type": "decision",
+            "title": "Usuário ativo?",
+            "branches": [
+              {
+                "id": "branch-inativo",
+                "label": "Não",
+                "target": "process-negado",
+                "description": "Encerrar acesso"
+              },
+              {
+                "id": "branch-ativo",
+                "label": "Sim",
+                "target": "decision-bloqueado",
+                "description": "Verificar bloqueio"
+              }
+            ]
+          },
+          {
+            "id": "decision-bloqueado",
+            "type": "decision",
+            "title": "Conta bloqueada?",
+            "branches": [
+              {
+                "id": "branch-bloqueado",
+                "label": "Sim",
+                "target": "process-negado",
+                "description": "Solicitar desbloqueio"
+              },
+              {
+                "id": "branch-livre",
+                "label": "Não",
+                "target": "decision-tentativas",
+                "description": "Verificar tentativas"
+              }
+            ]
+          },
+          {
+            "id": "decision-tentativas",
+            "type": "decision",
+            "title": "Tentativas < 3?",
+            "branches": [
+              {
+                "id": "branch-tentativas-ok",
+                "label": "Sim",
+                "target": "process-permitido",
+                "description": "Conceder acesso"
+              },
+              {
+                "id": "branch-tentativas-altas",
+                "label": "Não",
+                "target": "process-negado",
+                "description": "Orientar redefinição"
+              }
+            ]
+          },
+          {
+            "id": "process-permitido",
+            "type": "process",
+            "title": "Imprimir \"Acesso permitido\""
+          },
+          { "id": "process-negado", "type": "process", "title": "Imprimir \"Acesso negado\"" },
+          { "id": "end", "type": "end", "title": "Fim" }
+        ],
+        "connections": [
+          { "from": "start", "to": "input" },
+          { "from": "input", "to": "decision-ativo" },
+          { "from": "process-permitido", "to": "end" },
+          { "from": "process-negado", "to": "end" }
+        ]
+      }
+    },
+    {
       "type": "contentBlock",
-      "title": "Devolutiva da NP1",
+      "title": "Erros recorrentes e como corrigir",
       "content": [
         {
-          "type": "html",
-          "html": "<ul class=\"list-disc list-inside space-y-2\" style=\"color: var(--md-sys-color-on-surface);\"><li>Critérios de correção relembrados: fidelidade ao enunciado, correção lógica e organização do código.</li><li>Panorama geral das notas e distribuição por questão.</li><li>Trechos representativos de respostas corretas e incorretas (sem identificação).</li></ul>"
+          "type": "subBlock",
+          "title": "Operadores de comparação",
+          "items": [
+            "<p>Confundir <code>=</code> com <code>==</code> altera completamente o resultado. Reforce leitura em voz alta do enunciado.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "// Correção aplicada em sala\nif (opcao == 1) {\n  printf(\"Cadastrar usuario\\n\");\n}"
+        },
+        {
+          "type": "subBlock",
+          "title": "Intervalos e fronteiras",
+          "items": [
+            "<p>Defina limites inferiores e superiores de forma explícita. Use <= e >= para incluir bordas quando necessário.</p>"
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "if (media >= 9.0f) { ... } else if (media >= 7.0f) { ... } else if (media >= 5.0f) { ... } else { ... }"
         }
       ]
     },
     {
+      "type": "md3Table",
+      "title": "Plano de ação individual",
+      "headers": ["Ponto crítico", "Evidência na prova", "Ação de estudo"],
+      "rows": [
+        [
+          { "value": "Operadores lógicos" },
+          { "value": "Errei ao combinar && e || na Q4" },
+          { "value": "Refazer exercícios da Aula 13 e registrar testes" }
+        ],
+        [
+          { "value": "Fluxogramas" },
+          { "value": "Deixei caminhos sem saída na Q1" },
+          { "value": "Desenhar fluxo corrigido e validar com colega" }
+        ],
+        [
+          { "value": "Documentação" },
+          { "value": "Não expliquei a escolha da condição na Q3" },
+          { "value": "Criar checklist de comentários para próximas entregas" }
+        ]
+      ]
+    },
+    {
       "type": "contentBlock",
-      "title": "Erros Comuns e Como Corrigir",
+      "title": "Mini-laboratório de recuperação",
       "content": [
         {
-          "type": "subBlock",
-          "title": "1) Atribuição (=) vs. Comparação (==)",
+          "type": "orderedList",
           "items": [
-            "<p class=\"mb-2\">Confundir <code>=</code> com <code>==</code> altera a lógica. Compare sempre com <code>==</code>.</p>"
+            "Escolha uma questão que deseja refazer e abra um novo arquivo no OnlineGDB.",
+            "Escreva testes de mesa cobrindo limite mínimo, máximo e caso inválido.",
+            "Implemente a solução corrigida e peça revisão de um colega antes de submeter."
           ]
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "// Ruim\nif (opcao = 1) { /* sempre verdadeiro */ }\n\n// Correto\nif (opcao == 1) { /* compara valor */ }\n"
-        },
-        {
-          "type": "subBlock",
-          "title": "2) Intervalos e Fronteiras",
-          "items": [
-            "<p class=\"mb-2\">Defina claramente os limites e evite sobreposição nas cadeias <code>else if</code>.</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "// Classificar media: A (>=9), B (>=7), C (>=5), D (<5)\nif (media >= 9.0) {\n    // A\n} else if (media >= 7.0) {\n    // B\n} else if (media >= 5.0) {\n    // C\n} else {\n    // D\n}\n"
-        },
-        {
-          "type": "subBlock",
-          "title": "3) Combinações Lógicas (&&, ||, !)",
-          "items": [
-            "<p class=\"mb-2\">Agrupe condições relacionadas e use parênteses para deixar a intenção clara.</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "// Elegibilidade: (estudante OU idoso) E cadastro ativo\nif ((estudante == 1 || idoso == 1) && cadastroAtivo == 1) {\n    printf(\"Tem direito a desconto.\\n\");\n} else {\n    printf(\"Nao tem direito a desconto.\\n\");\n}\n"
-        },
-        {
-          "type": "subBlock",
-          "title": "4) Entrada/Saída e Formatação",
-          "items": [
-            "<p class=\"mb-2\">Atenção aos especificadores de formato e aos espaços/linhas na saída.</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "int idade; float renda;\nscanf(\"%d %f\", &idade, &renda); // tipos corretos\nprintf(\"Idade: %d\\nRenda: %.2f\\n\", idade, renda);\n"
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Aprofundamento: Condições Compostas e Estruturação",
+      "title": "Tarefa (TED)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Use cadeias <code>else if</code> quando os casos forem <em>mutuamente exclusivos</em>. Para validações independentes, prefira <code>if</code> separados."
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "// Ex.: Faixas de IMC com mensagens mutuamente exclusivas\nif (imc < 18.5) {\n    printf(\"Abaixo do peso\\n\");\n} else if (imc < 25.0) {\n    printf(\"Peso normal\\n\");\n} else if (imc < 30.0) {\n    printf(\"Sobrepeso\\n\");\n} else {\n    printf(\"Obesidade\\n\");\n}\n"
+          "text": "Implemente aula15_revisao_condicionais.c considerando idade, renda, temDeficiencia e cadastro ativo."
         },
         {
           "type": "paragraph",
-          "text": "Para deixar o fluxo mais limpo, considere <em>guard clauses</em> (saídas antecipadas) em funções."
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "int podeAcessar(int ativo, int tentativas, int bloqueado) {\n    if (!ativo) return 0;\n    if (bloqueado) return 0;\n    if (tentativas >= 3) return 0;\n    return 1;\n}\n"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Mini-laboratório de Recuperação",
-      "content": [
-        {
-          "type": "subBlock",
-          "title": "Exercício 1: Classificação de Triângulos",
-          "items": [
-            "<p>Leia três lados e indique se formam triângulo. Se sim, classifique em equilátero, isósceles ou escaleno.</p>"
-          ]
-        },
-        {
-          "type": "subBlock",
-          "title": "Exercício 2: Reembolso de Despesas",
-          "items": [
-            "<p>Funcionário recebe reembolso se for <em>interno</em> e despesa ≤ teto, ou se for <em>externo</em> com autorização prévia.</p>"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Tarefa para a próxima aula</h4><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie o programa <code>aula15_revisao_condicionais.c</code>.</li><li>Leia: <em>idade</em>, <em>renda</em> e <em>temDeficiencia</em> (0/1).</li><li>Regras: elegível se (idade ≥ 60) OU (idade ≥ 18 E renda ≤ 2 SM) OU (temDeficiencia == 1) — e cadastro ativo.</li><li>Imprima \"Elegível\"/\"Não elegível\". Use <code>&&</code>, <code>||</code> e <code>!</code> de forma clara.</li><li>Poste o arquivo <code>.c</code> na atividade \"Aula 15\" no Moodle.</li></ol>"
-    },
-    {
-      "type": "contentBlock",
-      "title": "💻 Área de Testes Interativa",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
-        },
-        {
-          "type": "html",
-          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+          "text": "Documente no README as combinações que tornam o usuário elegível e anexe a planilha de testes preenchida."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
+      "title": "Vídeos de apoio",
       "videos": [
         {
-          "title": "Cadeias if / else if / else",
-          "src": "https://www.youtube-nocookie.com/embed/JBFgiNJevqc"
+          "title": "Refatorando condicionais em C",
+          "src": "https://www.youtube-nocookie.com/embed/ZsXk0ZzJRSI"
         },
         {
-          "title": "Operadores lógicos (&&, ||, !)",
-          "src": "https://www.youtube-nocookie.com/embed/LpVDGm-FT78"
+          "title": "Estratégias para depurar lógica booleana",
+          "src": "https://www.youtube-nocookie.com/embed/yQ9iW8h-PO0"
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "title": "Ao final desta aula você deve ser capaz de",
       "items": [
-        "Reconhecer e corrigir os erros mais frequentes da NP1.",
-        "Escrever cadeias <code>if/else if/else</code> sem sobreposição.",
-        "Combinar <code>&&</code>, <code>||</code> e <code>!</code> em regras claras."
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
-        "<strong>MANZANO, José Augusto N.G.; OLIVEIRA, Jayr Figueiredo.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Érica, 2019."
+        "Explicar onde perdeu pontos na NP1 e como pretende recuperá-los.",
+        "Reescrever condicionais compostas aplicando boas práticas.",
+        "Criar testes adicionais que validem as correções realizadas."
       ]
     }
   ]
