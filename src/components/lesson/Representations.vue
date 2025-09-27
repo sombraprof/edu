@@ -6,7 +6,7 @@
     <p
       v-if="data.description"
       class="md-typescale-body-large text-on-surface-variant mb-6"
-      v-html="data.description"
+      v-html="sanitizeContent(data.description)"
     ></p>
 
     <div class="grid grid-cols-1 gap-8">
@@ -16,7 +16,7 @@
         </h4>
         <p
           class="md-typescale-body-medium text-on-surface-variant flex-grow"
-          v-html="item.content"
+          v-html="sanitizeContent(item.content)"
         ></p>
 
         <div class="mt-4 pt-4 border-t border-[var(--md-sys-color-outline)]">
@@ -24,7 +24,7 @@
           <div
             v-if="item.detail"
             class="prose max-w-none lesson-content"
-            v-html="item.detail"
+            v-html="sanitizeContent(item.detail)"
           ></div>
 
           <!-- Case 2: Render styled code block -->
@@ -43,6 +43,7 @@
 
 <script setup lang="ts">
 import CodeBlock from './CodeBlock.vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 interface RepresentationItem {
   title: string;
   content: string;
@@ -65,6 +66,10 @@ defineProps<{
 function shouldUsePlainText(language?: string): boolean {
   // Use plain text for plaintext, pseudocode, or when no language is specified
   return !language || language === 'plaintext' || language === 'pseudocode' || language === 'text';
+}
+
+function sanitizeContent(value: unknown): string {
+  return sanitizeHtml(value);
 }
 </script>
 

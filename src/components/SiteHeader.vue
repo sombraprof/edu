@@ -1,39 +1,38 @@
 <template>
-  <!-- Sticky header with Material 3 styling -->
-  <header class="app-top-bar">
-    <div class="app-top-bar__content">
-      <router-link to="/" class="brand">
-        <span class="brand-mark">
-          <GraduationCap class="md-icon md-icon--sm" />
-        </span>
-        <span class="brand-text">
-          <span class="brand-subtitle">Disciplinas</span>
-          <span class="brand-title">Prof. Tiago Sombra</span>
-        </span>
-        <span class="brand-title--mobile">Tiago Sombra</span>
-      </router-link>
-      <nav class="app-top-bar__actions">
-        <router-link
+  <Md3TopAppBar aria-label="Barra de navegação principal">
+    <router-link to="/" class="app-brand" aria-label="Início">
+      <span class="app-brand__mark" aria-hidden="true">
+        <GraduationCap class="md-icon md-icon--sm" />
+      </span>
+      <span class="app-brand__copy">
+        <span class="app-brand__subtitle">Disciplinas</span>
+        <span class="app-brand__title">Prof. Tiago Sombra</span>
+      </span>
+      <span class="app-brand__title--mobile">Tiago Sombra</span>
+    </router-link>
+
+    <template #actions>
+      <nav class="app-top-bar__nav" aria-label="Rotas principais">
+        <RouterLink
           v-for="action in navLinks"
           :key="action.label"
-          class="nav-link"
-          :class="{ 'nav-link--active': isActive(action) }"
+          class="md3-top-app-bar__action"
+          :class="{ 'md3-top-app-bar__action--active': isActive(action) }"
           :to="action.to"
-          :aria-label="action.label"
         >
-          <component :is="action.icon" class="md-icon md-icon--sm" />
+          <component :is="action.icon" class="md-icon md-icon--sm" aria-hidden="true" />
           <span>{{ action.label }}</span>
-        </router-link>
-        <ThemeToggle />
+        </RouterLink>
+        <ThemeToggle class="md3-top-app-bar__action md3-top-app-bar__action--icon" />
       </nav>
-    </div>
-  </header>
+    </template>
+  </Md3TopAppBar>
 </template>
 
 <script setup lang="ts">
-// Header uses lucide icons and the theme toggle
 import { computed } from 'vue';
-import { useRoute, type RouteLocationRaw } from 'vue-router';
+import { RouterLink, useRoute, type RouteLocationRaw } from 'vue-router';
+import Md3TopAppBar from './layout/Md3TopAppBar.vue';
 import ThemeToggle from './ThemeToggle.vue';
 import { GraduationCap, Grid3x3, ArrowLeft, ClipboardList } from 'lucide-vue-next';
 

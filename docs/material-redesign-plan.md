@@ -21,7 +21,7 @@
 
 ### 2.3 Arquitetura de páginas
 
-- O cabeçalho `SiteHeader.vue` não utiliza componentes nativos de app bar do MD3 (e.g., `TopAppBar`), carecendo de hierarquia tipográfica e padrões de navegação adaptativa. 【F:src/components/SiteHeader.vue†L1-L59】
+- O cabeçalho `SiteHeader.vue` foi migrado para o novo `Md3TopAppBar`, garantindo hierarquia tipográfica MD3, slots declarativos e estado elevado automático conforme o scroll; a próxima etapa é alinhar layouts responsivos das páginas ao mesmo padrão estrutural. 【F:src/components/SiteHeader.vue†L1-L74】【F:src/components/layout/Md3TopAppBar.vue†L1-L87】
 - Não há camada de layout responsiva consolidada; páginas fazem uso direto de classes utilitárias sem tokens espaciais padronizados.
 
 ## 3. Diagnóstico dos Conteúdos Didáticos
@@ -116,9 +116,21 @@
 
 ### 9.3 Diagramas de Blocos (BlockDiagram)
 
-- **Normalizar dimensões:** reconstruir o componente como grid responsivo baseado em tokens MD3, evitando coordenadas absolutas e mantendo legibilidade em telas menores.【F:docs/didactics/block-diagram.md†L1-L18】
-- **Conectores semânticos:** avaliar utilitários (`elkjs`, `vue-flow`) ou algoritmos próprios para gerar ligações navegáveis por teclado, descritas no blueprint de bloco.【F:docs/didactics/block-diagram.md†L1-L18】
-- **Pacote unificado:** publicar os componentes reprojetados em `@/components/md-didactics` com documentação interativa e testes de snapshot.
+- **Componente MD3 publicado:** o novo `Md3BlockDiagram` entrega grid responsivo baseado em camadas, blocos tonais por tipo (`process`, `data-store`, `input-output`, `external`) e canais textuais acessíveis, com suporte a legenda e modo `dense`. 【F:src/components/lesson/Md3BlockDiagram.vue†L1-L197】
+- **Integração no runtime:** `blockRegistry` reconhece o bloco `blockDiagram`, normalizando `blocks`, `channels`, `legend` e ativando métricas estruturadas diretamente a partir do conteúdo serializado. 【F:src/components/lesson/blockRegistry.ts†L1-L220】
+- **Documentação e testes:** blueprint atualizado detalha o schema e cobertura de testes (`Md3BlockDiagram.test.ts`) garantindo ordenação, acessibilidade e legendas. Próximo passo é publicar stories e presets por disciplina.【F:docs/didactics/block-diagram.md†L1-L83】【F:src/components/lesson/\_\_tests\_\_/Md3BlockDiagram.test.ts†L1-L56】
+
+### 9.4 Barra superior (Top App Bar)
+
+- **Componente estrutural:** `Md3TopAppBar` encapsula a semântica de banner, slots para ícone principal, título e ações, além de elevar automaticamente a superfície conforme o scroll para reforçar hierarquia de navegação. 【F:src/components/layout/Md3TopAppBar.vue†L1-L87】
+- **Aplicação no shell:** `SiteHeader.vue` consome o componente com marca responsiva, links contextuais e toggle de tema, substituindo o cabeçalho legado baseado em utilitários soltos. 【F:src/components/SiteHeader.vue†L1-L74】
+- **Próximos passos:** publicar variantes compactas para páginas de exercícios e adicionar suporte a busca global e breadcrumbs antes de migrar os demais layouts estruturais.
+
+### 9.5 Higienização de HTML estruturado
+
+- **Utilitário central:** o novo helper `sanitizeHtml` usa DOMPurify para remover `<script>`, atributos perigosos e normalizar iframes antes de injetar trechos ricos vindos do conteúdo serializado. 【F:src/utils/sanitizeHtml.ts†L1-L35】
+- **Componentes blindados:** FlightPlan, ContentBlock, CardGrid, Accordion, LessonPlan e correlatos agora sanitizam cada `v-html`, preservando tipografia MD3 sem expor eventos inline ou código arbitrário. 【F:src/components/lesson/ContentBlock.vue†L1-L126】【F:src/components/lesson/CardGrid.vue†L1-L220】
+- **Cobertura automatizada:** a suíte `SanitizeHtml.test.ts` cobre casos de injeção via atributos (`onerror`, `onclick`) e tags proibidas, garantindo que futuros componentes consumam o helper. 【F:src/components/lesson/**tests**/SanitizeHtml.test.ts†L1-L55】
 
 ## 10. Plano de Migração de Conteúdo por Disciplina
 

@@ -24,7 +24,7 @@
         >
           {{ title }}
         </h5>
-        <div v-html="content" :class="['prose prose-sm max-w-none', variantTextClasses]"></div>
+        <div v-html="safeContent" :class="['prose prose-sm max-w-none', variantTextClasses]"></div>
       </div>
     </div>
   </div>
@@ -33,6 +33,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { Info, CheckCircle2, AlertTriangle, BookOpen, ListChecks } from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 const props = withDefaults(
   defineProps<{
@@ -100,6 +101,8 @@ const variantTextClasses = computed(() => {
       return 'md-text-on-surface';
   }
 });
+
+const safeContent = computed(() => sanitizeHtml(props.content));
 </script>
 
 <style scoped>

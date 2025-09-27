@@ -23,14 +23,22 @@
 
         <p v-if="card.subtitle" class="card-grid__card-subtitle">{{ card.subtitle }}</p>
 
-        <div v-if="card.body" class="card-grid__body" v-html="card.body"></div>
+        <div v-if="card.body" class="card-grid__body" v-html="sanitizeContent(card.body)"></div>
 
         <ul v-if="card.items?.length" class="card-grid__list">
-          <li v-for="(item, itemIndex) in card.items" :key="itemIndex" v-html="item"></li>
+          <li
+            v-for="(item, itemIndex) in sanitizeList(card.items)"
+            :key="itemIndex"
+            v-html="item"
+          ></li>
         </ul>
 
         <footer v-if="card.footer || card.actions?.length" class="card-grid__footer">
-          <p v-if="card.footer" class="card-grid__footer-text" v-html="card.footer"></p>
+          <p
+            v-if="card.footer"
+            class="card-grid__footer-text"
+            v-html="sanitizeContent(card.footer)"
+          ></p>
           <div v-if="card.actions?.length" class="card-grid__actions">
             <a
               v-for="(action, actionIndex) in card.actions"
@@ -52,6 +60,7 @@
 <script setup lang="ts">
 import { computed, type Component } from 'vue';
 import * as LucideIcons from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface CardGridAction {
   label: string;
@@ -197,6 +206,18 @@ function createNameVariations(original: string): string[] {
   const camel = pascal.charAt(0).toLowerCase() + pascal.slice(1);
 
   return Array.from(new Set([clean, pascal, camel, clean.toLowerCase(), clean.toUpperCase()]));
+}
+
+function sanitizeContent(value: unknown): string {
+  return sanitizeHtml(value);
+}
+
+function sanitizeList(items?: unknown[]): string[] {
+  if (!Array.isArray(items)) {
+    return [];
+  }
+
+  return items.map((item) => sanitizeHtml(item));
 }
 </script>
 

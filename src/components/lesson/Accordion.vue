@@ -29,7 +29,7 @@
         :style="{ maxHeight: openIndex === index ? '1000px' : '0px' }"
       >
         <div class="prose-container p-4 border-t border-[var(--md-sys-color-outline)]">
-          <div class="prose max-w-none lesson-content" v-html="item.content"></div>
+          <div class="prose max-w-none lesson-content" v-html="sanitizeContent(item.content)"></div>
         </div>
       </div>
     </div>
@@ -39,6 +39,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { ChevronDown } from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface AccordionItem {
   title: string;
@@ -61,6 +62,10 @@ function toggle(index: number) {
   } else {
     openIndex.value = index; // Open the new one
   }
+}
+
+function sanitizeContent(value: unknown): string {
+  return sanitizeHtml(value);
 }
 </script>
 
