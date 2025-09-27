@@ -1,187 +1,198 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-08",
-  "title": "Aula 8: Projeto Prático - Sistema Bancário",
-  "objective": "Desenvolver um pequeno sistema do zero, aplicando os pilares da POO para resolver um problema, reforçando a conexão entre teoria e prática.",
-  "content": [
+  "title": "Aula 8: Projeto Prático – Sistema Bancário",
+  "summary": "Integra conceitos de orientação a objetos na construção de um mini sistema bancário com cadastro, operações e relatórios.",
+  "objective": "Consolidar fundamentos de POO aplicando-os em um projeto guiado com foco em boas práticas e testes.",
+  "objectives": [
+    "Mapear requisitos funcionais e não funcionais do sistema bancário.",
+    "Modelar classes e relacionamentos principais (contas, clientes, transações).",
+    "Implementar serviços com testes automatizados e documentação mínima."
+  ],
+  "competencies": [
+    "Engenharia de requisitos",
+    "Modelagem orientada a objetos",
+    "Entrega incremental de software"
+  ],
+  "skills": [
+    "Escrever histórias de usuário e critérios de aceite.",
+    "Converter diagramas em código Java com responsabilidade bem definida.",
+    "Executar testes unitários e de integração para validar regras críticas."
+  ],
+  "outcomes": [
+    "Backlog priorizado com histórias do sistema bancário.",
+    "Implementação inicial com persistência em memória e testes.",
+    "Guia de execução/documentação para avaliadores."
+  ],
+  "prerequisites": [
+    "Domínio dos conceitos das aulas 01-07.",
+    "Ambiente Java e ferramentas de build configuradas."
+  ],
+  "tags": ["poo", "projeto", "banco"],
+  "duration": 180,
+  "modality": "in-person",
+  "resources": [
     {
-      "type": "contentBlock",
-      "title": "Contextualização da Aula Prática",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Chegamos a um ponto crucial da disciplina. Após estudarmos os pilares da POO de forma isolada — Encapsulamento, Herança, Polimorfismo, Classes Abstratas e Interfaces — esta aula tem como objetivo conectar todos esses conceitos. Através da construção de um projeto prático e guiado, um sistema bancário simplificado, vamos materializar a teoria e entender como esses pilares trabalham juntos para criar um software organizado, coeso e extensível. Esta é a aula onde a \"mágica\" da POO acontece, transformando conceitos teóricos em código funcional e bem estruturado."
-        }
-      ]
+      "label": "Template do repositório no GitHub",
+      "type": "repository",
+      "url": "https://github.com/example/lpoo-banco-template"
     },
     {
+      "label": "Guia de boas práticas para revisão de código",
+      "type": "document",
+      "url": "https://example.edu/lpoo/revisao-codigo"
+    }
+  ],
+  "bibliography": [
+    "SATO, M. Domain-Driven Design Distilled. Addison-Wesley, 2022.",
+    "VERNON, V. Implementing Domain-Driven Design. Addison-Wesley, 2023."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Entrega incremental do sistema bancário com stories concluídas, testes e documentação no repositório.",
+    "rubric": "Histórias completas, testes com cobertura mínima de 70% e README descrevendo execução e decisões arquiteturais."
+  },
+  "content": [
+    {
       "type": "lessonPlan",
-      "title": "Plano da Aula Prática (2 h/a)",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade III — Projeto integrador",
+        "content": "Planejar, modelar e implementar o sistema bancário guiado pela turma."
+      },
       "cards": [
         {
-          "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Aplicação prática integrada de Encapsulamento, Herança, Classes Abstratas, Polimorfismo e Interfaces em um único projeto."
-        },
-        {
-          "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Desenvolver um pequeno sistema do zero, aplicando os pilares da POO para resolver um problema, reforçando a conexão entre teoria e prática."
+          "icon": "calendar-days",
+          "title": "Descoberta",
+          "content": "Alinhar expectativas, personas e jornada do cliente bancário."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Aula de laboratório com desenvolvimento de projeto guiado (live coding), incentivando a prática de *pair programming* entre os alunos."
+          "title": "Implementação",
+          "content": "Dividir o trabalho em histórias e tarefas técnicas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Avaliação",
+          "content": "Definir critérios de aceite, testes e documentação."
         }
       ]
     },
     {
+      "type": "flightPlan",
+      "title": "Plano de voo (3h00)",
+      "items": [
+        "(25 min) Kick-off do projeto e definição de personas.",
+        "(30 min) Levantamento colaborativo de requisitos.",
+        "(40 min) Modelagem de classes e diagramas em quadros digitais.",
+        "(50 min) Coding dojo: implementando operações de conta (depósito, saque, transferência).",
+        "(30 min) Testes automatizados e validação do fluxo crítico.",
+        "(15 min) Documentação e organização do backlog.",
+        "(10 min) Alinhamento de próximos passos e responsabilidades."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Trio do sucesso",
+      "content": "Cada história deve ter requisito claro, teste automatizado e documentação mínima no README."
+    },
+    {
       "type": "contentBlock",
-      "title": "🎯 O Projeto: Sistema Bancário Simplificado",
+      "title": "Principais histórias de usuário",
       "content": [
-        {
-          "type": "paragraph",
-          "text": "Precisamos modelar um sistema para um banco que trabalha com diferentes tipos de contas. Por enquanto, teremos <strong>Conta Corrente</strong> e <strong>Conta Poupança</strong>. Ambas as contas possuem um número, um titular e um saldo. Ambas permitem depositar e sacar dinheiro. No entanto, elas têm regras diferentes:"
-        },
         {
           "type": "list",
           "items": [
-            "Uma <strong>Conta Corrente</strong> cobra uma pequena taxa a cada saque.",
-            "Uma <strong>Conta Poupança</strong> não cobra taxa de saque, mas não pode ficar com saldo negativo.",
-            "Além disso, a <strong>Conta Corrente</strong> é um serviço tributável, ou seja, paga um imposto anual, enquanto a Conta Poupança é isenta."
+            "<strong>Como cliente</strong>, desejo abrir uma conta para movimentar meu dinheiro.",
+            "<strong>Como gerente</strong>, preciso consultar relatórios de clientes e contas ativas.",
+            "<strong>Como auditor</strong>, desejo rastrear transações suspeitas para garantir conformidade."
           ]
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "🛠️ Roteiro da Atividade Prática (Live Coding)",
-      "content": [
-        {
-          "type": "contentBlock",
-          "title": "Etapa 1: Planejamento e UML",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Antes de codificar, vamos desenhar um diagrama de classes UML simples para visualizar a estrutura do nosso sistema."
-            },
-            {
-              "type": "paragraph",
-              "text": "<strong>Interface:</strong> Tributavel { +getValorImposto(): double }<br><strong>Classe Abstrata:</strong> Conta { -numero: int; -titular: String; #saldo: double; +sacar(): boolean; ... }<br>|--&gt; <strong>Classe:</strong> ContaCorrente (herda de Conta, implementa Tributavel)<br>|--&gt; <strong>Classe:</strong> ContaPoupanca (herda de Conta)"
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Etapa 2: A Classe Abstrata Conta",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Crie a classe `Conta`. Ela deve conter os atributos e métodos comuns a todas as contas. O método `sacar` deve ser abstrato."
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Etapa 3: A Interface Tributavel",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Crie a interface `Tributavel`. Ela deve definir o \"contrato\" para qualquer classe que precise calcular impostos, declarando o método `getValorImposto`."
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Etapa 4: As Classes Concretas ContaCorrente e ContaPoupanca",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Crie as duas subclasses. Elas devem herdar de `Conta` e implementar o método abstrato `sacar` com suas regras específicas. A `ContaCorrente` também deve implementar a interface `Tributavel`."
-            }
-          ]
-        },
-        {
-          "type": "contentBlock",
-          "title": "Etapa 5: Testando Tudo na Classe Banco",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Crie uma classe `Banco` com um método `main`. Nela, instancie objetos de `ContaCorrente` e `ContaPoupanca`, realize depósitos e saques, e imprima os saldos para verificar se as regras de negócio estão funcionando corretamente."
-            }
-          ]
-        },
-        {
-          "type": "callout",
-          "variant": "good-practice",
-          "title": "Desafios Adicionais (Opcional)",
-          "content": [
-            {
-              "type": "list",
-              "items": [
-                "<strong>Transferência:</strong> Adicione um método `transferir(double valor, Conta destino)` na classe `Conta`. Ele deve sacar de uma conta e depositar na outra.",
-                "<strong>Gerenciador de Impostos:</strong> Crie uma classe `GerenciadorDeImposto` com um método `calculaTotal(Tributavel t)` que recebe um objeto tributável e exibe o imposto devido."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "accordion",
-      "title": "💡 Solução Proposta",
-      "items": [
-        {
-          "title": "Classe Abstrata Conta.java",
-          "content": {
-            "type": "code",
-            "language": "java",
-            "code": "public abstract class Conta {\n    private int numero;\n    private String titular;\n    protected double saldo;\n\n    public Conta(int numero, String titular) {\n        this.numero = numero;\n        this.titular = titular;\n    }\n\n    public void depositar(double valor) {\n        if (valor > 0) {\n            this.saldo += valor;\n        }\n    }\n\n    public abstract boolean sacar(double valor);\n\n    public double getSaldo() {\n        return this.saldo;\n    }\n\n    public String getTitular() {\n        return this.titular;\n    }\n}"
+      "type": "component",
+      "component": "Md3BlockDiagram",
+      "props": {
+        "title": "Arquitetura proposta",
+        "summary": "Visão inicial das camadas do sistema bancário.",
+        "blocks": [
+          {
+            "id": "api",
+            "title": "Interface",
+            "summary": "CLI ou REST",
+            "layer": 1,
+            "kind": "input-output"
+          },
+          {
+            "id": "service",
+            "title": "Serviços",
+            "summary": "Regras de negócio",
+            "layer": 2,
+            "kind": "process"
+          },
+          {
+            "id": "domain",
+            "title": "Domínio",
+            "summary": "Entidades Conta, Cliente, Transação",
+            "layer": 3,
+            "kind": "process"
+          },
+          {
+            "id": "repo",
+            "title": "Repositórios",
+            "summary": "Persistência em memória/arquivo",
+            "layer": 4,
+            "kind": "data-store"
+          },
+          {
+            "id": "integration",
+            "title": "Integrações",
+            "summary": "Serviços externos (antifraude)",
+            "layer": 5,
+            "kind": "external"
           }
-        },
-        {
-          "title": "Interface Tributavel.java",
-          "content": {
-            "type": "code",
-            "language": "java",
-            "code": "public interface Tributavel {\n    double getValorImposto();\n}"
+        ],
+        "channels": [
+          {
+            "id": "c1",
+            "from": "api",
+            "to": "service",
+            "description": "Recebe comandos do usuário"
+          },
+          {
+            "id": "c2",
+            "from": "service",
+            "to": "domain",
+            "description": "Orquestra regras de negócio"
+          },
+          { "id": "c3", "from": "domain", "to": "repo", "description": "Persistência e consultas" },
+          {
+            "id": "c4",
+            "from": "service",
+            "to": "integration",
+            "description": "Validações externas"
           }
-        },
-        {
-          "title": "Classes Concretas: ContaCorrente.java e ContaPoupanca.java",
-          "content": {
-            "type": "code",
-            "language": "java",
-            "code": "public class ContaCorrente extends Conta implements Tributavel {\n    public ContaCorrente(int numero, String titular) {\n        super(numero, titular);\n    }\n\n    @Override\n    public boolean sacar(double valor) {\n        double taxa = 0.50;\n        if (super.saldo >= valor + taxa) {\n            super.saldo -= (valor + taxa);\n            return true;\n        }\n        return false;\n    }\n\n    @Override\n    public double getValorImposto() {\n        return super.saldo * 0.01;\n    }\n}\n\npublic class ContaPoupanca extends Conta {\n    public ContaPoupanca(int numero, String titular) {\n        super(numero, titular);\n    }\n\n    @Override\n    public boolean sacar(double valor) {\n        if (super.saldo >= valor) {\n            super.saldo -= valor;\n            return true;\n        }\n        return false;\n    }\n}"
-          }
-        },
-        {
-          "title": "Classe de Teste Banco.java",
-          "content": {
-            "type": "code",
-            "language": "java",
-            "code": "public class Banco {\n    public static void main(String[] args) {\n        ContaCorrente cc = new ContaCorrente(101, \"João Silva\");\n        ContaPoupanca cp = new ContaPoupanca(202, \"Maria Santos\");\n\n        cc.depositar(1000.0);\n        cp.depositar(500.0);\n\n        cc.sacar(200.0);\n        cp.sacar(100.0);\n\n        System.out.println(\"Saldo CC: R$ \" + cc.getSaldo());\n        System.out.println(\"Saldo CP: R$ \" + cp.getSaldo());\n        \n        Tributavel t = cc;\n        System.out.println(\"Imposto da CC: R$ \" + t.getValorImposto());\n    }\n}"
-          }
-        }
-      ]
+        ]
+      }
     },
     {
       "type": "checklist",
-      "title": "Checklist da Aula Prática",
+      "title": "Checklist de entrega",
+      "description": "Antes de abrir o pull request:",
       "items": [
-        "Usar uma <strong>classe abstrata</strong> para definir um modelo comum.",
-        "Proteger dados com <strong>encapsulamento</strong> (`private`/`protected`).",
-        "Especializar classes usando <strong>herança</strong> (`extends`).",
-        "Criar comportamentos específicos com <strong>polimorfismo</strong> e sobrescrita de métodos.",
-        "Adicionar \"capacidades\" a classes com <strong>interfaces</strong>."
-      ]
-    },
-    {
-      "type": "bibliographyBlock",
-      "title": "📚 Bibliografia de Apoio",
-      "references": [
-        "<strong>DEITEL, Harvey M.; DEITEL, Paul J.</strong> <em>Java: como programar.</em> 8. ed. São Paulo: Pearson Prentice Hall, 2014.",
-        "<strong>SCHILDT, Herbert.</strong> <em>Java para iniciantes: crie, compile e execute programas Java rapidamente.</em> 6. ed. Porto Alegre: Bookman, 2015."
+        "Histórias priorizadas estão vinculadas a issues no GitHub.",
+        "Testes automatizados executam com sucesso no CI.",
+        "README documenta setup, execução e testes.",
+        "Padrões de código e formatação foram verificados (lint)."
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-25T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Plano de projeto LPOO 2024", "Workshops de POO 2023"]
+  }
 }

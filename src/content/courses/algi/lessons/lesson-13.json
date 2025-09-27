@@ -1,27 +1,87 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-13",
-  "title": "Aula 13: Condições Compostas e Encadeadas",
-  "objective": "Formular condições compostas e organizar decisões múltiplas, escrevendo programas claros e corretos para cenários práticos.",
+  "title": "Aula 13: Condições compostas e encadeadas",
+  "summary": "Combina operadores lógicos e cadeias else if para tratar cenários complexos sem deixar lacunas ou sobreposições.",
+  "objective": "Aplicar &&, || e ! em cadeias de decisão planejadas que cobrem todas as regras do problema.",
+  "objectives": [
+    "Planejar expressões booleanas que representem faixas e combinações de critérios.",
+    "Encadear if, else if e else garantindo que apenas um ramo execute por vez.",
+    "Registrar testes que validem limites, exceções e casos negativos antes da implementação."
+  ],
+  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Pensamento crítico"],
+  "skills": [
+    "Combinar operadores relacionais e lógicos em expressões equivalentes.",
+    "Selecionar a ordem correta das condições em cadeias else if.",
+    "Interpretar tabelas verdade para depurar decisões compostas."
+  ],
+  "outcomes": [
+    "Entrega um programa que valida múltiplos critérios sem aceitar entradas inválidas.",
+    "Justifica a ordem das condições e documenta os intervalos cobertos.",
+    "Apresenta planilha de testes com limites mínimo, máximo e casos excepcionais."
+  ],
+  "prerequisites": ["Revisar if/else, switch-case e cadeias else if das aulas 10-12."],
+  "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia rápido de operadores lógicos",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/operadores-logicos.pdf"
+    },
+    {
+      "label": "Planilha para mapa de testes",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/testes-condicionais.xlsx"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "type": "tool",
+      "url": "https://www.onlinegdb.com/online_c_compiler"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Implementação de um validador de acesso com relatório de testes que justifique cada combinação lógica."
+  },
   "content": [
     {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Operadores lógicos (<code>&&</code>, <code>||</code>, <code>!</code>) e encadeamento de decisões com <code>if</code>, <code>else if</code> e <code>else</code>."
+          "title": "Conteúdo",
+          "content": "Operadores lógicos, equivalências booleanas e cadeias else if com múltiplas regras."
         },
         {
           "icon": "bullseye",
-          "title": "OBJETIVO",
-          "content": "Formular condições compostas e organizar decisões múltiplas, escrevendo programas claros e corretos para cenários práticos."
+          "title": "Objetivo",
+          "content": "Transformar regras de negócio em decisões compostas claras e documentadas."
         },
         {
           "icon": "gears",
-          "title": "METODOLOGIA",
-          "content": "Exposição dialogada com exemplos guiados e prática em pequenos problemas de validação e classificação."
+          "title": "Metodologia",
+          "content": "Exposição dialogada com análise de casos reais, seguida de laboratório guiado em duplas."
         }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Aquecimento: revisão das cadeias else if e diagnóstico de dúvidas da NP1.",
+        "(20 min) Operadores &&, || e ! aplicados a intervalos e exclusões.",
+        "(25 min) Estudo guiado: validador de benefícios com múltiplos critérios.",
+        "(25 min) Oficina em duplas para mapear cenários e implementar cadeias.",
+        "(20 min) Revisão coletiva dos testes criados pelas duplas.",
+        "(15 min) TED e planejamento dos estudos para a NP1."
       ]
     },
     {
@@ -30,126 +90,253 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Muitos problemas não cabem numa única comparação. Precisamos verificar intervalos, faixas válidas ou exclusões. É aí que entram os operadores lógicos: <code>&&</code> (E), <code>||</code> (OU) e <code>!</code> (NÃO)."
+          "text": "Problemas reais raramente dependem de um único critério. É comum validar faixa etária, renda, status de cadastro e outras restrições ao mesmo tempo."
         },
         {
           "type": "paragraph",
-          "text": "Com eles, construímos regras como \"entre A e B\" (<code>a >= A && a <= B</code>) ou \"fora do intervalo\" (<code>a < A || a > B</code>), e combinamos com uma cadeia <code>if</code>/<code>else if</code>."
+          "text": "Operadores lógicos permitem compor essas regras em uma expressão booleana única, deixando explícito o que é necessário para que determinado caminho execute."
         }
       ]
     },
     {
+      "type": "truthTable",
+      "title": "Tabela verdade dos operadores",
+      "headers": ["A", "B", "A && B", "A || B", "!A"],
+      "rows": [
+        [
+          { "state": "false", "display": "Falso" },
+          { "state": "false", "display": "Falso" },
+          { "state": "false", "display": "Falso" },
+          { "state": "false", "display": "Falso" },
+          { "state": "true", "display": "Verdadeiro" }
+        ],
+        [
+          { "state": "false", "display": "Falso" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "false", "display": "Falso" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "true", "display": "Verdadeiro" }
+        ],
+        [
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "false", "display": "Falso" },
+          { "state": "false", "display": "Falso" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "false", "display": "Falso" }
+        ],
+        [
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "true", "display": "Verdadeiro" },
+          { "state": "false", "display": "Falso" }
+        ]
+      ],
+      "legend": [
+        { "label": "Condição verdadeira", "state": "true" },
+        { "label": "Condição falsa", "state": "false" }
+      ]
+    },
+    {
       "type": "contentBlock",
-      "title": "Exemplo: Validação de Intervalo",
+      "title": "Expressões equivalentes",
       "content": [
         {
           "type": "paragraph",
-          "text": "Verificando se uma nota está no intervalo válido [0, 10]."
+          "text": "Nem sempre a primeira expressão que escrevemos é a mais legível. Conhecer leis de De Morgan e distribuições ajuda a simplificar regras complexas."
         },
         {
           "type": "code",
           "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    float nota;\n    printf(\"Digite a nota (0 a 10): \");\n    scanf(\"%f\", &nota);\n\n    if (nota >= 0 && nota <= 10) {\n        printf(\"Nota valida!\\n\");\n    } else {\n        printf(\"Nota invalida.\\n\");\n    }\n    return 0;\n}\n"
+          "code": "// Intervalo fechado entre 18 e 59 anos\nif (idade >= 18 && idade <= 59) { ... }\n\n// Equivalente utilizando negacao\nif (!(idade < 18 || idade > 59)) { ... }"
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Exemplo: Faixas Encadeadas com else if",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Classificando a média em conceitos: A (≥ 9), B (≥ 7), C (≥ 5), D (< 5)."
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    float media;\n    printf(\"Media do aluno: \");\n    scanf(\"%f\", &media);\n\n    if (media >= 9.0) {\n        printf(\"Conceito A\\n\");\n    } else if (media >= 7.0) {\n        printf(\"Conceito B\\n\");\n    } else if (media >= 5.0) {\n        printf(\"Conceito C\\n\");\n    } else {\n        printf(\"Conceito D\\n\");\n    }\n    return 0;\n}\n"
-        }
-      ]
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Concessão de benefício",
+        "summary": "Fluxo que combina idade, renda, cadastro ativo e laudo médico.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Início" },
+          { "id": "input", "type": "input", "title": "Ler idade, renda, cadastro, laudo" },
+          {
+            "id": "decision-idade",
+            "type": "decision",
+            "title": "Idade ≥ 60?",
+            "branches": [
+              {
+                "id": "branch-idoso",
+                "label": "Sim",
+                "target": "process-aprovar",
+                "description": "Concede benefício"
+              },
+              {
+                "id": "branch-outros",
+                "label": "Não",
+                "target": "decision-adulto",
+                "description": "Avaliar demais critérios"
+              }
+            ]
+          },
+          {
+            "id": "decision-adulto",
+            "type": "decision",
+            "title": "Idade ≥ 18 e renda ≤ 2 SM?",
+            "branches": [
+              {
+                "id": "branch-adulto",
+                "label": "Sim",
+                "target": "decision-cadastro",
+                "description": "Pode avançar"
+              },
+              {
+                "id": "branch-rejeita-adulto",
+                "label": "Não",
+                "target": "decision-laudo",
+                "description": "Verificar laudo"
+              }
+            ]
+          },
+          {
+            "id": "decision-cadastro",
+            "type": "decision",
+            "title": "Cadastro ativo?",
+            "branches": [
+              {
+                "id": "branch-cadastro-sim",
+                "label": "Sim",
+                "target": "process-aprovar",
+                "description": "Benefício autorizado"
+              },
+              {
+                "id": "branch-cadastro-nao",
+                "label": "Não",
+                "target": "process-regularizar",
+                "description": "Solicitar regularização"
+              }
+            ]
+          },
+          {
+            "id": "decision-laudo",
+            "type": "decision",
+            "title": "Tem laudo médico válido?",
+            "branches": [
+              {
+                "id": "branch-laudo-sim",
+                "label": "Sim",
+                "target": "decision-cadastro",
+                "description": "Verifica status do cadastro"
+              },
+              {
+                "id": "branch-laudo-nao",
+                "label": "Não",
+                "target": "process-negado",
+                "description": "Reprova solicitação"
+              }
+            ]
+          },
+          { "id": "process-aprovar", "type": "process", "title": "Imprimir \"Elegível\"" },
+          {
+            "id": "process-regularizar",
+            "type": "process",
+            "title": "Orientar atualização de cadastro"
+          },
+          { "id": "process-negado", "type": "process", "title": "Imprimir \"Não elegível\"" },
+          { "id": "end", "type": "end", "title": "Fim" }
+        ],
+        "connections": [
+          { "from": "start", "to": "input" },
+          { "from": "input", "to": "decision-idade" },
+          { "from": "process-aprovar", "to": "end" },
+          { "from": "process-regularizar", "to": "end" },
+          { "from": "process-negado", "to": "end" }
+        ]
+      }
     },
     {
-      "type": "contentBlock",
-      "title": "Exemplo: Combinações com OU (||) e NÃO (!)",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Verificando elegibilidade para desconto: estudante OU idoso, e com cadastro ativo."
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "#include <stdio.h>\n\nint main() {\n    int estudante, idoso, cadastroAtivo;\n    printf(\"Eh estudante? (1=sim,0=nao): \");\n    scanf(\"%d\", &estudante);\n    printf(\"Eh idoso? (1=sim,0=nao): \");\n    scanf(\"%d\", &idoso);\n    printf(\"Cadastro ativo? (1=sim,0=nao): \");\n    scanf(\"%d\", &cadastroAtivo);\n\n    if ((estudante == 1 || idoso == 1) && cadastroAtivo == 1) {\n        printf(\"Tem direito a desconto.\\n\");\n    } else {\n        printf(\"Nao tem direito a desconto.\\n\");\n    }\n\n    // Exemplo de negacao\n    if (!cadastroAtivo) {\n        printf(\"Ative seu cadastro para beneficios.\\n\");\n    }\n    return 0;\n}\n"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Atividade Rápida",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Em duplas, escrevam um programa que leia idade e renda mensal e determine se a pessoa se qualifica para um benefício com as regras:"
-        },
-        {
-          "type": "html",
-          "html": "<ul class=\"list-disc list-inside mb-4\"><li>Idade ≥ 60 OU (idade ≥ 18 E renda ≤ 2 salários mínimos).</li><li>Cadastro deve estar ativo.</li></ul><p>Imprima \"Elegível\" ou \"Não elegível\".</p>"
-        }
+      "type": "md3Table",
+      "title": "Planejamento de testes",
+      "headers": ["Cenário", "Entradas", "Resultado esperado"],
+      "rows": [
+        [
+          { "value": "Elegível por idade" },
+          { "value": "idade=68, renda=4500, cadastro=1, laudo=0" },
+          { "state": "true", "display": "Imprime Elegível" }
+        ],
+        [
+          { "value": "Elegível por renda" },
+          { "value": "idade=25, renda=2200, cadastro=1, laudo=0" },
+          { "state": "true", "display": "Imprime Elegível" }
+        ],
+        [
+          { "value": "Solicitar regularização" },
+          { "value": "idade=40, renda=2000, cadastro=0, laudo=1" },
+          { "state": "neutral", "display": "Mensagem de cadastro pendente" }
+        ],
+        [
+          { "value": "Não elegível" },
+          { "value": "idade=17, renda=1500, cadastro=1, laudo=0" },
+          { "state": "false", "display": "Imprime Não elegível" }
+        ]
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "Próximos Passos e Tarefa (TED)",
-      "content": "<h4>Tarefa para a próxima aula</h4><ol class=\"list-decimal list-inside space-y-3 font-semibold\"><li>Crie um programa em C chamado <code>aula13_validacao_login.c</code>.</li><li>Leia três valores: <em>usuarioAtivo</em> (0/1), <em>tentativas</em> (int) e <em>bloqueado</em> (0/1).</li><li>Regras: só permite acesso se <code>usuarioAtivo == 1</code>, <code>tentativas < 3</code> e <code>!bloqueado</code>.</li><li>Imprima \"Acesso permitido\" ou \"Acesso negado\".</li><li>Publique o arquivo <code>.c</code> na atividade \"Aula 13\" no Moodle.</li></ol>"
+      "variant": "warning",
+      "title": "Cuidado com sobreposições",
+      "content": "<p>Condições genéricas no topo da cadeia capturam valores demais. Comece pelos cenários mais específicos e deixe o <code>else</code> para os casos residuais.</p>"
     },
     {
       "type": "contentBlock",
-      "title": "💻 Área de Testes Interativa",
+      "title": "Oficina guiada",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Escolha um cenário com três ou mais níveis (ex.: classificação de risco, planos de assinatura).",
+            "Mapeie em dupla quais critérios tornam o usuário elegível em cada nível.",
+            "Implemente a cadeia else if e registre os testes realizados na planilha."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Tarefa (TED)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Abra o editor OnlineGDB em uma nova aba para compilar e executar seus programas em C."
-        },
-        {
-          "type": "html",
-          "html": "<a href=\"https://www.onlinegdb.com/online_c_compiler\" target=\"_blank\" rel=\"\" class=\"btn btn-tonal\">Abrir OnlineGDB</a>"
+          "text": "Implemente aula13_validacao_login.c lendo usuarioAtivo (0/1), tentativas e bloqueado (0/1)."
         },
         {
           "type": "paragraph",
-          "text": "💡 <strong>Dica:</strong> Escreva, compile e execute seu programa em C diretamente nesta página. Use este espaço para testar a tarefa da Aula 13 ou criar novos experimentos com operadores."
+          "text": "Permita acesso apenas se usuarioAtivo == 1, tentativas < 3 e !bloqueado. Registre os testes utilizados na entrega."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "🎥 Vídeos de Apoio",
+      "title": "Vídeos de apoio",
       "videos": [
         {
-          "title": "Operadores lógicos (&&, ||, !) em C",
+          "title": "Operadores lógicos (&&, ||, !)",
           "src": "https://www.youtube-nocookie.com/embed/LpVDGm-FT78"
         },
         {
-          "title": "Cadeias if / else if / else",
+          "title": "Planejando cadeias else if",
           "src": "https://www.youtube-nocookie.com/embed/JBFgiNJevqc"
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "✅ Ao final desta aula você deve ser capaz de:",
+      "title": "Ao final desta aula você deve ser capaz de",
       "items": [
-        "Escrever condições com <code>&&</code>, <code>||</code> e <code>!</code>.",
-        "Construir cadeias <code>if</code>/<code>else if</code>/<code>else</code> sem sobreposição de casos.",
-        "Validar entradas com intervalos e restrições múltiplas."
-      ]
-    },
-    {
-      "type": "bibliography",
-      "title": "📚 Bibliografia de Apoio",
-      "items": [
-        "<strong>BACKES, André.</strong> <em>Linguagem C: completa e descomplicada.</em> Rio de Janeiro: Elsevier, 2019.",
-        "<strong>MANZANO, José Augusto N.G.; OLIVEIRA, Jayr Figueiredo.</strong> <em>Algoritmos: lógica para desenvolvimento de programação de computadores.</em> São Paulo: Érica, 2019."
+        "Escrever expressões booleanas equivalentes e escolher a forma mais legível.",
+        "Organizar cadeias else if sem sobrepor faixas ou deixar lacunas.",
+        "Documentar testes cobrindo limites e exceções das regras compostas."
       ]
     }
   ]

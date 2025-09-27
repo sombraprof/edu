@@ -1,186 +1,242 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-12",
-  "title": "Aula 12: Unidade II – Projeto Prático: Navegação Multi-Tela com Dados",
-  "objective": "Consolidar os conceitos de Intents explícitas e implícitas, com envio e recebimento de dados, por meio de um app funcional.",
+  "title": "Aula 12: Unidade II – Mini App de Contatos",
+  "summary": "Integra ciclo de vida, Intents e persistência temporária para construir um mini app de contatos com navegação completa.",
+  "objective": "Consolidar os aprendizados da unidade criando um fluxo completo de cadastro, detalhes e compartilhamento de contatos.",
+  "objectives": [
+    "Planejar o fluxo completo do mini app utilizando Intents explícitas e implícitas.",
+    "Persistir estado temporário entre telas e mudanças de configuração.",
+    "Publicar evidências do protótipo e documentar decisões técnicas."
+  ],
+  "competencies": [
+    "Entrega iterativa de funcionalidades mobile",
+    "Documentação técnica de apps Android"
+  ],
+  "skills": [
+    "Desenhar jornadas multi-Activity com troca de dados.",
+    "Aplicar bundles e ViewModel em formulários dinâmicos.",
+    "Utilizar Intents implícitas para compartilhar o contato final."
+  ],
+  "outcomes": [
+    "Mini app funcional com cadastro, detalhes e compartilhamento de contato.",
+    "Apresentação curta destacando decisões e próximos incrementos."
+  ],
+  "prerequisites": [
+    "Concluir as aulas 07-11 e exercícios prévios.",
+    "Android Studio atualizado e emulador configurado."
+  ],
+  "tags": ["android", "projeto", "contatos"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Material 3 guidelines",
+      "url": "https://m3.material.io/components",
+      "type": "design"
+    },
+    {
+      "label": "Android Architecture Samples",
+      "url": "https://github.com/android/architecture-samples",
+      "type": "repository"
+    }
+  ],
+  "bibliography": [
+    "GOOGLE. <strong>Guide to app architecture</strong>. 2024.",
+    "SAGAH. <strong>Desenvolvimento para Dispositivos Móveis</strong>. Cap. 7 – Integração de Funcionalidades, 2019."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Entrega do mini app de contatos com vídeo demonstrativo e relatório curto.",
+    "rubric": "App compila, executa o fluxo completo, apresenta validações e documentação compartilhada com a turma."
+  },
   "content": [
     {
-      "type": "contentBlock",
-      "title": "Objetivo da Aula",
-      "content": [
-        {
-          "type": "paragraph",
-          "html": "Chegamos ao final da Unidade II prontos para unir os pilares estudados: ciclo de vida, Bundle, Intents explícitas e Intents implícitas. Nesta aula transformamos teoria em prática construindo um mini aplicativo completo de contatos."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Plano de Voo da Aula",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "title": "Recapitulação e objetivo",
-              "text": "Relembrar rapidamente os tópicos da Unidade II para orientar o projeto integrador."
-            },
-            {
-              "title": "Definição do Projeto",
-              "text": "Construir um \"Mini App de Contatos\" com duas telas e múltiplas ações para consolidar navegação e passagem de dados."
-            },
-            {
-              "title": "Atividade prática guiada",
-              "text": "<ul><li>Configurar o projeto e criar as duas Activities necessárias.</li><li>Implementar os layouts XML principais.</li><li>Codificar a navegação explícita com <code>putExtra()</code>.</li><li>Adicionar Intents implícitas para ligar e enviar e-mail.</li></ul>"
-            },
-            {
-              "title": "Desafios extras",
-              "text": "Explorar melhorias com conceitos das aulas anteriores e boas práticas de UX."
-            },
-            {
-              "title": "Tarefa (TED)",
-              "text": "Finalizar o aplicativo, aplicar refinamentos e preparar uma apresentação curta."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Unificando o Conhecimento da Unidade II",
-      "content": [
-        {
-          "type": "paragraph",
-          "html": "Ao longo das últimas aulas construímos as bases para uma navegação segura entre telas. Antes de codificar, recupere o papel de cada conteúdo:"
-        },
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "title": "Aula 7 e 8",
-              "text": "Ciclo de vida das Activities e Bundle para preservar estado."
-            },
-            {
-              "title": "Aula 9 e 10",
-              "text": "Criação de Intents explícitas e passagem de dados entre telas com <code>putExtra()</code>."
-            },
-            {
-              "title": "Aula 11",
-              "text": "Intents implícitas para interagir com apps externos (ligar, abrir links, compartilhar conteúdo)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "html": "O projeto desta aula conecta todos esses elementos em uma experiência fluida para o usuário."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Definição do Projeto: Mini App de Contatos",
-      "content": [
-        {
-          "type": "paragraph",
-          "html": "Você construirá um aplicativo simples que permite cadastrar informações de contato em uma tela principal e apresentá-las em uma tela de detalhes, incluindo ações rápidas para ligar ou enviar e-mail."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Estrutura das Telas",
-      "columns": 2,
+      "type": "flightPlan",
+      "title": "Plano de voo da aula (2h)",
       "items": [
-        {
-          "title": "Tela Principal",
-          "subtitle": "<code>MainActivity</code>",
-          "icon": "UserPlus",
-          "variant": "info",
-          "description": "Formulário para nome, telefone e e-mail, botão para visualizar detalhes e ações rápidas para ligar ou enviar e-mail."
-        },
-        {
-          "title": "Tela de Detalhes",
-          "subtitle": "<code>DetalheActivity</code>",
-          "icon": "IdCard",
-          "variant": "academic",
-          "description": "Recebe os dados via Intent explícita e os exibe de forma organizada para conferência do usuário."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Atividade Prática Guiada",
-      "content": [
-        {
-          "type": "subBlock",
-          "title": "Passo 1 – Estrutura do Projeto",
-          "items": [
-            "<ol><li>Crie um novo projeto no Android Studio usando o template <em>Empty Views Activity</em>.</li><li>No pacote principal, adicione uma nova <em>Empty Views Activity</em> chamada <code>DetalheActivity</code>.</li><li>Confirme que o Android Studio gerou a classe Kotlin, o layout <code>activity_detalhe.xml</code> e o registro no <code>AndroidManifest.xml</code>.</li></ol>"
-          ]
-        },
-        {
-          "type": "subBlock",
-          "title": "Passo 2 – Layouts XML",
-          "items": ["<p>Monte a interface gráfica das duas telas com os códigos abaixo.</p>"]
-        },
-        {
-          "type": "code",
-          "language": "xml",
-          "code": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"16dp\">\n\n    <EditText\n        android:id=\"@+id/editTextNome\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Nome Completo\"\n        android:inputType=\"textPersonName\"\n        android:layout_marginBottom=\"12dp\" />\n\n    <EditText\n        android:id=\"@+id/editTextTelefone\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"Telefone\"\n        android:inputType=\"phone\"\n        android:layout_marginBottom=\"12dp\" />\n\n    <EditText\n        android:id=\"@+id/editTextEmail\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:hint=\"E-mail\"\n        android:inputType=\"textEmailAddress\"\n        android:layout_marginBottom=\"24dp\" />\n\n    <LinearLayout\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:orientation=\"horizontal\"\n        android:gravity=\"center_horizontal\"\n        android:layout_marginBottom=\"16dp\">\n\n        <Button\n            android:id=\"@+id/buttonLigar\"\n            android:layout_width=\"0dp\"\n            android:layout_height=\"wrap_content\"\n            android:layout_weight=\"1\"\n            android:layout_marginEnd=\"8dp\"\n            android:text=\"Ligar\" />\n\n        <Button\n            android:id=\"@+id/buttonEmail\"\n            android:layout_width=\"0dp\"\n            android:layout_height=\"wrap_content\"\n            android:layout_weight=\"1\"\n            android:layout_marginStart=\"8dp\"\n            android:text=\"Enviar E-mail\" />\n    </LinearLayout>\n\n    <Button\n        android:id=\"@+id/buttonVerDetalhes\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Ver Detalhes\" />\n\n</LinearLayout>"
-        },
-        {
-          "type": "code",
-          "language": "xml",
-          "code": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    android:orientation=\"vertical\"\n    android:padding=\"24dp\">\n\n    <TextView\n        android:id=\"@+id/textViewNomeDetalhe\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Nome: ---\"\n        android:textSize=\"20sp\"\n        android:textStyle=\"bold\"\n        android:layout_marginBottom=\"16dp\" />\n\n    <TextView\n        android:id=\"@+id/textViewTelefoneDetalhe\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"Telefone: ---\"\n        android:textSize=\"18sp\"\n        android:layout_marginBottom=\"12dp\" />\n\n    <TextView\n        android:id=\"@+id/textViewEmailDetalhe\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:text=\"E-mail: ---\"\n        android:textSize=\"18sp\" />\n\n</LinearLayout>"
-        },
-        {
-          "type": "subBlock",
-          "title": "Passo 3 – Lógica da <code>MainActivity</code>",
-          "items": [
-            "<p>Envie os dados digitados e configure as Intents implícitas para acionar telefone e e-mail.</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "kotlin",
-          "code": "package br.com.unichristus.ads.minicontatos\n\nimport android.content.Intent\nimport android.net.Uri\nimport android.os.Bundle\nimport android.widget.Button\nimport android.widget.EditText\nimport androidx.appcompat.app.AppCompatActivity\n\nclass MainActivity : AppCompatActivity() {\n\n    companion object {\n        const val EXTRA_NOME = \"EXTRA_NOME\"\n        const val EXTRA_TELEFONE = \"EXTRA_TELEFONE\"\n        const val EXTRA_EMAIL = \"EXTRA_EMAIL\"\n    }\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        val editTextNome: EditText = findViewById(R.id.editTextNome)\n        val editTextTelefone: EditText = findViewById(R.id.editTextTelefone)\n        val editTextEmail: EditText = findViewById(R.id.editTextEmail)\n        val buttonVerDetalhes: Button = findViewById(R.id.buttonVerDetalhes)\n        val buttonLigar: Button = findViewById(R.id.buttonLigar)\n        val buttonEmail: Button = findViewById(R.id.buttonEmail)\n\n        buttonVerDetalhes.setOnClickListener {\n            val intent = Intent(this, DetalheActivity::class.java).apply {\n                putExtra(EXTRA_NOME, editTextNome.text.toString())\n                putExtra(EXTRA_TELEFONE, editTextTelefone.text.toString())\n                putExtra(EXTRA_EMAIL, editTextEmail.text.toString())\n            }\n            startActivity(intent)\n        }\n\n        buttonLigar.setOnClickListener {\n            val telefone = editTextTelefone.text.toString()\n            if (telefone.isNotBlank()) {\n                val intent = Intent(Intent.ACTION_DIAL, Uri.parse(\"tel:$telefone\"))\n                startActivity(intent)\n            }\n        }\n\n        buttonEmail.setOnClickListener {\n            val email = editTextEmail.text.toString()\n            if (email.isNotBlank()) {\n                val intent = Intent(Intent.ACTION_SENDTO, Uri.parse(\"mailto:$email\"))\n                startActivity(intent)\n            }\n        }\n    }\n}\n"
-        },
-        {
-          "type": "subBlock",
-          "title": "Passo 4 – Lógica da <code>DetalheActivity</code>",
-          "items": [
-            "<p>Recupere os extras enviados e formate a apresentação dos dados para o usuário.</p>"
-          ]
-        },
-        {
-          "type": "code",
-          "language": "kotlin",
-          "code": "package br.com.unichristus.ads.minicontatos\n\nimport android.os.Bundle\nimport android.widget.TextView\nimport androidx.appcompat.app.AppCompatActivity\n\nclass DetalheActivity : AppCompatActivity() {\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_detalhe)\n\n        val nome = intent.getStringExtra(MainActivity.EXTRA_NOME).orEmpty()\n        val telefone = intent.getStringExtra(MainActivity.EXTRA_TELEFONE).orEmpty()\n        val email = intent.getStringExtra(MainActivity.EXTRA_EMAIL).orEmpty()\n\n        findViewById<TextView>(R.id.textViewNomeDetalhe).text = \"Nome: $nome\"\n        findViewById<TextView>(R.id.textViewTelefoneDetalhe).text = \"Telefone: $telefone\"\n        findViewById<TextView>(R.id.textViewEmailDetalhe).text = \"E-mail: $email\"\n    }\n}\n"
-        }
+        "<strong>(15 min) Kick-off:</strong> visão geral do mini app e critérios de avaliação.",
+        "<strong>(25 min) Arquitetura de navegação:</strong> definindo Activities, extras e Intents implícitas.",
+        "<strong>(25 min) Implementação guiada:</strong> cadastro → detalhes → compartilhamento.",
+        "<strong>(20 min) Persistência de estado:</strong> ViewModel, SavedStateHandle e bundles.",
+        "<strong>(20 min) Testes e ajustes finais:</strong> rotação, cenários inválidos, logs.",
+        "<strong>(15 min) Apresentações relâmpago e TED.</strong>"
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Desafios extras",
-      "content": "<ul><li><strong>Persistência temporária:</strong> reuse o que vimos sobre <code>onSaveInstanceState</code> para manter o formulário preenchido mesmo após rotações.</li><li><strong>Validação:</strong> desabilite os botões de ação quando telefone ou e-mail estiverem vazios e informe o usuário.</li><li><strong>Robustez:</strong> antes de iniciar Intents implícitas, verifique se existe aplicativo capaz de atendê-las com <code>packageManager</code>.</li></ul>"
+      "title": "Visão do produto",
+      "content": "O professor precisa de um app simples para registrar contatos de supervisores e compartilhar rapidamente durante visitas técnicas."
     },
     {
-      "type": "callout",
-      "variant": "task",
-      "title": "Tarefa (TED): Mini App de Contatos",
-      "content": "<p>Finalize o projeto em dupla e prepare uma demonstração curta.</p><ol><li>Garanta que navegação, passagem de dados e ações implícitas estejam funcionando sem erros.</li><li>Implemente pelo menos um dos desafios extras sugeridos.</li><li>Monte uma apresentação de 2–3 minutos com o app em execução e uma explicação dos principais trechos de código.</li></ol>"
-    },
-    {
-      "type": "bibliography",
-      "title": "Bibliografia Recomendada",
-      "content": [
+      "type": "timeline",
+      "title": "Fases do mini app",
+      "steps": [
         {
-          "html": "OLIVEIRA, Diego Bittencourt de et al. <strong>Desenvolvimento para Dispositivos Móveis.</strong> Porto Alegre: SAGAH, 2019. v. 1."
+          "title": "Planejamento",
+          "content": "Defina campos obrigatórios, fluxo de navegação e Intents necessárias."
         },
         {
-          "html": "SIMAS, V. L. et al. <strong>Desenvolvimento para Dispositivos Móveis – Volume 2.</strong> Grupo A, 2019."
+          "title": "Prototipagem",
+          "content": "Monte telas com Material 3 e valide estados vazios."
+        },
+        {
+          "title": "Integração",
+          "content": "Implemente troca de dados entre Activities e estados persistidos."
+        },
+        {
+          "title": "Refinamento",
+          "content": "Adicione feedbacks, validações e compartilhamento final."
+        },
+        {
+          "title": "Apresentação",
+          "content": "Registre vídeo e documentação compartilhada com a turma."
         }
       ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Componentes do mini app",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Cadastro",
+          "subtitle": "Activity principal",
+          "tone": "info",
+          "items": [
+            "Campos: nome, telefone, empresa",
+            "Validação com mensagens inline",
+            "ViewModel para rascunhos"
+          ]
+        },
+        {
+          "title": "Detalhes",
+          "subtitle": "Resumo do contato",
+          "tone": "success",
+          "items": [
+            "Recebe `UserInfo` por Parcelable",
+            "Exibe opções de edição",
+            "Permite retorno com alterações"
+          ]
+        },
+        {
+          "title": "Compartilhar",
+          "subtitle": "Intent implícita",
+          "tone": "secondary",
+          "items": [
+            "Gera texto formatado",
+            "Oferece chooser de apps",
+            "Inclui botão para mapa com endereço"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de implementação",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Modelagem",
+              "text": "Atualize o `UserInfo` com campos adicionais (telefone, empresa, endereço)."
+            },
+            {
+              "title": "Navegação",
+              "text": "Reaproveite contratos de extras e Activity Result da aula 10."
+            },
+            {
+              "title": "Compartilhamento",
+              "text": "Monte mensagem amigável e utilize `Intent.ACTION_SEND`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Persistindo estado e prevenindo erros",
+      "content": [
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "class ContactViewModel(private val state: SavedStateHandle) : ViewModel() {\n  var draft by mutableStateOf(\n    state.get<UserInfo>(\"draft\") ?: UserInfo.blank()\n  )\n    private set\n\n  fun updateDraft(transform: (UserInfo) -> UserInfo) {\n    draft = transform(draft)\n    state[\"draft\"] = draft\n  }\n}"
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Evite duplicar Activities",
+          "content": "Ao retornar do resumo, finalize a Activity de detalhes ou utilize `ActivityResultContracts` para sincronizar alterações."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Testes recomendados",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mudança de orientação",
+              "text": "O rascunho permanece intacto?"
+            },
+            {
+              "title": "Campos vazios",
+              "text": "Mensagens de erro informam o usuário?"
+            },
+            {
+              "title": "Compartilhar",
+              "text": "O texto gerado é legível e inclui todos os dados?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Apresentação e TED",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Vídeo de 3 minutos",
+              "text": "Demonstre o fluxo completo e destaque decisões de arquitetura."
+            },
+            {
+              "title": "Checklist",
+              "text": "Publique no mural quais requisitos foram atendidos e o backlog futuro."
+            },
+            {
+              "title": "Feedback",
+              "text": "Anote melhorias sugeridas pela dupla/par."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Entrega assíncrona",
+          "content": "<p>Envie o vídeo, checklist e link do repositório no Moodle até 23h59 do dia seguinte.</p>"
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "Referências complementares",
+      "references": [
+        "GOOGLE. <strong>Sample apps: Sunflower</strong>. 2024.",
+        "DÍAZ, José. <strong>Kotlin for Android Developers</strong>. Leanpub, 2023. Cap. 9."
+      ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-28T00:00:00.000Z",
+    "owners": ["Prof. João Lima", "Profa. Ana Bezerra"],
+    "sources": ["Plano de projeto DDM", "Notas de laboratório 2024.1"]
+  }
 }

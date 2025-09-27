@@ -1,7 +1,49 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-01",
   "title": "Aula 1: Unidade I – Fundamentos do Android",
+  "summary": "Panorama do ecossistema Android, objetivos da disciplina e expectativas para a jornada mobile ao longo do semestre.",
   "objective": "Apresentação da disciplina, seus objetivos, métodos e a importância do Android no mercado.",
+  "objectives": [
+    "Apresentar os pilares, critérios e entregáveis da disciplina de desenvolvimento mobile.",
+    "Contextualizar a evolução do Android e seu impacto no mercado contemporâneo."
+  ],
+  "competencies": [
+    "Planejamento de jornadas de aprendizagem em desenvolvimento mobile",
+    "Contextualização de ecossistemas tecnológicos em cenários reais"
+  ],
+  "skills": [
+    "Explicar a linha do tempo e os marcos do Android",
+    "Identificar oportunidades profissionais ligadas ao ecossistema Android"
+  ],
+  "outcomes": [
+    "Apresenta o plano de ensino, critérios de avaliação e expectativas para a turma.",
+    "Relaciona versões do Android a inovações de mercado e modelos de distribuição."
+  ],
+  "prerequisites": ["Familiaridade básica com smartphones Android e uso de aplicativos."],
+  "tags": ["android", "fundamentos", "ecossistema"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Android Developers – Platform Overview",
+      "url": "https://developer.android.com/guide",
+      "type": "article"
+    },
+    {
+      "label": "Mobile OS Market Share (StatCounter)",
+      "url": "https://gs.statcounter.com/os-market-share/mobile/worldwide",
+      "type": "report"
+    }
+  ],
+  "bibliography": [
+    "Google. \"Android Developers – Overview.\" 2024.",
+    "StatCounter. \"Mobile Operating System Market Share Worldwide.\" 2024."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Checklist de participação no check-in inicial e registro das expectativas individuais."
+  },
   "content": [
     {
       "type": "audioBlock",
@@ -238,5 +280,11 @@
         }
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2024-05-05T00:00:00.000Z",
+    "owners": ["Prof. João Lima"],
+    "sources": ["Plano de ensino DDM 2024.1"]
+  }
 }

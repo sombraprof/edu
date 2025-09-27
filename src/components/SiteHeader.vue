@@ -1,5 +1,9 @@
 <template>
-  <Md3TopAppBar aria-label="Barra de navegação principal">
+  <Md3TopAppBar
+    variant="center-aligned"
+    density="comfortable"
+    aria-label="Barra de navegação principal"
+  >
     <router-link to="/" class="app-brand" aria-label="Início">
       <span class="app-brand__mark" aria-hidden="true">
         <GraduationCap class="md-icon md-icon--sm" />

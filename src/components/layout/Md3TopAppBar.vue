@@ -17,6 +17,19 @@
         <slot name="actions" />
       </div>
     </div>
+    <div v-if="hasSupporting" class="md3-top-app-bar__supporting">
+      <div v-if="$slots.supporting" class="md3-top-app-bar__supporting-content">
+        <slot name="supporting" />
+      </div>
+      <div v-else class="md3-top-app-bar__supporting-grid">
+        <div v-if="$slots.breadcrumbs" class="md3-top-app-bar__breadcrumbs">
+          <slot name="breadcrumbs" />
+        </div>
+        <div v-if="$slots.search" class="md3-top-app-bar__search">
+          <slot name="search" />
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -37,17 +50,31 @@ const props = withDefaults(
      * Optional aria-label used when no visual title is provided.
      */
     ariaLabel?: string;
+    /**
+     * Defines the Material 3 top app bar variant that should be rendered.
+     */
+    variant?: 'small' | 'center-aligned' | 'medium' | 'large';
+    /**
+     * Adjusts vertical density for compact layouts (e.g. mobile embeds or Storybook).
+     */
+    density?: 'default' | 'comfortable' | 'compact';
   }>(),
   {
     sticky: true,
     observeScroll: true,
     ariaLabel: '',
+    variant: 'small',
+    density: 'default',
   }
 );
 
 const slots = useSlots();
 const isRaised = ref(false);
 const instanceId = `top-app-bar-${Math.random().toString(36).slice(2, 8)}`;
+
+const hasSupporting = computed(() =>
+  Boolean(slots.supporting || slots.breadcrumbs || slots.search)
+);
 
 function updateElevation() {
   if (!props.observeScroll || typeof window === 'undefined') {
@@ -77,6 +104,8 @@ const barClasses = computed(() => ({
   'md3-top-app-bar--raised': isRaised.value,
   'md3-top-app-bar--has-leading': Boolean(slots.leading),
   'md3-top-app-bar--has-actions': Boolean(slots.actions),
+  [`md3-top-app-bar--variant-${props.variant}`]: true,
+  [`md3-top-app-bar--density-${props.density}`]: true,
 }));
 
 const headlineId = computed(() => {
@@ -85,4 +114,6 @@ const headlineId = computed(() => {
   }
   return `${instanceId}-title`;
 });
+
+defineExpose({ isRaised });
 </script>

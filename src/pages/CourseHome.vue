@@ -6,7 +6,7 @@
           class="pill-item"
           :class="{ 'pill-item--active': contentFilter === 'all' }"
           type="button"
-          @click="contentFilter = 'all'"
+          @click="updateSection('all')"
         >
           Tudo
         </button>
@@ -14,7 +14,7 @@
           class="pill-item"
           :class="{ 'pill-item--active': contentFilter === 'lesson' }"
           type="button"
-          @click="contentFilter = 'lesson'"
+          @click="updateSection('lesson')"
         >
           Aulas
         </button>
@@ -22,7 +22,7 @@
           class="pill-item"
           :class="{ 'pill-item--active': contentFilter === 'exercise' }"
           type="button"
-          @click="contentFilter = 'exercise'"
+          @click="updateSection('exercise')"
         >
           Exercícios
         </button>
@@ -127,7 +127,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { ChevronRight, Grid3x3, List } from 'lucide-vue-next';
 
 interface LessonRef {
@@ -167,12 +167,16 @@ interface ContentItem {
 }
 
 const route = useRoute();
+const router = useRouter();
 const courseId = computed(() => String(route.params.courseId ?? ''));
 
 const lessons = ref<LessonRef[]>([]);
 const exercises = ref<ExerciseRef[]>([]);
 const contentFilter = ref<'all' | 'lesson' | 'exercise'>('all');
 const viewMode = ref<'grid' | 'list'>('grid');
+
+const rawSearchQuery = computed(() => (typeof route.query.q === 'string' ? route.query.q : ''));
+const searchTerm = computed(() => rawSearchQuery.value.toLowerCase());
 
 async function loadLessons(id: string) {
   try {
@@ -253,9 +257,15 @@ const combinedItems = computed<ContentItem[]>(() => {
 });
 
 const displayItems = computed(() =>
-  combinedItems.value.filter(
-    (item) => contentFilter.value === 'all' || item.type === contentFilter.value
-  )
+  combinedItems.value
+    .filter((item) => contentFilter.value === 'all' || item.type === contentFilter.value)
+    .filter((item) => {
+      if (!searchTerm.value) {
+        return true;
+      }
+      const haystack = `${item.title} ${item.description ?? ''}`.toLowerCase();
+      return haystack.includes(searchTerm.value);
+    })
 );
 
 watch(
@@ -272,9 +282,42 @@ watch(
   { immediate: true }
 );
 
+watch(
+  () => route.query.section,
+  (section) => {
+    if (section === 'lessons') {
+      contentFilter.value = 'lesson';
+      return;
+    }
+    if (section === 'exercises') {
+      contentFilter.value = 'exercise';
+      return;
+    }
+    contentFilter.value = 'all';
+  },
+  { immediate: true }
+);
+
 function resetFilters() {
   contentFilter.value = 'all';
   viewMode.value = 'grid';
+  router.push({ name: 'course-home', params: { courseId: courseId.value } }).catch(() => undefined);
+}
+
+function updateSection(section: 'all' | 'lesson' | 'exercise') {
+  contentFilter.value = section;
+  const query: Record<string, string> = {};
+  if (section === 'lesson') {
+    query.section = 'lessons';
+  } else if (section === 'exercise') {
+    query.section = 'exercises';
+  }
+  if (rawSearchQuery.value) {
+    query.q = rawSearchQuery.value;
+  }
+  router
+    .push({ name: 'course-home', params: { courseId: courseId.value }, query })
+    .catch(() => undefined);
 }
 
 function typeChipClass(item: ContentItem) {
