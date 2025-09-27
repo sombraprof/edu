@@ -1103,6 +1103,16 @@ async function validateLessonsIndexFile(course, filePath, problems) {
           message: `File name (${item.file}) must match lesson id (${item.id}).`,
         });
       }
+
+      const extension = path.extname(item.file || '').toLowerCase();
+      if (item.available && extension !== '.json') {
+        problems.push({
+          type: 'extension',
+          file: filePath,
+          course,
+          message: `Lesson "${item.id}" must reference a .json payload when marked available (received ${item.file}).`,
+        });
+      }
     });
     if (duplicates.length > 0) {
       problems.push({
