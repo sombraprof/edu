@@ -5,19 +5,21 @@
     :aria-label="`Acessar disciplina ${meta.title}`"
     @keydown.space.prevent="($event.target as HTMLElement).click()"
   >
-    <div class="flex items-start justify-between gap-4">
-      <div class="md-stack md-stack-2">
+    <div class="course-card__header">
+      <div class="course-card__title-row">
         <h3 class="md-typescale-headline-small font-semibold text-on-surface">
           {{ meta.title }}
         </h3>
-        <p
-          v-if="meta.description"
-          class="supporting-text md-typescale-body-medium text-on-surface-variant max-w-lg"
-        >
-          {{ meta.description }}
-        </p>
+        <span class="badge course-card__institution" :style="badgeStyle">
+          {{ institutionLabel }}
+        </span>
       </div>
-      <span class="badge course-card__institution" :style="badgeStyle">{{ institutionLabel }}</span>
+      <p
+        v-if="meta.description"
+        class="course-card__description supporting-text md-typescale-body-medium text-on-surface-variant"
+      >
+        {{ meta.description }}
+      </p>
     </div>
     <div class="course-card__footer mt-auto w-full">
       <div

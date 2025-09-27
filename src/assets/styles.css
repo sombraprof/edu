@@ -763,9 +763,13 @@ html {
     width: 2.75rem;
     height: 2.75rem;
     border-radius: var(--md-sys-border-radius-full);
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    box-shadow: var(--shadow-elevation-1);
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    box-shadow: var(--shadow-elevation-2);
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      box-shadow 180ms ease;
   }
 
   .app-brand__copy {
@@ -806,6 +810,10 @@ html {
     display: flex;
     align-items: center;
     gap: var(--md-sys-spacing-2);
+  }
+
+  .app-theme-toggle {
+    box-shadow: var(--shadow-elevation-2);
   }
 
   .md3-top-app-bar__action {
@@ -1313,10 +1321,32 @@ html {
     gap: var(--md-sys-spacing-6);
   }
 
+  .course-card__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--md-sys-spacing-3);
+  }
+
+  .course-card__title-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--md-sys-spacing-3);
+    flex-wrap: wrap;
+  }
+
+  .course-card__title-row h3 {
+    flex: 1 1 auto;
+    min-width: min(16rem, 100%);
+  }
+
   .course-card__institution {
-    align-self: flex-start;
     white-space: nowrap;
     flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  .course-card__description {
+    max-width: 56ch;
   }
 
   .course-card__footer {

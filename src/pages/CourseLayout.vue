@@ -146,6 +146,11 @@ watch(
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-3);
+  align-items: flex-start;
+}
+
+.course-page__headline > .chip {
+  align-self: flex-start;
 }
 
 .course-page__stats {
