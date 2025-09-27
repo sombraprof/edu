@@ -3,84 +3,96 @@ import { mount } from '@vue/test-utils';
 import TruthTable from '../TruthTable.vue';
 
 describe('TruthTable', () => {
-  it('renders table with title and headers', () => {
-    const title = 'Tabela Verdade do AND';
-    const headers = ['A', 'B', 'A AND B'];
-    const rows = [
-      [{ value: 'V' }, { value: 'V' }, { isTrue: true }],
-      [{ value: 'V' }, { value: 'F' }, { isFalse: true }],
-      [{ value: 'F' }, { value: 'V' }, { isFalse: true }],
-      [{ value: 'F' }, { value: 'F' }, { isFalse: true }],
+  const baseHeaders = ['Entrada A', 'Entrada B', 'Saída'];
+  const baseRows = [
+    [{ value: 'Verdadeiro' }, { value: 'Verdadeiro' }, { state: 'true', display: 'Verdadeiro' }],
+    [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
+  ];
+
+  it('renders title, caption and headers with accessible bindings', () => {
+    const wrapper = mount(TruthTable, {
+      props: {
+        title: 'Tabela Verdade',
+        description: 'Combinações possíveis para o operador.',
+        caption: 'Resultados de um operador lógico exemplo.',
+        headers: baseHeaders,
+        rows: baseRows,
+      },
+    });
+
+    const heading = wrapper.get('[data-testid="truth-table-title"]');
+    expect(heading.text()).toBe('Tabela Verdade');
+
+    const caption = wrapper.get('caption');
+    expect(caption.text()).toContain('Resultados de um operador lógico exemplo.');
+
+    expect(wrapper.findAll('th')).toHaveLength(baseHeaders.length);
+    expect(wrapper.findAll('tbody tr')).toHaveLength(baseRows.length);
+
+    const table = wrapper.get('table');
+    expect(table.attributes('aria-describedby')).toBeTruthy();
+  });
+
+  it('renders icons and state styling for truthy and falsy outputs', () => {
+    const wrapper = mount(TruthTable, {
+      props: {
+        title: 'Estados',
+        headers: ['Saída'],
+        rows: [[{ state: 'true', display: 'Verdadeiro' }], [{ state: 'false', display: 'Falso' }]],
+      },
+    });
+
+    const trueCell = wrapper.get('tbody tr:first-child td');
+    expect(trueCell.classes()).toContain('is-true');
+    expect(trueCell.find('svg').exists()).toBe(true);
+
+    const falseCell = wrapper.get('tbody tr:last-child td');
+    expect(falseCell.classes()).toContain('is-false');
+    expect(falseCell.find('svg').exists()).toBe(true);
+  });
+
+  it('renders legend items with descriptive text', () => {
+    const legend = [
+      { label: 'Verdadeiro', state: 'true', description: 'Saída igual a 1.' },
+      { label: 'Falso', state: 'false', description: 'Saída igual a 0.' },
     ];
 
     const wrapper = mount(TruthTable, {
-      props: { title, headers, rows },
+      props: {
+        title: 'Com legenda',
+        headers: ['Valor'],
+        rows: [[{ value: 'Exemplo' }]],
+        legend,
+      },
     });
 
-    expect(wrapper.find('h5').text()).toBe(title);
-    expect(wrapper.findAll('th')).toHaveLength(3);
-    expect(wrapper.findAll('tr')).toHaveLength(5); // header + 4 rows
+    const legendItems = wrapper.findAll('.md3-truth-table__legend-item');
+    expect(legendItems).toHaveLength(legend.length);
+    expect(legendItems[0].text()).toContain('Verdadeiro');
+    expect(legendItems[1].text()).toContain('Saída igual a 0.');
   });
 
-  it('renders true values with check icon', () => {
-    const headers = ['Result'];
-    const rows = [[{ isTrue: true }]];
-
+  it('supports dense layout and custom screen reader labels', () => {
     const wrapper = mount(TruthTable, {
-      props: { title: 'Test', headers, rows },
+      props: {
+        dense: true,
+        headers: ['Estado'],
+        rows: [[{ state: 'emphasis', srLabel: 'Valor destacado' }]],
+      },
     });
 
-    const resultCell = wrapper.find('.result.true');
-    expect(resultCell.exists()).toBe(true);
-    const svg = resultCell.find('svg');
-    expect(svg.exists()).toBe(true);
-  });
-
-  it('renders false values with X icon', () => {
-    const headers = ['Result'];
-    const rows = [[{ isFalse: true }]];
-
-    const wrapper = mount(TruthTable, {
-      props: { title: 'Test', headers, rows },
-    });
-
-    const resultCell = wrapper.find('.result.false');
-    expect(resultCell.exists()).toBe(true);
-    const svg = resultCell.find('svg');
-    expect(svg.exists()).toBe(true);
-  });
-
-  it('renders regular text values', () => {
-    const headers = ['Value'];
-    const rows = [[{ value: 'Test Value' }]];
-
-    const wrapper = mount(TruthTable, {
-      props: { title: 'Test', headers, rows },
-    });
-
-    expect(wrapper.text()).toContain('Test Value');
-  });
-
-  it('applies MD3 styling classes', () => {
-    const headers = ['A', 'B'];
-    const rows = [[{ value: 'V' }, { value: 'F' }]];
-
-    const wrapper = mount(TruthTable, {
-      props: { title: 'Test', headers, rows },
-    });
-
-    expect(wrapper.classes()).toContain('card');
-    expect(wrapper.find('thead').classes()).toContain('bg-surface-variant');
-    expect(wrapper.find('tbody tr').classes()).toContain('border-b');
-    expect(wrapper.find('tbody tr').classes()).toContain('border-outline-variant');
+    expect(wrapper.classes()).toContain('md3-truth-table--dense');
+    const cell = wrapper.get('tbody td');
+    expect(cell.attributes('aria-label')).toBe('Valor destacado');
   });
 
   it('handles empty rows gracefully', () => {
-    const headers = ['Empty'];
-    const rows: any[] = [];
-
     const wrapper = mount(TruthTable, {
-      props: { title: 'Test', headers, rows },
+      props: {
+        title: 'Sem dados',
+        headers: ['Valor'],
+        rows: [],
+      },
     });
 
     expect(wrapper.findAll('tbody tr')).toHaveLength(0);

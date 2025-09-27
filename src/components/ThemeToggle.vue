@@ -6,18 +6,18 @@
 </template>
 
 <script setup lang="ts">
-// Light/Dark theme toggle using Tailwind `darkMode: 'class'` via html.light
-import { computed, ref } from 'vue';
+// Light/Dark theme toggle backed by the centralized Material You manager
+import { computed } from 'vue';
 import { Sun, Moon } from 'lucide-vue-next';
+import { getActiveMaterialTheme, setMaterialTheme } from '@/theme/material-theme';
 
-const isLight = ref(document.documentElement.classList.contains('light'));
+const theme = getActiveMaterialTheme();
+const isLight = computed(() => theme.value === 'light');
 const ariaLabel = computed(() => (isLight.value ? 'Ativar modo escuro' : 'Ativar modo claro'));
 const textLabel = computed(() => (isLight.value ? 'Modo escuro' : 'Modo claro'));
 const icon = computed(() => (isLight.value ? Moon : Sun));
 
 function toggle() {
-  isLight.value = !isLight.value;
-  document.documentElement.classList.toggle('light', isLight.value);
-  localStorage.setItem('theme', isLight.value ? 'light' : 'dark');
+  setMaterialTheme(isLight.value ? 'dark' : 'light');
 }
 </script>

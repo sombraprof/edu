@@ -79,7 +79,7 @@ const idLabel = computed(() => (id.value ? toTitleCase(id.value) : ''));
   box-shadow: var(--shadow-elevation-1);
 }
 
-html:not(.light) .legacy-section {
+html[data-theme='dark'] .legacy-section {
   background-color: var(--md-sys-color-surface-container);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 35%, transparent);
   box-shadow: var(--shadow-elevation-2);
@@ -146,7 +146,7 @@ html:not(.light) .legacy-section {
   gap: var(--md-sys-spacing-2);
 }
 
-html:not(.light) .legacy-section__body > :deep([data-legacy-card]) {
+html[data-theme='dark'] .legacy-section__body > :deep([data-legacy-card]) {
   background-color: var(--md-sys-color-surface-container-high);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 35%, transparent);
   box-shadow: var(--shadow-elevation-2);
@@ -189,7 +189,7 @@ html:not(.light) .legacy-section__body > :deep([data-legacy-card]) {
   overflow-x: auto;
 }
 
-html:not(.light) .legacy-section__body :deep(pre) {
+html[data-theme='dark'] .legacy-section__body :deep(pre) {
   background-color: color-mix(in srgb, var(--md-sys-color-surface-container-high) 90%, transparent);
 }
 
@@ -250,7 +250,7 @@ html:not(.light) .legacy-section__body :deep(pre) {
   gap: var(--md-sys-spacing-2);
 }
 
-html:not(.light) .legacy-section__body :deep([data-legacy-grid] > [data-legacy-card]) {
+html[data-theme='dark'] .legacy-section__body :deep([data-legacy-grid] > [data-legacy-card]) {
   background-color: var(--md-sys-color-surface-container-high);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 30%, transparent);
   box-shadow: var(--shadow-elevation-2);
