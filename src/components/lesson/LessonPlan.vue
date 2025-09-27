@@ -8,7 +8,10 @@
       <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
         {{ data.unit.title }}
       </h4>
-      <p class="md-typescale-body-large text-on-surface-variant" v-html="data.unit.content"></p>
+      <p
+        class="md-typescale-body-large text-on-surface-variant"
+        v-html="sanitizeContent(data.unit.content)"
+      ></p>
     </div>
 
     <div v-if="cards.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -24,7 +27,10 @@
         <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
           {{ card.title }}
         </h4>
-        <p class="md-typescale-body-medium text-on-surface-variant" v-html="card.content"></p>
+        <p
+          class="md-typescale-body-medium text-on-surface-variant"
+          v-html="sanitizeContent(card.content)"
+        ></p>
       </div>
     </div>
   </div>
@@ -47,6 +53,7 @@ import {
   Clock,
   ListChecks,
 } from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface LessonPlanCard {
   icon?: string;
@@ -134,5 +141,9 @@ function createNameVariations(original: string): string[] {
   return Array.from(
     new Set([trimmed, base, lower, lower.replace(/-/g, ''), trimmed.toLowerCase()])
   );
+}
+
+function sanitizeContent(value: unknown): string {
+  return sanitizeHtml(value);
 }
 </script>

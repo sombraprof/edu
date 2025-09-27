@@ -55,17 +55,8 @@
           description="O resultado só permanece verdadeiro quando todas as entradas são verdadeiras."
           caption="Combinações possíveis para o operador lógico AND."
           :legend="resultLegend"
-          :headers="['Condição A', 'Condição B', 'Resultado (A e B)']"
-          :rows="[
-            [
-              { value: 'Verdadeiro' },
-              { value: 'Verdadeiro' },
-              { state: 'true', display: 'Verdadeiro' },
-            ],
-            [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
-            [{ value: 'Falso' }, { value: 'Verdadeiro' }, { state: 'false', display: 'Falso' }],
-            [{ value: 'Falso' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
-          ]"
+          :headers="andHeaders"
+          :rows="andRows"
           dense
         />
       </div>
@@ -118,17 +109,8 @@
           description="Basta que uma das condições seja verdadeira para que o resultado seja verdadeiro."
           caption="Saídas do operador lógico OR para cada par de entradas."
           :legend="resultLegend"
-          :headers="['Condição A', 'Condição B', 'Resultado (A ou B)']"
-          :rows="[
-            [
-              { value: 'Verdadeiro' },
-              { value: 'Verdadeiro' },
-              { state: 'true', display: 'Verdadeiro' },
-            ],
-            [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'true', display: 'Verdadeiro' }],
-            [{ value: 'Falso' }, { value: 'Verdadeiro' }, { state: 'true', display: 'Verdadeiro' }],
-            [{ value: 'Falso' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
-          ]"
+          :headers="orHeaders"
+          :rows="orRows"
           dense
         />
       </div>
@@ -181,11 +163,8 @@
           description="O operador inverte o valor lógico recebido."
           caption="Resultados do operador NOT para cada valor de entrada."
           :legend="resultLegend"
-          :headers="['Condição A', 'Resultado (não A)']"
-          :rows="[
-            [{ value: 'Verdadeiro' }, { state: 'false', display: 'Falso' }],
-            [{ value: 'Falso' }, { state: 'true', display: 'Verdadeiro' }],
-          ]"
+          :headers="notHeaders"
+          :rows="notRows"
           dense
         />
       </div>
@@ -194,9 +173,13 @@
 </template>
 
 <script setup lang="ts">
-import TruthTable from './TruthTable.vue';
+import TruthTable, {
+  type TruthTableLegendItem,
+  type TruthTableRow,
+  type TruthTableHeader,
+} from './TruthTable.vue';
 
-const resultLegend = [
+const resultLegend: TruthTableLegendItem[] = [
   {
     label: 'Verdadeiro',
     state: 'true',
@@ -207,6 +190,29 @@ const resultLegend = [
     state: 'false',
     description: 'Saída igual a 0 (falso).',
   },
+];
+
+const andHeaders: TruthTableHeader[] = ['Condição A', 'Condição B', 'Resultado (A e B)'];
+const orHeaders: TruthTableHeader[] = ['Condição A', 'Condição B', 'Resultado (A ou B)'];
+const notHeaders: TruthTableHeader[] = ['Condição A', 'Resultado (não A)'];
+
+const andRows: TruthTableRow[] = [
+  [{ value: 'Verdadeiro' }, { value: 'Verdadeiro' }, { state: 'true', display: 'Verdadeiro' }],
+  [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
+  [{ value: 'Falso' }, { value: 'Verdadeiro' }, { state: 'false', display: 'Falso' }],
+  [{ value: 'Falso' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
+];
+
+const orRows: TruthTableRow[] = [
+  [{ value: 'Verdadeiro' }, { value: 'Verdadeiro' }, { state: 'true', display: 'Verdadeiro' }],
+  [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'true', display: 'Verdadeiro' }],
+  [{ value: 'Falso' }, { value: 'Verdadeiro' }, { state: 'true', display: 'Verdadeiro' }],
+  [{ value: 'Falso' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
+];
+
+const notRows: TruthTableRow[] = [
+  [{ value: 'Verdadeiro' }, { state: 'false', display: 'Falso' }],
+  [{ value: 'Falso' }, { state: 'true', display: 'Verdadeiro' }],
 ];
 </script>
 

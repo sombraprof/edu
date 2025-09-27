@@ -12,7 +12,7 @@
         </div>
         <div class="timeline__body">
           <h4 class="timeline__step-title">{{ step.title }}</h4>
-          <p class="timeline__step-text" v-html="step.content"></p>
+          <p class="timeline__step-text" v-html="sanitizeContent(step.content)"></p>
         </div>
       </li>
     </ol>
@@ -20,6 +20,8 @@
 </template>
 
 <script setup lang="ts">
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
+
 interface Step {
   title: string;
   content: string;
@@ -34,6 +36,10 @@ interface TimelineData {
 defineProps<{
   data: TimelineData;
 }>();
+
+function sanitizeContent(value: unknown): string {
+  return sanitizeHtml(value);
+}
 </script>
 
 <style scoped>

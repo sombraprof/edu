@@ -1,13 +1,17 @@
 import { describe, it, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
-import TruthTable from '../TruthTable.vue';
+import TruthTable, {
+  type TruthTableHeader,
+  type TruthTableLegendItem,
+  type TruthTableRow,
+} from '../TruthTable.vue';
 
 describe('TruthTable', () => {
-  const baseHeaders = ['Entrada A', 'Entrada B', 'Saída'];
+  const baseHeaders = ['Entrada A', 'Entrada B', 'Saída'] satisfies TruthTableHeader[];
   const baseRows = [
     [{ value: 'Verdadeiro' }, { value: 'Verdadeiro' }, { state: 'true', display: 'Verdadeiro' }],
     [{ value: 'Verdadeiro' }, { value: 'Falso' }, { state: 'false', display: 'Falso' }],
-  ];
+  ] satisfies TruthTableRow[];
 
   it('renders title, caption and headers with accessible bindings', () => {
     const wrapper = mount(TruthTable, {
@@ -34,11 +38,16 @@ describe('TruthTable', () => {
   });
 
   it('renders icons and state styling for truthy and falsy outputs', () => {
+    const stateRows = [
+      [{ state: 'true', display: 'Verdadeiro' }],
+      [{ state: 'false', display: 'Falso' }],
+    ] satisfies TruthTableRow[];
+
     const wrapper = mount(TruthTable, {
       props: {
         title: 'Estados',
         headers: ['Saída'],
-        rows: [[{ state: 'true', display: 'Verdadeiro' }], [{ state: 'false', display: 'Falso' }]],
+        rows: stateRows,
       },
     });
 
@@ -55,7 +64,7 @@ describe('TruthTable', () => {
     const legend = [
       { label: 'Verdadeiro', state: 'true', description: 'Saída igual a 1.' },
       { label: 'Falso', state: 'false', description: 'Saída igual a 0.' },
-    ];
+    ] satisfies TruthTableLegendItem[];
 
     const wrapper = mount(TruthTable, {
       props: {
@@ -73,11 +82,15 @@ describe('TruthTable', () => {
   });
 
   it('supports dense layout and custom screen reader labels', () => {
+    const denseRows = [
+      [{ state: 'emphasis', srLabel: 'Valor destacado' }],
+    ] satisfies TruthTableRow[];
+
     const wrapper = mount(TruthTable, {
       props: {
         dense: true,
         headers: ['Estado'],
-        rows: [[{ state: 'emphasis', srLabel: 'Valor destacado' }]],
+        rows: denseRows,
       },
     });
 

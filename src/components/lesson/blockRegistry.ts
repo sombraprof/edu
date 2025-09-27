@@ -10,6 +10,7 @@ import FlightPlan from '@/components/lesson/FlightPlan.vue';
 import LegacyHtml from '@/components/lesson/LegacyHtml.vue';
 import LegacySection from '@/components/lesson/LegacySection.vue';
 import LessonPlan from '@/components/lesson/LessonPlan.vue';
+import Md3BlockDiagram from '@/components/lesson/Md3BlockDiagram.vue';
 import Md3LogicOperators from '@/components/lesson/Md3LogicOperators.vue';
 import Md3Table from '@/components/lesson/Md3Table.vue';
 import MemoryDiagram from '@/components/lesson/MemoryDiagram.vue';
@@ -34,6 +35,7 @@ type TableRow = TableCell[];
 const customComponentRegistry: Record<string, Component> = {
   Md3Table,
   Md3LogicOperators,
+  Md3BlockDiagram,
   MemoryDiagram,
   OrderedList,
   CardGrid,
@@ -86,6 +88,19 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
         title: toString(block.title),
         headers: toStringArray(block.headers),
         rows: toMatrix(block.rows),
+      },
+    };
+  },
+  blockDiagram(block) {
+    return {
+      component: Md3BlockDiagram,
+      props: {
+        title: toOptionalString(block.title),
+        summary: toOptionalString(block.summary),
+        blocks: toBlockEntries(block.blocks),
+        channels: toChannelEntries(block.channels),
+        legend: toLegendEntries(block.legend),
+        dense: Boolean(block.dense),
       },
     };
   },
@@ -197,6 +212,137 @@ function toOptionalString(value: unknown): string | undefined {
 
 function toString(value: unknown): string {
   return typeof value === 'string' ? value : '';
+}
+
+function toNumber(value: unknown, fallback = 0): number {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function toBlockEntries(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [] as Array<{
+      id: string;
+      title: string;
+      summary?: string;
+      layer: number;
+      row?: number;
+      kind?: string;
+      badge?: string;
+      metrics?: Array<{ id: string; label: string; value: string }>;
+    }>;
+  }
+
+  return value
+    .map((entry) => {
+      const record = toRecord(entry);
+      return {
+        id: toString(record.id),
+        title: toString(record.title),
+        summary: toOptionalString(record.summary),
+        layer: toNumber(record.layer, 0),
+        row: record.row !== undefined ? toNumber(record.row) : undefined,
+        kind: toOptionalString(record.kind),
+        badge: toOptionalString(record.badge),
+        metrics: toMetricEntries(record.metrics),
+      };
+    })
+    .filter((block) => block.id && block.title);
+}
+
+function toMetricEntries(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [] as Array<{ id: string; label: string; value: string }>;
+  }
+
+  return value
+    .map((metric) => {
+      const record = toRecord(metric);
+      const id = toString(record.id);
+      const label = toString(record.label);
+      if (!id || !label) {
+        return undefined;
+      }
+      return {
+        id,
+        label,
+        value: toString(record.value),
+      };
+    })
+    .filter((metric): metric is { id: string; label: string; value: string } => Boolean(metric));
+}
+
+function toChannelEntries(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [] as Array<{
+      id: string;
+      from: string;
+      to: string;
+      description?: string;
+      kind?: string;
+    }>;
+  }
+
+  return value
+    .map((entry) => {
+      const record = toRecord(entry);
+      const id = toString(record.id);
+      const from = toString(record.from);
+      const to = toString(record.to);
+      if (!id || !from || !to) {
+        return undefined;
+      }
+      return {
+        id,
+        from,
+        to,
+        description: toOptionalString(record.description),
+        kind: toOptionalString(record.kind),
+      };
+    })
+    .filter(
+      (
+        channel
+      ): channel is {
+        id: string;
+        from: string;
+        to: string;
+        description: string | undefined;
+        kind: string | undefined;
+      } => Boolean(channel)
+    );
+}
+
+function toLegendEntries(value: unknown) {
+  if (!Array.isArray(value)) {
+    return [] as Array<{ id: string; label: string; description?: string; kind?: string }>;
+  }
+
+  return value
+    .map((entry) => {
+      const record = toRecord(entry);
+      const id = toString(record.id);
+      const label = toString(record.label);
+      if (!id || !label) {
+        return undefined;
+      }
+      return {
+        id,
+        label,
+        description: toOptionalString(record.description),
+        kind: toOptionalString(record.kind),
+      };
+    })
+    .filter(
+      (
+        item
+      ): item is {
+        id: string;
+        label: string;
+        description: string | undefined;
+        kind: string | undefined;
+      } => Boolean(item)
+    );
 }
 
 function toStringArray(value: unknown): string[] {

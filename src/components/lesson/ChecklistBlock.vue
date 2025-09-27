@@ -10,7 +10,7 @@
     <ul :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }">
       <li v-for="(item, index) in data.items" :key="index" class="flex items-start gap-3">
         <CheckCircle class="md-icon md-icon--md text-[var(--md-sys-color-primary)] flex-shrink-0" />
-        <p class="md-typescale-body-large text-on-surface-variant" v-html="item"></p>
+        <p class="md-typescale-body-large text-on-surface-variant" v-html="sanitizeItem(item)"></p>
       </li>
     </ul>
   </div>
@@ -18,6 +18,7 @@
 
 <script setup lang="ts">
 import { CheckCircle } from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface ChecklistData {
   title: string;
@@ -28,4 +29,8 @@ interface ChecklistData {
 defineProps<{
   data: ChecklistData;
 }>();
+
+function sanitizeItem(value: unknown): string {
+  return sanitizeHtml(value);
+}
 </script>

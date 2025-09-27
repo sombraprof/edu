@@ -28,6 +28,7 @@ import {
   Sparkles,
   Info,
 } from 'lucide-vue-next';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 type Props = {
   id?: string;
@@ -39,7 +40,7 @@ const props = defineProps<Props>();
 
 const title = computed(() => props.title ?? '');
 const id = computed(() => props.id ?? '');
-const html = computed(() => props.html ?? '');
+const html = computed(() => sanitizeHtml(props.html));
 
 const iconRegistry: Record<string, any> = {
   ementa: GraduationCap,

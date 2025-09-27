@@ -301,8 +301,17 @@ function getCellLabel(cell: NormalizedTruthTableCell) {
 }
 
 function legendIcon(item: NormalizedLegendItem) {
-  return item.icon ? iconPaths[item.icon] : null;
+  return item.icon ? iconPaths[item.icon] : undefined;
 }
+
+export type {
+  TruthTableLegendItem,
+  TruthTableRow,
+  TruthTableHeader,
+  TruthTableCell,
+  TruthTableState,
+  TruthTableIcon,
+};
 </script>
 
 <style scoped>
