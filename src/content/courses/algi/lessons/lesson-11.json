@@ -119,8 +119,16 @@
         "title": "Menu de operações do sistema",
         "summary": "Fluxo de decisão baseado na opção digitada pelo usuário.",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Início" },
-          { "id": "input", "type": "input", "title": "Ler opção" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Início"
+          },
+          {
+            "id": "input",
+            "type": "input",
+            "title": "Ler opção"
+          },
           {
             "id": "decision",
             "type": "decision",
@@ -152,19 +160,57 @@
               }
             ]
           },
-          { "id": "process-cadastrar", "type": "process", "title": "Executar cadastro" },
-          { "id": "process-listar", "type": "process", "title": "Listar dados" },
-          { "id": "process-sair", "type": "process", "title": "Encerrar aplicação" },
-          { "id": "process-erro", "type": "process", "title": "Exibir mensagem inválida" },
-          { "id": "end", "type": "end", "title": "Fim" }
+          {
+            "id": "process-cadastrar",
+            "type": "process",
+            "title": "Executar cadastro"
+          },
+          {
+            "id": "process-listar",
+            "type": "process",
+            "title": "Listar dados"
+          },
+          {
+            "id": "process-sair",
+            "type": "process",
+            "title": "Encerrar aplicação"
+          },
+          {
+            "id": "process-erro",
+            "type": "process",
+            "title": "Exibir mensagem inválida"
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Fim"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "input" },
-          { "from": "input", "to": "decision" },
-          { "from": "process-cadastrar", "to": "end" },
-          { "from": "process-listar", "to": "end" },
-          { "from": "process-sair", "to": "end" },
-          { "from": "process-erro", "to": "end" }
+          {
+            "from": "start",
+            "to": "input"
+          },
+          {
+            "from": "input",
+            "to": "decision"
+          },
+          {
+            "from": "process-cadastrar",
+            "to": "end"
+          },
+          {
+            "from": "process-listar",
+            "to": "end"
+          },
+          {
+            "from": "process-sair",
+            "to": "end"
+          },
+          {
+            "from": "process-erro",
+            "to": "end"
+          }
         ]
       }
     },
@@ -188,24 +234,48 @@
       "headers": ["Cenário", "if-else encadeado", "switch-case"],
       "rows": [
         [
-          { "value": "Poucas opções" },
-          { "value": "Leitura simples, pouca repetição" },
-          { "value": "Pode ser excesso de sintaxe" }
+          {
+            "value": "Poucas opções"
+          },
+          {
+            "value": "Leitura simples, pouca repetição"
+          },
+          {
+            "value": "Pode ser excesso de sintaxe"
+          }
         ],
         [
-          { "value": "Muitas opções" },
-          { "value": "Código repetido e difícil de manter" },
-          { "value": "Lista compacta de cases" }
+          {
+            "value": "Muitas opções"
+          },
+          {
+            "value": "Código repetido e difícil de manter"
+          },
+          {
+            "value": "Lista compacta de cases"
+          }
         ],
         [
-          { "value": "Comparações complexas" },
-          { "value": "Aceita qualquer expressão" },
-          { "value": "Limitado a valores inteiros/char" }
+          {
+            "value": "Comparações complexas"
+          },
+          {
+            "value": "Aceita qualquer expressão"
+          },
+          {
+            "value": "Limitado a valores inteiros/char"
+          }
         ],
         [
-          { "value": "Fall-through intencional" },
-          { "value": "Necessita flags extras" },
-          { "value": "Natural com ausência de break" }
+          {
+            "value": "Fall-through intencional"
+          },
+          {
+            "value": "Necessita flags extras"
+          },
+          {
+            "value": "Natural com ausência de break"
+          }
         ]
       ]
     },
@@ -266,5 +336,11 @@
         "Explicar como testar cada opção do menu implementado."
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }

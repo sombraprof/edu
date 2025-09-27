@@ -1,7 +1,7 @@
 {
   "id": "lesson-08",
   "title": "Aula 8: Level Design com ProBuilder",
-  "objective": "Desenvolver habilidades na construção de ambientes 3D com ProBuilder, aplicando princípios de usabilidade e teste iterativo de cenário.",
+  "objective": "Modelar e testar ambientes 3D utilizando ProBuilder e boas práticas de level design.",
   "content": [
     {
       "type": "lessonPlan",
@@ -275,5 +275,54 @@
         "SCHUYTEMA, Paul. <strong>Design de games: uma abordagem prática.</strong> São Paulo: Cengage Learning, 2008."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "level-design-com-probuilder",
+  "summary": "Explora o ProBuilder para construir ambientes 3D jogáveis, aplicando princípios de usabilidade e iteração em level design.",
+  "objectives": [
+    "Criar blocagens 3D navegáveis com ProBuilder.",
+    "Aplicar métricas de escala e sinalização para orientar o jogador.",
+    "Conduzir ciclos de teste e ajuste do cenário."
+  ],
+  "competencies": ["Level design", "Design centrado no jogador", "Iteração baseada em feedback"],
+  "skills": [
+    "Manipular ferramentas de extrusão, corte e texturização básica.",
+    "Planejar fluxos de navegação com checkpoints e landmarks.",
+    "Documentar ajustes a partir de playtests."
+  ],
+  "outcomes": [
+    "Entrega cena prototipada com métricas testadas.",
+    "Incorpora feedback de usabilidade no layout.",
+    "Explica decisões de geometria e ritmo do nível."
+  ],
+  "prerequisites": ["Prototipagem e GDD inicial.", "Familiaridade com Unity Editor."],
+  "tags": ["level-design", "probuilder", "usabilidade"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Unity Learn – ProBuilder Essentials",
+      "url": "https://learn.unity.com/course/probuilder",
+      "type": "course"
+    },
+    {
+      "label": "Level Design Reference Guide",
+      "url": "https://www.gamedev.net/tutorials/game-design/level-design-reference-guide-r3331/",
+      "type": "article"
+    }
+  ],
+  "bibliography": [
+    "ROGERS, S. Level Up! The Guide to Great Video Game Design. Wiley, 2014.",
+    "ADAMS, E. Fundamentals of Game Design. New Riders, 2014."
+  ],
+  "assessment": {
+    "type": "practical",
+    "description": "Avaliação do cenário bloqueado com checklist de navegabilidade."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

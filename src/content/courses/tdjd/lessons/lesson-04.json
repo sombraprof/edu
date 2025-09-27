@@ -1,7 +1,7 @@
 {
   "id": "lesson-04",
   "title": "Aula 4: História, Engines e Mercado",
-  "objective": "Analisar a evolução histórica dos jogos e das ferramentas de desenvolvimento, conectando-a com as dinâmicas de mercado atuais.",
+  "objective": "Relacionar evolução tecnológica, engines e estratégias de mercado para contextualizar decisões atuais de desenvolvimento.",
   "content": [
     {
       "type": "lessonPlan",
@@ -410,5 +410,61 @@
         "MASTROCOLA, Vicente Martin. <strong>Game design:</strong> modelos de negócio e processos criativos. São Paulo: Cengage Learning, 2015."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "historia-engines-e-mercado",
+  "summary": "Revisa marcos da história dos jogos digitais, a evolução das engines e como essas mudanças influenciaram modelos de negócio.",
+  "objectives": [
+    "Identificar gerações e consoles que marcaram a evolução tecnológica.",
+    "Comparar engines populares e seus ecossistemas.",
+    "Discutir impactos econômicos de transições tecnológicas no mercado de jogos."
+  ],
+  "competencies": [
+    "Pensamento histórico aplicado à tecnologia",
+    "Análise de plataformas de desenvolvimento",
+    "Visão de negócios"
+  ],
+  "skills": [
+    "Construir linha do tempo com marcos relevantes.",
+    "Selecionar engine adequada a um projeto com base em requisitos.",
+    "Relacionar movimentos de mercado com decisões técnicas."
+  ],
+  "outcomes": [
+    "Produz linha do tempo comentada sobre evolução dos jogos.",
+    "Justifica escolha de engine considerando contexto de projeto.",
+    "Aponta tendências de mercado impactadas por novas tecnologias."
+  ],
+  "prerequisites": [
+    "Panorama do mercado de jogos.",
+    "Conhecimento introdutório sobre gêneros e mecânicas."
+  ],
+  "tags": ["historia", "engines", "mercado"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Interactive Game Timeline (IGN)",
+      "url": "https://www.ign.com/lists/video-game-history",
+      "type": "interactive"
+    },
+    {
+      "label": "Unity vs Unreal feature comparison",
+      "url": "https://unity.com/features/compare",
+      "type": "article"
+    }
+  ],
+  "bibliography": [
+    "KENT, S. The Ultimate History of Video Games. Three Rivers, 2021.",
+    "ROLLINGS, A.; MORRIS, D. Game Architecture and Design. New Riders, 2004."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Linha do tempo colaborativa com análise de impactos de cada geração."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

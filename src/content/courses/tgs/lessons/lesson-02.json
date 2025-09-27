@@ -1,7 +1,7 @@
 {
   "id": "lesson-02",
   "title": "Aula 2: Curricularização da Extensão",
-  "objective": "Compreender o papel da extensão universitária, sua obrigatoriedade no currículo de Sistemas de Informação segundo a legislação do MEC, e reconhecer sua importância para a formação profissional e cidadã.",
+  "objective": "Analisar a obrigatoriedade da extensão nos cursos de TI e planejar ações alinhadas à realidade da turma.",
   "content": [
     {
       "type": "lessonPlan",
@@ -198,5 +198,57 @@
         "<strong>FREIRE, Paulo.</strong> <em>Extensão ou Comunicação?</em> 17. ed. Rio de Janeiro: Paz e Terra, 2011. (Leitura complementar sobre a filosofia da extensão)."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "curricularizacao-da-extensao",
+  "summary": "Contextualiza a curricularização da extensão no ensino superior brasileiro, destacando legislação e impactos na formação em Sistemas de Informação.",
+  "objectives": [
+    "Interpretar diretrizes do MEC sobre extensão universitária.",
+    "Identificar oportunidades de projetos extensionistas vinculados à disciplina.",
+    "Planejar contribuições pessoais para iniciativas de extensão."
+  ],
+  "competencies": ["Responsabilidade social", "Gestão acadêmica", "Planejamento de projetos"],
+  "skills": [
+    "Ler e sintetizar marcos legais da extensão.",
+    "Relacionar competências técnicas com demandas comunitárias.",
+    "Elaborar proposta inicial de ação extensionista."
+  ],
+  "outcomes": [
+    "Explica a importância da extensão para a formação cidadã.",
+    "Lista possibilidades de projetos conectados à disciplina.",
+    "Define próximos passos para participação efetiva em extensão."
+  ],
+  "prerequisites": [
+    "Conhecer objetivos gerais da disciplina.",
+    "Interesse em atividades comunitárias."
+  ],
+  "tags": ["extensao", "legislacao", "planejamento"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Resolução CNE/CES nº 7/2018",
+      "url": "http://portal.mec.gov.br/docman/setembro-2018-pdf/97044-rces007-18-pdf/file",
+      "type": "legislation"
+    },
+    {
+      "label": "Guia de curricularização da extensão (MEC)",
+      "url": "https://example.edu/tgs/guia-extensao",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "BRASIL. Ministério da Educação. Diretrizes para Extensão Universitária. 2018.",
+    "FREIRE, P. Extensão ou Comunicação? Paz e Terra, 2019."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Quadro colaborativo de ideias para projetos extensionistas."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
 }

@@ -98,14 +98,50 @@
       "title": "Estrutura da prova",
       "headers": ["Questão", "Tema", "Peso"],
       "rows": [
-        [{ "value": "Q1" }, { "value": "Fluxograma com decisões" }, { "value": "2,0" }],
         [
-          { "value": "Q2" },
-          { "value": "Pseudocódigo para problema sequencial" },
-          { "value": "2,0" }
+          {
+            "value": "Q1"
+          },
+          {
+            "value": "Fluxograma com decisões"
+          },
+          {
+            "value": "2,0"
+          }
         ],
-        [{ "value": "Q3" }, { "value": "Implementação em C com if/else" }, { "value": "3,0" }],
-        [{ "value": "Q4" }, { "value": "Análise de condições compostas" }, { "value": "3,0" }]
+        [
+          {
+            "value": "Q2"
+          },
+          {
+            "value": "Pseudocódigo para problema sequencial"
+          },
+          {
+            "value": "2,0"
+          }
+        ],
+        [
+          {
+            "value": "Q3"
+          },
+          {
+            "value": "Implementação em C com if/else"
+          },
+          {
+            "value": "3,0"
+          }
+        ],
+        [
+          {
+            "value": "Q4"
+          },
+          {
+            "value": "Análise de condições compostas"
+          },
+          {
+            "value": "3,0"
+          }
+        ]
       ]
     },
     {
@@ -120,24 +156,48 @@
       "headers": ["Critério", "Descrição", "Peso relativo"],
       "rows": [
         [
-          { "value": "Correção lógica" },
-          { "value": "Sequência de passos atende integralmente ao enunciado." },
-          { "value": "40%" }
+          {
+            "value": "Correção lógica"
+          },
+          {
+            "value": "Sequência de passos atende integralmente ao enunciado."
+          },
+          {
+            "value": "40%"
+          }
         ],
         [
-          { "value": "Estrutura e sintaxe" },
-          { "value": "Uso adequado de comandos, indentação e nomenclatura." },
-          { "value": "25%" }
+          {
+            "value": "Estrutura e sintaxe"
+          },
+          {
+            "value": "Uso adequado de comandos, indentação e nomenclatura."
+          },
+          {
+            "value": "25%"
+          }
         ],
         [
-          { "value": "Documentação" },
-          { "value": "Explicações claras sobre decisões e resultados." },
-          { "value": "20%" }
+          {
+            "value": "Documentação"
+          },
+          {
+            "value": "Explicações claras sobre decisões e resultados."
+          },
+          {
+            "value": "20%"
+          }
         ],
         [
-          { "value": "Apresentação" },
-          { "value": "Organização da folha, legibilidade e limpeza." },
-          { "value": "15%" }
+          {
+            "value": "Apresentação"
+          },
+          {
+            "value": "Organização da folha, legibilidade e limpeza."
+          },
+          {
+            "value": "15%"
+          }
         ]
       ]
     },
@@ -177,5 +237,11 @@
       "title": "TED",
       "content": "<p>Não há TED nesta aula. Utilize o tempo pós-prova para revisar as questões com as anotações pessoais e preparar dúvidas para a devolutiva.</p>"
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }

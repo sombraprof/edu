@@ -1,7 +1,7 @@
 {
   "id": "lesson-04",
   "title": "Aula 4: Tipos de Sistemas: Classificações e Exemplos",
-  "objective": "Diferenciar os tipos de sistemas a partir de suas características principais e analisar exemplos de sua aplicação prática em diferentes contextos organizacionais.",
+  "objective": "Diferenciar tipos de sistemas e relacioná-los a casos reais.",
   "content": [
     {
       "type": "lessonPlan",
@@ -173,5 +173,57 @@
         "<strong>CHIAVENATO, Idalberto.</strong> <em>Introdução à teoria geral da administração.</em> 9. ed. Barueri: Manole, 2014."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "tipos-de-sistemas-classificacoes",
+  "summary": "Explora classificações de sistemas (quanto à finalidade, estrutura e interação) ilustrando exemplos práticos no ambiente organizacional.",
+  "objectives": [
+    "Comparar classificações clássicas (abertos, fechados, naturais, artificiais).",
+    "Identificar sistemas socio-técnicos em diferentes setores.",
+    "Avaliar implicações das classificações para a gestão."
+  ],
+  "competencies": ["Análise comparativa", "Aplicação prática", "Gestão sistêmica"],
+  "skills": [
+    "Classificar sistemas apresentados em estudos de caso.",
+    "Justificar escolhas de classificação com argumentos técnicos.",
+    "Relacionar classificações a decisões gerenciais."
+  ],
+  "outcomes": [
+    "Produz tabela comparativa de tipos de sistemas com exemplos.",
+    "Argumenta sobre vantagens e limitações de cada classificação.",
+    "Propõe indicadores para monitorar sistemas em cada categoria."
+  ],
+  "prerequisites": [
+    "Conhecimento de componentes e características sistêmicas.",
+    "Participação nas aulas iniciais."
+  ],
+  "tags": ["classificacao", "sistemas", "analise"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Tabela de classificação de sistemas",
+      "url": "https://example.edu/tgs/tabela-classificacao",
+      "type": "resource"
+    },
+    {
+      "label": "Estudo de caso: Sistema de saúde",
+      "url": "https://example.edu/tgs/case-saude",
+      "type": "case"
+    }
+  ],
+  "bibliography": [
+    "CHIAVENATO, I. Teoria Geral da Administração. Elsevier, 2021.",
+    "MORIN, E. Introdução ao Pensamento Complexo. Sulina, 2020."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Quadro colaborativo classificando sistemas apresentados pelos grupos."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
 }

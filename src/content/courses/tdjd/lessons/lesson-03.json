@@ -1,7 +1,7 @@
 {
   "id": "lesson-03",
   "title": "Aula 3: Estudos de Caso, Análise Crítica e Inovações",
-  "objective": "Compreender as diferenças de escopo, mecânica e narrativa entre jogos Indie e AAA, analisando criticamente seu impacto cultural e tecnológico.",
+  "objective": "Comparar modelos de produção e inovação em jogos Indie e AAA, reconhecendo oportunidades para projetos autorais.",
   "content": [
     {
       "type": "lessonPlan",
@@ -441,5 +441,57 @@
         "SCHUYTEMA, Paul. <strong>Design de games:</strong> uma abordagem prática. São Paulo: Cengage Learning, 2008."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "estudos-de-caso-e-inovacoes",
+  "summary": "Analisa estudos de caso de jogos Indie e AAA para identificar padrões de inovação, escopo e impacto cultural.",
+  "objectives": [
+    "Investigar decisões de design em jogos com diferentes escalas de produção.",
+    "Relacionar restrições de orçamento e equipe com soluções criativas.",
+    "Extrair lições aplicáveis a projetos acadêmicos e profissionais."
+  ],
+  "competencies": ["Pesquisa e análise crítica", "Pensamento inovador", "Planejamento de produto"],
+  "skills": [
+    "Construir estudos de caso com evidências claras.",
+    "Argumentar sobre impactos culturais de jogos.",
+    "Identificar oportunidades de inovação em cenários limitados."
+  ],
+  "outcomes": [
+    "Produz relatório comparativo entre jogos Indie e AAA.",
+    "Aponta escolhas de design que alavancaram a inovação.",
+    "Propõe insights para futuras prototipagens do grupo."
+  ],
+  "prerequisites": [
+    "Conhecimento de gêneros e mecânicas.",
+    "Noções básicas de análise crítica de mídia."
+  ],
+  "tags": ["estudo-de-caso", "inovacao", "analise"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "GDC Vault – Postmortems selecionados",
+      "url": "https://www.gdcvault.com/search.php?t=titles&search=postmortem",
+      "type": "video"
+    },
+    {
+      "label": "IGDA – Developer Satisfaction Survey",
+      "url": "https://igda.org/resources/devsatisfaction/",
+      "type": "report"
+    }
+  ],
+  "bibliography": [
+    "KEITH, C. Agile Game Development. Addison-Wesley, 2020.",
+    "ANTHROPY, A. Rise of the Videogame Zinesters. Seven Stories, 2012."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Apresentação curta de estudo de caso elaborado em duplas."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

@@ -101,24 +101,54 @@
       "headers": ["Idade", "idade >= 18", "Ação"],
       "rows": [
         [
-          { "value": "16" },
-          { "state": "false", "display": "Falso" },
-          { "state": "false", "display": "Não exibe autorização" }
+          {
+            "value": "16"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Não exibe autorização"
+          }
         ],
         [
-          { "value": "18" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "true", "display": "Imprime \"Acesso liberado\"" }
+          {
+            "value": "18"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Imprime \"Acesso liberado\""
+          }
         ],
         [
-          { "value": "21" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "true", "display": "Imprime \"Acesso liberado\"" }
+          {
+            "value": "21"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Imprime \"Acesso liberado\""
+          }
         ]
       ],
       "legend": [
-        { "label": "Condição satisfeita", "state": "true" },
-        { "label": "Condição não satisfeita", "state": "false" }
+        {
+          "label": "Condição satisfeita",
+          "state": "true"
+        },
+        {
+          "label": "Condição não satisfeita",
+          "state": "false"
+        }
       ]
     },
     {
@@ -151,8 +181,16 @@
         "title": "Fluxo de aprovação por média",
         "summary": "Decisão binária baseada na média calculada para um estudante.",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Início" },
-          { "id": "input", "type": "input", "title": "Ler média" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Início"
+          },
+          {
+            "id": "input",
+            "type": "input",
+            "title": "Ler média"
+          },
           {
             "id": "decision",
             "type": "decision",
@@ -177,14 +215,34 @@
             "type": "process",
             "title": "Imprimir mensagem de aprovação"
           },
-          { "id": "process-reforco", "type": "process", "title": "Agendar estudo adicional" },
-          { "id": "end", "type": "end", "title": "Fim" }
+          {
+            "id": "process-reforco",
+            "type": "process",
+            "title": "Agendar estudo adicional"
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Fim"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "input" },
-          { "from": "input", "to": "decision" },
-          { "from": "process-aprovado", "to": "end" },
-          { "from": "process-reforco", "to": "end" }
+          {
+            "from": "start",
+            "to": "input"
+          },
+          {
+            "from": "input",
+            "to": "decision"
+          },
+          {
+            "from": "process-aprovado",
+            "to": "end"
+          },
+          {
+            "from": "process-reforco",
+            "to": "end"
+          }
         ]
       }
     },
@@ -268,5 +326,11 @@
         "Testar ambos os ramos antes de considerar o programa concluído."
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }

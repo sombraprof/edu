@@ -104,37 +104,103 @@
       "headers": ["A", "B", "A && B", "A || B", "!A"],
       "rows": [
         [
-          { "state": "false", "display": "Falso" },
-          { "state": "false", "display": "Falso" },
-          { "state": "false", "display": "Falso" },
-          { "state": "false", "display": "Falso" },
-          { "state": "true", "display": "Verdadeiro" }
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          }
         ],
         [
-          { "state": "false", "display": "Falso" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "false", "display": "Falso" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "true", "display": "Verdadeiro" }
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          }
         ],
         [
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "false", "display": "Falso" },
-          { "state": "false", "display": "Falso" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "false", "display": "Falso" }
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          }
         ],
         [
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "true", "display": "Verdadeiro" },
-          { "state": "false", "display": "Falso" }
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          }
         ]
       ],
       "legend": [
-        { "label": "Condição verdadeira", "state": "true" },
-        { "label": "Condição falsa", "state": "false" }
+        {
+          "label": "Condição verdadeira",
+          "state": "true"
+        },
+        {
+          "label": "Condição falsa",
+          "state": "false"
+        }
       ]
     },
     {
@@ -159,8 +225,16 @@
         "title": "Concessão de benefício",
         "summary": "Fluxo que combina idade, renda, cadastro ativo e laudo médico.",
         "nodes": [
-          { "id": "start", "type": "start", "title": "Início" },
-          { "id": "input", "type": "input", "title": "Ler idade, renda, cadastro, laudo" },
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Início"
+          },
+          {
+            "id": "input",
+            "type": "input",
+            "title": "Ler idade, renda, cadastro, laudo"
+          },
           {
             "id": "decision-idade",
             "type": "decision",
@@ -237,21 +311,48 @@
               }
             ]
           },
-          { "id": "process-aprovar", "type": "process", "title": "Imprimir \"Elegível\"" },
+          {
+            "id": "process-aprovar",
+            "type": "process",
+            "title": "Imprimir \"Elegível\""
+          },
           {
             "id": "process-regularizar",
             "type": "process",
             "title": "Orientar atualização de cadastro"
           },
-          { "id": "process-negado", "type": "process", "title": "Imprimir \"Não elegível\"" },
-          { "id": "end", "type": "end", "title": "Fim" }
+          {
+            "id": "process-negado",
+            "type": "process",
+            "title": "Imprimir \"Não elegível\""
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Fim"
+          }
         ],
         "connections": [
-          { "from": "start", "to": "input" },
-          { "from": "input", "to": "decision-idade" },
-          { "from": "process-aprovar", "to": "end" },
-          { "from": "process-regularizar", "to": "end" },
-          { "from": "process-negado", "to": "end" }
+          {
+            "from": "start",
+            "to": "input"
+          },
+          {
+            "from": "input",
+            "to": "decision-idade"
+          },
+          {
+            "from": "process-aprovar",
+            "to": "end"
+          },
+          {
+            "from": "process-regularizar",
+            "to": "end"
+          },
+          {
+            "from": "process-negado",
+            "to": "end"
+          }
         ]
       }
     },
@@ -261,24 +362,52 @@
       "headers": ["Cenário", "Entradas", "Resultado esperado"],
       "rows": [
         [
-          { "value": "Elegível por idade" },
-          { "value": "idade=68, renda=4500, cadastro=1, laudo=0" },
-          { "state": "true", "display": "Imprime Elegível" }
+          {
+            "value": "Elegível por idade"
+          },
+          {
+            "value": "idade=68, renda=4500, cadastro=1, laudo=0"
+          },
+          {
+            "state": "true",
+            "display": "Imprime Elegível"
+          }
         ],
         [
-          { "value": "Elegível por renda" },
-          { "value": "idade=25, renda=2200, cadastro=1, laudo=0" },
-          { "state": "true", "display": "Imprime Elegível" }
+          {
+            "value": "Elegível por renda"
+          },
+          {
+            "value": "idade=25, renda=2200, cadastro=1, laudo=0"
+          },
+          {
+            "state": "true",
+            "display": "Imprime Elegível"
+          }
         ],
         [
-          { "value": "Solicitar regularização" },
-          { "value": "idade=40, renda=2000, cadastro=0, laudo=1" },
-          { "state": "neutral", "display": "Mensagem de cadastro pendente" }
+          {
+            "value": "Solicitar regularização"
+          },
+          {
+            "value": "idade=40, renda=2000, cadastro=0, laudo=1"
+          },
+          {
+            "state": "neutral",
+            "display": "Mensagem de cadastro pendente"
+          }
         ],
         [
-          { "value": "Não elegível" },
-          { "value": "idade=17, renda=1500, cadastro=1, laudo=0" },
-          { "state": "false", "display": "Imprime Não elegível" }
+          {
+            "value": "Não elegível"
+          },
+          {
+            "value": "idade=17, renda=1500, cadastro=1, laudo=0"
+          },
+          {
+            "state": "false",
+            "display": "Imprime Não elegível"
+          }
         ]
       ]
     },
@@ -339,5 +468,11 @@
         "Documentar testes cobrindo limites e exceções das regras compostas."
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }

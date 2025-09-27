@@ -131,24 +131,56 @@
       "headers": ["Máscara", "Descrição", "Exemplo de saída"],
       "rows": [
         [
-          { "value": "%.2f", "mono": true },
-          { "value": "Duas casas decimais" },
-          { "value": "R$ 12.50", "code": true }
+          {
+            "value": "%.2f",
+            "mono": true
+          },
+          {
+            "value": "Duas casas decimais"
+          },
+          {
+            "value": "R$ 12.50",
+            "code": true
+          }
         ],
         [
-          { "value": "%8.2f", "mono": true },
-          { "value": "Alinha números em tabela" },
-          { "value": "    85.40", "code": true }
+          {
+            "value": "%8.2f",
+            "mono": true
+          },
+          {
+            "value": "Alinha números em tabela"
+          },
+          {
+            "value": "    85.40",
+            "code": true
+          }
         ],
         [
-          { "value": "%d%%", "mono": true },
-          { "value": "Imprime símbolo de porcentagem" },
-          { "value": "10%", "code": true }
+          {
+            "value": "%d%%",
+            "mono": true
+          },
+          {
+            "value": "Imprime símbolo de porcentagem"
+          },
+          {
+            "value": "10%",
+            "code": true
+          }
         ],
         [
-          { "value": "%-12s", "mono": true },
-          { "value": "Texto alinhado à esquerda" },
-          { "value": "Produto A    ", "code": true }
+          {
+            "value": "%-12s",
+            "mono": true
+          },
+          {
+            "value": "Texto alinhado à esquerda"
+          },
+          {
+            "value": "Produto A    ",
+            "code": true
+          }
         ]
       ]
     },
@@ -210,5 +242,11 @@
         "Produzir recibos claros com totais e descontos."
       ]
     }
-  ]
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+  }
 }

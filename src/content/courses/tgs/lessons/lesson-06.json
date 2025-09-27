@@ -1,7 +1,7 @@
 {
   "id": "lesson-06",
   "title": "Aula 6: Fluxos e Transformação Organizacional",
-  "objective": "Identificar os processos de transformação e os fluxos sistêmicos em organizações, compreendendo a interdependência entre suas partes e o ambiente.",
+  "objective": "Identificar fluxos críticos e propor melhorias sistêmicas nos processos organizacionais.",
   "content": [
     {
       "type": "lessonPlan",
@@ -172,67 +172,6 @@
       ]
     },
     {
-      "type": "quiz",
-      "title": "🧪 Quiz Rápido (Pontuado)",
-      "questions": [
-        {
-          "question": "Se o WIP aumenta sem ampliar capacidade, o que tende a ocorrer?",
-          "options": [
-            "A) Throughput aumenta proporcionalmente",
-            "B) Lead time tende a aumentar",
-            "C) Gargalo desaparece",
-            "D) OTIF aumenta automaticamente",
-            "E) Nada muda"
-          ],
-          "answer": "B"
-        },
-        {
-          "question": "Em um sistema aberto, o que melhor representa feedback negativo?",
-          "options": [
-            "A) Promoção viral que aumenta demanda sem limite",
-            "B) Controle de estoque que reduz compras quando há excesso",
-            "C) Falha em cascata na rede",
-            "D) Automação que duplica ordens",
-            "E) Atraso fixo em transporte"
-          ],
-          "answer": "B"
-        },
-        {
-          "question": "OTIF mede principalmente:",
-          "options": [
-            "A) Utilização de CPU",
-            "B) Entregas no prazo e completas",
-            "C) Tamanho do lote",
-            "D) Custos de picking",
-            "E) Inventário médio"
-          ],
-          "answer": "B"
-        },
-        {
-          "question": "RFID contribui para qual fluxo?",
-          "options": [
-            "A) Apenas materiais",
-            "B) Informação, que sincroniza materiais",
-            "C) Energia",
-            "D) Financeiro apenas",
-            "E) Nenhum"
-          ],
-          "answer": "B"
-        },
-        {
-          "question": "Para reduzir lead time, qual prática tende a ajudar primeiro?",
-          "options": [
-            "A) Aumentar WIP sem mudar capacidade",
-            "B) Atacar o gargalo",
-            "C) Adicionar aprovações manuais",
-            "D) Esconder filas",
-            "E) Aumentar tamanho do lote sempre"
-          ],
-          "answer": "B"
-        }
-      ]
-    },
-    {
       "type": "accordion",
       "title": "📑 Glossário & Leituras",
       "items": [
@@ -325,5 +264,57 @@
         "<strong>STAIR, Ralph M.; REYNOLDS, George W.</strong> <em>Princípios de sistemas de informação.</em> 14. ed. São Paulo: Cengage Learning, 2021."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "fluxos-e-transformacao-organizacional",
+  "summary": "Discute processos de transformação e fluxos sistêmicos nas organizações, evidenciando interdependências e gargalos.",
+  "objectives": [
+    "Mapear fluxos de informação, materiais e energia em organizações.",
+    "Diagnosticar gargalos e redundâncias.",
+    "Propor intervenções para otimizar a transformação organizacional."
+  ],
+  "competencies": ["Gestão de processos", "Pensamento sistêmico", "Melhoria contínua"],
+  "skills": [
+    "Elaborar diagramas de fluxo sistêmico.",
+    "Aplicar métricas para avaliar desempenho dos processos.",
+    "Justificar recomendações de melhoria baseadas em dados."
+  ],
+  "outcomes": [
+    "Entrega mapa de fluxo comentado.",
+    "Identifica causas sistêmicas de ineficiências.",
+    "Prioriza ações de melhoria alinhadas a indicadores."
+  ],
+  "prerequisites": [
+    "Compreensão de sistemas abertos.",
+    "Conhecimento básico de mapeamento de processos."
+  ],
+  "tags": ["fluxos", "processos", "transformacao"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Ferramenta de mapeamento de processos",
+      "url": "https://example.edu/tgs/process-mapping",
+      "type": "tool"
+    },
+    {
+      "label": "Case: Transformação digital em serviços",
+      "url": "https://example.edu/tgs/case-transformacao",
+      "type": "case"
+    }
+  ],
+  "bibliography": [
+    "HAMMER, M.; CHAMPY, J. Reengenharia. Campus, 2019.",
+    "SENGE, P. A Quinta Disciplina. Best Seller, 2020."
+  ],
+  "assessment": {
+    "type": "practical",
+    "description": "Workshop de diagnóstico com relatório de melhorias prioritárias."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "lesson-07",
   "title": "Aula 7: Prototipagem Rápida e GDD",
-  "objective": "Utilizar ferramentas de prototipagem para criar e testar layouts básicos de níveis e introduzir o conceito e estrutura de um GDD.",
+  "objective": "Estruturar protótipos jogáveis de baixa fidelidade e documentar decisões no GDD.",
   "content": [
     {
       "type": "lessonPlan",
@@ -337,5 +337,57 @@
         "ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "prototipagem-rapida-e-gdd",
+  "summary": "Apresenta técnicas de prototipagem rápida e orienta a construção inicial de um Game Design Document alinhado ao escopo do curso.",
+  "objectives": [
+    "Selecionar ferramentas adequadas para protótipos rápidos.",
+    "Construir layout inicial de nível ou fluxo de jogo.",
+    "Registrar mecânicas, dinâmica e estética em um GDD enxuto."
+  ],
+  "competencies": ["Iteração rápida", "Documentação de design", "Colaboração interdisciplinar"],
+  "skills": [
+    "Planejar testes rápidos com jogadores.",
+    "Converter feedback em ajustes no protótipo.",
+    "Escrever seções essenciais do GDD."
+  ],
+  "outcomes": [
+    "Entrega um protótipo jogável de baixa fidelidade.",
+    "Documenta mecânicas e metas no GDD.",
+    "Prioriza próximos passos com base em feedback coletado."
+  ],
+  "prerequisites": [
+    "Conhecimento básico da Unity e organização de projeto.",
+    "Referências de gêneros e mecânicas."
+  ],
+  "tags": ["prototipagem", "gdd", "iteracao"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Miro – Template de GDD",
+      "url": "https://miro.com/templates/game-design-document/",
+      "type": "template"
+    },
+    {
+      "label": "Extra Credits – Prototype to Playable",
+      "url": "https://www.youtube.com/watch?v=TTmWOh8qyVA",
+      "type": "video"
+    }
+  ],
+  "bibliography": [
+    "FULLERTON, T. Game Design Workshop. CRC Press, 2021.",
+    "ROGERS, S. Level Up! The Guide to Great Video Game Design. Wiley, 2014."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Revisão coletiva do protótipo com checklist de GDD preenchido."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }

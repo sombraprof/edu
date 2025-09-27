@@ -1,6 +1,6 @@
 # Histórico recente de governança
 
-Atualizado em 26 de set. de 2025, 23:47 (UTC)
+Atualizado em 27 de set. de 2025, 16:23 (UTC)
 
 | Semana   | Período                 | Execuções | Problemas | Avisos | Blocos legados | Lições legadas | Exercícios s/ metadados | Suplementos s/ metadados | Δ vs. semana anterior (problemas) | Δ vs. semana anterior (avisos) | Δ vs. semana anterior (blocos) | Δ vs. semana anterior (lições) |
 | -------- | ----------------------- | --------- | --------- | ------ | -------------- | -------------- | ----------------------- | ------------------------ | --------------------------------- | ------------------------------ | ------------------------------ | ------------------------------ |

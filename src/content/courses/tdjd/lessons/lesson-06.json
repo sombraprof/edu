@@ -1,7 +1,7 @@
 {
   "id": "lesson-06",
   "title": "Aula 6: Importação de Assets e Organização de Projeto",
-  "objective": "Habilitar o aluno a importar e integrar assets no projeto Unity aplicando boas práticas de organização de arquivos, pastas e cenas.",
+  "objective": "Implementar fluxo organizado de importação e gestão de assets em projetos Unity.",
   "content": [
     {
       "type": "lessonPlan",
@@ -423,5 +423,57 @@
         "ALVES, W. P. <strong>Unity: design e desenvolvimento de jogos.</strong> Rio de Janeiro: Alta Books, 2019."
       ]
     }
-  ]
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "importacao-de-assets-e-organizacao",
+  "summary": "Ensina a importar, organizar e otimizar assets na Unity, estabelecendo padrões de pastas, nomenclatura e controle de versão.",
+  "objectives": [
+    "Aplicar convenções de pastas e nomes para assets 2D e 3D.",
+    "Configurar presets de importação para diferentes tipos de arquivos.",
+    "Sincronizar assets com ferramentas de versionamento."
+  ],
+  "competencies": ["Organização de projetos", "Boas práticas de produção", "Colaboração técnica"],
+  "skills": [
+    "Criar estrutura de pastas padronizada.",
+    "Ajustar import settings para texturas, modelos e áudio.",
+    "Integrar assets a workflows Git ou Plastic SCM."
+  ],
+  "outcomes": [
+    "Mantém projeto com assets organizados e documentados.",
+    "Aplica presets que preservam performance e qualidade.",
+    "Registra fluxo de importação em checklist da equipe."
+  ],
+  "prerequisites": [
+    "Configuração básica de projeto Unity.",
+    "Conhecimentos iniciais de controle de versão."
+  ],
+  "tags": ["unity", "assets", "organizacao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Unity Manual – Asset Workflow",
+      "url": "https://docs.unity3d.com/Manual/AssetWorkflow.html",
+      "type": "documentation"
+    },
+    {
+      "label": "Unity Learn – Gerenciamento de Assets",
+      "url": "https://learn.unity.com/tutorial/asset-management",
+      "type": "course"
+    }
+  ],
+  "bibliography": [
+    "Unity Technologies. Best practices for Asset Organization. 2024.",
+    "MUNSCH, C. Game Asset Pipeline. CRC Press, 2019."
+  ],
+  "assessment": {
+    "type": "practical",
+    "description": "Rubrica de organização aplicada ao projeto da turma."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "owners": ["Prof. Lucas Azevedo"],
+    "sources": ["Plano de ensino TDJD 2025.1"]
+  }
 }
