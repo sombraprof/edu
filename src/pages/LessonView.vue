@@ -51,6 +51,7 @@ import { useRoute } from 'vue-router';
 import { ChevronRight } from 'lucide-vue-next';
 import Prism from 'prismjs';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
+import type { LessonBlock } from '@/components/lesson/blockRegistry';
 
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-javascript';
@@ -84,7 +85,7 @@ interface LessonContent {
   id: string;
   title: string;
   objective?: string;
-  content: unknown[];
+  content: LessonBlock[];
 }
 
 const lessonData = shallowRef<LessonContent | null>(null);
