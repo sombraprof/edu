@@ -629,6 +629,30 @@ html {
 
   .md3-top-app-bar__leading {
     display: flex;
+    flex-direction: column;
+    gap: var(--md-sys-spacing-2);
+  }
+
+  .md3-top-app-bar__supporting-grid {
+    display: grid;
+    gap: var(--md-sys-spacing-3);
+  }
+
+  @media (min-width: 64rem) {
+    .md3-top-app-bar__supporting-grid {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      align-items: center;
+    }
+  }
+
+  .md3-top-app-bar__breadcrumbs,
+  .md3-top-app-bar__search {
+    min-width: 0;
+  }
+
+  .md3-top-app-bar--variant-center-aligned .md3-top-app-bar__container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: var(--md-sys-spacing-2);
   }
@@ -1050,57 +1074,6 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .app-top-bar__nav {
-    display: flex;
-    align-items: center;
-    gap: var(--md-sys-spacing-2);
-  }
-
-  .md3-top-app-bar__action {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: 999px;
-    padding: 0.5rem 0.875rem;
-    font-family: var(--md-sys-typescale-font);
-    font-size: var(--md-sys-typescale-label-large-size);
-    line-height: var(--md-sys-typescale-label-large-line-height);
-    letter-spacing: var(--md-sys-typescale-label-large-tracking);
-    color: var(--md-sys-color-on-surface-variant);
-    text-decoration: none;
-    overflow: hidden;
-    transition: color 150ms ease;
-  }
-
-  .md3-top-app-bar__action::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--md-sys-state-layer-on-surface);
-    opacity: 0;
-    transition: opacity 150ms ease;
-  }
-
-  .md3-top-app-bar__action:hover,
-  .md3-top-app-bar__action:focus-visible {
-    color: var(--md-sys-color-primary);
-  }
-
-  .md3-top-app-bar__action:hover::after,
-  .md3-top-app-bar__action:focus-visible::after {
-    opacity: 1;
-  }
-
-  .md3-top-app-bar__action--active {
-    color: var(--md-sys-color-primary);
-    background: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
-  }
-
-  .md3-top-app-bar__action--icon {
-    padding-inline: 0.5rem;
   }
 
   .app-footer {
