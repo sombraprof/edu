@@ -18,6 +18,7 @@
     "report:observability": "node scripts/report-content-metrics.mjs",
     "report:observability:check": "node scripts/report-content-metrics.mjs --check",
     "report:governance": "node scripts/generate-governance-alert.mjs",
+    "report:governance:history": "node scripts/report-governance-history.mjs",
     "report:courses": "node scripts/report-course-summary.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
