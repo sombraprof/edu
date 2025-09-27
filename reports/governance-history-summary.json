@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2025-09-26T23:47:03.973Z",
+  "runs": 3,
+  "weeks": [
+    {
+      "week": "2025-W39",
+      "period": {
+        "start": "2025-09-22",
+        "end": "2025-09-28"
+      },
+      "runs": 3,
+      "first": {
+        "generatedAt": "2025-09-26T23:07:28.105Z",
+        "validation": {
+          "problems": 0,
+          "warnings": 4
+        },
+        "observability": {
+          "legacyBlocks": 28,
+          "legacyLessons": 27,
+          "exercisesWithoutMetadata": 0,
+          "supplementsWithoutMetadata": 0
+        }
+      },
+      "latest": {
+        "generatedAt": "2025-09-26T23:47:02.143Z",
+        "validation": {
+          "problems": 0,
+          "warnings": 4
+        },
+        "observability": {
+          "legacyBlocks": 28,
+          "legacyLessons": 27,
+          "exercisesWithoutMetadata": 0,
+          "supplementsWithoutMetadata": 0
+        }
+      },
+      "deltaWithinWeek": {
+        "validation": {
+          "problems": 0,
+          "warnings": 0
+        },
+        "observability": {
+          "legacyBlocks": 0,
+          "legacyLessons": 0,
+          "exercisesWithoutMetadata": 0,
+          "supplementsWithoutMetadata": 0
+        }
+      },
+      "deltaSincePreviousWeek": null
+    }
+  ],
+  "latest": {
+    "generatedAt": "2025-09-26T23:47:02.143Z",
+    "validation": {
+      "problems": 0,
+      "warnings": 4
+    },
+    "observability": {
+      "legacyBlocks": 28,
+      "legacyLessons": 27,
+      "exercisesWithoutMetadata": 0,
+      "supplementsWithoutMetadata": 0
+    }
+  },
+  "previous": {
+    "generatedAt": "2025-09-26T23:08:24.294Z",
+    "validation": {
+      "problems": 0,
+      "warnings": 4
+    },
+    "observability": {
+      "legacyBlocks": 28,
+      "legacyLessons": 27,
+      "exercisesWithoutMetadata": 0,
+      "supplementsWithoutMetadata": 0
+    }
+  },
+  "overallDelta": {
+    "validation": {
+      "problems": 0,
+      "warnings": 0
+    },
+    "observability": {
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "exercisesWithoutMetadata": 0,
+      "supplementsWithoutMetadata": 0
+    }
+  }
+}

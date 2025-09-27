@@ -11,6 +11,7 @@ const defaultValidationPath = path.join(reportsRoot, 'content-validation-report.
 const defaultObservabilityPath = path.join(reportsRoot, 'content-observability.json');
 const defaultMarkdownPath = path.join(reportsRoot, 'governance-alert.md');
 const defaultMetaPath = path.join(reportsRoot, 'governance-alert.json');
+const defaultHistoryPath = path.join(reportsRoot, 'governance-history.json');
 
 function parseArgs(argv) {
   const options = {
@@ -18,6 +19,7 @@ function parseArgs(argv) {
     observabilityPath: defaultObservabilityPath,
     markdownPath: defaultMarkdownPath,
     metaPath: defaultMetaPath,
+    historyPath: defaultHistoryPath,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -33,6 +35,9 @@ function parseArgs(argv) {
       i += 1;
     } else if (arg === '--meta' && argv[i + 1]) {
       options.metaPath = path.resolve(repoRoot, argv[i + 1]);
+      i += 1;
+    } else if (arg === '--history' && argv[i + 1]) {
+      options.historyPath = path.resolve(repoRoot, argv[i + 1]);
       i += 1;
     } else if (arg === '--help' || arg === '-h') {
       printUsage();
@@ -50,7 +55,8 @@ function printUsage() {
       '  --validation <arquivo>      Caminho para o JSON de validação (padrão: reports/content-validation-report.json)\n' +
       '  --observability <arquivo>   Caminho para o JSON de observabilidade (padrão: reports/content-observability.json)\n' +
       '  --output <arquivo>          Caminho do Markdown gerado (padrão: reports/governance-alert.md)\n' +
-      '  --meta <arquivo>            Caminho do JSON de metadados gerado (padrão: reports/governance-alert.json)\n'
+      '  --meta <arquivo>            Caminho do JSON de metadados gerado (padrão: reports/governance-alert.json)\n' +
+      '  --history <arquivo>         Caminho do JSON histórico para comparação (padrão: reports/governance-history.json)\n'
   );
 }
 
@@ -241,6 +247,42 @@ function buildMarkdown(summary) {
   } else {
     lines.push('- Relatório de observabilidade indisponível.');
   }
+  if (summary.trend) {
+    lines.push('');
+    lines.push('### Evolução em relação à última execução');
+    lines.push('');
+    const { trend } = summary;
+    const entries = [
+      {
+        label: 'Problemas de validação',
+        delta: trend.validationProblems,
+      },
+      {
+        label: 'Avisos de validação',
+        delta: trend.validationWarnings,
+      },
+      {
+        label: 'Blocos legados',
+        delta: trend.legacyBlocks,
+      },
+      {
+        label: 'Lições com blocos legados',
+        delta: trend.legacyLessons,
+      },
+      {
+        label: 'Exercícios sem metadados',
+        delta: trend.exercisesWithoutMetadata,
+      },
+      {
+        label: 'Suplementos sem metadados',
+        delta: trend.supplementsWithoutMetadata,
+      },
+    ];
+    for (const entry of entries) {
+      lines.push(`- ${entry.label}: ${formatDelta(entry.delta)}`);
+    }
+  }
+
   lines.push('');
 
   if (summary.courses.length === 0) {
@@ -332,6 +374,7 @@ function buildMeta({
   generatedAt,
   hasValidationReport,
   hasObservabilityReport,
+  trend,
 }) {
   const hasProblems = validation.totals.problems > 0;
   const hasWarnings =
@@ -354,6 +397,73 @@ function buildMeta({
       totalLegacyBlocks,
       shouldOpenIssue,
     },
+    trend,
+  };
+}
+
+function formatDelta(value) {
+  const formatted = formatNumber(Math.abs(value));
+  if (value > 0) {
+    return `▲ +${formatted}`;
+  }
+  if (value < 0) {
+    return `▼ -${formatted}`;
+  }
+  return '— (sem alteração)';
+}
+
+async function loadHistory(historyPath) {
+  if (!(await fileExists(historyPath))) {
+    return [];
+  }
+
+  try {
+    const contents = await fs.readFile(historyPath, 'utf8');
+    const parsed = JSON.parse(contents);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.warn(
+      `Não foi possível ler o histórico em ${path.relative(repoRoot, historyPath)}:`,
+      error
+    );
+    return [];
+  }
+}
+
+function buildSnapshot(meta) {
+  return {
+    generatedAt: meta.generatedAt,
+    validation: {
+      problems: meta.validationTotals.problems,
+      warnings: meta.validationTotals.warnings,
+    },
+    observability: {
+      legacyBlocks: meta.observabilityTotals.legacyBlocks,
+      legacyLessons: meta.observabilityTotals.legacyLessons,
+      exercisesWithoutMetadata: meta.observabilityTotals.exercisesWithoutMetadata,
+      supplementsWithoutMetadata: meta.observabilityTotals.supplementsWithoutMetadata,
+    },
+  };
+}
+
+function computeTrend(currentSnapshot, previousSnapshot) {
+  if (!previousSnapshot) {
+    return null;
+  }
+
+  return {
+    validationProblems: currentSnapshot.validation.problems - previousSnapshot.validation.problems,
+    validationWarnings: currentSnapshot.validation.warnings - previousSnapshot.validation.warnings,
+    legacyBlocks:
+      currentSnapshot.observability.legacyBlocks - previousSnapshot.observability.legacyBlocks,
+    legacyLessons:
+      currentSnapshot.observability.legacyLessons - previousSnapshot.observability.legacyLessons,
+    exercisesWithoutMetadata:
+      currentSnapshot.observability.exercisesWithoutMetadata -
+      previousSnapshot.observability.exercisesWithoutMetadata,
+    supplementsWithoutMetadata:
+      currentSnapshot.observability.supplementsWithoutMetadata -
+      previousSnapshot.observability.supplementsWithoutMetadata,
   };
 }
 
@@ -367,6 +477,7 @@ async function main() {
   const options = parseArgs(process.argv.slice(2));
   await fs.mkdir(path.dirname(options.markdownPath), { recursive: true });
   await fs.mkdir(path.dirname(options.metaPath), { recursive: true });
+  await fs.mkdir(path.dirname(options.historyPath), { recursive: true });
 
   const hasValidation = await fileExists(options.validationPath);
   const hasObservability = await fileExists(options.observabilityPath);
@@ -380,6 +491,9 @@ async function main() {
   const generatedAt = new Date().toISOString();
 
   const courses = mergeCourseSummaries(validation.courses, observability.courses);
+  const history = await loadHistory(options.historyPath);
+  const previousSnapshot = history.length > 0 ? history[history.length - 1] : null;
+
   const summary = {
     generatedAt,
     hasValidationReport: hasValidation,
@@ -393,16 +507,38 @@ async function main() {
     observability,
     metadataIssues: observability.metadataIssues,
     courses,
+    trend: null,
   };
+
+  const currentSnapshot = {
+    generatedAt,
+    validation: {
+      problems: summary.validation.totals.problems,
+      warnings: summary.validation.totals.warnings,
+    },
+    observability: {
+      legacyBlocks: summary.observability.totals.legacyBlocks,
+      legacyLessons: summary.observability.totals.legacyLessons,
+      exercisesWithoutMetadata: summary.observability.totals.exercisesWithoutMetadata,
+      supplementsWithoutMetadata: summary.observability.totals.supplementsWithoutMetadata,
+    },
+  };
+
+  const trend = computeTrend(currentSnapshot, previousSnapshot);
+  summary.trend = trend;
 
   const markdown = buildMarkdown(summary);
   const meta = buildMeta(summary);
+  const snapshot = buildSnapshot(meta);
+  const updatedHistory = [...history, snapshot];
 
   await fs.writeFile(options.markdownPath, `${markdown}\n`, 'utf8');
   await fs.writeFile(options.metaPath, `${JSON.stringify(meta, null, 2)}\n`, 'utf8');
+  await fs.writeFile(options.historyPath, `${JSON.stringify(updatedHistory, null, 2)}\n`, 'utf8');
 
   console.log(`Resumo de governança salvo em ${path.relative(repoRoot, options.markdownPath)}`);
   console.log(`Metadados do alerta salvos em ${path.relative(repoRoot, options.metaPath)}`);
+  console.log(`Histórico atualizado em ${path.relative(repoRoot, options.historyPath)}`);
 }
 
 function mergeCourseSummaries(validationCourses, observabilityCoursesMap) {

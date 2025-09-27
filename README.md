@@ -1,4 +1,4 @@
-# EDU · Courses Hub
+﻿# EDU · Courses Hub
 
 Vue 3 + Vite application that centralises the course material of Prof. Tiago Sombra. The interface follows Material Design 3, uses a shared utility library for typography/surfaces/elevations and renders structured JSON content through reusable Vue components.
 
@@ -71,7 +71,9 @@ Cards, chips, badges and buttons already consume these tokens internally. When b
 - `npm run report:observability` – consolida métricas de conteúdo em `reports/content-observability.json`, incluindo cobertura de blocos MD3 vs. legados, lições disponíveis por curso e status dos metadados de exercícios/suplementos.
 - `npm run report:observability -- --output <arquivo>` – grava o relatório em outro caminho; combine com `--check` para falhar quando houver exercícios ou suplementos sem metadados obrigatórios (`generatedBy`, `model`, `timestamp`).
 - `npm run report:observability:check` – atalho para rodar o relatório com a verificação de metadados (usado no CI/CD).
-- `npm run report:governance` – gera `reports/governance-alert.{md,json}` cruzando validação e observabilidade para destacar cursos com problemas/avisos, blocos legados e lacunas de metadados.
+- `npm run report:governance` – gera `reports/governance-alert.{md,json}` cruzando validação e observabilidade, registra a evolução em `reports/governance-history.json` e destaca cursos com problemas/avisos, blocos legados e lacunas de metadados.
+- `npm run report:governance:history` – sintetiza as execuções em `reports/governance-history-summary.json` e publica uma tabela em `reports/governance-history.md` com a evolução semanal.
+- `npm run report:governance -- --history <arquivo>` – opcionalmente escreve o histórico consolidado em outro caminho para acompanhar a tendência em automações externas.
 - O relatório consolidado pode ser consultado diretamente na interface em `/relatorios/validacao-conteudo`, acessível pelo atalho "Relatório de validação" no cabeçalho.
 
 These scripts are optional; new content should be authored directly in the structured JSON format.
@@ -86,7 +88,7 @@ These scripts are optional; new content should be authored directly in the struc
 
 - The project uses `vite-plugin-pwa` with SPA fallback for GitHub Pages.
 - O workflow em `.github/workflows/deploy.yml` valida o conteúdo com `npm run validate:report`, gera o relatório de observabilidade com `npm run report:observability:check` e publica ambos os artefatos. Caso algum curso tenha exercícios ou suplementos sem metadados obrigatórios, a pipeline falha antes do build/deploy.
-- Independentemente do resultado, o workflow produz `reports/governance-alert.md`/`.json` e atualiza uma issue automática (`governanca-automatica`) com o resumo das pendências (problemas, avisos, blocos legados, metadados faltantes) para facilitar o acompanhamento contínuo.
+- Independentemente do resultado, o workflow produz `reports/governance-alert.md`/`.json`, atualiza `reports/governance-history.json` com a fotografia mais recente, deriva `reports/governance-history-summary.json` + `reports/governance-history.md` e mantém uma issue automática (`governanca-automatica`) com o resumo das pendências e a tabela histórica mais recente.
 
 ## Quality Checklist
 

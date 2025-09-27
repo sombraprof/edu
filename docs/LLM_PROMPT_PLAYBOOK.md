@@ -9,7 +9,8 @@ Guia operacional para gerar e manter conteúdo do EDU com apoio de modelos de li
 - Responder em português para o conteúdo e em inglês para comentários no código.
 - Após gerar, execute `npm run validate:content` (ou `npm run validate:report` para guardar o relatório consolidado com os metadados) e revise manualmente antes de publicar.
 - Gere `npm run report:observability` para confirmar quantas lições ainda dependem de blocos legados e se os metadados de exercícios/suplementos continuam completos.
-- Gere `npm run report:governance` para cruzar validação + observabilidade e obter um resumo por curso dos blocos legados, avisos/problemas e metadados pendentes (o arquivo `.md` é usado pela automação de governança).
+- Gere `npm run report:governance` para cruzar validação + observabilidade, atualizar `reports/governance-history.json` e obter um resumo por curso dos blocos legados, avisos/problemas e metadados pendentes (o arquivo `.md` é usado pela automação de governança).
+- Em seguida execute `npm run report:governance:history` para gerar a tabela semanal (`reports/governance-history.md`) anexada automaticamente à issue `governanca-automatica`.
 - Quando salvar o relatório, verifique a seção `generation` (ou a página `/relatorios/validacao-conteudo`) para confirmar autoria, modelo e timestamps de cada exercício/suplemento antes do envio.
 - Preserve `meta.json` com `id` alinhado ao diretório, `institution` dentro da lista canônica e descrições com pelo menos 60 caracteres úteis sempre que ajustar informações do curso.
 - Quando precisar de destaques visuais em grade, use `cardGrid` com `cards[]` (cada item precisa de `title` + `content`/`body`) e variantes canônicas (`info`, `good-practice`, `primary`, etc.).
@@ -89,6 +90,7 @@ Retorne apenas o trecho Vue modificado.
 - [ ] Relatório consolidado (`reports/content-validation-report.json`) exibe autoria/modelo coerentes para as entradas alteradas.
 - [ ] Relatório de observabilidade (`reports/content-observability.json`) mostra redução contínua de blocos legados e metadados completos.
 - [ ] Relatório de governança (`reports/governance-alert.md`) reflete o estado esperado e destaca apenas pendências conhecidas (issue `governanca-automatica` sem surpresas).
+- [ ] Tabela histórica (`reports/governance-history.md`) mostra evolução coerente com os ajustes realizados.
 - [ ] `npm run report:observability:check` passa localmente (garante que a pipeline não falhará por metadados ausentes).
 - [ ] Pelo menos um bloco de engajamento (`callout`, `checklist`, `timeline`).
 - [ ] Se houver `cardGrid`, todos os cartões têm título + texto e variantes dentro do conjunto permitido.

@@ -56,6 +56,15 @@ jobs:
         if: always()
         run: npm run report:governance
 
+      - name: Generate governance history snapshot
+        if: always()
+        run: npm run report:governance:history
+
+      - name: Compose governance issue body
+        if: always()
+        run: |
+          node -e "const fs=require('fs');const path=require('path');const reports=path.join(process.cwd(),'reports');const base=path.join(reports,'governance-alert.md');const history=path.join(reports,'governance-history.md');const target=path.join(reports,'governance-issue.md');const parts=[];if(fs.existsSync(base)){parts.push(fs.readFileSync(base,'utf8').trim());}if(fs.existsSync(history)){parts.push(fs.readFileSync(history,'utf8').trim());}const body=parts.filter(Boolean).join('\n\n');fs.writeFileSync(target, body ? body + '\n' : body);"
+
       - name: Upload governance summary
         if: always()
         uses: actions/upload-artifact@v4
@@ -64,6 +73,9 @@ jobs:
           path: |
             reports/governance-alert.md
             reports/governance-alert.json
+            reports/governance-history.md
+            reports/governance-history-summary.json
+            reports/governance-issue.md
           if-no-files-found: error
 
       - name: Atualizar issue de governança
@@ -75,7 +87,7 @@ jobs:
             const fs = require('fs');
             const path = require('path');
             const issueTitle = 'Governança de conteúdo: alerta automático';
-            const summaryPath = path.join(process.cwd(), 'reports', 'governance-alert.md');
+            const summaryPath = path.join(process.cwd(), 'reports', 'governance-issue.md');
             const metaPath = path.join(process.cwd(), 'reports', 'governance-alert.json');
 
             if (!fs.existsSync(metaPath)) {
@@ -84,8 +96,12 @@ jobs:
             }
 
             const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
-            const body = fs.existsSync(summaryPath)
-              ? fs.readFileSync(summaryPath, 'utf8')
+            const fallbackPath = path.join(process.cwd(), 'reports', 'governance-alert.md');
+            const summaryCandidate = fs.existsSync(summaryPath)
+              ? summaryPath
+              : fallbackPath;
+            const body = fs.existsSync(summaryCandidate)
+              ? fs.readFileSync(summaryCandidate, 'utf8')
               : 'Relatório de governança indisponível.';
 
             const { data: existingIssues } = await github.rest.issues.listForRepo({
