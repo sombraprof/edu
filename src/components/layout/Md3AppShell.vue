@@ -2,8 +2,10 @@
   <div class="md3-app-shell">
     <div
       v-if="hasNavigation"
+      :id="drawerId"
       class="md3-app-shell__drawer-wrapper"
       :class="{ 'md3-app-shell__drawer-wrapper--open': drawerOpen }"
+      :aria-hidden="drawerOpen ? undefined : 'true'"
     >
       <Md3NavigationDrawer
         variant="modal"
@@ -47,6 +49,8 @@
             v-if="hasNavigation"
             type="button"
             class="md3-top-app-bar__action md3-top-app-bar__action--icon"
+            :aria-controls="drawerId"
+            :aria-expanded="drawerOpen"
             @click="toggleDrawer"
           >
             <Menu class="md-icon md-icon--sm" aria-hidden="true" />
@@ -177,6 +181,7 @@ const route = useRoute();
 const router = useRouter();
 const slots = useSlots();
 const activeNavigationId = ref('');
+const drawerId = 'app-shell-drawer';
 const drawerOpen = ref(false);
 let mediaQuery: MediaQueryList | null = null;
 let mediaQueryHandler: ((event: MediaQueryListEvent) => void) | null = null;
