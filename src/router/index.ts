@@ -5,6 +5,11 @@ import CourseHome from '../pages/CourseHome.vue';
 import LessonView from '../pages/LessonView.vue';
 import ExerciseView from '../pages/ExerciseView.vue';
 import ValidationReport from '../pages/ValidationReport.vue';
+const ProfessorDashboard = () => import('../pages/professor/ProfessorDashboard.vue');
+const ProfessorIngestion = () => import('../pages/professor/IngestionWorkbench.vue');
+const ProfessorEditor = () => import('../pages/professor/EditorWorkbench.vue');
+const ProfessorValidation = () => import('../pages/professor/ValidationWorkbench.vue');
+const ProfessorPublication = () => import('../pages/professor/PublicationWorkbench.vue');
 
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: Home },
@@ -22,6 +27,31 @@ const routes: RouteRecordRaw[] = [
     path: '/relatorios/validacao-conteudo',
     name: 'validation-report',
     component: ValidationReport,
+  },
+  {
+    path: '/professor',
+    name: 'professor-dashboard',
+    component: ProfessorDashboard,
+  },
+  {
+    path: '/professor/ingestao',
+    name: 'professor-ingestion',
+    component: ProfessorIngestion,
+  },
+  {
+    path: '/professor/editor',
+    name: 'professor-editor',
+    component: ProfessorEditor,
+  },
+  {
+    path: '/professor/validacao',
+    name: 'professor-validation',
+    component: ProfessorValidation,
+  },
+  {
+    path: '/professor/publicacao',
+    name: 'professor-publication',
+    component: ProfessorPublication,
   },
   // Fallback to home for unknown routes
   { path: '/:pathMatch(.*)*', redirect: '/' },
