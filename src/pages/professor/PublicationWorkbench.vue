@@ -64,24 +64,30 @@
                   </p>
                 </div>
                 <div class="flex flex-wrap gap-2 self-start md:self-auto">
-                  <button
+                  <Md3Button
                     type="button"
-                    class="btn btn-text inline-flex items-center gap-2"
+                    variant="text"
+                    class="inline-flex items-center gap-2"
                     :disabled="gitStatusLoading"
                     @click="refreshGitStatus"
                   >
-                    <RefreshCcw class="md-icon md-icon--sm" aria-hidden="true" />
+                    <template #leading>
+                      <RefreshCcw class="md-icon md-icon--sm" aria-hidden="true" />
+                    </template>
                     {{ gitStatusLoading ? 'Atualizando…' : 'Atualizar status' }}
-                  </button>
-                  <button
+                  </Md3Button>
+                  <Md3Button
                     type="button"
-                    class="btn btn-tonal inline-flex items-center gap-2"
+                    variant="tonal"
+                    class="inline-flex items-center gap-2"
                     :disabled="gitFetchLoading"
                     @click="verifyMainUpdates"
                   >
-                    <Download class="md-icon md-icon--sm" aria-hidden="true" />
+                    <template #leading>
+                      <Download class="md-icon md-icon--sm" aria-hidden="true" />
+                    </template>
                     {{ gitFetchLoading ? 'Verificando main…' : 'Buscar atualizações da main' }}
-                  </button>
+                  </Md3Button>
                 </div>
               </div>
 
@@ -236,15 +242,18 @@
               Peça para o serviço auxiliar criar ou alternar automaticamente para a branch informada
               a partir da <code>main</code> atualizada.
             </p>
-            <button
+            <Md3Button
               type="button"
-              class="btn btn-filled inline-flex items-center gap-2 self-start md:self-auto"
+              variant="filled"
+              class="inline-flex items-center gap-2 self-start md:self-auto"
               :disabled="gitCheckoutLoading"
               @click="createWorkingBranch"
             >
-              <GitBranch class="md-icon md-icon--sm" aria-hidden="true" />
+              <template #leading>
+                <GitBranch class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
               {{ gitCheckoutLoading ? 'Criando branch…' : 'Criar branch automaticamente' }}
-            </button>
+            </Md3Button>
           </div>
 
           <div
@@ -320,31 +329,36 @@
               </p>
             </div>
             <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
-              <button
+              <Md3Button
                 type="button"
-                class="btn btn-tonal inline-flex items-center gap-2"
+                variant="tonal"
+                class="inline-flex items-center gap-2"
                 :disabled="gitStageLoading || artifactPaths.length === 0"
                 @click="stageCurrentArtifacts"
               >
                 {{ gitStageLoading ? 'Adicionando…' : 'Adicionar com git add' }}
-              </button>
-              <button
+              </Md3Button>
+              <Md3Button
                 type="button"
-                class="btn btn-filled inline-flex items-center gap-2"
+                variant="filled"
+                class="inline-flex items-center gap-2"
                 :disabled="gitCommitLoading"
                 @click="commitCurrentArtifacts"
               >
                 {{ gitCommitLoading ? 'Registrando commit…' : 'Gerar commit agora' }}
-              </button>
-              <button
+              </Md3Button>
+              <Md3Button
                 type="button"
-                class="btn btn-filled inline-flex items-center gap-2"
+                variant="filled"
+                class="inline-flex items-center gap-2"
                 :disabled="gitPushLoading || !canPushAutomatically"
                 @click="pushCurrentBranch"
               >
-                <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+                <template #leading>
+                  <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+                </template>
                 {{ gitPushLoading ? 'Enviando branch…' : 'Enviar branch com git push' }}
-              </button>
+              </Md3Button>
             </div>
           </div>
 
