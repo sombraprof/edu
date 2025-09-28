@@ -5,6 +5,7 @@
         <button
           class="pill-item"
           :class="{ 'pill-item--active': contentFilter === 'all' }"
+          :aria-pressed="contentFilter === 'all'"
           type="button"
           @click="updateSection('all')"
         >
@@ -13,6 +14,7 @@
         <button
           class="pill-item"
           :class="{ 'pill-item--active': contentFilter === 'lesson' }"
+          :aria-pressed="contentFilter === 'lesson'"
           type="button"
           @click="updateSection('lesson')"
         >
@@ -21,6 +23,7 @@
         <button
           class="pill-item"
           :class="{ 'pill-item--active': contentFilter === 'exercise' }"
+          :aria-pressed="contentFilter === 'exercise'"
           type="button"
           @click="updateSection('exercise')"
         >
@@ -31,6 +34,7 @@
         <button
           class="pill-item"
           :class="{ 'pill-item--active': viewMode === 'grid' }"
+          :aria-pressed="viewMode === 'grid'"
           type="button"
           @click="viewMode = 'grid'"
         >
@@ -40,6 +44,7 @@
         <button
           class="pill-item"
           :class="{ 'pill-item--active': viewMode === 'list' }"
+          :aria-pressed="viewMode === 'list'"
           type="button"
           @click="viewMode = 'list'"
         >
