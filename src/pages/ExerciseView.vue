@@ -20,11 +20,11 @@
       <header class="md-stack md-stack-3">
         <div class="md-stack md-stack-2">
           <p
-            class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]/80"
+            class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
           >
             Exercício
           </p>
-          <h2 class="text-headline-medium font-semibold text-[var(--md-sys-color-on-surface)]">
+          <h2 class="text-headline-medium font-semibold text-on-surface">
             {{ exerciseTitle }}
           </h2>
           <p v-if="exerciseSummary" class="text-body-large !mt-4">{{ exerciseSummary }}</p>
@@ -37,7 +37,7 @@
         :is="exerciseComponent"
         class="lesson-content prose max-w-none dark:prose-invert"
       />
-      <p v-else class="text-body-medium text-[var(--md-sys-color-on-surface-variant)]">
+      <p v-else class="text-body-medium text-on-surface-variant">
         Conteúdo deste exercício ainda não está disponível.
       </p>
     </article>

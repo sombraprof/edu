@@ -7,9 +7,7 @@
           :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-3)' }"
         >
           <span class="chip w-fit">Disciplinas</span>
-          <h1 class="text-display-small font-semibold text-[var(--md-sys-color-on-surface)]">
-            Escolha sua disciplina
-          </h1>
+          <h1 class="text-display-small font-semibold text-on-surface">Escolha sua disciplina</h1>
           <p class="supporting-text text-body-large">
             Materiais, exercícios e referências de todas as turmas do professor Tiago Sombra em um
             único lugar. Use a busca para encontrar rapidamente a disciplina desejada.
@@ -17,24 +15,20 @@
         </div>
         <div class="grid gap-3 sm:grid-cols-2 md:w-64 md:grid-cols-1">
           <div class="surface-tonal md-shape-large p-4 shadow-elevation-1">
-            <p
-              class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]"
-            >
+            <p class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant">
               Disciplinas
             </p>
-            <p class="text-display-small font-semibold text-[var(--md-sys-color-on-surface)]">
+            <p class="text-display-small font-semibold text-on-surface">
               {{ courses.length }}
             </p>
           </div>
           <div
             class="card card--compact border-none bg-[var(--md-sys-color-surface-container-high)] p-4"
           >
-            <p
-              class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]"
-            >
+            <p class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant">
               Resultados
             </p>
-            <p class="text-display-small font-semibold text-[var(--md-sys-color-on-surface)]">
+            <p class="text-display-small font-semibold text-on-surface">
               {{ filtered.length }}
             </p>
           </div>
@@ -64,12 +58,10 @@
           >
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="flex flex-col gap-2">
-                <span class="text-label-medium text-[var(--md-sys-color-on-surface-variant)]"
-                  >Buscar disciplina</span
-                >
+                <span class="text-label-medium text-on-surface-variant">Buscar disciplina</span>
                 <div class="relative">
                   <Search
-                    class="md-icon md-icon--sm pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--md-sys-color-on-surface-variant)]"
+                    class="md-icon md-icon--sm pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant"
                   />
                   <input
                     class="input pl-12"
@@ -81,7 +73,7 @@
                 </div>
               </label>
               <label class="flex flex-col gap-2">
-                <span class="text-label-medium text-[var(--md-sys-color-on-surface-variant)]"
+                <span class="text-label-medium text-on-surface-variant"
                   >Filtrar por instituição</span
                 >
                 <div class="relative">
@@ -90,13 +82,13 @@
                     <option v-for="option in institutions" :key="option">{{ option }}</option>
                   </select>
                   <ChevronDown
-                    class="md-icon md-icon--sm pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--md-sys-color-on-surface-variant)]"
+                    class="md-icon md-icon--sm pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant"
                   />
                 </div>
               </label>
             </div>
             <div
-              class="flex flex-wrap items-center gap-3 md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]"
+              class="flex flex-wrap items-center gap-3 md-sys-typescale-body-small text-on-surface-variant"
             >
               <span class="chip">Busca ativa: {{ q || '-' }}</span>
               <span class="chip">instituição: {{ inst || 'Todas' }}</span>
@@ -111,9 +103,7 @@
 
     <section class="md-stack md-stack-4">
       <div class="md-stack md-stack-2">
-        <h2 class="text-title-large font-semibold text-[var(--md-sys-color-on-surface)]">
-          Disciplinas disponíveis
-        </h2>
+        <h2 class="text-title-large font-semibold text-on-surface">Disciplinas disponíveis</h2>
         <p class="supporting-text">
           Mostrando {{ filtered.length }} de {{ courses.length }} disciplinas cadastrados.
         </p>
