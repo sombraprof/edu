@@ -167,6 +167,11 @@ function formatNumber(value: number): string {
   flex-direction: column;
   gap: var(--md-sys-spacing-4);
   box-shadow: var(--shadow-elevation-1);
+  --lesson-chart-ring: color-mix(
+    in srgb,
+    var(--md-sys-color-outline-variant) 60%,
+    var(--md-sys-color-surface)
+  );
 }
 
 .lesson-chart__header {
@@ -200,7 +205,7 @@ function formatNumber(value: number): string {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 8px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 8px var(--lesson-chart-ring);
 }
 
 .lesson-chart__pie-total {
@@ -275,7 +280,7 @@ function formatNumber(value: number): string {
   width: 1rem;
   height: 1rem;
   border-radius: 0.25rem;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 0 0 1px var(--lesson-chart-ring);
 }
 
 .lesson-chart__legend-text {
