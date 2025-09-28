@@ -1,22 +1,21 @@
 <template>
-  <div class="card p-6 my-8">
-    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-2">
-      {{ data.title }}
-    </h3>
-    <p v-if="data.description" class="md-typescale-body-large text-on-surface-variant mb-6">
-      {{ data.description }}
-    </p>
+  <section class="lesson-checklist">
+    <header class="lesson-checklist__header">
+      <h3 class="lesson-checklist__title">{{ data.title }}</h3>
+      <p v-if="data.description" class="lesson-checklist__description">{{ data.description }}</p>
+    </header>
 
-    <ul :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }">
-      <li v-for="(item, index) in data.items" :key="index" class="flex items-start gap-3">
-        <CheckCircle class="md-icon md-icon--md text-[var(--md-sys-color-primary)] flex-shrink-0" />
-        <p class="md-typescale-body-large text-on-surface-variant" v-html="sanitizeItem(item)"></p>
+    <ul class="lesson-checklist__list" role="list">
+      <li v-for="(item, index) in sanitizedItems" :key="index" class="lesson-checklist__item">
+        <CheckCircle class="lesson-checklist__icon" aria-hidden="true" />
+        <p class="lesson-checklist__text" v-html="item"></p>
       </li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import { CheckCircle } from 'lucide-vue-next';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
@@ -26,11 +25,74 @@ interface ChecklistData {
   items: string[];
 }
 
-defineProps<{
+const props = defineProps<{
   data: ChecklistData;
 }>();
 
-function sanitizeItem(value: unknown): string {
-  return sanitizeHtml(value);
-}
+const sanitizedItems = computed(() => props.data.items.map((item) => sanitizeHtml(item)));
 </script>
+
+<style scoped>
+.lesson-checklist {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-5);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-checklist__title {
+  font-size: var(--md-sys-typescale-headline-small-size, 1.5rem);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.lesson-checklist__description {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-large-size, 1rem);
+}
+
+.lesson-checklist__list {
+  display: grid;
+  gap: var(--md-sys-spacing-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson-checklist__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--md-sys-spacing-3);
+  align-items: start;
+}
+
+.lesson-checklist__icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--md-sys-color-success);
+}
+
+.lesson-checklist__icon :deep(svg) {
+  width: 100%;
+  height: 100%;
+}
+
+.lesson-checklist__text {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-large-size, 1rem);
+}
+
+.lesson-checklist :deep(a) {
+  color: var(--md-sys-color-primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .lesson-checklist {
+    padding: var(--md-sys-spacing-5);
+  }
+}
+</style>

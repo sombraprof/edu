@@ -1,18 +1,18 @@
 <template>
-  <div class="card p-6 my-8">
-    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-4">
-      {{ data.title }}
-    </h3>
+  <section class="lesson-bibliography">
+    <header class="lesson-bibliography__header">
+      <h3 class="lesson-bibliography__title">{{ data.title }}</h3>
+    </header>
 
-    <ul :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }">
+    <ul class="lesson-bibliography__list" role="list">
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="md-typescale-body-large text-on-surface-variant lesson-content"
+        class="lesson-bibliography__item"
         v-html="item"
       ></li>
     </ul>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -63,10 +63,53 @@ const items = computed(() => {
       .filter(Boolean);
   }
 
-  return [];
+  return [] as string[];
 });
 
 function sanitizeEntry(value: unknown): string {
   return sanitizeHtml(value);
 }
 </script>
+
+<style scoped>
+.lesson-bibliography {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-5);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-bibliography__title {
+  font-size: var(--md-sys-typescale-headline-small-size, 1.5rem);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.lesson-bibliography__list {
+  display: grid;
+  gap: var(--md-sys-spacing-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson-bibliography__item {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-large-size, 1rem);
+  line-height: 1.6;
+}
+
+.lesson-bibliography :deep(a) {
+  color: var(--md-sys-color-primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .lesson-bibliography {
+    padding: var(--md-sys-spacing-5);
+  }
+}
+</style>

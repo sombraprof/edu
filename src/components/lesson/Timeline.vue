@@ -1,22 +1,22 @@
 <template>
-  <div class="card timeline">
-    <h3 class="timeline__title">
-      {{ data.title }}
-    </h3>
-    <p v-if="data.description" class="timeline__description">{{ data.description }}</p>
+  <section class="lesson-timeline">
+    <header class="lesson-timeline__header">
+      <h3 class="lesson-timeline__title">{{ data.title }}</h3>
+      <p v-if="data.description" class="lesson-timeline__description">{{ data.description }}</p>
+    </header>
 
-    <ol class="timeline__steps">
-      <li v-for="(step, index) in data.steps" :key="index" class="timeline__item">
-        <div class="timeline__marker">
+    <ol class="lesson-timeline__steps" role="list">
+      <li v-for="(step, index) in data.steps" :key="index" class="lesson-timeline__step">
+        <div class="lesson-timeline__marker">
           <span>{{ index + 1 }}</span>
         </div>
-        <div class="timeline__body">
-          <h4 class="timeline__step-title">{{ step.title }}</h4>
-          <p class="timeline__step-text" v-html="sanitizeContent(step.content)"></p>
+        <div class="lesson-timeline__body">
+          <h4 class="lesson-timeline__step-title">{{ step.title }}</h4>
+          <p class="lesson-timeline__step-text" v-html="sanitizeContent(step.content)"></p>
         </div>
       </li>
     </ol>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -43,27 +43,28 @@ function sanitizeContent(value: unknown): string {
 </script>
 
 <style scoped>
-.timeline {
+.lesson-timeline {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-6) var(--md-sys-spacing-7);
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-5);
-  padding: var(--md-sys-spacing-6) var(--md-sys-spacing-7);
-  margin: var(--md-sys-spacing-6) 0;
+  box-shadow: var(--shadow-elevation-1);
 }
 
-.timeline__title {
+.lesson-timeline__title {
   font-size: var(--md-sys-typescale-headline-small-size, 1.5rem);
   font-weight: 600;
   color: var(--md-sys-color-on-surface);
 }
 
-.timeline__description {
+.lesson-timeline__description {
   color: var(--md-sys-color-on-surface-variant);
   font-size: var(--md-sys-typescale-body-large-size, 1rem);
-  margin-bottom: var(--md-sys-spacing-2);
 }
 
-.timeline__steps {
+.lesson-timeline__steps {
   position: relative;
   margin: 0;
   padding: 0;
@@ -73,7 +74,7 @@ function sanitizeContent(value: unknown): string {
   gap: var(--md-sys-spacing-7);
 }
 
-.timeline__steps::before {
+.lesson-timeline__steps::before {
   content: '';
   position: absolute;
   left: 1.75rem;
@@ -83,16 +84,16 @@ function sanitizeContent(value: unknown): string {
   background: color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
 }
 
-.timeline__item {
+.lesson-timeline__step {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: var(--md-sys-spacing-4);
   align-items: start;
   position: relative;
-  padding-left: calc(var(--md-sys-spacing-6));
+  padding-left: var(--md-sys-spacing-6);
 }
 
-.timeline__marker {
+.lesson-timeline__marker {
   position: relative;
   z-index: 1;
   width: 3.5rem;
@@ -109,47 +110,51 @@ function sanitizeContent(value: unknown): string {
   box-shadow: var(--shadow-elevation-2);
 }
 
-.timeline__marker span {
+.lesson-timeline__marker span {
   transform: translateY(-1px);
 }
 
-.timeline__body {
+.lesson-timeline__body {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-1);
   padding: var(--md-sys-spacing-4);
   border-radius: var(--md-sys-border-radius-large);
-  background: color-mix(in srgb, var(--md-sys-color-surface-container) 90%, transparent 10%);
+  background: color-mix(in srgb, var(--md-sys-color-surface) 85%, transparent 15%);
   box-shadow: var(--shadow-elevation-1);
 }
 
-.timeline__step-title {
+.lesson-timeline__step-title {
   font-size: var(--md-sys-typescale-title-medium-size, 1.1rem);
   font-weight: 600;
   color: var(--md-sys-color-primary);
 }
 
-.timeline__step-text {
+.lesson-timeline__step-text {
   color: var(--md-sys-color-on-surface-variant);
   font-size: var(--md-sys-typescale-body-medium-size, 0.95rem);
 }
 
+.lesson-timeline :deep(a) {
+  color: var(--md-sys-color-primary);
+  text-decoration: underline;
+}
+
 @media (max-width: 640px) {
-  .timeline {
+  .lesson-timeline {
     padding: var(--md-sys-spacing-5);
-    margin: var(--md-sys-spacing-5) 0;
   }
 
-  .timeline__steps::before {
+  .lesson-timeline__steps::before {
     left: 1.5rem;
   }
 
-  .timeline__item {
+  .lesson-timeline__step {
     grid-template-columns: 1fr;
     padding-left: 0;
   }
 
-  .timeline__marker {
+  .lesson-timeline__marker {
     margin-left: 0;
     margin-bottom: var(--md-sys-spacing-2);
   }

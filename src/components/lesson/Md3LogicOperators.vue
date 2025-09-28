@@ -1,22 +1,19 @@
 <template>
-  <div>
-    <h3>Os Blocos de Construção da Decisão: Operadores Lógicos</h3>
-    <p class="text-body-large">
+  <div class="logic-operators">
+    <h3 class="logic-operators__heading">Os Blocos de Construção da Decisão: Operadores Lógicos</h3>
+    <p class="text-body-large logic-operators__intro">
       Para que um computador possa tomar decisões, ele precisa de avaliar condições. Para isso,
       usamos os operadores lógicos, que são exatamente os mesmos que usamos no nosso raciocínio
       diário.
     </p>
 
     <!-- Operador AND -->
-    <div>
-      <h4
-        class="text-headline-small font-bold text-on-surface"
-        :style="{ marginBottom: 'var(--md-sys-spacing-4)' }"
-      >
+    <div class="logic-operators__group">
+      <h4 class="text-headline-small font-bold text-on-surface logic-operators__title">
         Operador E (AND)
       </h4>
-      <div class="grid md:grid-cols-2" :style="{ gap: 'var(--md-sys-spacing-8)' }">
-        <div class="card shadow-elevation-2 p-6">
+      <div class="logic-operators__section">
+        <div class="card shadow-elevation-2 p-6 logic-operators__explanation">
           <p :style="{ marginBottom: 'var(--md-sys-spacing-4)' }">
             O operador <strong>E</strong> (ou <code class="inline-code">AND</code>) é exigente. Ele
             só resulta em <strong>verdadeiro</strong> se <strong>TODAS</strong> as condições
@@ -50,7 +47,7 @@
           </p>
         </div>
         <TruthTable
-          class="self-stretch"
+          class="logic-operators__table"
           title="Tabela-Verdade do E (AND)"
           description="O resultado só permanece verdadeiro quando todas as entradas são verdadeiras."
           caption="Combinações possíveis para o operador lógico AND."
@@ -63,15 +60,15 @@
     </div>
 
     <!-- Operador OR -->
-    <div class="mt-8">
-      <h4
-        class="text-headline-small font-bold text-on-surface"
-        :style="{ marginBottom: 'var(--md-sys-spacing-4)' }"
-      >
+    <div class="logic-operators__group">
+      <h4 class="text-headline-small font-bold text-on-surface logic-operators__title">
         Operador OU (OR)
       </h4>
-      <div class="grid md:grid-cols-2" :style="{ gap: 'var(--md-sys-spacing-8)' }">
-        <div class="card shadow-elevation-2" :style="{ padding: 'var(--md-sys-spacing-6)' }">
+      <div class="logic-operators__section">
+        <div
+          class="card shadow-elevation-2 logic-operators__explanation"
+          :style="{ padding: 'var(--md-sys-spacing-6)' }"
+        >
           <p :style="{ marginBottom: 'var(--md-sys-spacing-4)' }">
             O operador <strong>OU</strong> (ou <code class="inline-code">OR</code>) é flexível. Ele
             resulta em <strong>verdadeiro</strong> se <strong>PELO MENOS UMA</strong> das condições
@@ -104,7 +101,7 @@
           </p>
         </div>
         <TruthTable
-          class="self-stretch"
+          class="logic-operators__table"
           title="Tabela-Verdade do OU (OR)"
           description="Basta que uma das condições seja verdadeira para que o resultado seja verdadeiro."
           caption="Saídas do operador lógico OR para cada par de entradas."
@@ -117,15 +114,15 @@
     </div>
 
     <!-- Operador NOT -->
-    <div :style="{ marginTop: 'var(--md-sys-spacing-8)' }">
-      <h4
-        class="text-headline-small font-bold text-on-surface"
-        :style="{ marginBottom: 'var(--md-sys-spacing-4)' }"
-      >
+    <div class="logic-operators__group">
+      <h4 class="text-headline-small font-bold text-on-surface logic-operators__title">
         Operador NÃO (NOT)
       </h4>
-      <div class="grid md:grid-cols-2" :style="{ gap: 'var(--md-sys-spacing-8)' }">
-        <div class="card shadow-elevation-2" :style="{ padding: 'var(--md-sys-spacing-6)' }">
+      <div class="logic-operators__section">
+        <div
+          class="card shadow-elevation-2 logic-operators__explanation"
+          :style="{ padding: 'var(--md-sys-spacing-6)' }"
+        >
           <p :style="{ marginBottom: 'var(--md-sys-spacing-4)' }">
             O operador <strong>NÃO</strong> (ou <code class="inline-code">NOT</code>) simplesmente
             <strong>inverte</strong> o valor de uma condição. O que é verdadeiro torna-se falso, e
@@ -158,7 +155,7 @@
           </p>
         </div>
         <TruthTable
-          class="self-stretch"
+          class="logic-operators__table"
           title="Tabela-Verdade do NÃO (NOT)"
           description="O operador inverte o valor lógico recebido."
           caption="Resultados do operador NOT para cada valor de entrada."
@@ -217,6 +214,48 @@ const notRows: TruthTableRow[] = [
 </script>
 
 <style scoped>
+.logic-operators {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-8);
+}
+
+.logic-operators__heading {
+  font-size: var(--md-sys-typescale-headline-medium-size, 1.75rem);
+  font-weight: 700;
+  color: var(--md-sys-color-on-surface);
+}
+
+.logic-operators__intro {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.logic-operators__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-4);
+}
+
+.logic-operators__title {
+  color: var(--md-sys-color-on-surface);
+}
+
+.logic-operators__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-4);
+}
+
+.logic-operators__explanation {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-3);
+}
+
+.logic-operators__table {
+  width: 100%;
+}
+
 .inline-code {
   background-color: var(--md-sys-color-surface-variant);
   padding: 0.125rem 0.25rem;
