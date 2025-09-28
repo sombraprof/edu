@@ -336,6 +336,15 @@
               >
                 {{ gitCommitLoading ? 'Registrando commit…' : 'Gerar commit agora' }}
               </button>
+              <button
+                type="button"
+                class="btn btn-filled inline-flex items-center gap-2"
+                :disabled="gitPushLoading || !canPushAutomatically"
+                @click="pushCurrentBranch"
+              >
+                <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+                {{ gitPushLoading ? 'Enviando branch…' : 'Enviar branch com git push' }}
+              </button>
             </div>
           </div>
 
@@ -448,6 +457,54 @@
               >{{ gitCommitOutput }}
             </pre>
           </div>
+
+          <div
+            v-if="gitPushError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitPushError }}</p>
+                <p v-if="gitPushResult" class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitPushResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitPushOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitPushOutput }}
+            </pre>
+          </div>
+          <div
+            v-else-if="gitPushResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitPushSuccessMessage }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitPushResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitPushOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitPushOutput }}
+            </pre>
+          </div>
+
+          <p class="text-xs text-on-surface-variant">
+            O serviço executa <code>{{ gitPushCommandPreview }}</code
+            >. {{ gitPushBehaviorHint }}
+          </p>
 
           <p class="text-xs text-on-surface-variant">
             Revise o diff local após executar o commit automático e antes de enviar a branch para o
@@ -657,6 +714,7 @@ import {
   Plus,
   RefreshCcw,
   Trash2,
+  UploadCloud,
 } from 'lucide-vue-next';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
 import {
@@ -665,11 +723,13 @@ import {
   commitTeacherGitChanges,
   fetchTeacherGitStatus,
   fetchTeacherGitUpdates,
+  pushTeacherGitBranch,
   stageTeacherGitPaths,
   teacherAutomationEnabled,
   type TeacherGitCheckoutResult,
   type TeacherGitCommitResult,
   type TeacherGitFetchResult,
+  type TeacherGitPushResult,
   type TeacherGitStageResult,
   type TeacherGitStatus,
 } from './utils/automation';
@@ -711,6 +771,9 @@ const gitStageLoading = ref(false);
 const gitCommitResult = ref<TeacherGitCommitResult | null>(null);
 const gitCommitError = ref<string | null>(null);
 const gitCommitLoading = ref(false);
+const gitPushResult = ref<TeacherGitPushResult | null>(null);
+const gitPushError = ref<string | null>(null);
+const gitPushLoading = ref(false);
 
 const gitBranchSummary = computed(() => {
   if (!gitStatus.value) {
@@ -857,6 +920,32 @@ const gitCommitSkippedMessage = computed(() => {
   }
 
   return 'Commit não executado porque o git add automático falhou.';
+});
+
+const gitPushOutput = computed(() => {
+  if (!gitPushResult.value) {
+    return '';
+  }
+
+  const stdout = gitPushResult.value.stdout?.trim?.() ?? '';
+  const stderr = gitPushResult.value.stderr?.trim?.() ?? '';
+  return [stdout, stderr].filter(Boolean).join('\n');
+});
+
+const gitPushSuccessMessage = computed(() => {
+  if (!gitPushResult.value?.success) {
+    return '';
+  }
+
+  const branch = gitPushResult.value.branch;
+  const remote = gitPushResult.value.remote;
+  if (branch && remote) {
+    return gitPushResult.value.setUpstream
+      ? `Branch ${branch} enviada para ${remote} com upstream configurado.`
+      : `Branch ${branch} enviada para ${remote}.`;
+  }
+
+  return 'git push executado com sucesso.';
 });
 
 async function refreshGitStatus() {
@@ -1089,6 +1178,61 @@ async function commitCurrentArtifacts() {
   }
 }
 
+async function pushCurrentBranch() {
+  if (!teacherAutomationEnabled) {
+    gitPushError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar git push automático.';
+    return;
+  }
+
+  const branch = gitPushBranchCandidate.value;
+  if (!branch) {
+    gitPushError.value =
+      'Informe o nome da branch na seção acima ou consulte o status do Git antes de enviar com git push.';
+    return;
+  }
+
+  gitPushLoading.value = true;
+  gitPushError.value = null;
+  gitPushResult.value = null;
+
+  try {
+    const result = await pushTeacherGitBranch({
+      remote: 'origin',
+      branch,
+      setUpstream: !gitStatus.value?.upstream,
+    });
+
+    gitPushResult.value = result;
+
+    if (!result.success) {
+      const stderrMessage = result.stderr?.trim?.() ?? '';
+      const stdoutMessage = result.stdout?.trim?.() ?? '';
+      gitPushError.value =
+        stderrMessage || stdoutMessage || 'Não foi possível enviar a branch ao repositório remoto.';
+    } else {
+      gitPushError.value = null;
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+    } else if (result.success) {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitPushResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitPushError.value = error.message;
+    } else if (error instanceof Error) {
+      gitPushError.value = error.message;
+    } else {
+      gitPushError.value = 'Falha inesperada ao executar git push.';
+    }
+  } finally {
+    gitPushLoading.value = false;
+  }
+}
+
 onMounted(() => {
   if (teacherAutomationEnabled) {
     refreshGitStatus();
@@ -1173,6 +1317,44 @@ const sanitizedCommitTitle = computed(
   () => commitTitle.value.trim() || 'chore: preparar pacote de publicação'
 );
 
+const gitPushBranchCandidate = computed(() => {
+  const explicit = branchName.value.trim();
+  if (explicit) {
+    return explicit;
+  }
+
+  const statusBranchRaw = gitStatus.value?.branch ?? '';
+  if (typeof statusBranchRaw === 'string') {
+    const trimmed = statusBranchRaw.trim();
+    if (trimmed) {
+      return trimmed;
+    }
+  }
+
+  return '';
+});
+
+const canPushAutomatically = computed(() => gitPushBranchCandidate.value.length > 0);
+
+const gitPushCommandPreview = computed(() => {
+  const branch = gitPushBranchCandidate.value;
+  const hasUpstream = Boolean(gitStatus.value?.upstream);
+
+  if (!branch) {
+    return 'git push -u origin <branch>';
+  }
+
+  return hasUpstream ? `git push origin ${branch}` : `git push -u origin ${branch}`;
+});
+
+const gitPushBehaviorHint = computed(() => {
+  if (gitStatus.value?.upstream) {
+    return 'O upstream já está configurado; o serviço reaproveita essa configuração.';
+  }
+
+  return 'Sem upstream configurado, o serviço usa -u para definir o rastreamento automaticamente.';
+});
+
 const enabledValidations = computed(() => validationSteps.filter((step) => step.enabled));
 
 const artifactPaths = computed(() =>
@@ -1218,7 +1400,7 @@ const gitCommands = computed(() => {
   }
 
   commands.push(`git commit -m "${sanitizedCommitTitle.value}"`);
-  commands.push(`git push -u origin ${sanitizedBranch.value}`);
+  commands.push(gitPushCommandPreview.value);
   commands.push('gh pr create --web');
 
   return commands;

@@ -285,3 +285,40 @@ export async function commitTeacherGitChanges(params: {
 
   return payload as TeacherGitCommitResult;
 }
+
+export interface TeacherGitPushResult {
+  success: boolean;
+  exitCode: number;
+  stdout: string;
+  stderr: string;
+  remote: string;
+  branch: string;
+  setUpstream: boolean;
+  command: string;
+  status: TeacherGitStatus | null;
+}
+
+export async function pushTeacherGitBranch(params: {
+  remote?: string;
+  branch: string;
+  setUpstream?: boolean;
+}) {
+  const body: Record<string, unknown> = {
+    branch: params.branch,
+  };
+
+  if (typeof params.remote === 'string') {
+    body.remote = params.remote;
+  }
+
+  if (typeof params.setUpstream === 'boolean') {
+    body.setUpstream = params.setUpstream;
+  }
+
+  const payload = await request('/api/teacher/git/push', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitPushResult;
+}

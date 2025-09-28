@@ -158,6 +158,24 @@ Gera um commit reutilizando a mensagem configurada no painel de publicação. Ex
 
 O retorno inclui `success`, `skipped` (indica se o commit foi abortado por falha no `git add`), `exitCode`, `stdout`, `stderr`, `command`, `messageParts`, `stage` (resultado do `git add` quando executado) e `status` com o `git status` após a tentativa. O painel usa esse endpoint para registrar commits sem sair da SPA.
 
+### `POST /api/teacher/git/push`
+
+Envia a branch atual para o remoto configurado.
+
+```json
+{
+  "remote": "origin",
+  "branch": "feat/professor-publicacao",
+  "setUpstream": true
+}
+```
+
+- `remote` – opcional. Padrão `origin`. O serviço higieniza o valor para evitar parâmetros inválidos.
+- `branch` – obrigatório. Nome da branch local que será enviada.
+- `setUpstream` – opcional. Quando `true`, acrescenta `-u` para configurar o upstream durante o primeiro push.
+
+O retorno segue o padrão de `success`, `exitCode`, `stdout`, `stderr`, `command`, `remote`, `branch`, `setUpstream` e `status` (quando o comando conclui com sucesso). O painel marca `setUpstream: true` apenas quando o workspace ainda não possui upstream configurado.
+
 ## Autenticação
 
 - Defina `TEACHER_SERVICE_TOKEN` ao iniciar o serviço; requisições aos endpoints `/api/teacher/` passam a exigir o header `X-Teacher-Token` com o mesmo valor.
@@ -177,5 +195,5 @@ O retorno inclui `success`, `skipped` (indica se o commit foi abortado por falha
 - Auditoria enriquecida com identificação do usuário, branch e artefatos publicados.
 - Suporte a filas de execução e cancelamento seguro.
 - Evoluir das operações de checkout para automações completas de `git add`, `commit`, `push` e abertura de PR alinhadas à [Iteração 5](./iteration-05.md).
-  - ✅ `git add` e `git commit` já expostos na API e integrados ao painel de publicação.
-  - 🚧 `git push` e abertura de PRs permanecem no backlog.
+  - ✅ `git add`, `git commit` e `git push` já expostos na API e integrados ao painel de publicação.
+  - 🚧 Abertura automática de PRs permanece no backlog.

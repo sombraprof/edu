@@ -739,6 +739,93 @@ async function serveGitCommit(req, res) {
   }
 }
 
+function buildGitPushCommandString({ remote, branch, setUpstream }) {
+  const chunks = ['git push'];
+  if (setUpstream) {
+    chunks.push('-u');
+  }
+  chunks.push(remote);
+  chunks.push(branch);
+  return chunks.join(' ');
+}
+
+async function serveGitPush(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+
+    const remoteInput = typeof body.remote === 'string' ? body.remote.trim() : '';
+    const branchInput = typeof body.branch === 'string' ? body.branch.trim() : '';
+
+    const remote = remoteInput || 'origin';
+    if (!isSafeGitToken(remote)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de remote inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    if (!branchInput) {
+      jsonResponse(res, 400, {
+        error: 'Informe o nome da branch que deve ser enviada ao repositório remoto.',
+      });
+      return;
+    }
+
+    if (!isSafeGitToken(branchInput)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de branch inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    const setUpstream = Object.prototype.hasOwnProperty.call(body, 'setUpstream')
+      ? Boolean(body.setUpstream)
+      : true;
+
+    const args = ['push'];
+    if (setUpstream) {
+      args.push('-u');
+    }
+    args.push(remote);
+    args.push(branchInput);
+
+    const { exitCode, stdout, stderr } = await runCommand('git', args);
+    const success = exitCode === 0;
+
+    let status = null;
+    if (success) {
+      try {
+        status = await captureGitStatus();
+      } catch (statusError) {
+        status = null;
+      }
+    }
+
+    jsonResponse(res, 200, {
+      success,
+      exitCode,
+      stdout,
+      stderr,
+      remote,
+      branch: branchInput,
+      setUpstream,
+      command: buildGitPushCommandString({ remote, branch: branchInput, setUpstream }),
+      status,
+    });
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'details' in error && typeof error.details === 'string'
+        ? error.details
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao enviar commits para o repositório remoto.',
+      details,
+    });
+  }
+}
+
 function buildGitCommitCommandString({ messageParts, allowEmpty }) {
   const chunks = ['git commit'];
   messageParts.forEach((part) => {
@@ -821,6 +908,11 @@ const server = createServer(async (req, res) => {
 
   if (url.pathname === '/api/teacher/git/commit' && req.method === 'POST') {
     await serveGitCommit(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/push' && req.method === 'POST') {
+    await serveGitPush(req, res);
     return;
   }
 

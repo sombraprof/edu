@@ -15,12 +15,13 @@ Este documento acompanha a implementação incremental da nova área administrat
 - ✅ Botão "Buscar atualizações da main" sincroniza o workspace via backend antes da rodada de commits.
 - ✅ Botão "Criar branch automaticamente" prepara a branch de trabalho a partir da `main` diretamente na SPA.
 - ✅ Automação de `git add` e `git commit` a partir dos caminhos cadastrados no painel de publicação.
+- ✅ Envio automático de `git push` com configuração de upstream direto do painel de publicação.
 - ✅ Serviço auxiliar `npm run teacher:service` expõe API local para executar scripts oficiais e sincronizar relatórios com o painel.
   - ✅ Histórico de execuções remotas disponível diretamente no painel de validação ao integrar com o `teacher:service`.
   - ✅ Autenticação por token no serviço auxiliar para permitir exposição controlada além do ambiente local.
 
 - **Próximos passos imediatos**
-- 🧩 Automatizar `git push` e criação de PRs diretamente pelo painel de publicação.
+- 🧩 Automatizar abertura de PRs diretamente pelo painel de publicação.
   - 🗃️ Definir estratégia de permissões e governança para expor a API em ambientes compartilhados.
   - 🔐 Definir política de rotação/armazenamento seguro do token do serviço auxiliar.
 
@@ -58,7 +59,8 @@ Este documento acompanha a implementação incremental da nova área administrat
 - ✅ Botão "Buscar atualizações da main" aciona `git fetch` via backend e atualiza divergências automaticamente.
 - ✅ Checkout automático de branch a partir da `main` via backend para alinhar o workspace antes dos commits.
 - ✅ Painel executa `git add` e `git commit` diretamente pela API, reaproveitando o checklist de conteúdos cadastrados.
-- 🚧 Backend para criação de branches e PRs automatizados permanece no roadmap.
+- ✅ Painel envia a branch ativa com `git push`, configurando o upstream na primeira execução quando necessário.
+- 🚧 Backend para abertura de PRs automatizados permanece no roadmap.
 - 📓 Registro contínuo em [`iteration-05.md`](./iteration-05.md).
 
 ## 1. Mapeamento de requisitos e workflows
