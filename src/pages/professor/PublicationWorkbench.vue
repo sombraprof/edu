@@ -159,14 +159,17 @@
                   />
                 </label>
               </div>
-              <button
+              <Md3Button
                 type="button"
-                class="btn btn-text inline-flex items-center gap-2 self-start text-error"
+                variant="text"
+                class="self-start text-error"
                 @click="removeArtifact(artifact.id)"
               >
-                <Trash2 class="md-icon md-icon--sm" aria-hidden="true" />
+                <template #leading>
+                  <Trash2 class="md-icon md-icon--sm" aria-hidden="true" />
+                </template>
                 Remover
-              </button>
+              </Md3Button>
             </div>
 
             <label class="mt-4 flex flex-col gap-2">
@@ -181,14 +184,12 @@
           </article>
         </div>
 
-        <button
-          type="button"
-          class="btn btn-tonal inline-flex items-center gap-2 self-start"
-          @click="addArtifact"
-        >
-          <Plus class="md-icon md-icon--sm" aria-hidden="true" />
+        <Md3Button type="button" variant="tonal" class="self-start" @click="addArtifact">
+          <template #leading>
+            <Plus class="md-icon md-icon--sm" aria-hidden="true" />
+          </template>
           Adicionar conteúdo
-        </button>
+        </Md3Button>
       </section>
 
       <section class="card flex flex-col gap-6 p-6 md:p-8">
@@ -210,14 +211,12 @@
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
                 Comandos sugeridos
               </h3>
-              <button
-                type="button"
-                class="btn btn-text inline-flex items-center gap-2"
-                @click="copyCommands"
-              >
-                <Copy class="md-icon md-icon--sm" aria-hidden="true" />
+              <Md3Button type="button" variant="text" @click="copyCommands">
+                <template #leading>
+                  <Copy class="md-icon md-icon--sm" aria-hidden="true" />
+                </template>
                 {{ copyLabel }}
-              </button>
+              </Md3Button>
             </header>
             <pre
               class="rounded-2xl bg-surface p-4 font-mono text-xs text-on-surface shadow-inner"
@@ -260,6 +259,7 @@ $ {{ gitCommands.join('\n$ ') }}
 import { computed, reactive, ref } from 'vue';
 import { Copy, Plus, Trash2 } from 'lucide-vue-next';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
+import Md3Button from '@/components/Md3Button.vue';
 
 type ArtifactType = 'lesson' | 'exercise' | 'supplement' | 'component' | 'assessment' | 'other';
 

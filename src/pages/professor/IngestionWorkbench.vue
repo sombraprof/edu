@@ -38,9 +38,9 @@
               preparar um novo lote de aulas ou exercícios.
             </p>
           </div>
-          <RouterLink class="btn btn-tonal" :to="{ name: 'professor-dashboard' }">
+          <Md3Button variant="tonal" :as="RouterLink" :to="{ name: 'professor-dashboard' }">
             Voltar para o painel
-          </RouterLink>
+          </Md3Button>
         </header>
         <ol class="mt-6 space-y-4 text-on-surface">
           <li
@@ -137,26 +137,23 @@
             </label>
 
             <div class="flex flex-wrap gap-3">
-              <button
-                type="button"
-                class="btn btn-filled"
-                :disabled="!canFormat"
-                @click="formatJson"
-              >
+              <Md3Button type="button" variant="filled" :disabled="!canFormat" @click="formatJson">
                 Formatar JSON
-              </button>
-              <button type="button" class="btn btn-tonal" :disabled="!rawInput" @click="clearInput">
+              </Md3Button>
+              <Md3Button type="button" variant="tonal" :disabled="!rawInput" @click="clearInput">
                 Limpar
-              </button>
-              <button
+              </Md3Button>
+              <Md3Button
                 type="button"
-                class="btn btn-outlined inline-flex items-center gap-2"
+                variant="outlined"
                 :disabled="!formattedPreview"
                 @click="copyFormatted"
               >
-                <ClipboardCopy class="md-icon md-icon--sm" aria-hidden="true" />
+                <template #leading>
+                  <ClipboardCopy class="md-icon md-icon--sm" aria-hidden="true" />
+                </template>
                 <span>{{ copyLabel }}</span>
-              </button>
+              </Md3Button>
             </div>
           </form>
 
@@ -235,15 +232,19 @@
           >
             <h3 class="md-typescale-title-medium font-semibold text-on-surface">{{ doc.title }}</h3>
             <p class="mt-2 text-sm text-on-surface-variant">{{ doc.description }}</p>
-            <a
-              class="btn btn-text mt-4 inline-flex items-center gap-2"
+            <Md3Button
+              class="mt-4"
+              variant="text"
+              as="a"
               :href="doc.href"
               target="_blank"
               rel="noreferrer"
             >
               Abrir documento
-              <ExternalLink class="md-icon md-icon--sm" aria-hidden="true" />
-            </a>
+              <template #trailing>
+                <ExternalLink class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
+            </Md3Button>
           </li>
         </ul>
       </section>
@@ -271,6 +272,7 @@ import lessonsIndexSchema from '../../../schemas/lessons-index.schema.json';
 import exercisesIndexSchema from '../../../schemas/exercises-index.schema.json';
 import supplementsIndexSchema from '../../../schemas/supplements-index.schema.json';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
+import Md3Button from '@/components/Md3Button.vue';
 
 type SchemaKey = 'lesson' | 'lessons-index' | 'exercises-index' | 'supplements-index';
 

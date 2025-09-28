@@ -1,10 +1,17 @@
 ﻿<template>
   <section class="page-section">
     <nav class="page-breadcrumb">
-      <router-link class="btn btn-text" :to="{ name: 'course-home', params: { courseId } }">
-        <ArrowLeft class="md-icon md-icon--sm" />
-        <span>Voltar para a disciplina</span>
-      </router-link>
+      <Md3Button
+        class="page-breadcrumb__link"
+        variant="text"
+        :as="RouterLink"
+        :to="{ name: 'course-home', params: { courseId } }"
+      >
+        <template #leading>
+          <ArrowLeft class="md-icon md-icon--sm" aria-hidden="true" />
+        </template>
+        Voltar para a disciplina
+      </Md3Button>
       <ChevronRight class="md-icon md-icon--sm page-breadcrumb__separator" />
       <span class="page-breadcrumb__current">{{ exerciseTitle }}</span>
     </nav>
@@ -39,8 +46,9 @@
 
 <script setup lang="ts">
 import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
+import Md3Button from '@/components/Md3Button.vue';
 
 interface GenerationMetadata {
   generatedBy: string;

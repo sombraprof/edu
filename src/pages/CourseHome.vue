@@ -120,7 +120,9 @@
       class="card p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
     >
       Nenhum conteúdo encontrado para este filtro.
-      <button class="btn btn-text mt-4" type="button" @click="resetFilters">Limpar filtros</button>
+      <Md3Button class="mt-4" variant="text" type="button" @click="resetFilters">
+        Limpar filtros
+      </Md3Button>
     </div>
   </section>
 </template>
@@ -129,6 +131,7 @@
 import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ChevronRight, Grid3x3, List } from 'lucide-vue-next';
+import Md3Button from '@/components/Md3Button.vue';
 
 interface LessonRef {
   id: string;

@@ -37,10 +37,12 @@
     <section class="flex flex-col gap-3">
       <header class="flex items-center justify-between">
         <h4 class="md-typescale-title-small font-semibold text-on-surface">Cartões do plano</h4>
-        <button type="button" class="btn btn-tonal inline-flex items-center gap-2" @click="addCard">
-          <Plus class="md-icon md-icon--sm" aria-hidden="true" />
+        <Md3Button type="button" variant="tonal" @click="addCard">
+          <template #leading>
+            <Plus class="md-icon md-icon--sm" aria-hidden="true" />
+          </template>
           Adicionar cartão
-        </button>
+        </Md3Button>
       </header>
       <p class="text-xs text-on-surface-variant">
         Reordene os cartões editando diretamente no JSON exportado, caso necessário.
@@ -53,10 +55,12 @@
         >
           <header class="flex items-center justify-between">
             <h5 class="font-semibold text-on-surface">Cartão {{ index + 1 }}</h5>
-            <button type="button" class="btn btn-text text-error" @click="removeCard(index)">
-              <Trash2 class="md-icon md-icon--sm" aria-hidden="true" />
+            <Md3Button type="button" variant="text" class="text-error" @click="removeCard(index)">
+              <template #leading>
+                <Trash2 class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
               Remover
-            </button>
+            </Md3Button>
           </header>
           <div class="mt-3 grid gap-3 md:grid-cols-3">
             <label class="flex flex-col gap-2">
@@ -97,6 +101,7 @@
 <script setup lang="ts">
 import { toRef } from 'vue';
 import { Plus, Trash2 } from 'lucide-vue-next';
+import Md3Button from '@/components/Md3Button.vue';
 
 interface LessonPlanCard {
   icon?: string;

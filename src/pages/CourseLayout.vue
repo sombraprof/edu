@@ -2,10 +2,17 @@
   <section class="course-page page-section">
     <header class="course-page__hero card md-stack md-stack-5 p-6 md:p-8">
       <nav class="course-page__breadcrumbs page-breadcrumb" aria-label="Navegação">
-        <router-link class="btn btn-text" :to="{ name: 'home' }">
-          <ArrowLeft class="md-icon md-icon--sm" />
+        <Md3Button
+          class="page-breadcrumb__link"
+          variant="text"
+          :as="RouterLink"
+          :to="{ name: 'home' }"
+        >
+          <template #leading>
+            <ArrowLeft class="md-icon md-icon--sm" aria-hidden="true" />
+          </template>
           Todas as disciplinas
-        </router-link>
+        </Md3Button>
         <span class="page-breadcrumb__separator" aria-hidden="true">/</span>
         <span class="page-breadcrumb__current">{{ meta?.title ?? 'Disciplina' }}</span>
       </nav>
@@ -43,8 +50,9 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft } from 'lucide-vue-next';
+import Md3Button from '@/components/Md3Button.vue';
 
 interface CourseMeta {
   id: string;

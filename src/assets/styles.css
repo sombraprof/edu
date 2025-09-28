@@ -589,6 +589,12 @@ html {
     color: var(--md-sys-color-on-surface-variant);
   }
 
+  .page-breadcrumb__link {
+    color: inherit;
+    min-height: 2.5rem;
+    padding-inline: 0.5rem;
+  }
+
   .page-breadcrumb__current {
     font-weight: 500;
     color: var(--md-sys-color-on-surface-variant);

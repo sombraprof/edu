@@ -128,7 +128,7 @@ function enhanceCodeBlocks() {
 
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'btn-icon legacy-code-block__button';
+    button.className = 'btn-icon md3-button md3-button--icon legacy-code-block__button';
     button.setAttribute('aria-label', 'Copiar código');
 
     const copyIcon =
