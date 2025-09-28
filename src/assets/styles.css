@@ -1530,6 +1530,10 @@ html {
     backdrop-filter: saturate(120%);
   }
 
+  .card--interactive {
+    --card-focus-color: var(--md-sys-color-primary);
+  }
+
   .card--interactive::after {
     content: '';
     position: absolute;
@@ -1538,6 +1542,15 @@ html {
     opacity: 0;
     transition: opacity 180ms ease;
     pointer-events: none;
+  }
+
+  .card--interactive:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--card-focus-color) 55%, transparent);
+    outline-offset: 3px;
+  }
+
+  .card--interactive:focus-visible::after {
+    opacity: 1;
   }
 
   .card--interactive:hover {
@@ -1556,6 +1569,17 @@ html {
 
   .course-card {
     gap: var(--md-sys-spacing-6);
+    --course-card-accent: var(--md-sys-color-primary);
+    --course-card-accent-container: var(--md-sys-color-primary-container);
+    --course-card-accent-on-container: var(--md-sys-color-on-primary-container);
+    --course-card-badge-bg: color-mix(
+      in srgb,
+      var(--course-card-accent-container) 86%,
+      transparent
+    );
+    --course-card-badge-color: var(--course-card-accent-on-container);
+    --course-card-action-bg: color-mix(in srgb, var(--course-card-accent) 12%, transparent);
+    --card-focus-color: var(--course-card-accent);
   }
 
   .course-card__header {
@@ -1580,6 +1604,8 @@ html {
     white-space: nowrap;
     flex-shrink: 0;
     margin-left: auto;
+    background-color: var(--course-card-badge-bg);
+    color: var(--course-card-badge-color);
   }
 
   .course-card__description {
@@ -1599,7 +1625,7 @@ html {
     gap: var(--md-sys-spacing-2);
     padding: 0.35rem 0.75rem;
     border-radius: var(--md-sys-border-radius-full);
-    color: var(--md-sys-color-primary);
+    color: var(--course-card-accent);
     background-color: transparent;
     transition:
       background-color 150ms ease,
@@ -1609,8 +1635,8 @@ html {
 
   .course-card:hover .course-card__action,
   .course-card:focus-visible .course-card__action {
-    background-color: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
-    color: var(--md-sys-color-primary);
+    background-color: var(--course-card-action-bg);
+    color: var(--course-card-accent);
     transform: translateX(4px);
   }
 
@@ -1618,6 +1644,7 @@ html {
     width: var(--md-sys-icon-size-small);
     height: var(--md-sys-icon-size-small);
     transition: transform 150ms ease;
+    color: inherit;
   }
 
   .course-card:hover .course-card__action .md-icon,
@@ -1724,35 +1751,42 @@ html {
     font-size: 0.95em;
   }
 
-  .fab {
+  .md3-fab {
     position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    inset-block-end: clamp(1rem, 4vw, 1.5rem);
+    inset-inline-end: clamp(1rem, 4vw, 1.5rem);
     z-index: 60;
-    width: 3.5rem;
-    height: 3.5rem;
     display: grid;
     place-items: center;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
     padding: 0;
-    border-radius: var(--md-sys-border-radius-full);
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
+    border-radius: var(--md-sys-border-radius-4xl);
     box-shadow: var(--shadow-elevation-2);
     transition:
-      box-shadow 180ms ease,
       transform 180ms ease,
-      background-color 180ms ease;
+      box-shadow 180ms ease;
   }
 
-  .fab:hover {
-    box-shadow: var(--shadow-elevation-3);
+  .md3-fab.md3-button {
+    border-color: transparent;
+  }
+
+  .md3-fab:hover {
     transform: translateY(-2px);
+    box-shadow: var(--shadow-elevation-3);
+  }
+
+  .md3-fab .md3-button__icon,
+  .md3-fab .md-icon {
+    width: var(--md-sys-icon-size-medium);
+    height: var(--md-sys-icon-size-medium);
   }
 
   @media (max-width: 640px) {
-    .fab {
-      bottom: 1rem;
-      right: 1rem;
+    .md3-fab {
+      inset-block-end: 1rem;
+      inset-inline-end: 1rem;
     }
   }
 
@@ -1945,30 +1979,6 @@ html {
     );
     color: var(--md-sys-color-on-primary-container);
     box-shadow: var(--shadow-elevation-1);
-  }
-
-  .fab {
-    position: fixed;
-    bottom: 1.5rem;
-    right: 1.5rem;
-    z-index: 60;
-    width: 3rem;
-    height: 3rem;
-    display: grid;
-    place-items: center;
-    border-radius: 999px;
-    box-shadow: var(--shadow-elevation-2);
-  }
-
-  .fab:hover {
-    box-shadow: var(--shadow-elevation-3);
-  }
-
-  @media (max-width: 640px) {
-    .fab {
-      bottom: 1rem;
-      right: 1rem;
-    }
   }
 }
 
