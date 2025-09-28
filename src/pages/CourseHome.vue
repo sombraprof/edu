@@ -80,7 +80,7 @@
           }}</span>
         </div>
         <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
-          <h3 class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">
+          <h3 class="text-title-medium font-semibold text-on-surface">
             {{ item.title }}
           </h3>
           <p v-if="item.description" class="supporting-text">
@@ -101,17 +101,14 @@
             </Md3Button>
           </template>
           <template v-else-if="!item.available">
-            <span class="md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]"
+            <span class="md-sys-typescale-body-small text-on-surface-variant"
               >Conteúdo em preparação.</span
             >
           </template>
         </div>
       </component>
     </div>
-    <div
-      v-else
-      class="card p-8 text-center text-body-medium text-[var(--md-sys-color-on-surface-variant)]"
-    >
+    <div v-else class="card p-8 text-center text-body-medium text-on-surface-variant">
       Nenhum conteúdo encontrado para este filtro.
       <Md3Button class="mt-4" variant="text" type="button" @click="resetFilters">
         Limpar filtros
