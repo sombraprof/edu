@@ -38,7 +38,17 @@ import { computed } from 'vue';
 import { RouterLink, useRoute, type RouteLocationRaw } from 'vue-router';
 import Md3TopAppBar from './layout/Md3TopAppBar.vue';
 import ThemeToggle from './ThemeToggle.vue';
-import { GraduationCap, Grid3x3, ArrowLeft, ClipboardList } from 'lucide-vue-next';
+import {
+  GraduationCap,
+  Grid3x3,
+  ArrowLeft,
+  ClipboardList,
+  PenSquare,
+  School,
+  UploadCloud,
+  ListChecks,
+  GitPullRequest,
+} from 'lucide-vue-next';
 import { useTeacherMode } from '../composables/useTeacherMode';
 
 const route = useRoute();
@@ -78,6 +88,41 @@ const navLinks = computed<NavAction[]>(() => {
   }
 
   if (teacherMode.value) {
+    const toProfessor: RouteLocationRaw = { name: 'professor-dashboard' };
+    actions.push({
+      label: 'Painel do professor',
+      to: toProfessor,
+      icon: School,
+      targetName: 'professor-dashboard',
+    });
+    const toIngestion: RouteLocationRaw = { name: 'professor-ingestion' };
+    actions.push({
+      label: 'Ingestão de JSON',
+      to: toIngestion,
+      icon: UploadCloud,
+      targetName: 'professor-ingestion',
+    });
+    const toEditor: RouteLocationRaw = { name: 'professor-editor' };
+    actions.push({
+      label: 'Editor visual',
+      to: toEditor,
+      icon: PenSquare,
+      targetName: 'professor-editor',
+    });
+    const toValidation: RouteLocationRaw = { name: 'professor-validation' };
+    actions.push({
+      label: 'Validações & relatórios',
+      to: toValidation,
+      icon: ListChecks,
+      targetName: 'professor-validation',
+    });
+    const toPublication: RouteLocationRaw = { name: 'professor-publication' };
+    actions.push({
+      label: 'Publicação & Git',
+      to: toPublication,
+      icon: GitPullRequest,
+      targetName: 'professor-publication',
+    });
     const toReport: RouteLocationRaw = { name: 'validation-report' };
     actions.push({
       label: 'Relatório de validação',
