@@ -1520,21 +1520,13 @@ html {
   }
 
   .chip--success {
-    background-color: color-mix(
-      in srgb,
-      var(--md-sys-color-primary) 18%,
-      var(--md-sys-color-surface) 82%
-    );
-    color: var(--md-sys-color-on-primary-container);
+    background-color: var(--md-sys-color-success-container);
+    color: var(--md-sys-color-on-success-container);
   }
 
   .chip--warning {
-    background-color: color-mix(
-      in srgb,
-      var(--md-sys-color-secondary) 12%,
-      var(--md-sys-color-surface) 88%
-    );
-    color: var(--md-sys-color-secondary);
+    background-color: var(--md-sys-color-warning-container);
+    color: var(--md-sys-color-on-warning-container);
   }
 
   .chip--error {
@@ -1914,6 +1906,16 @@ html[data-theme='dark'] .chip--exercise {
     var(--md-sys-color-surface) 70%
   );
   color: var(--md-sys-color-on-secondary-container);
+}
+
+html[data-theme='dark'] .chip--success {
+  background-color: var(--md-sys-color-success);
+  color: var(--md-sys-color-on-success);
+}
+
+html[data-theme='dark'] .chip--warning {
+  background-color: var(--md-sys-color-warning);
+  color: var(--md-sys-color-on-warning);
 }
 
 html[data-theme='dark'] .chip--available {
