@@ -1,86 +1,14 @@
 {
-  "generatedAt": "2025-09-26T23:47:39.787Z",
-  "status": "passed-with-warnings",
+  "generatedAt": "2025-09-27T23:50:41.356Z",
+  "status": "passed",
   "totals": {
     "courses": 5,
     "lessons": 69,
-    "lessonsWithIssues": 4,
+    "lessonsWithIssues": 0,
     "problems": 0,
-    "warnings": 4
+    "warnings": 0
   },
-  "courses": [
-    {
-      "id": "ddm",
-      "lessonsTotal": 14,
-      "lessonsWithIssues": 1,
-      "problems": 0,
-      "warnings": 1,
-      "lessons": [
-        {
-          "file": "src/content/courses/ddm/lessons/lesson-03.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "legacy-block",
-              "message": "Bloco legado em content[2]: \"fileTree\" requer refino futuro."
-            }
-          ],
-          "lessonId": "lesson-03"
-        }
-      ]
-    },
-    {
-      "id": "tdjd",
-      "lessonsTotal": 15,
-      "lessonsWithIssues": 1,
-      "problems": 0,
-      "warnings": 1,
-      "lessons": [
-        {
-          "file": "src/content/courses/tdjd/lessons/lesson-02.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "legacy-block",
-              "message": "Bloco legado em content[10]: \"dragAndDrop\" requer refino futuro."
-            }
-          ],
-          "lessonId": "lesson-02"
-        }
-      ]
-    },
-    {
-      "id": "tgs",
-      "lessonsTotal": 15,
-      "lessonsWithIssues": 2,
-      "problems": 0,
-      "warnings": 2,
-      "lessons": [
-        {
-          "file": "src/content/courses/tgs/lessons/lesson-06.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "legacy-block",
-              "message": "Bloco legado em content[10]: \"quiz\" requer refino futuro."
-            }
-          ],
-          "lessonId": "lesson-06"
-        },
-        {
-          "file": "src/content/courses/tgs/lessons/lesson-07.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "legacy-block",
-              "message": "Bloco legado em content[12]: \"quiz\" requer refino futuro."
-            }
-          ],
-          "lessonId": "lesson-07"
-        }
-      ]
-    }
-  ],
+  "courses": [],
   "generation": {
     "exercises": [
       {

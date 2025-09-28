@@ -1,7 +1,57 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-14",
   "title": "Aula 14: Unidade III – Introdução ao Room: Entities e DAO",
+  "slug": "introducao-ao-room-entities-e-dao",
+  "summary": "Apresenta o Room como camada de persistência moderna no Android, guiando a modelagem de entidades e a criação de DAO para operações seguras com banco de dados local.",
   "objective": "Modelar e acessar dados relacionais no Android utilizando Room, garantindo consultas performáticas e consistentes.",
+  "objectives": [
+    "Definir entities alinhadas ao domínio do aplicativo.",
+    "Criar DAO com operações de consulta, inserção e atualização.",
+    "Configurar o RoomDatabase e conectar a camada de dados à UI."
+  ],
+  "competencies": [
+    "Persistência local com Room",
+    "Modelagem de dados relacionais aplicados a apps móveis",
+    "Arquitetura em camadas em aplicações Android"
+  ],
+  "skills": [
+    "Criar classes @Entity com chaves primárias e relacionamentos simples.",
+    "Escrever consultas SQL anotadas em interfaces DAO.",
+    "Instanciar RoomDatabase com migrações automáticas básicas."
+  ],
+  "outcomes": [
+    "Modela entidades Room coerentes com o domínio da aplicação.",
+    "Implementa DAO para CRUD completo em Kotlin.",
+    "Integra o RoomDatabase ao fluxo de dados do app de exemplo."
+  ],
+  "prerequisites": [
+    "Persistência leve com SharedPreferences.",
+    "Fundamentos de SQL e modelagem relacional simples."
+  ],
+  "tags": ["android", "room", "persistencia"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Room persistence library",
+      "url": "https://developer.android.com/training/data-storage/room",
+      "type": "article"
+    },
+    {
+      "label": "Defining data using Room entities",
+      "url": "https://developer.android.com/training/data-storage/room/defining-data",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "ANDROID DEVELOPERS. Save data in a local database using Room. 2024.",
+    "GOYAL, M. Android Room Database. Apress, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica para avaliar o mapeamento de uma entidade e DAO em um mini projeto de catálogo."
+  },
   "content": [
     {
       "type": "flightPlan",
@@ -72,7 +122,7 @@
           "tone": "secondary",
           "items": [
             "Classe abstrata que une entidades e DAOs.",
-            "Exponde o banco para o restante da aplicação.",
+            "Expõe o banco para o restante da aplicação.",
             "Configura migrações e instâncias singleton."
           ]
         }
@@ -170,56 +220,6 @@
       ]
     }
   ],
-  "formatVersion": "md3.lesson.v1",
-  "slug": "introducao-ao-room-entities-e-dao",
-  "summary": "Apresenta o Room como camada de persistência moderna no Android, guiando a modelagem de entidades e a criação de DAO para operações seguras com banco de dados local.",
-  "objectives": [
-    "Definir entities alinhadas ao domínio do aplicativo.",
-    "Criar DAO com operações de consulta, inserção e atualização.",
-    "Configurar o RoomDatabase e conectar a camada de dados à UI."
-  ],
-  "competencies": [
-    "Persistência local com Room",
-    "Modelagem de dados relacionais aplicados a apps móveis",
-    "Arquitetura em camadas em aplicações Android"
-  ],
-  "skills": [
-    "Criar classes @Entity com chaves primárias e relacionamentos simples.",
-    "Escrever consultas SQL anotadas em interfaces DAO.",
-    "Instanciar RoomDatabase com migrações automáticas básicas."
-  ],
-  "outcomes": [
-    "Modela entidades Room coerentes com o domínio da aplicação.",
-    "Implementa DAO para CRUD completo em Kotlin.",
-    "Integra o RoomDatabase ao fluxo de dados do app de exemplo."
-  ],
-  "prerequisites": [
-    "Persistência leve com SharedPreferences.",
-    "Fundamentos de SQL e modelagem relacional simples."
-  ],
-  "tags": ["android", "room", "persistencia"],
-  "duration": 120,
-  "modality": "in-person",
-  "resources": [
-    {
-      "label": "Room persistence library",
-      "url": "https://developer.android.com/training/data-storage/room",
-      "type": "article"
-    },
-    {
-      "label": "Defining data using Room entities",
-      "url": "https://developer.android.com/training/data-storage/room/defining-data",
-      "type": "reference"
-    }
-  ],
-  "bibliography": [
-    "ANDROID DEVELOPERS. Save data in a local database using Room. 2024.",
-    "GOYAL, M. Android Room Database. Apress, 2023."
-  ],
-  "assessment": {
-    "type": "formative",
-    "description": "Rubrica para avaliar o mapeamento de uma entidade e DAO em um mini projeto de catálogo."
-  },
   "metadata": {
     "status": "in-review",
     "updatedAt": "2024-06-17T00:00:00.000Z",
