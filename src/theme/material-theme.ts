@@ -35,8 +35,8 @@ const DEFAULT_OPTIONS: Required<MaterialThemeOptions> = {
   seedColor: '#2563eb',
   secondaryColor: '#7c3aed',
   tertiaryColor: '#f97316',
-  neutralColor: '#5c5f6d',
-  neutralVariantColor: '#5a6478',
+  neutralColor: '#6b6f7c',
+  neutralVariantColor: '#687385',
 };
 
 const mediaQuery =
@@ -62,22 +62,22 @@ const SURFACE_TONE_MAP: Record<
   >
 > = {
   light: {
-    surfaceDim: 87,
-    surfaceBright: 98,
+    surfaceDim: 92,
+    surfaceBright: 99,
     surfaceContainerLowest: 100,
-    surfaceContainerLow: 96,
-    surfaceContainer: 94,
-    surfaceContainerHigh: 92,
-    surfaceContainerHighest: 90,
+    surfaceContainerLow: 98,
+    surfaceContainer: 96,
+    surfaceContainerHigh: 94,
+    surfaceContainerHighest: 92,
   },
   dark: {
-    surfaceDim: 6,
-    surfaceBright: 24,
-    surfaceContainerLowest: 4,
-    surfaceContainerLow: 10,
-    surfaceContainer: 12,
-    surfaceContainerHigh: 17,
-    surfaceContainerHighest: 22,
+    surfaceDim: 12,
+    surfaceBright: 36,
+    surfaceContainerLowest: 8,
+    surfaceContainerLow: 18,
+    surfaceContainer: 22,
+    surfaceContainerHigh: 26,
+    surfaceContainerHighest: 30,
   },
 };
 
