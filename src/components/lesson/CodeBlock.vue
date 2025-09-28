@@ -16,8 +16,10 @@
           @click="copyCode"
         >
           <template #leading>
-            <Check v-if="copied" :size="18" aria-hidden="true" />
-            <Copy v-else :size="18" aria-hidden="true" />
+            <span class="md-icon md-icon--md" aria-hidden="true">
+              <Check v-if="copied" />
+              <Copy v-else />
+            </span>
           </template>
         </Md3Button>
       </div>
