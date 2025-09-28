@@ -151,14 +151,24 @@ watch(
 
 /* Base code block style */
 .code-block {
-  --_chrome-padding-inline: clamp(1.25rem, 3vw, 1.75rem);
-  --_chrome-padding-block: var(--md-sys-spacing-2);
-  --_content-padding-inline: clamp(1.25rem, 3vw, 1.75rem);
+  --_toolbar-padding-inline: var(--md-sys-spacing-6);
+  --_toolbar-padding-block: var(--md-sys-spacing-2);
+  --_content-padding-inline: var(--md-sys-spacing-7);
   --_content-padding-block: var(--md-sys-spacing-4);
 
-  background-color: var(--md-sys-color-surface-container);
-  /* Replica o raio dos cards MD3, com fallback para projetos legados */
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container-highest, var(--md-sys-color-surface)) 94%,
+    var(--md-sys-color-surface) 6%
+  );
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 55%,
+      transparent
+    );
   border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-xl));
+  box-shadow: var(--shadow-elevation-1);
   margin-block: var(--code-block-spacing, 0);
   overflow: hidden;
   position: relative;
@@ -170,8 +180,8 @@ watch(
   display: flex;
   align-items: center;
   gap: var(--md-sys-spacing-3);
-  padding-inline: var(--_chrome-padding-inline);
-  padding-block: var(--_chrome-padding-block);
+  padding-inline: var(--_toolbar-padding-inline);
+  padding-block: var(--_toolbar-padding-block);
   background-color: var(--md-sys-color-surface-container-highest);
   background-color: color-mix(
     in srgb,
