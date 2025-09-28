@@ -17,16 +17,21 @@
 
     <template #actions>
       <nav class="app-top-bar__nav" aria-label="Rotas principais">
-        <RouterLink
+        <Md3Button
           v-for="action in navLinks"
           :key="action.label"
+          :as="RouterLink"
+          variant="text"
           class="md3-top-app-bar__action"
           :class="{ 'md3-top-app-bar__action--active': isActive(action) }"
           :to="action.to"
+          :aria-current="isActive(action) ? 'page' : undefined"
         >
-          <component :is="action.icon" class="md-icon md-icon--sm" aria-hidden="true" />
-          <span>{{ action.label }}</span>
-        </RouterLink>
+          <template #leading>
+            <component :is="action.icon" class="md-icon md-icon--sm" aria-hidden="true" />
+          </template>
+          <span class="md3-top-app-bar__action-label">{{ action.label }}</span>
+        </Md3Button>
         <ThemeToggle class="md3-top-app-bar__action md3-top-app-bar__action--icon" />
       </nav>
     </template>
@@ -38,6 +43,7 @@ import { computed } from 'vue';
 import { RouterLink, useRoute, type RouteLocationRaw } from 'vue-router';
 import Md3TopAppBar from './layout/Md3TopAppBar.vue';
 import ThemeToggle from './ThemeToggle.vue';
+import Md3Button from './Md3Button.vue';
 import {
   GraduationCap,
   Grid3x3,

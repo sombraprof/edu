@@ -1,5 +1,5 @@
 <template>
-  <Md3Button class="app-theme-toggle" variant="filled" :aria-label="ariaLabel" @click="toggle">
+  <Md3Button class="app-theme-toggle" variant="text" :aria-label="ariaLabel" @click="toggle">
     <template #leading>
       <component :is="icon" class="md-icon md-icon--sm" aria-hidden="true" focusable="false" />
     </template>
