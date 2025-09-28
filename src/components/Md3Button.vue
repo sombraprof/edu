@@ -1,12 +1,26 @@
 <template>
   <component :is="resolvedTag" v-bind="componentAttrs" :class="buttonClasses">
-    <span v-if="hasLeading" class="md3-button__icon md3-button__icon--leading">
+    <span
+      v-if="hasLeading"
+      :class="[
+        'md3-button__icon',
+        'md3-button__icon--leading',
+        { 'md3-button__icon--icon-only': iconOnly },
+      ]"
+    >
       <slot name="leading" />
     </span>
-    <span v-if="!iconOnly || hasDefaultSlot" class="md3-button__label">
+    <span v-if="!iconOnly" class="md3-button__label">
       <slot />
     </span>
-    <span v-if="hasTrailing" class="md3-button__icon md3-button__icon--trailing">
+    <span
+      v-if="hasTrailing"
+      :class="[
+        'md3-button__icon',
+        'md3-button__icon--trailing',
+        { 'md3-button__icon--icon-only': iconOnly },
+      ]"
+    >
       <slot name="trailing" />
     </span>
   </component>
@@ -54,7 +68,7 @@ const resolvedTag = computed(() => props.as ?? props.tag ?? 'button');
 const hasLeading = computed(() => Boolean(slots.leading));
 const hasTrailing = computed(() => Boolean(slots.trailing));
 const hasDefaultSlot = computed(() => Boolean(slots.default));
-const iconOnly = computed(() => props.icon);
+const iconOnly = computed(() => props.icon && !hasDefaultSlot.value);
 const isButtonTag = computed(() => resolvedTag.value === 'button');
 
 const componentAttrs = computed(() => {
@@ -84,7 +98,7 @@ const buttonClasses = computed(() => [
   'md3-button',
   `md3-button--${props.variant}`,
   {
-    'md3-button--icon': props.icon,
+    'md3-button--icon': iconOnly.value,
     'md3-button--full-width': props.fullWidth,
   },
 ]);

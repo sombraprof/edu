@@ -1549,6 +1549,14 @@ html {
     margin-inline-start: 0.5rem;
   }
 
+  .md3-button--icon .md3-button__icon--leading {
+    margin-inline-end: 0;
+  }
+
+  .md3-button--icon .md3-button__icon--trailing {
+    margin-inline-start: 0;
+  }
+
   .card {
     position: relative;
     background: color-mix(
