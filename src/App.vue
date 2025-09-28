@@ -20,7 +20,6 @@
         <template #leading>
           <ArrowUp class="md-icon" aria-hidden="true" />
         </template>
-        <span class="sr-only">Voltar ao topo</span>
       </Md3Button>
     </transition>
   </div>
