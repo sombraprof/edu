@@ -4,6 +4,9 @@ const rawBaseUrl = (import.meta.env.VITE_TEACHER_API_URL ?? '').trim();
 export const teacherAutomationBaseUrl = rawBaseUrl.replace(/\/$/, '');
 export const teacherAutomationEnabled = teacherAutomationBaseUrl.length > 0;
 
+const rawToken = (import.meta.env.VITE_TEACHER_API_TOKEN ?? '').trim();
+export const teacherAutomationToken = rawToken.length > 0 ? rawToken : null;
+
 export class TeacherAutomationError extends Error {
   constructor(
     message: string,
@@ -38,6 +41,7 @@ async function request(path: string, init?: RequestInit) {
     ...init,
     headers: {
       'Content-Type': 'application/json',
+      ...(teacherAutomationToken ? { 'X-Teacher-Token': teacherAutomationToken } : {}),
       ...(init?.headers instanceof Headers
         ? Object.fromEntries(init.headers.entries())
         : init?.headers),
@@ -62,6 +66,13 @@ async function request(path: string, init?: RequestInit) {
     } else if (detail && typeof detail === 'object') {
       const maybeError = (detail as { error?: string }).error;
       detailMessage = typeof maybeError === 'string' ? maybeError : JSON.stringify(detail);
+    }
+
+    if (response.status === 401) {
+      const message =
+        detailMessage ||
+        'Autenticação obrigatória. Verifique o token configurado no serviço e em VITE_TEACHER_API_TOKEN.';
+      throw new TeacherAutomationError(message, detail);
     }
 
     const message = detailMessage
@@ -114,4 +125,200 @@ export interface TeacherScriptSummary {
 export async function listTeacherScripts() {
   const payload = await request('/api/teacher/scripts', { method: 'GET' });
   return payload as TeacherScriptSummary[];
+}
+
+export interface TeacherGitChange {
+  status: string;
+  path: string;
+  renamedFrom: string | null;
+  renamedTo: string | null;
+}
+
+export interface TeacherGitStatus {
+  branch: string | null;
+  upstream: string | null;
+  ahead: number;
+  behind: number;
+  detached: boolean;
+  clean: boolean;
+  changes: TeacherGitChange[];
+  raw: string;
+}
+
+export async function fetchTeacherGitStatus() {
+  const payload = await request('/api/teacher/git/status', { method: 'GET' });
+  return payload as TeacherGitStatus;
+}
+
+export interface TeacherGitFetchResult {
+  success: boolean;
+  exitCode: number;
+  stdout: string;
+  stderr: string;
+  remote: string;
+  branch: string | null;
+  command: string;
+  status: TeacherGitStatus | null;
+}
+
+export async function fetchTeacherGitUpdates(params?: { remote?: string; branch?: string | null }) {
+  const body: Record<string, string | null> = {};
+  if (params?.remote) {
+    body.remote = params.remote;
+  }
+  if (params) {
+    if (params.branch === null) {
+      body.branch = null;
+    } else if (typeof params.branch === 'string') {
+      body.branch = params.branch;
+    }
+  }
+
+  const payload = await request('/api/teacher/git/fetch', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitFetchResult;
+}
+
+export interface TeacherGitCheckoutResult {
+  success: boolean;
+  exitCode: number;
+  stdout: string;
+  stderr: string;
+  branch: string;
+  create: boolean;
+  startPoint: string | null;
+  command: string;
+  status: TeacherGitStatus | null;
+}
+
+export async function checkoutTeacherGitBranch(params: {
+  branch: string;
+  create?: boolean;
+  startPoint?: string | null;
+}) {
+  const body: Record<string, unknown> = {
+    branch: params.branch,
+  };
+
+  if (typeof params.create === 'boolean') {
+    body.create = params.create;
+  }
+
+  if (Object.prototype.hasOwnProperty.call(params, 'startPoint')) {
+    body.startPoint = params.startPoint;
+  }
+
+  const payload = await request('/api/teacher/git/checkout', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitCheckoutResult;
+}
+
+export interface TeacherGitStageResult {
+  success: boolean;
+  exitCode: number;
+  stdout: string;
+  stderr: string;
+  paths: string[];
+  all: boolean;
+  command: string;
+  status: TeacherGitStatus | null;
+}
+
+export async function stageTeacherGitPaths(params: { paths?: string[]; all?: boolean }) {
+  const body: Record<string, unknown> = {};
+  if (Array.isArray(params.paths)) {
+    body.paths = params.paths;
+  }
+  if (typeof params.all === 'boolean') {
+    body.all = params.all;
+  }
+
+  const payload = await request('/api/teacher/git/stage', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitStageResult;
+}
+
+export interface TeacherGitCommitResult {
+  success: boolean;
+  skipped: boolean;
+  exitCode: number | null;
+  stdout: string;
+  stderr: string;
+  message: string;
+  messageParts: string[];
+  allowEmpty: boolean;
+  stage: TeacherGitStageResult | null;
+  status: TeacherGitStatus | null;
+  command: string;
+}
+
+export async function commitTeacherGitChanges(params: {
+  message: string;
+  allowEmpty?: boolean;
+  stagePaths?: string[];
+}) {
+  const body: Record<string, unknown> = {
+    message: params.message,
+  };
+
+  if (typeof params.allowEmpty === 'boolean') {
+    body.allowEmpty = params.allowEmpty;
+  }
+
+  if (Array.isArray(params.stagePaths)) {
+    body.stagePaths = params.stagePaths;
+  }
+
+  const payload = await request('/api/teacher/git/commit', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitCommitResult;
+}
+
+export interface TeacherGitPushResult {
+  success: boolean;
+  exitCode: number;
+  stdout: string;
+  stderr: string;
+  remote: string;
+  branch: string;
+  setUpstream: boolean;
+  command: string;
+  status: TeacherGitStatus | null;
+}
+
+export async function pushTeacherGitBranch(params: {
+  remote?: string;
+  branch: string;
+  setUpstream?: boolean;
+}) {
+  const body: Record<string, unknown> = {
+    branch: params.branch,
+  };
+
+  if (typeof params.remote === 'string') {
+    body.remote = params.remote;
+  }
+
+  if (typeof params.setUpstream === 'boolean') {
+    body.setUpstream = params.setUpstream;
+  }
+
+  const payload = await request('/api/teacher/git/push', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitPushResult;
 }

@@ -2,7 +2,7 @@
 import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { dirname, resolve, relative } from 'node:path';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -57,6 +57,8 @@ const historyLimit =
 
 const port = Number(process.env.TEACHER_SERVICE_PORT ?? 4178);
 const host = process.env.TEACHER_SERVICE_HOST ?? '127.0.0.1';
+const requiredToken = (process.env.TEACHER_SERVICE_TOKEN ?? '').trim();
+const authenticationEnabled = requiredToken.length > 0;
 
 function jsonResponse(res, statusCode, payload) {
   const body = JSON.stringify(payload, null, 2);
@@ -64,7 +66,7 @@ function jsonResponse(res, statusCode, payload) {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token',
   });
   res.end(body);
 }
@@ -73,9 +75,36 @@ function handleOptions(res) {
   res.writeHead(204, {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token',
   });
   res.end();
+}
+
+function extractToken(headerValue) {
+  if (Array.isArray(headerValue)) {
+    return headerValue.find((value) => typeof value === 'string') ?? '';
+  }
+  if (typeof headerValue === 'string') {
+    return headerValue;
+  }
+  return '';
+}
+
+function ensureAuthenticated(req, res) {
+  if (!authenticationEnabled) {
+    return true;
+  }
+
+  const provided = extractToken(req.headers['x-teacher-token']).trim();
+  if (provided && provided === requiredToken) {
+    return true;
+  }
+
+  jsonResponse(res, 401, {
+    error:
+      'Autenticação obrigatória. Inclua o header X-Teacher-Token com o token configurado no serviço.',
+  });
+  return false;
 }
 
 function parseRequestBody(req) {
@@ -100,10 +129,9 @@ function parseRequestBody(req) {
   });
 }
 
-async function executeScript(config) {
-  const startedAt = new Date();
+async function runCommand(command, args) {
   return new Promise((resolveExec, rejectExec) => {
-    const child = spawn(config.command, config.args, {
+    const child = spawn(command, args, {
       cwd: projectRoot,
       env: process.env,
       stdio: ['ignore', 'pipe', 'pipe'],
@@ -125,19 +153,29 @@ async function executeScript(config) {
     });
 
     child.on('close', (code) => {
-      const finishedAt = new Date();
       resolveExec({
-        key: config.key,
-        command: config.displayCommand,
         exitCode: code ?? 0,
-        output: `${stdout}${stderr}`,
-        startedAt: startedAt.toISOString(),
-        finishedAt: finishedAt.toISOString(),
-        durationMs: finishedAt.getTime() - startedAt.getTime(),
-        reportKey: config.reportKey,
+        stdout,
+        stderr,
       });
     });
   });
+}
+
+async function executeScript(config) {
+  const startedAt = new Date();
+  const { exitCode, stdout, stderr } = await runCommand(config.command, config.args);
+  const finishedAt = new Date();
+  return {
+    key: config.key,
+    command: config.displayCommand,
+    exitCode,
+    output: `${stdout}${stderr}`,
+    startedAt: startedAt.toISOString(),
+    finishedAt: finishedAt.toISOString(),
+    durationMs: finishedAt.getTime() - startedAt.getTime(),
+    reportKey: config.reportKey,
+  };
 }
 
 async function readHistory() {
@@ -223,6 +261,586 @@ async function serveReport(req, res, reportKey) {
   }
 }
 
+function parseGitStatusSummary(summaryLine) {
+  const summary = summaryLine.replace(/^##\s*/, '').trim();
+  const payload = {
+    branch: null,
+    upstream: null,
+    ahead: 0,
+    behind: 0,
+    detached: false,
+  };
+
+  if (!summary) {
+    return payload;
+  }
+
+  const bracketMatch = summary.match(/\[(.+)]$/);
+  let remainder = summary;
+  if (bracketMatch) {
+    const indicators = bracketMatch[1].split(',');
+    indicators.forEach((indicator) => {
+      const normalized = indicator.trim();
+      if (normalized.startsWith('ahead ')) {
+        const value = Number.parseInt(normalized.slice(6).trim(), 10);
+        payload.ahead = Number.isFinite(value) ? value : 0;
+      } else if (normalized.startsWith('behind ')) {
+        const value = Number.parseInt(normalized.slice(7).trim(), 10);
+        payload.behind = Number.isFinite(value) ? value : 0;
+      }
+    });
+    remainder = remainder.slice(0, bracketMatch.index).trim();
+  }
+
+  if (remainder.includes('...')) {
+    const [branch, upstream] = remainder.split('...');
+    payload.branch = branch?.trim() ?? null;
+    payload.upstream = upstream?.trim() ?? null;
+  } else if (remainder.includes('no branch')) {
+    payload.detached = true;
+    payload.branch = remainder.trim();
+  } else {
+    payload.branch = remainder.trim();
+  }
+
+  return payload;
+}
+
+function parseGitChange(line) {
+  const status = line.slice(0, 2);
+  const remainder = line.slice(3).trim();
+  if (status.startsWith('R')) {
+    const [from, to] = remainder.split(' -> ').map((part) => part.trim());
+    return {
+      status: status.trim(),
+      path: to ?? remainder,
+      renamedFrom: from ?? null,
+      renamedTo: to ?? null,
+    };
+  }
+
+  return {
+    status: status.trim(),
+    path: remainder,
+    renamedFrom: null,
+    renamedTo: null,
+  };
+}
+
+function normalizePathToProjectRoot(input) {
+  if (typeof input !== 'string') {
+    return null;
+  }
+
+  const trimmed = input.trim();
+  if (!trimmed || trimmed.startsWith('-') || /[\r\n]/.test(trimmed) || trimmed.includes('\0')) {
+    return null;
+  }
+
+  const resolved = resolve(projectRoot, trimmed);
+  const projectRelative = relative(projectRoot, resolved);
+
+  if (projectRelative.startsWith('..') || projectRelative.includes('\0')) {
+    return null;
+  }
+
+  if (!projectRelative) {
+    return '.';
+  }
+
+  return projectRelative.replace(/\\/g, '/');
+}
+
+function sanitizeGitPaths(rawPaths) {
+  if (!Array.isArray(rawPaths)) {
+    return [];
+  }
+
+  const sanitized = rawPaths
+    .map((value) => normalizePathToProjectRoot(value))
+    .filter((value) => typeof value === 'string' && value.length > 0);
+
+  const unique = [...new Set(sanitized)];
+  return unique;
+}
+
+function normalizeCommitMessageParts(rawMessage) {
+  if (typeof rawMessage !== 'string') {
+    return [];
+  }
+
+  const normalized = rawMessage.replace(/\r\n?/g, '\n').replace(/\0/g, '').trim();
+  if (!normalized) {
+    return [];
+  }
+
+  return normalized
+    .split(/\n{2,}/)
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0);
+}
+
+function buildGitAddCommandString({ paths, all }) {
+  if (all) {
+    return 'git add --all';
+  }
+
+  if (!paths.length) {
+    return 'git add --';
+  }
+
+  const listed = paths.map((item) => (item.includes(' ') ? `'${item}'` : item)).join(' ');
+  return `git add -- ${listed}`;
+}
+
+async function runGitAdd({ paths, all }) {
+  const args = ['add'];
+  if (all) {
+    args.push('--all');
+  } else {
+    args.push('--');
+    args.push(...paths);
+  }
+
+  const { exitCode, stdout, stderr } = await runCommand('git', args);
+  const success = exitCode === 0;
+
+  let status = null;
+  if (success) {
+    try {
+      status = await captureGitStatus();
+    } catch (statusError) {
+      status = null;
+    }
+  }
+
+  return {
+    success,
+    exitCode,
+    stdout,
+    stderr,
+    paths,
+    all,
+    command: buildGitAddCommandString({ paths, all }),
+    status,
+  };
+}
+
+function parseGitStatusOutput(stdout) {
+  const lines = stdout.trim().split(/\r?\n/).filter(Boolean);
+  const summaryLine = lines.shift();
+  const summary = summaryLine ? parseGitStatusSummary(summaryLine) : {};
+  const changes = lines.map((line) => parseGitChange(line));
+
+  return {
+    ...summary,
+    changes,
+    clean: changes.length === 0,
+    raw: stdout,
+  };
+}
+
+async function captureGitStatus() {
+  const { exitCode, stdout, stderr } = await runCommand('git', ['status', '--short', '--branch']);
+
+  if (exitCode !== 0) {
+    const error = new Error('Falha ao executar git status.');
+    error.details = stderr || stdout;
+    error.exitCode = exitCode;
+    throw error;
+  }
+
+  return parseGitStatusOutput(stdout);
+}
+
+function isSafeGitToken(value) {
+  return /^[A-Za-z0-9._/-]+$/.test(value);
+}
+
+async function serveGitStatus(res) {
+  try {
+    const status = await captureGitStatus();
+    jsonResponse(res, 200, status);
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'details' in error && typeof error.details === 'string'
+        ? error.details
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao consultar o Git no workspace atual.',
+      details,
+    });
+  }
+}
+
+async function serveGitFetch(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+    const remoteInput = typeof body.remote === 'string' ? body.remote.trim() : '';
+    const branchInput =
+      body.branch === null || body.branch === undefined
+        ? body.branch
+        : typeof body.branch === 'string'
+          ? body.branch.trim()
+          : '';
+
+    const remote = remoteInput || 'origin';
+    const branch = branchInput === null ? null : branchInput || 'main';
+
+    if (!isSafeGitToken(remote)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de remote inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    if (branch !== null && !isSafeGitToken(branch)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de branch inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    const args = branch === null ? ['fetch', remote] : ['fetch', remote, branch];
+    const { exitCode, stdout, stderr } = await runCommand('git', args);
+    const success = exitCode === 0;
+
+    let status = null;
+    if (success) {
+      try {
+        status = await captureGitStatus();
+      } catch (statusError) {
+        status = null;
+      }
+    }
+
+    jsonResponse(res, 200, {
+      success,
+      exitCode,
+      stdout,
+      stderr,
+      remote,
+      branch,
+      command: `git ${args.join(' ')}`,
+      status,
+    });
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'details' in error && typeof error.details === 'string'
+        ? error.details
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao buscar atualizações do repositório remoto.',
+      details,
+    });
+  }
+}
+
+async function serveGitCheckout(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+
+    const branchInput = typeof body.branch === 'string' ? body.branch.trim() : '';
+    if (!branchInput) {
+      jsonResponse(res, 400, { error: 'Informe o nome da branch desejada.' });
+      return;
+    }
+
+    if (!isSafeGitToken(branchInput)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de branch inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    const create = Boolean(body.create);
+
+    let startPoint = '';
+    if (Object.prototype.hasOwnProperty.call(body, 'startPoint')) {
+      if (body.startPoint === null || body.startPoint === undefined) {
+        startPoint = '';
+      } else if (typeof body.startPoint === 'string') {
+        startPoint = body.startPoint.trim();
+      } else {
+        jsonResponse(res, 400, {
+          error: 'Ponto de partida inválido. Informe uma string, null ou deixe ausente.',
+        });
+        return;
+      }
+    } else if (create) {
+      startPoint = 'main';
+    }
+
+    if (startPoint && !isSafeGitToken(startPoint)) {
+      jsonResponse(res, 400, {
+        error: 'Ponto de partida inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    const args = ['checkout'];
+    if (create) {
+      args.push('-b');
+    }
+    args.push(branchInput);
+    if (startPoint) {
+      args.push(startPoint);
+    }
+
+    const { exitCode, stdout, stderr } = await runCommand('git', args);
+    const success = exitCode === 0;
+
+    let status = null;
+    if (success) {
+      try {
+        status = await captureGitStatus();
+      } catch (statusError) {
+        status = null;
+      }
+    }
+
+    jsonResponse(res, 200, {
+      success,
+      exitCode,
+      stdout,
+      stderr,
+      branch: branchInput,
+      create,
+      startPoint: startPoint || null,
+      command: `git ${args.join(' ')}`,
+      status,
+    });
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'details' in error && typeof error.details === 'string'
+        ? error.details
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao preparar a branch solicitada.',
+      details,
+    });
+  }
+}
+
+async function serveGitStage(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+    const all = Boolean(body.all);
+    const sanitizedPaths = sanitizeGitPaths(body.paths ?? []);
+
+    if (!all && sanitizedPaths.length === 0) {
+      jsonResponse(res, 400, {
+        error:
+          'Informe ao menos um caminho válido ou habilite o modo all para executar git add automaticamente.',
+      });
+      return;
+    }
+
+    const result = await runGitAdd({ paths: sanitizedPaths, all });
+    jsonResponse(res, 200, result);
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'message' in error && typeof error.message === 'string'
+        ? error.message
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao executar git add no workspace atual.',
+      details,
+    });
+  }
+}
+
+async function serveGitCommit(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+    const messageParts = normalizeCommitMessageParts(body.message ?? '');
+
+    if (messageParts.length === 0) {
+      jsonResponse(res, 400, { error: 'Informe uma mensagem de commit válida.' });
+      return;
+    }
+
+    const allowEmpty = Boolean(body.allowEmpty);
+    const stagePaths = sanitizeGitPaths(body.stagePaths ?? []);
+
+    let stageResult = null;
+    if (stagePaths.length > 0) {
+      stageResult = await runGitAdd({ paths: stagePaths, all: false });
+      if (!stageResult.success) {
+        jsonResponse(res, 200, {
+          success: false,
+          skipped: true,
+          exitCode: null,
+          stdout: '',
+          stderr: 'Commit não executado porque git add falhou.',
+          message: messageParts.join('\n\n'),
+          messageParts,
+          allowEmpty,
+          stage: stageResult,
+          status: stageResult.status ?? null,
+          command: buildGitCommitCommandString({ messageParts, allowEmpty }),
+        });
+        return;
+      }
+    }
+
+    const args = ['commit'];
+    messageParts.forEach((part) => {
+      args.push('-m');
+      args.push(part);
+    });
+
+    if (allowEmpty) {
+      args.push('--allow-empty');
+    }
+
+    const { exitCode, stdout, stderr } = await runCommand('git', args);
+    const success = exitCode === 0;
+
+    let status = null;
+    try {
+      status = await captureGitStatus();
+    } catch (statusError) {
+      status = null;
+    }
+
+    jsonResponse(res, 200, {
+      success,
+      skipped: false,
+      exitCode,
+      stdout,
+      stderr,
+      message: messageParts.join('\n\n'),
+      messageParts,
+      allowEmpty,
+      stage: stageResult,
+      status,
+      command: buildGitCommitCommandString({ messageParts, allowEmpty }),
+    });
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'details' in error && typeof error.details === 'string'
+        ? error.details
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao executar git commit.',
+      details,
+    });
+  }
+}
+
+function buildGitPushCommandString({ remote, branch, setUpstream }) {
+  const chunks = ['git push'];
+  if (setUpstream) {
+    chunks.push('-u');
+  }
+  chunks.push(remote);
+  chunks.push(branch);
+  return chunks.join(' ');
+}
+
+async function serveGitPush(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+
+    const remoteInput = typeof body.remote === 'string' ? body.remote.trim() : '';
+    const branchInput = typeof body.branch === 'string' ? body.branch.trim() : '';
+
+    const remote = remoteInput || 'origin';
+    if (!isSafeGitToken(remote)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de remote inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    if (!branchInput) {
+      jsonResponse(res, 400, {
+        error: 'Informe o nome da branch que deve ser enviada ao repositório remoto.',
+      });
+      return;
+    }
+
+    if (!isSafeGitToken(branchInput)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de branch inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    const setUpstream = Object.prototype.hasOwnProperty.call(body, 'setUpstream')
+      ? Boolean(body.setUpstream)
+      : true;
+
+    const args = ['push'];
+    if (setUpstream) {
+      args.push('-u');
+    }
+    args.push(remote);
+    args.push(branchInput);
+
+    const { exitCode, stdout, stderr } = await runCommand('git', args);
+    const success = exitCode === 0;
+
+    let status = null;
+    if (success) {
+      try {
+        status = await captureGitStatus();
+      } catch (statusError) {
+        status = null;
+      }
+    }
+
+    jsonResponse(res, 200, {
+      success,
+      exitCode,
+      stdout,
+      stderr,
+      remote,
+      branch: branchInput,
+      setUpstream,
+      command: buildGitPushCommandString({ remote, branch: branchInput, setUpstream }),
+      status,
+    });
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'details' in error && typeof error.details === 'string'
+        ? error.details
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao enviar commits para o repositório remoto.',
+      details,
+    });
+  }
+}
+
+function buildGitCommitCommandString({ messageParts, allowEmpty }) {
+  const chunks = ['git commit'];
+  messageParts.forEach((part) => {
+    const quoted = part.includes(' ') ? `"${part.replace(/"/g, '\\"')}"` : part;
+    chunks.push('-m');
+    chunks.push(quoted);
+  });
+
+  if (allowEmpty) {
+    chunks.push('--allow-empty');
+  }
+
+  return chunks.join(' ');
+}
+
 function listScripts(res) {
   const payload = Object.values(scriptConfigs).map((config) => ({
     key: config.key,
@@ -251,6 +869,12 @@ const server = createServer(async (req, res) => {
     return;
   }
 
+  if (url.pathname.startsWith('/api/teacher/')) {
+    if (!ensureAuthenticated(req, res)) {
+      return;
+    }
+  }
+
   if (url.pathname === '/api/teacher/scripts' && req.method === 'GET') {
     listScripts(res);
     return;
@@ -264,6 +888,36 @@ const server = createServer(async (req, res) => {
   if (url.pathname === '/api/teacher/scripts/history' && req.method === 'GET') {
     const key = url.searchParams.get('key');
     await serveHistory(res, typeof key === 'string' && key.length > 0 ? key : null);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/fetch' && req.method === 'POST') {
+    await serveGitFetch(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/checkout' && req.method === 'POST') {
+    await serveGitCheckout(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/stage' && req.method === 'POST') {
+    await serveGitStage(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/commit' && req.method === 'POST') {
+    await serveGitCommit(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/push' && req.method === 'POST') {
+    await serveGitPush(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/status' && req.method === 'GET') {
+    await serveGitStatus(res);
     return;
   }
 
@@ -282,4 +936,9 @@ const server = createServer(async (req, res) => {
 
 server.listen(port, host, () => {
   console.log(`Professor automation service listening on http://${host}:${port}`);
+  if (authenticationEnabled) {
+    console.log('Authentication via X-Teacher-Token is enabled.');
+  } else {
+    console.log('Authentication is disabled. Set TEACHER_SERVICE_TOKEN to require a token.');
+  }
 });

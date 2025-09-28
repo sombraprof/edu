@@ -1,5 +1,7 @@
-import Ajv, { type ErrorObject } from 'ajv';
+import Ajv2020 from 'ajv/dist/2020';
+import type { ErrorObject } from 'ajv';
 import addFormats from 'ajv-formats';
+import draft2020Schema from 'ajv/dist/refs/json-schema-2020-12/schema.json';
 
 export interface FormattedAjvError {
   message: string;
@@ -8,7 +10,8 @@ export interface FormattedAjvError {
 }
 
 export function createAjvInstance() {
-  const ajv = new Ajv({ allErrors: true, strict: false });
+  const ajv = new Ajv2020({ allErrors: true, strict: false });
+  ajv.addMetaSchema(draft2020Schema);
   addFormats(ajv);
   return ajv;
 }

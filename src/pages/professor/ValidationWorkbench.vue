@@ -575,6 +575,7 @@ import {
   TeacherAutomationError,
   type TeacherScriptHistoryEntry,
 } from './utils/automation';
+import { persistValidationStatuses, type ValidationStatusMap } from './utils/validationStatus';
 
 const dateTimeFormatter = new Intl.DateTimeFormat('pt-BR', {
   dateStyle: 'long',
@@ -750,6 +751,37 @@ const scriptsStatus = computed<Record<ValidationScriptKey, StatusInfo>>(() => ({
   observability: analyzeLog(observabilityLog.value),
   governance: analyzeLog(governanceLog.value),
 }));
+
+const validationStatusesSnapshot = computed<ValidationStatusMap>(() => ({
+  content: {
+    status: scriptsStatus.value.content.status,
+    description: scriptsStatus.value.content.description,
+    updatedAt: timestamps.content.value,
+  },
+  report: {
+    status: scriptsStatus.value.report.status,
+    description: scriptsStatus.value.report.description,
+    updatedAt: timestamps.report.value,
+  },
+  observability: {
+    status: scriptsStatus.value.observability.status,
+    description: scriptsStatus.value.observability.description,
+    updatedAt: timestamps.observability.value,
+  },
+  governance: {
+    status: scriptsStatus.value.governance.status,
+    description: scriptsStatus.value.governance.description,
+    updatedAt: timestamps.governance.value,
+  },
+}));
+
+watch(
+  validationStatusesSnapshot,
+  (value) => {
+    persistValidationStatuses(value);
+  },
+  { deep: true, immediate: true }
+);
 
 const statusMeta: Record<CheckStatus, { label: string; chipClass: string; icon: unknown }> = {
   pending: {

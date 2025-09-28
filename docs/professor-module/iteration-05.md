@@ -16,6 +16,11 @@
 - Template de PR com título sugerido, resumo e checklist alinhados aos scripts marcados como obrigatórios.
 - Checklist final destacando governança (proveniência, revisão cruzada, anexos de relatórios).
 - Integração com o serviço backend permite marcar scripts obrigatórios e executar validações diretamente pelo painel.
+- Cartão de publicação consulta o backend para exibir branch, divergência e arquivos pendentes via `git status` em tempo real.
+- Botão **Buscar atualizações da main** aciona `git fetch` via backend e já devolve o status atualizado do workspace.
+- Botão **Criar branch automaticamente** usa o backend para abrir a branch de trabalho a partir da `main` sem sair da SPA.
+- Automação de `git add` e `git commit` reaproveitando os caminhos cadastrados e a mensagem configurada no painel.
+- Botão **Enviar branch com git push** usa o backend para configurar o upstream e publicar a branch direto da SPA.
 
 ### Linha do tempo
 
@@ -23,6 +28,9 @@
 - **2024-07-08** — Protótipo de formulário para branch/commit e experimentos com geração de comandos.
 - **2024-07-09** — Inclusão da lista de conteúdos + resumo automático para descrição do PR.
 - **2024-07-10** — Integração com dashboard, navegação e documentação viva destacando a nova iteração.
+- **2024-07-12** — Checkout automatizado integrado ao painel de publicação após validar fluxos de token/autenticação.
+- **2024-07-13** — Automação de staging e commit integrada ao serviço auxiliar e ao painel de publicação.
+- **2024-07-14** — `git push` automatizado com detecção de upstream e feedback no painel de publicação.
 
 ## Fluxo sugerido
 
@@ -43,12 +51,14 @@
 
 - ✅ Ter o checklist de validações e comandos num único lugar facilita orientar novos professores no fluxo de publicação.
 - ✅ O resumo automático do PR reduz divergências no momento de revisar os arquivos alterados.
+- ✅ Sincronizar a `main` pela própria SPA ajuda a lembrar de atualizar o workspace antes de gerar commits.
 - ⚠️ Ainda é necessário copiar manualmente os comandos de Git; próximo passo é expor automações no backend.
 - ⚠️ Precisamos sincronizar seções de validação e publicação com o status retornado pelo serviço para bloquear envios incompletos.
 
 ## Próximos passos / pendências
 
-- [ ] Implementar backend auxiliar que execute comandos Git e scripts diretamente a partir da SPA.
+- [x] Implementar backend auxiliar que execute `git status`, `fetch`, `checkout`, `add`, `commit` e `push` diretamente a partir da SPA.
+- [ ] Evoluir o backend auxiliar para preparar PRs completos reutilizando a branch criada automaticamente.
 - [ ] Registrar no painel os diffs gerados para facilitar a revisão visual antes do commit.
 - [ ] Adicionar integração com serviços de PR (ex.: GitHub) para preencher título e corpo automaticamente via API.
 - [ ] Expandir checklist para cobrir publicação de múltiplas branches/PRs em paralelo.

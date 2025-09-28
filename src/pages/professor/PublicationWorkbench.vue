@@ -29,6 +29,174 @@
       <section class="card flex flex-col gap-6 p-6 md:p-8">
         <header class="flex flex-col gap-2">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
+            Status do workspace Git
+          </h2>
+          <p class="supporting-text text-on-surface-variant">
+            Acompanhe a branch atual, divergências e arquivos pendentes antes de iniciar a rodada.
+          </p>
+        </header>
+
+        <div
+          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+        >
+          <template v-if="!teacherAutomationEnabled">
+            <p class="md-typescale-body-medium text-on-surface">
+              Configure <code>VITE_TEACHER_API_URL</code> e <code>VITE_TEACHER_API_TOKEN</code> para
+              consultar o serviço auxiliar. O painel exibirá o status do Git automaticamente quando
+              estiver ativo.
+            </p>
+          </template>
+          <template v-else>
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div class="flex flex-col gap-1">
+                  <p
+                    class="md-typescale-body-large font-semibold text-on-surface"
+                    aria-live="polite"
+                  >
+                    {{ gitBranchSummary }}
+                  </p>
+                  <p v-if="gitUpstreamSummary" class="text-sm text-on-surface-variant">
+                    {{ gitUpstreamSummary }}
+                  </p>
+                  <p v-if="gitDivergenceSummary" class="text-sm text-on-surface-variant">
+                    {{ gitDivergenceSummary }}
+                  </p>
+                </div>
+                <div class="flex flex-wrap gap-2 self-start md:self-auto">
+                  <Md3Button
+                    type="button"
+                    variant="text"
+                    class="inline-flex items-center gap-2"
+                    :disabled="gitStatusLoading"
+                    @click="refreshGitStatus"
+                  >
+                    <template #leading>
+                      <RefreshCcw class="md-icon md-icon--sm" aria-hidden="true" />
+                    </template>
+                    {{ gitStatusLoading ? 'Atualizando…' : 'Atualizar status' }}
+                  </Md3Button>
+                  <Md3Button
+                    type="button"
+                    variant="tonal"
+                    class="inline-flex items-center gap-2"
+                    :disabled="gitFetchLoading"
+                    @click="verifyMainUpdates"
+                  >
+                    <template #leading>
+                      <Download class="md-icon md-icon--sm" aria-hidden="true" />
+                    </template>
+                    {{ gitFetchLoading ? 'Verificando main…' : 'Buscar atualizações da main' }}
+                  </Md3Button>
+                </div>
+              </div>
+
+              <div
+                v-if="gitFetchError"
+                class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+              >
+                <div class="flex items-start gap-3">
+                  <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+                  <div class="flex flex-col gap-1">
+                    <p class="text-sm font-medium">{{ gitFetchError }}</p>
+                    <p v-if="gitFetchResult" class="text-xs">
+                      Comando executado:
+                      <code class="font-mono">{{ gitFetchResult.command }}</code>
+                    </p>
+                  </div>
+                </div>
+                <pre
+                  v-if="gitFetchOutput"
+                  class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+                  aria-live="polite"
+                  >{{ gitFetchOutput }}
+                </pre>
+              </div>
+
+              <div
+                v-else-if="gitFetchResult"
+                class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+              >
+                <div class="flex items-start gap-3">
+                  <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+                  <div class="flex flex-col gap-1">
+                    <p class="text-sm font-medium">{{ gitFetchSuccessMessage }}</p>
+                    <p class="text-xs">
+                      Comando executado:
+                      <code class="font-mono">{{ gitFetchResult.command }}</code>
+                    </p>
+                  </div>
+                </div>
+                <pre
+                  v-if="gitFetchOutput"
+                  class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+                  aria-live="polite"
+                  >{{ gitFetchOutput }}
+                </pre>
+              </div>
+
+              <div
+                v-if="gitStatusError"
+                class="flex items-start gap-3 rounded-2xl bg-error-container p-4"
+              >
+                <AlertCircle
+                  class="md-icon md-icon--sm text-on-error-container"
+                  aria-hidden="true"
+                />
+                <p class="text-sm text-on-error-container">{{ gitStatusError }}</p>
+              </div>
+
+              <p v-else-if="gitStatusLoading" class="text-sm text-on-surface-variant">
+                Consultando Git…
+              </p>
+
+              <template v-else-if="gitStatus">
+                <p v-if="gitStatus.clean" class="text-sm text-on-surface">
+                  Nenhuma alteração pendente no workspace. Você pode seguir para a configuração da
+                  rodada.
+                </p>
+
+                <div v-else class="flex flex-col gap-3">
+                  <p class="text-sm text-on-surface">Arquivos com alterações pendentes:</p>
+                  <ul class="grid gap-2 text-sm text-on-surface">
+                    <li
+                      v-for="change in gitStatus.changes"
+                      :key="`${change.status}-${change.path}`"
+                      class="flex flex-col rounded-2xl border border-outline bg-surface p-3"
+                    >
+                      <span
+                        class="font-mono text-xs uppercase tracking-wide text-on-surface-variant"
+                      >
+                        {{ change.status }}
+                      </span>
+                      <span class="font-medium text-on-surface">{{ change.path }}</span>
+                      <span v-if="change.renamedFrom" class="text-xs text-on-surface-variant">
+                        Renomeado de {{ change.renamedFrom }}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <details
+                  class="rounded-2xl border border-outline-variant bg-surface p-4 text-sm text-on-surface"
+                >
+                  <summary class="cursor-pointer font-medium text-on-surface">
+                    Saída completa do git status
+                  </summary>
+                  <pre
+                    class="mt-3 whitespace-pre-wrap break-all font-mono text-xs text-on-surface-variant"
+                    >{{ gitStatus.raw }}
+                  </pre>
+                </details>
+              </template>
+            </div>
+          </template>
+        </div>
+      </section>
+
+      <section class="card flex flex-col gap-6 p-6 md:p-8">
+        <header class="flex flex-col gap-2">
+          <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Configurar branch e resumo da rodada
           </h2>
           <p class="supporting-text text-on-surface-variant">
@@ -63,6 +231,299 @@
               Resuma a alteração principal no formato convencional de mensagens de commit.
             </span>
           </label>
+        </div>
+
+        <div
+          v-if="teacherAutomationEnabled"
+          class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-5"
+        >
+          <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <p class="text-sm text-on-surface">
+              Peça para o serviço auxiliar criar ou alternar automaticamente para a branch informada
+              a partir da <code>main</code> atualizada.
+            </p>
+            <Md3Button
+              type="button"
+              variant="filled"
+              class="inline-flex items-center gap-2 self-start md:self-auto"
+              :disabled="gitCheckoutLoading"
+              @click="createWorkingBranch"
+            >
+              <template #leading>
+                <GitBranch class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
+              {{ gitCheckoutLoading ? 'Criando branch…' : 'Criar branch automaticamente' }}
+            </Md3Button>
+          </div>
+
+          <div
+            v-if="gitCheckoutError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitCheckoutError }}</p>
+                <p v-if="gitCheckoutResult" class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitCheckoutResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitCheckoutOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitCheckoutOutput }}
+            </pre>
+          </div>
+
+          <div
+            v-else-if="gitCheckoutResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitCheckoutSuccessMessage }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitCheckoutResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitCheckoutOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitCheckoutOutput }}
+            </pre>
+          </div>
+
+          <p class="text-xs text-on-surface-variant">
+            O serviço executa <code>git checkout -b {{ sanitizedBranch }}</code> usando a
+            <code>main</code> como ponto de partida. Ajuste manualmente se precisar de outra base.
+          </p>
+        </div>
+        <p
+          v-else
+          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-4 text-sm text-on-surface-variant"
+        >
+          Configure <code>VITE_TEACHER_API_URL</code> para criar a branch automaticamente pelo
+          painel ou siga os comandos sugeridos abaixo.
+        </p>
+
+        <div
+          v-if="teacherAutomationEnabled"
+          class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-5"
+        >
+          <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div class="flex flex-col gap-2">
+              <p class="text-sm text-on-surface">
+                Use os caminhos listados na seção de conteúdos para enviar os arquivos ao staging e
+                gerar o commit automaticamente.
+              </p>
+              <p class="text-xs text-on-surface-variant">
+                O serviço executa <code>git add</code> com os caminhos preenchidos e reutiliza o
+                título de commit configurado acima.
+              </p>
+            </div>
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <Md3Button
+                type="button"
+                variant="tonal"
+                class="inline-flex items-center gap-2"
+                :disabled="gitStageLoading || artifactPaths.length === 0"
+                @click="stageCurrentArtifacts"
+              >
+                {{ gitStageLoading ? 'Adicionando…' : 'Adicionar com git add' }}
+              </Md3Button>
+              <Md3Button
+                type="button"
+                variant="filled"
+                class="inline-flex items-center gap-2"
+                :disabled="gitCommitLoading"
+                @click="commitCurrentArtifacts"
+              >
+                {{ gitCommitLoading ? 'Registrando commit…' : 'Gerar commit agora' }}
+              </Md3Button>
+              <Md3Button
+                type="button"
+                variant="filled"
+                class="inline-flex items-center gap-2"
+                :disabled="gitPushLoading || !canPushAutomatically"
+                @click="pushCurrentBranch"
+              >
+                <template #leading>
+                  <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+                </template>
+                {{ gitPushLoading ? 'Enviando branch…' : 'Enviar branch com git push' }}
+              </Md3Button>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-outline bg-surface p-4 text-sm text-on-surface">
+            <p class="font-medium">Caminhos enviados para o git add automático:</p>
+            <ul v-if="artifactPaths.length > 0" class="mt-2 grid gap-2">
+              <li
+                v-for="path in artifactPaths"
+                :key="path"
+                class="rounded-xl bg-[var(--md-sys-color-surface-container-highest)] px-3 py-2 font-mono text-xs text-on-surface"
+              >
+                {{ path }}
+              </li>
+            </ul>
+            <p v-else class="mt-2 text-xs text-on-surface-variant">
+              Preencha a seção “Conteúdos incluídos nesta rodada” para habilitar o git add
+              automático.
+            </p>
+          </div>
+
+          <div
+            v-if="gitStageError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitStageError }}</p>
+                <p v-if="gitStageResult" class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitStageResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitStageOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitStageOutput }}
+            </pre>
+          </div>
+          <div
+            v-else-if="gitStageResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitStageSuccessMessage }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitStageResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitStageOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitStageOutput }}
+            </pre>
+          </div>
+
+          <div
+            v-if="gitCommitError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitCommitError }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{
+                    gitCommitResult?.command ?? `git commit -m "${sanitizedCommitTitle}"`
+                  }}</code>
+                </p>
+                <p v-if="gitCommitSkippedMessage" class="text-xs">{{ gitCommitSkippedMessage }}</p>
+                <p v-if="gitCommitResult?.stage && !gitCommitResult.stage.success" class="text-xs">
+                  git add executado com:
+                  <code class="font-mono">{{ gitCommitResult.stage.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitCommitOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitCommitOutput }}
+            </pre>
+          </div>
+          <div
+            v-else-if="gitCommitResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitCommitSuccessMessage }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitCommitResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitCommitOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitCommitOutput }}
+            </pre>
+          </div>
+
+          <div
+            v-if="gitPushError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitPushError }}</p>
+                <p v-if="gitPushResult" class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitPushResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitPushOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitPushOutput }}
+            </pre>
+          </div>
+          <div
+            v-else-if="gitPushResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitPushSuccessMessage }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitPushResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitPushOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitPushOutput }}
+            </pre>
+          </div>
+
+          <p class="text-xs text-on-surface-variant">
+            O serviço executa <code>{{ gitPushCommandPreview }}</code
+            >. {{ gitPushBehaviorHint }}
+          </p>
+
+          <p class="text-xs text-on-surface-variant">
+            Revise o diff local após executar o commit automático e antes de enviar a branch para o
+            repositório remoto.
+          </p>
         </div>
 
         <label class="flex flex-col gap-2">
@@ -256,10 +717,36 @@ $ {{ gitCommands.join('\n$ ') }}
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue';
-import { Copy, Plus, Trash2 } from 'lucide-vue-next';
+import { computed, onMounted, reactive, ref } from 'vue';
+import {
+  AlertCircle,
+  CheckCircle2,
+  Copy,
+  Download,
+  GitBranch,
+  Plus,
+  RefreshCcw,
+  Trash2,
+  UploadCloud,
+} from 'lucide-vue-next';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
 import Md3Button from '@/components/Md3Button.vue';
+import {
+  TeacherAutomationError,
+  checkoutTeacherGitBranch,
+  commitTeacherGitChanges,
+  fetchTeacherGitStatus,
+  fetchTeacherGitUpdates,
+  pushTeacherGitBranch,
+  stageTeacherGitPaths,
+  teacherAutomationEnabled,
+  type TeacherGitCheckoutResult,
+  type TeacherGitCommitResult,
+  type TeacherGitFetchResult,
+  type TeacherGitPushResult,
+  type TeacherGitStageResult,
+  type TeacherGitStatus,
+} from './utils/automation';
 
 type ArtifactType = 'lesson' | 'exercise' | 'supplement' | 'component' | 'assessment' | 'other';
 
@@ -282,6 +769,489 @@ const branchName = ref('');
 const commitTitle = ref('');
 const prDescription = ref('');
 const copyLabel = ref('Copiar comandos');
+
+const gitStatus = ref<TeacherGitStatus | null>(null);
+const gitStatusError = ref<string | null>(null);
+const gitStatusLoading = ref(false);
+const gitFetchResult = ref<TeacherGitFetchResult | null>(null);
+const gitFetchError = ref<string | null>(null);
+const gitFetchLoading = ref(false);
+const gitCheckoutResult = ref<TeacherGitCheckoutResult | null>(null);
+const gitCheckoutError = ref<string | null>(null);
+const gitCheckoutLoading = ref(false);
+const gitStageResult = ref<TeacherGitStageResult | null>(null);
+const gitStageError = ref<string | null>(null);
+const gitStageLoading = ref(false);
+const gitCommitResult = ref<TeacherGitCommitResult | null>(null);
+const gitCommitError = ref<string | null>(null);
+const gitCommitLoading = ref(false);
+const gitPushResult = ref<TeacherGitPushResult | null>(null);
+const gitPushError = ref<string | null>(null);
+const gitPushLoading = ref(false);
+
+const gitBranchSummary = computed(() => {
+  if (!gitStatus.value) {
+    return 'Workspace não consultado ainda';
+  }
+  if (gitStatus.value.detached) {
+    return gitStatus.value.branch ?? 'HEAD destacado';
+  }
+  return gitStatus.value.branch
+    ? `Branch atual: ${gitStatus.value.branch}`
+    : 'Branch atual não identificada';
+});
+
+const gitUpstreamSummary = computed(() => {
+  if (!gitStatus.value?.upstream) {
+    return '';
+  }
+  return `Upstream configurado: ${gitStatus.value.upstream}`;
+});
+
+const gitDivergenceSummary = computed(() => {
+  if (!gitStatus.value) {
+    return '';
+  }
+  const { ahead, behind } = gitStatus.value;
+  if (!ahead && !behind) {
+    return 'Workspace alinhado com o upstream configurado.';
+  }
+  if (ahead && behind) {
+    return `Divergência: ${ahead} commit(s) à frente e ${behind} atrás.`;
+  }
+  if (ahead) {
+    return `Divergência: ${ahead} commit(s) à frente do upstream.`;
+  }
+  return `Divergência: ${behind} commit(s) atrás do upstream.`;
+});
+
+const gitFetchOutput = computed(() => {
+  if (!gitFetchResult.value) {
+    return '';
+  }
+
+  const parts = [gitFetchResult.value.stdout, gitFetchResult.value.stderr]
+    .map((chunk) => (chunk ?? '').trim())
+    .filter((part) => part.length > 0);
+
+  return parts.join('\n\n');
+});
+
+const gitFetchSuccessMessage = computed(() => {
+  if (!gitFetchResult.value?.success) {
+    return '';
+  }
+
+  const status = gitFetchResult.value.status;
+  if (!status) {
+    return 'Fetch executado com sucesso. Consulte o status para confirmar divergências.';
+  }
+
+  if (status.behind > 0) {
+    return `Fetch concluído. Workspace ainda ${status.behind} commit(s) atrás do upstream.`;
+  }
+
+  if (status.ahead > 0) {
+    return `Fetch concluído. Workspace ${status.ahead} commit(s) à frente do upstream.`;
+  }
+
+  return 'Fetch executado com sucesso. Workspace alinhado com o upstream configurado.';
+});
+
+const gitCheckoutOutput = computed(() => {
+  if (!gitCheckoutResult.value) {
+    return '';
+  }
+
+  const stdout = gitCheckoutResult.value.stdout?.trim?.() ?? '';
+  const stderr = gitCheckoutResult.value.stderr?.trim?.() ?? '';
+  return [stdout, stderr].filter(Boolean).join('\n');
+});
+
+const gitCheckoutSuccessMessage = computed(() => {
+  if (!gitCheckoutResult.value?.success) {
+    return '';
+  }
+
+  const branch = gitCheckoutResult.value.branch;
+  const startPoint = gitCheckoutResult.value.startPoint ?? 'HEAD atual';
+
+  if (gitCheckoutResult.value.create) {
+    return `Branch ${branch} criada a partir de ${startPoint}.`;
+  }
+
+  return `Checkout para ${branch} concluído.`;
+});
+
+const gitStageOutput = computed(() => {
+  if (!gitStageResult.value) {
+    return '';
+  }
+
+  const stdout = gitStageResult.value.stdout?.trim?.() ?? '';
+  const stderr = gitStageResult.value.stderr?.trim?.() ?? '';
+  return [stdout, stderr].filter(Boolean).join('\n');
+});
+
+const gitStageSuccessMessage = computed(() => {
+  if (!gitStageResult.value?.success) {
+    return '';
+  }
+
+  if (gitStageResult.value.all) {
+    return 'git add --all executado com sucesso.';
+  }
+
+  if (gitStageResult.value.paths.length > 0) {
+    return `Arquivos adicionados ao staging: ${gitStageResult.value.paths.join(', ')}`;
+  }
+
+  return 'git add executado com sucesso.';
+});
+
+const gitCommitOutput = computed(() => {
+  if (!gitCommitResult.value) {
+    return '';
+  }
+
+  const stdout = gitCommitResult.value.stdout?.trim?.() ?? '';
+  const stderr = gitCommitResult.value.stderr?.trim?.() ?? '';
+  return [stdout, stderr].filter(Boolean).join('\n');
+});
+
+const gitCommitSuccessMessage = computed(() => {
+  if (!gitCommitResult.value?.success) {
+    return '';
+  }
+
+  const subject = gitCommitResult.value.messageParts?.[0] ?? gitCommitResult.value.message;
+  return `Commit criado com a mensagem: ${subject}`;
+});
+
+const gitCommitSkippedMessage = computed(() => {
+  if (!gitCommitResult.value?.skipped) {
+    return '';
+  }
+
+  return 'Commit não executado porque o git add automático falhou.';
+});
+
+const gitPushOutput = computed(() => {
+  if (!gitPushResult.value) {
+    return '';
+  }
+
+  const stdout = gitPushResult.value.stdout?.trim?.() ?? '';
+  const stderr = gitPushResult.value.stderr?.trim?.() ?? '';
+  return [stdout, stderr].filter(Boolean).join('\n');
+});
+
+const gitPushSuccessMessage = computed(() => {
+  if (!gitPushResult.value?.success) {
+    return '';
+  }
+
+  const branch = gitPushResult.value.branch;
+  const remote = gitPushResult.value.remote;
+  if (branch && remote) {
+    return gitPushResult.value.setUpstream
+      ? `Branch ${branch} enviada para ${remote} com upstream configurado.`
+      : `Branch ${branch} enviada para ${remote}.`;
+  }
+
+  return 'git push executado com sucesso.';
+});
+
+async function refreshGitStatus() {
+  if (!teacherAutomationEnabled) {
+    return;
+  }
+
+  gitStatusLoading.value = true;
+  gitStatusError.value = null;
+
+  try {
+    gitStatus.value = await fetchTeacherGitStatus();
+  } catch (error) {
+    if (error instanceof TeacherAutomationError) {
+      gitStatusError.value = error.message;
+    } else if (error instanceof Error) {
+      gitStatusError.value = error.message;
+    } else {
+      gitStatusError.value = 'Falha inesperada ao consultar o serviço de automação.';
+    }
+  } finally {
+    gitStatusLoading.value = false;
+  }
+}
+
+async function verifyMainUpdates() {
+  if (!teacherAutomationEnabled) {
+    return;
+  }
+
+  gitFetchLoading.value = true;
+  gitFetchError.value = null;
+  gitFetchResult.value = null;
+
+  try {
+    const result = await fetchTeacherGitUpdates({ remote: 'origin', branch: 'main' });
+    gitFetchResult.value = result;
+
+    if (!result.success) {
+      const stderrMessage = result.stderr?.trim?.() ?? '';
+      const stdoutMessage = result.stdout?.trim?.() ?? '';
+      gitFetchError.value =
+        stderrMessage || stdoutMessage || 'Não foi possível buscar atualizações da branch main.';
+    } else {
+      gitFetchError.value = null;
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+    } else if (result.success) {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitFetchResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitFetchError.value = error.message;
+    } else if (error instanceof Error) {
+      gitFetchError.value = error.message;
+    } else {
+      gitFetchError.value = 'Falha inesperada ao buscar atualizações do Git.';
+    }
+  } finally {
+    gitFetchLoading.value = false;
+  }
+}
+
+async function createWorkingBranch() {
+  if (!teacherAutomationEnabled) {
+    gitCheckoutError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar a criação automática.';
+    return;
+  }
+
+  gitCheckoutLoading.value = true;
+  gitCheckoutError.value = null;
+  gitCheckoutResult.value = null;
+
+  try {
+    const result = await checkoutTeacherGitBranch({
+      branch: sanitizedBranch.value,
+      create: true,
+      startPoint: 'main',
+    });
+
+    gitCheckoutResult.value = result;
+
+    if (!result.success) {
+      const stderrMessage = result.stderr?.trim?.() ?? '';
+      const stdoutMessage = result.stdout?.trim?.() ?? '';
+      gitCheckoutError.value =
+        stderrMessage || stdoutMessage || 'Não foi possível preparar a branch solicitada.';
+    } else {
+      gitCheckoutError.value = null;
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+      if (result.status.branch) {
+        branchName.value = result.status.branch;
+      }
+    } else if (result.success) {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitCheckoutResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitCheckoutError.value = error.message;
+    } else if (error instanceof Error) {
+      gitCheckoutError.value = error.message;
+    } else {
+      gitCheckoutError.value = 'Falha inesperada ao preparar a branch.';
+    }
+  } finally {
+    gitCheckoutLoading.value = false;
+  }
+}
+
+async function stageCurrentArtifacts() {
+  if (!teacherAutomationEnabled) {
+    gitStageError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar o git add automático.';
+    return;
+  }
+
+  const paths = artifactPaths.value;
+  if (paths.length === 0) {
+    gitStageError.value =
+      'Preencha ao menos um caminho na seção de conteúdos para enviar ao staging automaticamente.';
+    return;
+  }
+
+  gitStageLoading.value = true;
+  gitStageError.value = null;
+  gitStageResult.value = null;
+
+  try {
+    const result = await stageTeacherGitPaths({ paths });
+    gitStageResult.value = result;
+
+    if (!result.success) {
+      const stderrMessage = result.stderr?.trim?.() ?? '';
+      const stdoutMessage = result.stdout?.trim?.() ?? '';
+      gitStageError.value =
+        stderrMessage || stdoutMessage || 'Não foi possível adicionar os arquivos ao staging.';
+    } else {
+      gitStageError.value = null;
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+    } else if (result.success) {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitStageResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitStageError.value = error.message;
+    } else if (error instanceof Error) {
+      gitStageError.value = error.message;
+    } else {
+      gitStageError.value = 'Falha inesperada ao executar git add.';
+    }
+  } finally {
+    gitStageLoading.value = false;
+  }
+}
+
+async function commitCurrentArtifacts() {
+  if (!teacherAutomationEnabled) {
+    gitCommitError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar commits automáticos.';
+    return;
+  }
+
+  gitCommitLoading.value = true;
+  gitCommitError.value = null;
+  gitCommitResult.value = null;
+
+  try {
+    const result = await commitTeacherGitChanges({
+      message: sanitizedCommitTitle.value,
+      stagePaths: artifactPaths.value,
+    });
+
+    gitCommitResult.value = result;
+
+    if (!result.success) {
+      if (result.skipped && result.stage && !result.stage.success) {
+        const stderrMessage = result.stage.stderr?.trim?.() ?? '';
+        const stdoutMessage = result.stage.stdout?.trim?.() ?? '';
+        gitCommitError.value =
+          stderrMessage ||
+          stdoutMessage ||
+          'Não foi possível adicionar os arquivos ao staging antes do commit.';
+        gitStageError.value =
+          stderrMessage || stdoutMessage || 'Não foi possível adicionar os arquivos ao staging.';
+      } else {
+        const stderrMessage = result.stderr?.trim?.() ?? '';
+        const stdoutMessage = result.stdout?.trim?.() ?? '';
+        gitCommitError.value =
+          stderrMessage || stdoutMessage || 'Não foi possível concluir o commit solicitado.';
+      }
+    } else {
+      gitCommitError.value = null;
+    }
+
+    if (result.stage) {
+      gitStageResult.value = result.stage;
+      if (result.stage.success) {
+        gitStageError.value = null;
+      }
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+    } else {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitCommitResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitCommitError.value = error.message;
+    } else if (error instanceof Error) {
+      gitCommitError.value = error.message;
+    } else {
+      gitCommitError.value = 'Falha inesperada ao executar git commit.';
+    }
+  } finally {
+    gitCommitLoading.value = false;
+  }
+}
+
+async function pushCurrentBranch() {
+  if (!teacherAutomationEnabled) {
+    gitPushError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar git push automático.';
+    return;
+  }
+
+  const branch = gitPushBranchCandidate.value;
+  if (!branch) {
+    gitPushError.value =
+      'Informe o nome da branch na seção acima ou consulte o status do Git antes de enviar com git push.';
+    return;
+  }
+
+  gitPushLoading.value = true;
+  gitPushError.value = null;
+  gitPushResult.value = null;
+
+  try {
+    const result = await pushTeacherGitBranch({
+      remote: 'origin',
+      branch,
+      setUpstream: !gitStatus.value?.upstream,
+    });
+
+    gitPushResult.value = result;
+
+    if (!result.success) {
+      const stderrMessage = result.stderr?.trim?.() ?? '';
+      const stdoutMessage = result.stdout?.trim?.() ?? '';
+      gitPushError.value =
+        stderrMessage || stdoutMessage || 'Não foi possível enviar a branch ao repositório remoto.';
+    } else {
+      gitPushError.value = null;
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+    } else if (result.success) {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitPushResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitPushError.value = error.message;
+    } else if (error instanceof Error) {
+      gitPushError.value = error.message;
+    } else {
+      gitPushError.value = 'Falha inesperada ao executar git push.';
+    }
+  } finally {
+    gitPushLoading.value = false;
+  }
+}
+
+onMounted(() => {
+  if (teacherAutomationEnabled) {
+    refreshGitStatus();
+  }
+});
 
 const artifactTypeOptions: Array<{ value: ArtifactType; label: string }> = [
   { value: 'lesson', label: 'Aula (lesson)' },
@@ -361,7 +1331,49 @@ const sanitizedCommitTitle = computed(
   () => commitTitle.value.trim() || 'chore: preparar pacote de publicação'
 );
 
+const gitPushBranchCandidate = computed(() => {
+  const explicit = branchName.value.trim();
+  if (explicit) {
+    return explicit;
+  }
+
+  const statusBranchRaw = gitStatus.value?.branch ?? '';
+  if (typeof statusBranchRaw === 'string') {
+    const trimmed = statusBranchRaw.trim();
+    if (trimmed) {
+      return trimmed;
+    }
+  }
+
+  return '';
+});
+
+const canPushAutomatically = computed(() => gitPushBranchCandidate.value.length > 0);
+
+const gitPushCommandPreview = computed(() => {
+  const branch = gitPushBranchCandidate.value;
+  const hasUpstream = Boolean(gitStatus.value?.upstream);
+
+  if (!branch) {
+    return 'git push -u origin <branch>';
+  }
+
+  return hasUpstream ? `git push origin ${branch}` : `git push -u origin ${branch}`;
+});
+
+const gitPushBehaviorHint = computed(() => {
+  if (gitStatus.value?.upstream) {
+    return 'O upstream já está configurado; o serviço reaproveita essa configuração.';
+  }
+
+  return 'Sem upstream configurado, o serviço usa -u para definir o rastreamento automaticamente.';
+});
+
 const enabledValidations = computed(() => validationSteps.filter((step) => step.enabled));
+
+const artifactPaths = computed(() =>
+  artifacts.map((item) => item.path.trim()).filter((path) => path.length > 0)
+);
 
 const artifactSummaries = computed(() =>
   artifacts
@@ -390,7 +1402,7 @@ const gitCommands = computed(() => {
     commands.push(step.command);
   });
 
-  const filesToAdd = artifacts.map((item) => item.path.trim()).filter((path) => Boolean(path));
+  const filesToAdd = artifactPaths.value;
 
   if (filesToAdd.length > 0) {
     commands.push('git status');
@@ -402,7 +1414,7 @@ const gitCommands = computed(() => {
   }
 
   commands.push(`git commit -m "${sanitizedCommitTitle.value}"`);
-  commands.push(`git push -u origin ${sanitizedBranch.value}`);
+  commands.push(gitPushCommandPreview.value);
   commands.push('gh pr create --web');
 
   return commands;
