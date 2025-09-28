@@ -20,28 +20,13 @@ import {
   TYPOGRAPHY_SCALE,
   type ThemeMode,
 } from './tokens';
+import { DEFAULT_THEME_OPTIONS, type BaseMaterialThemeOptions } from './base-palette';
 type ThemePreference = ThemeMode | 'system';
 
-interface MaterialThemeOptions {
-  seedColor?: string;
-  secondaryColor?: string;
-  tertiaryColor?: string;
-  neutralColor?: string;
-  neutralVariantColor?: string;
-  successColor?: string;
-  warningColor?: string;
-}
+type MaterialThemeOptions = Partial<BaseMaterialThemeOptions>;
 
 const STORAGE_KEY = 'theme';
-const DEFAULT_OPTIONS: Required<MaterialThemeOptions> = {
-  seedColor: '#2563eb',
-  secondaryColor: '#7c3aed',
-  tertiaryColor: '#f97316',
-  neutralColor: '#6b6f7c',
-  neutralVariantColor: '#687385',
-  successColor: '#4caf50',
-  warningColor: '#ff9800',
-};
+const DEFAULT_OPTIONS: BaseMaterialThemeOptions = DEFAULT_THEME_OPTIONS;
 
 const mediaQuery =
   typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)') : null;
@@ -306,7 +291,7 @@ function handleSystemChange(event: MediaQueryListEvent) {
   }
 }
 
-function createTheme(options: Required<MaterialThemeOptions>): Theme {
+function createTheme(options: BaseMaterialThemeOptions): Theme {
   return themeFromSourceColor(argbFromHex(options.seedColor), [
     { name: 'secondary', value: argbFromHex(options.secondaryColor), blend: true },
     { name: 'tertiary', value: argbFromHex(options.tertiaryColor), blend: true },
@@ -339,7 +324,7 @@ export function initMaterialTheme(options: MaterialThemeOptions = {}): Ref<Theme
     return activeMode;
   }
 
-  const merged = { ...DEFAULT_OPTIONS, ...options } as Required<MaterialThemeOptions>;
+  const merged: BaseMaterialThemeOptions = { ...DEFAULT_OPTIONS, ...options };
   materialTheme = createTheme(merged);
 
   applyStaticTokens();
