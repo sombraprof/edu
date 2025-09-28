@@ -10,10 +10,9 @@ Este resumo rápido compila o estado atual das entregas documentadas no plano in
 - Exportação do editor condicionada aos scripts oficiais registrados no painel de validações.
 - Painel `/professor/validacao` para consolidar execuções, notas e relatórios oficiais.
 - Pacote `/professor/publicacao` com checklist de validações, status Git em tempo real, geração de comandos e preparo de resumo de PR.
-- Botão "Buscar atualizações da main" no painel de publicação sincroniza o workspace via `git fetch` controlado.
-- Botão "Criar branch automaticamente" usa o backend para preparar a branch de trabalho diretamente da SPA.
-- Painel executa `git add` e `git commit` automaticamente com base nos conteúdos listados na rodada.
-- Painel envia a branch ativa com `git push`, configurando o upstream na primeira execução quando necessário.
+  - Botão "Buscar atualizações da main" sincroniza o workspace via `git fetch` controlado.
+  - Botão "Criar branch automaticamente" usa o backend para preparar a branch de trabalho diretamente da SPA.
+  - Painel executa `git add`, `git commit` e `git push` com feedback reaproveitando a API auxiliar.
 - Serviço auxiliar `npm run teacher:service` para disparo de scripts e sincronização de relatórios diretamente da SPA.
 
 ## O que falta fazer

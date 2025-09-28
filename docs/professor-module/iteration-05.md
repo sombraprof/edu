@@ -57,6 +57,7 @@
 
 ## Próximos passos / pendências
 
+- [x] Implementar backend auxiliar que execute `git status`, `fetch`, `checkout`, `add`, `commit` e `push` diretamente a partir da SPA.
 - [ ] Evoluir o backend auxiliar para preparar PRs completos reutilizando a branch criada automaticamente.
 - [ ] Registrar no painel os diffs gerados para facilitar a revisão visual antes do commit.
 - [ ] Adicionar integração com serviços de PR (ex.: GitHub) para preencher título e corpo automaticamente via API.

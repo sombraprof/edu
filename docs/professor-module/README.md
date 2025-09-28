@@ -11,14 +11,14 @@ Este documento acompanha a implementação incremental da nova área administrat
   - ✅ Editor visual em `/professor/editor` com edição de metadados e blocos (`lessonPlan`, `callout`, `cardGrid`, `contentBlock`).
   - ✅ Validação automática no editor reaproveitando o `lesson.schema.json` para alertar violações do schema durante a edição.
   - ✅ Painel `/professor/validacao` com registro de execuções, notas da rodada e importação de relatórios oficiais.
-- ✅ Pacote de publicação em `/professor/publicacao` para planejar branches, commits, validações e gerar resumo de PR.
-- ✅ Botão "Buscar atualizações da main" sincroniza o workspace via backend antes da rodada de commits.
-- ✅ Botão "Criar branch automaticamente" prepara a branch de trabalho a partir da `main` diretamente na SPA.
-- ✅ Automação de `git add` e `git commit` a partir dos caminhos cadastrados no painel de publicação.
-- ✅ Envio automático de `git push` com configuração de upstream direto do painel de publicação.
-- ✅ Serviço auxiliar `npm run teacher:service` expõe API local para executar scripts oficiais e sincronizar relatórios com o painel.
-  - ✅ Histórico de execuções remotas disponível diretamente no painel de validação ao integrar com o `teacher:service`.
-  - ✅ Autenticação por token no serviço auxiliar para permitir exposição controlada além do ambiente local.
+  - ✅ Pacote de publicação em `/professor/publicacao` para planejar branches, commits, validações e gerar resumo de PR.
+  - ✅ Botão "Buscar atualizações da main" sincroniza o workspace via backend antes da rodada de commits.
+  - ✅ Botão "Criar branch automaticamente" prepara a branch de trabalho a partir da `main` diretamente na SPA.
+  - ✅ Automação de `git add` e `git commit` a partir dos caminhos cadastrados no painel de publicação.
+  - ✅ Envio automático de `git push` com configuração de upstream direto do painel de publicação.
+  - ✅ Serviço auxiliar `npm run teacher:service` expõe API local para executar scripts oficiais e sincronizar relatórios com o painel.
+    - ✅ Histórico de execuções remotas disponível diretamente no painel de validação ao integrar com o `teacher:service`.
+    - ✅ Autenticação por token no serviço auxiliar para permitir exposição controlada além do ambiente local.
 
 - **Próximos passos imediatos**
 - 🧩 Automatizar abertura de PRs diretamente pelo painel de publicação.

@@ -15,6 +15,7 @@ O serviço exposto pelo script `npm run teacher:service` roda um servidor HTTP e
 - preparar checkout/abertura de branch a partir da `main` para alinhar o fluxo da iteração 5.
 - adicionar arquivos ao staging com `git add` validando caminhos informados na SPA.
 - registrar commits reutilizando a mensagem configurada no painel de publicação.
+- enviar a branch ativa ao remoto com `git push`, configurando upstream quando necessário.
 
 A configuração padrão atende ao desenvolvimento local. Para expor o serviço em ambientes compartilhados, habilite o token descrito abaixo e acompanhe as diretrizes de governança registradas na [iteração 4](./iteration-04.md#próximos-passos--pendências).
 

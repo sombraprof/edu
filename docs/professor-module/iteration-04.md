@@ -61,6 +61,7 @@
 - [ ] Ensaiar integração com Git (branches temporárias, diffs e PRs) aproveitando as notas registradas no painel.
 - [x] Registrar histórico de execuções no serviço backend e disponibilizar consulta na SPA.
 - [x] Acrescentar autenticação mínima ao serviço backend antes de expô-lo fora do ambiente local.
+- [ ] Evoluir o modelo de autenticação para múltiplos perfis e auditoria detalhada.
 
 ## Referências úteis
 
