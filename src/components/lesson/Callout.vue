@@ -31,7 +31,7 @@
             v-else-if="block.type === 'code'"
             class="callout__code"
             :code="block.code"
-            :language="block.language"
+            :language="resolveCodeLanguage(block.language)"
             :plainText="isPlainText(block.language)"
           />
 
@@ -157,6 +157,10 @@ function sanitize(value: string): string {
 const safeContent = computed(() =>
   Array.isArray(props.content) ? '' : sanitize(props.content ?? '')
 );
+
+function resolveCodeLanguage(language?: string): string {
+  return typeof language === 'string' && language.trim().length > 0 ? language : 'plaintext';
+}
 
 function isPlainText(language?: string) {
   if (!language) {

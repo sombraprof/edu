@@ -38,12 +38,12 @@
         </ol>
 
         <OrderedList
-          v-else-if="item.type === 'orderedList'"
+          v-else-if="isOrderedListBlock(item)"
           :items="formatOrderedListItems(item.items)"
           class="content-block__ordered-component"
         />
 
-        <dl v-else-if="item.type === 'definitionList'" class="content-block__definition-list">
+        <dl v-else-if="isDefinitionListBlock(item)" class="content-block__definition-list">
           <template
             v-for="(definition, defIndex) in normalizeDefinitionList(item.items)"
             :key="defIndex"
@@ -53,9 +53,9 @@
           </template>
         </dl>
 
-        <div v-else-if="item.type === 'subBlock'" class="content-block__sub-block">
+        <div v-else-if="isSubBlock(item)" class="content-block__sub-block">
           <h4 class="content-block__sub-title">{{ item.title }}</h4>
-          <template v-for="(subItem, subIndex) in item.items ?? []" :key="subIndex">
+          <template v-for="(subItem, subIndex) in getSubItems(item)" :key="subIndex">
             <p
               v-if="typeof subItem === 'string'"
               class="content-block__paragraph"
@@ -69,7 +69,7 @@
             <component
               v-else-if="isCalloutBlock(subItem)"
               :is="Callout"
-              :variant="subItem.variant ?? 'info'"
+              :variant="resolveCalloutVariant(subItem.variant)"
               :title="subItem.title"
               :content="normalizeCalloutContent(subItem.richContent ?? subItem.content)"
             />
@@ -79,7 +79,7 @@
         <component
           v-else-if="isCalloutBlock(item)"
           :is="Callout"
-          :variant="item.variant ?? 'info'"
+          :variant="resolveCalloutVariant(item.variant)"
           :title="item.title"
           :content="normalizeCalloutContent(item.richContent ?? item.content)"
         />
@@ -87,8 +87,8 @@
         <CodeBlock
           v-else-if="item.type === 'code'"
           :code="String(item.code ?? '')"
-          :language="item.language"
-          :plainText="shouldUsePlainText(item.language)"
+          :language="resolveCodeLanguage(item.language)"
+          :plainText="shouldUsePlainText(resolveCodeLanguage(item.language))"
         />
 
         <component
@@ -103,11 +103,11 @@
           v-bind="normalizeAudioBlock(item)"
         />
 
-        <CardGrid v-else-if="item.type === 'cardGrid'" :data="item" />
+        <CardGrid v-else-if="item.type === 'cardGrid'" :data="castCardGridData(item)" />
 
-        <Timeline v-else-if="item.type === 'timeline'" :data="item" />
+        <Timeline v-else-if="item.type === 'timeline'" :data="castTimelineData(item)" />
 
-        <Accordion v-else-if="item.type === 'accordion'" :data="item" />
+        <Accordion v-else-if="item.type === 'accordion'" :data="castAccordionData(item)" />
 
         <VideosBlock
           v-else-if="item.type === 'videosBlock' || item.type === 'videos'"
@@ -143,13 +143,16 @@
           :dense="Boolean(item.dense)"
         />
 
-        <FlightPlan v-else-if="item.type === 'flightPlan'" :data="item" />
+        <FlightPlan v-else-if="item.type === 'flightPlan'" :data="castFlightPlanData(item)" />
 
-        <LessonPlan v-else-if="item.type === 'lessonPlan'" :data="item" />
+        <LessonPlan v-else-if="item.type === 'lessonPlan'" :data="castLessonPlanData(item)" />
 
-        <ChecklistBlock v-else-if="item.type === 'checklist'" :data="item" />
+        <ChecklistBlock v-else-if="item.type === 'checklist'" :data="castChecklistData(item)" />
 
-        <MemoryDiagram v-else-if="item.type === 'memoryDiagram'" v-bind="item" />
+        <MemoryDiagram
+          v-else-if="item.type === 'memoryDiagram'"
+          v-bind="castMemoryDiagramProps(item)"
+        />
 
         <div v-else-if="item.type === 'image'" class="content-block__figure">
           <img :src="item.src" :alt="item.alt ?? ''" />
@@ -217,9 +220,14 @@ import TruthTable from './TruthTable.vue';
 import VideosBlock from './VideosBlock.vue';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
+type ContentBlockEntry = {
+  type?: string;
+  [key: string]: any;
+};
+
 type ContentBlockData = {
   title?: string;
-  content?: unknown[];
+  content?: Array<ContentBlockEntry | null | undefined>;
 };
 
 type CalloutParagraph = { type: 'paragraph'; text: string };
@@ -237,14 +245,23 @@ type CalloutContentBlock =
   | CalloutRoadmap
   | CalloutVideo;
 
+type ComponentProps<C> = C extends new (...args: any[]) => { $props: infer P } ? P : never;
+type ComponentDataProp<C> = ComponentProps<C> extends { data: infer D } ? D : never;
+
 const props = withDefaults(defineProps<{ data: ContentBlockData; nested?: boolean }>(), {
   nested: false,
 });
 
 const nested = computed(() => Boolean(props.nested));
 
-const normalizedContent = computed(() =>
-  Array.isArray(props.data?.content) ? props.data.content.filter((entry) => entry !== null) : []
+function isContentEntry(value: unknown): value is ContentBlockEntry {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+const normalizedContent = computed<ContentBlockEntry[]>(() =>
+  Array.isArray(props.data?.content)
+    ? props.data.content.filter((entry): entry is ContentBlockEntry => isContentEntry(entry))
+    : []
 );
 
 const componentRegistry = {
@@ -286,35 +303,99 @@ function isComponent(
   );
 }
 
-function isParagraph(value: any): value is { type: 'paragraph'; text?: string; html?: string } {
-  return value && typeof value === 'object' && value.type === 'paragraph';
+function isParagraph(value: unknown): value is { type: 'paragraph'; text?: string; html?: string } {
+  return isContentEntry(value) && value.type === 'paragraph';
 }
 
-function isBlockquote(value: any): value is { type: 'blockquote'; text: string; source?: string } {
-  return value && typeof value === 'object' && value.type === 'blockquote';
+function isBlockquote(
+  value: unknown
+): value is { type: 'blockquote'; text: string; source?: string } {
+  return isContentEntry(value) && value.type === 'blockquote';
 }
 
-function isBulletList(value: any): value is { type: 'list' | 'unorderedList'; items: unknown } {
+function isBulletList(value: unknown): value is { type: 'list' | 'unorderedList'; items: unknown } {
   return (
-    value &&
-    typeof value === 'object' &&
+    isContentEntry(value) &&
     (value.type === 'list' || value.type === 'unorderedList') &&
     Array.isArray(value.items)
   );
 }
 
-function isNumberedList(value: any): value is { type: 'list'; ordered: true; items: unknown } {
-  return value && typeof value === 'object' && value.type === 'list' && value.ordered === true;
+function isNumberedList(value: unknown): value is { type: 'list'; ordered: true; items: unknown } {
+  return isContentEntry(value) && value.type === 'list' && value.ordered === true;
 }
 
-function isCalloutBlock(item: any): item is {
+type OrderedListBlock = ContentBlockEntry & { type: 'orderedList'; items?: unknown };
+type DefinitionListBlock = ContentBlockEntry & { type: 'definitionList'; items?: unknown };
+type SubBlock = ContentBlockEntry & { type: 'subBlock'; title?: string; items?: unknown };
+type CalloutBlock = {
   type: 'callout';
   variant?: string;
   title?: string;
   content?: unknown;
   richContent?: unknown;
-} {
-  return item && typeof item === 'object' && item.type === 'callout';
+};
+
+function isOrderedListBlock(value: unknown): value is OrderedListBlock {
+  return isContentEntry(value) && value.type === 'orderedList';
+}
+
+function isDefinitionListBlock(value: unknown): value is DefinitionListBlock {
+  return isContentEntry(value) && value.type === 'definitionList';
+}
+
+function isSubBlock(value: unknown): value is SubBlock {
+  return isContentEntry(value) && value.type === 'subBlock';
+}
+
+function getSubItems(block: SubBlock): unknown[] {
+  return Array.isArray(block.items) ? block.items : [];
+}
+
+function isCalloutBlock(item: unknown): item is CalloutBlock {
+  return isContentEntry(item) && item.type === 'callout';
+}
+
+const CALLOUT_VARIANTS = ['info', 'academic', 'good-practice', 'warning', 'task', 'error'] as const;
+
+type CalloutVariant = (typeof CALLOUT_VARIANTS)[number];
+
+function resolveCalloutVariant(variant: unknown): CalloutVariant {
+  return typeof variant === 'string' && (CALLOUT_VARIANTS as readonly string[]).includes(variant)
+    ? (variant as CalloutVariant)
+    : 'info';
+}
+
+function resolveCodeLanguage(language: unknown): string | undefined {
+  return typeof language === 'string' && language.trim().length > 0 ? language : undefined;
+}
+
+function castCardGridData(item: ContentBlockEntry) {
+  return item as ComponentDataProp<typeof CardGrid>;
+}
+
+function castTimelineData(item: ContentBlockEntry) {
+  return item as ComponentDataProp<typeof Timeline>;
+}
+
+function castAccordionData(item: ContentBlockEntry) {
+  return item as ComponentDataProp<typeof Accordion>;
+}
+
+function castFlightPlanData(item: ContentBlockEntry) {
+  return item as ComponentDataProp<typeof FlightPlan>;
+}
+
+function castLessonPlanData(item: ContentBlockEntry) {
+  return item as ComponentDataProp<typeof LessonPlan>;
+}
+
+function castChecklistData(item: ContentBlockEntry) {
+  return item as ComponentDataProp<typeof ChecklistBlock>;
+}
+
+function castMemoryDiagramProps(item: ContentBlockEntry) {
+  return item as ComponentProps<typeof MemoryDiagram>;
 }
 
 function shouldUsePlainText(language?: string): boolean {
@@ -351,7 +432,7 @@ function formatOrderedListItems(items: unknown): string[] {
     .filter((value): value is string => Boolean(value));
 }
 
-function formatListItems(items: unknown[]): string[] {
+function formatListItems(items: unknown): string[] {
   if (!Array.isArray(items)) {
     return [];
   }
@@ -479,16 +560,24 @@ function normalizeVideosBlock(item: any) {
   };
 }
 
+type ChartSegment = { label: string; value: number; color?: string };
+
 function normalizeChart(item: any) {
   if (item.type === 'barChart') {
     const segments = Array.isArray(item.data)
       ? item.data
-          .map((entry: any) => ({
-            label: String(entry.label ?? ''),
-            value: Number(entry.value ?? 0),
-            color: typeof entry.color === 'string' ? entry.color : undefined,
-          }))
-          .filter((segment) => segment.label && Number.isFinite(segment.value))
+          .map((entry: unknown): ChartSegment => {
+            const record = (entry && typeof entry === 'object' ? entry : {}) as Record<
+              string,
+              unknown
+            >;
+            return {
+              label: String(record.label ?? ''),
+              value: Number(record.value ?? 0),
+              color: typeof record.color === 'string' ? record.color : undefined,
+            };
+          })
+          .filter((segment: ChartSegment) => segment.label && Number.isFinite(segment.value))
       : [];
 
     return {
@@ -507,12 +596,14 @@ function normalizeChart(item: any) {
   const colors = Array.isArray(dataset.backgroundColor) ? dataset.backgroundColor : [];
 
   const segments = labels
-    .map((label: any, index: number) => ({
-      label: String(label ?? ''),
-      value: Number(values[index] ?? 0),
-      color: typeof colors[index] === 'string' ? colors[index] : undefined,
-    }))
-    .filter((segment) => segment.label && Number.isFinite(segment.value));
+    .map(
+      (label: any, index: number): ChartSegment => ({
+        label: String(label ?? ''),
+        value: Number(values[index] ?? 0),
+        color: typeof colors[index] === 'string' ? colors[index] : undefined,
+      })
+    )
+    .filter((segment: ChartSegment) => segment.label && Number.isFinite(segment.value));
 
   return {
     type: 'pie' as const,
@@ -672,30 +763,33 @@ function normalizeTableRows(rows: unknown): TableCell[][] {
   }
 
   return rows
-    .map((row) => {
+    .map((row): TableCell[] | undefined => {
       if (!Array.isArray(row)) {
         return undefined;
       }
 
       const cells = row
-        .map((cell) => {
+        .map((cell): TableCell | undefined => {
           if (cell && typeof cell === 'object') {
+            const value = sanitizeContent((cell as any).value ?? '');
+            if (!value.length) {
+              return undefined;
+            }
             return {
-              value: sanitizeContent((cell as any).value ?? ''),
+              value,
               mono: Boolean((cell as any).mono),
               code: Boolean((cell as any).code),
             };
           }
 
-          return {
-            value: sanitizeContent(cell),
-          };
+          const value = sanitizeContent(cell);
+          return value.length ? { value } : undefined;
         })
-        .filter((cell) => cell.value.length > 0);
+        .filter((cell): cell is TableCell => Boolean(cell));
 
       return cells.length ? cells : undefined;
     })
-    .filter((row): row is TableCell[][][number] => Boolean(row));
+    .filter((row): row is TableCell[] => Boolean(row));
 }
 
 function normalizeTruthTableHeaders(headers: unknown): any[] {

@@ -255,7 +255,7 @@ function toCalloutContent(value: unknown): string | CalloutRichContent[] {
       if (type === 'list') {
         const rawItems = Array.isArray((entry as any).items) ? (entry as any).items : [];
         const items = rawItems
-          .map((item) => {
+          .map((item: unknown) => {
             if (typeof item === 'string') {
               return item.trim();
             }
@@ -266,7 +266,7 @@ function toCalloutContent(value: unknown): string | CalloutRichContent[] {
 
             return '';
           })
-          .filter((item) => item.length > 0);
+          .filter((item: string) => item.length > 0);
         if (items.length) {
           blocks.push({ type: 'list', ordered: Boolean((entry as any).ordered), items });
         }

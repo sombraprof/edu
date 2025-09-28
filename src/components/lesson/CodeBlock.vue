@@ -67,11 +67,16 @@ Prism.languages.portugol = {
 Prism.languages.pseudocode = Prism.languages.portugol;
 Prism.languages.pseudocodigo = Prism.languages.portugol;
 
-const props = defineProps<{
-  code: string;
-  language: string;
-  plainText?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    code: string;
+    language?: string;
+    plainText?: boolean;
+  }>(),
+  {
+    language: 'plaintext',
+  }
+);
 
 const codeElement = ref<HTMLElement | null>(null);
 const copied = ref(false);
