@@ -2081,13 +2081,21 @@ html {
 }
 
 .chip--available {
-  background-color: color-mix(in srgb, #2e7d32 22%, var(--md-sys-color-surface) 78%);
-  color: #1b5e20;
+  background-color: color-mix(
+    in srgb,
+    var(--md-sys-color-success) 22%,
+    var(--md-sys-color-success-container) 78%
+  );
+  color: var(--md-sys-color-on-success-container);
 }
 
 .chip--upcoming {
-  background-color: color-mix(in srgb, #facc15 24%, var(--md-sys-color-surface) 76%);
-  color: #8a540a;
+  background-color: color-mix(
+    in srgb,
+    var(--md-sys-color-warning) 24%,
+    var(--md-sys-color-warning-container) 76%
+  );
+  color: var(--md-sys-color-on-warning-container);
 }
 
 html[data-theme='dark'] .chip--lesson {
@@ -2109,13 +2117,21 @@ html[data-theme='dark'] .chip--exercise {
 }
 
 html[data-theme='dark'] .chip--available {
-  background-color: color-mix(in srgb, #66bb6a 32%, var(--md-sys-color-surface) 68%);
-  color: #f1fbf2;
+  background-color: color-mix(
+    in srgb,
+    var(--md-sys-color-success) 32%,
+    var(--md-sys-color-on-success-container) 68%
+  );
+  color: var(--md-sys-color-on-success);
 }
 
 html[data-theme='dark'] .chip--upcoming {
-  background-color: color-mix(in srgb, #facc15 34%, var(--md-sys-color-surface) 66%);
-  color: #fff6d1;
+  background-color: color-mix(
+    in srgb,
+    var(--md-sys-color-warning) 34%,
+    var(--md-sys-color-on-warning-container) 66%
+  );
+  color: var(--md-sys-color-on-warning);
 }
 
 /* Estilos para código inline */
