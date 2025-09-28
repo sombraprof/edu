@@ -310,10 +310,10 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
 }
 
 .callout--warning {
-  --callout-bg: var(--md-sys-color-warning-container, #fff3cd);
-  --callout-border: color-mix(in srgb, var(--md-sys-color-warning, #f59e0b) 40%, transparent);
-  --callout-text: var(--md-sys-color-on-warning-container, #7c5800);
-  --callout-accent: var(--md-sys-color-warning, #f59e0b);
+  --callout-bg: var(--md-sys-color-warning-container);
+  --callout-border: color-mix(in srgb, var(--md-sys-color-warning) 40%, transparent);
+  --callout-text: var(--md-sys-color-on-warning-container);
+  --callout-accent: var(--md-sys-color-warning);
 }
 
 .callout--academic {
