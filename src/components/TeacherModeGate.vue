@@ -12,14 +12,9 @@
               {{ description }}
             </p>
           </header>
-          <Md3Button
-            class="w-full md:w-auto"
-            variant="filled"
-            type="button"
-            @click="enableTeacherMode"
-          >
+          <button class="btn btn-filled w-full md:w-auto" type="button" @click="enableTeacherMode">
             {{ ctaLabel }}
-          </Md3Button>
+          </button>
           <p class="md-typescale-body-small text-on-surface-variant">
             Também é possível ativar adicionando <code>?teacher=1</code> à URL ou pelo atalho
             <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd>.
@@ -33,7 +28,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useTeacherMode } from '../composables/useTeacherMode';
-import Md3Button from './Md3Button.vue';
 
 withDefaults(
   defineProps<{

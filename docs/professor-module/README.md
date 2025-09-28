@@ -11,14 +11,19 @@ Este documento acompanha a implementação incremental da nova área administrat
   - ✅ Editor visual em `/professor/editor` com edição de metadados e blocos (`lessonPlan`, `callout`, `cardGrid`, `contentBlock`).
   - ✅ Validação automática no editor reaproveitando o `lesson.schema.json` para alertar violações do schema durante a edição.
   - ✅ Painel `/professor/validacao` com registro de execuções, notas da rodada e importação de relatórios oficiais.
-  - ✅ Pacote de publicação em `/professor/publicacao` para planejar branches, commits, validações e gerar resumo de PR.
-  - ✅ Serviço auxiliar `npm run teacher:service` expõe API local para executar scripts oficiais e sincronizar relatórios com o painel.
+- ✅ Pacote de publicação em `/professor/publicacao` para planejar branches, commits, validações e gerar resumo de PR.
+- ✅ Botão "Buscar atualizações da main" sincroniza o workspace via backend antes da rodada de commits.
+- ✅ Botão "Criar branch automaticamente" prepara a branch de trabalho a partir da `main` diretamente na SPA.
+- ✅ Automação de `git add` e `git commit` a partir dos caminhos cadastrados no painel de publicação.
+- ✅ Envio automático de `git push` com configuração de upstream direto do painel de publicação.
+- ✅ Serviço auxiliar `npm run teacher:service` expõe API local para executar scripts oficiais e sincronizar relatórios com o painel.
   - ✅ Histórico de execuções remotas disponível diretamente no painel de validação ao integrar com o `teacher:service`.
+  - ✅ Autenticação por token no serviço auxiliar para permitir exposição controlada além do ambiente local.
 
 - **Próximos passos imediatos**
-  - 🔒 Adicionar autenticação mínima ao serviço backend antes de compartilhá-lo com o time ampliado.
-  - 🧩 Conectar o pacote de publicação às automações para preparar branches, commits e PRs diretamente da SPA.
+- 🧩 Automatizar abertura de PRs diretamente pelo painel de publicação.
   - 🗃️ Definir estratégia de permissões e governança para expor a API em ambientes compartilhados.
+  - 🔐 Definir política de rotação/armazenamento seguro do token do serviço auxiliar.
 
 ## Atualização em curso — Iteração 2 (Ingestão de JSON)
 
@@ -42,6 +47,7 @@ Este documento acompanha a implementação incremental da nova área administrat
 - ✅ Importação de `content-validation-report.json`, `content-observability.json` e `governance-alert.json` com resumos automáticos.
 - ✅ Serviço backend local (`npm run teacher:service`) permite disparar scripts oficiais e baixar relatórios sem sair da SPA.
 - ✅ Histórico de execuções remotas consumido direto da API (`/api/teacher/scripts/history`).
+- ✅ Editor visual sincroniza os alertas registrados e bloqueia exportações com falhas críticas.
 - 🚧 Autenticação e fila de execução do backend auxiliar em planejamento.
 - 📓 Registro contínuo em [`iteration-04.md`](./iteration-04.md).
 
@@ -50,7 +56,11 @@ Este documento acompanha a implementação incremental da nova área administrat
 - ✅ Lançado o pacote `/professor/publicacao` com checklist de validações e geração de comandos para Git/PR.
 - ✅ Sugestão automática de mensagem de commit e corpo do PR a partir dos conteúdos cadastrados.
 - ✅ Integração com o serviço backend para sincronizar status dos scripts obrigatórios e download dos relatórios.
-- 🚧 Backend para criação de branches e PRs automatizados permanece no roadmap.
+- ✅ Botão "Buscar atualizações da main" aciona `git fetch` via backend e atualiza divergências automaticamente.
+- ✅ Checkout automático de branch a partir da `main` via backend para alinhar o workspace antes dos commits.
+- ✅ Painel executa `git add` e `git commit` diretamente pela API, reaproveitando o checklist de conteúdos cadastrados.
+- ✅ Painel envia a branch ativa com `git push`, configurando o upstream na primeira execução quando necessário.
+- 🚧 Backend para abertura de PRs automatizados permanece no roadmap.
 - 📓 Registro contínuo em [`iteration-05.md`](./iteration-05.md).
 
 ## 1. Mapeamento de requisitos e workflows

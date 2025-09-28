@@ -51,13 +51,11 @@
             </label>
 
             <div class="flex flex-wrap gap-3">
-              <Md3Button type="button" variant="tonal" :disabled="!rawInput" @click="formatRaw">
+              <button type="button" class="btn btn-tonal" :disabled="!rawInput" @click="formatRaw">
                 Formatar JSON
-              </Md3Button>
-              <Md3Button variant="outlined" :as="'label'" class="cursor-pointer">
-                <template #leading>
-                  <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
-                </template>
+              </button>
+              <label class="btn btn-outlined inline-flex cursor-pointer items-center gap-2">
+                <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
                 <span>Importar arquivo</span>
                 <input
                   id="editor-file-input"
@@ -66,15 +64,15 @@
                   class="sr-only"
                   @change="handleFileInput"
                 />
-              </Md3Button>
-              <Md3Button
+              </label>
+              <button
                 type="button"
-                variant="filled"
+                class="btn btn-filled"
                 :disabled="!rawInput"
                 @click="loadForEditing"
               >
                 Carregar no editor
-              </Md3Button>
+              </button>
             </div>
             <p v-if="lastFileName" class="text-sm text-on-surface-variant">
               Último arquivo carregado: <strong>{{ lastFileName }}</strong>
@@ -291,10 +289,68 @@
             Exportar JSON revisado
           </h2>
           <p class="supporting-text text-on-surface-variant">
-            Copie o conteúdo atualizado para aplicar em um commit ou carregar novamente na
-            ferramenta de ingestão.
+            Copie o conteúdo atualizado e confira se os scripts obrigatórios estão liberados no
+            painel de validações antes de preparar o commit.
           </p>
         </header>
+        <div
+          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-4"
+        >
+          <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+            <div>
+              <h3 class="md-typescale-title-medium font-semibold text-on-surface">
+                Status dos scripts obrigatórios
+              </h3>
+              <p class="text-sm text-on-surface-variant">
+                Atualize o
+                <RouterLink class="text-primary underline" to="/professor/validacao">
+                  painel de validações
+                </RouterLink>
+                para registrar novas execuções.
+              </p>
+            </div>
+          </div>
+          <ul class="mt-4 grid gap-3 md:grid-cols-2">
+            <li
+              v-for="item in validationStatusItems"
+              :key="item.key"
+              class="flex flex-col gap-2 rounded-2xl bg-surface p-3 shadow-inner"
+            >
+              <div class="flex items-start gap-3">
+                <component
+                  :is="item.icon"
+                  class="md-icon"
+                  :class="item.iconClass"
+                  aria-hidden="true"
+                />
+                <div class="flex flex-col">
+                  <span class="md-typescale-label-large text-on-surface">{{ item.title }}</span>
+                  <span class="text-sm text-on-surface-variant">{{ item.statusLabel }}</span>
+                </div>
+              </div>
+              <p class="text-xs text-on-surface-variant">
+                {{ item.description }}
+              </p>
+              <p
+                v-if="item.formattedUpdatedAt"
+                class="text-xs uppercase tracking-[0.18em] text-on-surface-variant"
+              >
+                Atualizado em {{ item.formattedUpdatedAt }}
+              </p>
+            </li>
+          </ul>
+        </div>
+        <p v-if="hasBlockingRemoteErrors" class="rounded-2xl bg-error/10 p-3 text-sm text-error">
+          Há scripts com falhas registradas. Resolva os apontamentos na área de validações para
+          liberar a exportação.
+        </p>
+        <p
+          v-else-if="hasRemoteWarnings"
+          class="rounded-2xl border border-outline-variant bg-surface-container-high p-3 text-sm text-on-surface-variant"
+        >
+          Há scripts com avisos registrados. Confirme se os apontamentos não impactam o envio antes
+          de continuar.
+        </p>
         <textarea
           :value="formattedOutput"
           readonly
@@ -302,13 +358,23 @@
           class="rounded-3xl border border-outline bg-surface-container-high p-4 font-mono text-sm text-on-surface"
         ></textarea>
         <div class="flex flex-wrap gap-3">
-          <Md3Button type="button" variant="filled" @click="copyFormatted">
-            <template #leading>
-              <ClipboardCopy class="md-icon md-icon--sm" aria-hidden="true" />
-            </template>
+          <button
+            type="button"
+            class="btn btn-filled inline-flex items-center gap-2"
+            :disabled="!exportAvailable"
+            @click="copyFormatted"
+          >
+            <ClipboardCopy class="md-icon md-icon--sm" aria-hidden="true" />
             <span>{{ copyLabel }}</span>
-          </Md3Button>
-          <Md3Button type="button" variant="tonal" @click="downloadJson">Baixar arquivo</Md3Button>
+          </button>
+          <button
+            type="button"
+            class="btn btn-tonal"
+            :disabled="!exportAvailable"
+            @click="downloadJson"
+          >
+            Baixar arquivo
+          </button>
         </div>
       </section>
     </TeacherModeGate>
@@ -321,13 +387,22 @@ import {
   AlertTriangle,
   CheckCircle2,
   ClipboardCopy,
+  Clock3,
   PenSquare,
   UploadCloud,
+  XCircle,
 } from 'lucide-vue-next';
+import { RouterLink } from 'vue-router';
 import lessonSchema from '../../../schemas/lesson.schema.json';
 import { createAjvInstance, formatAjvErrors, type FormattedAjvError } from './utils/validation';
+import {
+  formatUpdatedAt,
+  hasBlockingValidation,
+  useValidationStatuses,
+  type ValidationCheckStatus,
+} from './utils/validationStatus';
+import { validationScriptsList } from './utils/validationScripts';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
-import Md3Button from '@/components/Md3Button.vue';
 
 interface LessonPlanCard {
   icon?: string;
@@ -426,6 +501,18 @@ const lessonModel = shallowRef<LessonEditorModel | null>(null);
 const selectedBlockIndex = ref(0);
 const copyLabel = ref('Copiar JSON');
 
+const automationStatusMeta: Record<
+  ValidationCheckStatus,
+  { icon: unknown; class: string; label: string }
+> = {
+  pending: { icon: Clock3, class: 'text-on-surface-variant', label: 'Aguardando execução' },
+  success: { icon: CheckCircle2, class: 'text-success', label: 'Sem falhas' },
+  warning: { icon: AlertTriangle, class: 'text-warning', label: 'Com avisos' },
+  error: { icon: XCircle, class: 'text-error', label: 'Com falhas' },
+};
+
+const remoteValidationStatuses = useValidationStatuses();
+
 const tagsField = computed({
   get() {
     if (!lessonModel.value?.tags) return '';
@@ -477,10 +564,35 @@ const blockEditorComponent = computed(() => {
   }
 });
 
+const validationStatusItems = computed(() =>
+  validationScriptsList.map((script) => {
+    const entry = remoteValidationStatuses.value[script.key];
+    const meta = automationStatusMeta[entry.status];
+    return {
+      key: script.key,
+      title: script.title,
+      status: entry.status,
+      description: entry.description,
+      updatedAt: entry.updatedAt,
+      formattedUpdatedAt: formatUpdatedAt(entry.updatedAt),
+      icon: meta.icon,
+      iconClass: meta.class,
+      statusLabel: meta.label,
+    };
+  })
+);
+
 const formattedOutput = computed(() => {
   if (!lessonModel.value) return '';
   return JSON.stringify(lessonModel.value, null, 2);
 });
+
+const exportAvailable = computed(
+  () =>
+    Boolean(formattedOutput.value) &&
+    validationSummary.value.state === 'valid' &&
+    !hasBlockingRemoteErrors.value
+);
 
 type ValidationState = 'idle' | 'valid' | 'invalid';
 
@@ -528,6 +640,14 @@ const validationIconClass = computed(() => {
       return 'text-on-surface-variant';
   }
 });
+
+const hasBlockingRemoteErrors = computed(() =>
+  hasBlockingValidation(remoteValidationStatuses.value)
+);
+
+const hasRemoteWarnings = computed(() =>
+  validationStatusItems.value.some((item) => item.status === 'warning')
+);
 
 function useArrayField(field: LessonArrayField) {
   return computed({
@@ -584,7 +704,7 @@ function loadForEditing() {
 }
 
 async function copyFormatted() {
-  if (!formattedOutput.value) return;
+  if (!exportAvailable.value) return;
   await navigator.clipboard.writeText(formattedOutput.value);
   copyLabel.value = 'Copiado!';
   setTimeout(() => {
@@ -593,7 +713,7 @@ async function copyFormatted() {
 }
 
 function downloadJson() {
-  if (!formattedOutput.value) return;
+  if (!exportAvailable.value) return;
   const blob = new Blob([formattedOutput.value], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');

@@ -15,8 +15,10 @@
 - Indicadores automáticos de status (pendente, avisos, falhas) baseados no conteúdo dos logs fornecidos.
 - Upload e leitura dos relatórios `content-validation-report.json`, `content-observability.json` e `governance-alert.json`, exibindo métricas-chave e disciplinas com apontamentos.
 - Serviço backend leve (`npm run teacher:service`) expõe endpoints REST para disparar scripts, sincronizar logs e baixar relatórios direto no painel.
+- Autenticação mínima via header `X-Teacher-Token` exigida pelo serviço auxiliar.
 - Registro de próximos aprimoramentos no painel (execução remota, download automático e integração com o editor visual).
 - Histórico de execuções remotas armazenado em `reports/teacher-script-history.json` e exibido em linha do tempo na SPA.
+- Editor visual bloqueia exportações enquanto houver falhas registradas pelos scripts oficiais.
 
 ### Linha do tempo
 
@@ -26,6 +28,8 @@
 - **2024-07-06** — Publicação da documentação da iteração e ajuste do roadmap destacando próximos passos para backend e Git.
 - **2024-07-11** — Serviço backend disponível; painel passa a executar scripts remotamente e baixar relatórios sem upload manual.
 - **2024-07-13** — Histórico das execuções remotas passa a ser armazenado e listado diretamente no painel.
+- **2024-07-14** — Token de autenticação habilitado no serviço backend para permitir chamadas autenticadas via SPA.
+- **2024-07-15** — Editor visual sincroniza alertas do painel e bloqueia exportações com falhas críticas registradas.
 
 ## Fluxo sugerido
 
@@ -47,16 +51,16 @@
 - ✅ Centralização dos logs e notas reduziu perdas de contexto entre execuções consecutivas dos scripts.
 - ✅ Upload dos relatórios evitou abrir múltiplos arquivos JSON/MD ao validar cursos com avisos.
 - ⚠️ A detecção de avisos/erros ainda depende de heurísticas locais; integração com backend deverá fornecer status mais preciso.
-- ⚠️ O serviço backend ainda roda apenas em ambiente local e não possui autenticação ou segregação de permissões.
+- ⚠️ O serviço backend segue orientado a ambiente local; o token único ainda precisa evoluir para múltiplos usuários e perfis de permissão.
 
 ## Próximos passos / pendências
 
 - [x] Implementar serviço backend que execute os scripts e retorne logs estruturados para o painel.
 - [x] Disponibilizar download direto dos relatórios mais recentes sem necessidade de upload manual.
-- [ ] Integrar alertas do painel com o editor visual, bloqueando exportações com erros críticos.
+- [x] Integrar alertas do painel com o editor visual, bloqueando exportações com erros críticos.
 - [ ] Ensaiar integração com Git (branches temporárias, diffs e PRs) aproveitando as notas registradas no painel.
 - [x] Registrar histórico de execuções no serviço backend e disponibilizar consulta na SPA.
-- [ ] Acrescentar autenticação mínima ao serviço backend antes de expô-lo fora do ambiente local.
+- [x] Acrescentar autenticação mínima ao serviço backend antes de expô-lo fora do ambiente local.
 
 ## Referências úteis
 
