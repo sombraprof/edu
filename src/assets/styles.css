@@ -1553,14 +1553,14 @@ html {
     position: relative;
     background: color-mix(
       in srgb,
-      var(--md-sys-color-surface-container-highest, var(--md-sys-color-surface)) 94%,
-      var(--md-sys-color-surface) 6%
+      var(--md-sys-color-surface-container, var(--md-sys-color-surface)) 65%,
+      var(--md-sys-color-surface, #ffffff) 35%
     );
     color: var(--md-sys-color-on-surface);
     border: 1px solid
       color-mix(
         in srgb,
-        var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 55%,
+        var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 70%,
         transparent
       );
     border-radius: var(--md-sys-shape-corner-extra-large, 1.5rem);
