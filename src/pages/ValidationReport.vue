@@ -17,10 +17,7 @@
             </p>
           </div>
           <div class="grid gap-3 sm:grid-cols-2">
-            <div
-              class="md-surface-container md-elevation-1 rounded-3xl p-4"
-              :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }"
-            >
+            <div class="md-surface-container md-elevation-1 md-shape-large p-4">
               <p class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
                 Disciplinas avaliadas
               </p>
@@ -29,7 +26,7 @@
               </p>
             </div>
             <div
-              class="md-surface-container-high md-elevation-1 rounded-3xl border border-transparent p-4"
+              class="md-surface-container-high md-elevation-1 md-shape-large border border-transparent p-4"
             >
               <p class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
                 Lições com apontamentos
@@ -41,10 +38,7 @@
           </div>
         </div>
         <dl class="mt-6 grid gap-4 sm:grid-cols-3">
-          <div
-            class="md-surface-container md-elevation-1 rounded-3xl p-4"
-            :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }"
-          >
+          <div class="md-surface-container md-elevation-1 md-shape-large p-4">
             <dt class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
               Lições avaliadas
             </dt>
@@ -52,10 +46,7 @@
               {{ report.totals.lessons }}
             </dd>
           </div>
-          <div
-            class="md-surface-container md-elevation-1 rounded-3xl p-4"
-            :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }"
-          >
+          <div class="md-surface-container md-elevation-1 md-shape-large p-4">
             <dt class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
               Problemas
             </dt>
@@ -63,10 +54,7 @@
               {{ report.totals.problems }}
             </dd>
           </div>
-          <div
-            class="md-surface-container md-elevation-1 rounded-3xl p-4"
-            :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }"
-          >
+          <div class="md-surface-container md-elevation-1 md-shape-large p-4">
             <dt class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
               Avisos
             </dt>
@@ -102,7 +90,7 @@
               <tr
                 v-for="course in sortedCourses"
                 :key="course.id"
-                class="rounded-3xl bg-[var(--md-sys-color-surface-container-high)] md-typescale-body-medium text-on-surface"
+                class="md-shape-extra-large bg-[var(--md-sys-color-surface-container-high)] md-typescale-body-medium text-on-surface"
               >
                 <td class="rounded-l-3xl px-4 py-3 font-semibold uppercase tracking-[0.12em]">
                   {{ course.id }}
@@ -158,7 +146,7 @@
                   <tr
                     v-for="summary in category.rows"
                     :key="summary.course"
-                    class="rounded-3xl bg-[var(--md-sys-color-surface-container-high)] md-typescale-body-medium text-on-surface"
+                    class="md-shape-extra-large bg-[var(--md-sys-color-surface-container-high)] md-typescale-body-medium text-on-surface"
                   >
                     <td class="rounded-l-3xl px-4 py-3 font-semibold uppercase tracking-[0.12em]">
                       {{ summary.course }}
@@ -182,7 +170,7 @@
         </div>
         <div
           v-else
-          class="mt-6 rounded-3xl bg-[var(--md-sys-color-surface-container-high)] p-6 text-center"
+          class="mt-6 md-shape-extra-large bg-[var(--md-sys-color-surface-container-high)] p-6 text-center"
         >
           <p class="md-typescale-title-medium font-semibold text-on-surface">
             Nenhum material registrado
@@ -208,7 +196,7 @@
           <article
             v-for="course in coursesWithIssues"
             :key="course.id"
-            class="md-surface-container md-elevation-1 rounded-3xl p-5"
+            class="md-surface-container md-elevation-1 md-shape-extra-large p-5"
           >
             <header class="flex flex-wrap items-center gap-3">
               <span class="chip font-semibold uppercase tracking-[0.12em]">{{ course.id }}</span>
@@ -262,7 +250,7 @@
         </div>
         <div
           v-else
-          class="mt-6 rounded-3xl bg-[var(--md-sys-color-surface-container-high)] p-6 text-center"
+          class="mt-6 md-shape-extra-large bg-[var(--md-sys-color-surface-container-high)] p-6 text-center"
         >
           <p class="md-typescale-title-medium font-semibold text-on-surface">
             Nenhuma pendência encontrada

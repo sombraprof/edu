@@ -387,6 +387,43 @@ html {
     color: var(--md-sys-color-on-secondary-container);
   }
 
+  /* MD3 shape utilities */
+  .md-shape-small {
+    border-radius: var(--md-sys-shape-corner-small);
+  }
+
+  .md-shape-medium {
+    border-radius: var(--md-sys-shape-corner-medium);
+  }
+
+  .md-shape-large {
+    border-radius: var(--md-sys-shape-corner-large);
+  }
+
+  .md-shape-extra-large {
+    border-radius: var(--md-sys-shape-corner-extra-large);
+  }
+
+  .md-shape-double-extra-large {
+    border-radius: var(--md-sys-shape-corner-double-extra-large);
+  }
+
+  .md-shape-triple-extra-large {
+    border-radius: var(--md-sys-shape-corner-triple-extra-large);
+  }
+
+  .md-shape-quadruple-extra-large {
+    border-radius: var(--md-sys-shape-corner-quadruple-extra-large);
+  }
+
+  .md-shape-quintuple-extra-large {
+    border-radius: var(--md-sys-shape-corner-quintuple-extra-large);
+  }
+
+  .md-shape-full {
+    border-radius: var(--md-sys-shape-corner-full);
+  }
+
   .md-typescale-display-large {
     font-family: var(--md-sys-typescale-font);
     font-size: var(--md-sys-typescale-display-large-size);
@@ -1534,6 +1571,10 @@ html {
       background-color 180ms ease;
     overflow: hidden;
     backdrop-filter: saturate(120%);
+  }
+
+  .card--compact {
+    border-radius: var(--md-sys-shape-corner-large, var(--md-sys-border-radius-large));
   }
 
   .card--interactive {
