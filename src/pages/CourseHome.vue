@@ -1,5 +1,5 @@
 ﻿<template>
-  <section :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-8)' }">
+  <section class="md-stack md-stack-8">
     <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="pill-group" role="group" aria-label="Filtro de conteúdo">
         <button
@@ -56,12 +56,7 @@
 
     <div
       v-if="displayItems.length"
-      :class="viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : ''"
-      :style="
-        viewMode === 'list'
-          ? { display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }
-          : {}
-      "
+      :class="[viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : 'md-stack md-stack-4']"
     >
       <component
         v-for="item in displayItems"
@@ -79,8 +74,8 @@
             item.available ? 'Disponível' : 'Em breve'
           }}</span>
         </div>
-        <div :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-2)' }">
-          <h3 class="text-title-medium font-semibold text-on-surface">
+        <div class="md-stack md-stack-2">
+          <h3 class="text-title-medium font-semibold text-[var(--md-sys-color-on-surface)]">
             {{ item.title }}
           </h3>
           <p v-if="item.description" class="supporting-text">
