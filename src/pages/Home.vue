@@ -1,6 +1,6 @@
 ﻿<template>
   <section class="page-section page-section--roomy">
-    <header class="card p-6 md:p-8" :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }">
+    <header class="card p-6 md:p-8">
       <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
         <div
           class="max-w-2xl"
@@ -16,10 +16,7 @@
           </p>
         </div>
         <div class="grid gap-3 sm:grid-cols-2 md:w-64 md:grid-cols-1">
-          <div
-            class="surface-tonal p-4 shadow-elevation-1"
-            :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }"
-          >
+          <div class="surface-tonal md-shape-large p-4 shadow-elevation-1">
             <p
               class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]"
             >
@@ -30,8 +27,7 @@
             </p>
           </div>
           <div
-            class="card border-none bg-[var(--md-sys-color-surface-container-high)] p-4"
-            :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }"
+            class="card card--compact border-none bg-[var(--md-sys-color-surface-container-high)] p-4"
           >
             <p
               class="text-label-medium uppercase tracking-[0.2em] text-[var(--md-sys-color-on-surface-variant)]"
