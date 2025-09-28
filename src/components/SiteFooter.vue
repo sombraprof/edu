@@ -45,8 +45,6 @@
           </template>
           Contato
         </Md3Button>
-      </nav>
-      <div class="app-footer__teacher">
         <Md3Button
           variant="text"
           class="app-footer__teacher-button"
@@ -63,7 +61,7 @@
           </template>
           {{ teacherActionLabel }}
         </Md3Button>
-      </div>
+      </nav>
     </div>
   </footer>
 </template>
@@ -78,9 +76,7 @@ import Md3Button from './Md3Button.vue';
 const { teacherMode, enableTeacherMode, disableTeacherMode } = useTeacherMode();
 
 const teacherPin = computed(() => import.meta.env.VITE_TEACHER_PIN ?? 'TS-2024');
-const teacherActionLabel = computed(() =>
-  teacherMode.value ? 'Sair do modo professor' : 'Entrar como professor'
-);
+const teacherActionLabel = computed(() => (teacherMode.value ? 'Professor' : 'Professor'));
 
 function handleTeacherAccess() {
   if (teacherMode.value) {
