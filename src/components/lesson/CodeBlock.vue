@@ -1,19 +1,27 @@
 <template>
   <div :class="['code-block group', { 'plain-text-mode': plainText }]">
-    <div class="code-block__toolbar">
-      <Md3Button
-        variant="text"
-        icon
-        type="button"
-        :aria-label="copied ? 'Copiado!' : 'Copiar código'"
-        @click="copyCode"
-      >
-        <template #leading>
-          <Check v-if="copied" :size="18" aria-hidden="true" />
-          <Copy v-else :size="18" aria-hidden="true" />
-        </template>
-      </Md3Button>
-    </div>
+    <header class="code-block__chrome">
+      <div class="code-block__chrome-dots" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="code-block__label" :title="displayLanguage">{{ displayLanguage }}</p>
+      <div class="code-block__toolbar">
+        <Md3Button
+          variant="text"
+          icon
+          type="button"
+          :aria-label="copied ? 'Copiado!' : 'Copiar código'"
+          @click="copyCode"
+        >
+          <template #leading>
+            <Check v-if="copied" :size="18" aria-hidden="true" />
+            <Copy v-else :size="18" aria-hidden="true" />
+          </template>
+        </Md3Button>
+      </div>
+    </header>
     <pre
       class="code-block__pre"
     ><code :class="plainText ? 'plain-text' : `language-${language}`" ref="codeElement">{{ code }}</code></pre>
@@ -21,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, nextTick } from 'vue';
+import { ref, onMounted, watch, nextTick, computed } from 'vue';
 import Prism from 'prismjs';
 import { Copy, Check } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
@@ -78,6 +86,34 @@ const props = withDefaults(
 const codeElement = ref<HTMLElement | null>(null);
 const copied = ref(false);
 
+const languageLabels: Record<string, string> = {
+  c: 'C',
+  clike: 'C-like',
+  cpp: 'C++',
+  csharp: 'C#',
+  java: 'Java',
+  javascript: 'JavaScript',
+  js: 'JavaScript',
+  kotlin: 'Kotlin',
+  portugol: 'Portugol',
+  pseudocode: 'Pseudocódigo',
+  pseudocodigo: 'Pseudocódigo',
+  python: 'Python',
+  ts: 'TypeScript',
+  typescript: 'TypeScript',
+  plaintext: 'Texto simples',
+  text: 'Texto simples',
+};
+
+const displayLanguage = computed(() => {
+  const languageKey = props.language?.toLowerCase() ?? 'plaintext';
+  if (languageLabels[languageKey]) {
+    return languageLabels[languageKey];
+  }
+
+  return languageKey.replace(/[-_]/g, ' ').replace(/\b\w/g, (segment) => segment.toUpperCase());
+});
+
 const copyCode = () => {
   navigator.clipboard.writeText(props.code).then(() => {
     copied.value = true;
@@ -113,13 +149,13 @@ watch(
 
 /* Base code block style */
 .code-block {
-  --_toolbar-padding-inline: clamp(1.25rem, 3vw, 1.75rem);
-  --_toolbar-padding-block: var(--md-sys-spacing-3);
+  --_chrome-padding-inline: clamp(1.25rem, 3vw, 1.75rem);
+  --_chrome-padding-block: var(--md-sys-spacing-2);
   --_content-padding-inline: clamp(1.25rem, 3vw, 1.75rem);
   --_content-padding-block: var(--md-sys-spacing-4);
 
   background-color: var(--md-sys-color-surface-container);
-  border-radius: var(--md-sys-border-radius-extra-large, 1rem);
+  border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-xl));
   margin-block: var(--code-block-spacing, 0);
   overflow: hidden;
   position: relative;
@@ -127,12 +163,51 @@ watch(
   flex-direction: column;
 }
 
+.code-block__chrome {
+  display: flex;
+  align-items: center;
+  gap: var(--md-sys-spacing-3);
+  padding-inline: var(--_chrome-padding-inline);
+  padding-block: var(--_chrome-padding-block);
+  background-color: var(--md-sys-color-surface-container-highest);
+  background-color: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container-highest) 88%,
+    transparent
+  );
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  border-bottom: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 70%, transparent);
+}
+
+.code-block__chrome-dots {
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.code-block__chrome-dots span {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--md-sys-color-on-surface-variant) 28%, transparent);
+  transition: background-color 200ms ease;
+}
+
+.group:hover .code-block__chrome-dots span {
+  background: color-mix(in srgb, var(--md-sys-color-on-surface-variant) 42%, transparent);
+}
+
+.code-block__label {
+  margin: 0;
+  font: var(--md-sys-typescale-label-medium, 500 0.75rem/1.2 'Figtree', sans-serif);
+  color: var(--md-sys-color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex: 1;
+}
+
 .code-block__toolbar {
   display: flex;
   justify-content: flex-end;
-  padding-inline: var(--_toolbar-padding-inline);
-  padding-block: var(--_toolbar-padding-block);
-  padding-bottom: 0;
 }
 
 .code-block__pre {
@@ -184,7 +259,7 @@ watch(
   border-radius: 0 !important;
 }
 
-.code-block.plain-text-mode .code-block__toolbar {
+.code-block.plain-text-mode .code-block__chrome {
   display: none !important; /* Hide the button container */
 }
 
