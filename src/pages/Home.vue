@@ -2,10 +2,7 @@
   <section class="page-section page-section--roomy">
     <header class="card p-6 md:p-8">
       <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div
-          class="max-w-2xl"
-          :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-3)' }"
-        >
+        <div class="max-w-2xl md-stack md-stack-3">
           <span class="chip w-fit">Disciplinas</span>
           <h1 class="text-display-small font-semibold text-on-surface">Escolha sua disciplina</h1>
           <p class="supporting-text text-body-large">
@@ -50,12 +47,7 @@
         </Md3Button>
 
         <transition name="fade-expand">
-          <div
-            v-show="filtersOpen"
-            id="course-filter-panel"
-            class="mt-6"
-            :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }"
-          >
+          <div v-show="filtersOpen" id="course-filter-panel" class="mt-6 md-stack md-stack-4">
             <div class="grid gap-4 sm:grid-cols-2">
               <label class="flex flex-col gap-2">
                 <span class="text-label-medium text-on-surface-variant">Buscar disciplina</span>
