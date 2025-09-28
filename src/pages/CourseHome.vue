@@ -34,12 +34,7 @@
           type="button"
           @click="viewMode = 'grid'"
         >
-          <Grid3x3
-            :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
-            }"
-          />
+          <Grid3x3 class="md-icon md-icon--sm" />
           Grade
         </button>
         <button
@@ -48,12 +43,7 @@
           type="button"
           @click="viewMode = 'list'"
         >
-          <List
-            :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
-            }"
-          />
+          <List class="md-icon md-icon--sm" />
           Lista
         </button>
       </div>
@@ -99,11 +89,7 @@
             >
               <span>{{ item.cta }}</span>
               <ChevronRight
-                :style="{
-                  height: 'var(--md-sys-icon-size-small)',
-                  width: 'var(--md-sys-icon-size-small)',
-                }"
-                class="transition-transform duration-150 group-hover:translate-x-1"
+                class="md-icon md-icon--sm transition-transform duration-150 group-hover:translate-x-1"
               />
             </span>
           </template>

@@ -54,13 +54,7 @@
           @click="toggleFilters"
         >
           <template #leading>
-            <component
-              :is="filtersOpen ? ChevronUp : ChevronDown"
-              :style="{
-                height: 'var(--md-sys-icon-size-small)',
-                width: 'var(--md-sys-icon-size-small)',
-              }"
-            />
+            <component :is="filtersOpen ? ChevronUp : ChevronDown" class="md-icon md-icon--sm" />
           </template>
           {{ filtersOpen ? 'Ocultar filtros' : 'Mostrar filtros' }}
         </Md3Button>
@@ -79,11 +73,7 @@
                 >
                 <div class="relative">
                   <Search
-                    class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--md-sys-color-on-surface-variant)]"
-                    :style="{
-                      height: 'var(--md-sys-icon-size-small)',
-                      width: 'var(--md-sys-icon-size-small)',
-                    }"
+                    class="md-icon md-icon--sm pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[var(--md-sys-color-on-surface-variant)]"
                   />
                   <input
                     class="input pl-12"
@@ -104,11 +94,7 @@
                     <option v-for="option in institutions" :key="option">{{ option }}</option>
                   </select>
                   <ChevronDown
-                    class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--md-sys-color-on-surface-variant)]"
-                    :style="{
-                      height: 'var(--md-sys-icon-size-small)',
-                      width: 'var(--md-sys-icon-size-small)',
-                    }"
+                    class="md-icon md-icon--sm pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--md-sys-color-on-surface-variant)]"
                   />
                 </div>
               </label>
