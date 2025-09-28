@@ -241,7 +241,10 @@ function isPlainText(language?: string) {
   list-style: disc;
 }
 
-.callout__code,
+.callout__code {
+  --code-block-spacing: var(--md-sys-spacing-3);
+}
+
 .callout__roadmap {
   margin-top: var(--md-sys-spacing-1);
 }
