@@ -28,6 +28,8 @@ interface MaterialThemeOptions {
   tertiaryColor?: string;
   neutralColor?: string;
   neutralVariantColor?: string;
+  successColor?: string;
+  warningColor?: string;
 }
 
 const STORAGE_KEY = 'theme';
@@ -37,6 +39,8 @@ const DEFAULT_OPTIONS: Required<MaterialThemeOptions> = {
   tertiaryColor: '#f97316',
   neutralColor: '#6b6f7c',
   neutralVariantColor: '#687385',
+  successColor: '#4caf50',
+  warningColor: '#ff9800',
 };
 
 const mediaQuery =
@@ -47,6 +51,19 @@ let followSystem = false;
 let initialized = false;
 let staticTokensApplied = false;
 let materialTheme: Theme | null = null;
+
+type ColorGroupValues = {
+  color: number;
+  onColor: number;
+  colorContainer: number;
+  onColorContainer: number;
+};
+
+type MaterialCustomColorGroup = {
+  color: { name: string };
+  light: ColorGroupValues;
+  dark: ColorGroupValues;
+};
 
 const SURFACE_TONE_MAP: Record<
   ThemeMode,
@@ -126,6 +143,22 @@ function applyScheme(mode: ThemeMode) {
       setColorToken(rootStyle, token, value);
     }
   });
+
+  const customColorGroups =
+    (materialTheme as Theme & { customColors?: MaterialCustomColorGroup[] }).customColors ?? [];
+
+  customColorGroups
+    .filter(({ color }) => color.name === 'success' || color.name === 'warning')
+    .forEach((customColor) => {
+      const group = mode === 'dark' ? customColor.dark : customColor.light;
+      const tokenName = customColor.color.name;
+      const capitalized = tokenName.charAt(0).toUpperCase() + tokenName.slice(1);
+
+      setColorToken(rootStyle, tokenName, group.color);
+      setColorToken(rootStyle, `on${capitalized}`, group.onColor);
+      setColorToken(rootStyle, `${tokenName}Container`, group.colorContainer);
+      setColorToken(rootStyle, `on${capitalized}Container`, group.onColorContainer);
+    });
 
   const primary = toHex(palette.primary);
   const onSurface = toHex(palette.onSurface);
@@ -275,6 +308,8 @@ function createTheme(options: Required<MaterialThemeOptions>): Theme {
       value: argbFromHex(options.neutralVariantColor),
       blend: true,
     },
+    { name: 'success', value: argbFromHex(options.successColor), blend: true },
+    { name: 'warning', value: argbFromHex(options.warningColor), blend: true },
   ]);
 }
 
