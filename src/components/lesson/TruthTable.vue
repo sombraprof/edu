@@ -467,14 +467,11 @@ export type {
 }
 
 .md3-truth-table__cell.is-false {
-  background-color: rgba(244, 67, 54, 0.16);
-  color: var(--md-sys-color-error);
+  background-color: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+  border-color: var(--md-sys-color-error);
+  border-color: color-mix(in srgb, var(--md-sys-color-error) 45%, transparent);
   font-weight: 600;
-}
-
-:root[data-theme='dark'] .md3-truth-table__cell.is-false {
-  background-color: rgba(239, 83, 80, 0.24);
-  color: var(--md-sys-color-on-error);
 }
 
 .md3-truth-table__cell.is-emphasis {
@@ -526,15 +523,10 @@ export type {
 }
 
 .md3-truth-table__legend-item.is-false {
-  background-color: rgba(244, 67, 54, 0.16);
-  color: var(--md-sys-color-error);
-  border-color: rgba(244, 67, 54, 0.32);
-}
-
-:root[data-theme='dark'] .md3-truth-table__legend-item.is-false {
-  background-color: rgba(239, 83, 80, 0.24);
-  color: var(--md-sys-color-on-error);
-  border-color: rgba(239, 83, 80, 0.4);
+  background-color: var(--md-sys-color-error-container);
+  color: var(--md-sys-color-on-error-container);
+  border-color: var(--md-sys-color-error);
+  border-color: color-mix(in srgb, var(--md-sys-color-error) 45%, transparent);
 }
 
 .md3-truth-table__legend-item.is-emphasis {
