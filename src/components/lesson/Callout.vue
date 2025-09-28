@@ -223,7 +223,7 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
 }
 
 .callout__title {
-  font-size: var(--md-sys-typescale-title-large-size, 1.25rem);
+  font-size: var(--md-sys-typescale-title-large-size);
   font-weight: 600;
   line-height: 1.3;
   color: inherit;
@@ -232,7 +232,7 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
 .callout__rich,
 .callout__body {
   color: color-mix(in srgb, var(--callout-text) 92%, transparent);
-  font-size: var(--md-sys-typescale-body-large-size, 1rem);
+  font-size: var(--md-sys-typescale-body-large-size);
   display: grid;
   gap: var(--md-sys-spacing-2);
 }
@@ -283,7 +283,7 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
 .callout__video-title {
   margin: 0;
   font-weight: 600;
-  color: var(--md-sys-color-on-surface);
+  color: var(--callout-text);
 }
 
 .callout :deep(strong) {
