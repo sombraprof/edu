@@ -1,39 +1,22 @@
 <template>
-  <div class="card p-6 my-8">
-    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-4">
-      {{ data.title }}
-    </h3>
+  <section class="lesson-plan">
+    <header class="lesson-plan__header">
+      <h3 class="lesson-plan__title">{{ data.title }}</h3>
+    </header>
 
-    <div v-if="data.unit" class="card md-surface-container p-6 mb-6">
-      <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
-        {{ data.unit.title }}
-      </h4>
-      <p
-        class="md-typescale-body-large text-on-surface-variant"
-        v-html="sanitizeContent(data.unit.content)"
-      ></p>
-    </div>
+    <article v-if="unit" class="lesson-plan__unit">
+      <h4 class="lesson-plan__unit-title">{{ unit.title }}</h4>
+      <p class="lesson-plan__unit-content" v-html="unit.content"></p>
+    </article>
 
-    <div v-if="cards.length" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        v-for="(card, index) in cards"
-        :key="index"
-        class="card p-6 flex flex-col items-center text-center"
-      >
-        <component
-          :is="getIconComponent(card.icon)"
-          class="md-icon md-icon--lg mb-4 text-[var(--md-sys-color-primary)]"
-        />
-        <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
-          {{ card.title }}
-        </h4>
-        <p
-          class="md-typescale-body-medium text-on-surface-variant"
-          v-html="sanitizeContent(card.content)"
-        ></p>
-      </div>
+    <div v-if="cards.length" class="lesson-plan__grid">
+      <article v-for="(card, index) in cards" :key="index" class="lesson-plan__card">
+        <component :is="card.iconComponent" class="lesson-plan__icon" aria-hidden="true" />
+        <h4 class="lesson-plan__card-title">{{ card.title }}</h4>
+        <p class="lesson-plan__card-content" v-html="card.content"></p>
+      </article>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -78,6 +61,17 @@ const props = defineProps<{
   data: LessonPlanData;
 }>();
 
+const unit = computed(() => {
+  if (!props.data.unit) {
+    return null;
+  }
+
+  return {
+    title: props.data.unit.title,
+    content: sanitizeHtml(props.data.unit.content),
+  };
+});
+
 const cards = computed(() => {
   const source =
     Array.isArray(props.data.cards) && props.data.cards.length
@@ -87,12 +81,23 @@ const cards = computed(() => {
         : [];
 
   return source
-    .map((item) => ({
-      icon: item?.icon,
-      title: item?.title ?? '',
-      content: item?.content ?? item?.text ?? '',
-    }))
-    .filter((card) => card.title || card.content);
+    .map((item) => {
+      const title = item?.title?.trim() ?? '';
+      const content = sanitizeHtml(item?.content ?? item?.text ?? '');
+
+      if (!title && !content) {
+        return null;
+      }
+
+      return {
+        title,
+        content,
+        iconComponent: getIconComponent(item?.icon),
+      };
+    })
+    .filter((card): card is { title: string; content: string; iconComponent: Component } =>
+      Boolean(card)
+    );
 });
 
 const iconRegistry: Record<string, Component> = {
@@ -117,7 +122,7 @@ const iconRegistry: Record<string, Component> = {
   'list-checks': ListChecks,
 };
 
-const getIconComponent = (iconName?: string) => {
+function getIconComponent(iconName?: string): Component {
   if (!iconName) {
     return Target;
   }
@@ -130,7 +135,7 @@ const getIconComponent = (iconName?: string) => {
   }
 
   return Target;
-};
+}
 
 function createNameVariations(original: string): string[] {
   const trimmed = original.trim();
@@ -142,8 +147,100 @@ function createNameVariations(original: string): string[] {
     new Set([trimmed, base, lower, lower.replace(/-/g, ''), trimmed.toLowerCase()])
   );
 }
-
-function sanitizeContent(value: unknown): string {
-  return sanitizeHtml(value);
-}
 </script>
+
+<style scoped>
+.lesson-plan {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-5);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-plan__title {
+  font-size: var(--md-sys-typescale-headline-small-size, 1.5rem);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.lesson-plan__unit {
+  background: var(--md-sys-color-surface);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-2);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-plan__unit-title {
+  font-size: var(--md-sys-typescale-title-large-size, 1.25rem);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.lesson-plan__unit-content {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-large-size, 1rem);
+  line-height: 1.6;
+}
+
+.lesson-plan__grid {
+  display: grid;
+  gap: var(--md-sys-spacing-4);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.lesson-plan__card {
+  background: var(--md-sys-color-surface);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--md-sys-spacing-3);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-plan__icon {
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--md-sys-border-radius-full);
+  background: color-mix(in srgb, var(--md-sys-color-primary) 16%, transparent);
+  color: var(--md-sys-color-primary);
+}
+
+.lesson-plan__icon :deep(svg) {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.lesson-plan__card-title {
+  font-size: var(--md-sys-typescale-title-medium-size, 1.15rem);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.lesson-plan__card-content {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-medium-size, 0.95rem);
+}
+
+.lesson-plan :deep(a) {
+  color: var(--md-sys-color-primary);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .lesson-plan {
+    padding: var(--md-sys-spacing-5);
+  }
+}
+</style>

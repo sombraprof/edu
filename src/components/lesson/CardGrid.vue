@@ -77,6 +77,8 @@ interface CardGridCard {
   badge?: string;
   tone?: 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'danger' | 'neutral';
   body?: string;
+  content?: string;
+  description?: string;
   items?: string[];
   footer?: string;
   actions?: CardGridAction[];
@@ -105,10 +107,31 @@ const cards = computed<CardGridCard[]>(() => {
   const directCards = Array.isArray(cardData.value.cards) ? cardData.value.cards : [];
 
   if (directCards.length) {
-    return directCards.map((card) => ({
-      ...card,
-      iconComponent: resolveIcon(card.icon),
-    }));
+    return directCards.map((card) => {
+      const normalizedBody =
+        typeof card.body === 'string' && card.body.trim().length
+          ? card.body
+          : typeof card.content === 'string' && card.content.trim().length
+            ? card.content
+            : typeof card.description === 'string' && card.description.trim().length
+              ? card.description
+              : undefined;
+
+      const normalizedItems = Array.isArray(card.items)
+        ? card.items
+        : Array.isArray((card as any).list)
+          ? (card as any).list.map((item: unknown) =>
+              typeof item === 'string' ? item : String(item ?? '')
+            )
+          : undefined;
+
+      return {
+        ...card,
+        body: normalizedBody,
+        items: normalizedItems,
+        iconComponent: resolveIcon(card.icon),
+      };
+    });
   }
 
   const legacyItems = Array.isArray(cardData.value.items) ? cardData.value.items : [];
@@ -220,7 +243,7 @@ function sanitizeList(items?: unknown[]): string[] {
     return [];
   }
 
-  return items.map((item) => sanitizeHtml(item));
+  return items.map((item) => sanitizeHtml(typeof item === 'string' ? item : String(item ?? '')));
 }
 </script>
 

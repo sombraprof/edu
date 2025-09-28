@@ -1,36 +1,35 @@
 <template>
-  <div class="card p-6 my-8">
-    <h3 class="md-typescale-headline-small font-semibold text-on-surface mb-4">
-      {{ data.title }}
-    </h3>
+  <section class="lesson-videos">
+    <header class="lesson-videos__header">
+      <h3 class="lesson-videos__title">{{ data.title }}</h3>
+    </header>
 
-    <div v-if="videos.length" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div v-for="(video, index) in videos" :key="index" class="card p-4 space-y-4">
-        <h4 class="md-typescale-title-large font-semibold text-on-surface mb-2">
-          {{ video.title }}
-        </h4>
-        <div
-          class="aspect-video w-full overflow-hidden"
-          :style="{ borderRadius: 'var(--md-sys-border-radius-large)' }"
-        >
+    <div v-if="videos.length" class="lesson-videos__grid">
+      <article v-for="(video, index) in videos" :key="index" class="lesson-videos__item">
+        <h4 class="lesson-videos__item-title">{{ video.title }}</h4>
+
+        <div class="lesson-videos__frame">
           <iframe
-            class="w-full h-full"
             :src="video.src"
-            frameborder="0"
+            class="lesson-videos__iframe"
+            :title="`Vídeo: ${video.title}`"
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
         </div>
-        <p v-if="video.caption" class="md-typescale-body-medium text-on-surface-variant">
-          {{ video.caption }}
-        </p>
-      </div>
+
+        <p v-if="video.caption" class="lesson-videos__caption" v-html="video.caption"></p>
+      </article>
     </div>
-  </div>
+
+    <p v-else class="lesson-videos__empty">Nenhum vídeo disponível.</p>
+  </section>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 interface VideoItem {
   title?: string;
@@ -50,15 +49,15 @@ const props = defineProps<{
 
 const videos = computed(() => {
   if (!Array.isArray(props.data.videos)) {
-    return [];
+    return [] as Array<{ title: string; src: string; caption: string }>;
   }
 
   return props.data.videos
-    .map((video) => {
+    .map((video, index) => {
       const src = resolveVideoSrc(video);
       return {
-        title: video.title ?? 'Vídeo',
-        caption: video.caption,
+        title: video.title?.trim().length ? video.title : `Vídeo ${index + 1}`,
+        caption: sanitizeHtml(video.caption),
         src,
       };
     })
@@ -106,3 +105,83 @@ function toEmbedUrl(url: string): string {
   }
 }
 </script>
+
+<style scoped>
+.lesson-videos {
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-5);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-videos__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-2);
+}
+
+.lesson-videos__title {
+  font-size: var(--md-sys-typescale-headline-small-size, 1.5rem);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.lesson-videos__grid {
+  display: grid;
+  gap: var(--md-sys-spacing-4);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.lesson-videos__item {
+  background: var(--md-sys-color-surface);
+  border-radius: var(--md-sys-border-radius-large);
+  padding: var(--md-sys-spacing-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-sys-spacing-3);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-videos__item-title {
+  font-size: var(--md-sys-typescale-title-large-size, 1.25rem);
+  font-weight: 600;
+  color: var(--md-sys-color-on-surface);
+}
+
+.lesson-videos__frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: var(--md-sys-border-radius-large);
+  overflow: hidden;
+  background: var(--md-sys-color-surface-variant);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.lesson-videos__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.lesson-videos__caption {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-medium-size, 0.95rem);
+}
+
+.lesson-videos__empty {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-large-size, 1rem);
+}
+
+@media (max-width: 640px) {
+  .lesson-videos {
+    padding: var(--md-sys-spacing-5);
+  }
+}
+</style>

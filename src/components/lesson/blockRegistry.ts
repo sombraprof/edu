@@ -17,6 +17,7 @@ import Md3Table from '@/components/lesson/Md3Table.vue';
 import MemoryDiagram from '@/components/lesson/MemoryDiagram.vue';
 import OrderedList from '@/components/lesson/OrderedList.vue';
 import Representations from '@/components/lesson/Representations.vue';
+import Roadmap from '@/components/lesson/Roadmap.vue';
 import Timeline from '@/components/lesson/Timeline.vue';
 import TruthTable from '@/components/lesson/TruthTable.vue';
 import VideosBlock from '@/components/lesson/VideosBlock.vue';
@@ -41,6 +42,7 @@ const customComponentRegistry: Record<string, Component> = {
   MemoryDiagram,
   OrderedList,
   CardGrid,
+  Roadmap,
 };
 
 const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
@@ -69,13 +71,21 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   bibliography: dataBlock(BibliographyBlock),
   bibliographyBlock: dataBlock(BibliographyBlock),
   cardGrid: dataBlock(CardGrid),
+  roadmap(block) {
+    return {
+      component: Roadmap,
+      props: {
+        steps: toRoadmapSteps(block.steps ?? block.items),
+      },
+    };
+  },
   callout(block) {
     return {
       component: Callout,
       props: {
-        variant: toString(block.variant),
-        title: toString(block.title),
-        content: toString(block.content),
+        variant: toOptionalString(block.variant),
+        title: toOptionalString(block.title),
+        content: toCalloutContent(block.content ?? block.richContent),
       },
     };
   },
@@ -214,6 +224,213 @@ function toOptionalString(value: unknown): string | undefined {
 
 function toString(value: unknown): string {
   return typeof value === 'string' ? value : '';
+}
+
+type CalloutRichContent =
+  | { type: 'paragraph'; text: string }
+  | { type: 'list'; ordered?: boolean; items: string[] }
+  | { type: 'code'; code: string; language?: string }
+  | { type: 'roadmap'; steps: Array<{ title: string; description?: string }> }
+  | { type: 'video'; src: string; title?: string };
+
+function toCalloutContent(value: unknown): string | CalloutRichContent[] {
+  if (Array.isArray(value)) {
+    const blocks: CalloutRichContent[] = [];
+
+    value.forEach((entry) => {
+      if (!entry || typeof entry !== 'object') {
+        return;
+      }
+
+      const type = (entry as any).type;
+
+      if (type === 'paragraph') {
+        const text = toString((entry as any).text ?? (entry as any).html ?? '');
+        if (text) {
+          blocks.push({ type: 'paragraph', text });
+        }
+        return;
+      }
+
+      if (type === 'list') {
+        const rawItems = Array.isArray((entry as any).items) ? (entry as any).items : [];
+        const items = rawItems
+          .map((item) => {
+            if (typeof item === 'string') {
+              return item.trim();
+            }
+
+            if (item && typeof item === 'object') {
+              return toString((item as any).text ?? (item as any).value ?? '').trim();
+            }
+
+            return '';
+          })
+          .filter((item) => item.length > 0);
+        if (items.length) {
+          blocks.push({ type: 'list', ordered: Boolean((entry as any).ordered), items });
+        }
+        return;
+      }
+
+      if (type === 'code') {
+        const code = toString((entry as any).code);
+        if (code.trim().length) {
+          blocks.push({
+            type: 'code',
+            code,
+            language: toOptionalString((entry as any).language),
+          });
+        }
+        return;
+      }
+
+      if (type === 'roadmap') {
+        const steps = toRoadmapSteps((entry as any).steps ?? (entry as any).items);
+        if (steps.length) {
+          blocks.push({ type: 'roadmap', steps });
+        }
+        return;
+      }
+
+      if (type === 'video') {
+        const video = toCalloutVideo(entry);
+        if (video) {
+          blocks.push(video);
+        }
+      }
+    });
+
+    return blocks.length ? blocks : '';
+  }
+
+  const stringValue = toString(value);
+  return stringValue || '';
+}
+
+function toRoadmapSteps(value: unknown): Array<{ title: string; description?: string }> {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => {
+      if (typeof entry === 'string') {
+        const title = entry.trim();
+        return title ? { title } : undefined;
+      }
+
+      if (!entry || typeof entry !== 'object') {
+        return undefined;
+      }
+
+      const titleValue = toString((entry as any).title ?? (entry as any).label ?? '').trim();
+      const descriptionValue = toString(
+        (entry as any).content ?? (entry as any).description ?? ''
+      ).trim();
+
+      if (!titleValue) {
+        return undefined;
+      }
+
+      return {
+        title: titleValue,
+        description: descriptionValue || undefined,
+      };
+    })
+    .filter((step): step is { title: string; description?: string } => Boolean(step));
+}
+
+function toCalloutVideo(entry: any): CalloutRichContent | undefined {
+  const src = toVideoUrl(entry);
+  if (!src) {
+    return undefined;
+  }
+
+  const titleValue = toString((entry as any).title ?? (entry as any).caption ?? '').trim();
+
+  return {
+    type: 'video',
+    src,
+    title: titleValue || undefined,
+  };
+}
+
+function toVideoUrl(entry: any): string {
+  let url = '';
+
+  if (typeof entry?.src === 'string' && entry.src.trim().length) {
+    url = entry.src.trim();
+  } else if (typeof entry?.youtubeId === 'string' && entry.youtubeId.trim().length) {
+    url = `https://www.youtube.com/embed/${encodeURIComponent(entry.youtubeId.trim())}`;
+  } else if (typeof entry?.url === 'string' && entry.url.trim().length) {
+    try {
+      const parsed = new URL(entry.url.trim());
+      if (parsed.hostname.includes('youtube.com')) {
+        const id = parsed.searchParams.get('v');
+        if (id) {
+          url = `https://www.youtube.com/embed/${encodeURIComponent(id)}`;
+        } else {
+          url = parsed.toString();
+        }
+      } else if (parsed.hostname === 'youtu.be') {
+        const id = parsed.pathname.replace(/\//g, '');
+        url = id ? `https://www.youtube.com/embed/${encodeURIComponent(id)}` : parsed.toString();
+      } else {
+        url = parsed.toString();
+      }
+    } catch (error) {
+      url = entry.url;
+    }
+  }
+
+  const start = toStartSeconds(
+    entry?.start ?? entry?.time ?? entry?.begin ?? entry?.from ?? entry?.offset
+  );
+  return appendStartParameter(url, start);
+}
+
+function toStartSeconds(value: unknown): number | undefined {
+  if (typeof value === 'number' && Number.isFinite(value) && value > 0) {
+    return Math.floor(value);
+  }
+
+  if (typeof value === 'string' && value.trim().length) {
+    const numeric = Number(value);
+    if (Number.isFinite(numeric) && numeric > 0) {
+      return Math.floor(numeric);
+    }
+
+    const segments = value
+      .split(':')
+      .map((segment) => Number(segment.trim()))
+      .filter((segment) => !Number.isNaN(segment));
+
+    if (segments.length >= 2) {
+      return segments.reduce((total, segment) => total * 60 + segment, 0);
+    }
+  }
+
+  return undefined;
+}
+
+function appendStartParameter(url: string, start?: number): string {
+  if (!url) {
+    return '';
+  }
+
+  if (!start || !Number.isFinite(start) || start <= 0) {
+    return url;
+  }
+
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.set('start', String(Math.floor(start)));
+    return parsed.toString();
+  } catch (error) {
+    const separator = url.includes('?') ? '&' : '?';
+    return `${url}${separator}start=${Math.floor(start)}`;
+  }
 }
 
 function toNumber(value: unknown, fallback = 0): number {
