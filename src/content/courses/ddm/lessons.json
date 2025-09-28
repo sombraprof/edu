@@ -135,12 +135,22 @@
     "id": "lesson-13",
     "title": "Aula 13: Unidade III – Persistência com SharedPreferences",
     "file": "lesson-13.json",
-    "available": true
+    "available": true,
+    "description": "Apresenta SharedPreferences como solução de persistência leve, comparando com estado temporário e guiando a implementação de leitura/escrita.",
+    "summary": "Explora como persistir preferências e dados leves no Android usando SharedPreferences, comparando vantagens, armadilhas e boas práticas para manter configurações consistentes.",
+    "tags": ["android", "persistencia", "shared-preferences"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-14",
     "title": "Aula 14: Unidade III – Introdução ao Room: Entities e DAO",
     "file": "lesson-14.json",
-    "available": true
+    "available": true,
+    "description": "Introduz a biblioteca Room como camada moderna sobre SQLite, destacando entities, DAOs e montagem inicial do banco.",
+    "summary": "Apresenta o Room como camada de persistência moderna no Android, guiando a modelagem de entidades e a criação de DAO para operações seguras com banco de dados local.",
+    "tags": ["android", "room", "persistencia"],
+    "duration": 120,
+    "formatVersion": "md3.lesson.v1"
   }
 ]

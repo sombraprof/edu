@@ -3,90 +3,165 @@
     "id": "lesson-01",
     "title": "Aula 1: Definição e Tipos de Sistemas (Versão Final)",
     "file": "lesson-01.json",
-    "available": true
+    "available": true,
+    "description": "Apresenta os fundamentos da disciplina e diferencia tipos de sistemas em contextos organizacionais.",
+    "summary": "Apresenta a disciplina e introduz o pensamento sistêmico, diferenciando tipos de sistemas e suas aplicações nas organizações.",
+    "tags": ["introducao", "sistemas", "pensamento-sistemico"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-02",
     "title": "Aula 2: Curricularização da Extensão",
     "file": "lesson-02.json",
-    "available": true
+    "available": true,
+    "description": "Explica a curricularização da extensão e seus impactos na formação em Sistemas de Informação.",
+    "summary": "Contextualiza a curricularização da extensão no ensino superior brasileiro, destacando legislação e impactos na formação em Sistemas de Informação.",
+    "tags": ["extensao", "legislacao", "planejamento"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-03",
     "title": "Aula 3: Componentes e Características dos Sistemas",
     "file": "lesson-03.json",
-    "available": true
+    "available": true,
+    "description": "Detalha componentes estruturais dos sistemas e características como sinergia, feedback e entropia.",
+    "summary": "Investiga elementos estruturais dos sistemas e como características como retroalimentação e sinergia aparecem em contextos organizacionais.",
+    "tags": ["componentes", "caracteristicas", "feedback"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-04",
     "title": "Aula 4: Tipos de Sistemas: Classificações e Exemplos",
     "file": "lesson-04.json",
-    "available": true
+    "available": true,
+    "description": "Compara classificações de sistemas com exemplos práticos e critérios de análise.",
+    "summary": "Explora classificações de sistemas (quanto à finalidade, estrutura e interação) ilustrando exemplos práticos no ambiente organizacional.",
+    "tags": ["classificacao", "sistemas", "analise"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-05",
     "title": "Aula 5: A Organização como um Sistema Aberto",
     "file": "lesson-05.json",
-    "available": true
+    "available": true,
+    "description": "Analisa organizações como sistemas abertos, relacionando entradas, saídas e ambiente.",
+    "summary": "Analisa organizações como sistemas abertos, destacando relações com ambiente, entradas, saídas e mecanismos de adaptação.",
+    "tags": ["sistema-aberto", "organizacao", "ambiente"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-06",
     "title": "Aula 6: Fluxos e Transformação Organizacional",
     "file": "lesson-06.json",
-    "available": true
+    "available": true,
+    "description": "Mapeia fluxos organizacionais e mecanismos de transformação associados à Teoria Geral dos Sistemas.",
+    "summary": "Discute processos de transformação e fluxos sistêmicos nas organizações, evidenciando interdependências e gargalos.",
+    "tags": ["fluxos", "processos", "transformacao"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-07",
     "title": "Aula 7: Homeostase e Adaptação Organizacional",
     "file": "lesson-07.json",
-    "available": true
+    "available": true,
+    "description": "Investiga homeostase e adaptação organizacional diante de mudanças externas.",
+    "summary": "Explora o tema \"Homeostase e Adaptação Organizacional\" conectando teoria e prática para compreender os mecanismos que permitem que os sistemas organizacionais mantenham equilíbrio diante de estímulos externos e se adaptem às mudanças..",
+    "tags": ["aula-7-homeostase"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-08",
     "title": "Aula 8: Modelagem Sistêmica e Representação Gráfica",
     "file": "lesson-08.json",
-    "available": true
+    "available": true,
+    "description": "Aplica técnicas de modelagem sistêmica e representação gráfica de processos organizacionais.",
+    "summary": "Explora o tema \"Modelagem Sistêmica e Representação Gráfica\" conectando teoria e prática para compreender e aplicar ferramentas de modelagem sistêmica para representar o funcionamento de sistemas organizacionais de forma clara e estruturada..",
+    "tags": ["aula-8-modelagem"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-09",
     "title": "Aula 9: Sistemas de Informação e seu Papel nas Organizações",
     "file": "lesson-09.json",
-    "available": true
+    "available": true,
+    "description": "Discute o papel dos sistemas de informação nas organizações e seus impactos sociotécnicos.",
+    "summary": "Explora o tema \"Sistemas de Informação e seu Papel nas Organizações\" conectando teoria e prática para definir si e situar no contexto organizacional, relacionar si aos níveis operacional, tático e estratégico, e analisar casos reais e discutir benefícios e desafios sociotécnicos..",
+    "tags": ["aula-9-sistemas"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-10",
     "title": "Aula 10: Níveis dos Sistemas de Informação (Operacional, Tático e Estratégico)",
     "file": "lesson-10.json",
-    "available": true
+    "available": true,
+    "description": "Relaciona níveis operacional, tático e estratégico aos sistemas de informação correspondentes.",
+    "summary": "Explora como sistemas operacionais, táticos e estratégicos se articulam para sustentar decisões em diferentes níveis da organização.",
+    "tags": ["aula-10-niveis"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-11",
     "title": "Aula 11: Sistemas de Informação e a Tomada de Decisão",
     "file": "lesson-11.json",
-    "available": true
+    "available": true,
+    "description": "Explora como sistemas de informação sustentam processos decisórios em diferentes níveis da organização.",
+    "summary": "Discute como diferentes sistemas de informação sustentam decisões operacionais, táticas e estratégicas, combinando dados, modelos e colaboração.",
+    "tags": ["aula-11-sistemas"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-12",
     "title": "Aula 12: SI como Vantagem Competitiva",
     "file": "lesson-12.json",
-    "available": true
+    "available": true,
+    "description": "Analisa sistemas de informação como fonte de vantagem competitiva e inovação.",
+    "summary": "Investiga como sistemas de informação geram diferenciação e eficiência sustentável, conectando estratégia competitiva e execução.",
+    "tags": ["aula-12-si"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-13",
     "title": "Aula 13: Avaliação Parcial – NP1",
     "file": "lesson-13.json",
-    "available": true
+    "available": true,
+    "description": "Realiza avaliação presencial que consolida fundamentos da Teoria Geral dos Sistemas estudados na unidade.",
+    "summary": "Avaliação presencial NP1 que consolida fundamentos da disciplina, cobrindo conceitos de sistemas, classificações e extensão universitária.",
+    "tags": ["avaliacao", "np1", "sistemas"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-14",
     "title": "Aula 28: Avaliação – NP2",
     "file": "lesson-14.json",
-    "available": true
+    "available": true,
+    "description": "Aplica avaliação NP2 integrando sistemas abertos, fluxos e homeostase em estudos de caso.",
+    "summary": "Avaliação NP2 voltada à síntese de sistemas abertos, fluxos e homeostase, articulando teoria e estudos de caso.",
+    "tags": ["avaliacao", "np2", "pensamento-sistemico"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-15",
     "title": "Aula 40: Avaliação Final – NP3",
     "file": "lesson-15.json",
-    "available": true
+    "available": true,
+    "description": "Conduz avaliação final integradora cobrindo todos os temas da disciplina.",
+    "summary": "Avaliação final NP3 integrando todos os conteúdos da disciplina, com foco na aplicação crítica da Teoria Geral dos Sistemas.",
+    "tags": ["avaliacao", "np3", "integrador"],
+    "duration": 110,
+    "formatVersion": "md3.lesson.v1"
   }
 ]

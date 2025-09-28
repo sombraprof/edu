@@ -1,7 +1,57 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-13",
   "title": "Aula 13: Unidade III – Persistência com SharedPreferences",
+  "slug": "persistencia-com-shared-preferences",
+  "summary": "Explora como persistir preferências e dados leves no Android usando SharedPreferences, comparando vantagens, armadilhas e boas práticas para manter configurações consistentes.",
   "objective": "Implementar persistência local de dados leves com SharedPreferences, garantindo leitura e escrita seguras alinhadas ao ciclo de vida do app.",
+  "objectives": [
+    "Mapear casos de uso adequados para SharedPreferences em apps Kotlin.",
+    "Aplicar leitura, escrita e atualização de pares chave-valor com segurança.",
+    "Planejar migrações para soluções mais robustas quando necessário."
+  ],
+  "competencies": [
+    "Persistência de dados em aplicativos móveis",
+    "Modelagem de estado em aplicativos Android",
+    "Uso de APIs nativas com boas práticas de segurança"
+  ],
+  "skills": [
+    "Configurar SharedPreferences em Activities e ViewModels.",
+    "Sincronizar preferências com elementos de interface reativos.",
+    "Identificar limitações de SharedPreferences e propor alternativas."
+  ],
+  "outcomes": [
+    "Salva e recupera dados usando SharedPreferences em um app Kotlin.",
+    "Implementa listeners para reagir a alterações de preferências.",
+    "Documenta critérios para migrar de SharedPreferences para DataStore ou Room."
+  ],
+  "prerequisites": [
+    "Ciclo de vida de Activities e Fragments.",
+    "Conceitos de estado e ViewModel na arquitetura Android."
+  ],
+  "tags": ["android", "persistencia", "shared-preferences"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "SharedPreferences overview",
+      "url": "https://developer.android.com/training/data-storage/shared-preferences",
+      "type": "article"
+    },
+    {
+      "label": "DataStore vs SharedPreferences",
+      "url": "https://developer.android.com/topic/libraries/architecture/datastore",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "ANDROID DEVELOPERS. Data and file storage overview. 2024.",
+    "PHILLIPS, M. Kotlin Apprentice. raywenderlich, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist da atividade guiada para salvar preferências de usuário em um app de notas."
+  },
   "content": [
     {
       "type": "flightPlan",
@@ -52,7 +102,9 @@
           "type": "subBlock",
           "title": "Quando usar",
           "items": [
-            "- Preferências do usuário: modo escuro, idioma ou notificações ativas.\n- Dados simples: lembrar o último nome ou e-mail utilizado.\n- Estados rápidos de jogo: pontuação máxima ou nível desbloqueado."
+            "Preferências do usuário: modo escuro, idioma ou notificações ativas.",
+            "Dados simples: lembrar o último nome ou e-mail utilizado.",
+            "Estados rápidos de jogo: pontuação máxima ou nível desbloqueado."
           ]
         },
         {
@@ -174,56 +226,6 @@
       ]
     }
   ],
-  "formatVersion": "md3.lesson.v1",
-  "slug": "persistencia-com-shared-preferences",
-  "summary": "Explora como persistir preferências e dados leves no Android usando SharedPreferences, comparando vantagens, armadilhas e boas práticas para manter configurações consistentes.",
-  "objectives": [
-    "Mapear casos de uso adequados para SharedPreferences em apps Kotlin.",
-    "Aplicar leitura, escrita e atualização de pares chave-valor com segurança.",
-    "Planejar migrações para soluções mais robustas quando necessário."
-  ],
-  "competencies": [
-    "Persistência de dados em aplicativos móveis",
-    "Modelagem de estado em aplicativos Android",
-    "Uso de APIs nativas com boas práticas de segurança"
-  ],
-  "skills": [
-    "Configurar SharedPreferences em Activities e ViewModels.",
-    "Sincronizar preferências com elementos de interface reativos.",
-    "Identificar limitações de SharedPreferences e propor alternativas."
-  ],
-  "outcomes": [
-    "Salva e recupera dados usando SharedPreferences em um app Kotlin.",
-    "Implementa listeners para reagir a alterações de preferências.",
-    "Documenta critérios para migrar de SharedPreferences para DataStore ou Room."
-  ],
-  "prerequisites": [
-    "Ciclo de vida de Activities e Fragments.",
-    "Conceitos de estado e ViewModel na arquitetura Android."
-  ],
-  "tags": ["android", "persistencia", "shared-preferences"],
-  "duration": 110,
-  "modality": "in-person",
-  "resources": [
-    {
-      "label": "SharedPreferences overview",
-      "url": "https://developer.android.com/training/data-storage/shared-preferences",
-      "type": "article"
-    },
-    {
-      "label": "DataStore vs SharedPreferences",
-      "url": "https://developer.android.com/topic/libraries/architecture/datastore",
-      "type": "reference"
-    }
-  ],
-  "bibliography": [
-    "ANDROID DEVELOPERS. Data and file storage overview. 2024.",
-    "PHILLIPS, M. Kotlin Apprentice. raywenderlich, 2023."
-  ],
-  "assessment": {
-    "type": "formative",
-    "description": "Checklist da atividade guiada para salvar preferências de usuário em um app de notas."
-  },
   "metadata": {
     "status": "in-review",
     "updatedAt": "2024-06-10T00:00:00.000Z",

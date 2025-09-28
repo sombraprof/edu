@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2025-09-26T21:24:29.932Z",
+  "generatedAt": "2025-09-27T23:50:30.569Z",
   "totals": {
     "courses": 5,
     "lessons": {
       "total": 92,
       "available": 69,
       "unavailable": 23,
-      "legacyLessons": 27,
-      "md3Blocks": 520,
-      "legacyBlocks": 28,
-      "totalBlocks": 548
+      "legacyLessons": 0,
+      "md3Blocks": 623,
+      "legacyBlocks": 0,
+      "totalBlocks": 623
     },
     "exercises": {
       "total": 10,
@@ -31,36 +31,31 @@
         "total": 40,
         "available": 17,
         "unavailable": 23,
-        "totalBlocks": 170,
-        "md3Blocks": 164,
-        "legacyBlocks": 6,
-        "legacyLessons": 5,
-        "legacyLessonIds": ["lesson-04", "lesson-14", "lesson-15", "lesson-29", "lesson-39"],
+        "totalBlocks": 160,
+        "md3Blocks": 160,
+        "legacyBlocks": 0,
+        "legacyLessons": 0,
+        "legacyLessonIds": [],
         "blocksByType": {
-          "accordion": 1,
-          "bibliography": 17,
-          "callout": 25,
-          "checklist": 14,
-          "code": 1,
-          "component": 1,
-          "contentBlock": 65,
-          "flightPlan": 12,
-          "html": 6,
-          "lessonPlan": 12,
-          "representations": 1,
-          "timeline": 1,
-          "videos": 14
+          "callout": 21,
+          "cardGrid": 8,
+          "checklist": 13,
+          "component": 8,
+          "contentBlock": 58,
+          "flightPlan": 17,
+          "lessonPlan": 13,
+          "md3Table": 11,
+          "truthTable": 4,
+          "videos": 7
         },
-        "legacyBlocksByType": {
-          "html": 6
-        }
+        "legacyBlocksByType": {}
       },
       "exercises": {
         "total": 2,
         "available": 0,
         "withMetadata": 2,
-        "legacyEntries": 2,
-        "legacyIds": ["lista1", "lista2"]
+        "legacyEntries": 0,
+        "legacyIds": []
       },
       "supplements": {
         "total": 1,
@@ -76,43 +71,31 @@
         "total": 14,
         "available": 14,
         "unavailable": 0,
-        "totalBlocks": 57,
-        "md3Blocks": 49,
-        "legacyBlocks": 8,
-        "legacyLessons": 8,
-        "legacyLessonIds": [
-          "lesson-03",
-          "lesson-06",
-          "lesson-07",
-          "lesson-08",
-          "lesson-09",
-          "lesson-10",
-          "lesson-13",
-          "lesson-14"
-        ],
+        "totalBlocks": 104,
+        "md3Blocks": 104,
+        "legacyBlocks": 0,
+        "legacyLessons": 0,
+        "legacyLessonIds": [],
         "blocksByType": {
           "accordion": 1,
           "audioBlock": 1,
-          "bibliography": 2,
-          "callout": 4,
-          "cardGrid": 4,
-          "contentBlock": 31,
-          "fileTree": 1,
-          "flightPlan": 5,
-          "html": 7,
-          "timeline": 1
+          "bibliography": 3,
+          "bibliographyBlock": 6,
+          "callout": 10,
+          "cardGrid": 9,
+          "component": 1,
+          "contentBlock": 57,
+          "flightPlan": 14,
+          "timeline": 2
         },
-        "legacyBlocksByType": {
-          "fileTree": 1,
-          "html": 7
-        }
+        "legacyBlocksByType": {}
       },
       "exercises": {
         "total": 2,
         "available": 0,
         "withMetadata": 2,
-        "legacyEntries": 2,
-        "legacyIds": ["api-sync", "ux-audit"]
+        "legacyEntries": 0,
+        "legacyIds": []
       },
       "supplements": {
         "total": 1,
@@ -128,30 +111,30 @@
         "total": 8,
         "available": 8,
         "unavailable": 0,
-        "totalBlocks": 62,
-        "md3Blocks": 61,
-        "legacyBlocks": 1,
-        "legacyLessons": 1,
-        "legacyLessonIds": ["lesson-01"],
+        "totalBlocks": 48,
+        "md3Blocks": 48,
+        "legacyBlocks": 0,
+        "legacyLessons": 0,
+        "legacyLessonIds": [],
         "blocksByType": {
-          "accordion": 1,
-          "bibliographyBlock": 7,
-          "checklist": 7,
-          "contentBlock": 34,
-          "html": 1,
-          "lessonPlan": 7,
-          "videosBlock": 5
+          "callout": 7,
+          "cardGrid": 5,
+          "checklist": 4,
+          "component": 7,
+          "contentBlock": 7,
+          "flightPlan": 8,
+          "lessonPlan": 8,
+          "timeline": 1,
+          "truthTable": 1
         },
-        "legacyBlocksByType": {
-          "html": 1
-        }
+        "legacyBlocksByType": {}
       },
       "exercises": {
         "total": 2,
         "available": 0,
         "withMetadata": 2,
-        "legacyEntries": 2,
-        "legacyIds": ["modelagem-uml", "refatoracao"]
+        "legacyEntries": 0,
+        "legacyIds": []
       },
       "supplements": {
         "total": 1,
@@ -167,37 +150,33 @@
         "total": 15,
         "available": 15,
         "unavailable": 0,
-        "totalBlocks": 133,
-        "md3Blocks": 128,
-        "legacyBlocks": 5,
-        "legacyLessons": 5,
-        "legacyLessonIds": ["lesson-02", "lesson-10", "lesson-11", "lesson-12", "lesson-13"],
+        "totalBlocks": 158,
+        "md3Blocks": 158,
+        "legacyBlocks": 0,
+        "legacyLessons": 0,
+        "legacyLessonIds": [],
         "blocksByType": {
           "accordion": 2,
           "bibliography": 2,
           "bibliographyBlock": 9,
           "callout": 7,
-          "cardGrid": 14,
-          "checklist": 1,
-          "contentBlock": 73,
-          "dragAndDrop": 1,
-          "html": 4,
+          "cardGrid": 13,
+          "checklist": 5,
+          "contentBlock": 96,
+          "flightPlan": 4,
           "lessonPlan": 11,
           "timeline": 4,
           "videos": 1,
           "videosBlock": 4
         },
-        "legacyBlocksByType": {
-          "dragAndDrop": 1,
-          "html": 4
-        }
+        "legacyBlocksByType": {}
       },
       "exercises": {
         "total": 2,
         "available": 1,
         "withMetadata": 2,
-        "legacyEntries": 2,
-        "legacyIds": ["protótipo-papel", "vertical-slice"]
+        "legacyEntries": 0,
+        "legacyIds": []
       },
       "supplements": {
         "total": 1,
@@ -213,44 +192,32 @@
         "total": 15,
         "available": 15,
         "unavailable": 0,
-        "totalBlocks": 126,
-        "md3Blocks": 118,
-        "legacyBlocks": 8,
-        "legacyLessons": 8,
-        "legacyLessonIds": [
-          "lesson-06",
-          "lesson-07",
-          "lesson-10",
-          "lesson-11",
-          "lesson-12",
-          "lesson-13",
-          "lesson-14",
-          "lesson-15"
-        ],
+        "totalBlocks": 153,
+        "md3Blocks": 153,
+        "legacyBlocks": 0,
+        "legacyLessons": 0,
+        "legacyLessonIds": [],
         "blocksByType": {
           "accordion": 11,
           "bibliographyBlock": 9,
-          "callout": 20,
-          "cardGrid": 15,
-          "contentBlock": 42,
-          "html": 6,
+          "callout": 28,
+          "cardGrid": 20,
+          "checklist": 4,
+          "contentBlock": 54,
+          "flightPlan": 6,
           "lessonPlan": 9,
           "md3Table": 7,
-          "quiz": 2,
           "timeline": 1,
           "videosBlock": 4
         },
-        "legacyBlocksByType": {
-          "html": 6,
-          "quiz": 2
-        }
+        "legacyBlocksByType": {}
       },
       "exercises": {
         "total": 2,
         "available": 0,
         "withMetadata": 2,
-        "legacyEntries": 2,
-        "legacyIds": ["loop-feedback", "mapa-sistema"]
+        "legacyEntries": 0,
+        "legacyIds": []
       },
       "supplements": {
         "total": 1,
