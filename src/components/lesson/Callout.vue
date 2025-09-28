@@ -184,15 +184,23 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
 
 <style scoped>
 .callout {
-  --callout-bg: var(--md-sys-color-surface-container);
-  --callout-border: color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
+  --callout-bg: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container, var(--md-sys-color-surface)) 65%,
+    var(--md-sys-color-surface, #ffffff) 35%
+  );
+  --callout-border: color-mix(
+    in srgb,
+    var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 70%,
+    transparent
+  );
   --callout-text: var(--md-sys-color-on-surface);
   --callout-accent: var(--md-sys-color-primary);
   display: grid;
   grid-template-columns: auto 1fr;
   gap: var(--md-sys-spacing-4);
   padding: var(--md-sys-spacing-5);
-  border-radius: var(--md-sys-border-radius-large);
+  border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-large));
   background: var(--callout-bg);
   border: 1px solid var(--callout-border);
   color: var(--callout-text);
@@ -268,7 +276,7 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
 .callout__video-frame {
   position: relative;
   padding-top: 56.25%;
-  border-radius: var(--md-sys-border-radius-large);
+  border-radius: var(--md-sys-shape-corner-large, var(--md-sys-border-radius-large));
   overflow: hidden;
   box-shadow: var(--shadow-elevation-1);
 }

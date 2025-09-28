@@ -44,13 +44,23 @@ function sanitizeContent(value: unknown): string {
 
 <style scoped>
 .lesson-timeline {
-  background: var(--md-sys-color-surface-container);
-  border-radius: var(--md-sys-border-radius-large);
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container, var(--md-sys-color-surface)) 65%,
+    var(--md-sys-color-surface, #ffffff) 35%
+  );
+  border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-large));
   padding: var(--md-sys-spacing-6) var(--md-sys-spacing-7);
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-5);
   box-shadow: var(--shadow-elevation-1);
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 70%,
+      transparent
+    );
 }
 
 .lesson-timeline__title {
@@ -119,7 +129,7 @@ function sanitizeContent(value: unknown): string {
   flex-direction: column;
   gap: var(--md-sys-spacing-1);
   padding: var(--md-sys-spacing-4);
-  border-radius: var(--md-sys-border-radius-large);
+  border-radius: var(--md-sys-shape-corner-large, var(--md-sys-border-radius-large));
   background: color-mix(in srgb, var(--md-sys-color-surface) 85%, transparent 15%);
   box-shadow: var(--shadow-elevation-1);
 }

@@ -31,8 +31,18 @@ defineProps<{ steps: RoadmapStep[] }>();
   align-items: start;
   gap: var(--md-sys-spacing-3);
   padding: var(--md-sys-spacing-3);
-  border-radius: var(--md-sys-border-radius-large);
-  background: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-large));
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container-high, var(--md-sys-color-surface)) 70%,
+    var(--md-sys-color-surface, #ffffff) 30%
+  );
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 70%,
+      transparent
+    );
   box-shadow: var(--shadow-elevation-1);
 }
 
