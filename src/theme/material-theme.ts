@@ -119,6 +119,7 @@ function applyScheme(mode: ThemeMode) {
   const scheme: Scheme = mode === 'dark' ? materialTheme.schemes.dark : materialTheme.schemes.light;
   const palette = scheme.toJSON() as Record<string, number | string>;
   const rootStyle = document.documentElement.style;
+  const themeColorMeta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
 
   COLOR_ROLE_TOKENS.forEach((token) => {
     const value = palette[token];
@@ -129,6 +130,13 @@ function applyScheme(mode: ThemeMode) {
 
   const primary = toHex(palette.primary);
   const onSurface = toHex(palette.onSurface);
+  const background = toHex(palette.background);
+  const surface = toHex(palette.surface);
+
+  if (themeColorMeta) {
+    const themeColor = mode === 'dark' ? surface : background;
+    themeColorMeta.content = themeColor;
+  }
 
   rootStyle.setProperty(
     '--md-sys-state-layer-primary',
