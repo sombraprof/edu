@@ -48,8 +48,45 @@ let initialized = false;
 let staticTokensApplied = false;
 let materialTheme: Theme | null = null;
 
+const SURFACE_TONE_MAP: Record<
+  ThemeMode,
+  Record<
+    | 'surfaceDim'
+    | 'surfaceBright'
+    | 'surfaceContainerLowest'
+    | 'surfaceContainerLow'
+    | 'surfaceContainer'
+    | 'surfaceContainerHigh'
+    | 'surfaceContainerHighest',
+    number
+  >
+> = {
+  light: {
+    surfaceDim: 87,
+    surfaceBright: 98,
+    surfaceContainerLowest: 100,
+    surfaceContainerLow: 96,
+    surfaceContainer: 94,
+    surfaceContainerHigh: 92,
+    surfaceContainerHighest: 90,
+  },
+  dark: {
+    surfaceDim: 6,
+    surfaceBright: 24,
+    surfaceContainerLowest: 4,
+    surfaceContainerLow: 10,
+    surfaceContainer: 12,
+    surfaceContainerHigh: 17,
+    surfaceContainerHighest: 22,
+  },
+};
+
 function toCssVarName(token: string): string {
   return `--md-sys-color-${token.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}`;
+}
+
+function toRgbCssVarName(token: string): string {
+  return `${toCssVarName(token)}-rgb`;
 }
 
 function hexToRgb(hex: string): [number, number, number] {
@@ -67,6 +104,13 @@ function toHex(value: number | string): string {
   return typeof value === 'number' ? hexFromArgb(value) : value;
 }
 
+function setColorToken(style: CSSStyleDeclaration, token: string, value: number | string) {
+  const hex = toHex(value);
+  style.setProperty(toCssVarName(token), hex);
+  const [r, g, b] = hexToRgb(hex);
+  style.setProperty(toRgbCssVarName(token), `${r} ${g} ${b}`);
+}
+
 function applyScheme(mode: ThemeMode) {
   if (!materialTheme) {
     throw new Error('Material theme has not been initialized.');
@@ -74,42 +118,48 @@ function applyScheme(mode: ThemeMode) {
 
   const scheme: Scheme = mode === 'dark' ? materialTheme.schemes.dark : materialTheme.schemes.light;
   const palette = scheme.toJSON() as Record<string, number | string>;
+  const rootStyle = document.documentElement.style;
 
   COLOR_ROLE_TOKENS.forEach((token) => {
     const value = palette[token];
     if (value !== undefined) {
-      const cssVarName = toCssVarName(token);
-      document.documentElement.style.setProperty(cssVarName, toHex(value));
+      setColorToken(rootStyle, token, value);
     }
   });
 
   const primary = toHex(palette.primary);
   const onSurface = toHex(palette.onSurface);
 
-  document.documentElement.style.setProperty(
+  rootStyle.setProperty(
     '--md-sys-state-layer-primary',
     rgba(primary, STATE_LAYER_OPACITY[mode].primary)
   );
-  document.documentElement.style.setProperty(
+  rootStyle.setProperty(
     '--md-sys-state-layer-primary-strong',
     rgba(primary, STRONG_STATE_LAYER_OPACITY[mode])
   );
-  document.documentElement.style.setProperty(
+  rootStyle.setProperty(
     '--md-sys-state-layer-on-surface',
     rgba(onSurface, STATE_LAYER_OPACITY[mode].onSurface)
   );
 
+  const neutralPalette = materialTheme.palettes.neutral;
+  const surfaceTones = SURFACE_TONE_MAP[mode];
+  Object.entries(surfaceTones).forEach(([token, tone]) => {
+    setColorToken(rootStyle, token, hexFromArgb(neutralPalette.tone(tone)));
+  });
+
   const elevation = ELEVATION_SHADOWS[mode];
-  document.documentElement.style.setProperty('--md-sys-elevation-level1', elevation.level1);
-  document.documentElement.style.setProperty('--md-sys-elevation-level2', elevation.level2);
-  document.documentElement.style.setProperty('--md-sys-elevation-level3', elevation.level3);
+  rootStyle.setProperty('--md-sys-elevation-level1', elevation.level1);
+  rootStyle.setProperty('--md-sys-elevation-level2', elevation.level2);
+  rootStyle.setProperty('--md-sys-elevation-level3', elevation.level3);
   // Maintain legacy aliases while components migrate fully to the new tokens.
-  document.documentElement.style.setProperty('--shadow-elevation-1', elevation.level1);
-  document.documentElement.style.setProperty('--shadow-elevation-2', elevation.level2);
-  document.documentElement.style.setProperty('--shadow-elevation-3', elevation.level3);
+  rootStyle.setProperty('--shadow-elevation-1', elevation.level1);
+  rootStyle.setProperty('--shadow-elevation-2', elevation.level2);
+  rootStyle.setProperty('--shadow-elevation-3', elevation.level3);
 
   document.documentElement.dataset.theme = mode;
-  document.documentElement.style.setProperty('color-scheme', mode);
+  rootStyle.setProperty('color-scheme', mode);
   activeMode.value = mode;
 }
 

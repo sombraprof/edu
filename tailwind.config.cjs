@@ -1,128 +1,77 @@
+const MATERIAL_COLOR_TOKENS = [
+  'primary',
+  'on-primary',
+  'primary-container',
+  'on-primary-container',
+  'secondary',
+  'on-secondary',
+  'secondary-container',
+  'on-secondary-container',
+  'tertiary',
+  'on-tertiary',
+  'tertiary-container',
+  'on-tertiary-container',
+  'error',
+  'on-error',
+  'error-container',
+  'on-error-container',
+  'background',
+  'on-background',
+  'surface',
+  'on-surface',
+  'surface-variant',
+  'on-surface-variant',
+  'surface-dim',
+  'surface-bright',
+  'surface-container-lowest',
+  'surface-container-low',
+  'surface-container',
+  'surface-container-high',
+  'surface-container-highest',
+  'outline',
+  'outline-variant',
+  'inverse-surface',
+  'inverse-on-surface',
+  'inverse-primary',
+  'success',
+  'on-success',
+  'success-container',
+  'on-success-container',
+  'warning',
+  'on-warning',
+  'warning-container',
+  'on-warning-container',
+];
+
+const withOpacityValue = (token) => {
+  const cssVar = `--md-sys-color-${token}`;
+  const rgbVar = `${cssVar}-rgb`;
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgb(var(${rgbVar}) / ${opacityValue})`;
+    }
+
+    return `var(${cssVar})`;
+  };
+};
+
+const materialColors = MATERIAL_COLOR_TOKENS.reduce((acc, token) => {
+  acc[token] = withOpacityValue(token);
+  return acc;
+}, {});
+
+materialColors.info = withOpacityValue('primary');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
   content: ['./index.html', './src/**/*.{vue,ts,tsx,js,jsx}'],
   theme: {
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
-      colors: {
-        primary: {
-          50: '#e3f2fd',
-          100: '#bbdefb',
-          200: '#90caf9',
-          300: '#64b5f6',
-          400: '#42a5f5',
-          500: '#2196f3',
-          600: '#1e88e5',
-          700: '#1976d2',
-          800: '#1565c0',
-          900: '#0d47a1',
-        },
-        secondary: {
-          50: '#fce4ec',
-          100: '#f8bbd9',
-          200: '#f48fb1',
-          300: '#f06292',
-          400: '#ec407a',
-          500: '#e91e63',
-          600: '#d81b60',
-          700: '#c2185b',
-          800: '#ad1457',
-          900: '#880e4f',
-        },
-        neutral: {
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#eeeeee',
-          300: '#e0e0e0',
-          400: '#bdbdbd',
-          500: '#9e9e9e',
-          600: '#757575',
-          700: '#616161',
-          800: '#424242',
-          900: '#212121',
-        },
-        'neutral-variant': {
-          50: '#f5f5f5',
-          100: '#e0e0e0',
-          200: '#c2c2c2',
-          300: '#a3a3a3',
-          400: '#858585',
-          500: '#676767',
-          600: '#4e4e4e',
-          700: '#3a3a3a',
-          800: '#2a2a2a',
-          900: '#1c1c1c',
-        },
-        error: {
-          50: '#ffebee',
-          100: '#ffcdd2',
-          200: '#ef9a9a',
-          300: '#e57373',
-          400: '#ef5350',
-          500: '#f44336',
-          600: '#e53935',
-          700: '#d32f2f',
-          800: '#c62828',
-          900: '#b71c1c',
-        },
-        success: {
-          50: '#e8f5e8',
-          100: '#c8e6c9',
-          200: '#a5d6a7',
-          300: '#81c784',
-          400: '#66bb6a',
-          500: '#4caf50',
-          600: '#43a047',
-          700: '#388e3c',
-          800: '#2e7d32',
-          900: '#1b5e20',
-        },
-        warning: {
-          50: '#fff8e1',
-          100: '#ffecb3',
-          200: '#ffe082',
-          300: '#ffd54f',
-          400: '#ffca28',
-          500: '#ffc107',
-          600: '#ffb300',
-          700: '#ffa000',
-          800: '#ff8f00',
-          900: '#ff6f00',
-        },
-        info: {
-          50: '#e3f2fd',
-          100: '#bbdefb',
-          200: '#90caf9',
-          300: '#64b5f6',
-          400: '#42a5f5',
-          500: '#2196f3',
-          600: '#1e88e5',
-          700: '#1976d2',
-          800: '#1565c0',
-          900: '#0d47a1',
-        },
-        surface: {
-          light: {
-            50: '#ffffff',
-            100: '#fafafa',
-            200: '#f5f5f5',
-            300: '#f0f0f0',
-            400: '#e0e0e0',
-            500: '#cccccc',
-          },
-          dark: {
-            50: '#2a2a2a',
-            100: '#1e1e1e',
-            200: '#121212',
-            300: '#0a0a0a',
-            400: '#030303',
-            500: '#000000',
-          },
-        },
-      },
+      colors: materialColors,
       fontSize: {
         'display-large': ['3.5rem', { lineHeight: '4rem', fontWeight: '400' }],
         'display-medium': ['2.8125rem', { lineHeight: '3.25rem', fontWeight: '400' }],
@@ -145,9 +94,9 @@ module.exports = {
         '5xl': '2rem',
       },
       boxShadow: {
-        'elevation-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
-        'elevation-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
-        'elevation-3': '0px 1px 3px 0px rgba(0, 0, 0, 0.3), 0px 4px 8px 3px rgba(0, 0, 0, 0.15)',
+        'elevation-1': 'var(--md-sys-elevation-level1)',
+        'elevation-2': 'var(--md-sys-elevation-level2)',
+        'elevation-3': 'var(--md-sys-elevation-level3)',
         'elevation-4': '0px 2px 3px 0px rgba(0, 0, 0, 0.3), 0px 6px 10px 4px rgba(0, 0, 0, 0.15)',
         'elevation-5': '0px 4px 4px 0px rgba(0, 0, 0, 0.3), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)',
       },

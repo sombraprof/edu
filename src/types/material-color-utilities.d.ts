@@ -3,10 +3,22 @@ declare module '@material/material-color-utilities' {
     toJSON(): Record<string, number | string>;
   }
 
+  export interface TonalPalette {
+    tone(tone: number): number;
+  }
+
   export interface Theme {
     schemes: {
       light: Scheme;
       dark: Scheme;
+    };
+    palettes: {
+      primary: TonalPalette;
+      secondary: TonalPalette;
+      tertiary: TonalPalette;
+      neutral: TonalPalette;
+      neutralVariant: TonalPalette;
+      error: TonalPalette;
     };
   }
 
