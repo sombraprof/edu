@@ -1,10 +1,7 @@
 <template>
   <div :class="['code-block group', { 'plain-text-mode': plainText }]">
-    <div
-      class="flex justify-end items-center py-2 px-3 bg-[var(--md-sys-color-surface-container-high)] border-b border-[var(--md-sys-color-outline)]"
-    >
+    <div class="code-block__toolbar">
       <Md3Button
-        class="code-block__copy"
         variant="text"
         icon
         type="button"
@@ -18,7 +15,7 @@
       </Md3Button>
     </div>
     <pre
-      class="p-4 pt-0 m-0"
+      class="code-block__pre"
     ><code :class="plainText ? 'plain-text' : `language-${language}`" ref="codeElement">{{ code }}</code></pre>
   </div>
 </template>
@@ -116,37 +113,41 @@ watch(
 
 /* Base code block style */
 .code-block {
+  --_toolbar-padding-inline: clamp(1.25rem, 3vw, 1.75rem);
+  --_toolbar-padding-block: var(--md-sys-spacing-3);
+  --_content-padding-inline: clamp(1.25rem, 3vw, 1.75rem);
+  --_content-padding-block: var(--md-sys-spacing-4);
+
   background-color: var(--md-sys-color-surface-container);
-  border-radius: 1rem;
+  border-radius: var(--md-sys-border-radius-extra-large, 1rem);
+  margin-block: var(--code-block-spacing, 0);
   overflow: hidden;
-  margin: 1.5rem 0;
-  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 65%, transparent);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Button container styling */
-.code-block > div:first-child {
-  background-color: var(--md-sys-color-surface-container-high);
-  border-bottom: 1px solid var(--md-sys-color-outline);
+.code-block__toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding-inline: var(--_toolbar-padding-inline);
+  padding-block: var(--_toolbar-padding-block);
+  padding-bottom: 0;
 }
 
-.code-block__copy.md3-button--icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--md-sys-border-radius-large);
-  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 55%, transparent);
-  background-color: var(--md-sys-color-surface);
-  color: var(--md-sys-color-on-surface-variant);
+.code-block__pre {
+  margin: 0;
+  padding-inline: var(--_content-padding-inline);
+  padding-block: var(--_content-padding-block);
+  padding-top: var(--md-sys-spacing-2);
+  overflow-x: auto;
 }
 
-.code-block__copy.md3-button--icon:hover {
-  color: var(--md-sys-color-on-primary-container);
-  border-color: color-mix(in srgb, var(--md-sys-color-primary) 60%, transparent);
-  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 85%, transparent);
-}
-
-.code-block__copy.md3-button--icon::after {
-  background: var(--md-sys-state-layer-on-surface);
+.code-block code {
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  background: none;
 }
 
 /* Plain text styling - no syntax highlighting */
@@ -183,7 +184,7 @@ watch(
   border-radius: 0 !important;
 }
 
-.code-block.plain-text-mode > div:first-child {
+.code-block.plain-text-mode .code-block__toolbar {
   display: none !important; /* Hide the button container */
 }
 
