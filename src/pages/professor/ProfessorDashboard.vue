@@ -59,12 +59,19 @@
             </ul>
             <footer class="mt-4 flex flex-wrap gap-3">
               <template v-for="link in item.links" :key="link.label">
-                <RouterLink v-if="'to' in link" :to="link.to" class="btn btn-tonal">
+                <Md3Button v-if="'to' in link" variant="tonal" :as="RouterLink" :to="link.to">
                   {{ link.label }}
-                </RouterLink>
-                <a v-else class="btn btn-tonal" :href="link.href" target="_blank" rel="noreferrer">
+                </Md3Button>
+                <Md3Button
+                  v-else
+                  variant="tonal"
+                  as="a"
+                  :href="link.href"
+                  :target="link.external ? '_blank' : undefined"
+                  :rel="link.external ? 'noreferrer' : undefined"
+                >
                   {{ link.label }}
-                </a>
+                </Md3Button>
               </template>
             </footer>
           </article>
@@ -119,15 +126,19 @@
               {{ resource.title }}
             </h3>
             <p class="mt-2 text-sm text-on-surface-variant">{{ resource.description }}</p>
-            <a
-              class="btn btn-text mt-4 inline-flex items-center gap-2"
+            <Md3Button
+              class="mt-4"
+              variant="text"
+              as="a"
               :href="resource.href"
               target="_blank"
               rel="noreferrer"
             >
               Abrir documento
-              <ExternalLink class="md-icon md-icon--sm" aria-hidden="true" />
-            </a>
+              <template #trailing>
+                <ExternalLink class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
+            </Md3Button>
           </li>
         </ul>
       </section>
@@ -148,6 +159,7 @@ import {
 } from 'lucide-vue-next';
 import { courses as courseCatalog } from '../../data/courses';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
+import Md3Button from '@/components/Md3Button.vue';
 
 const courses = courseCatalog;
 

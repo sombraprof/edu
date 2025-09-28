@@ -137,27 +137,27 @@
             </div>
 
             <div class="flex flex-wrap gap-3">
-              <button type="button" class="btn btn-tonal" @click="markExecution(key)">
+              <Md3Button type="button" variant="tonal" @click="markExecution(key)">
                 Registrar execução
-              </button>
-              <button type="button" class="btn btn-outlined" @click="clearLog(key)">
+              </Md3Button>
+              <Md3Button type="button" variant="outlined" @click="clearLog(key)">
                 Limpar saída
-              </button>
+              </Md3Button>
             </div>
             <div
               v-if="automationAvailable"
               class="flex flex-col gap-2 rounded-2xl border border-outline-variant bg-surface/80 p-4"
             >
               <div class="flex flex-wrap items-center gap-3">
-                <button
+                <Md3Button
                   type="button"
-                  class="btn btn-filled"
+                  variant="filled"
                   :disabled="getRemoteExecution(key).status === 'running'"
                   @click="executeViaAutomation(key)"
                 >
                   <span v-if="getRemoteExecution(key).status === 'running'">Executando…</span>
                   <span v-else>Executar via backend</span>
-                </button>
+                </Md3Button>
                 <span class="text-xs uppercase tracking-[0.18em] text-on-surface-variant">
                   {{ automationServiceUrl || 'Serviço local' }}
                 </span>
@@ -215,15 +215,16 @@
               diretamente pela interface.
             </p>
           </div>
-          <button
+          <Md3Button
             type="button"
-            class="btn btn-text self-start"
+            variant="text"
+            class="self-start"
             :disabled="scriptHistoryLoading"
             @click="refreshHistory"
           >
             <span v-if="scriptHistoryLoading">Atualizando…</span>
             <span v-else>Atualizar histórico</span>
-          </button>
+          </Md3Button>
         </header>
 
         <p v-if="scriptHistoryError" class="mt-4 rounded-2xl bg-error/10 p-4 text-sm text-error">
@@ -305,8 +306,10 @@
                 {{ validationStatusMeta[validationReport.status]?.label ?? 'Status desconhecido' }}
               </span>
             </header>
-            <label class="btn btn-tonal inline-flex w-fit cursor-pointer items-center gap-2">
-              <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+            <Md3Button variant="tonal" :as="'label'" class="w-fit cursor-pointer">
+              <template #leading>
+                <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
               <span>Importar JSON</span>
               <input
                 type="file"
@@ -314,15 +317,16 @@
                 class="sr-only"
                 @change="handleValidationReportUpload"
               />
-            </label>
-            <button
+            </Md3Button>
+            <Md3Button
               v-if="automationAvailable"
               type="button"
-              class="btn btn-text inline-flex w-fit items-center gap-2"
+              variant="text"
+              class="w-fit"
               @click="loadReportFromAutomation('validation')"
             >
               Baixar do backend
-            </button>
+            </Md3Button>
             <p v-if="validationReportFile" class="text-sm text-on-surface-variant">
               Último arquivo: <strong>{{ validationReportFile }}</strong>
               <span v-if="validationReport?.generatedAt">
@@ -390,8 +394,10 @@
                 Arquivo <code>reports/content-observability.json</code>.
               </p>
             </header>
-            <label class="btn btn-tonal inline-flex w-fit cursor-pointer items-center gap-2">
-              <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+            <Md3Button variant="tonal" :as="'label'" class="w-fit cursor-pointer">
+              <template #leading>
+                <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
               <span>Importar JSON</span>
               <input
                 type="file"
@@ -399,15 +405,16 @@
                 class="sr-only"
                 @change="handleObservabilityUpload"
               />
-            </label>
-            <button
+            </Md3Button>
+            <Md3Button
               v-if="automationAvailable"
               type="button"
-              class="btn btn-text inline-flex w-fit items-center gap-2"
+              variant="text"
+              class="w-fit"
               @click="loadReportFromAutomation('observability')"
             >
               Baixar do backend
-            </button>
+            </Md3Button>
             <p v-if="observabilityFile" class="text-sm text-on-surface-variant">
               Último arquivo: <strong>{{ observabilityFile }}</strong>
               <span v-if="observabilityReport?.generatedAt">
@@ -454,8 +461,10 @@
                 Arquivo <code>reports/governance-alert.json</code>.
               </p>
             </header>
-            <label class="btn btn-tonal inline-flex w-fit cursor-pointer items-center gap-2">
-              <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+            <Md3Button variant="tonal" :as="'label'" class="w-fit cursor-pointer">
+              <template #leading>
+                <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
               <span>Importar JSON</span>
               <input
                 type="file"
@@ -463,15 +472,16 @@
                 class="sr-only"
                 @change="handleGovernanceUpload"
               />
-            </label>
-            <button
+            </Md3Button>
+            <Md3Button
               v-if="automationAvailable"
               type="button"
-              class="btn btn-text inline-flex w-fit items-center gap-2"
+              variant="text"
+              class="w-fit"
               @click="loadReportFromAutomation('governance')"
             >
               Baixar do backend
-            </button>
+            </Md3Button>
             <p v-if="governanceFile" class="text-sm text-on-surface-variant">
               Último arquivo: <strong>{{ governanceFile }}</strong>
               <span v-if="governanceReport?.generatedAt">
@@ -549,6 +559,7 @@
 import { computed, onMounted, reactive, ref, toRef, toRefs, watch, type Ref } from 'vue';
 import { AlertTriangle, CheckCircle2, Clock3, UploadCloud, XCircle } from 'lucide-vue-next';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
+import Md3Button from '@/components/Md3Button.vue';
 import {
   validationScriptOrder,
   validationScripts,

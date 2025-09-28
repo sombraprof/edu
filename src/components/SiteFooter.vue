@@ -7,38 +7,62 @@
           Conteúdos acadêmicos e listas de exercícios para as disciplinas do professor Tiago Sombra.
         </p>
       </div>
-      <nav class="app-footer__links">
-        <a class="nav-link" href="https://sombraprof.github.io" target="_blank" rel="noreferrer">
-          <Globe class="md-icon md-icon--sm" />
+      <nav class="app-footer__links" aria-label="Links institucionais">
+        <Md3Button
+          as="a"
+          variant="text"
+          class="app-footer__link"
+          href="https://sombraprof.github.io"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <template #leading>
+            <Globe class="md-icon md-icon--sm" aria-hidden="true" />
+          </template>
           Portfólio
-        </a>
-        <a
-          class="nav-link"
+        </Md3Button>
+        <Md3Button
+          as="a"
+          variant="text"
+          class="app-footer__link"
           href="https://github.com/sombraprof/edu"
           target="_blank"
           rel="noreferrer"
         >
-          <Github class="md-icon md-icon--sm" />
+          <template #leading>
+            <Github class="md-icon md-icon--sm" aria-hidden="true" />
+          </template>
           GitHub
-        </a>
-        <a class="nav-link" href="mailto:tiago.sombra@unichristus.edu.br">
-          <Mail class="md-icon md-icon--sm" />
+        </Md3Button>
+        <Md3Button
+          as="a"
+          variant="text"
+          class="app-footer__link"
+          href="mailto:tiago.sombra@unichristus.edu.br"
+        >
+          <template #leading>
+            <Mail class="md-icon md-icon--sm" aria-hidden="true" />
+          </template>
           Contato
-        </a>
+        </Md3Button>
       </nav>
       <div class="app-footer__teacher">
-        <button
-          class="nav-link app-footer__teacher-link"
+        <Md3Button
+          variant="text"
+          class="app-footer__teacher-button"
           type="button"
+          :aria-pressed="teacherMode ? 'true' : 'false'"
           @click="handleTeacherAccess"
         >
-          <component
-            :is="teacherMode ? LogOut : UserCog"
-            class="md-icon md-icon--sm"
-            aria-hidden="true"
-          />
-          <span>{{ teacherMode ? 'Professor' : 'Professor' }}</span>
-        </button>
+          <template #leading>
+            <component
+              :is="teacherMode ? LogOut : UserCog"
+              class="md-icon md-icon--sm"
+              aria-hidden="true"
+            />
+          </template>
+          {{ teacherActionLabel }}
+        </Md3Button>
       </div>
     </div>
   </footer>
@@ -49,10 +73,14 @@
 import { computed } from 'vue';
 import { Globe, Github, Mail, UserCog, LogOut } from 'lucide-vue-next';
 import { useTeacherMode } from '../composables/useTeacherMode';
+import Md3Button from './Md3Button.vue';
 
 const { teacherMode, enableTeacherMode, disableTeacherMode } = useTeacherMode();
 
 const teacherPin = computed(() => import.meta.env.VITE_TEACHER_PIN ?? 'TS-2024');
+const teacherActionLabel = computed(() =>
+  teacherMode.value ? 'Sair do modo professor' : 'Entrar como professor'
+);
 
 function handleTeacherAccess() {
   if (teacherMode.value) {
@@ -83,7 +111,7 @@ function handleTeacherAccess() {
   justify-content: flex-end;
 }
 
-.app-footer__teacher-link {
-  color: var(--md-sys-color-primary);
+.app-footer__teacher-button {
+  width: fit-content;
 }
 </style>

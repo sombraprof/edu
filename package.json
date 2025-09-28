@@ -62,6 +62,9 @@
     "vitest": "^3.2.4",
     "vue-tsc": "^2.0.0"
   },
+  "overrides": {
+    "@vitest/pretty-format": "3.2.4"
+  },
   "lint-staged": {
     "**/*.{vue,ts,tsx,js,jsx,cjs,mjs,json,md,css,scss}": "prettier --check",
     "src/content/**/*.{json,vue}": "npm run validate:content --"

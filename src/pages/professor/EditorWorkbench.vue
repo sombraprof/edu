@@ -51,11 +51,13 @@
             </label>
 
             <div class="flex flex-wrap gap-3">
-              <button type="button" class="btn btn-tonal" :disabled="!rawInput" @click="formatRaw">
+              <Md3Button type="button" variant="tonal" :disabled="!rawInput" @click="formatRaw">
                 Formatar JSON
-              </button>
-              <label class="btn btn-outlined inline-flex cursor-pointer items-center gap-2">
-                <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+              </Md3Button>
+              <Md3Button variant="outlined" :as="'label'" class="cursor-pointer">
+                <template #leading>
+                  <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
+                </template>
                 <span>Importar arquivo</span>
                 <input
                   id="editor-file-input"
@@ -64,15 +66,15 @@
                   class="sr-only"
                   @change="handleFileInput"
                 />
-              </label>
-              <button
+              </Md3Button>
+              <Md3Button
                 type="button"
-                class="btn btn-filled"
+                variant="filled"
                 :disabled="!rawInput"
                 @click="loadForEditing"
               >
                 Carregar no editor
-              </button>
+              </Md3Button>
             </div>
             <p v-if="lastFileName" class="text-sm text-on-surface-variant">
               Último arquivo carregado: <strong>{{ lastFileName }}</strong>
@@ -300,15 +302,13 @@
           class="rounded-3xl border border-outline bg-surface-container-high p-4 font-mono text-sm text-on-surface"
         ></textarea>
         <div class="flex flex-wrap gap-3">
-          <button
-            type="button"
-            class="btn btn-filled inline-flex items-center gap-2"
-            @click="copyFormatted"
-          >
-            <ClipboardCopy class="md-icon md-icon--sm" aria-hidden="true" />
+          <Md3Button type="button" variant="filled" @click="copyFormatted">
+            <template #leading>
+              <ClipboardCopy class="md-icon md-icon--sm" aria-hidden="true" />
+            </template>
             <span>{{ copyLabel }}</span>
-          </button>
-          <button type="button" class="btn btn-tonal" @click="downloadJson">Baixar arquivo</button>
+          </Md3Button>
+          <Md3Button type="button" variant="tonal" @click="downloadJson">Baixar arquivo</Md3Button>
         </div>
       </section>
     </TeacherModeGate>
@@ -327,6 +327,7 @@ import {
 import lessonSchema from '../../../schemas/lesson.schema.json';
 import { createAjvInstance, formatAjvErrors, type FormattedAjvError } from './utils/validation';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
+import Md3Button from '@/components/Md3Button.vue';
 
 interface LessonPlanCard {
   icon?: string;

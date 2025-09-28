@@ -46,25 +46,29 @@
       </div>
 
       <div class="mt-6">
-        <button
-          :class="['btn', filtersOpen ? 'btn-tonal' : 'btn-text']"
+        <Md3Button
           type="button"
+          :variant="filtersOpen ? 'tonal' : 'text'"
           :aria-expanded="filtersOpen"
+          aria-controls="course-filter-panel"
           @click="toggleFilters"
         >
-          <component
-            :is="filtersOpen ? ChevronUp : ChevronDown"
-            :style="{
-              height: 'var(--md-sys-icon-size-small)',
-              width: 'var(--md-sys-icon-size-small)',
-            }"
-          />
-          <span>{{ filtersOpen ? 'Ocultar filtros' : 'Mostrar filtros' }}</span>
-        </button>
+          <template #leading>
+            <component
+              :is="filtersOpen ? ChevronUp : ChevronDown"
+              :style="{
+                height: 'var(--md-sys-icon-size-small)',
+                width: 'var(--md-sys-icon-size-small)',
+              }"
+            />
+          </template>
+          {{ filtersOpen ? 'Ocultar filtros' : 'Mostrar filtros' }}
+        </Md3Button>
 
         <transition name="fade-expand">
           <div
             v-show="filtersOpen"
+            id="course-filter-panel"
             class="mt-6"
             :style="{ display: 'flex', flexDirection: 'column', gap: 'var(--md-sys-spacing-4)' }"
           >
@@ -114,9 +118,9 @@
             >
               <span class="chip">Busca ativa: {{ q || '-' }}</span>
               <span class="chip">instituição: {{ inst || 'Todas' }}</span>
-              <button class="btn btn-text" type="button" @click="clearFilters">
+              <Md3Button variant="text" type="button" @click="clearFilters">
                 Limpar filtros
-              </button>
+              </Md3Button>
             </div>
           </div>
         </transition>
@@ -141,9 +145,9 @@
         <p class="mt-2 supporting-text">
           Ajuste os filtros ou limpe a busca para visualizar todas as opções disponíveis.
         </p>
-        <button class="btn btn-text mt-4" type="button" @click="clearFilters">
+        <Md3Button class="mt-4" variant="text" type="button" @click="clearFilters">
           Limpar filtros
-        </button>
+        </Md3Button>
       </div>
     </section>
   </section>
@@ -155,6 +159,7 @@ import { computed, ref, watch } from 'vue';
 import { Search, ChevronDown, ChevronUp } from 'lucide-vue-next';
 import { courses } from '../data/courses';
 import CourseCard from '../components/CourseCard.vue';
+import Md3Button from '@/components/Md3Button.vue';
 
 const q = ref('');
 const inst = ref('');

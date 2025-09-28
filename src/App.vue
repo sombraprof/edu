@@ -8,15 +8,20 @@
     <SiteFooter />
 
     <transition name="fade-expand">
-      <button
+      <Md3Button
         v-if="showScrollTop"
-        class="fab btn btn-filled"
+        variant="tonal"
+        icon
+        class="md3-fab"
         type="button"
         @click="scrollToTop"
         aria-label="Voltar ao topo"
       >
-        <ArrowUp class="md-icon md-icon--sm" />
-      </button>
+        <template #leading>
+          <ArrowUp class="md-icon" aria-hidden="true" />
+        </template>
+        <span class="sr-only">Voltar ao topo</span>
+      </Md3Button>
     </transition>
   </div>
 </template>
@@ -27,6 +32,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { ArrowUp } from 'lucide-vue-next';
 import SiteHeader from './components/SiteHeader.vue';
 import SiteFooter from './components/SiteFooter.vue';
+import Md3Button from './components/Md3Button.vue';
 import { useTeacherMode } from './composables/useTeacherMode';
 
 const showScrollTop = ref(false);

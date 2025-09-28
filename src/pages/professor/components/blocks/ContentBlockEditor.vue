@@ -41,14 +41,12 @@
       <header class="flex items-center justify-between">
         <h4 class="md-typescale-title-small font-semibold text-on-surface">Conteúdo</h4>
         <div class="flex gap-2">
-          <button
-            type="button"
-            class="btn btn-tonal inline-flex items-center gap-2"
-            @click="addParagraph"
-          >
-            <Plus class="md-icon md-icon--sm" aria-hidden="true" />
+          <Md3Button type="button" variant="tonal" @click="addParagraph">
+            <template #leading>
+              <Plus class="md-icon md-icon--sm" aria-hidden="true" />
+            </template>
             Parágrafo
-          </button>
+          </Md3Button>
         </div>
       </header>
       <div v-if="content.length" class="flex flex-col gap-4">
@@ -59,10 +57,12 @@
         >
           <header class="flex items-center justify-between">
             <h5 class="font-semibold text-on-surface">{{ describeItem(item) }}</h5>
-            <button type="button" class="btn btn-text text-error" @click="removeItem(index)">
-              <Trash2 class="md-icon md-icon--sm" aria-hidden="true" />
+            <Md3Button type="button" variant="text" class="text-error" @click="removeItem(index)">
+              <template #leading>
+                <Trash2 class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
               Remover
-            </button>
+            </Md3Button>
           </header>
           <div class="mt-3 flex flex-col gap-3">
             <template v-if="isParagraph(item)">
@@ -103,6 +103,7 @@
 <script setup lang="ts">
 import { reactive, toRef } from 'vue';
 import { Plus, Trash2 } from 'lucide-vue-next';
+import Md3Button from '@/components/Md3Button.vue';
 
 interface ParagraphItem {
   type: 'paragraph';

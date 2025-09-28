@@ -1,8 +1,10 @@
 <template>
-  <button class="btn btn-filled app-theme-toggle" @click="toggle()" :aria-label="ariaLabel">
-    <component :is="icon" class="md-icon md-icon--sm" />
+  <Md3Button class="app-theme-toggle" variant="text" :aria-label="ariaLabel" @click="toggle">
+    <template #leading>
+      <component :is="icon" class="md-icon md-icon--sm" aria-hidden="true" focusable="false" />
+    </template>
     <span class="hidden sm:inline">{{ textLabel }}</span>
-  </button>
+  </Md3Button>
 </template>
 
 <script setup lang="ts">
@@ -10,6 +12,7 @@
 import { computed } from 'vue';
 import { Sun, Moon } from 'lucide-vue-next';
 import { getActiveMaterialTheme, setMaterialTheme } from '@/theme/material-theme';
+import Md3Button from './Md3Button.vue';
 
 const theme = getActiveMaterialTheme();
 const isLight = computed(() => theme.value === 'light');

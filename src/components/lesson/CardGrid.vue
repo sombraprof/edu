@@ -40,16 +40,18 @@
             v-html="sanitizeContent(card.footer)"
           ></p>
           <div v-if="card.actions?.length" class="card-grid__actions">
-            <a
+            <Md3Button
               v-for="(action, actionIndex) in card.actions"
               :key="actionIndex"
-              class="btn btn-tonal"
+              class="card-grid__action"
+              variant="tonal"
+              as="a"
               :href="action.href"
               :target="action.external ? '_blank' : undefined"
               :rel="action.external ? 'noreferrer' : undefined"
             >
               {{ action.label }}
-            </a>
+            </Md3Button>
           </div>
         </footer>
       </article>
@@ -61,6 +63,7 @@
 import { computed, type Component } from 'vue';
 import * as LucideIcons from 'lucide-vue-next';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
+import Md3Button from '@/components/Md3Button.vue';
 
 interface CardGridAction {
   label: string;
@@ -377,6 +380,10 @@ function sanitizeList(items?: unknown[]): string[] {
   display: flex;
   flex-wrap: wrap;
   gap: var(--md-sys-spacing-2);
+}
+
+.card-grid__action {
+  width: fit-content;
 }
 
 @media (max-width: 768px) {

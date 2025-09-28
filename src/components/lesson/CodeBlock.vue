@@ -3,14 +3,19 @@
     <div
       class="flex justify-end items-center py-2 px-3 bg-[var(--md-sys-color-surface-container-high)] border-b border-[var(--md-sys-color-outline)]"
     >
-      <button
-        @click="copyCode"
-        class="btn-icon"
+      <Md3Button
+        class="code-block__copy"
+        variant="text"
+        icon
+        type="button"
         :aria-label="copied ? 'Copiado!' : 'Copiar código'"
+        @click="copyCode"
       >
-        <Check v-if="copied" :size="18" />
-        <Copy v-else :size="18" />
-      </button>
+        <template #leading>
+          <Check v-if="copied" :size="18" aria-hidden="true" />
+          <Copy v-else :size="18" aria-hidden="true" />
+        </template>
+      </Md3Button>
     </div>
     <pre
       class="p-4 pt-0 m-0"
@@ -22,6 +27,7 @@
 import { ref, onMounted, watch, nextTick } from 'vue';
 import Prism from 'prismjs';
 import { Copy, Check } from 'lucide-vue-next';
+import Md3Button from '@/components/Md3Button.vue';
 
 // Import base languages used in other definitions
 import 'prismjs/components/prism-clike';
@@ -119,37 +125,23 @@ watch(
   border-bottom: 1px solid var(--md-sys-color-outline);
 }
 
-/* Button styling */
-.btn-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.code-block__copy.md3-button--icon {
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
+  border-radius: var(--md-sys-border-radius-large);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 55%, transparent);
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface-variant);
-  cursor: pointer;
-  transition:
-    background-color 200ms ease,
-    color 200ms ease,
-    border-color 200ms ease;
 }
 
-.btn-icon:hover {
-  background-color: var(--md-sys-color-primary-container);
+.code-block__copy.md3-button--icon:hover {
   color: var(--md-sys-color-on-primary-container);
-  border-color: var(--md-sys-color-primary);
+  border-color: color-mix(in srgb, var(--md-sys-color-primary) 60%, transparent);
+  background-color: color-mix(in srgb, var(--md-sys-color-primary-container) 85%, transparent);
 }
 
-.btn-icon:focus-visible {
-  outline: 2px solid var(--md-sys-color-primary);
-  outline-offset: 2px;
-}
-
-.btn-icon svg {
-  color: currentColor;
+.code-block__copy.md3-button--icon::after {
+  background: var(--md-sys-state-layer-on-surface);
 }
 
 /* Plain text styling - no syntax highlighting */

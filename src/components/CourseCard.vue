@@ -3,11 +3,12 @@
     class="card card--interactive course-card flex h-full flex-col p-6"
     :to="{ name: 'course-home', params: { courseId: meta.id } }"
     :aria-label="`Acessar disciplina ${meta.title}`"
+    :style="accentStyle"
     @keydown.space.prevent="($event.target as HTMLElement).click()"
   >
     <div class="course-card__header">
       <div class="course-card__title-row">
-        <span class="badge course-card__institution" :style="badgeStyle">
+        <span class="badge course-card__institution">
           {{ institutionLabel }}
         </span>
         <h3 class="md-typescale-headline-small font-semibold text-on-surface">
@@ -46,16 +47,25 @@ const props = defineProps<{ meta: CourseMeta }>();
 
 const institutionLabel = computed(() => props.meta.institution);
 
-const badgeStyle = computed(() => {
+const accentStyle = computed<Record<string, string>>(() => {
   switch (props.meta.institution) {
     case 'Unichristus':
-      return { backgroundColor: '#d1e9ff', color: '#0b4a6f' };
+      return {
+        '--course-card-accent': 'var(--md-sys-color-primary)',
+        '--course-card-accent-container': 'var(--md-sys-color-primary-container)',
+        '--course-card-accent-on-container': 'var(--md-sys-color-on-primary-container)',
+      };
     case 'Unifametro':
-      return { backgroundColor: '#d5f5e3', color: '#14532d' };
+      return {
+        '--course-card-accent': 'var(--md-sys-color-tertiary)',
+        '--course-card-accent-container': 'var(--md-sys-color-tertiary-container)',
+        '--course-card-accent-on-container': 'var(--md-sys-color-on-tertiary-container)',
+      };
     default:
       return {
-        backgroundColor: 'var(--md-sys-color-secondary-container)',
-        color: 'var(--md-sys-color-on-secondary-container)',
+        '--course-card-accent': 'var(--md-sys-color-secondary)',
+        '--course-card-accent-container': 'var(--md-sys-color-secondary-container)',
+        '--course-card-accent-on-container': 'var(--md-sys-color-on-secondary-container)',
       };
   }
 });
