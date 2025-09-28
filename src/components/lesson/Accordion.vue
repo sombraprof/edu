@@ -16,11 +16,7 @@
       >
         <span>{{ item.title }}</span>
         <ChevronDown
-          :style="{
-            height: 'var(--md-sys-icon-size-medium)',
-            width: 'var(--md-sys-icon-size-medium)',
-          }"
-          class="transform transition-transform duration-300 text-[var(--md-sys-color-on-surface-variant)]"
+          class="md-icon md-icon--md transform transition-transform duration-300 text-[var(--md-sys-color-on-surface-variant)]"
           :class="{ 'rotate-180': openIndex === index }"
         />
       </button>
