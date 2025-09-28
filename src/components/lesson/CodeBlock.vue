@@ -155,6 +155,7 @@ watch(
   --_content-padding-block: var(--md-sys-spacing-4);
 
   background-color: var(--md-sys-color-surface-container);
+  /* Replica o raio dos cards MD3, com fallback para projetos legados */
   border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-xl));
   margin-block: var(--code-block-spacing, 0);
   overflow: hidden;
