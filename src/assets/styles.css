@@ -1602,8 +1602,13 @@ html {
     min-width: 3.5rem;
     min-height: 3.5rem;
     padding: 0;
+    --md3-button-container: var(--md-sys-color-primary-container);
+    --md3-button-color: var(--md-sys-color-on-primary-container);
+    --md3-button-outline-color: var(--md-sys-color-primary-container);
+    --md3-button-shadow: var(--shadow-elevation-2);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-primary-container);
     border-radius: var(--md-sys-border-radius-4xl);
-    box-shadow: var(--shadow-elevation-2);
+    box-shadow: var(--md3-button-shadow);
     transition:
       transform 180ms ease,
       box-shadow 180ms ease;
@@ -1622,6 +1627,12 @@ html {
   .md3-fab .md-icon {
     width: var(--md-sys-icon-size-medium);
     height: var(--md-sys-icon-size-medium);
+  }
+
+  .md3-fab .md3-button__icon--leading,
+  .md3-fab .md3-button__icon--trailing {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   @media (max-width: 640px) {
