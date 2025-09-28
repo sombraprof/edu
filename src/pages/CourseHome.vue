@@ -89,14 +89,16 @@
         </div>
         <div class="mt-auto flex items-center justify-end">
           <template v-if="item.available && item.cta">
-            <span
-              class="inline-flex items-center gap-2 text-label-medium font-medium text-[var(--md-sys-color-on-surface-variant)] transition-all duration-150 group-hover:text-[var(--md-sys-color-primary)] group-hover:drop-shadow"
+            <Md3Button
+              as="span"
+              variant="text"
+              class="course-item__cta text-label-medium font-medium"
             >
-              <span>{{ item.cta }}</span>
-              <ChevronRight
-                class="md-icon md-icon--sm transition-transform duration-150 group-hover:translate-x-1"
-              />
-            </span>
+              {{ item.cta }}
+              <template #trailing>
+                <ChevronRight class="md-icon md-icon--sm" aria-hidden="true" />
+              </template>
+            </Md3Button>
           </template>
           <template v-else-if="!item.available">
             <span class="md-sys-typescale-body-small text-[var(--md-sys-color-on-surface-variant)]"

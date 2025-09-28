@@ -29,10 +29,16 @@
       >
         <slot name="meta" />
       </div>
-      <span class="course-card__action md-typescale-label-medium font-medium">
-        <span>Acessar disciplina</span>
-        <ChevronRight class="md-icon" />
-      </span>
+      <Md3Button
+        as="span"
+        variant="text"
+        class="course-card__cta md-typescale-label-medium font-medium"
+      >
+        Acessar disciplina
+        <template #trailing>
+          <ChevronRight class="md-icon md-icon--sm" aria-hidden="true" />
+        </template>
+      </Md3Button>
     </div>
   </router-link>
 </template>
@@ -42,6 +48,7 @@
 import { computed } from 'vue';
 import { ChevronRight } from 'lucide-vue-next';
 import type { CourseMeta } from '../data/courses';
+import Md3Button from './Md3Button.vue';
 
 const props = defineProps<{ meta: CourseMeta }>();
 

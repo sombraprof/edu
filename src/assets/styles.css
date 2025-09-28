@@ -113,6 +113,33 @@
   --md-sys-typescale-label-small-line-height: 1rem; /* 16px */
   --md-sys-typescale-label-small-weight: 500;
   --md-sys-typescale-label-small-tracking: 0.045455em; /* 0.5px */
+
+  /* Derived state-layer roles */
+  --md-sys-state-layer-on-primary: color-mix(
+    in srgb,
+    var(--md-sys-color-on-primary) 20%,
+    transparent
+  );
+  --md-sys-state-layer-on-primary-container: color-mix(
+    in srgb,
+    var(--md-sys-color-on-primary-container) 12%,
+    transparent
+  );
+  --md-sys-state-layer-on-secondary-container: color-mix(
+    in srgb,
+    var(--md-sys-color-on-secondary-container) 12%,
+    transparent
+  );
+  --md-sys-state-layer-on-surface-container: color-mix(
+    in srgb,
+    var(--md-sys-color-on-surface) 12%,
+    transparent
+  );
+  --md-sys-state-layer-on-surface-variant: color-mix(
+    in srgb,
+    var(--md-sys-color-on-surface-variant) 12%,
+    transparent
+  );
 }
 
 html {
@@ -790,17 +817,18 @@ html {
   }
 
   .md3-top-app-bar__action {
-    color: var(--md-sys-color-on-surface-variant);
+    --md3-button-color: var(--md-sys-color-on-surface-variant);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-surface);
     transition: color 150ms ease;
   }
 
   .md3-top-app-bar__action::after {
-    background: var(--md-sys-state-layer-on-surface);
+    background: var(--md3-button-state-layer);
   }
 
   .md3-top-app-bar__action:hover,
   .md3-top-app-bar__action:focus-visible {
-    color: var(--md-sys-color-primary);
+    --md3-button-color: var(--md-sys-color-primary);
   }
 
   .md3-top-app-bar__action:hover::after,
@@ -809,12 +837,12 @@ html {
   }
 
   .md3-top-app-bar__action--active {
-    color: var(--md-sys-color-primary);
-    background-color: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
+    --md3-button-color: var(--md-sys-color-primary);
+    --md3-button-container: color-mix(in srgb, var(--md-sys-color-primary) 12%, transparent);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-primary);
   }
 
   .md3-top-app-bar__action--active::after {
-    background: var(--md-sys-state-layer-primary);
     opacity: 1;
   }
 
@@ -1115,19 +1143,15 @@ html {
 
   .app-footer__link,
   .app-footer__teacher-button {
-    color: inherit;
-  }
-
-  .app-footer__link::after,
-  .app-footer__teacher-button::after {
-    background: var(--md-sys-state-layer-on-surface);
+    --md3-button-color: var(--md-sys-color-on-surface-variant);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-surface);
   }
 
   .app-footer__link:hover,
   .app-footer__teacher-button:hover,
   .app-footer__link:focus-visible,
   .app-footer__teacher-button:focus-visible {
-    color: var(--md-sys-color-primary);
+    --md3-button-color: var(--md-sys-color-primary);
   }
 
   @media (min-width: 640px) {
@@ -1159,6 +1183,11 @@ html {
   .btn,
   .md3-button {
     @apply inline-flex items-center gap-2 font-medium transition-all duration-200 ease-out;
+    --md3-button-color: var(--md-sys-color-primary);
+    --md3-button-container: transparent;
+    --md3-button-outline-color: transparent;
+    --md3-button-shadow: none;
+    --md3-button-state-layer: var(--md-sys-state-layer-primary);
     font-family: var(--md-sys-typescale-font);
     font-size: var(--md-sys-typescale-label-large-size);
     line-height: var(--md-sys-typescale-label-large-line-height);
@@ -1167,12 +1196,12 @@ html {
     padding-inline: 1.5rem;
     padding-block: 0.5rem;
     border-radius: var(--md-sys-border-radius-full);
-    background-color: transparent;
-    color: var(--md-sys-color-primary);
-    border: 1px solid transparent;
+    background-color: var(--md3-button-container);
+    color: var(--md3-button-color);
+    border: 1px solid var(--md3-button-outline-color);
     position: relative;
     overflow: hidden;
-    box-shadow: none;
+    box-shadow: var(--md3-button-shadow);
     text-decoration: none;
     cursor: pointer;
   }
@@ -1183,7 +1212,7 @@ html {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: var(--md-sys-state-layer-primary);
+    background: var(--md3-button-state-layer);
     opacity: 0;
     transition: opacity 150ms ease;
   }
@@ -1203,7 +1232,8 @@ html {
   .btn:disabled,
   .md3-button:disabled,
   .md3-button[aria-disabled='true'] {
-    color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+    --md3-button-color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+    --md3-button-state-layer: transparent;
     cursor: not-allowed;
   }
 
@@ -1215,96 +1245,67 @@ html {
 
   .btn-filled,
   .md3-button--filled {
-    background-color: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-    box-shadow: var(--shadow-elevation-1);
-  }
-
-  .btn-filled::after,
-  .md3-button--filled::after {
-    background: var(--md-sys-state-layer-primary-strong);
+    --md3-button-color: var(--md-sys-color-on-primary);
+    --md3-button-container: var(--md-sys-color-primary);
+    --md3-button-shadow: var(--shadow-elevation-1);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-primary);
   }
 
   .btn-filled:hover,
   .md3-button--filled:hover {
-    box-shadow: var(--shadow-elevation-2);
-  }
-
-  html[data-theme='dark'] .btn-filled,
-  html[data-theme='dark'] .md3-button--filled {
-    color: var(--md-sys-color-on-primary);
+    --md3-button-shadow: var(--shadow-elevation-2);
   }
 
   .btn-filled:disabled,
   .md3-button--filled:disabled,
   .md3-button--filled[aria-disabled='true'] {
-    background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
-    box-shadow: none;
+    --md3-button-container: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+    --md3-button-shadow: none;
   }
 
   .btn-tonal,
   .md3-button--tonal {
-    background-color: var(--md-sys-color-primary-container);
-    color: var(--md-sys-color-on-primary-container);
-    border-color: color-mix(
+    --md3-button-color: var(--md-sys-color-on-secondary-container);
+    --md3-button-container: var(--md-sys-color-secondary-container);
+    --md3-button-outline-color: color-mix(
       in srgb,
-      var(--md-sys-color-primary) 35%,
-      var(--md-sys-color-primary-container) 65%
+      var(--md-sys-color-secondary) 35%,
+      var(--md-sys-color-secondary-container) 65%
     );
-    box-shadow: var(--shadow-elevation-1);
-  }
-
-  .btn-tonal::after,
-  .md3-button--tonal::after {
-    background: var(--md-sys-state-layer-primary-strong);
+    --md3-button-shadow: var(--shadow-elevation-1);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-secondary-container);
   }
 
   .btn-tonal:disabled,
   .md3-button--tonal:disabled,
   .md3-button--tonal[aria-disabled='true'] {
-    background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
-    border-color: transparent;
-    box-shadow: none;
+    --md3-button-container: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+    --md3-button-outline-color: transparent;
+    --md3-button-shadow: none;
   }
 
   .btn-text,
   .md3-button--text {
-    color: var(--md-sys-color-primary);
     padding-inline: 0.75rem;
     padding-block: 0.5rem;
     min-height: 2.5rem;
     border-radius: var(--md-sys-border-radius-full);
     width: fit-content;
-  }
-
-  .btn-text::after,
-  .md3-button--text::after {
-    background: var(--md-sys-state-layer-primary);
-  }
-
-  .btn-text:disabled,
-  .md3-button--text:disabled,
-  .md3-button--text[aria-disabled='true'] {
-    color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
+    --md3-button-state-layer: var(--md-sys-state-layer-primary);
   }
 
   .btn-outlined,
   .md3-button--outlined {
-    color: var(--md-sys-color-primary);
-    border-color: color-mix(in srgb, var(--md-sys-color-outline) 75%, transparent);
-    background-color: color-mix(in srgb, var(--md-sys-color-surface) 90%, transparent);
-  }
-
-  .btn-outlined::after,
-  .md3-button--outlined::after {
-    background: var(--md-sys-state-layer-primary);
+    --md3-button-outline-color: color-mix(in srgb, var(--md-sys-color-outline) 75%, transparent);
+    --md3-button-container: color-mix(in srgb, var(--md-sys-color-surface) 92%, transparent);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-surface-container);
   }
 
   .btn-outlined:disabled,
   .md3-button--outlined:disabled,
   .md3-button--outlined[aria-disabled='true'] {
-    border-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
-    background-color: transparent;
+    --md3-button-outline-color: color-mix(in srgb, var(--md-sys-color-on-surface) 12%, transparent);
+    --md3-button-container: transparent;
   }
 
   .btn-icon,
@@ -1315,13 +1316,9 @@ html {
     padding: 0;
     border-radius: 9999px;
     border: 1px solid transparent;
-    color: var(--md-sys-color-primary);
     font-family: var(--md-sys-typescale-font);
-  }
-
-  .btn-icon::after,
-  .md3-button--icon::after {
-    background: var(--md-sys-state-layer-primary);
+    --md3-button-color: var(--md-sys-color-on-surface-variant);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-surface-variant);
   }
 
   .md3-button--icon .md3-button__label {
@@ -1435,6 +1432,7 @@ html {
     );
     --course-card-badge-color: var(--course-card-accent-on-container);
     --course-card-action-bg: color-mix(in srgb, var(--course-card-accent) 12%, transparent);
+    --course-card-action-layer: color-mix(in srgb, var(--course-card-accent) 16%, transparent);
     --card-focus-color: var(--course-card-accent);
   }
 
@@ -1475,36 +1473,31 @@ html {
     justify-content: space-between;
   }
 
-  .course-card__action {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--md-sys-spacing-2);
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--md-sys-border-radius-full);
-    color: var(--course-card-accent);
-    background-color: transparent;
+  .course-card__cta {
+    --md3-button-color: var(--course-card-accent);
+    --md3-button-state-layer: var(--course-card-action-layer);
+    --md3-button-container: transparent;
+    --md3-button-outline-color: transparent;
     transition:
-      background-color 150ms ease,
-      color 150ms ease,
-      transform 150ms ease;
+      transform 150ms ease,
+      box-shadow 150ms ease;
   }
 
-  .course-card:hover .course-card__action,
-  .course-card:focus-visible .course-card__action {
-    background-color: var(--course-card-action-bg);
-    color: var(--course-card-accent);
-    transform: translateX(4px);
-  }
-
-  .course-card__action .md-icon {
+  .course-card__cta .md-icon {
     width: var(--md-sys-icon-size-small);
     height: var(--md-sys-icon-size-small);
     transition: transform 150ms ease;
     color: inherit;
   }
 
-  .course-card:hover .course-card__action .md-icon,
-  .course-card:focus-visible .course-card__action .md-icon {
+  .course-card:hover .course-card__cta,
+  .course-card:focus-visible .course-card__cta {
+    --md3-button-container: var(--course-card-action-bg);
+    transform: translateX(4px);
+  }
+
+  .course-card:hover .course-card__cta .md-icon,
+  .course-card:focus-visible .course-card__cta .md-icon {
     transform: translateX(2px);
   }
 
@@ -1837,6 +1830,40 @@ html {
     );
     color: var(--md-sys-color-on-primary-container);
     box-shadow: var(--shadow-elevation-1);
+  }
+
+  .course-item__cta {
+    --md3-button-color: var(--md-sys-color-on-surface-variant);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-surface);
+    --md3-button-container: transparent;
+    --md3-button-outline-color: transparent;
+    transition:
+      color 150ms ease,
+      filter 150ms ease,
+      transform 150ms ease;
+  }
+
+  .course-item__cta .md3-button__label {
+    gap: var(--md-sys-spacing-2);
+  }
+
+  .course-item__cta .md-icon {
+    transition: transform 150ms ease;
+    color: inherit;
+  }
+
+  .group:hover .course-item__cta,
+  .group:focus-visible .course-item__cta {
+    --md3-button-color: var(--md-sys-color-primary);
+    filter: drop-shadow(
+      0 4px 10px color-mix(in srgb, var(--md-sys-color-primary) 18%, transparent)
+    );
+    transform: translateX(4px);
+  }
+
+  .group:hover .course-item__cta .md-icon,
+  .group:focus-visible .course-item__cta .md-icon {
+    transform: translateX(4px);
   }
 }
 
