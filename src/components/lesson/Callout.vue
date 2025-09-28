@@ -45,7 +45,8 @@
             <div class="callout__video-frame">
               <iframe
                 :src="block.src"
-                title="Video player"
+                :title="resolveVideoAccessibleName(block, index)"
+                :aria-label="resolveVideoAccessibleName(block, index)"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
@@ -168,6 +169,16 @@ function isPlainText(language?: string) {
   }
   const normalized = language.toLowerCase();
   return normalized === 'plaintext' || normalized === 'pseudocode' || normalized === 'text';
+}
+
+function resolveVideoAccessibleName(block: RichVideo, index: number): string {
+  const trimmedTitle = typeof block.title === 'string' ? block.title.trim() : '';
+
+  if (trimmedTitle.length > 0) {
+    return trimmedTitle;
+  }
+
+  return `Vídeo do callout ${index + 1}`;
 }
 </script>
 
