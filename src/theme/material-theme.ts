@@ -28,37 +28,6 @@ type MaterialThemeOptions = Partial<BaseMaterialThemeOptions>;
 const STORAGE_KEY = 'theme';
 const DEFAULT_OPTIONS: BaseMaterialThemeOptions = DEFAULT_THEME_OPTIONS;
 
-type CustomColorDefinition =
-  | string
-  | {
-      color?: string;
-      value?: string;
-    };
-
-interface MaterialThemeOptions {
-  seedColor?: string;
-  secondaryColor?: string;
-  tertiaryColor?: string;
-  neutralColor?: string;
-  neutralVariantColor?: string;
-  success?: CustomColorDefinition;
-  warning?: CustomColorDefinition;
-}
-
-const STORAGE_KEY = 'theme';
-const DEFAULT_SUCCESS_COLOR = '#4caf50';
-const DEFAULT_WARNING_COLOR = '#ff9800';
-
-const DEFAULT_OPTIONS: Required<MaterialThemeOptions> = {
-  seedColor: '#2563eb',
-  secondaryColor: '#7c3aed',
-  tertiaryColor: '#f97316',
-  neutralColor: '#6b6f7c',
-  neutralVariantColor: '#687385',
-  success: DEFAULT_SUCCESS_COLOR,
-  warning: DEFAULT_WARNING_COLOR,
-};
-
 const mediaQuery =
   typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
@@ -79,11 +48,6 @@ type MaterialCustomColorGroup = {
   color: { name: string };
   light: ColorGroupValues;
   dark: ColorGroupValues;
-};
-
-const CUSTOM_COLOR_TOKEN_MAP: Record<string, [string, string, string, string]> = {
-  success: ['success', 'onSuccess', 'successContainer', 'onSuccessContainer'],
-  warning: ['warning', 'onWarning', 'warningContainer', 'onWarningContainer'],
 };
 
 const SURFACE_TONE_MAP: Record<
@@ -142,24 +106,6 @@ function toHex(value: number | string): string {
   return typeof value === 'number' ? hexFromArgb(value) : value;
 }
 
-function resolveCustomColorDefinition(definition: CustomColorDefinition, fallback: string): string {
-  if (typeof definition === 'string') {
-    return definition;
-  }
-
-  if (definition) {
-    if (typeof definition.color === 'string' && definition.color.trim().length > 0) {
-      return definition.color;
-    }
-
-    if (typeof definition.value === 'string' && definition.value.trim().length > 0) {
-      return definition.value;
-    }
-  }
-
-  return fallback;
-}
-
 function setColorToken(style: CSSStyleDeclaration, token: string, value: number | string) {
   const hex = toHex(value);
   style.setProperty(toCssVarName(token), hex);
@@ -187,21 +133,18 @@ function applyScheme(mode: ThemeMode) {
   const customColorGroups =
     (materialTheme as Theme & { customColors?: MaterialCustomColorGroup[] }).customColors ?? [];
 
-  customColorGroups.forEach((customColor) => {
-    const tokens = CUSTOM_COLOR_TOKEN_MAP[customColor.color.name];
+  customColorGroups
+    .filter(({ color }) => color.name === 'success' || color.name === 'warning')
+    .forEach((customColor) => {
+      const group = mode === 'dark' ? customColor.dark : customColor.light;
+      const tokenName = customColor.color.name;
+      const capitalized = tokenName.charAt(0).toUpperCase() + tokenName.slice(1);
 
-    if (!tokens) {
-      return;
-    }
-
-    const group = mode === 'dark' ? customColor.dark : customColor.light;
-    const [colorToken, onColorToken, containerToken, onContainerToken] = tokens;
-
-    setColorToken(rootStyle, colorToken, group.color);
-    setColorToken(rootStyle, onColorToken, group.onColor);
-    setColorToken(rootStyle, containerToken, group.colorContainer);
-    setColorToken(rootStyle, onContainerToken, group.onColorContainer);
-  });
+      setColorToken(rootStyle, tokenName, group.color);
+      setColorToken(rootStyle, `on${capitalized}`, group.onColor);
+      setColorToken(rootStyle, `${tokenName}Container`, group.colorContainer);
+      setColorToken(rootStyle, `on${capitalized}Container`, group.onColorContainer);
+    });
 
   const primary = toHex(palette.primary);
   const onSurface = toHex(palette.onSurface);
@@ -358,8 +301,8 @@ function createTheme(options: BaseMaterialThemeOptions): Theme {
       value: argbFromHex(options.neutralVariantColor),
       blend: true,
     },
-    { name: 'success', value: argbFromHex(successColor), blend: true },
-    { name: 'warning', value: argbFromHex(warningColor), blend: true },
+    { name: 'success', value: argbFromHex(options.successColor), blend: true },
+    { name: 'warning', value: argbFromHex(options.warningColor), blend: true },
   ]);
 }
 

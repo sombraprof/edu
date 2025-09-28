@@ -1520,18 +1520,30 @@ html {
   }
 
   .chip--success {
-    background-color: var(--md-sys-color-success-container);
-    color: var(--md-sys-color-on-success-container);
+    background-color: color-mix(
+      in srgb,
+      var(--md-sys-color-primary) 18%,
+      var(--md-sys-color-surface) 82%
+    );
+    color: var(--md-sys-color-on-primary-container);
   }
 
   .chip--warning {
-    background-color: var(--md-sys-color-warning-container);
-    color: var(--md-sys-color-on-warning-container);
+    background-color: color-mix(
+      in srgb,
+      var(--md-sys-color-secondary) 12%,
+      var(--md-sys-color-surface) 88%
+    );
+    color: var(--md-sys-color-secondary);
   }
 
   .chip--error {
-    background-color: var(--md-sys-color-error-container);
-    color: var(--md-sys-color-on-error-container);
+    background-color: color-mix(
+      in srgb,
+      var(--md-sys-color-error) 16%,
+      var(--md-sys-color-surface) 84%
+    );
+    color: var(--md-sys-color-error);
   }
   .badge {
     @apply inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium;
@@ -2035,7 +2047,7 @@ html[data-theme='dark'] .text-primary-800 {
 }
 
 .callout__title {
-  font-size: var(--md-sys-typescale-title-medium-size);
+  font-size: var(--md-sys-typescale-title-medium-size, 1rem);
   font-weight: 600;
   color: inherit;
 }
