@@ -19,6 +19,7 @@
 - Cartão de publicação consulta o backend para exibir branch, divergência e arquivos pendentes via `git status` em tempo real.
 - Botão **Buscar atualizações da main** aciona `git fetch` via backend e já devolve o status atualizado do workspace.
 - Botão **Criar branch automaticamente** usa o backend para abrir a branch de trabalho a partir da `main` sem sair da SPA.
+- Automação de `git add` e `git commit` reaproveitando os caminhos cadastrados e a mensagem configurada no painel.
 
 ### Linha do tempo
 
@@ -27,6 +28,7 @@
 - **2024-07-09** — Inclusão da lista de conteúdos + resumo automático para descrição do PR.
 - **2024-07-10** — Integração com dashboard, navegação e documentação viva destacando a nova iteração.
 - **2024-07-12** — Checkout automatizado integrado ao painel de publicação após validar fluxos de token/autenticação.
+- **2024-07-13** — Automação de staging e commit integrada ao serviço auxiliar e ao painel de publicação.
 
 ## Fluxo sugerido
 
@@ -53,7 +55,7 @@
 
 ## Próximos passos / pendências
 
-- [ ] Evoluir o backend auxiliar para preparar commits e PRs completos (add, commit, push) reutilizando a branch criada automaticamente.
+- [ ] Evoluir o backend auxiliar para preparar push e PRs completos reutilizando a branch criada automaticamente.
 - [ ] Registrar no painel os diffs gerados para facilitar a revisão visual antes do commit.
 - [ ] Adicionar integração com serviços de PR (ex.: GitHub) para preencher título e corpo automaticamente via API.
 - [ ] Expandir checklist para cobrir publicação de múltiplas branches/PRs em paralelo.

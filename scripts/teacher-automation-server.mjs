@@ -2,7 +2,7 @@
 import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
+import { dirname, resolve, relative } from 'node:path';
 import { readFile, writeFile } from 'node:fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -327,6 +327,105 @@ function parseGitChange(line) {
   };
 }
 
+function normalizePathToProjectRoot(input) {
+  if (typeof input !== 'string') {
+    return null;
+  }
+
+  const trimmed = input.trim();
+  if (!trimmed || trimmed.startsWith('-') || /[\r\n]/.test(trimmed) || trimmed.includes('\0')) {
+    return null;
+  }
+
+  const resolved = resolve(projectRoot, trimmed);
+  const projectRelative = relative(projectRoot, resolved);
+
+  if (projectRelative.startsWith('..') || projectRelative.includes('\0')) {
+    return null;
+  }
+
+  if (!projectRelative) {
+    return '.';
+  }
+
+  return projectRelative.replace(/\\/g, '/');
+}
+
+function sanitizeGitPaths(rawPaths) {
+  if (!Array.isArray(rawPaths)) {
+    return [];
+  }
+
+  const sanitized = rawPaths
+    .map((value) => normalizePathToProjectRoot(value))
+    .filter((value) => typeof value === 'string' && value.length > 0);
+
+  const unique = [...new Set(sanitized)];
+  return unique;
+}
+
+function normalizeCommitMessageParts(rawMessage) {
+  if (typeof rawMessage !== 'string') {
+    return [];
+  }
+
+  const normalized = rawMessage.replace(/\r\n?/g, '\n').replace(/\0/g, '').trim();
+  if (!normalized) {
+    return [];
+  }
+
+  return normalized
+    .split(/\n{2,}/)
+    .map((part) => part.trim())
+    .filter((part) => part.length > 0);
+}
+
+function buildGitAddCommandString({ paths, all }) {
+  if (all) {
+    return 'git add --all';
+  }
+
+  if (!paths.length) {
+    return 'git add --';
+  }
+
+  const listed = paths.map((item) => (item.includes(' ') ? `'${item}'` : item)).join(' ');
+  return `git add -- ${listed}`;
+}
+
+async function runGitAdd({ paths, all }) {
+  const args = ['add'];
+  if (all) {
+    args.push('--all');
+  } else {
+    args.push('--');
+    args.push(...paths);
+  }
+
+  const { exitCode, stdout, stderr } = await runCommand('git', args);
+  const success = exitCode === 0;
+
+  let status = null;
+  if (success) {
+    try {
+      status = await captureGitStatus();
+    } catch (statusError) {
+      status = null;
+    }
+  }
+
+  return {
+    success,
+    exitCode,
+    stdout,
+    stderr,
+    paths,
+    all,
+    command: buildGitAddCommandString({ paths, all }),
+    status,
+  };
+}
+
 function parseGitStatusOutput(stdout) {
   const lines = stdout.trim().split(/\r?\n/).filter(Boolean);
   const summaryLine = lines.shift();
@@ -529,6 +628,132 @@ async function serveGitCheckout(req, res) {
   }
 }
 
+async function serveGitStage(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+    const all = Boolean(body.all);
+    const sanitizedPaths = sanitizeGitPaths(body.paths ?? []);
+
+    if (!all && sanitizedPaths.length === 0) {
+      jsonResponse(res, 400, {
+        error:
+          'Informe ao menos um caminho válido ou habilite o modo all para executar git add automaticamente.',
+      });
+      return;
+    }
+
+    const result = await runGitAdd({ paths: sanitizedPaths, all });
+    jsonResponse(res, 200, result);
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'message' in error && typeof error.message === 'string'
+        ? error.message
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao executar git add no workspace atual.',
+      details,
+    });
+  }
+}
+
+async function serveGitCommit(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+    const messageParts = normalizeCommitMessageParts(body.message ?? '');
+
+    if (messageParts.length === 0) {
+      jsonResponse(res, 400, { error: 'Informe uma mensagem de commit válida.' });
+      return;
+    }
+
+    const allowEmpty = Boolean(body.allowEmpty);
+    const stagePaths = sanitizeGitPaths(body.stagePaths ?? []);
+
+    let stageResult = null;
+    if (stagePaths.length > 0) {
+      stageResult = await runGitAdd({ paths: stagePaths, all: false });
+      if (!stageResult.success) {
+        jsonResponse(res, 200, {
+          success: false,
+          skipped: true,
+          exitCode: null,
+          stdout: '',
+          stderr: 'Commit não executado porque git add falhou.',
+          message: messageParts.join('\n\n'),
+          messageParts,
+          allowEmpty,
+          stage: stageResult,
+          status: stageResult.status ?? null,
+          command: buildGitCommitCommandString({ messageParts, allowEmpty }),
+        });
+        return;
+      }
+    }
+
+    const args = ['commit'];
+    messageParts.forEach((part) => {
+      args.push('-m');
+      args.push(part);
+    });
+
+    if (allowEmpty) {
+      args.push('--allow-empty');
+    }
+
+    const { exitCode, stdout, stderr } = await runCommand('git', args);
+    const success = exitCode === 0;
+
+    let status = null;
+    try {
+      status = await captureGitStatus();
+    } catch (statusError) {
+      status = null;
+    }
+
+    jsonResponse(res, 200, {
+      success,
+      skipped: false,
+      exitCode,
+      stdout,
+      stderr,
+      message: messageParts.join('\n\n'),
+      messageParts,
+      allowEmpty,
+      stage: stageResult,
+      status,
+      command: buildGitCommitCommandString({ messageParts, allowEmpty }),
+    });
+  } catch (error) {
+    const details =
+      error && typeof error === 'object' && 'details' in error && typeof error.details === 'string'
+        ? error.details
+        : error instanceof Error
+          ? error.message
+          : String(error);
+    jsonResponse(res, 500, {
+      error: 'Falha ao executar git commit.',
+      details,
+    });
+  }
+}
+
+function buildGitCommitCommandString({ messageParts, allowEmpty }) {
+  const chunks = ['git commit'];
+  messageParts.forEach((part) => {
+    const quoted = part.includes(' ') ? `"${part.replace(/"/g, '\\"')}"` : part;
+    chunks.push('-m');
+    chunks.push(quoted);
+  });
+
+  if (allowEmpty) {
+    chunks.push('--allow-empty');
+  }
+
+  return chunks.join(' ');
+}
+
 function listScripts(res) {
   const payload = Object.values(scriptConfigs).map((config) => ({
     key: config.key,
@@ -586,6 +811,16 @@ const server = createServer(async (req, res) => {
 
   if (url.pathname === '/api/teacher/git/checkout' && req.method === 'POST') {
     await serveGitCheckout(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/stage' && req.method === 'POST') {
+    await serveGitStage(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/commit' && req.method === 'POST') {
+    await serveGitCommit(req, res);
     return;
   }
 

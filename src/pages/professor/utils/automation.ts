@@ -218,3 +218,70 @@ export async function checkoutTeacherGitBranch(params: {
 
   return payload as TeacherGitCheckoutResult;
 }
+
+export interface TeacherGitStageResult {
+  success: boolean;
+  exitCode: number;
+  stdout: string;
+  stderr: string;
+  paths: string[];
+  all: boolean;
+  command: string;
+  status: TeacherGitStatus | null;
+}
+
+export async function stageTeacherGitPaths(params: { paths?: string[]; all?: boolean }) {
+  const body: Record<string, unknown> = {};
+  if (Array.isArray(params.paths)) {
+    body.paths = params.paths;
+  }
+  if (typeof params.all === 'boolean') {
+    body.all = params.all;
+  }
+
+  const payload = await request('/api/teacher/git/stage', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitStageResult;
+}
+
+export interface TeacherGitCommitResult {
+  success: boolean;
+  skipped: boolean;
+  exitCode: number | null;
+  stdout: string;
+  stderr: string;
+  message: string;
+  messageParts: string[];
+  allowEmpty: boolean;
+  stage: TeacherGitStageResult | null;
+  status: TeacherGitStatus | null;
+  command: string;
+}
+
+export async function commitTeacherGitChanges(params: {
+  message: string;
+  allowEmpty?: boolean;
+  stagePaths?: string[];
+}) {
+  const body: Record<string, unknown> = {
+    message: params.message,
+  };
+
+  if (typeof params.allowEmpty === 'boolean') {
+    body.allowEmpty = params.allowEmpty;
+  }
+
+  if (Array.isArray(params.stagePaths)) {
+    body.stagePaths = params.stagePaths;
+  }
+
+  const payload = await request('/api/teacher/git/commit', {
+    method: 'POST',
+    body: JSON.stringify(body),
+  });
+
+  return payload as TeacherGitCommitResult;
+}

@@ -304,6 +304,157 @@
           painel ou siga os comandos sugeridos abaixo.
         </p>
 
+        <div
+          v-if="teacherAutomationEnabled"
+          class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-5"
+        >
+          <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <div class="flex flex-col gap-2">
+              <p class="text-sm text-on-surface">
+                Use os caminhos listados na seção de conteúdos para enviar os arquivos ao staging e
+                gerar o commit automaticamente.
+              </p>
+              <p class="text-xs text-on-surface-variant">
+                O serviço executa <code>git add</code> com os caminhos preenchidos e reutiliza o
+                título de commit configurado acima.
+              </p>
+            </div>
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <button
+                type="button"
+                class="btn btn-tonal inline-flex items-center gap-2"
+                :disabled="gitStageLoading || artifactPaths.length === 0"
+                @click="stageCurrentArtifacts"
+              >
+                {{ gitStageLoading ? 'Adicionando…' : 'Adicionar com git add' }}
+              </button>
+              <button
+                type="button"
+                class="btn btn-filled inline-flex items-center gap-2"
+                :disabled="gitCommitLoading"
+                @click="commitCurrentArtifacts"
+              >
+                {{ gitCommitLoading ? 'Registrando commit…' : 'Gerar commit agora' }}
+              </button>
+            </div>
+          </div>
+
+          <div class="rounded-2xl border border-outline bg-surface p-4 text-sm text-on-surface">
+            <p class="font-medium">Caminhos enviados para o git add automático:</p>
+            <ul v-if="artifactPaths.length > 0" class="mt-2 grid gap-2">
+              <li
+                v-for="path in artifactPaths"
+                :key="path"
+                class="rounded-xl bg-[var(--md-sys-color-surface-container-highest)] px-3 py-2 font-mono text-xs text-on-surface"
+              >
+                {{ path }}
+              </li>
+            </ul>
+            <p v-else class="mt-2 text-xs text-on-surface-variant">
+              Preencha a seção “Conteúdos incluídos nesta rodada” para habilitar o git add
+              automático.
+            </p>
+          </div>
+
+          <div
+            v-if="gitStageError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitStageError }}</p>
+                <p v-if="gitStageResult" class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitStageResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitStageOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitStageOutput }}
+            </pre>
+          </div>
+          <div
+            v-else-if="gitStageResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitStageSuccessMessage }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitStageResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitStageOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitStageOutput }}
+            </pre>
+          </div>
+
+          <div
+            v-if="gitCommitError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitCommitError }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{
+                    gitCommitResult?.command ?? `git commit -m "${sanitizedCommitTitle}"`
+                  }}</code>
+                </p>
+                <p v-if="gitCommitSkippedMessage" class="text-xs">{{ gitCommitSkippedMessage }}</p>
+                <p v-if="gitCommitResult?.stage && !gitCommitResult.stage.success" class="text-xs">
+                  git add executado com:
+                  <code class="font-mono">{{ gitCommitResult.stage.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitCommitOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitCommitOutput }}
+            </pre>
+          </div>
+          <div
+            v-else-if="gitCommitResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ gitCommitSuccessMessage }}</p>
+                <p class="text-xs">
+                  Comando executado:
+                  <code class="font-mono">{{ gitCommitResult.command }}</code>
+                </p>
+              </div>
+            </div>
+            <pre
+              v-if="gitCommitOutput"
+              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              aria-live="polite"
+              >{{ gitCommitOutput }}
+            </pre>
+          </div>
+
+          <p class="text-xs text-on-surface-variant">
+            Revise o diff local após executar o commit automático e antes de enviar a branch para o
+            repositório remoto.
+          </p>
+        </div>
+
         <label class="flex flex-col gap-2">
           <span class="md-typescale-label-large text-on-surface">Descrição do PR</span>
           <textarea
@@ -511,11 +662,15 @@ import TeacherModeGate from '../../components/TeacherModeGate.vue';
 import {
   TeacherAutomationError,
   checkoutTeacherGitBranch,
+  commitTeacherGitChanges,
   fetchTeacherGitStatus,
   fetchTeacherGitUpdates,
+  stageTeacherGitPaths,
   teacherAutomationEnabled,
   type TeacherGitCheckoutResult,
+  type TeacherGitCommitResult,
   type TeacherGitFetchResult,
+  type TeacherGitStageResult,
   type TeacherGitStatus,
 } from './utils/automation';
 
@@ -550,6 +705,12 @@ const gitFetchLoading = ref(false);
 const gitCheckoutResult = ref<TeacherGitCheckoutResult | null>(null);
 const gitCheckoutError = ref<string | null>(null);
 const gitCheckoutLoading = ref(false);
+const gitStageResult = ref<TeacherGitStageResult | null>(null);
+const gitStageError = ref<string | null>(null);
+const gitStageLoading = ref(false);
+const gitCommitResult = ref<TeacherGitCommitResult | null>(null);
+const gitCommitError = ref<string | null>(null);
+const gitCommitLoading = ref(false);
 
 const gitBranchSummary = computed(() => {
   if (!gitStatus.value) {
@@ -643,6 +804,59 @@ const gitCheckoutSuccessMessage = computed(() => {
   }
 
   return `Checkout para ${branch} concluído.`;
+});
+
+const gitStageOutput = computed(() => {
+  if (!gitStageResult.value) {
+    return '';
+  }
+
+  const stdout = gitStageResult.value.stdout?.trim?.() ?? '';
+  const stderr = gitStageResult.value.stderr?.trim?.() ?? '';
+  return [stdout, stderr].filter(Boolean).join('\n');
+});
+
+const gitStageSuccessMessage = computed(() => {
+  if (!gitStageResult.value?.success) {
+    return '';
+  }
+
+  if (gitStageResult.value.all) {
+    return 'git add --all executado com sucesso.';
+  }
+
+  if (gitStageResult.value.paths.length > 0) {
+    return `Arquivos adicionados ao staging: ${gitStageResult.value.paths.join(', ')}`;
+  }
+
+  return 'git add executado com sucesso.';
+});
+
+const gitCommitOutput = computed(() => {
+  if (!gitCommitResult.value) {
+    return '';
+  }
+
+  const stdout = gitCommitResult.value.stdout?.trim?.() ?? '';
+  const stderr = gitCommitResult.value.stderr?.trim?.() ?? '';
+  return [stdout, stderr].filter(Boolean).join('\n');
+});
+
+const gitCommitSuccessMessage = computed(() => {
+  if (!gitCommitResult.value?.success) {
+    return '';
+  }
+
+  const subject = gitCommitResult.value.messageParts?.[0] ?? gitCommitResult.value.message;
+  return `Commit criado com a mensagem: ${subject}`;
+});
+
+const gitCommitSkippedMessage = computed(() => {
+  if (!gitCommitResult.value?.skipped) {
+    return '';
+  }
+
+  return 'Commit não executado porque o git add automático falhou.';
 });
 
 async function refreshGitStatus() {
@@ -760,6 +974,121 @@ async function createWorkingBranch() {
   }
 }
 
+async function stageCurrentArtifacts() {
+  if (!teacherAutomationEnabled) {
+    gitStageError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar o git add automático.';
+    return;
+  }
+
+  const paths = artifactPaths.value;
+  if (paths.length === 0) {
+    gitStageError.value =
+      'Preencha ao menos um caminho na seção de conteúdos para enviar ao staging automaticamente.';
+    return;
+  }
+
+  gitStageLoading.value = true;
+  gitStageError.value = null;
+  gitStageResult.value = null;
+
+  try {
+    const result = await stageTeacherGitPaths({ paths });
+    gitStageResult.value = result;
+
+    if (!result.success) {
+      const stderrMessage = result.stderr?.trim?.() ?? '';
+      const stdoutMessage = result.stdout?.trim?.() ?? '';
+      gitStageError.value =
+        stderrMessage || stdoutMessage || 'Não foi possível adicionar os arquivos ao staging.';
+    } else {
+      gitStageError.value = null;
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+    } else if (result.success) {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitStageResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitStageError.value = error.message;
+    } else if (error instanceof Error) {
+      gitStageError.value = error.message;
+    } else {
+      gitStageError.value = 'Falha inesperada ao executar git add.';
+    }
+  } finally {
+    gitStageLoading.value = false;
+  }
+}
+
+async function commitCurrentArtifacts() {
+  if (!teacherAutomationEnabled) {
+    gitCommitError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar commits automáticos.';
+    return;
+  }
+
+  gitCommitLoading.value = true;
+  gitCommitError.value = null;
+  gitCommitResult.value = null;
+
+  try {
+    const result = await commitTeacherGitChanges({
+      message: sanitizedCommitTitle.value,
+      stagePaths: artifactPaths.value,
+    });
+
+    gitCommitResult.value = result;
+
+    if (!result.success) {
+      if (result.skipped && result.stage && !result.stage.success) {
+        const stderrMessage = result.stage.stderr?.trim?.() ?? '';
+        const stdoutMessage = result.stage.stdout?.trim?.() ?? '';
+        gitCommitError.value =
+          stderrMessage ||
+          stdoutMessage ||
+          'Não foi possível adicionar os arquivos ao staging antes do commit.';
+        gitStageError.value =
+          stderrMessage || stdoutMessage || 'Não foi possível adicionar os arquivos ao staging.';
+      } else {
+        const stderrMessage = result.stderr?.trim?.() ?? '';
+        const stdoutMessage = result.stdout?.trim?.() ?? '';
+        gitCommitError.value =
+          stderrMessage || stdoutMessage || 'Não foi possível concluir o commit solicitado.';
+      }
+    } else {
+      gitCommitError.value = null;
+    }
+
+    if (result.stage) {
+      gitStageResult.value = result.stage;
+      if (result.stage.success) {
+        gitStageError.value = null;
+      }
+    }
+
+    if (result.status) {
+      gitStatus.value = result.status;
+    } else {
+      await refreshGitStatus();
+    }
+  } catch (error) {
+    gitCommitResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      gitCommitError.value = error.message;
+    } else if (error instanceof Error) {
+      gitCommitError.value = error.message;
+    } else {
+      gitCommitError.value = 'Falha inesperada ao executar git commit.';
+    }
+  } finally {
+    gitCommitLoading.value = false;
+  }
+}
+
 onMounted(() => {
   if (teacherAutomationEnabled) {
     refreshGitStatus();
@@ -846,6 +1175,10 @@ const sanitizedCommitTitle = computed(
 
 const enabledValidations = computed(() => validationSteps.filter((step) => step.enabled));
 
+const artifactPaths = computed(() =>
+  artifacts.map((item) => item.path.trim()).filter((path) => path.length > 0)
+);
+
 const artifactSummaries = computed(() =>
   artifacts
     .filter((item) => item.path.trim() || item.summary.trim())
@@ -873,7 +1206,7 @@ const gitCommands = computed(() => {
     commands.push(step.command);
   });
 
-  const filesToAdd = artifacts.map((item) => item.path.trim()).filter((path) => Boolean(path));
+  const filesToAdd = artifactPaths.value;
 
   if (filesToAdd.length > 0) {
     commands.push('git status');

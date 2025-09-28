@@ -13,6 +13,8 @@ O serviço exposto pelo script `npm run teacher:service` roda um servidor HTTP e
 - consultar o status atual do workspace Git (branch, divergências e alterações locais) para orientar o fluxo de publicação.
 - acionar `git fetch` controlado para sincronizar a branch principal antes de gerar commits e PRs.
 - preparar checkout/abertura de branch a partir da `main` para alinhar o fluxo da iteração 5.
+- adicionar arquivos ao staging com `git add` validando caminhos informados na SPA.
+- registrar commits reutilizando a mensagem configurada no painel de publicação.
 
 A configuração padrão atende ao desenvolvimento local. Para expor o serviço em ambientes compartilhados, habilite o token descrito abaixo e acompanhe as diretrizes de governança registradas na [iteração 4](./iteration-04.md#próximos-passos--pendências).
 
@@ -123,6 +125,39 @@ Permite criar ou alternar para uma branch de trabalho controlada pelo serviço. 
 
 O retorno replica o padrão dos demais comandos Git: `success`, `exitCode`, `stdout`, `stderr`, `command` e, quando bem-sucedido, o status atualizado do workspace (`status`). O painel de publicação usa essa rota para gerar a branch informada no formulário sem sair da SPA.
 
+### `POST /api/teacher/git/stage`
+
+Executa `git add` controlado pelo serviço. O corpo aceita:
+
+```json
+{
+  "paths": ["src/content/courses/.../lessons/introducao.json"],
+  "all": false
+}
+```
+
+- `paths` – lista de caminhos a serem adicionados ao staging. O serviço valida se cada entrada aponta para dentro do workspace e remove duplicados.
+- `all` – opcional. Quando `true`, executa `git add --all` ignorando a lista de caminhos.
+
+O retorno segue o padrão de `success`, `exitCode`, `stdout`, `stderr`, `command`, `paths` e `status` (com o `git status` atualizado quando o comando conclui com sucesso). A SPA usa esta rota para replicar o `git add` dos conteúdos listados na rodada diretamente pelo painel.
+
+### `POST /api/teacher/git/commit`
+
+Gera um commit reutilizando a mensagem configurada no painel de publicação. Exemplo de corpo:
+
+```json
+{
+  "message": "feat: atualizar plano de aula de limites",
+  "stagePaths": ["src/content/courses/calculo-1/lessons/limites.json"]
+}
+```
+
+- `message` – obrigatório. O serviço higieniza a mensagem e suporta múltiplos parágrafos separados por linhas em branco.
+- `stagePaths` – opcional. Quando informado, executa `git add -- <paths>` antes do commit, reaproveitando a mesma validação do endpoint anterior.
+- `allowEmpty` – opcional. Quando `true`, repassa `--allow-empty` para permitir commits vazios controlados.
+
+O retorno inclui `success`, `skipped` (indica se o commit foi abortado por falha no `git add`), `exitCode`, `stdout`, `stderr`, `command`, `messageParts`, `stage` (resultado do `git add` quando executado) e `status` com o `git status` após a tentativa. O painel usa esse endpoint para registrar commits sem sair da SPA.
+
 ## Autenticação
 
 - Defina `TEACHER_SERVICE_TOKEN` ao iniciar o serviço; requisições aos endpoints `/api/teacher/` passam a exigir o header `X-Teacher-Token` com o mesmo valor.
@@ -142,3 +177,5 @@ O retorno replica o padrão dos demais comandos Git: `success`, `exitCode`, `std
 - Auditoria enriquecida com identificação do usuário, branch e artefatos publicados.
 - Suporte a filas de execução e cancelamento seguro.
 - Evoluir das operações de checkout para automações completas de `git add`, `commit`, `push` e abertura de PR alinhadas à [Iteração 5](./iteration-05.md).
+  - ✅ `git add` e `git commit` já expostos na API e integrados ao painel de publicação.
+  - 🚧 `git push` e abertura de PRs permanecem no backlog.

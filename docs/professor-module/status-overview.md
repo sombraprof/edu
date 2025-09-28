@@ -12,12 +12,13 @@ Este resumo rápido compila o estado atual das entregas documentadas no plano in
 - Pacote `/professor/publicacao` com checklist de validações, status Git em tempo real, geração de comandos e preparo de resumo de PR.
 - Botão "Buscar atualizações da main" no painel de publicação sincroniza o workspace via `git fetch` controlado.
 - Botão "Criar branch automaticamente" usa o backend para preparar a branch de trabalho diretamente da SPA.
+- Painel executa `git add` e `git commit` automaticamente com base nos conteúdos listados na rodada.
 - Serviço auxiliar `npm run teacher:service` para disparo de scripts e sincronização de relatórios diretamente da SPA.
 
 ## O que falta fazer
 
 - Evoluir o serviço backend para oferecer autorização multiusuário, filas de execução e auditoria detalhada.
-- Automatizar `git add`, `commit` e abertura de PRs a partir do pacote de publicação na SPA.
+- Automatizar `git push` e abertura de PRs a partir do pacote de publicação na SPA.
 - Definir política de permissões, auditoria e governança para expor a API em ambientes compartilhados.
 - Ampliar o editor visual para cobrir blocos avançados e oferecer pré-visualização renderizada.
 - Consolidar suíte de testes (unitários e e2e) cobrindo ingestão, edição, validação e publicação.
