@@ -1,0 +1,88 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lista4",
+  "title": "Lista 4 — Funções e modularização",
+  "summary": "Tarefas para decompor problemas em funções bem definidas com parâmetros e retorno.",
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivos de aprendizagem",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Planejar assinaturas de funções com parâmetros por valor e por referência."
+            },
+            { "text": "Reutilizar funções para evitar código duplicado em programas maiores." },
+            { "text": "Documentar pré e pós-condições para facilitar testes e revisão por pares." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Orientações gerais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Comece listando responsabilidades de cada função e utilize nomes verbais claros. Mapeie variáveis globais que podem ser eliminadas."
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Feedback automatizado",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Submeta funções reutilizáveis nos problemas Beecrowd 1165 (Número Primo) e 1175 (Troca em Vetor I) ou no HackerRank > C > Functions in C para validar assinaturas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Desafios",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Conversor de moedas modular",
+              "text": "Nível: básico — Implemente uma função `converterMoeda(valor, taxa)` que retorne o valor convertido e reutilize-a para real, dólar e euro."
+            },
+            {
+              "title": "Validação de senha",
+              "text": "Nível: intermediário — Crie uma função que receba uma senha e retorne um código indicando se atende aos requisitos de tamanho e diversidade de caracteres."
+            },
+            {
+              "title": "Relatório estatístico",
+              "text": "Nível: intermediário — Desenvolva funções para calcular média, maior, menor e desvio simples de uma lista de números."
+            },
+            {
+              "title": "Agenda telefônica",
+              "text": "Nível: avançado — Separe a lógica de cadastro, busca e exclusão em funções distintas. Registre logs de ações executadas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica resumida",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Coesão: cada função executa apenas uma responsabilidade." },
+            { "text": "Interface clara: parâmetros bem tipados e documentação das pré-condições." },
+            {
+              "text": "Reutilização: funções chamadas em múltiplos pontos evitando duplicação de código."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

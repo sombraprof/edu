@@ -1,0 +1,86 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lista6",
+  "title": "Lista 6 — Registros e structs",
+  "summary": "Desafios focados em organizar dados compostos usando `struct` e operações associadas.",
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivos de aprendizagem",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Projetar estruturas com campos relevantes e tipos apropriados." },
+            { "text": "Manipular coleções de registros com inserção, busca e atualização." },
+            { "text": "Persistir ou exibir dados estruturados preservando relações entre campos." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Orientações gerais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Defina `typedef` para clarear nomes de tipos e agrupe operações relacionadas em funções específicas."
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Feedback automatizado",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Verifique consistência estrutural com o HackerRank > C > Structs e o desafio Beecrowd 1548 (FILA) adaptado com registros de alunos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Desafios",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Cadastro de alunos",
+              "text": "Nível: básico — Crie uma `struct Aluno` com nome, matrícula e média. Permita registrar 20 alunos e listar aprovados."
+            },
+            {
+              "title": "Controle de biblioteca",
+              "text": "Nível: intermediário — Utilize `struct Livro` com título, autor e status. Implemente funções para emprestar e devolver exemplares."
+            },
+            {
+              "title": "Agenda médica",
+              "text": "Nível: intermediário — Modele consultas com paciente, data e prioridade. Ordene e exiba os próximos atendimentos."
+            },
+            {
+              "title": "Relatório financeiro",
+              "text": "Nível: avançado — Combine `struct` aninhadas para representar transações e categorias. Gere balanço por centro de custo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica resumida",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Modelagem adequada: campos, tipos e nomes refletem o domínio do problema." },
+            { "text": "Operações consistentes: funções preservam invariantes dos registros." },
+            {
+              "text": "Apresentação dos dados: listagens e relatórios destacam informações essenciais para decisão."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
