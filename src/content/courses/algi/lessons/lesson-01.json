@@ -40,6 +40,16 @@
       "label": "Moodle institucional",
       "type": "platform",
       "url": "https://ava.example.edu"
+    },
+    {
+      "label": "Playlist: Lógica de Programação (Curso em Vídeo)",
+      "type": "video",
+      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dlKP6QQCekuIPky1CiwmdI6"
+    },
+    {
+      "label": "Artigo: Como escrever algoritmos claros",
+      "type": "article",
+      "url": "https://www.alura.com.br/artigos/como-escrever-algoritmos"
     }
   ],
   "bibliography": [
@@ -182,6 +192,59 @@
               }
             ]
           }
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Demonstração guiada: algoritmo do check-in dos calouros",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Projete um algoritmo real que você usará com a turma ao receber novos estudantes na coordenação. O objetivo é registrar presença, entregar material e orientar o próximo passo de cada calouro sem perder ninguém pelo caminho."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Entradas observadas ao vivo",
+              "text": "Nome completo, matrícula gerada pelo sistema e confirmação se o termo de ciência foi assinado."
+            },
+            {
+              "title": "Decisões críticas",
+              "text": "Se o estudante não assinou o termo, o fluxo envia para a estação de assinatura antes de liberar o kit."
+            },
+            {
+              "title": "Comunicação do resultado",
+              "text": "Ao final, o algoritmo gera uma mensagem para o estudante com o local da próxima atividade e envia o registro para o Moodle via formulário integrado."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Durante a aula, execute a versão em pseudocódigo mostrada nos slides, compartilhe a planilha modelo e abra o formulário do exemplo para que a turma acompanhe a transição do passo-a-passo para uma implementação digital."
+        },
+        {
+          "component": "Callout",
+          "props": {
+            "variant": "info",
+            "title": "Materiais da demonstração",
+            "content": "Slides com pseudocódigo: https://bit.ly/algi-aula1-slides. Planilha de apoio: https://bit.ly/algi-aula1-planilha"
+          }
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio para continuar estudando",
+      "videos": [
+        {
+          "title": "O que é um algoritmo?",
+          "src": "https://www.youtube.com/embed/B8R5wT4nLWs"
+        },
+        {
+          "title": "Algoritmos no dia a dia (Prof. Guanabara)",
+          "src": "https://www.youtube.com/embed/8mei6uVttho"
         }
       ]
     },
