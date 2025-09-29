@@ -2,8 +2,26 @@
   "formatVersion": "md3.lesson.v1",
   "id": "lista1",
   "title": "Lista 1 — Algoritmos básicos",
-  "summary": "Problemas introdutórios para praticar entrada, processamento e saída utilizando pseudocódigo ou C.",
+  "summary": "Sequência de desafios para consolidar algoritmos lineares, leitura de dados e apresentação clara das saídas.",
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivos de aprendizagem",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Identificar entradas, processamentos e saídas em algoritmos sequenciais." },
+            {
+              "text": "Aplicar operadores aritméticos com tipos inteiros e reais sem perda de precisão."
+            },
+            {
+              "text": "Comunicar resultados com mensagens padronizadas e tratamento básico de formatação."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "contentBlock",
       "title": "Orientações gerais",
@@ -22,6 +40,17 @@
               "text": "Envie um arquivo por exercício ou um único projeto com funções separadas para cada questão."
             }
           ]
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Feedback automatizado",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Teste suas soluções nos juízes Beecrowd 1001 (Extremamente Básico) e 1008 (Salário) ou no HackerRank > C > Conditionals and Loops > 'Solve Me First' para validar entradas e saídas básicas."
+            }
+          ]
         }
       ]
     },
@@ -34,19 +63,39 @@
           "items": [
             {
               "title": "Operações básicas",
-              "text": "Leia dois números inteiros e apresente soma, subtração, multiplicação e divisão inteira."
+              "text": "Nível: básico — Leia dois números inteiros e apresente soma, subtração, multiplicação e divisão inteira."
             },
             {
               "title": "Média ponderada",
-              "text": "Leia o nome de um aluno e três notas. Calcule a média aritmética simples e indique se está aprovado (média ≥ 6) ou em recuperação."
+              "text": "Nível: intermediário — Leia o nome de um aluno e três notas. Calcule a média aritmética simples e indique se está aprovado (média ≥ 6) ou em recuperação."
             },
             {
               "title": "Conversão de temperatura",
-              "text": "Converta graus Celsius informados pelo usuário para Fahrenheit e Kelvin."
+              "text": "Nível: básico — Converta graus Celsius informados pelo usuário para Fahrenheit e Kelvin."
             },
             {
               "title": "Relatório de viagem",
-              "text": "Leia tempo gasto e velocidade média. Exiba distância percorrida e estimativa de consumo considerando 12 km/l."
+              "text": "Nível: intermediário — Leia tempo gasto e velocidade média. Exiba distância percorrida e estimativa de consumo considerando 12 km/l."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica resumida",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Clareza: entradas, processamentos e saídas documentados com comentários ou cabeçalho."
+            },
+            {
+              "text": "Corretude: cálculos conferidos com dados de teste e sem erros de arredondamento."
+            },
+            {
+              "text": "Formatação: mensagens orientam o usuário e seguem padrão definido pela equipe."
             }
           ]
         }

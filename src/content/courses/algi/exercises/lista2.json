@@ -2,8 +2,24 @@
   "formatVersion": "md3.lesson.v1",
   "id": "lista2",
   "title": "Lista 2 — Estruturas de decisão",
-  "summary": "Questões para treinar condicionais encadeadas, operadores lógicos e validação de entrada.",
+  "summary": "Atividades para dominar expressões condicionais, controle de fluxo e validação de dados em cenários reais.",
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivos de aprendizagem",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Modelar regras de negócio simples utilizando estruturas `if`, `else if` e `else`."
+            },
+            { "text": "Aplicar operadores lógicos para combinar múltiplas condições de decisão." },
+            { "text": "Implementar mensagens de erro e validação para entradas inválidas." }
+          ]
+        }
+      ]
+    },
     {
       "type": "contentBlock",
       "title": "Como resolver",
@@ -22,6 +38,17 @@
               "text": "Valide as entradas antes de processar e trate valores fora do intervalo esperado."
             }
           ]
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Feedback automatizado",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Valide suas condições com os problemas Beecrowd 1042 (Sort Simples) e 1050 (DDD) ou o desafio HackerRank > C > Conditionals and Loops > 'Conditional Statements in C'."
+            }
+          ]
         }
       ]
     },
@@ -34,19 +61,39 @@
           "items": [
             {
               "title": "Calculadora de tarifas",
-              "text": "Leia tipo de cliente e consumo mensal. Aplique descontos condicionais e mostre o valor final."
+              "text": "Nível: intermediário — Leia tipo de cliente e consumo mensal. Aplique descontos condicionais e mostre o valor final com detalhamento da regra aplicada."
             },
             {
               "title": "Classificador de triângulos",
-              "text": "Dado o tamanho de três lados, indique se forma triângulo e classifique como equilátero, isósceles ou escaleno."
+              "text": "Nível: básico — Dado o tamanho de três lados, indique se forma triângulo e classifique como equilátero, isósceles ou escaleno."
             },
             {
               "title": "Gestão de estoque",
-              "text": "Informe quantidade atual, mínima e máxima. Sugira compra ou venda e calcule quantidade ideal."
+              "text": "Nível: intermediário — Informe quantidade atual, mínima e máxima. Sugira compra ou venda e calcule quantidade ideal, indicando justificativa."
             },
             {
               "title": "Simulador de imposto",
-              "text": "Receba renda anual e número de dependentes. Calcule faixa de imposto aplicando regras progressivas."
+              "text": "Nível: avançado — Receba renda anual e número de dependentes. Calcule faixa de imposto aplicando regras progressivas e exiba resumo por faixa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica resumida",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cobertura de casos: todos os ramos condicionais exercitados com dados de teste."
+            },
+            {
+              "text": "Clareza das regras: condições nomeadas ou comentadas descrevendo o critério."
+            },
+            {
+              "text": "Tratamento de erros: mensagens objetivas para entradas inválidas antes de encerrar o programa."
             }
           ]
         }

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2025-09-29T17:27:34.246Z",
+  "generatedAt": "2025-09-29T18:45:25.689Z",
   "status": "passed",
   "totals": {
     "courses": 5,
-    "lessons": 87,
+    "lessons": 92,
     "lessonsWithIssues": 0,
     "problems": 0,
     "warnings": 0
@@ -13,31 +13,59 @@
     "exercises": [
       {
         "course": "algi",
-        "total": 2,
-        "withMetadata": 2,
+        "total": 6,
+        "withMetadata": 6,
         "missingMetadata": 0,
         "byGenerator": {
-          "Equipe EDU": 2
+          "Equipe EDU": 6
         },
         "byModel": {
-          "manual": 2
+          "manual": 6
         },
         "earliestTimestamp": "2025-02-20T12:00:00.000Z",
-        "latestTimestamp": "2025-02-20T12:00:00.000Z",
+        "latestTimestamp": "2025-02-21T12:00:00.000Z",
         "entries": [
           {
             "id": "lista1",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-20T12:00:00.000Z",
-            "available": false
+            "available": true
           },
           {
             "id": "lista2",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-20T12:00:00.000Z",
-            "available": false
+            "available": true
+          },
+          {
+            "id": "lista3",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "lista4",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "lista5",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "lista6",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": true
           }
         ]
       },
