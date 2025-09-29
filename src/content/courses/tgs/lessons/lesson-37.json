@@ -1,0 +1,201 @@
+{
+  "id": "lesson-37",
+  "title": "Aula 37: Planejamento por Cenários e Futuros de SI",
+  "objective": "Aplicar técnicas de foresight para projetar futuros possíveis e implicações para o PESI.",
+  "content": [
+    {
+      "type": "cardGrid",
+      "title": "Elementos do foresight",
+      "cards": [
+        {
+          "title": "Sinais fracos",
+          "content": "Indícios emergentes que sugerem mudanças futuras."
+        },
+        {
+          "title": "Forças motrizes",
+          "content": "Tendências macroeconômicas, tecnológicas e sociais."
+        },
+        {
+          "title": "Incertezas críticas",
+          "content": "Variáveis de alto impacto e difícil previsão."
+        },
+        {
+          "title": "Narrativas",
+          "content": "Histórias que conectam eventos e guiam decisões estratégicas."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Matriz 2x2 de cenários",
+      "headers": ["Cenário", "Descrição", "Implicações para SI", "Alertas precoces"],
+      "rows": [
+        [
+          "Regulado & Estável",
+          "Mercado com regulação forte e baixa disrupção",
+          "Foco em compliance e eficiência",
+          "Novas normas, auditorias frequentes"
+        ],
+        [
+          "Regulado & Disruptivo",
+          "Regulação rígida e mudanças tecnológicas rápidas",
+          "Necessidade de inovação segura",
+          "Sandbox regulatórios, startups licenciadas"
+        ],
+        [
+          "Livre & Estável",
+          "Ambiente competitivo com poucas barreiras",
+          "Escala de produtos digitais",
+          "Entrada de players globais"
+        ],
+        [
+          "Livre & Disruptivo",
+          "Mercado aberto e alta velocidade de inovação",
+          "Portfólio flexível e parcerias",
+          "Investimentos massivos em IA e dados"
+        ]
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Sequência de construção de cenários",
+      "steps": [
+        { "title": "Etapa 1", "content": "Coleta sinais e tendências com especialistas." },
+        { "title": "Etapa 2", "content": "Define forças motrizes e incertezas críticas." },
+        { "title": "Etapa 3", "content": "Constrói matrizes de cenários e narrativas." },
+        { "title": "Etapa 4", "content": "Extrai implicações para portfólio e riscos." }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Matriz de respostas estratégicas",
+      "summary": "Mapeia gatilhos de mudança e planos de resposta do PESI.",
+      "factors": [
+        {
+          "id": "gatilhos",
+          "name": "Gatilhos",
+          "summary": "Eventos monitorados",
+          "kind": "constraint",
+          "indicators": ["alertas_ativos"]
+        },
+        {
+          "id": "portfolio",
+          "name": "Portfólio adaptativo",
+          "summary": "Backlog flexível",
+          "kind": "flow",
+          "indicators": ["iniciativas_repriorizadas"]
+        },
+        {
+          "id": "investimentos",
+          "name": "Investimentos",
+          "summary": "Capex e Opex",
+          "kind": "resource",
+          "indicators": ["budget_disponivel"]
+        },
+        {
+          "id": "competencias",
+          "name": "Competências futuras",
+          "summary": "Upskilling e talento",
+          "kind": "capability",
+          "indicators": ["talentos_formados"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "gatilhos",
+          "to": "portfolio",
+          "description": "Gatilhos acionam repriorização do backlog."
+        },
+        {
+          "from": "investimentos",
+          "to": "portfolio",
+          "description": "Realocação de orçamento viabiliza respostas."
+        },
+        {
+          "from": "competencias",
+          "to": "portfolio",
+          "description": "Competências futuras permitem executar novos planos."
+        },
+        {
+          "from": "portfolio",
+          "to": "investimentos",
+          "description": "Novas prioridades demandam redistribuição de budget."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Futuros de SI",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/foresight-ti",
+          "title": "Foresight em TI",
+          "caption": "Metodologia de construção de cenários em empresas globais."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/cenarios-publico-2030",
+          "title": "Cenários 2030 no setor público",
+          "caption": "Planejamento estratégico de TI para governo digital."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 37 — Narrativa 2030",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escreva uma narrativa de cenário para 2030 considerando incertezas críticas do seu setor e detalhe três implicações para o PESI. Compartilhe em documento colaborativo para debate síncrono."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-37-planejamento-por-cenarios-e-futuros",
+  "summary": "Aplica foresight ao planejamento estratégico de SI, criando cenários e planos de resposta adaptativos.",
+  "objectives": [
+    "Utilizar ferramentas de foresight para identificar futuros plausíveis.",
+    "Derivar implicações estratégicas para SI a partir de cenários.",
+    "Planejar respostas adaptativas diante de gatilhos e incertezas."
+  ],
+  "competencies": ["Planejamento por cenários", "Gestão de riscos", "Pensamento crítico"],
+  "outcomes": [
+    "Produz matriz de cenários com implicações de SI.",
+    "Define gatilhos e planos de resposta no portfólio.",
+    "Comunica narrativa 2030 alinhada ao negócio."
+  ],
+  "prerequisites": [
+    "Radar de tendências concluído (aula 36).",
+    "Participação prévia em fóruns de governança (aula 34)."
+  ],
+  "tags": ["cenarios", "foresight", "planejamento"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de matriz 2x2",
+      "url": "https://example.edu/tgs/templates/matriz-2x2",
+      "type": "template"
+    },
+    {
+      "label": "Guia de narrativas de cenário",
+      "url": "https://example.edu/tgs/guides/narrativas-cenario",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "SCHOEMAKER, Paul. Scenario Planning in Organizations. Harvard, 2014.",
+    "EUROSTAT. Strategic Foresight Report 2024. European Commission, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Narrativa de cenário 2030 com implicações estratégicas."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Toolkit Foresight 2024"]
+  }
+}

@@ -1,6 +1,6 @@
 {
   "version": "edu.manifest.v1",
-  "generatedAt": "2025-09-29T01:29:26.438Z",
+  "generatedAt": "2025-03-10T00:00:00.000Z",
   "entries": [
     {
       "id": "lesson-01",
@@ -307,6 +307,127 @@
       "description": "Aplica avaliação NP2 integrando sistemas abertos, fluxos e homeostase em estudos de caso.",
       "summary": "Avaliação NP2 voltada à síntese de sistemas abertos, fluxos e homeostase, articulando teoria e estudos de caso.",
       "tags": ["avaliacao", "np2", "pensamento-sistemico"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-29",
+      "title": "Aula 29: Fundamentos do Planejamento Estratégico de SI",
+      "file": "lesson-29.json",
+      "available": true,
+      "description": "Apresenta drivers, macroetapas e governança do planejamento estratégico de sistemas de informação.",
+      "summary": "Introduz fundamentos, atores e macroetapas do planejamento estratégico de sistemas de informação.",
+      "tags": ["planejamento-estrategico", "pesi", "governanca"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-30",
+      "title": "Aula 30: Diagnóstico e Análise SWOT do Ambiente de SI",
+      "file": "lesson-30.json",
+      "available": true,
+      "description": "Estrutura diagnóstico interno e externo com aplicação de matriz SWOT para sistemas de informação.",
+      "summary": "Explora ferramentas de diagnóstico e consolidação da análise SWOT aplicada a sistemas de informação.",
+      "tags": ["diagnostico", "swot", "pesi"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-31",
+      "title": "Aula 31: Capabilidades Digitais e Portfólio de Processos",
+      "file": "lesson-31.json",
+      "available": true,
+      "description": "Avalia capacidades internas e portfólio de processos para orientar prioridades do PESI.",
+      "summary": "Aprofunda a avaliação das capacidades digitais internas e seu impacto no portfólio estratégico de SI.",
+      "tags": ["capacidades-digitais", "portfolio", "planejamento"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-32",
+      "title": "Aula 32: Objetivos Estratégicos e Balanced Scorecard de SI",
+      "file": "lesson-32.json",
+      "available": true,
+      "description": "Converte diagnóstico em objetivos, indicadores e mapa estratégico no formato Balanced Scorecard.",
+      "summary": "Traduz a análise estratégica em objetivos, indicadores e iniciativas no formato Balanced Scorecard.",
+      "tags": ["balanced-scorecard", "objetivos", "planejamento"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-33",
+      "title": "Aula 33: Priorização e Roadmap do Plano Estratégico de SI",
+      "file": "lesson-33.json",
+      "available": true,
+      "description": "Define critérios de priorização e elabora roadmap plurianual das iniciativas estratégicas de SI.",
+      "summary": "Converte objetivos estratégicos em um roadmap priorizado com visão integrada do portfólio de SI.",
+      "tags": ["roadmap", "priorizacao", "pesi"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-34",
+      "title": "Aula 34: Governança e Alinhamento Estratégico SI-Negócio",
+      "file": "lesson-34.json",
+      "available": true,
+      "description": "Estabelece fóruns, cadências e indicadores para manter SI alinhado à estratégia corporativa.",
+      "summary": "Define estruturas e ritos de governança que mantêm SI alinhado ao negócio e asseguram geração de valor contínua.",
+      "tags": ["governanca", "alinhamento", "planejamento"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-35",
+      "title": "Aula 35: Indicadores, OKRs e Monitoramento do PESI",
+      "file": "lesson-35.json",
+      "available": true,
+      "description": "Seleciona indicadores e ritos de monitoramento para garantir execução do PESI.",
+      "summary": "Estabelece métricas, OKRs e ritos de monitoramento para garantir execução e aprendizado contínuo do PESI.",
+      "tags": ["indicadores", "okr", "monitoramento"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-36",
+      "title": "Aula 36: Transformação Digital e Tendências Emergentes",
+      "file": "lesson-36.json",
+      "available": true,
+      "description": "Analisa tendências tecnológicas e mecanismos para incorporá-las ao planejamento estratégico de SI.",
+      "summary": "Discute tendências emergentes e como incorporá-las ao planejamento estratégico de SI via ecossistemas de inovação.",
+      "tags": ["tendencias", "transformacao-digital", "inovacao"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-37",
+      "title": "Aula 37: Planejamento por Cenários e Futuros de SI",
+      "file": "lesson-37.json",
+      "available": true,
+      "description": "Aplica foresight e construção de cenários para orientar respostas estratégicas de SI.",
+      "summary": "Aplica foresight ao planejamento estratégico de SI, criando cenários e planos de resposta adaptativos.",
+      "tags": ["cenarios", "foresight", "planejamento"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-38",
+      "title": "Aula 38: Oficina Integrada – Roadmap, Mudança e Comunicação",
+      "file": "lesson-38.json",
+      "available": true,
+      "description": "Integra roadmap, gestão de mudança e comunicação para engajar stakeholders do PESI.",
+      "summary": "Integra roadmap estratégico com gestão de mudança, comunicação e engajamento de stakeholders.",
+      "tags": ["mudanca", "comunicacao", "roadmap"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-39",
+      "title": "Aula 39: Síntese Estratégica e Painel Futuro de SI",
+      "file": "lesson-39.json",
+      "available": true,
+      "description": "Consolida entregáveis do PESI e prepara painel futuro com próximos passos estratégicos.",
+      "summary": "Consolida entregáveis do PESI, prepara painel futuro e alinha próximos passos estratégicos.",
+      "tags": ["sintese", "painel-futuro", "planejamento"],
       "duration": 110,
       "formatVersion": "md3.lesson.v1"
     },

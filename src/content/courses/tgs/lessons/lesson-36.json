@@ -1,0 +1,216 @@
+{
+  "id": "lesson-36",
+  "title": "Aula 36: Transformação Digital e Tendências Emergentes",
+  "objective": "Explorar tendências tecnológicas e seu impacto no planejamento estratégico de SI.",
+  "content": [
+    {
+      "type": "cardGrid",
+      "title": "Macro tendências 2025-2028",
+      "cards": [
+        {
+          "title": "Plataformas de dados confiáveis",
+          "content": "Zero trust, governança automatizada e mesh de dados."
+        },
+        {
+          "title": "IA generativa aplicada",
+          "content": "Automação de decisões, copilotos e interfaces conversacionais."
+        },
+        {
+          "title": "Experiências imersivas",
+          "content": "Metaverso corporativo, realidade aumentada em operações."
+        },
+        {
+          "title": "Sustentabilidade digital",
+          "content": "Green IT, medição de carbono e circularidade de hardware."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Radar tecnológico",
+      "headers": ["Tendência", "Horizonte", "Oportunidades", "Riscos"],
+      "rows": [
+        [
+          "IA generativa",
+          "0-18 meses",
+          "Automação de atendimento, suporte a desenvolvedores",
+          "Viés algorítmico, segurança de dados"
+        ],
+        [
+          "Digital twin de operações",
+          "18-36 meses",
+          "Otimização de ativos físicos, simulação",
+          "Investimento alto, integração complexa"
+        ],
+        [
+          "Realidade aumentada",
+          "18-36 meses",
+          "Treinamento imersivo, manutenção remota",
+          "Adoção cultural, devices"
+        ],
+        [
+          "Computação quântica",
+          "36-60 meses",
+          "Criptografia pós-quântica, novas capacidades analíticas",
+          "Imaturidade tecnológica, custos"
+        ],
+        [
+          "Green cloud",
+          "0-24 meses",
+          "Redução de carbono, compliance ESG",
+          "Necessidade de métricas confiáveis"
+        ]
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Ecossistema de inovação",
+      "summary": "Relaciona atores e fluxos necessários para incorporar tendências ao PESI.",
+      "factors": [
+        {
+          "id": "labs",
+          "name": "Laboratórios internos",
+          "summary": "Equipes de pesquisa aplicada",
+          "kind": "capability",
+          "indicators": ["provas_conceito"]
+        },
+        {
+          "id": "partners",
+          "name": "Parceiros externos",
+          "summary": "Startups, universidades",
+          "kind": "external",
+          "indicators": ["parcerias_ativas"]
+        },
+        {
+          "id": "governanca",
+          "name": "Governança de inovação",
+          "summary": "Comitês, funding",
+          "kind": "constraint",
+          "indicators": ["budget_inovacao"]
+        },
+        {
+          "id": "negocio",
+          "name": "Áreas de negócio",
+          "summary": "Patrocínio e pilotos",
+          "kind": "flow",
+          "indicators": ["pilotos_negocio"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "labs",
+          "to": "partners",
+          "description": "Labs conectam pesquisas a parceiros especializados."
+        },
+        {
+          "from": "partners",
+          "to": "negocio",
+          "description": "Parcerias aceleram pilotos em áreas de negócio."
+        },
+        {
+          "from": "governanca",
+          "to": "labs",
+          "description": "Governança define critérios e orçamento dos experimentos."
+        },
+        {
+          "from": "negocio",
+          "to": "governanca",
+          "description": "Resultados dos pilotos influenciam priorização futura."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Trilha de maturidade digital",
+      "steps": [
+        {
+          "title": "Fase 1",
+          "content": "Explorar tendências com pilotos controlados e métricas claras."
+        },
+        { "title": "Fase 2", "content": "Escalar soluções com arquitetura modular e governança." },
+        {
+          "title": "Fase 3",
+          "content": "Integrar novas capacidades ao core e às jornadas do cliente."
+        },
+        {
+          "title": "Fase 4",
+          "content": "Realizar revisão estratégica para novas ondas de inovação."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Panorama de tendências",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/trends-gartner-2025",
+          "title": "Gartner Top Strategic Technology Trends",
+          "caption": "Resumo executivo das principais tendências."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/case-ia-generativa",
+          "title": "Case IA generativa em seguros",
+          "caption": "Como a seguradora Sirius aplicou copilotos a processos de sinistro."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 36 — Radar de tendências",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Monte um radar de tendências personalizado com quatro iniciativas prioritárias e avaliação de impacto, esforço e horizonte. Publique no fórum e compare com colegas de outros setores."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-36-transformacao-digital-e-tendencias",
+  "summary": "Discute tendências emergentes e como incorporá-las ao planejamento estratégico de SI via ecossistemas de inovação.",
+  "objectives": [
+    "Identificar tendências tecnológicas relevantes para o PESI.",
+    "Avaliar impactos e riscos associados a cada tendência.",
+    "Planejar mecanismos de inovação para absorver novas capacidades."
+  ],
+  "competencies": ["Foresight tecnológico", "Gestão de inovação", "Planejamento estratégico"],
+  "outcomes": [
+    "Produz radar de tendências com priorização contextualizada.",
+    "Descreve como parceiros e labs contribuem para adoção tecnológica.",
+    "Integra tendências ao roadmap de maturidade digital."
+  ],
+  "prerequisites": [
+    "Conhecer objetivos e roadmap do PESI (aulas 32 e 33).",
+    "Ter mapeamento de capacidades e gaps atualizado."
+  ],
+  "tags": ["tendencias", "transformacao-digital", "inovacao"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de radar de tendências",
+      "url": "https://example.edu/tgs/templates/radar-tendencias",
+      "type": "template"
+    },
+    {
+      "label": "Relatório Gartner 2025",
+      "url": "https://example.edu/tgs/reports/gartner-2025",
+      "type": "report"
+    }
+  ],
+  "bibliography": [
+    "GARTNER. Top Strategic Technology Trends 2025. Gartner, 2025.",
+    "ACCENTURE. Technology Vision 2025. Accenture, 2025."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Radar de tendências com análise de impacto e horizonte."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Radar de Tendências 2025"]
+  }
+}
