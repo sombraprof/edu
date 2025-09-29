@@ -1,0 +1,152 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-26",
+  "title": "Aula 26: Funções com Parâmetros e Retorno",
+  "summary": "Explora assinatura completa de funções em C, analisando passagem de parâmetros por valor e por referência com foco em testes.",
+  "objective": "Aplicar parâmetros e valores de retorno para construir funções reutilizáveis que tratam entradas variadas com segurança.",
+  "objectives": [
+    "Comparar passagem por valor e por referência em C.",
+    "Projetar funções que retornam códigos de erro ou resultados numéricos.",
+    "Documentar contratos (pré e pós-condições) para cada função criada."
+  ],
+  "competencies": ["Pensamento analítico", "Qualidade de software", "Comunicação técnica"],
+  "skills": [
+    "Definir parâmetros de entrada com tipos corretos.",
+    "Utilizar ponteiros para atualizar valores fora do escopo local.",
+    "Descrever pré-condições e efeitos colaterais de cada função."
+  ],
+  "outcomes": [
+    "Entrega laboratório com funções parametrizadas e testes associados.",
+    "Justifica escolha por valor ou referência em relatório curto.",
+    "Adapta suíte de testes fornecida cobrindo cenários limite."
+  ],
+  "prerequisites": [
+    "Aula 25 concluída com atividades de modularização.",
+    "Conhecimentos básicos de ponteiros."
+  ],
+  "tags": ["funcoes", "parametros", "ponteiros"],
+  "duration": 115,
+  "modality": "hybrid",
+  "resources": [
+    {
+      "label": "Rubrica de modularização",
+      "type": "rubric",
+      "file": "courses/algi/modularizacao-rubrica.md",
+      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
+    },
+    {
+      "label": "Laboratório de passagem de parâmetros",
+      "type": "lab",
+      "file": "courses/algi/passagem-parametros-lab.md",
+      "url": "https://static.md3.education/courses/algi/passagem-parametros-lab.md"
+    },
+    {
+      "label": "Playlist: Ponteiros e parâmetros em C",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dk_3-mQQ0rzzZF2kp7Y1w_c"
+    }
+  ],
+  "bibliography": [
+    "ZIVIANI, N. Projetos de Algoritmos. Cengage, 2020.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019."
+  ],
+  "assessment": {
+    "type": "lab",
+    "description": "Entrega em dupla com relatório descrevendo contratos de três funções e evidências de testes unitários."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Assinatura",
+          "content": "Desmontamos a assinatura de uma função real e avaliamos parâmetros obrigatórios/opcionais."
+        },
+        {
+          "icon": "gears",
+          "title": "Por valor x por referência",
+          "content": "Simulações no quadro demonstram efeitos (ou não) sobre variáveis externas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Contratos",
+          "content": "Discussão sobre pré-condições, pós-condições e mensagens de erro padronizadas."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Revisão rápida de funções sem parâmetros.",
+        "(25 min) Demonstração: calculadora modular usando parâmetros.",
+        "(25 min) Atividade síncrona: refatorar leitura e validação de dados em ponteiros.",
+        "(20 min) Oficina assíncrona orientada no laboratório (parametrização avançada).",
+        "(15 min) Revisão cruzada usando a rubrica de modularização.",
+        "(15 min) Registro de contratos e métricas de testes no mural digital."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Quando usar ponteiros?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use ponteiros para devolver múltiplos resultados ou atualizar variáveis externas sem recorrer a globais."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Atualizar saldos, contadores ou flags compartilhadas.",
+            "Retornar códigos de erro além do valor principal.",
+            "Compartilhar buffers de leitura para evitar cópias desnecessárias."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Vídeos de apoio",
+      "videos": [
+        { "youtubeId": "SwdNXx2A3YE", "title": "Ponteiros para iniciantes" },
+        { "youtubeId": "2hgYQ1YF5AQ", "title": "Passagem de parâmetros em C na prática" }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Exemplos guiados",
+      "cards": [
+        {
+          "title": "Validar entrada",
+          "content": "`int validar_idade(int idade)` retorna 1/0 sinalizando validade."
+        },
+        {
+          "title": "Atualizar saldo",
+          "content": "`void atualizar_saldo(double *saldo, double deposito)` altera valor via ponteiro."
+        },
+        {
+          "title": "Converter unidades",
+          "content": "`int converter_minutos_para_segundos(int minutos)` retorna -1 para entradas inválidas."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de contratos",
+      "items": [
+        "Listei pré-condições nos comentários.",
+        "Descrevi retorno e códigos de erro.",
+        "Cobri casos limite nos testes unitários."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-11T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório de parâmetros 2025"]
+  }
+}

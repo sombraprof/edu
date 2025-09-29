@@ -1,0 +1,152 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-27",
+  "title": "Aula 27: Programas Modulares com Múltiplas Funções",
+  "summary": "Integra funções em arquitetura modular com arquivos separados, headers e fluxo de compilação incremental.",
+  "objective": "Projetar um mini-sistema em C dividindo responsabilidades entre múltiplas funções e arquivos com headers dedicados.",
+  "objectives": [
+    "Planejar módulos e dependências utilizando canvas de design.",
+    "Criar e incluir arquivos header com protótipos organizados.",
+    "Automatizar compilação modular usando make ou scripts equivalentes."
+  ],
+  "competencies": ["Arquitetura de software", "Colaboração", "Gestão de projetos"],
+  "skills": [
+    "Gerar headers (`.h`) e fontes (`.c`) separados.",
+    "Controlar escopo com `static` e funções públicas.",
+    "Montar Makefile ou script npm para compilar módulos incrementalmente."
+  ],
+  "outcomes": [
+    "Entrega blueprint modular com responsabilidades definidas.",
+    "Apresenta execução bem sucedida com build modular.",
+    "Disponibiliza relatório curto de integração contínua local."
+  ],
+  "prerequisites": [
+    "Aulas 25 e 26 concluídas.",
+    "Familiaridade com linha de comando para compilação."
+  ],
+  "tags": ["modularizacao", "headers", "makefile"],
+  "duration": 125,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Canvas de design modular",
+      "type": "worksheet",
+      "file": "courses/algi/modular-design-canvas.md",
+      "url": "https://static.md3.education/courses/algi/modular-design-canvas.md"
+    },
+    {
+      "label": "Rubrica de modularização",
+      "type": "rubric",
+      "file": "courses/algi/modularizacao-rubrica.md",
+      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
+    },
+    {
+      "label": "Playlist: Modularização em projetos C",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PL85ITvJ7FLoiLzI0ul9nrSfoU4l-Ve4dP"
+    }
+  ],
+  "bibliography": [
+    "MEYERS, S. Effective C. No Starch, 2021.",
+    "KERNIGHAN, B.; PIKE, R. The Practice of Programming. Addison-Wesley, 2016.",
+    "ROBILLARD, M. D. What Makes API Documentation Good?. IEEE Software, 2018."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Projeto em squads: construir mini-sistema de triagem modular com build automatizado e relatório de integração."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Estrutura da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Design",
+          "content": "Grupos preenchem canvas definindo módulos Entrada, Domínio e Relatórios."
+        },
+        {
+          "icon": "code",
+          "title": "Headers",
+          "content": "Demonstração de criação de `entrada.h` e `entrada.c` com `#ifndef` guard."
+        },
+        {
+          "icon": "cpu",
+          "title": "Build",
+          "content": "Configuração de Makefile simples para compilar módulos individualmente."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h05)",
+      "items": [
+        "(15 min) Inspiração: padrões de modularização em projetos reais.",
+        "(20 min) Preenchimento do canvas modular.",
+        "(30 min) Mão na massa: criação de headers e implementação inicial.",
+        "(30 min) Integração incremental com compilação modular.",
+        "(15 min) Configuração de testes automáticos rodando por módulo.",
+        "(15 min) Debrief coletivo com rubrica e próximos passos."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estratégias de separação",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Agrupe funções relacionadas em um arquivo por domínio.",
+            "Declare funções públicas no header; mantenha auxiliares como `static` no `.c`.",
+            "Inclua somente os headers necessários para evitar dependências cíclicas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Makefile mínimo",
+      "headers": ["Alvo", "Dependências", "Comando"],
+      "rows": [
+        [
+          { "value": "app" },
+          { "value": "main.o entrada.o dominio.o relatorios.o" },
+          { "value": "gcc -Wall -Wextra -Werror $^ -o app" }
+        ],
+        [
+          { "value": "%.o" },
+          { "value": "%.c %.h" },
+          { "value": "gcc -Wall -Wextra -Werror -c $<" }
+        ],
+        [{ "value": "clean" }, { "value": "" }, { "value": "rm -f *.o app" }]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Papéis na squad",
+      "cards": [
+        { "title": "Arquiteto/a", "content": "Garante coesão entre módulos e revisa o canvas." },
+        { "title": "Líder de testes", "content": "Mantém suíte de testes atualizada por módulo." },
+        { "title": "Integrador/a", "content": "Configura Makefile e monitora builds." }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Pronto para integrar",
+      "items": [
+        "Headers possuem guards e documentação de contratos.",
+        "Makefile compila cada módulo isoladamente.",
+        "Testes unitários passam sem regressões."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-12T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Manual interno de integração contínua 2025"
+    ]
+  }
+}
