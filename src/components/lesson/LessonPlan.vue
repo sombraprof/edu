@@ -11,7 +11,9 @@
 
     <div v-if="cards.length" class="lesson-plan__grid">
       <article v-for="(card, index) in cards" :key="index" class="lesson-plan__card">
-        <component :is="card.iconComponent" class="lesson-plan__icon" aria-hidden="true" />
+        <span class="lesson-plan__icon" aria-hidden="true">
+          <component :is="card.iconComponent" class="md-icon md-icon--md" />
+        </span>
         <h4 class="lesson-plan__card-title">{{ card.title }}</h4>
         <p class="lesson-plan__card-content" v-html="card.content"></p>
       </article>
@@ -207,19 +209,15 @@ function createNameVariations(original: string): string[] {
 }
 
 .lesson-plan__icon {
-  width: 3rem;
-  height: 3rem;
+  --lesson-plan-icon-size: var(--md-sys-spacing-10);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: var(--lesson-plan-icon-size);
+  height: var(--lesson-plan-icon-size);
   border-radius: var(--md-sys-border-radius-full);
   background: color-mix(in srgb, var(--md-sys-color-primary) 16%, transparent);
   color: var(--md-sys-color-primary);
-}
-
-.lesson-plan__icon :deep(svg) {
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .lesson-plan__card-title {

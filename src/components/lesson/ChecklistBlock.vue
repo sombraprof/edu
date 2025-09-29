@@ -7,7 +7,7 @@
 
     <ul class="lesson-checklist__list" role="list">
       <li v-for="(item, index) in sanitizedItems" :key="index" class="lesson-checklist__item">
-        <CheckCircle class="lesson-checklist__icon" aria-hidden="true" />
+        <CheckCircle class="lesson-checklist__icon md-icon md-icon--md" aria-hidden="true" />
         <p class="lesson-checklist__text" v-html="item"></p>
       </li>
     </ul>
@@ -70,14 +70,8 @@ const sanitizedItems = computed(() => props.data.items.map((item) => sanitizeHtm
 }
 
 .lesson-checklist__icon {
-  width: 2rem;
-  height: 2rem;
   color: var(--md-sys-color-success);
-}
-
-.lesson-checklist__icon :deep(svg) {
-  width: 100%;
-  height: 100%;
+  flex-shrink: 0;
 }
 
 .lesson-checklist__text {

@@ -13,9 +13,15 @@
       >
         <div v-if="card.badge" class="card-grid__badge">{{ card.badge }}</div>
 
-        <component v-if="card.iconComponent" :is="card.iconComponent" class="card-grid__icon" />
+        <span v-if="card.iconComponent" class="card-grid__icon" aria-hidden="true">
+          <component :is="card.iconComponent" class="md-icon md-icon--md" />
+        </span>
 
-        <div v-else-if="card.icon" class="card-grid__icon card-grid__icon--placeholder">
+        <div
+          v-else-if="card.icon"
+          class="card-grid__icon card-grid__icon--placeholder"
+          aria-hidden="true"
+        >
           {{ card.icon }}
         </div>
 
@@ -416,11 +422,12 @@ function sanitizeList(items?: unknown[]): string[] {
 }
 
 .card-grid__icon {
+  --card-grid-icon-size: var(--md-sys-spacing-10);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+  width: var(--card-grid-icon-size);
+  height: var(--card-grid-icon-size);
   border-radius: var(--md-sys-border-radius-full);
   background: color-mix(in srgb, currentColor 12%, transparent 88%);
   margin-bottom: var(--md-sys-spacing-3);
@@ -428,11 +435,6 @@ function sanitizeList(items?: unknown[]): string[] {
 
 .card-grid__icon--placeholder {
   font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.card-grid__icon :deep(svg) {
-  width: 1.5rem;
-  height: 1.5rem;
+  font-size: var(--md-sys-typescale-title-large-size, 1.375rem);
 }
 </style>

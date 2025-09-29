@@ -77,11 +77,12 @@ const mediaType = computed(() => {
 }
 
 .md-audio-block__icon {
+  --md-audio-block-icon-size: var(--md-sys-spacing-10);
   display: inline-grid;
   place-items: center;
-  height: 3rem;
-  width: 3rem;
-  border-radius: 1rem;
+  width: var(--md-audio-block-icon-size);
+  height: var(--md-audio-block-icon-size);
+  border-radius: var(--md-sys-border-radius-large);
   background: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--md-sys-color-primary) 30%, transparent);

@@ -1,6 +1,6 @@
 <template>
   <section class="lesson-flight-plan">
-    <Rocket class="lesson-flight-plan__icon" aria-hidden="true" />
+    <Rocket class="lesson-flight-plan__icon md-icon md-icon--md" aria-hidden="true" />
 
     <div class="lesson-flight-plan__content">
       <h3 class="lesson-flight-plan__title">{{ data.title }}</h3>
@@ -41,14 +41,8 @@ const sanitizedItems = computed(() => props.data.items.map((item) => sanitizeHtm
 }
 
 .lesson-flight-plan__icon {
-  width: 3rem;
-  height: 3rem;
   color: var(--md-sys-color-primary);
-}
-
-.lesson-flight-plan__icon :deep(svg) {
-  width: 100%;
-  height: 100%;
+  flex-shrink: 0;
 }
 
 .lesson-flight-plan__content {
@@ -84,8 +78,7 @@ const sanitizedItems = computed(() => props.data.items.map((item) => sanitizeHtm
   }
 
   .lesson-flight-plan__icon {
-    width: 2.75rem;
-    height: 2.75rem;
+    align-self: start;
   }
 }
 </style>

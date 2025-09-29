@@ -1,7 +1,7 @@
 <template>
   <article class="callout" :class="variantClass">
     <div v-if="icon" class="callout__icon" aria-hidden="true">
-      <component :is="icon" />
+      <component :is="icon" class="md-icon md-icon--md" />
     </div>
 
     <div class="callout__content">
@@ -209,19 +209,15 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
 }
 
 .callout__icon {
+  --callout-icon-size: var(--md-sys-spacing-10);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  width: var(--callout-icon-size);
+  height: var(--callout-icon-size);
   border-radius: var(--md-sys-border-radius-full);
   background: color-mix(in srgb, var(--callout-accent) 14%, transparent);
   color: var(--callout-accent);
-}
-
-.callout__icon :deep(svg) {
-  width: 1.5rem;
-  height: 1.5rem;
 }
 
 .callout__content {
@@ -351,8 +347,7 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
   }
 
   .callout__icon {
-    width: 2.25rem;
-    height: 2.25rem;
+    --callout-icon-size: var(--md-sys-spacing-8);
   }
 }
 </style>
