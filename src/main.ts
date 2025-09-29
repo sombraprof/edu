@@ -12,3 +12,12 @@ const head = createHead();
 initMaterialTheme();
 
 createApp(App).use(router).use(head).mount('#app');
+
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  const swUrl = `${import.meta.env.BASE_URL}service-worker.js`;
+  window.addEventListener('load', () => {
+    void navigator.serviceWorker.register(swUrl).catch((error) => {
+      console.error('Service worker registration failed:', error);
+    });
+  });
+}

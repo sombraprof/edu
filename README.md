@@ -86,7 +86,7 @@ These scripts are optional; new content should be authored directly in the struc
 
 ## Deployment / PWA
 
-- The project uses `vite-plugin-pwa` with SPA fallback for GitHub Pages.
+- The build generates a custom service worker that precaches the Vite output and provides an SPA fallback for GitHub Pages deployments.
 - O workflow em `.github/workflows/deploy.yml` valida o conteúdo com `npm run validate:report`, gera o relatório de observabilidade com `npm run report:observability:check` e publica ambos os artefatos. Caso algum curso tenha exercícios ou suplementos sem metadados obrigatórios, a pipeline falha antes do build/deploy.
 - Independentemente do resultado, o workflow produz `reports/governance-alert.md`/`.json`, atualiza `reports/governance-history.json` com a fotografia mais recente, deriva `reports/governance-history-summary.json` + `reports/governance-history.md` e mantém uma issue automática (`governanca-automatica`) com o resumo das pendências e a tabela histórica mais recente.
 
