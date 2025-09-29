@@ -10,9 +10,11 @@ import {
   APP_BAR_HEIGHTS,
   BREAKPOINTS,
   COLOR_ROLE_TOKENS,
+  DENSITY_SCALE,
   DIMENSION_SCALE,
   ELEVATION_SHADOWS,
   LAYOUT_CONTAINERS,
+  MOTION_TOKENS,
   SHAPE_SCALE,
   SPACING_SCALE,
   STATE_LAYER_OPACITY,
@@ -176,13 +178,12 @@ function applyScheme(mode: ThemeMode) {
   });
 
   const elevation = ELEVATION_SHADOWS[mode];
+  rootStyle.setProperty('--md-sys-elevation-level0', elevation.level0);
   rootStyle.setProperty('--md-sys-elevation-level1', elevation.level1);
   rootStyle.setProperty('--md-sys-elevation-level2', elevation.level2);
   rootStyle.setProperty('--md-sys-elevation-level3', elevation.level3);
-  // Maintain legacy aliases while components migrate fully to the new tokens.
-  rootStyle.setProperty('--shadow-elevation-1', elevation.level1);
-  rootStyle.setProperty('--shadow-elevation-2', elevation.level2);
-  rootStyle.setProperty('--shadow-elevation-3', elevation.level3);
+  rootStyle.setProperty('--md-sys-elevation-level4', elevation.level4);
+  rootStyle.setProperty('--md-sys-elevation-level5', elevation.level5);
 
   document.documentElement.dataset.theme = mode;
   rootStyle.setProperty('color-scheme', mode);
@@ -281,6 +282,32 @@ function applyStaticTokens() {
   (Object.entries(APP_BAR_HEIGHTS) as Array<[string, string]>).forEach(([key, value]) => {
     rootStyle.setProperty(`--md-sys-app-bar-height-${key}`, value);
   });
+
+  (Object.entries(MOTION_TOKENS.duration) as Array<[string, string]>).forEach(([key, value]) => {
+    const normalizedKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+    rootStyle.setProperty(`--md-sys-motion-duration-${normalizedKey}`, value);
+  });
+
+  (Object.entries(MOTION_TOKENS.easing) as Array<[string, string]>).forEach(([key, value]) => {
+    const normalizedKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+    rootStyle.setProperty(`--md-sys-motion-easing-${normalizedKey}`, value);
+  });
+
+  (Object.entries(DENSITY_SCALE.reference) as Array<[string, number]>).forEach(([key, value]) => {
+    rootStyle.setProperty(`--md-sys-density-reference-${key}`, String(value));
+  });
+
+  (Object.entries(DENSITY_SCALE.topAppBar) as Array<[string, number]>).forEach(([key, value]) => {
+    rootStyle.setProperty(`--md-sys-density-top-app-bar-${key}`, String(value));
+  });
+
+  (Object.entries(DENSITY_SCALE.navigation) as Array<[string, Record<string, number>]>).forEach(
+    ([group, values]) => {
+      (Object.entries(values) as Array<[string, number]>).forEach(([key, value]) => {
+        rootStyle.setProperty(`--md-sys-density-${group}-${key}`, String(value));
+      });
+    }
+  );
 
   staticTokensApplied = true;
 }

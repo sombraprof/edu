@@ -68,12 +68,12 @@ function createModeCss(mode: ThemeMode): string {
   );
 
   const elevation = ELEVATION_SHADOWS[mode];
+  lines.push(`  --md-sys-elevation-level0: ${elevation.level0};`);
   lines.push(`  --md-sys-elevation-level1: ${elevation.level1};`);
   lines.push(`  --md-sys-elevation-level2: ${elevation.level2};`);
   lines.push(`  --md-sys-elevation-level3: ${elevation.level3};`);
-  lines.push(`  --shadow-elevation-1: var(--md-sys-elevation-level1);`);
-  lines.push(`  --shadow-elevation-2: var(--md-sys-elevation-level2);`);
-  lines.push(`  --shadow-elevation-3: var(--md-sys-elevation-level3);`);
+  lines.push(`  --md-sys-elevation-level4: ${elevation.level4};`);
+  lines.push(`  --md-sys-elevation-level5: ${elevation.level5};`);
 
   lines.push('}');
   return lines.join('\n');

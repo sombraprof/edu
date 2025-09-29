@@ -166,7 +166,7 @@ function formatNumber(value: number): string {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-4);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   --lesson-chart-ring: color-mix(
     in srgb,
     var(--md-sys-color-outline-variant) 60%,

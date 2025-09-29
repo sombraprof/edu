@@ -60,17 +60,23 @@ export const STRONG_STATE_LAYER_OPACITY: Record<ThemeMode, number> = {
 
 export const ELEVATION_SHADOWS: Record<
   ThemeMode,
-  Record<'level1' | 'level2' | 'level3', string>
+  Record<'level0' | 'level1' | 'level2' | 'level3' | 'level4' | 'level5', string>
 > = {
   light: {
+    level0: 'none',
     level1: '0px 1px 3px rgba(17, 24, 39, 0.16), 0px 2px 6px rgba(17, 24, 39, 0.12)',
     level2: '0px 4px 12px rgba(17, 24, 39, 0.16), 0px 2px 6px rgba(17, 24, 39, 0.12)',
     level3: '0px 8px 20px rgba(17, 24, 39, 0.24), 0px 4px 8px rgba(17, 24, 39, 0.16)',
+    level4: '0px 12px 28px rgba(17, 24, 39, 0.24), 0px 8px 12px rgba(17, 24, 39, 0.2)',
+    level5: '0px 16px 40px rgba(17, 24, 39, 0.28), 0px 12px 16px rgba(17, 24, 39, 0.2)',
   },
   dark: {
+    level0: 'none',
     level1: '0px 1px 3px rgba(0, 0, 0, 0.55), 0px 2px 6px rgba(0, 0, 0, 0.45)',
     level2: '0px 4px 12px rgba(0, 0, 0, 0.48), 0px 2px 8px rgba(0, 0, 0, 0.32)',
     level3: '0px 10px 24px rgba(0, 0, 0, 0.55), 0px 6px 16px rgba(0, 0, 0, 0.36)',
+    level4: '0px 16px 32px rgba(0, 0, 0, 0.6), 0px 8px 12px rgba(0, 0, 0, 0.42)',
+    level5: '0px 20px 48px rgba(0, 0, 0, 0.64), 0px 12px 16px rgba(0, 0, 0, 0.48)',
   },
 };
 
@@ -139,6 +145,53 @@ export const DIMENSION_SCALE = {
   },
 };
 
+export const MOTION_TOKENS = {
+  duration: {
+    short1: '50ms',
+    short2: '100ms',
+    medium1: '150ms',
+    medium2: '200ms',
+    long1: '300ms',
+    long2: '400ms',
+    extraLong1: '500ms',
+  },
+  easing: {
+    standard: 'cubic-bezier(0.2, 0, 0, 1)',
+    standardAccelerate: 'cubic-bezier(0.3, 0, 0.8, 0.15)',
+    standardDecelerate: 'cubic-bezier(0, 0, 0, 1)',
+    emphasized: 'cubic-bezier(0.3, 0, 0.2, 1)',
+    emphasizedAccelerate: 'cubic-bezier(0.3, 0, 0.8, 0.15)',
+    emphasizedDecelerate: 'cubic-bezier(0.05, 0.7, 0.1, 1)',
+  },
+} as const;
+
+export const DENSITY_SCALE = {
+  reference: {
+    default: 0,
+    comfortable: -1,
+    compact: -2,
+  },
+  topAppBar: {
+    default: 0,
+    comfortable: -2,
+    compact: -4,
+  },
+  navigation: {
+    rail: {
+      default: 0,
+      compact: -1,
+    },
+    drawer: {
+      default: 0,
+      compact: -2,
+    },
+    bottomBar: {
+      default: 0,
+      compact: -1,
+    },
+  },
+} as const;
+
 export const BREAKPOINTS = {
   sm: '40rem',
   md: '56rem',
@@ -157,3 +210,27 @@ export const APP_BAR_HEIGHTS = {
   medium: '4.5rem',
   large: '6rem',
 };
+
+export function buildDesignTokenExport() {
+  return {
+    color: {
+      roles: COLOR_ROLE_TOKENS,
+      stateLayerOpacity: STATE_LAYER_OPACITY,
+      strongStateLayerOpacity: STRONG_STATE_LAYER_OPACITY,
+    },
+    elevation: ELEVATION_SHADOWS,
+    typography: TYPOGRAPHY_SCALE,
+    shape: SHAPE_SCALE,
+    spacing: SPACING_SCALE,
+    dimension: DIMENSION_SCALE,
+    breakpoints: BREAKPOINTS,
+    layout: {
+      containers: LAYOUT_CONTAINERS,
+      appBarHeights: APP_BAR_HEIGHTS,
+    },
+    motion: MOTION_TOKENS,
+    density: DENSITY_SCALE,
+  } as const;
+}
+
+export type DesignTokenExport = ReturnType<typeof buildDesignTokenExport>;

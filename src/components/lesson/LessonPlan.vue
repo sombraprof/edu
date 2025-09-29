@@ -157,7 +157,7 @@ function createNameVariations(original: string): string[] {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-5);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-plan__title {
@@ -173,7 +173,7 @@ function createNameVariations(original: string): string[] {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-2);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-plan__unit-title {
@@ -203,7 +203,7 @@ function createNameVariations(original: string): string[] {
   align-items: center;
   text-align: center;
   gap: var(--md-sys-spacing-3);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-plan__icon {

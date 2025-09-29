@@ -267,7 +267,7 @@ const hasHeader = computed(() => Boolean(props.title || props.description));
 const rootClasses = computed(() => [
   'md3-truth-table',
   'card',
-  'shadow-elevation-2',
+  'md-elevation-2',
   props.dense ? 'md3-truth-table--dense' : null,
 ]);
 

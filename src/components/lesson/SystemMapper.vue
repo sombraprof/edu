@@ -343,7 +343,7 @@ function cleanString(value: string | undefined | null): string {
   border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 55%, transparent);
   background: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .system-mapper__factor-header {

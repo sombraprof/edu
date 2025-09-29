@@ -11,7 +11,7 @@
           </p>
         </div>
         <div class="grid gap-3 sm:grid-cols-2 md:w-64 md:grid-cols-1">
-          <div class="surface-tonal md-shape-large p-4 shadow-elevation-1">
+          <div class="surface-tonal md-shape-large p-4 md-elevation-1">
             <p class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant">
               Disciplinas
             </p>

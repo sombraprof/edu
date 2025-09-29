@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow-elevation-2">
+  <div class="card md-elevation-2">
     <div class="overflow-x-auto -mx-2 sm:mx-0">
       <table class="w-full md3-table min-w-[480px]">
         <thead class="bg-surface-variant text-on-surface-variant">

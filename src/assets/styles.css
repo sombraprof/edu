@@ -399,15 +399,15 @@ html {
   }
 
   .md-elevation-1 {
-    box-shadow: var(--shadow-elevation-1);
+    box-shadow: var(--md-sys-elevation-level1);
   }
 
   .md-elevation-2 {
-    box-shadow: var(--shadow-elevation-2);
+    box-shadow: var(--md-sys-elevation-level2);
   }
 
   .md-elevation-3 {
-    box-shadow: var(--shadow-elevation-3);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .app-shell {
@@ -588,7 +588,7 @@ html {
       var(--md-sys-color-surface-container-highest, var(--md-sys-color-surface-container-high)) 94%,
       transparent
     );
-    box-shadow: var(--shadow-elevation-1);
+    box-shadow: var(--md-sys-elevation-level1);
   }
 
   .md3-top-app-bar__container {
@@ -759,7 +759,7 @@ html {
     border-radius: var(--md-sys-border-radius-full);
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
-    box-shadow: var(--shadow-elevation-2);
+    box-shadow: var(--md-sys-elevation-level2);
     transition:
       background-color 180ms ease,
       color 180ms ease,
@@ -1003,12 +1003,12 @@ html {
       transparent
     );
     border-right: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 30%, transparent);
-    box-shadow: var(--shadow-elevation-1);
+    box-shadow: var(--md-sys-elevation-level1);
   }
 
   .md3-navigation-drawer--modal {
     border-right: none;
-    box-shadow: var(--shadow-elevation-3);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .md3-navigation-drawer--compact {
@@ -1247,13 +1247,13 @@ html {
   .md3-button--filled {
     --md3-button-color: var(--md-sys-color-on-primary);
     --md3-button-container: var(--md-sys-color-primary);
-    --md3-button-shadow: var(--shadow-elevation-1);
+    --md3-button-shadow: var(--md-sys-elevation-level1);
     --md3-button-state-layer: var(--md-sys-state-layer-on-primary);
   }
 
   .btn-filled:hover,
   .md3-button--filled:hover {
-    --md3-button-shadow: var(--shadow-elevation-2);
+    --md3-button-shadow: var(--md-sys-elevation-level2);
   }
 
   .btn-filled:disabled,
@@ -1272,7 +1272,7 @@ html {
       var(--md-sys-color-secondary) 35%,
       var(--md-sys-color-secondary-container) 65%
     );
-    --md3-button-shadow: var(--shadow-elevation-1);
+    --md3-button-shadow: var(--md-sys-elevation-level1);
     --md3-button-state-layer: var(--md-sys-state-layer-on-secondary-container);
   }
 
@@ -1369,7 +1369,7 @@ html {
         transparent
       );
     border-radius: var(--md-sys-shape-corner-extra-large, 1.5rem);
-    box-shadow: var(--shadow-elevation-1);
+    box-shadow: var(--md-sys-elevation-level1);
     transition:
       transform 180ms ease,
       box-shadow 180ms ease,
@@ -1408,7 +1408,7 @@ html {
 
   .card--interactive:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-elevation-2);
+    box-shadow: var(--md-sys-elevation-level2);
     border-color: color-mix(
       in srgb,
       var(--md-sys-color-primary) 25%,
@@ -1559,7 +1559,7 @@ html {
     background-color: var(--md-sys-color-surface-container);
     border: 1px solid var(--md-sys-color-outline);
     color: var(--md-sys-color-on-surface);
-    box-shadow: var(--shadow-elevation-1);
+    box-shadow: var(--md-sys-elevation-level1);
   }
 
   .input::placeholder {
@@ -1568,7 +1568,7 @@ html {
 
   .input:focus-visible {
     border-color: var(--md-sys-color-primary);
-    box-shadow: var(--shadow-elevation-2);
+    box-shadow: var(--md-sys-elevation-level2);
     outline: none;
   }
 
@@ -1605,7 +1605,7 @@ html {
     --md3-button-container: var(--md-sys-color-primary-container);
     --md3-button-color: var(--md-sys-color-on-primary-container);
     --md3-button-outline-color: var(--md-sys-color-primary-container);
-    --md3-button-shadow: var(--shadow-elevation-2);
+    --md3-button-shadow: var(--md-sys-elevation-level2);
     --md3-button-state-layer: var(--md-sys-state-layer-on-primary-container);
     border-radius: var(--md-sys-border-radius-4xl);
     box-shadow: var(--md3-button-shadow);
@@ -1620,7 +1620,7 @@ html {
 
   .md3-fab:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-elevation-3);
+    box-shadow: var(--md-sys-elevation-level3);
   }
 
   .md3-fab .md3-button__icon,
@@ -1825,7 +1825,7 @@ html {
     outline-offset: 2px;
     box-shadow:
       0 0 0 3px color-mix(in srgb, var(--md-sys-color-primary) 24%, transparent 76%),
-      var(--shadow-elevation-1);
+      var(--md-sys-elevation-level1);
   }
 
   .pill-item:hover {
@@ -1840,7 +1840,7 @@ html {
       var(--md-sys-color-surface) 84%
     );
     color: var(--md-sys-color-on-primary-container);
-    box-shadow: var(--shadow-elevation-1);
+    box-shadow: var(--md-sys-elevation-level1);
   }
 
   .course-item__cta {
@@ -2080,7 +2080,7 @@ html[data-theme='dark'] .text-primary-800 {
   border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
   background: var(--md-sys-color-surface-container);
   color: var(--md-sys-color-on-surface);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-2);

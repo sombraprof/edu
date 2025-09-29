@@ -54,7 +54,7 @@ function sanitizeContent(value: unknown): string {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-5);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   border: 1px solid
     color-mix(
       in srgb,
@@ -117,7 +117,7 @@ function sanitizeContent(value: unknown): string {
   justify-content: center;
   font-weight: 700;
   font-size: 1.25rem;
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .lesson-timeline__marker span {
@@ -131,7 +131,7 @@ function sanitizeContent(value: unknown): string {
   padding: var(--md-sys-spacing-4);
   border-radius: var(--md-sys-shape-corner-large, var(--md-sys-border-radius-large));
   background: color-mix(in srgb, var(--md-sys-color-surface) 85%, transparent 15%);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-timeline__step-title {
