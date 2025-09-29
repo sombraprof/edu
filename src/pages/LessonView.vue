@@ -105,6 +105,9 @@ const lessonSummary = ref<string>('');
 const lessonDuration = ref<number | undefined>(undefined);
 const lessonModality = ref<string>('');
 const lessonTags = ref<string[]>([]);
+const lessonSkills = ref<string[]>([]);
+const lessonOutcomes = ref<string[]>([]);
+const lessonPrerequisites = ref<string[]>([]);
 
 type LessonContent = NormalizedLesson & { content: LessonBlock[] };
 
@@ -134,6 +137,9 @@ async function loadLesson() {
   lessonDuration.value = undefined;
   lessonModality.value = '';
   lessonTags.value = [];
+  lessonSkills.value = [];
+  lessonOutcomes.value = [];
+  lessonPrerequisites.value = [];
 
   try {
     const currentCourse = courseId.value;
@@ -174,11 +180,17 @@ async function loadLesson() {
     const duration = pickNumber(data.duration, entry.duration);
     const modality = pickString(data.modality, entry.modality);
     const tags = mergeTags(data.tags, entry.tags);
+    const skills = pickStringList(data.skills, data.competencies);
+    const outcomes = pickStringList(data.outcomes, data.objectives);
+    const prerequisites = pickStringList(data.prerequisites);
 
     lessonSummary.value = summary;
     lessonDuration.value = duration;
     lessonModality.value = modality;
     lessonTags.value = tags;
+    lessonSkills.value = skills;
+    lessonOutcomes.value = outcomes;
+    lessonPrerequisites.value = prerequisites;
 
     lessonData.value = {
       ...data,
@@ -186,6 +198,9 @@ async function loadLesson() {
       duration: typeof duration === 'number' ? duration : data.duration,
       modality: modality || data.modality,
       tags: tags.length ? tags : data.tags,
+      skills: skills.length ? skills : data.skills,
+      outcomes: outcomes.length ? outcomes : data.outcomes,
+      prerequisites: prerequisites.length ? prerequisites : data.prerequisites,
       content: data.content,
     };
 
@@ -227,6 +242,16 @@ function pickNumber(...candidates: Array<unknown>): number | undefined {
     }
   }
   return undefined;
+}
+
+function pickStringList(...candidates: Array<unknown>): string[] {
+  for (const candidate of candidates) {
+    const value = normalizeStringList(candidate);
+    if (value.length > 0) {
+      return value;
+    }
+  }
+  return [];
 }
 
 function mergeTags(...sources: Array<unknown>): string[] {
