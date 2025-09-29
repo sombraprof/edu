@@ -1,0 +1,116 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-34",
+  "title": "Aula 34: Operações sobre Matrizes",
+  "summary": "Aprofunda o trabalho com matrizes realizando operações como soma, multiplicação por escalar, transposição e busca de elementos específicos.",
+  "objective": "Implementar operações clássicas sobre matrizes 2D utilizando funções modulares e validação de dimensões.",
+  "objectives": [
+    "Somar matrizes de mesma dimensão com laços aninhados.",
+    "Multiplicar matriz por escalar e gerar nova matriz.",
+    "Construir função que calcula a transposta de uma matriz."
+  ],
+  "competencies": ["Pensamento algorítmico", "Modelagem matemática", "Qualidade de código"],
+  "skills": [
+    "Validar dimensões antes de operar matrizes.",
+    "Utilizar matrizes auxiliares para resultados intermediários.",
+    "Documentar pré e pós-condições em cada função."
+  ],
+  "outcomes": [
+    "Entrega biblioteca com operações de soma, escalar e transposta.",
+    "Produz relatórios comparando matrizes originais e resultantes.",
+    "Avalia limites do algoritmo de multiplicação e discute alternativas."
+  ],
+  "prerequisites": [
+    "Conhecer sintaxe e percorrimento de matrizes (aula 33).",
+    "Dominar funções com parâmetros."
+  ],
+  "tags": ["matrizes", "operacoes", "funcoes"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Operações com matrizes",
+      "url": "https://example.edu/algi/slides/matrizes-operacoes.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Notebook Jupyter demonstrativo",
+      "url": "https://example.edu/algi/notebooks/matrizes.ipynb",
+      "type": "notebook"
+    }
+  ],
+  "bibliography": [
+    "LAFORE, R. Estruturas de Dados e Algoritmos em C. Pearson, 2018.",
+    "DEITEL, P.; DEITEL, H. C Como Programar. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Exercício avaliativo com entrega de biblioteca matrix_utils.c e relatório de testes."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Revisão das estruturas de matrizes.",
+        "(25 min) Implementação da soma de matrizes.",
+        "(30 min) Multiplicação por escalar e transposta.",
+        "(25 min) Testes e validação de dimensões.",
+        "(15 min) Documentação e checklist final."
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Soma de matrizes",
+      "code": "void somar(int linhas, int colunas, int a[][colunas], int b[][colunas], int resultado[][colunas]) {\n  for (int i = 0; i < linhas; i++) {\n    for (int j = 0; j < colunas; j++) {\n      resultado[i][j] = a[i][j] + b[i][j];\n    }\n  }\n}\n"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Transposta",
+      "content": [
+        { "type": "paragraph", "text": "A transposta é obtida invertendo linhas e colunas." },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "void transposta(int linhas, int colunas, int origem[][colunas], int destino[][linhas]) {\n  for (int i = 0; i < linhas; i++) {\n    for (int j = 0; j < colunas; j++) {\n      destino[j][i] = origem[i][j];\n    }\n  }\n}"
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Exemplo de multiplicação por escalar",
+      "headers": ["Entrada", "Escalar", "Resultado"],
+      "rows": [
+        [{ "value": "[[1,2],[3,4]]" }, { "value": "2" }, { "value": "[[2,4],[6,8]]" }],
+        [{ "value": "[[0,5],[7,1]]" }, { "value": "3" }, { "value": "[[0,15],[21,3]]" }]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Validação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Sempre verifique se as dimensões são compatíveis antes de somar ou multiplicar matrizes."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Funções retornam códigos de erro quando dimensões são inválidas.",
+        "Testes cobrem matrizes quadradas e retangulares.",
+        "Documentação descreve formato dos dados de entrada."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T14:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Operações com matrizes"]
+  }
+}

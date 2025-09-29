@@ -1,0 +1,139 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-25",
+  "title": "Aula 25: Introdução a Funções e Modularização",
+  "summary": "Apresenta o conceito de funções em C, destacando motivação para modularizar código, sintaxe básica, protótipos e boas práticas de documentação.",
+  "objective": "Compreender como definir e invocar funções para dividir problemas em partes menores e reutilizáveis.",
+  "objectives": [
+    "Reconhecer quando uma sequência de instruções deve virar função.",
+    "Declarar protótipos com tipos corretos de parâmetros e retorno.",
+    "Invocar funções passando argumentos posicionais corretamente."
+  ],
+  "competencies": ["Abstração", "Organização algorítmica", "Documentação técnica"],
+  "skills": [
+    "Transformar pseudocódigo em funções nomeadas.",
+    "Explicar o fluxo de chamada entre função principal e auxiliares.",
+    "Utilizar comentários para descrever responsabilidade de cada módulo."
+  ],
+  "outcomes": [
+    "Entrega programas que encapsulam cálculos em funções reutilizáveis.",
+    "Cria protótipos coerentes com a implementação.",
+    "Analisa benefícios de modularização em termos de manutenção e testes."
+  ],
+  "prerequisites": [
+    "Conhecer estruturas de controle sequenciais, condicionais e de repetição.",
+    "Saber declarar variáveis e tipos básicos em C."
+  ],
+  "tags": ["funcoes", "modularizacao", "c"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Funções e protótipos",
+      "url": "https://example.edu/algi/slides/funcoes-introducao.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "url": "https://www.onlinegdb.com/online_c_compiler",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "DEITEL, P.; DEITEL, H. C Como Programar. Pearson, 2020.",
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Exercícios guiados com criação de três funções matemáticas reutilizáveis."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Motivação: problemas causados por código duplicado.",
+        "(25 min) Anatomia de uma função e demonstração ao vivo.",
+        "(30 min) Exercício orientado: funções para área de figuras geométricas.",
+        "(20 min) Debate sobre nomes significativos e limites de responsabilidade.",
+        "(10 min) Registro de dúvidas e encaminhamentos para a próxima aula."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Componentes de uma função",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma função encapsula um conjunto de instruções com um nome, parâmetros e um valor de retorno opcional."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Tipo de retorno: void ou tipos primitivos.",
+            "Nome autoexplicativo que segue convenções do curso.",
+            "Parâmetros que recebem dados necessários para o processamento."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Função para calcular área de círculo",
+      "code": "#include <math.h>\n\n#define PI 3.14159\n\ndouble areaCirculo(double raio) {\n  return PI * pow(raio, 2);\n}\n\nint main() {\n  double r = 2.5;\n  printf(\"Área: %.2f\\n\", areaCirculo(r));\n  return 0;\n}\n"
+    },
+    {
+      "type": "md3Table",
+      "title": "Protótipo vs Implementação",
+      "headers": ["Elemento", "Protótipo", "Implementação"],
+      "rows": [
+        [
+          { "value": "Local" },
+          { "value": "Topo do arquivo" },
+          { "value": "Abaixo do main ou em arquivo separado" }
+        ],
+        [
+          { "value": "Sintaxe" },
+          { "value": "tipo nome(parametros);" },
+          { "value": "tipo nome(parametros) { corpo }" }
+        ],
+        [
+          { "value": "Comentário" },
+          { "value": "Breve descrição" },
+          { "value": "Detalhes de pré e pós-condições" }
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            "Crie funções pequenas e com uma única responsabilidade.",
+            "Documente o que acontece com entradas inválidas.",
+            "Evite variáveis globais a menos que estritamente necessário."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist do exercício",
+      "items": [
+        "Cada função possui protótipo correspondente.",
+        "O main testa todos os casos sugeridos.",
+        "Comentários explicam parâmetros e retorno."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T12:40:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Caderno de laboratório - Funções"]
+  }
+}

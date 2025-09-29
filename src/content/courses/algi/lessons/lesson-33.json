@@ -1,0 +1,117 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-33",
+  "title": "Aula 33: Matrizes (Arrays 2D)",
+  "summary": "Introduz matrizes bidimensionais, mostrando declaração, acesso por linha e coluna, e aplicações em tabelas e tabuleiros.",
+  "objective": "Manipular matrizes 2D para representar dados tabulares e realizar cálculos por linha e coluna.",
+  "objectives": [
+    "Declarar e inicializar matrizes com dimensões fixas.",
+    "Percorrer matrizes usando laços aninhados para leitura e escrita.",
+    "Calcular somas por linha, coluna e diagonal principal."
+  ],
+  "competencies": ["Modelagem de dados", "Pensamento computacional", "Raciocínio lógico"],
+  "skills": [
+    "Definir matrizes com valores iniciais ou leitura do usuário.",
+    "Mapear índices de linha e coluna corretamente.",
+    "Aplicar verificações de limites em loops aninhados."
+  ],
+  "outcomes": [
+    "Entrega programas que calculam totais em matrizes de notas ou vendas.",
+    "Constrói tabelas impressas formatadas com printf.",
+    "Explica diferenças entre armazenamento contíguo de vetores e matrizes."
+  ],
+  "prerequisites": [
+    "Dominar laços aninhados (aula 21).",
+    "Conhecer vetores unidimensionais (aulas 30-32)."
+  ],
+  "tags": ["matrizes", "arrays-2d", "loops"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Matrizes",
+      "url": "https://example.edu/algi/slides/matrizes.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Ferramenta de visualização de matrizes",
+      "url": "https://example.edu/algi/tools/matriz-visual",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "DEITEL, P.; DEITEL, H. C Como Programar. Pearson, 2020.",
+    "LAFORE, R. Estruturas de Dados e Algoritmos em C. Pearson, 2018."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Laboratório com matrizes de notas e cálculo de médias por turma."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Conceituação de matrizes e exemplos visuais.",
+        "(25 min) Declaração e acesso a elementos.",
+        "(30 min) Exercício guiado: notas de alunos por disciplina.",
+        "(25 min) Desafio em grupo: tabuleiro de jogo da velha.",
+        "(10 min) Checklist e encaminhamentos."
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Declaração e impressão",
+      "code": "int matriz[2][3] = {\n  {1, 2, 3},\n  {4, 5, 6}\n};\nfor (int linha = 0; linha < 2; linha++) {\n  for (int coluna = 0; coluna < 3; coluna++) {\n    printf(\"%d \", matriz[linha][coluna]);\n  }\n  printf(\"\\n\");\n}\n"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Somas por linha e coluna",
+      "content": [
+        { "type": "paragraph", "text": "Use acumuladores separados para linhas e colunas." },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "for (int linha = 0; linha < linhas; linha++) {\n  int somaLinha = 0;\n  for (int coluna = 0; coluna < colunas; coluna++) {\n    somaLinha += matriz[linha][coluna];\n  }\n  printf(\"Linha %d: %d\\n\", linha, somaLinha);\n}"
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Exemplo de saída",
+      "headers": ["Disciplina", "Aluno 1", "Aluno 2", "Aluno 3"],
+      "rows": [
+        [{ "value": "Matemática" }, { "value": "8" }, { "value": "7" }, { "value": "9" }],
+        [{ "value": "Lógica" }, { "value": "6" }, { "value": "8" }, { "value": "7" }],
+        [{ "value": "Programação" }, { "value": "9" }, { "value": "7" }, { "value": "8" }]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Memória",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Matrizes são armazenadas em memória linha a linha (row-major) na linguagem C."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Verificar limites de linha e coluna.",
+        "Usar constantes ou macros para dimensões.",
+        "Inicializar matrizes antes de acumular valores."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T13:50:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Matrizes"]
+  }
+}

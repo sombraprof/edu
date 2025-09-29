@@ -1,0 +1,128 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-23",
+  "title": "Aula 23: Revisão de Estruturas de Controle",
+  "summary": "Sessão de revisão ativa que consolida condicionais, laços e operadores lógicos por meio de quizzes, resolução de bugs e estudo de casos reais.",
+  "objective": "Revisitar estruturas de controle para preparar estudantes para a avaliação integradora e fortalecer autonomia na depuração.",
+  "objectives": [
+    "Diagnosticar erros frequentes em códigos que utilizam if, for, while e do-while.",
+    "Selecionar a estrutura de controle adequada para cada cenário proposto.",
+    "Organizar estratégias de revisão colaborativas com foco em feedback construtivo."
+  ],
+  "competencies": ["Pensamento crítico", "Trabalho colaborativo", "Gestão da aprendizagem"],
+  "skills": [
+    "Comparar soluções alternativas e justificar a melhor abordagem.",
+    "Aplicar testes de mesa para validar laços e condicionais.",
+    "Registrar planos de estudo personalizados para a próxima avaliação."
+  ],
+  "outcomes": [
+    "Elabora quadros-resumo com estruturas de decisão e repetição.",
+    "Corrige códigos com erros de lógica e sintaxe apresentados em laboratório.",
+    "Planeja estudos individuais com metas e recursos sugeridos."
+  ],
+  "prerequisites": ["Ter acompanhado as aulas 17 a 22.", "Trazer anotações das listas anteriores."],
+  "tags": ["revisao", "estruturas-de-controle", "avaliacao"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Quiz interativo Kahoot",
+      "url": "https://kahoot.it/challenge/algi-controle",
+      "type": "quiz"
+    },
+    {
+      "label": "Planilha de testes de mesa",
+      "url": "https://example.edu/algi/planilhas/testes-de-mesa.xlsx",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. G. Algoritmos - Teoria e Prática. Elsevier, 2021.",
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Roteiro de revisão com autoavaliação em rubrica e lista de exercícios recomendados."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Icebreaker: quiz rápido sobre operadores.",
+        "(20 min) Rotação por estações: decisões, laços contados e condicionais.",
+        "(30 min) Oficina de depuração: analisar códigos com bugs.",
+        "(25 min) Estudo de caso orientado: automatização de planilhas.",
+        "(10 min) Planejamento individual de estudo e feedback entre pares."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Estações de revisão",
+      "cards": [
+        {
+          "title": "Condicionais",
+          "content": "Resolva desafios de if/else aninhados e operadores lógicos."
+        },
+        {
+          "title": "Laços contados",
+          "content": "Reescreva exercícios usando for e while, comparando complexidade."
+        },
+        {
+          "title": "Depuração",
+          "content": "Identifique e corrija erros propositais inseridos em códigos reais."
+        },
+        {
+          "title": "Planejamento",
+          "content": "Monte um quadro de horários com metas e recursos por tópico."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Mapa mental coletivo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Coletivamente, organizamos um mapa mental com palavras-chave das estruturas de controle trabalhadas."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Sintaxe básica de cada estrutura.",
+            "Casos de uso recomendados.",
+            "Armadilhas frequentes."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Checklist de depuração",
+      "headers": ["Pergunta", "Aplicação"],
+      "rows": [
+        [
+          { "value": "A condição será falsa em algum momento?" },
+          { "value": "Laços while e do-while" }
+        ],
+        [{ "value": "Existe atualização do contador?" }, { "value": "For e while" }],
+        [{ "value": "Todos os ramos têm retorno?" }, { "value": "Funções com condicionais" }]
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Plano pessoal de estudo",
+      "items": [
+        "Selecionar três exercícios para refazer antes da avaliação.",
+        "Agendar monitoria ou plantão para tirar dúvidas específicas.",
+        "Registrar indicadores de confiança (1-5) para cada tópico."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T12:20:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Material de revisão - Unidade V"]
+  }
+}

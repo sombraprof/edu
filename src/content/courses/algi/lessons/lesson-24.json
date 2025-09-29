@@ -1,0 +1,126 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-24",
+  "title": "Aula 24: Atividade Prática (Assíncrona) – Integração",
+  "summary": "Projeto assíncrono que integra condicionais, laços e registros básicos para consolidar autonomia na resolução de problemas contextualizados.",
+  "objective": "Planejar e entregar um miniaplicativo de console que manipule dados de vendas usando estruturas de controle e modularização simples.",
+  "objectives": [
+    "Interpretar um enunciado de negócio e extrair requisitos funcionais.",
+    "Construir algoritmos que combinam leitura de arquivos simples, laços e condicionais.",
+    "Documentar evidências de teste e relato reflexivo sobre a solução implementada."
+  ],
+  "competencies": ["Autogestão", "Pensamento computacional", "Comunicação escrita"],
+  "skills": [
+    "Planejar cronograma de execução com checkpoints.",
+    "Implementar funções de cálculo e consolidação de dados.",
+    "Registrar aprendizados em relatório técnico sucinto."
+  ],
+  "outcomes": [
+    "Entrega código funcional versionado em repositório indicado.",
+    "Apresenta relatório com casos de teste e resultados esperados.",
+    "Discute melhorias futuras e limitações encontradas."
+  ],
+  "prerequisites": [
+    "Ter concluído as aulas 17 a 23.",
+    "Saber usar Git básico (clone, commit, push)."
+  ],
+  "tags": ["atividade-assincrona", "integracao", "projeto"],
+  "duration": 180,
+  "modality": "async",
+  "resources": [
+    {
+      "label": "Repositório base no GitHub Classroom",
+      "url": "https://github.com/example-classroom/algi-integracao",
+      "type": "repository"
+    },
+    {
+      "label": "Guia de entrega",
+      "url": "https://example.edu/algi/guias/atividade-integracao.pdf",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "ROBERTSON, J. Dominando Git e GitHub. Novatec, 2023.",
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Projeto individual com rubrica avaliando funcionalidade, clareza de código e documentação."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Cronograma sugerido (até 3h)",
+      "items": [
+        "(30 min) Leitura do enunciado e planejamento dos módulos.",
+        "(70 min) Implementação incremental das funcionalidades.",
+        "(30 min) Testes e ajustes com dados fornecidos.",
+        "(20 min) Redação do relatório técnico e checklist final.",
+        "(20 min) Upload no repositório e envio do formulário de entrega."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Descrição da atividade",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente um sistema de acompanhamento de vendas semanais para uma loja local."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Entrada",
+              "text": "Arquivo texto com dia da semana, categoria e valor da venda."
+            },
+            {
+              "title": "Processamento",
+              "text": "Agrupar valores por categoria e calcular média diária."
+            },
+            {
+              "title": "Saída",
+              "text": "Relatório com totais por categoria, dia mais lucrativo e alertas de metas não atingidas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "pseudo",
+      "title": "Estrutura sugerida",
+      "code": "fun main() {\n  dados <- lerArquivo(\"vendas.txt\");\n  totais <- agruparPorCategoria(dados);\n  metas <- carregarMetas();\n  gerarRelatorio(totais, metas);\n}\n"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Entregáveis",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            "Código fonte organizado em pastas src/ e docs/.",
+            "Arquivo README.md com instruções de execução.",
+            "Relatório PDF (máx. 2 páginas) com evidências de testes."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist antes do envio",
+      "items": [
+        "Executar testes com arquivo de exemplo e pelo menos um arquivo criado pelo aluno.",
+        "Confirmar que todos os commits possuem mensagens descritivas.",
+        "Preencher formulário de autoavaliação indicado no repositório."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T12:30:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia de projetos assíncronos"]
+  }
+}

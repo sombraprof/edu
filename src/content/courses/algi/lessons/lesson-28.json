@@ -1,0 +1,129 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-28",
+  "title": "Aula 28: Boas Práticas em Funções",
+  "summary": "Discute princípios de design limpo aplicados a funções: coesão, baixo acoplamento, documentação, testes e métricas de complexidade.",
+  "objective": "Aprimorar funções existentes aplicando refatorações, padronização de nomes e cobertura de testes.",
+  "objectives": [
+    "Identificar code smells em funções extensas ou com responsabilidades múltiplas.",
+    "Aplicar refatorações como extração de funções e eliminação de variáveis globais desnecessárias.",
+    "Construir testes automatizados que garantam regressão mínima após mudanças."
+  ],
+  "competencies": ["Qualidade de software", "Pensamento crítico", "Comunicação técnica"],
+  "skills": [
+    "Medir complexidade ciclomática básica.",
+    "Escrever documentação clara utilizando comentários padronizados.",
+    "Refatorar funções mantendo comportamento observável."
+  ],
+  "outcomes": [
+    "Entrega relatório de refatoração com justificativas.",
+    "Publica testes automatizados que cobrem cenários críticos.",
+    "Reduz complexidade média das funções analisadas."
+  ],
+  "prerequisites": [
+    "Compreender modularização e parâmetros (aulas 25-27).",
+    "Ter acesso ao código desenvolvido na aula anterior."
+  ],
+  "tags": ["funcoes", "refatoracao", "qualidade"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de revisão de código",
+      "url": "https://example.edu/algi/checklists/revisao-funcoes.pdf",
+      "type": "guide"
+    },
+    {
+      "label": "Ferramenta Lizard para complexidade",
+      "url": "https://github.com/terryyin/lizard",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "MARTIN, R. C. Código Limpo. Alta Books, 2021.",
+    "SOUZA, C. Boas Práticas em C. Novatec, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Revisão por pares de funções selecionadas com rubrica de qualidade."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Apresentação dos critérios de qualidade.",
+        "(20 min) Análise coletiva de uma função problemática.",
+        "(35 min) Refatoração orientada com apoio do professor.",
+        "(25 min) Sessão de revisão por pares e feedback escrito.",
+        "(15 min) Planejamento de melhoria contínua e registro em backlog."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Sinais de alerta",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            "Funções com muitos parâmetros (mais de 4).",
+            "Variáveis globais utilizadas para compartilhar estado.",
+            "Comentários excessivos tentando explicar lógica complicada."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Técnicas de refatoração",
+      "headers": ["Problema", "Solução sugerida"],
+      "rows": [
+        [{ "value": "Função longa" }, { "value": "Extrair funções menores" }],
+        [{ "value": "Parâmetros demais" }, { "value": "Criar struct ou contexto" }],
+        [{ "value": "Dependência global" }, { "value": "Passar parâmetros ou usar retorno" }]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Documentação padronizada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Adote comentários no formato indicado para registrar propósito, parâmetros e retorno."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "// Calcula o total de itens acima do limite informado.\n// param valores: vetor com quantidades.\n// param tamanho: total de posições válidas.\n// param limite: valor mínimo considerado.\n// return quantidade de itens acima do limite.\nint contarAcima(int valores[], int tamanho, int limite) { ... }"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Métrica sugerida",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize a complexidade ciclomática como indicador inicial; valores até 10 são aceitáveis na maioria dos casos simples."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de revisão",
+      "items": [
+        "A função possui apenas uma responsabilidade clara.",
+        "Todos os caminhos são cobertos por testes.",
+        "Não há variáveis globais desnecessárias.",
+        "Comentários descrevem o porquê, não o como."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T13:10:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Manual interno de qualidade"]
+  }
+}

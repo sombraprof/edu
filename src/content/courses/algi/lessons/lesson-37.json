@@ -1,0 +1,115 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-37",
+  "title": "Aula 37: Busca e Atualização em Vetores de Structs",
+  "summary": "Aprofunda o gerenciamento de coleções de structs com operações de busca, atualização e remoção lógica.",
+  "objective": "Implementar rotinas de manutenção de registros em vetores de structs, garantindo integridade dos dados.",
+  "objectives": [
+    "Buscar registros por múltiplos critérios (ID e nome).",
+    "Atualizar campos específicos preservando histórico.",
+    "Realizar remoção lógica e reorganização quando necessário."
+  ],
+  "competencies": ["Gestão de dados", "Pensamento crítico", "Qualidade de software"],
+  "skills": [
+    "Utilizar funções auxiliares que retornam ponteiros ou índices.",
+    "Validar dados antes de confirmar atualização.",
+    "Registrar logs das operações realizadas."
+  ],
+  "outcomes": [
+    "Entrega módulo de manutenção completo para o sistema de estoque.",
+    "Documenta cenário de testes com atualizações bem-sucedidas e recusadas.",
+    "Analisa necessidade de compactação do vetor após remoções."
+  ],
+  "prerequisites": ["Compreender vetores de structs (aula 36).", "Dominar laços e condicionais."],
+  "tags": ["structs", "busca", "atualizacao"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Atualização de registros",
+      "url": "https://example.edu/algi/slides/atualizacao-structs.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Template de testes automatizados",
+      "url": "https://example.edu/algi/templates/testes-estoque.c",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021.",
+    "SOUZA, C. Boas Práticas em C. Novatec, 2022."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Entrega de módulo atualizar_produto.c com testes e relatório de logs."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Revisão do vetor de structs da aula anterior.",
+        "(25 min) Estratégias de busca e retorno de índices.",
+        "(30 min) Atualização de campos e validações.",
+        "(25 min) Remoção lógica e compactação opcional.",
+        "(10 min) Checklist e plano de testes."
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Busca por ID",
+      "code": "int encontrarIndicePorId(Produto lista[], int qtde, int id) {\n  for (int i = 0; i < qtde; i++) {\n    if (lista[i].ativo && lista[i].id == id) {\n      return i;\n    }\n  }\n  return -1;\n}\n"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atualização",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int atualizarPreco(Produto lista[], int qtde, int id, double novoPreco) {\n  int indice = encontrarIndicePorId(lista, qtde, id);\n  if (indice == -1 || novoPreco < 0) return 0;\n  lista[indice].preco = novoPreco;\n  return 1;\n}"
+        },
+        { "type": "paragraph", "text": "Valide o novo valor antes de confirmar a alteração." }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Remoção lógica",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int removerProduto(Produto lista[], int qtde, int id) {\n  int indice = encontrarIndicePorId(lista, qtde, id);\n  if (indice == -1) return 0;\n  lista[indice].ativo = 0;\n  return 1;\n}"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Compactação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Após muitas remoções, considere compactar o vetor movendo elementos ativos para o início."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Criar log.txt com operações executadas.",
+        "Testar atualização com dados inválidos (preço negativo).",
+        "Validar busca por nome parcial utilizando strncmp."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T14:30:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Manutenção de registros"]
+  }
+}

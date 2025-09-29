@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2025-09-29T14:17:00.643Z",
+  "generatedAt": "2025-09-29T14:52:54.193Z",
   "status": "passed",
   "totals": {
     "courses": 5,
-    "lessons": 97,
+    "lessons": 115,
     "lessonsWithIssues": 0,
     "problems": 0,
     "warnings": 0
@@ -30,14 +30,14 @@
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-20T12:00:00.000Z",
-            "available": false
+            "available": true
           },
           {
             "id": "lista2",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-20T12:00:00.000Z",
-            "available": false
+            "available": true
           }
         ]
       },

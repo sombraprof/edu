@@ -1,0 +1,122 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-40",
+  "title": "Aula 40: Encerramento e Devolutiva",
+  "summary": "Encontro final dedicado a devolutivas da avaliação NP3, reconhecimento dos resultados do semestre e orientações para continuidade dos estudos.",
+  "objective": "Oferecer feedback individual e coletivo sobre o desempenho, consolidando aprendizados e próximos passos.",
+  "objectives": [
+    "Analisar os principais resultados da NP3 e padrões observados.",
+    "Orientar estudantes sobre recuperação, monitorias e estudos futuros.",
+    "Celebrar conquistas e registrar compromissos para a próxima etapa."
+  ],
+  "competencies": ["Comunicação", "Autogestão", "Pensamento crítico"],
+  "skills": [
+    "Interpretar rubricas e feedbacks quantitativos.",
+    "Definir planos de melhoria contínua.",
+    "Comunicar aprendizados para colegas e docentes."
+  ],
+  "outcomes": [
+    "Recebe devolutiva individual com pontos fortes e oportunidades.",
+    "Entrega registro de plano pessoal pós-curso.",
+    "Participa de roda de conversa sobre aprendizados e desafios."
+  ],
+  "prerequisites": ["Participar da avaliação NP3.", "Trazer dúvidas e reflexões anotadas."],
+  "tags": ["encerramento", "feedback", "planejamento"],
+  "duration": 90,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Relatório consolidado de desempenho",
+      "url": "https://example.edu/algi/relatorios/desempenho-2025.pdf",
+      "type": "report"
+    },
+    {
+      "label": "Template de plano pós-curso",
+      "url": "https://example.edu/algi/templates/plano-pos-curso.docx",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "BROOKS, F. Mitos do Homem-Mês. Novatec, 2020.",
+    "SILVA, J. Aprendizado Autodirigido em Computação. EDUF, 2022."
+  ],
+  "assessment": {
+    "type": "feedback",
+    "description": "Devolutiva qualitativa com rubrica individual e registro de autoavaliação."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Agenda (1h30)",
+      "items": [
+        "(15 min) Boas-vindas e panorama dos resultados.",
+        "(25 min) Devolutivas individuais/duplas.",
+        "(20 min) Dinâmica de reconhecimento e celebração.",
+        "(20 min) Planejamento de continuidade e programas de monitoria.",
+        "(10 min) Encerramento e agradecimentos."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Panorama da turma",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Apresentar gráficos com distribuição de notas, evolução e comparativo com metas do curso."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Percentual de aprovação.",
+            "Média geral e desvio padrão.",
+            "Tópicos que exigem reforço."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Plano pós-curso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Preencher o template com objetivos de curto prazo, recursos a utilizar e prazos de revisão."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roda de conversa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Momento aberto para compartilhar aprendizados, desafios e sugestões para próximas turmas."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "O que mais te ajudou a aprender?",
+            "Qual desafio ainda permanece?",
+            "Que conselho daria para a próxima turma?"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist final",
+      "items": [
+        "Receber feedback escrito assinado pelo docente.",
+        "Entregar autoavaliação preenchida.",
+        "Registrar contato da monitoria e canais de apoio."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T14:50:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de encerramento 2024.2"]
+  }
+}

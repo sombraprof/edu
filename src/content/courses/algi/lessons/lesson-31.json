@@ -1,0 +1,122 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-31",
+  "title": "Aula 31: Operações sobre Vetores",
+  "summary": "Explora operações comuns em vetores: soma acumulada, normalização, ordenação simples e geração de relatórios sumarizados.",
+  "objective": "Implementar operações variadas sobre vetores reutilizando funções auxiliares e boas práticas de teste.",
+  "objectives": [
+    "Criar funções que calculem soma, média, menor e maior valor.",
+    "Implementar ordenação simples (bubble sort) para pequenos conjuntos.",
+    "Gerar relatórios textuais com os resultados das operações."
+  ],
+  "competencies": ["Análise de dados", "Pensamento algorítmico", "Organização de código"],
+  "skills": [
+    "Compor funções que recebem vetores e tamanhos como parâmetros.",
+    "Validar entradas e tratar vetores vazios.",
+    "Utilizar laços aninhados para ordenação básica."
+  ],
+  "outcomes": [
+    "Entrega biblioteca com funções utilitárias para vetores.",
+    "Documenta relatórios produzidos em formato tabular.",
+    "Avalia custo computacional aproximado das operações."
+  ],
+  "prerequisites": [
+    "Dominar percorrimento de vetores (aula 30).",
+    "Conhecer funções e passagem de parâmetros."
+  ],
+  "tags": ["vetores", "operacoes", "ordenacao"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Operações em vetores",
+      "url": "https://example.edu/algi/slides/vetores-operacoes.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Ferramenta de visualização de bubble sort",
+      "url": "https://visualgo.net/en/sorting",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. G. Algoritmos - Teoria e Prática. Elsevier, 2021.",
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Desafio avaliativo com quatro funções obrigatórias e testes automatizados."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Recapitulação das operações básicas.",
+        "(30 min) Implementação ao vivo do bubble sort.",
+        "(30 min) Atividade em duplas: biblioteca utilitária.",
+        "(20 min) Construção de relatório com formatação printf.",
+        "(10 min) Discussão sobre desempenho e alternativas."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Funções utilitárias",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            "int soma(int v[], int n)",
+            "double media(int v[], int n)",
+            "int minimo(int v[], int n)",
+            "int maximo(int v[], int n)"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Bubble sort",
+      "code": "void ordenar(int v[], int n) {\n  for (int i = 0; i < n - 1; i++) {\n    for (int j = 0; j < n - i - 1; j++) {\n      if (v[j] > v[j + 1]) {\n        int temp = v[j];\n        v[j] = v[j + 1];\n        v[j + 1] = temp;\n      }\n    }\n  }\n}\n"
+    },
+    {
+      "type": "md3Table",
+      "title": "Relatório exemplo",
+      "headers": ["Métrica", "Valor"],
+      "rows": [
+        [{ "value": "Quantidade" }, { "value": "10" }],
+        [{ "value": "Soma" }, { "value": "456" }],
+        [{ "value": "Média" }, { "value": "45,6" }],
+        [{ "value": "Min" }, { "value": "12" }],
+        [{ "value": "Max" }, { "value": "98" }]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Complexidade",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O bubble sort possui complexidade O(n^2). Para vetores pequenos (n < 200) é aceitável em nosso contexto."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Validar tamanho do vetor antes de operar.",
+        "Reutilizar funções auxiliares ao gerar relatórios.",
+        "Registrar tempo aproximado de execução para diferentes tamanhos."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T13:30:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Operações em vetores"]
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-32",
+  "title": "Aula 32: Busca e Contagem em Vetores",
+  "summary": "Investiga técnicas de busca sequencial, contagem de ocorrências e uso de sentinelas em vetores, aplicando casos reais de cadastro e inventário.",
+  "objective": "Construir rotinas de busca e contagem eficientes para vetores pequenos e médios.",
+  "objectives": [
+    "Implementar busca sequencial com retorno de índice ou flag.",
+    "Contar ocorrências e frequências de valores específicos.",
+    "Aplicar sentinelas e condições de parada para otimizar loops."
+  ],
+  "competencies": ["Análise de dados", "Resolução de problemas", "Pensamento crítico"],
+  "skills": [
+    "Aplicar loops com interrupção antecipada (break).",
+    "Criar funções que retornam múltiplas informações via parâmetros auxiliares.",
+    "Documentar casos de teste que cobrem presença e ausência de itens."
+  ],
+  "outcomes": [
+    "Entrega programas que pesquisam produtos ou usuários em vetores.",
+    "Relata frequências em formato de tabela ou histograma textual.",
+    "Analisa custo da busca sequencial e discute alternativas."
+  ],
+  "prerequisites": [
+    "Percorrer vetores e manipular laços (aulas 30 e 31).",
+    "Conhecer operadores relacionais e lógicos."
+  ],
+  "tags": ["vetores", "busca", "contagem"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Busca em vetores",
+      "url": "https://example.edu/algi/slides/busca-contagem.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Planilha de registro de testes",
+      "url": "https://example.edu/algi/planilhas/testes-busca.xlsx",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022.",
+    "LAFORE, R. Estruturas de Dados e Algoritmos em C. Pearson, 2018."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Laboratório avaliativo com busca de clientes, contagem por categoria e relatório sumarizado."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Relembrar percorrimento de vetores.",
+        "(25 min) Implementar busca sequencial passo a passo.",
+        "(30 min) Contagem de frequências em grupo.",
+        "(25 min) Discussão de otimizações com sentinelas.",
+        "(10 min) Checklist de testes e documentação."
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Busca sequencial",
+      "code": "int buscar(int v[], int n, int alvo) {\n  for (int i = 0; i < n; i++) {\n    if (v[i] == alvo) {\n      return i;\n    }\n  }\n  return -1;\n}\n"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Contagem de frequências",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize vetores auxiliares para armazenar contagens por categoria."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int contadores[10] = {0};\nfor (int i = 0; i < n; i++) {\n  if (valores[i] >= 0 && valores[i] < 10) {\n    contadores[valores[i]]++;\n  }\n}"
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Tabela de frequências",
+      "headers": ["Categoria", "Ocorrências"],
+      "rows": [
+        [{ "value": "0" }, { "value": "5" }],
+        [{ "value": "1" }, { "value": "2" }],
+        [{ "value": "2" }, { "value": "0" }],
+        [{ "value": "3" }, { "value": "4" }]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Sentinela",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma sentinela adicionada ao final do vetor pode reduzir comparações quando conhecemos o valor alvo."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Validar se o vetor não está vazio antes da busca.",
+        "Tratar valores não encontrados retornando -1 ou flag.",
+        "Registrar casos de teste com elementos duplicados."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T13:40:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Busca e contagem"]
+  }
+}

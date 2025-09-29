@@ -1,0 +1,151 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-22",
+  "title": "Aula 22: Integração de Condicionais e Laços",
+  "summary": "Discute estratégias para combinar estruturas de decisão com laços de repetição, controlando fluxos complexos que respondem a entradas variáveis.",
+  "objective": "Projetar algoritmos que unem condicionais e laços para tratar diferentes cenários sem duplicar código.",
+  "objectives": [
+    "Modelar problemas que exigem validação em tempo de execução durante uma repetição.",
+    "Reescrever decisões redundantes dentro de laços usando funções auxiliares e flags.",
+    "Avaliar impactos de cada combinação na legibilidade e na complexidade."
+  ],
+  "competencies": ["Pensamento crítico", "Organização algorítmica", "Comunicação técnica"],
+  "skills": [
+    "Construir fluxogramas que evidenciem ramificações internas ao laço.",
+    "Implementar guardas condicionais para interrupção ou continuação do loop.",
+    "Relatar casos de teste que validem ramos verdadeiros e falsos em uma mesma execução."
+  ],
+  "outcomes": [
+    "Implementa menus interativos com estruturas de repetição e decisão integradas.",
+    "Aplica validação de entrada contínua até receber dados corretos.",
+    "Documenta justificativas para o uso de break, continue ou variáveis sentinela."
+  ],
+  "prerequisites": [
+    "Conhecer if/else encadeado e laços while/for.",
+    "Ter praticado leitura de dados em laços."
+  ],
+  "tags": ["condicionais", "loops", "controle-de-fluxo"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Condicionais dentro de loops",
+      "url": "https://example.edu/algi/slides/condicionais-loops.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Ambiente Code::Blocks",
+      "url": "https://www.codeblocks.org/downloads/",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021.",
+    "DEITEL, P.; DEITEL, H. C Como Programar. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Mini projeto incremental: menu de operações bancárias com persistência simples em memória."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Discussão guiada de exemplos de validação de entrada.",
+        "(25 min) Demonstração de um menu interativo com while + switch.",
+        "(30 min) Pair programming: simulador de caixa registradora.",
+        "(20 min) Revisão coletiva de código destacando padrões de decisão.",
+        "(15 min) Registro de testes automatizados simples (asserts)."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estratégias de controle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A integração de condicionais e laços permite responder a diferentes cenários durante a execução repetitiva, reduzindo duplicidade de código."
+        },
+        {
+          "type": "roadmap",
+          "steps": [
+            {
+              "title": "Flag de controle",
+              "description": "Booleano que determina se o laço continua ou encerra."
+            },
+            {
+              "title": "Guarda de entrada",
+              "description": "Condição que valida dados antes de processar cada ciclo."
+            },
+            {
+              "title": "Ação por menu",
+              "description": "Uso de switch/if para escolher ações diferentes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Menu com validação de entrada",
+      "code": "int opcao;\nbool ativo = true;\nfloat saldo = 0.0f;\nwhile (ativo) {\n  printf(\"1-Depositar\\n2-Sacar\\n3-Consultar\\n0-Sair\\nEscolha: \");\n  if (scanf(\"%d\", &opcao) != 1) {\n    puts(\"Entrada inválida. Reiniciando...\");\n    while (getchar() != '\\n');\n    continue;\n  }\n  switch (opcao) {\n    case 1: {\n      float valor;\n      printf(\"Valor: \");\n      scanf(\"%f\", &valor);\n      if (valor > 0) saldo += valor;\n      else puts(\"Depósito precisa ser positivo.\");\n      break;\n    }\n    case 2: {\n      float valor;\n      printf(\"Valor: \");\n      scanf(\"%f\", &valor);\n      if (valor > 0 && valor <= saldo) saldo -= valor;\n      else puts(\"Saque inválido.\");\n      break;\n    }\n    case 3:\n      printf(\"Saldo: %.2f\\n\", saldo);\n      break;\n    case 0:\n      ativo = false;\n      break;\n    default:\n      puts(\"Opção inexistente.\");\n  }\n}\nprintf(\"Programa encerrado.\");\n"
+    },
+    {
+      "type": "md3Table",
+      "title": "Escolhendo a estrutura adequada",
+      "headers": ["Cenário", "Laço sugerido", "Condição interna"],
+      "rows": [
+        [
+          { "value": "Validação até receber entrada válida" },
+          { "value": "do-while" },
+          { "value": "if/else para mensagens" }
+        ],
+        [
+          { "value": "Menu com opções" },
+          { "value": "while infinito" },
+          { "value": "switch ou if encadeado" }
+        ],
+        [
+          { "value": "Processamento de lista" },
+          { "value": "for" },
+          { "value": "if para filtrar elementos" }
+        ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Separe a leitura da validação e do processamento em funções sempre que possível."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Evite duplicar condicionais em cada ramo.",
+            "Prefira nomes descritivos para flags (ex.: continuarProcesso).",
+            "Documente os motivos para sair antecipadamente do laço."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist do projeto",
+      "items": [
+        "Cobrir ao menos três cenários de erro durante os testes.",
+        "Registrar exemplos de execução com dados válidos e inválidos.",
+        "Submeter o código no repositório compartilhado com comentários finais."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T12:10:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia de exercícios integrados"]
+  }
+}

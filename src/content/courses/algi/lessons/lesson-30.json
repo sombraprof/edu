@@ -1,0 +1,119 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-30",
+  "title": "Aula 30: Introdução a Vetores (Arrays)",
+  "summary": "Apresenta o conceito de vetores em C, incluindo declaração, inicialização, acesso por índice e percorrimento com laços.",
+  "objective": "Manipular vetores unidimensionais para armazenar sequências de dados homogêneos.",
+  "objectives": [
+    "Declarar vetores com tamanhos fixos e inicializações adequadas.",
+    "Acessar e atualizar elementos utilizando índices válidos.",
+    "Percorrer vetores com laços para ler, processar e imprimir valores."
+  ],
+  "competencies": ["Pensamento computacional", "Modelagem de dados", "Resolução de problemas"],
+  "skills": [
+    "Definir vetores estáticos com valores iniciais.",
+    "Implementar loops que percorrem vetores de forma segura.",
+    "Detectar e evitar acessos fora do intervalo."
+  ],
+  "outcomes": [
+    "Entrega programas que leem vetores e calculam métricas simples.",
+    "Apresenta tabelas de índices e valores para depuração.",
+    "Documenta limitações de tamanho e possíveis melhorias."
+  ],
+  "prerequisites": ["Dominar laços e condicionais.", "Conhecer tipos básicos (int, float, char)."],
+  "tags": ["vetores", "arrays", "estrutura-de-dados"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Vetores",
+      "url": "https://example.edu/algi/slides/vetores-intro.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Planilha de testes de mesa para vetores",
+      "url": "https://example.edu/algi/planilhas/vetores.xlsx",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022.",
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Lista guiada com exercícios de leitura, soma e busca simples em vetores."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Motivação com exemplos de listas e tabelas.",
+        "(20 min) Sintaxe básica: declaração, inicialização, acesso.",
+        "(30 min) Laboratório: leitura de notas de alunos.",
+        "(25 min) Discussão sobre limites e validações.",
+        "(10 min) Exercícios de fixação e checklist final."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Declarando vetores",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um vetor é uma sequência de elementos do mesmo tipo acessados por índices."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int numeros[5] = {10, 20, 30, 40, 50};\nfloat temperaturas[7];\nchar iniciais[] = {'A', 'B', 'C'};"
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Índices e valores",
+      "headers": ["Índice", "Valor"],
+      "rows": [
+        [{ "value": "0" }, { "value": "10" }],
+        [{ "value": "1" }, { "value": "20" }],
+        [{ "value": "2" }, { "value": "30" }],
+        [{ "value": "3" }, { "value": "40" }],
+        [{ "value": "4" }, { "value": "50" }]
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Percorrendo vetor",
+      "code": "int soma = 0;\nfor (int i = 0; i < 5; i++) {\n  soma += numeros[i];\n}\nprintf(\"Soma: %d\\n\", soma);\n"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Cuidado com limites",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Acessar índices menores que 0 ou maiores que tamanho-1 causa comportamento indefinido."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Inicializar vetores antes de usar.",
+        "Utilizar constantes para representar tamanho.",
+        "Validar entradas antes de armazenar no vetor."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T13:20:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Vetores"]
+  }
+}

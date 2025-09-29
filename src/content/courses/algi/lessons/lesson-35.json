@@ -1,0 +1,122 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-35",
+  "title": "Aula 35: Introdução a Structs (Registros)",
+  "summary": "Apresenta structs como forma de agrupar dados heterogêneos, abordando declaração, acesso a campos e atribuição.",
+  "objective": "Modelar entidades do mundo real utilizando structs em C para organizar dados relacionados.",
+  "objectives": [
+    "Declarar structs com campos de tipos variados.",
+    "Instanciar variáveis de struct e acessar campos com o operador ponto.",
+    "Inicializar structs por atribuição e por listas de inicialização."
+  ],
+  "competencies": ["Modelagem de dados", "Abstração", "Organização algorítmica"],
+  "skills": [
+    "Criar definições de struct em cabeçalhos dedicados.",
+    "Documentar significado de cada campo e suas unidades.",
+    "Construir funções que recebem structs por valor."
+  ],
+  "outcomes": [
+    "Entrega programas que manipulam cadastros simples com structs.",
+    "Produz diagramas relacionando campos e tipos.",
+    "Discute vantagens de usar structs em vez de múltiplos vetores paralelos."
+  ],
+  "prerequisites": [
+    "Dominar tipos básicos e vetores.",
+    "Conhecer funções e passagem de parâmetros."
+  ],
+  "tags": ["structs", "registros", "modelagem"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Structs",
+      "url": "https://example.edu/algi/slides/structs.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Diagrama de entidade simples",
+      "url": "https://example.edu/algi/diagramas/cliente.svg",
+      "type": "diagram"
+    }
+  ],
+  "bibliography": [
+    "KERNIGHAN, B.; RITCHIE, D. Linguagem de Programação C. Pearson, 2019.",
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Exercícios guiados de criação de registros de clientes e produtos."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Motivação com exemplos de cadastros reais.",
+        "(25 min) Sintaxe de declaração e inicialização.",
+        "(30 min) Laboratório: cadastro de clientes.",
+        "(25 min) Discussão sobre funções que recebem structs.",
+        "(10 min) Checklist e tarefas para a aula 36."
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Declaração de struct",
+      "code": "typedef struct {\n  int id;\n  char nome[50];\n  char email[60];\n  double saldo;\n} Cliente;\n"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Instanciação e acesso",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "Cliente c1 = {1001, \"Ana Lima\", \"ana@example.com\", 1500.0};\nprintf(\"Nome: %s\\n\", c1.nome);\nc1.saldo += 200.0;"
+        },
+        { "type": "paragraph", "text": "Utilize operador ponto para acessar e modificar campos." }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Mapeando campos",
+      "headers": ["Campo", "Tipo", "Descrição"],
+      "rows": [
+        [{ "value": "id" }, { "value": "int" }, { "value": "Identificador único" }],
+        [{ "value": "nome" }, { "value": "char[50]" }, { "value": "Nome completo" }],
+        [{ "value": "email" }, { "value": "char[60]" }, { "value": "Contato principal" }],
+        [{ "value": "saldo" }, { "value": "double" }, { "value": "Saldo em conta" }]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            "Prefira typedef para evitar repetição de struct ao declarar variáveis.",
+            "Mantenha nomes consistentes com o domínio do problema.",
+            "Defina tamanhos de strings com folga para entrada do usuário."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Garantir inicialização de todos os campos.",
+        "Criar função imprimirCliente que recebe struct por valor.",
+        "Registrar testes de inserção e atualização."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T14:10:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Structs"]
+  }
+}

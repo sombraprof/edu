@@ -102,5 +102,31 @@
       "withoutMetadata": 0,
       "completeness": 1
     }
+  },
+  {
+    "generatedAt": "2025-09-29T14:53:03.276Z",
+    "lessons": {
+      "total": 117,
+      "available": 115,
+      "unavailable": 2,
+      "md3Blocks": 882,
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "totalBlocks": 910,
+      "md3Coverage": 0.9692307692307692,
+      "legacyCoverage": 0
+    },
+    "exercises": {
+      "total": 10,
+      "withMetadata": 10,
+      "withoutMetadata": 0,
+      "completeness": 1
+    },
+    "supplements": {
+      "total": 5,
+      "withMetadata": 5,
+      "withoutMetadata": 0,
+      "completeness": 1
+    }
   }
 ]

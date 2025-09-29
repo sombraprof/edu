@@ -1,0 +1,130 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-26",
+  "title": "Aula 26: Funções com Parâmetros e Retorno",
+  "summary": "Aprofunda o uso de funções definindo parâmetros por valor, múltiplas chamadas e retornos significativos para compor algoritmos reutilizáveis.",
+  "objective": "Implementar funções que recebem dados, processam internamente e devolvem resultados consistentes para a função chamadora.",
+  "objectives": [
+    "Declarar funções com diferentes combinações de tipos primitivos como parâmetros.",
+    "Controlar o fluxo de retorno com instruções return e validações.",
+    "Reutilizar funções em diferentes contextos reduzindo duplicação de código."
+  ],
+  "competencies": ["Pensamento algorítmico", "Abstração", "Qualidade de código"],
+  "skills": [
+    "Validar argumentos recebidos antes de processar.",
+    "Aplicar early return para simplificar lógica interna.",
+    "Combinar chamadas de funções em expressões mais complexas."
+  ],
+  "outcomes": [
+    "Entrega bibliotecas simples com funções matemáticas e de formatação.",
+    "Demonstra testes unitários básicos usando assert.",
+    "Explica o ciclo de chamada de uma função com diagramas."
+  ],
+  "prerequisites": [
+    "Conhecer sintaxe básica de funções (aula 25).",
+    "Revisar operadores aritméticos e condicionais."
+  ],
+  "tags": ["funcoes", "parametros", "retorno"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Parâmetros e retorno",
+      "url": "https://example.edu/algi/slides/funcoes-parametros.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Biblioteca assert.h",
+      "url": "https://en.cppreference.com/w/c/assert",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "DEITEL, P.; DEITEL, H. C Como Programar. Pearson, 2020.",
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Laboratório com funções que calculam estatísticas (mínimo, máximo, média) para conjuntos numéricos."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Retomada de protótipos com exemplos práticos.",
+        "(30 min) Implementação ao vivo de funções com retorno.",
+        "(30 min) Exercício em equipes: biblioteca de cálculos estatísticos.",
+        "(20 min) Discussão de diagramas de pilha de execução.",
+        "(10 min) Registro de dúvidas e plano para aula 27."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Parâmetros e escopo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os parâmetros são cópias dos valores enviados pela função chamadora (passagem por valor)."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Os valores originais não são alterados na função chamadora.",
+            "Variáveis locais existem apenas durante a execução da função.",
+            "Constantes podem ser usadas para indicar parâmetros que não devem ser modificados."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Estatísticas com funções",
+      "code": "double media(int total, int soma) {\n  if (total <= 0) {\n    return 0.0;\n  }\n  return (double)soma / total;\n}\n\nint maior(int valores[], int tamanho) {\n  int max = valores[0];\n  for (int i = 1; i < tamanho; i++) {\n    if (valores[i] > max) {\n      max = valores[i];\n    }\n  }\n  return max;\n}\n"
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo de chamada",
+      "nodes": [
+        { "id": "main", "type": "start", "title": "main()" },
+        { "id": "callMedia", "type": "process", "title": "Chamar media" },
+        { "id": "returnMedia", "type": "process", "title": "Retornar valor" },
+        { "id": "callMaior", "type": "process", "title": "Chamar maior" },
+        { "id": "returnMaior", "type": "end", "title": "Retorno" }
+      ],
+      "connections": [
+        { "from": "main", "to": "callMedia" },
+        { "from": "callMedia", "to": "returnMedia" },
+        { "from": "returnMedia", "to": "callMaior" },
+        { "from": "callMaior", "to": "returnMaior" }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Retornos múltiplos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Garanta que todas as rotas da função retornem valores coerentes com o tipo declarado."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de testes",
+      "items": [
+        "Testar função com entrada válida, inválida e limites.",
+        "Verificar valores retornados com assert.",
+        "Documentar no relatório quais casos foram executados."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T12:50:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Estatística básica"]
+  }
+}

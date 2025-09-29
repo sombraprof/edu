@@ -1,0 +1,168 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-21",
+  "title": "Aula 21: Problemas com Laços e Laços Aninhados",
+  "summary": "Amplia o repertório de repetição com problemas que exigem controle preciso de contadores, acumuladores e laços aninhados para percorrer múltiplas dimensões de dados.",
+  "objective": "Resolver problemas que combinem laços simples e aninhados, garantindo correta inicialização, condição e atualização das variáveis de controle.",
+  "objectives": [
+    "Identificar padrões que demandam laços aninhados e desenhá-los com clareza.",
+    "Sincronizar contadores internos e externos evitando loops infinitos ou execuções desnecessárias.",
+    "Aplicar estratégias de depuração para localizar erros lógicos em soluções com múltiplos níveis de repetição."
+  ],
+  "competencies": [
+    "Pensamento computacional",
+    "Resolução de problemas",
+    "Raciocínio lógico-matemático"
+  ],
+  "skills": [
+    "Planejar laços externos e internos com limites e incrementos coerentes.",
+    "Documentar invariantes que garantem o término correto das repetições.",
+    "Utilizar ferramentas de depuração ou saídas intermediárias para validar fluxos aninhados."
+  ],
+  "outcomes": [
+    "Entrega algoritmos que percorrem matrizes ou tabelas bidimensionais com precisão.",
+    "Justifica a escolha de contadores e acumuladores em cada nível do laço.",
+    "Registra testes cobrindo casos-base, limites superiores e cenários excepcionais."
+  ],
+  "prerequisites": [
+    "Dominar laços while e for simples.",
+    "Conhecer operadores relacionais e lógicos."
+  ],
+  "tags": ["loops", "nested-loops", "algoritmos"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Laços Aninhados",
+      "url": "https://example.edu/algi/slides/loops-aninhados.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Repl.it compartilhado",
+      "url": "https://replit.com/team/algi/loop-nesting",
+      "type": "workspace"
+    }
+  ],
+  "bibliography": [
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. Algoritmos: Lógica para Desenvolvimento de Programas. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Lista curta com três problemas envolvendo laços aninhados e análise de complexidade intuitiva."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Aquecimento com revisão rápida de for e while.",
+        "(20 min) Apresentação de padrões de laços aninhados em matrizes e tabelas.",
+        "(35 min) Laboratório guiado: construção de uma tabuada completa.",
+        "(25 min) Desafio em duplas: gerar relatórios cruzando duas categorias de dados.",
+        "(15 min) Debriefing e checklist de testes para loops aninhados."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Quando usar laços aninhados?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilizamos laços aninhados quando precisamos percorrer coleções multidimensionais ou repetir uma tarefa para cada valor de outra repetição."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Processar matrizes (linhas x colunas).",
+            "Gerar combinações entre dois conjuntos de valores.",
+            "Iterar sobre listas de listas ou estruturas hierárquicas simples."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Cuidado",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Sempre garanta que os incrementos dos laços interno e externo caminham para a condição de parada; do contrário, o programa poderá travar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Mapeando limites",
+      "headers": ["Laço", "Variável", "Limite inicial", "Limite final"],
+      "rows": [
+        [
+          { "value": "Externo" },
+          { "value": "linha" },
+          { "value": "0" },
+          { "value": "totalLinhas - 1" }
+        ],
+        [
+          { "value": "Interno" },
+          { "value": "coluna" },
+          { "value": "0" },
+          { "value": "totalColunas - 1" }
+        ],
+        [
+          { "value": "Acumulador" },
+          { "value": "soma" },
+          { "value": "0" },
+          { "value": "Atualizado a cada iteração" }
+        ]
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Somando elementos de uma matriz 3x3",
+      "code": "int soma = 0;\nint matriz[3][3] = {\n  {2, 4, 6},\n  {1, 3, 5},\n  {8, 0, -2}\n};\nfor (int linha = 0; linha < 3; linha++) {\n  for (int coluna = 0; coluna < 3; coluna++) {\n    soma += matriz[linha][coluna];\n    printf(\"Processando [%d][%d] -> soma parcial: %d\\n\", linha, coluna, soma);\n  }\n}\nprintf(\"Resultado final: %d\\n\", soma);\n"
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo de geração de tabuada",
+      "nodes": [
+        { "id": "start", "type": "start", "title": "Início" },
+        { "id": "leitura", "type": "input", "title": "Ler número base" },
+        { "id": "loopExterno", "type": "process", "title": "Para multiplicador de 1 a 10" },
+        { "id": "loopInterno", "type": "process", "title": "Para fator de 1 a 10" },
+        { "id": "saida", "type": "process", "title": "Imprimir produto" },
+        { "id": "fim", "type": "end", "title": "Fim" }
+      ],
+      "connections": [
+        { "from": "start", "to": "leitura" },
+        { "from": "leitura", "to": "loopExterno" },
+        { "from": "loopExterno", "to": "loopInterno" },
+        { "from": "loopInterno", "to": "saida" },
+        { "from": "saida", "to": "loopInterno", "kind": "loop", "label": "Próximo fator" },
+        {
+          "from": "loopInterno",
+          "to": "loopExterno",
+          "kind": "loop",
+          "label": "Próximo multiplicador"
+        },
+        { "from": "loopExterno", "to": "fim", "label": "Após 10" }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de depuração",
+      "items": [
+        "Verificar inicialização de contadores em cada laço.",
+        "Testar menor e maior tamanho de dados esperados.",
+        "Inserir mensagens de log apenas enquanto necessário para não poluir a saída final."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia de laboratórios - Unidade V"]
+  }
+}

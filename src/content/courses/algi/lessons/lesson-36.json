@@ -1,0 +1,117 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-36",
+  "title": "Aula 36: Vetores de Structs",
+  "summary": "Mostra como armazenar coleções de registros usando vetores de structs, realizando operações de inserção, listagem e busca.",
+  "objective": "Gerenciar coleções de structs em vetores com operações básicas de CRUD simplificado.",
+  "objectives": [
+    "Declarar vetores de structs com tamanho fixo.",
+    "Implementar funções para inserir, listar e buscar registros.",
+    "Aplicar estratégias de marcação para indicar posições livres ou ocupadas."
+  ],
+  "competencies": ["Modelagem de dados", "Resolução de problemas", "Organização algorítmica"],
+  "skills": [
+    "Controlar índices e contadores de registros ativos.",
+    "Evitar duplicidade de dados ao inserir novos itens.",
+    "Formatar listagens com informações relevantes."
+  ],
+  "outcomes": [
+    "Entrega sistema simples com menu CRUD baseado em vetores de structs.",
+    "Documenta casos de teste para inserção, atualização e busca.",
+    "Analisa limitações de armazenamento estático."
+  ],
+  "prerequisites": [
+    "Conhecer structs (aula 35) e vetores (aulas 30-32).",
+    "Dominar funções e laços."
+  ],
+  "tags": ["structs", "vetores", "crud"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides - Vetores de registros",
+      "url": "https://example.edu/algi/slides/vetores-structs.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Template de menu CRUD",
+      "url": "https://example.edu/algi/templates/menu-crud.c",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021.",
+    "DEITEL, P.; DEITEL, H. C Como Programar. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Laboratório supervisionado com cadastro de estoque utilizando vetores de structs."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Revisão de structs e vetores.",
+        "(25 min) Estrutura do vetor de registros.",
+        "(30 min) Implementação das funções de cadastro.",
+        "(25 min) Testes com cenários de busca e remoção lógica.",
+        "(10 min) Checklist e reflexões."
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Declaração do vetor",
+      "code": "#define MAX_PRODUTOS 100\ntypedef struct {\n  int id;\n  char nome[40];\n  double preco;\n  int ativo;\n} Produto;\nProduto estoque[MAX_PRODUTOS];\nint quantidade = 0;\n"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Inserção",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int inserirProduto(Produto lista[], int *qtde, Produto novo) {\n  if (*qtde >= MAX_PRODUTOS) return 0;\n  lista[*qtde] = novo;\n  lista[*qtde].ativo = 1;\n  (*qtde)++;\n  return 1;\n}"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Listagem",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "void listarProdutos(Produto lista[], int qtde) {\n  printf(\"ID\\tNome\\tPreço\\n\");\n  for (int i = 0; i < qtde; i++) {\n    if (lista[i].ativo) {\n      printf(\"%d\\t%s\\t%.2f\\n\", lista[i].id, lista[i].nome, lista[i].preco);\n    }\n  }\n}"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Duplicidade",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Verifique se o ID já existe antes de inserir um novo registro."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist",
+      "items": [
+        "Inicializar vetor marcando todos como inativos.",
+        "Implementar busca por ID e por nome parcial.",
+        "Registrar log de operações em arquivo texto."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T14:20:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório - Vetores de structs"]
+  }
+}

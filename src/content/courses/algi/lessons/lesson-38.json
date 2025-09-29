@@ -1,0 +1,119 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-38",
+  "title": "Aula 38: Revisão Geral do Semestre",
+  "summary": "Sessão de revisão que integra todos os tópicos do semestre com atividades colaborativas, simulados e planejamento de estudo para a avaliação final.",
+  "objective": "Consolidar conhecimentos de algoritmos sequenciais, condicionais, laços, funções, vetores, matrizes e structs antes da avaliação final.",
+  "objectives": [
+    "Mapear conexões entre os principais tópicos do curso.",
+    "Resolver problemas integradores envolvendo múltiplas estruturas.",
+    "Elaborar plano de estudo personalizado para a NP3."
+  ],
+  "competencies": ["Pensamento sistêmico", "Autogestão", "Colaboração"],
+  "skills": [
+    "Selecionar estratégias adequadas para cada problema.",
+    "Avaliar pontos fortes e fracos individuais.",
+    "Organizar cronograma de estudo com metas específicas."
+  ],
+  "outcomes": [
+    "Entrega mapa conceitual relacionando estruturas e aplicações.",
+    "Resolve simulados com correção comentada.",
+    "Apresenta plano de estudo com recursos e prazos definidos."
+  ],
+  "prerequisites": [
+    "Ter concluído todas as atividades até a aula 37.",
+    "Trazer dúvidas acumuladas do semestre."
+  ],
+  "tags": ["revisao", "integracao", "planejamento"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Simulado NP3",
+      "url": "https://example.edu/algi/simulados/np3.pdf",
+      "type": "assessment"
+    },
+    {
+      "label": "Template de plano de estudo",
+      "url": "https://example.edu/algi/templates/plano-estudo.docx",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022.",
+    "MARTIN, R. C. Código Limpo. Alta Books, 2021."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Simulado diagnóstico com feedback imediato e plano de ações."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Abertura com agenda e expectativas.",
+        "(20 min) Construção coletiva do mapa conceitual.",
+        "(30 min) Simulado cronometrado com correção em pares.",
+        "(25 min) Oficina de dúvidas por estação temática.",
+        "(15 min) Planejamento individual de estudos."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Estações temáticas",
+      "cards": [
+        {
+          "title": "Estruturas de controle",
+          "content": "Condicionais e laços com problemas contextualizados."
+        },
+        { "title": "Funções e modularização", "content": "Refatoração e testes unitários." },
+        { "title": "Vetores e matrizes", "content": "Operações de busca, ordenação e agregação." },
+        { "title": "Structs e registros", "content": "Modelagem de cadastros completos." }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Mapa conceitual",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organize no quadro as ligações entre os tópicos estudados e exemplos práticos."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Condicionais controlam fluxos dentro de funções.",
+            "Vetores servem de base para matrizes e registros.",
+            "Structs agrupam dados alimentados por vetores."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Análise de desempenho",
+      "headers": ["Tópico", "Confiança (1-5)", "Ações"],
+      "rows": [
+        [{ "value": "Laços" }, { "value": "3" }, { "value": "Refazer exercícios 17-21" }],
+        [{ "value": "Funções" }, { "value": "4" }, { "value": "Resolver lista extra" }],
+        [{ "value": "Vetores" }, { "value": "2" }, { "value": "Assistir monitoria de quarta" }]
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist do plano",
+      "items": [
+        "Registrar metas semanais até a NP3.",
+        "Selecionar ao menos três exercícios por tópico.",
+        "Agendar monitorias ou plantões conforme necessidade."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T14:40:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Simulado NP3 2024.2"]
+  }
+}

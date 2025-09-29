@@ -1,0 +1,129 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-27",
+  "title": "Aula 27: Programas Modulares com Múltiplas Funções",
+  "summary": "Organiza programas maiores em módulos com múltiplas funções, enfatizando responsabilidades, diagrama de chamadas e testes integrados.",
+  "objective": "Estruturar aplicações de console em camadas de funções que cooperam entre si, promovendo clareza e reuso.",
+  "objectives": [
+    "Distribuir responsabilidades entre funções de entrada, processamento e saída.",
+    "Criar diagrama de chamadas e identificar dependências cruzadas.",
+    "Implementar testes que cobrem interações entre múltiplas funções."
+  ],
+  "competencies": ["Arquitetura de software", "Pensamento sistêmico", "Colaboração"],
+  "skills": [
+    "Separar funções puras de funções com efeitos colaterais.",
+    "Aplicar modularização por arquivos (headers e fontes).",
+    "Realizar revisão por pares em códigos modulares."
+  ],
+  "outcomes": [
+    "Entrega projeto com funções organizadas em arquivos .h e .c.",
+    "Documenta diagramas de sequência de chamadas.",
+    "Executa testes integrados simulando fluxos completos."
+  ],
+  "prerequisites": [
+    "Dominar declaração e chamada de funções (aulas 25 e 26).",
+    "Conhecer estruturas de repetição e condicionais."
+  ],
+  "tags": ["funcoes", "modularizacao", "arquitetura"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de projeto modular",
+      "url": "https://example.edu/algi/templates/projeto-modular.zip",
+      "type": "template"
+    },
+    {
+      "label": "Ferramenta PlantUML",
+      "url": "https://plantuml.com/pt/sequence-diagram",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "KERNIGHAN, B.; RITCHIE, D. Linguagem de Programação C. Pearson, 2019.",
+    "SOUZA, C. Boas Práticas em C. Novatec, 2022."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Desenvolvimento de um sistema modular para gestão de biblioteca escolar."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Apresentação do problema integrador (biblioteca).",
+        "(25 min) Modelagem do diagrama de chamadas.",
+        "(30 min) Codificação em squads: separar responsabilidades.",
+        "(25 min) Testes integrados e refatorações.",
+        "(10 min) Retrospectiva rápida e registro em diário de bordo."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Papéis das funções",
+      "cards": [
+        { "title": "Entrada", "content": "Funções responsáveis por ler dados e validar campos." },
+        {
+          "title": "Processamento",
+          "content": "Transformam dados e calculam resultados intermediários."
+        },
+        { "title": "Persistência", "content": "Gravam ou recuperam registros em arquivo simples." },
+        { "title": "Interface", "content": "Apresentam menus e interagem com o usuário." }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo principal do sistema",
+      "nodes": [
+        { "id": "start", "type": "start", "title": "main" },
+        { "id": "load", "type": "process", "title": "carregarDados()" },
+        { "id": "menu", "type": "decision", "title": "mostrarMenu()" },
+        { "id": "process", "type": "process", "title": "processarOpcao()" },
+        { "id": "save", "type": "process", "title": "salvarDados()" },
+        { "id": "end", "type": "end", "title": "Encerrar" }
+      ],
+      "connections": [
+        { "from": "start", "to": "load" },
+        { "from": "load", "to": "menu" },
+        { "from": "menu", "to": "process", "label": "Opção != sair" },
+        { "from": "process", "to": "menu", "kind": "loop", "label": "Voltar" },
+        { "from": "menu", "to": "save", "label": "Opção sair" },
+        { "from": "save", "to": "end" }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Separando arquivos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize arquivos .h para declarar funções e .c para implementá-las. Inclua apenas o necessário em cada cabeçalho."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            { "title": "catalogo.h", "text": "Protótipos de funções de gerenciamento de livros." },
+            { "title": "catalogo.c", "text": "Implementações relacionadas ao acervo." },
+            { "title": "app.c", "text": "Função main e orquestração do fluxo." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de integração",
+      "items": [
+        "Compilar projeto completo sem warnings.",
+        "Executar cenário de cadastro, consulta e remoção.",
+        "Atualizar diagrama de chamadas refletindo ajustes finais."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-21T13:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia de projetos modulares"]
+  }
+}

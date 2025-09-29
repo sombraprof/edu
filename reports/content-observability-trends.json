@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2025-09-29T14:17:02.381Z",
+  "generatedAt": "2025-09-29T14:53:03.276Z",
   "snapshot": {
-    "generatedAt": "2025-09-29T14:17:02.381Z",
+    "generatedAt": "2025-09-29T14:53:03.276Z",
     "lessons": {
       "total": 117,
-      "available": 97,
-      "unavailable": 20,
-      "md3Blocks": 784,
+      "available": 115,
+      "unavailable": 2,
+      "md3Blocks": 882,
       "legacyBlocks": 0,
       "legacyLessons": 0,
-      "totalBlocks": 807,
-      "md3Coverage": 0.9714993804213135,
+      "totalBlocks": 910,
+      "md3Coverage": 0.9692307692307692,
       "legacyCoverage": 0
     },
     "exercises": {
@@ -27,7 +27,7 @@
     }
   },
   "previous": {
-    "generatedAt": "2025-09-29T14:08:31.739Z",
+    "generatedAt": "2025-09-29T14:17:02.381Z",
     "lessons": {
       "total": 117,
       "available": 97,
@@ -55,10 +55,10 @@
   "trend": {
     "lessons": {
       "md3Blocks": {
-        "current": 784,
+        "current": 882,
         "previous": 784,
-        "delta": 0,
-        "percentChange": 0,
+        "delta": 98,
+        "percentChange": 12.5,
         "format": "absolute"
       },
       "legacyBlocks": {
@@ -76,10 +76,10 @@
         "format": "absolute"
       },
       "md3Coverage": {
-        "current": 97.14993804213134,
+        "current": 96.92307692307692,
         "previous": 97.14993804213134,
-        "delta": 0,
-        "percentChange": 0,
+        "delta": -0.2268611190544192,
+        "percentChange": -0.2335164835164749,
         "format": "points"
       },
       "legacyCoverage": {
@@ -124,10 +124,10 @@
     }
   },
   "sparklines": {
-    "md3Coverage": "█▁▁▁",
-    "legacyBlocks": "▅▅▅▅",
-    "exercisesCompleteness": "▅▅▅▅",
-    "supplementsCompleteness": "▅▅▅▅"
+    "md3Coverage": "█▂▂▂▁",
+    "legacyBlocks": "▅▅▅▅▅",
+    "exercisesCompleteness": "▅▅▅▅▅",
+    "supplementsCompleteness": "▅▅▅▅▅"
   },
   "series": {
     "md3Coverage": [
@@ -146,6 +146,10 @@
       {
         "generatedAt": "2025-09-29T14:17:02.381Z",
         "value": 97.15
+      },
+      {
+        "generatedAt": "2025-09-29T14:53:03.276Z",
+        "value": 96.92
       }
     ],
     "legacyBlocks": [
@@ -163,6 +167,10 @@
       },
       {
         "generatedAt": "2025-09-29T14:17:02.381Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T14:53:03.276Z",
         "value": 0
       }
     ],
@@ -182,6 +190,10 @@
       {
         "generatedAt": "2025-09-29T14:17:02.381Z",
         "value": 100
+      },
+      {
+        "generatedAt": "2025-09-29T14:53:03.276Z",
+        "value": 100
       }
     ],
     "supplementsCompleteness": [
@@ -199,6 +211,10 @@
       },
       {
         "generatedAt": "2025-09-29T14:17:02.381Z",
+        "value": 100
+      },
+      {
+        "generatedAt": "2025-09-29T14:53:03.276Z",
         "value": 100
       }
     ]
