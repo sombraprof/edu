@@ -1,14 +1,14 @@
 <script lang="ts">
 export const meta = {
-  id: 'lesson-14',
-  title: 'Aula 28: Avaliação – NP2',
+  id: 'lesson-40',
+  title: 'Aula 40: Avaliação Final – NP3',
   available: true,
 };
 </script>
 
 <script setup lang="ts">
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
-import lessonData from './lesson-14.json';
+import lessonData from './lesson-40.json';
 </script>
 
 <template>
