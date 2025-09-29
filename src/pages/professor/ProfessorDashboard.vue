@@ -1,8 +1,8 @@
 <template>
   <section class="page flow">
-    <header class="card p-6 md:p-8">
-      <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-        <div class="flex flex-col gap-3">
+    <header class="card md3-surface-section">
+      <div class="flex flex-col md3-gap-lg md:flex-row md:items-start md:justify-between">
+        <div class="flex flex-col md3-gap-sm">
           <span class="chip chip--outlined self-start text-primary">Iteração 5</span>
           <h1 class="md-typescale-headline-small font-semibold text-on-surface">
             Hub administrativo do professor
@@ -13,12 +13,12 @@
             publicação para guiar criação de branches, commits e PRs consistentes.
           </p>
         </div>
-        <div class="rounded-3xl bg-[var(--md-sys-color-surface-container-high)] p-4">
+        <div class="md3-surface-callout">
           <p class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
             Próxima entrega
           </p>
           <p class="md-typescale-title-large font-semibold text-on-surface">Backend de automação</p>
-          <p class="mt-2 text-sm text-on-surface-variant">
+          <p class="md3-stack-xs text-sm text-on-surface-variant">
             Objetivo: orquestrar scripts e operações de Git a partir da própria SPA, incluindo
             abertura de PRs.
           </p>
@@ -27,8 +27,8 @@
     </header>
 
     <TeacherModeGate>
-      <section class="card p-6 md:p-8">
-        <div class="flex flex-col gap-2">
+      <section class="card md3-surface-section">
+        <div class="flex flex-col md3-gap-sm">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Próximos passos do módulo
           </h2>
@@ -37,13 +37,9 @@
             úteis para começar a execução.
           </p>
         </div>
-        <div class="mt-6 grid gap-4 md:grid-cols-2">
-          <article
-            v-for="item in planSections"
-            :key="item.title"
-            class="rounded-3xl border border-transparent bg-[var(--md-sys-color-surface-container-high)] p-5"
-          >
-            <header class="flex items-center gap-3">
+        <div class="md3-stack-lg grid md3-gap-md md:grid-cols-2">
+          <article v-for="item in planSections" :key="item.title" class="md3-surface-tile">
+            <header class="flex items-center md3-gap-sm">
               <component :is="item.icon" class="md-icon" aria-hidden="true" />
               <div>
                 <h3 class="md-typescale-title-medium font-semibold text-on-surface">
@@ -54,10 +50,10 @@
                 </p>
               </div>
             </header>
-            <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-on-surface">
+            <ul class="md3-stack-md list-disc md3-space-y-xs pl-5 text-sm text-on-surface">
               <li v-for="action in item.actions" :key="action">{{ action }}</li>
             </ul>
-            <footer class="mt-4 flex flex-wrap gap-3">
+            <footer class="md3-stack-md flex flex-wrap md3-gap-sm">
               <template v-for="link in item.links" :key="link.label">
                 <Md3Button v-if="'to' in link" variant="tonal" :as="RouterLink" :to="link.to">
                   {{ link.label }}
@@ -78,8 +74,8 @@
         </div>
       </section>
 
-      <section class="card p-6 md:p-8">
-        <div class="flex flex-col gap-2">
+      <section class="card md3-surface-section">
+        <div class="flex flex-col md3-gap-sm">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Disciplinas disponíveis para autoria
           </h2>
@@ -88,27 +84,27 @@
             para revisão ou publicação.
           </p>
         </div>
-        <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div class="md3-stack-lg grid md3-gap-md md:grid-cols-2 xl:grid-cols-3">
           <RouterLink
             v-for="course in courses"
             :key="course.id"
             :to="{ name: 'course-home', params: { courseId: course.id } }"
-            class="rounded-3xl border border-transparent bg-[var(--md-sys-color-surface-container-high)] p-5 transition hover:border-primary hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            class="md3-surface-tile transition hover:border-primary hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <span class="chip chip--filled mb-3 inline-flex">{{ course.institution }}</span>
             <h3 class="md-typescale-title-medium font-semibold text-on-surface">
               {{ course.title }}
             </h3>
-            <p class="mt-2 text-sm text-on-surface-variant">{{ course.description }}</p>
-            <p class="mt-4 text-xs uppercase tracking-[0.18em] text-on-surface-variant">
+            <p class="md3-stack-xs text-sm text-on-surface-variant">{{ course.description }}</p>
+            <p class="md3-stack-md text-xs uppercase tracking-[0.18em] text-on-surface-variant">
               Abrir disciplina
             </p>
           </RouterLink>
         </div>
       </section>
 
-      <section class="card p-6 md:p-8">
-        <div class="flex flex-col gap-2">
+      <section class="card md3-surface-section">
+        <div class="flex flex-col md3-gap-sm">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Documentação de apoio
           </h2>
@@ -116,18 +112,14 @@
             Consulte os materiais abaixo antes de iniciar uma nova rodada de ingestão ou revisão.
           </p>
         </div>
-        <ul class="mt-6 grid gap-4 md:grid-cols-2">
-          <li
-            v-for="resource in resources"
-            :key="resource.href"
-            class="rounded-3xl border border-transparent bg-[var(--md-sys-color-surface-container-high)] p-5"
-          >
+        <ul class="md3-stack-lg grid md3-gap-md md:grid-cols-2">
+          <li v-for="resource in resources" :key="resource.href" class="md3-surface-tile">
             <h3 class="md-typescale-title-medium font-semibold text-on-surface">
               {{ resource.title }}
             </h3>
-            <p class="mt-2 text-sm text-on-surface-variant">{{ resource.description }}</p>
+            <p class="md3-stack-xs text-sm text-on-surface-variant">{{ resource.description }}</p>
             <Md3Button
-              class="mt-4"
+              class="md3-stack-md"
               variant="text"
               as="a"
               :href="resource.href"

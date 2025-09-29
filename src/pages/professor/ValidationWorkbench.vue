@@ -1,8 +1,8 @@
 <template>
   <section class="page flow">
-    <header class="card p-6 md:p-8">
-      <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-        <div class="flex flex-col gap-3">
+    <header class="card md3-surface-section">
+      <div class="flex flex-col md3-gap-lg md:flex-row md:items-start md:justify-between">
+        <div class="flex flex-col md3-gap-sm">
           <span class="chip chip--outlined self-start text-primary">Iteração 4</span>
           <h1 class="md-typescale-headline-small font-semibold text-on-surface">
             Validações automatizadas e relatórios
@@ -12,14 +12,14 @@
             gerados antes de preparar o pacote para commit.
           </p>
         </div>
-        <div class="rounded-3xl bg-[var(--md-sys-color-surface-container-high)] p-4">
+        <div class="md3-surface-callout">
           <p class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
             Objetivo da iteração
           </p>
           <p class="md-typescale-title-large font-semibold text-on-surface">
             Unificar checklist de validação
           </p>
-          <p class="mt-2 text-sm text-on-surface-variant">
+          <p class="md3-stack-xs text-sm text-on-surface-variant">
             Resultados e logs ficam centralizados nesta área até a integração completa com o backend
             auxiliar.
           </p>
@@ -28,8 +28,8 @@
     </header>
 
     <TeacherModeGate>
-      <section class="card p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Preparar o workspace local
           </h2>
@@ -38,7 +38,7 @@
             contexto da execução.
           </p>
         </header>
-        <ol class="mt-4 space-y-3 text-sm text-on-surface">
+        <ol class="md3-stack-md md3-space-y-sm text-sm text-on-surface">
           <li>
             <code class="rounded-xl bg-[var(--md-sys-color-surface-container-highest)] px-2 py-1"
               >git checkout main</code
@@ -67,19 +67,19 @@
             (ex.: edição de JSON, migração de blocos).
           </li>
         </ol>
-        <label class="mt-6 flex flex-col gap-2">
+        <label class="md3-stack-lg flex flex-col md3-gap-xs">
           <span class="md-typescale-label-large text-on-surface">Notas da rodada</span>
           <textarea
             v-model="notes"
             rows="3"
-            class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             placeholder="Descreva decisões, pendências ou ajustes feitos fora dos scripts oficiais."
           ></textarea>
         </label>
       </section>
 
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Executar scripts de validação e relatórios
           </h2>
@@ -89,13 +89,13 @@
           </p>
         </header>
 
-        <div class="grid gap-6 lg:grid-cols-2">
+        <div class="grid md3-gap-lg lg:grid-cols-2">
           <article
             v-for="key in scriptOrder"
             :key="key"
-            class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
-            <header class="flex items-start justify-between gap-4">
+            <header class="flex items-start justify-between md3-gap-md">
               <div>
                 <h3 class="md-typescale-title-medium font-semibold text-on-surface">
                   {{ validationScripts[key].title }}
@@ -112,31 +112,33 @@
               />
             </header>
 
-            <div class="rounded-2xl bg-surface p-4 font-mono text-xs text-on-surface shadow-inner">
+            <div
+              class="md-shape-double-extra-large bg-surface p-4 font-mono text-xs text-on-surface shadow-inner"
+            >
               <p class="font-semibold text-primary">$ {{ validationScripts[key].command }}</p>
-              <p class="mt-2 whitespace-pre-wrap text-on-surface-variant">
+              <p class="md3-stack-xs whitespace-pre-wrap text-on-surface-variant">
                 {{ validationScripts[key].hint }}
               </p>
             </div>
 
-            <label class="flex flex-col gap-2">
+            <label class="flex flex-col md3-gap-xs">
               <span class="md-typescale-label-large text-on-surface">Saída coletada</span>
               <textarea
                 v-model="scriptLogs[key].value"
                 rows="8"
-                class="rounded-3xl border border-outline bg-surface p-3 font-mono text-xs text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                class="md-shape-extra-large border border-outline bg-surface p-3 font-mono text-xs text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 :placeholder="validationScripts[key].placeholder"
               ></textarea>
             </label>
 
-            <div class="flex flex-wrap items-center gap-3 text-sm text-on-surface-variant">
+            <div class="flex flex-wrap items-center md3-gap-sm text-sm text-on-surface-variant">
               <span class="chip" :class="statusMeta[getScriptStatus(key).status].chipClass">
                 {{ statusMeta[getScriptStatus(key).status].label }}
               </span>
               <span>{{ getScriptStatus(key).description }}</span>
             </div>
 
-            <div class="flex flex-wrap gap-3">
+            <div class="flex flex-wrap md3-gap-sm">
               <Md3Button type="button" variant="tonal" @click="markExecution(key)">
                 Registrar execução
               </Md3Button>
@@ -146,9 +148,9 @@
             </div>
             <div
               v-if="automationAvailable"
-              class="flex flex-col gap-2 rounded-2xl border border-outline-variant bg-surface/80 p-4"
+              class="flex flex-col md3-gap-xs md-shape-double-extra-large border border-outline-variant bg-surface/80 p-4"
             >
-              <div class="flex flex-wrap items-center gap-3">
+              <div class="flex flex-wrap items-center md3-gap-sm">
                 <Md3Button
                   type="button"
                   variant="filled"
@@ -176,7 +178,7 @@
               </p>
               <p
                 v-else-if="getRemoteExecution(key).status === 'error'"
-                class="rounded-2xl bg-error/10 p-3 text-sm text-error"
+                class="md-shape-double-extra-large bg-error/10 p-3 text-sm text-error"
               >
                 {{ getRemoteExecution(key).error ?? 'Falha ao executar o script via backend.' }}
               </p>
@@ -210,9 +212,9 @@
         </div>
       </section>
 
-      <section v-if="automationAvailable" class="card p-6 md:p-8">
-        <header class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-          <div class="flex flex-col gap-2">
+      <section v-if="automationAvailable" class="card md3-surface-section">
+        <header class="flex flex-col md3-gap-md md:flex-row md:items-start md:justify-between">
+          <div class="flex flex-col md3-gap-xs">
             <h2 class="md-typescale-title-large font-semibold text-on-surface">
               Histórico de execuções remotas
             </h2>
@@ -233,26 +235,29 @@
           </Md3Button>
         </header>
 
-        <p v-if="scriptHistoryError" class="mt-4 rounded-2xl bg-error/10 p-4 text-sm text-error">
+        <p
+          v-if="scriptHistoryError"
+          class="md3-stack-md md-shape-double-extra-large bg-error/10 p-4 text-sm text-error"
+        >
           {{ scriptHistoryError }}
         </p>
         <p
           v-else-if="scriptHistoryLoading && !scriptHistory.length"
-          class="mt-4 text-sm text-on-surface-variant"
+          class="md3-stack-md text-sm text-on-surface-variant"
         >
           Carregando histórico de execuções…
         </p>
-        <p v-else-if="!scriptHistory.length" class="mt-4 text-sm text-on-surface-variant">
+        <p v-else-if="!scriptHistory.length" class="md3-stack-md text-sm text-on-surface-variant">
           Nenhuma execução remota registrada até o momento.
         </p>
 
-        <ul v-else class="mt-6 space-y-4">
+        <ul v-else class="md3-stack-lg md3-space-y-md">
           <li
             v-for="entry in scriptHistory"
             :key="`${entry.key}-${entry.recordedAt}`"
-            class="flex flex-col gap-3 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5 shadow-sm"
+            class="flex flex-col md3-gap-sm md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant shadow-sm"
           >
-            <div class="flex flex-wrap items-center gap-3">
+            <div class="flex flex-wrap items-center md3-gap-sm">
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
                 {{ validationScripts[entry.key].title }}
               </h3>
@@ -267,19 +272,19 @@
               Duração: {{ formatDuration(entry.durationMs) }} · Código de saída:
               {{ entry.exitCode }}
             </p>
-            <details class="rounded-2xl bg-surface p-4 text-xs text-on-surface">
+            <details class="md-shape-double-extra-large bg-surface p-4 text-xs text-on-surface">
               <summary class="cursor-pointer text-sm font-medium text-primary">
                 Ver saída capturada
               </summary>
               <!-- prettier-ignore -->
-              <pre class="mt-2 whitespace-pre-wrap font-mono text-xs text-on-surface-variant">{{ entry.output }}</pre>
+              <pre class="md3-stack-xs whitespace-pre-wrap font-mono text-xs text-on-surface-variant">{{ entry.output }}</pre>
             </details>
           </li>
         </ul>
       </section>
 
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Importar relatórios gerados
           </h2>
@@ -289,9 +294,9 @@
           </p>
         </header>
 
-        <div class="grid gap-6 xl:grid-cols-3">
+        <div class="grid md3-gap-lg xl:grid-cols-3">
           <article
-            class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
             <header class="flex items-start justify-between">
               <div>
@@ -339,11 +344,17 @@
                 · {{ formatTimestamp(validationReport.generatedAt) }}</span
               >
             </p>
-            <p v-if="validationReportError" class="rounded-2xl bg-error/10 p-3 text-sm text-error">
+            <p
+              v-if="validationReportError"
+              class="md-shape-double-extra-large bg-error/10 p-3 text-sm text-error"
+            >
               {{ validationReportError }}
             </p>
-            <div v-if="validationReport" class="rounded-2xl bg-surface p-4 shadow-inner">
-              <dl class="grid gap-2 text-sm text-on-surface">
+            <div
+              v-if="validationReport"
+              class="md-shape-double-extra-large bg-surface p-4 shadow-inner"
+            >
+              <dl class="grid md3-gap-xs text-sm text-on-surface">
                 <div class="flex justify-between">
                   <dt class="text-on-surface-variant">Cursos avaliados</dt>
                   <dd class="font-semibold">{{ validationReport.totals.courses }}</dd>
@@ -361,15 +372,15 @@
                   <dd class="font-semibold">{{ validationReport.totals.warnings }}</dd>
                 </div>
               </dl>
-              <div v-if="coursesWithIssues.length" class="mt-4">
+              <div v-if="coursesWithIssues.length" class="md3-stack-md">
                 <h4 class="md-typescale-label-large text-on-surface">
                   Disciplinas com apontamentos
                 </h4>
-                <ul class="mt-2 space-y-2 text-sm">
+                <ul class="md3-stack-xs md3-space-y-xs text-sm">
                   <li
                     v-for="course in coursesWithIssues"
                     :key="course.id"
-                    class="rounded-2xl border border-outline bg-[var(--md-sys-color-surface-container)] p-3"
+                    class="md-shape-double-extra-large border border-outline bg-[var(--md-sys-color-surface-container)] p-3"
                   >
                     <div class="flex items-center justify-between">
                       <span class="font-semibold uppercase tracking-[0.12em] text-on-surface">{{
@@ -390,7 +401,7 @@
           </article>
 
           <article
-            class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
             <header>
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
@@ -427,11 +438,17 @@
                 · {{ formatTimestamp(observabilityReport.generatedAt) }}</span
               >
             </p>
-            <p v-if="observabilityError" class="rounded-2xl bg-error/10 p-3 text-sm text-error">
+            <p
+              v-if="observabilityError"
+              class="md-shape-double-extra-large bg-error/10 p-3 text-sm text-error"
+            >
               {{ observabilityError }}
             </p>
-            <div v-if="observabilityReport" class="rounded-2xl bg-surface p-4 shadow-inner">
-              <dl class="grid gap-2 text-sm text-on-surface">
+            <div
+              v-if="observabilityReport"
+              class="md-shape-double-extra-large bg-surface p-4 shadow-inner"
+            >
+              <dl class="grid md3-gap-xs text-sm text-on-surface">
                 <div class="flex justify-between">
                   <dt class="text-on-surface-variant">Cursos</dt>
                   <dd class="font-semibold">{{ observabilityReport.totals.courses }}</dd>
@@ -457,7 +474,7 @@
           </article>
 
           <article
-            class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
             <header>
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
@@ -494,11 +511,17 @@
                 · {{ formatTimestamp(governanceReport.generatedAt) }}</span
               >
             </p>
-            <p v-if="governanceError" class="rounded-2xl bg-error/10 p-3 text-sm text-error">
+            <p
+              v-if="governanceError"
+              class="md-shape-double-extra-large bg-error/10 p-3 text-sm text-error"
+            >
               {{ governanceError }}
             </p>
-            <div v-if="governanceReport" class="rounded-2xl bg-surface p-4 shadow-inner">
-              <dl class="grid gap-2 text-sm text-on-surface">
+            <div
+              v-if="governanceReport"
+              class="md-shape-double-extra-large bg-surface p-4 shadow-inner"
+            >
+              <dl class="grid md3-gap-xs text-sm text-on-surface">
                 <div class="flex justify-between">
                   <dt class="text-on-surface-variant">Status da validação</dt>
                   <dd class="font-semibold">
@@ -534,8 +557,8 @@
         </div>
       </section>
 
-      <section class="card p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Próximos aprimoramentos
           </h2>
@@ -543,7 +566,7 @@
             Esta iteração prepara o terreno para a integração completa com um backend auxiliar.
           </p>
         </header>
-        <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-on-surface">
+        <ul class="md3-stack-md list-disc md3-space-y-xs pl-5 text-sm text-on-surface">
           <li>
             Adicionar autenticação e segregação de permissões ao serviço auxiliar para uso em
             ambientes compartilhados.

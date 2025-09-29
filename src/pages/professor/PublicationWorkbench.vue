@@ -1,8 +1,8 @@
 <template>
   <section class="page flow">
-    <header class="card p-6 md:p-8">
-      <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-        <div class="flex flex-col gap-3">
+    <header class="card md3-surface-section">
+      <div class="flex flex-col md3-gap-lg md:flex-row md:items-start md:justify-between">
+        <div class="flex flex-col md3-gap-sm">
           <span class="chip chip--outlined self-start text-primary">Iteração 5</span>
           <h1 class="md-typescale-headline-small font-semibold text-on-surface">
             Preparar publicação e pacote de Git
@@ -12,12 +12,12 @@
             alterados para gerar os comandos recomendados e o checklist de validações.
           </p>
         </div>
-        <div class="rounded-3xl bg-[var(--md-sys-color-surface-container-high)] p-4">
+        <div class="md3-surface-callout">
           <p class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">Objetivo</p>
           <p class="md-typescale-title-large font-semibold text-on-surface">
             Integrar fluxo de Git ao módulo
           </p>
-          <p class="mt-2 text-sm text-on-surface-variant">
+          <p class="md3-stack-xs text-sm text-on-surface-variant">
             Esta iteração documenta o pacote de publicação manual enquanto o backend de automação de
             PRs está em desenvolvimento.
           </p>
@@ -26,8 +26,8 @@
     </header>
 
     <TeacherModeGate>
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Status do workspace Git
           </h2>
@@ -37,7 +37,7 @@
         </header>
 
         <div
-          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+          class="md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
         >
           <template v-if="!teacherAutomationEnabled">
             <p class="md-typescale-body-medium text-on-surface">
@@ -47,8 +47,8 @@
             </p>
           </template>
           <template v-else>
-            <div class="flex flex-col gap-4">
-              <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div class="flex flex-col md3-gap-md">
+              <div class="flex flex-col md3-gap-sm md:flex-row md:items-center md:justify-between">
                 <div class="flex flex-col gap-1">
                   <p
                     class="md-typescale-body-large font-semibold text-on-surface"
@@ -63,11 +63,11 @@
                     {{ gitDivergenceSummary }}
                   </p>
                 </div>
-                <div class="flex flex-wrap gap-2 self-start md:self-auto">
+                <div class="flex flex-wrap md3-gap-xs self-start md:self-auto">
                   <Md3Button
                     type="button"
                     variant="text"
-                    class="inline-flex items-center gap-2"
+                    class="inline-flex items-center md3-gap-xs"
                     :disabled="gitStatusLoading"
                     @click="refreshGitStatus"
                   >
@@ -79,7 +79,7 @@
                   <Md3Button
                     type="button"
                     variant="tonal"
-                    class="inline-flex items-center gap-2"
+                    class="inline-flex items-center md3-gap-xs"
                     :disabled="gitFetchLoading"
                     @click="verifyMainUpdates"
                   >
@@ -93,9 +93,9 @@
 
               <div
                 v-if="gitFetchError"
-                class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+                class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-error-container p-4 text-on-error-container"
               >
-                <div class="flex items-start gap-3">
+                <div class="flex items-start md3-gap-sm">
                   <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
                   <div class="flex flex-col gap-1">
                     <p class="text-sm font-medium">{{ gitFetchError }}</p>
@@ -107,7 +107,7 @@
                 </div>
                 <pre
                   v-if="gitFetchOutput"
-                  class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+                  class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
                   aria-live="polite"
                   >{{ gitFetchOutput }}
                 </pre>
@@ -115,9 +115,9 @@
 
               <div
                 v-else-if="gitFetchResult"
-                class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+                class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-success-container p-4 text-on-success-container"
               >
-                <div class="flex items-start gap-3">
+                <div class="flex items-start md3-gap-sm">
                   <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
                   <div class="flex flex-col gap-1">
                     <p class="text-sm font-medium">{{ gitFetchSuccessMessage }}</p>
@@ -129,7 +129,7 @@
                 </div>
                 <pre
                   v-if="gitFetchOutput"
-                  class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+                  class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
                   aria-live="polite"
                   >{{ gitFetchOutput }}
                 </pre>
@@ -137,7 +137,7 @@
 
               <div
                 v-if="gitStatusError"
-                class="flex items-start gap-3 rounded-2xl bg-error-container p-4"
+                class="flex items-start md3-gap-sm md-shape-double-extra-large bg-error-container p-4"
               >
                 <AlertCircle
                   class="md-icon md-icon--sm text-on-error-container"
@@ -156,13 +156,13 @@
                   rodada.
                 </p>
 
-                <div v-else class="flex flex-col gap-3">
+                <div v-else class="flex flex-col md3-gap-sm">
                   <p class="text-sm text-on-surface">Arquivos com alterações pendentes:</p>
-                  <ul class="grid gap-2 text-sm text-on-surface">
+                  <ul class="grid md3-gap-xs text-sm text-on-surface">
                     <li
                       v-for="change in gitStatus.changes"
                       :key="`${change.status}-${change.path}`"
-                      class="flex flex-col rounded-2xl border border-outline bg-surface p-3"
+                      class="flex flex-col md-shape-double-extra-large border border-outline bg-surface p-3"
                     >
                       <span
                         class="font-mono text-xs uppercase tracking-wide text-on-surface-variant"
@@ -178,13 +178,13 @@
                 </div>
 
                 <details
-                  class="rounded-2xl border border-outline-variant bg-surface p-4 text-sm text-on-surface"
+                  class="md-shape-double-extra-large border border-outline-variant bg-surface p-4 text-sm text-on-surface"
                 >
                   <summary class="cursor-pointer font-medium text-on-surface">
                     Saída completa do git status
                   </summary>
                   <pre
-                    class="mt-3 whitespace-pre-wrap break-all font-mono text-xs text-on-surface-variant"
+                    class="md3-stack-sm whitespace-pre-wrap break-all font-mono text-xs text-on-surface-variant"
                     >{{ gitStatus.raw }}
                   </pre>
                 </details>
@@ -194,8 +194,8 @@
         </div>
       </section>
 
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Configurar branch e resumo da rodada
           </h2>
@@ -204,13 +204,13 @@
           </p>
         </header>
 
-        <div class="grid gap-6 lg:grid-cols-2">
-          <label class="flex flex-col gap-2">
+        <div class="grid md3-gap-lg lg:grid-cols-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Branch de trabalho</span>
             <input
               v-model="branchName"
               type="text"
-              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="feat/professor-publicacao"
             />
             <span class="text-xs text-on-surface-variant">
@@ -219,12 +219,12 @@
             </span>
           </label>
 
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Título do commit</span>
             <input
               v-model="commitTitle"
               type="text"
-              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="feat: adiciona aula sobre integrais"
             />
             <span class="text-xs text-on-surface-variant">
@@ -232,12 +232,12 @@
             </span>
           </label>
 
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Branch base para o PR</span>
             <input
               v-model="baseBranchName"
               type="text"
-              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="main"
             />
             <span class="text-xs text-on-surface-variant">
@@ -245,12 +245,12 @@
             </span>
           </label>
 
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Responsável pela rodada</span>
             <input
               v-model="teacherActor"
               type="text"
-              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="professor.andre"
             />
             <span class="text-xs text-on-surface-variant">
@@ -262,9 +262,9 @@
 
         <div
           v-if="teacherAutomationEnabled"
-          class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-5"
+          class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-high border border-outline-variant"
         >
-          <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div class="flex flex-col md3-gap-sm md:flex-row md:items-center md:justify-between">
             <p class="text-sm text-on-surface">
               Peça para o serviço auxiliar criar ou alternar automaticamente para a branch informada
               a partir da <code>main</code> atualizada.
@@ -272,7 +272,7 @@
             <Md3Button
               type="button"
               variant="filled"
-              class="inline-flex items-center gap-2 self-start md:self-auto"
+              class="inline-flex items-center md3-gap-xs self-start md:self-auto"
               :disabled="gitCheckoutLoading"
               @click="createWorkingBranch"
             >
@@ -285,9 +285,9 @@
 
           <div
             v-if="gitCheckoutError"
-            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-error-container p-4 text-on-error-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitCheckoutError }}</p>
@@ -299,7 +299,7 @@
             </div>
             <pre
               v-if="gitCheckoutOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitCheckoutOutput }}
             </pre>
@@ -307,9 +307,9 @@
 
           <div
             v-else-if="gitCheckoutResult"
-            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-success-container p-4 text-on-success-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitCheckoutSuccessMessage }}</p>
@@ -321,7 +321,7 @@
             </div>
             <pre
               v-if="gitCheckoutOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitCheckoutOutput }}
             </pre>
@@ -334,7 +334,7 @@
         </div>
         <p
           v-else
-          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-4 text-sm text-on-surface-variant"
+          class="md-shape-extra-large border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-4 text-sm text-on-surface-variant"
         >
           Configure <code>VITE_TEACHER_API_URL</code> para criar a branch automaticamente pelo
           painel ou siga os comandos sugeridos abaixo.
@@ -342,10 +342,10 @@
 
         <div
           v-if="teacherAutomationEnabled"
-          class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-5"
+          class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-high border border-outline-variant"
         >
-          <div class="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <div class="flex flex-col gap-2">
+          <div class="flex flex-col md3-gap-md md:flex-row md:items-start md:justify-between">
+            <div class="flex flex-col md3-gap-xs">
               <p class="text-sm text-on-surface">
                 Use os caminhos listados na seção de conteúdos para enviar os arquivos ao staging e
                 gerar o commit automaticamente.
@@ -354,7 +354,7 @@
                 O serviço executa <code>git add</code> com os caminhos preenchidos e reutiliza o
                 título de commit configurado acima.
               </p>
-              <label class="mt-1 flex items-center gap-2 text-xs text-on-surface">
+              <label class="mt-1 flex items-center md3-gap-xs text-xs text-on-surface">
                 <input
                   id="publication-pr-draft-toggle"
                   v-model="prDraft"
@@ -364,11 +364,11 @@
                 <span class="select-none"> Criar PR como rascunho ao acionar a automação </span>
               </label>
             </div>
-            <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+            <div class="flex flex-col md3-gap-xs sm:flex-row sm:items-center">
               <Md3Button
                 type="button"
                 variant="tonal"
-                class="inline-flex items-center gap-2"
+                class="inline-flex items-center md3-gap-xs"
                 :disabled="gitStageLoading || artifactPaths.length === 0"
                 @click="stageCurrentArtifacts"
               >
@@ -377,7 +377,7 @@
               <Md3Button
                 type="button"
                 variant="filled"
-                class="inline-flex items-center gap-2"
+                class="inline-flex items-center md3-gap-xs"
                 :disabled="gitCommitLoading"
                 @click="commitCurrentArtifacts"
               >
@@ -386,7 +386,7 @@
               <Md3Button
                 type="button"
                 variant="filled"
-                class="inline-flex items-center gap-2"
+                class="inline-flex items-center md3-gap-xs"
                 :disabled="gitPushLoading || !canPushAutomatically"
                 @click="pushCurrentBranch"
               >
@@ -398,7 +398,7 @@
               <Md3Button
                 type="button"
                 variant="filled"
-                class="inline-flex items-center gap-2"
+                class="inline-flex items-center md3-gap-xs"
                 :disabled="prCreationLoading || !canCreatePullRequest"
                 @click="createPullRequest"
               >
@@ -410,9 +410,11 @@
             </div>
           </div>
 
-          <div class="rounded-2xl border border-outline bg-surface p-4 text-sm text-on-surface">
+          <div
+            class="md-shape-double-extra-large border border-outline bg-surface p-4 text-sm text-on-surface"
+          >
             <p class="font-medium">Caminhos enviados para o git add automático:</p>
-            <ul v-if="artifactPaths.length > 0" class="mt-2 grid gap-2">
+            <ul v-if="artifactPaths.length > 0" class="md3-stack-xs grid md3-gap-xs">
               <li
                 v-for="path in artifactPaths"
                 :key="path"
@@ -421,7 +423,7 @@
                 {{ path }}
               </li>
             </ul>
-            <p v-else class="mt-2 text-xs text-on-surface-variant">
+            <p v-else class="md3-stack-xs text-xs text-on-surface-variant">
               Preencha a seção “Conteúdos incluídos nesta rodada” para habilitar o git add
               automático.
             </p>
@@ -429,9 +431,9 @@
 
           <div
             v-if="gitStageError"
-            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-error-container p-4 text-on-error-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitStageError }}</p>
@@ -443,16 +445,16 @@
             </div>
             <pre
               v-if="gitStageOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitStageOutput }}
             </pre>
           </div>
           <div
             v-else-if="gitStageResult"
-            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-success-container p-4 text-on-success-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitStageSuccessMessage }}</p>
@@ -464,7 +466,7 @@
             </div>
             <pre
               v-if="gitStageOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitStageOutput }}
             </pre>
@@ -472,9 +474,9 @@
 
           <div
             v-if="gitCommitError"
-            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-error-container p-4 text-on-error-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitCommitError }}</p>
@@ -493,16 +495,16 @@
             </div>
             <pre
               v-if="gitCommitOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitCommitOutput }}
             </pre>
           </div>
           <div
             v-else-if="gitCommitResult"
-            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-success-container p-4 text-on-success-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitCommitSuccessMessage }}</p>
@@ -514,7 +516,7 @@
             </div>
             <pre
               v-if="gitCommitOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitCommitOutput }}
             </pre>
@@ -522,9 +524,9 @@
 
           <div
             v-if="gitPushError"
-            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-error-container p-4 text-on-error-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitPushError }}</p>
@@ -536,16 +538,16 @@
             </div>
             <pre
               v-if="gitPushOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitPushOutput }}
             </pre>
           </div>
           <div
             v-else-if="gitPushResult"
-            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-success-container p-4 text-on-success-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ gitPushSuccessMessage }}</p>
@@ -557,7 +559,7 @@
             </div>
             <pre
               v-if="gitPushOutput"
-              class="rounded-2xl bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-3 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ gitPushOutput }}
             </pre>
@@ -575,9 +577,9 @@
 
           <div
             v-if="prCreationError"
-            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-error-container p-4 text-on-error-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ prCreationError }}</p>
@@ -590,9 +592,9 @@
           </div>
           <div
             v-else-if="prCreationResult"
-            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+            class="flex flex-col md3-gap-sm md-shape-double-extra-large bg-success-container p-4 text-on-success-container"
           >
-            <div class="flex items-start gap-3">
+            <div class="flex items-start md3-gap-sm">
               <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
               <div class="flex flex-col gap-1">
                 <p class="text-sm font-medium">{{ prCreationSuccessMessage }}</p>
@@ -619,12 +621,12 @@
           </p>
         </div>
 
-        <label class="flex flex-col gap-2">
+        <label class="flex flex-col md3-gap-xs">
           <span class="md-typescale-label-large text-on-surface">Descrição do PR</span>
           <textarea
             v-model="prDescription"
             rows="4"
-            class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             placeholder="Liste aulas, exercícios e componentes ajustados nesta rodada."
           ></textarea>
           <span class="text-xs text-on-surface-variant">
@@ -633,7 +635,7 @@
         </label>
 
         <fieldset
-          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-5"
+          class="md-shape-extra-large md3-padding-md md-surface-container-high border border-outline-variant"
         >
           <legend class="md-typescale-label-large px-2 text-on-surface">
             Validações obrigatórias
@@ -642,11 +644,11 @@
             Marque quais scripts precisam ser executados antes do commit. Eles aparecerão no pacote
             de comandos.
           </p>
-          <div class="mt-4 grid gap-3 md:grid-cols-2">
+          <div class="md3-stack-md grid md3-gap-sm md:grid-cols-2">
             <label
               v-for="step in validationSteps"
               :key="step.key"
-              class="flex cursor-pointer items-start gap-3 rounded-2xl border border-transparent bg-surface p-4 shadow-sm transition hover:border-primary"
+              class="flex cursor-pointer items-start md3-gap-sm md-shape-double-extra-large border border-transparent bg-surface p-4 shadow-sm transition hover:border-primary"
             >
               <input v-model="step.enabled" type="checkbox" class="mt-1" />
               <div class="flex flex-col">
@@ -657,7 +659,7 @@
                   step.description
                 }}</span>
                 <code
-                  class="mt-2 inline-flex w-fit rounded-xl bg-[var(--md-sys-color-surface-container-highest)] px-2 py-1 text-xs text-on-surface-variant"
+                  class="md3-stack-xs inline-flex w-fit rounded-xl bg-[var(--md-sys-color-surface-container-highest)] px-2 py-1 text-xs text-on-surface-variant"
                 >
                   {{ step.command }}
                 </code>
@@ -667,8 +669,8 @@
         </fieldset>
       </section>
 
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Conteúdos incluídos nesta rodada
           </h2>
@@ -678,19 +680,19 @@
           </p>
         </header>
 
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col md3-gap-md">
           <article
             v-for="artifact in artifacts"
             :key="artifact.id"
-            class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
-            <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-              <div class="grid flex-1 gap-4 md:grid-cols-2">
-                <label class="flex flex-col gap-2">
+            <div class="flex flex-col md3-gap-md lg:flex-row lg:items-end lg:justify-between">
+              <div class="grid flex-1 md3-gap-md md:grid-cols-2">
+                <label class="flex flex-col md3-gap-xs">
                   <span class="md-typescale-label-large text-on-surface">Tipo de conteúdo</span>
                   <select
                     v-model="artifact.type"
-                    class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   >
                     <option
                       v-for="type in artifactTypeOptions"
@@ -701,14 +703,14 @@
                     </option>
                   </select>
                 </label>
-                <label class="flex flex-col gap-2">
+                <label class="flex flex-col md3-gap-xs">
                   <span class="md-typescale-label-large text-on-surface"
                     >Caminho ou identificação</span
                   >
                   <input
                     v-model="artifact.path"
                     type="text"
-                    class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                    class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                     placeholder="src/content/courses/calculo-1/lessons/limites.json"
                   />
                 </label>
@@ -726,12 +728,12 @@
               </Md3Button>
             </div>
 
-            <label class="mt-4 flex flex-col gap-2">
+            <label class="md3-stack-md flex flex-col md3-gap-xs">
               <span class="md-typescale-label-large text-on-surface">Resumo do ajuste</span>
               <textarea
                 v-model="artifact.summary"
                 rows="3"
-                class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 placeholder="Ex.: Revisão de exemplos práticos e atualização de objetivos de aprendizagem."
               ></textarea>
             </label>
@@ -746,8 +748,8 @@
         </Md3Button>
       </section>
 
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Pacote de comandos e resumo sugerido
           </h2>
@@ -757,9 +759,9 @@
           </p>
         </header>
 
-        <div class="grid gap-6 xl:grid-cols-2">
+        <div class="grid md3-gap-lg xl:grid-cols-2">
           <article
-            class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
             <header class="flex items-center justify-between">
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
@@ -773,7 +775,7 @@
               </Md3Button>
             </header>
             <pre
-              class="rounded-2xl bg-surface p-4 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-4 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
             >
 $ {{ gitCommands.join('\n$ ') }}
@@ -781,7 +783,7 @@ $ {{ gitCommands.join('\n$ ') }}
           </article>
 
           <article
-            class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="flex flex-col md3-gap-md md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
             <header>
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
@@ -789,7 +791,7 @@ $ {{ gitCommands.join('\n$ ') }}
               </h3>
             </header>
             <pre
-              class="rounded-2xl bg-surface p-4 font-mono text-xs text-on-surface shadow-inner"
+              class="md-shape-double-extra-large bg-surface p-4 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
               >{{ prPreview }}
             </pre>
@@ -797,10 +799,10 @@ $ {{ gitCommands.join('\n$ ') }}
         </div>
 
         <section
-          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-5"
+          class="md-shape-extra-large md3-padding-md md-surface-container-high border border-outline-variant"
         >
           <h3 class="md-typescale-title-medium font-semibold text-on-surface">Checklist final</h3>
-          <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-on-surface">
+          <ul class="md3-stack-sm list-disc md3-space-y-xs pl-5 text-sm text-on-surface">
             <li v-for="item in checklistItems" :key="item">{{ item }}</li>
           </ul>
         </section>

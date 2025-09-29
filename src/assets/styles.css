@@ -190,6 +190,32 @@ html {
   }
 }
 
+@layer components {
+  .md3-surface-section {
+    border-radius: var(--md-sys-shape-corner-extra-large, 1.5rem);
+    padding: var(--md-sys-spacing-6, 1.5rem);
+  }
+
+  @media (min-width: 48rem) {
+    .md3-surface-section {
+      padding: var(--md-sys-spacing-8, 2rem);
+    }
+  }
+
+  .md3-surface-tile {
+    border-radius: var(--md-sys-shape-corner-extra-large, 1.5rem);
+    border: 1px solid transparent;
+    background-color: var(--md-sys-color-surface-container-high);
+    padding: var(--md-sys-spacing-5, 1.25rem);
+  }
+
+  .md3-surface-callout {
+    border-radius: var(--md-sys-shape-corner-extra-large, 1.5rem);
+    background-color: var(--md-sys-color-surface-container-high);
+    padding: var(--md-sys-spacing-4, 1rem);
+  }
+}
+
 @layer utilities {
   .text-on-background {
     color: var(--md-sys-color-on-background);
@@ -213,6 +239,66 @@ html {
 
   .text-on-secondary-container {
     color: var(--md-sys-color-on-secondary-container);
+  }
+
+  .md3-gap-xs {
+    gap: var(--md-sys-spacing-2, 0.5rem);
+  }
+
+  .md3-gap-sm {
+    gap: var(--md-sys-spacing-3, 0.75rem);
+  }
+
+  .md3-gap-md {
+    gap: var(--md-sys-spacing-4, 1rem);
+  }
+
+  .md3-gap-lg {
+    gap: var(--md-sys-spacing-6, 1.5rem);
+  }
+
+  .md3-gap-xl {
+    gap: var(--md-sys-spacing-8, 2rem);
+  }
+
+  .md3-padding-md {
+    padding: var(--md-sys-spacing-5, 1.25rem);
+  }
+
+  .md3-padding-lg {
+    padding: var(--md-sys-spacing-6, 1.5rem);
+  }
+
+  .md3-space-y-xs > * + * {
+    margin-top: var(--md-sys-spacing-2, 0.5rem);
+  }
+
+  .md3-space-y-sm > * + * {
+    margin-top: var(--md-sys-spacing-3, 0.75rem);
+  }
+
+  .md3-space-y-md > * + * {
+    margin-top: var(--md-sys-spacing-4, 1rem);
+  }
+
+  .md3-space-y-lg > * + * {
+    margin-top: var(--md-sys-spacing-6, 1.5rem);
+  }
+
+  .md3-stack-xs {
+    margin-top: var(--md-sys-spacing-2, 0.5rem);
+  }
+
+  .md3-stack-sm {
+    margin-top: var(--md-sys-spacing-3, 0.75rem);
+  }
+
+  .md3-stack-md {
+    margin-top: var(--md-sys-spacing-4, 1rem);
+  }
+
+  .md3-stack-lg {
+    margin-top: var(--md-sys-spacing-6, 1.5rem);
   }
 
   /* MD3 shape utilities */
@@ -385,6 +471,11 @@ html {
 
   .md-surface-container-high {
     background-color: var(--md-sys-color-surface-container-high);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .md-surface-container-highest {
+    background-color: var(--md-sys-color-surface-container-highest);
     color: var(--md-sys-color-on-surface);
   }
 
