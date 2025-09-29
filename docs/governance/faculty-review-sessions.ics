@@ -1,0 +1,52 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Edu Governance//Faculty Review Sessions//PT
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Fortaleza
+X-LIC-LOCATION:America/Fortaleza
+BEGIN:STANDARD
+TZOFFSETFROM:-0300
+TZOFFSETTO:-0300
+TZNAME:BRT
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:faculty-review-20240325T100000-ALGI@edu
+DTSTAMP:20250121T120000Z
+DTSTART;TZID=America/Fortaleza:20240325T100000
+DTEND;TZID=America/Fortaleza:20240325T110000
+SUMMARY:Revisão Docentes - Semana 1 (ALGI)
+DESCRIPTION:Saneamento das aulas 01-08 e definição de componentes MD3 essenciais (TruthTable, Flowchart, Simulador). Entregáveis: lista de blocos a migrar, backlog de exercícios revisados e ata com responsáveis.
+LOCATION:Reunião online (Google Meet ou Microsoft Teams)
+END:VEVENT
+BEGIN:VEVENT
+UID:faculty-review-20240401T100000-DDM@edu
+DTSTAMP:20250121T120000Z
+DTSTART;TZID=America/Fortaleza:20240401T100000
+DTEND;TZID=America/Fortaleza:20240401T110000
+SUMMARY:Revisão Docentes - Semana 2 (DDM)
+DESCRIPTION:Reorganização por sprints, atualização de referências (Compose, SwiftUI, Flutter) e definição de novos componentes (Painel de Arquitetura, Checklist de Loja). Entregáveis: cronograma de atualização, componentes priorizados e fontes oficiais.
+LOCATION:Reunião online (Google Meet ou Microsoft Teams)
+END:VEVENT
+BEGIN:VEVENT
+UID:faculty-review-20240408T100000-LPOO@edu
+DTSTAMP:20250121T120000Z
+DTSTART;TZID=America/Fortaleza:20240408T100000
+DTEND;TZID=America/Fortaleza:20240408T110000
+SUMMARY:Revisão Docentes - Semana 3 (LPOO)
+DESCRIPTION:Alinhamento de casos práticos e componentes UML interativos (Class Designer, Interaction Diagram). Entregáveis: especificações dos componentes e plano de exercícios práticos com GitHub Classroom.
+LOCATION:Reunião online (Google Meet ou Microsoft Teams)
+END:VEVENT
+BEGIN:VEVENT
+UID:faculty-review-20240415T100000-TDJD-TGS@edu
+DTSTAMP:20250121T120000Z
+DTSTART;TZID=America/Fortaleza:20240415T100000
+DTEND;TZID=America/Fortaleza:20240415T110000
+SUMMARY:Revisão Docentes - Semana 4 (TDJD & TGS)
+DESCRIPTION:Atualização tecnológica (Unity 6, Godot 4, estudos de caso ESG) e componentes sistêmicos (Pipeline Canvas, System Mapper). Entregáveis: plano de revisão de conteúdo, lista de assets e matriz de competências atualizada.
+LOCATION:Reunião online (Google Meet ou Microsoft Teams)
+END:VEVENT
+END:VCALENDAR

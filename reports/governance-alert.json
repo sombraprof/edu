@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2025-09-26T23:47:02.143Z",
+  "generatedAt": "2025-09-29T00:13:25.724Z",
   "hasValidationReport": true,
   "hasObservabilityReport": true,
-  "validationStatus": "passed-with-warnings",
+  "validationStatus": "passed",
   "validationTotals": {
     "problems": 0,
-    "warnings": 4,
-    "lessonsWithIssues": 4
+    "warnings": 0,
+    "lessonsWithIssues": 0
   },
   "observabilityTotals": {
-    "legacyBlocks": 28,
-    "legacyLessons": 27,
-    "md3Blocks": 520,
+    "legacyBlocks": 0,
+    "legacyLessons": 0,
+    "md3Blocks": 623,
     "lessonsTotal": 92,
     "courses": 5,
     "exercisesWithoutMetadata": 0,
@@ -20,64 +20,24 @@
   "metadataIssues": [],
   "courses": [
     {
-      "id": "tgs",
+      "id": "algi",
       "problems": 0,
-      "warnings": 2,
-      "lessonsWithIssues": 2,
-      "legacyBlocks": 8,
-      "legacyLessons": 8,
-      "legacyLessonIds": [
-        "lesson-06",
-        "lesson-07",
-        "lesson-10",
-        "lesson-11",
-        "lesson-12",
-        "lesson-13",
-        "lesson-14",
-        "lesson-15"
-      ],
+      "warnings": 0,
+      "lessonsWithIssues": 0,
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "legacyLessonIds": [],
       "exercisesWithoutMetadata": 0,
       "supplementsWithoutMetadata": 0
     },
     {
       "id": "ddm",
       "problems": 0,
-      "warnings": 1,
-      "lessonsWithIssues": 1,
-      "legacyBlocks": 8,
-      "legacyLessons": 8,
-      "legacyLessonIds": [
-        "lesson-03",
-        "lesson-06",
-        "lesson-07",
-        "lesson-08",
-        "lesson-09",
-        "lesson-10",
-        "lesson-13",
-        "lesson-14"
-      ],
-      "exercisesWithoutMetadata": 0,
-      "supplementsWithoutMetadata": 0
-    },
-    {
-      "id": "tdjd",
-      "problems": 0,
-      "warnings": 1,
-      "lessonsWithIssues": 1,
-      "legacyBlocks": 5,
-      "legacyLessons": 5,
-      "legacyLessonIds": ["lesson-02", "lesson-10", "lesson-11", "lesson-12", "lesson-13"],
-      "exercisesWithoutMetadata": 0,
-      "supplementsWithoutMetadata": 0
-    },
-    {
-      "id": "algi",
-      "problems": 0,
       "warnings": 0,
       "lessonsWithIssues": 0,
-      "legacyBlocks": 6,
-      "legacyLessons": 5,
-      "legacyLessonIds": ["lesson-04", "lesson-14", "lesson-15", "lesson-29", "lesson-39"],
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "legacyLessonIds": [],
       "exercisesWithoutMetadata": 0,
       "supplementsWithoutMetadata": 0
     },
@@ -86,24 +46,46 @@
       "problems": 0,
       "warnings": 0,
       "lessonsWithIssues": 0,
-      "legacyBlocks": 1,
-      "legacyLessons": 1,
-      "legacyLessonIds": ["lesson-01"],
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "legacyLessonIds": [],
+      "exercisesWithoutMetadata": 0,
+      "supplementsWithoutMetadata": 0
+    },
+    {
+      "id": "tdjd",
+      "problems": 0,
+      "warnings": 0,
+      "lessonsWithIssues": 0,
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "legacyLessonIds": [],
+      "exercisesWithoutMetadata": 0,
+      "supplementsWithoutMetadata": 0
+    },
+    {
+      "id": "tgs",
+      "problems": 0,
+      "warnings": 0,
+      "lessonsWithIssues": 0,
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "legacyLessonIds": [],
       "exercisesWithoutMetadata": 0,
       "supplementsWithoutMetadata": 0
     }
   ],
   "flags": {
     "hasProblems": false,
-    "hasWarnings": true,
-    "totalLegacyBlocks": 28,
-    "shouldOpenIssue": true
+    "hasWarnings": false,
+    "totalLegacyBlocks": 0,
+    "shouldOpenIssue": false
   },
   "trend": {
     "validationProblems": 0,
-    "validationWarnings": 0,
-    "legacyBlocks": 0,
-    "legacyLessons": 0,
+    "validationWarnings": -4,
+    "legacyBlocks": -28,
+    "legacyLessons": -27,
     "exercisesWithoutMetadata": 0,
     "supplementsWithoutMetadata": 0
   }
