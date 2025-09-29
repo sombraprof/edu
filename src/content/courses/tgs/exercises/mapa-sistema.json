@@ -1,46 +1,74 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "mapa-sistema",
-  "title": "Exercício — Mapa de sistema",
-  "summary": "Construa um mapa visual destacando elementos, fronteiras e indicadores de um sistema tecnológico escolhido.",
+  "title": "Exercício — Mapa do sistema sociotécnico",
+  "summary": "Construa um mapa visual destacando atores, recursos, fluxos, fronteiras e indicadores de um sistema tecnológico escolhido.",
   "content": [
     {
       "type": "contentBlock",
-      "title": "Instruções",
+      "title": "Objetivo",
       "content": [
         {
           "type": "paragraph",
-          "text": "Selecione um sistema real (plataforma, serviço público, aplicação interna). Identifique atores, recursos e processos essenciais."
+          "text": "Selecione um sistema real (plataforma digital, serviço público, operação interna) e represente como seus elementos sociotécnicos se relacionam para gerar valor."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Elementos obrigatórios",
+      "title": "Preparação",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Reúna dados básicos sobre propósito, público e resultados esperados do sistema.",
+            "Identifique documentos, métricas ou pesquisas existentes que ajudem a enxergar o funcionamento atual.",
+            "Confirme as ferramentas de desenho que o grupo irá utilizar (FigJam, Miro, Mural ou alternativa livre)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Etapas sugeridas",
       "content": [
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Atores",
-              "text": "Usuários primários, secundários e intermediários."
+              "title": "Defina a fronteira",
+              "text": "Explique o que está dentro e fora do sistema. Liste as principais entradas e saídas observáveis."
             },
             {
-              "title": "Recursos",
-              "text": "Dados, infraestrutura e tecnologias de suporte."
+              "title": "Mapeie os atores",
+              "text": "Registre usuários primários, secundários, intermediários e equipes de suporte, incluindo relações de dependência."
             },
             {
-              "title": "Processos",
-              "text": "Principais fluxos de valor que conectam os atores."
+              "title": "Liste recursos críticos",
+              "text": "Documente dados, tecnologias, infraestrutura e ativos intangíveis que sustentam o sistema."
             },
             {
-              "title": "Indicadores",
-              "text": "Métricas que revelam saúde e desempenho do sistema."
+              "title": "Descreva processos e fluxos",
+              "text": "Mostre como o valor circula entre atores e recursos, destacando gargalos ou pontos de decisão importantes."
             },
             {
-              "title": "Riscos",
-              "text": "Pontos de falha, gargalos e riscos externos relevantes."
+              "title": "Defina indicadores e riscos",
+              "text": "Associe métricas de desempenho e anote ameaças internas ou externas que podem comprometer o sistema."
             }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Recursos de apoio",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "📚 Donella Meadows — Thinking in Systems (Cap. 1 e 2) [resumo em https://medium.com/age-of-awareness/thinking-in-systems-b74d92332b1f].",
+            "📝 Anotações da aula 'TGS — Modelagem de Sistemas' (material de apoio do curso).",
+            "🛠️ Ferramentas de mapeamento colaborativo (FigJam, Miro, Mural) para montar o diagrama final."
           ]
         }
       ]
@@ -49,9 +77,9 @@
       "type": "checklist",
       "title": "Entrega",
       "items": [
-        "Mapa visual em PNG ou PDF com legenda clara.",
-        "Breve texto (até 5 minutos de apresentação) destacando aprendizados.",
-        "Registro das decisões do grupo no portfólio."
+        "Mapa visual em PNG ou PDF com legenda e identificação dos elementos-chave.",
+        "Parágrafo-resumo (até 300 palavras ou 5 minutos de apresentação) com aprendizados e próximos passos.",
+        "Registro das decisões do grupo no portfólio compartilhado do curso."
       ]
     }
   ]

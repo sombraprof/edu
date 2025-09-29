@@ -4,10 +4,10 @@
   "entries": [
     {
       "id": "mapa-sistema",
-      "title": "Mapa de sistema",
-      "description": "Modele as fronteiras, entradas e saídas de um sistema real escolhido pelo grupo.",
+      "title": "Mapa do sistema sociotécnico",
+      "description": "Modele fronteiras, atores, recursos, fluxos e indicadores de um sistema real escolhido pelo grupo.",
       "link": "courses/tgs/exercises/mapa-sistema.html",
-      "available": false,
+      "available": true,
       "file": "mapa-sistema.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
@@ -17,10 +17,10 @@
     },
     {
       "id": "loop-feedback",
-      "title": "Análise de feedback loops",
-      "description": "Construa diagramas causais destacando ciclos de reforço e balanço.",
+      "title": "Análise de loops de feedback",
+      "description": "Mapeie ciclos reforçadores e balanceadores do sistema e defina indicadores e intervenções para cada loop.",
       "link": "courses/tgs/exercises/loop-feedback.html",
-      "available": false,
+      "available": true,
       "file": "loop-feedback.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
