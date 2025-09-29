@@ -80,7 +80,11 @@
       "title": "Fluxo: média com sentinela",
       "summary": "Fluxograma que representa a leitura de notas até o usuário digitar -1.",
       "nodes": [
-        { "id": "start", "type": "start", "title": "Início" },
+        {
+          "id": "start",
+          "type": "start",
+          "title": "Início"
+        },
         {
           "id": "read",
           "type": "process",
@@ -124,14 +128,35 @@
           "title": "Calcular média",
           "summary": "Divide soma pelo contador."
         },
-        { "id": "end", "type": "end", "title": "Fim" }
+        {
+          "id": "end",
+          "type": "end",
+          "title": "Fim"
+        }
       ],
       "connections": [
-        { "from": "start", "to": "read" },
-        { "from": "read", "to": "check" },
-        { "from": "accumulate", "to": "loop" },
-        { "from": "loop", "to": "read", "kind": "loop", "label": "Próxima nota" },
-        { "from": "average", "to": "end" }
+        {
+          "from": "start",
+          "to": "read"
+        },
+        {
+          "from": "read",
+          "to": "check"
+        },
+        {
+          "from": "accumulate",
+          "to": "loop"
+        },
+        {
+          "from": "loop",
+          "to": "read",
+          "kind": "loop",
+          "label": "Próxima nota"
+        },
+        {
+          "from": "average",
+          "to": "end"
+        }
       ]
     },
     {
@@ -145,19 +170,37 @@
       "headers": ["Padrão", "Quando usar", "Exemplo"],
       "rows": [
         [
-          { "value": "while" },
-          { "value": "Condição checada antes" },
-          { "value": "Leitura até sentinela" }
+          {
+            "value": "while"
+          },
+          {
+            "value": "Condição checada antes"
+          },
+          {
+            "value": "Leitura até sentinela"
+          }
         ],
         [
-          { "value": "do-while" },
-          { "value": "Executa ao menos uma vez" },
-          { "value": "Menu interativo" }
+          {
+            "value": "do-while"
+          },
+          {
+            "value": "Executa ao menos uma vez"
+          },
+          {
+            "value": "Menu interativo"
+          }
         ],
         [
-          { "value": "for" },
-          { "value": "Número conhecido de repetições" },
-          { "value": "Percorrer vetor de tamanho fixo" }
+          {
+            "value": "for"
+          },
+          {
+            "value": "Número conhecido de repetições"
+          },
+          {
+            "value": "Percorrer vetor de tamanho fixo"
+          }
         ]
       ]
     },
@@ -174,7 +217,7 @@
   "metadata": {
     "status": "published",
     "updatedAt": "2025-02-20T12:00:00.000Z",
-    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Roteiro de laboratório while 2025"]
   }
 }

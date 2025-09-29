@@ -174,10 +174,26 @@
         }
       ],
       "connections": [
-        { "from": "grave", "to": "end", "label": "Atendimento imediato" },
-        { "from": "obstetrico", "to": "end", "label": "Observação especializada" },
-        { "from": "cardiaco", "to": "consultorio", "label": "Monitorar sinais" },
-        { "from": "consultorio", "to": "end", "label": "Consulta clínica" }
+        {
+          "from": "grave",
+          "to": "end",
+          "label": "Atendimento imediato"
+        },
+        {
+          "from": "obstetrico",
+          "to": "end",
+          "label": "Observação especializada"
+        },
+        {
+          "from": "cardiaco",
+          "to": "consultorio",
+          "label": "Monitorar sinais"
+        },
+        {
+          "from": "consultorio",
+          "to": "end",
+          "label": "Consulta clínica"
+        }
       ]
     },
     {
@@ -231,7 +247,7 @@
   "metadata": {
     "status": "published",
     "updatedAt": "2025-02-20T12:00:00.000Z",
-    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing clínico de triagem 2025"]
   }
 }

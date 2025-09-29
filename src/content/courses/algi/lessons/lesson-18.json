@@ -71,8 +71,14 @@
               "title": "Inicialização",
               "description": "Executada uma vez antes da primeira iteração."
             },
-            { "title": "Condição", "description": "Verificada antes de cada ciclo." },
-            { "title": "Atualização", "description": "Executada após cada iteração." }
+            {
+              "title": "Condição",
+              "description": "Verificada antes de cada ciclo."
+            },
+            {
+              "title": "Atualização",
+              "description": "Executada após cada iteração."
+            }
           ]
         }
       ]
@@ -83,19 +89,37 @@
       "headers": ["Aspecto", "for", "while"],
       "rows": [
         [
-          { "value": "Estrutura" },
-          { "value": "Tudo em uma linha (início; condição; atualização)" },
-          { "value": "Elementos separados no corpo" }
+          {
+            "value": "Estrutura"
+          },
+          {
+            "value": "Tudo em uma linha (início; condição; atualização)"
+          },
+          {
+            "value": "Elementos separados no corpo"
+          }
         ],
         [
-          { "value": "Legibilidade" },
-          { "value": "Excelente para contadores e percursos" },
-          { "value": "Melhor para repetições condicionais sem contagem" }
+          {
+            "value": "Legibilidade"
+          },
+          {
+            "value": "Excelente para contadores e percursos"
+          },
+          {
+            "value": "Melhor para repetições condicionais sem contagem"
+          }
         ],
         [
-          { "value": "Risco" },
-          { "value": "Esquecer atualização resulta em loop infinito" },
-          { "value": "Esquecer leitura no fim pode travar condição" }
+          {
+            "value": "Risco"
+          },
+          {
+            "value": "Esquecer atualização resulta em loop infinito"
+          },
+          {
+            "value": "Esquecer leitura no fim pode travar condição"
+          }
         ]
       ]
     },
@@ -108,15 +132,31 @@
       "type": "md3Flowchart",
       "title": "Fluxo: tabuada com for",
       "nodes": [
-        { "id": "start", "type": "start", "title": "Início" },
-        { "id": "set", "type": "process", "title": "i = 1" },
+        {
+          "id": "start",
+          "type": "start",
+          "title": "Início"
+        },
+        {
+          "id": "set",
+          "type": "process",
+          "title": "i = 1"
+        },
         {
           "id": "condition",
           "type": "decision",
           "title": "i <= 10?",
           "branches": [
-            { "id": "loop-continues", "label": "Sim", "target": "print" },
-            { "id": "loop-ends", "label": "Não", "target": "end" }
+            {
+              "id": "loop-continues",
+              "label": "Sim",
+              "target": "print"
+            },
+            {
+              "id": "loop-ends",
+              "label": "Não",
+              "target": "end"
+            }
           ]
         },
         {
@@ -125,14 +165,36 @@
           "title": "Imprimir linha",
           "summary": "Mostra fator x multiplicador."
         },
-        { "id": "increment", "type": "process", "title": "i++" },
-        { "id": "end", "type": "end", "title": "Fim" }
+        {
+          "id": "increment",
+          "type": "process",
+          "title": "i++"
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "title": "Fim"
+        }
       ],
       "connections": [
-        { "from": "start", "to": "set" },
-        { "from": "set", "to": "condition" },
-        { "from": "print", "to": "increment" },
-        { "from": "increment", "to": "condition", "kind": "loop", "label": "Próximo valor" }
+        {
+          "from": "start",
+          "to": "set"
+        },
+        {
+          "from": "set",
+          "to": "condition"
+        },
+        {
+          "from": "print",
+          "to": "increment"
+        },
+        {
+          "from": "increment",
+          "to": "condition",
+          "kind": "loop",
+          "label": "Próximo valor"
+        }
       ]
     },
     {
@@ -148,7 +210,7 @@
   "metadata": {
     "status": "published",
     "updatedAt": "2025-02-20T12:00:00.000Z",
-    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Worksheet loops contados 2025"]
   }
 }
