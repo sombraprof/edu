@@ -202,39 +202,69 @@
     },
     {
       "id": "lesson-19",
-      "title": "Aula 19: for vs while",
+      "title": "Aula 19: For versus While na Prática",
       "file": "lesson-19.json",
-      "available": false
+      "available": true,
+      "description": "Analisa implementações com for e while, comparando clareza, controle e riscos em cenários reais.",
+      "summary": "Comparativo prático entre for e while com refatoração orientada a testes.",
+      "tags": ["loops", "comparacao", "boas-praticas"],
+      "duration": 115,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-20",
-      "title": "Aula 20: Estrutura de Repetição do-while",
+      "title": "Aula 20: Dominando o laço do-while",
       "file": "lesson-20.json",
-      "available": false
+      "available": true,
+      "description": "Estuda o laço do-while para menus e fluxos que exigem execução mínima garantida com validação.",
+      "summary": "Construção de menus interativos com do-while e checklist de testes.",
+      "tags": ["loops", "do-while", "menus"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-21",
-      "title": "Aula 21: Problemas com Laços e Laços Aninhados",
+      "title": "Aula 21: Laços Aninhados e Padrões Bidimensionais",
       "file": "lesson-21.json",
-      "available": false
+      "available": true,
+      "description": "Aplica laços aninhados em tabelas, padrões e simulações, destacando responsabilidades de cada nível.",
+      "summary": "Laboratório de laços duplos com foco em limites e complexidade.",
+      "tags": ["loops", "aninhamento", "padroes"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-22",
       "title": "Aula 22: Integração de Condicionais e Laços",
       "file": "lesson-22.json",
-      "available": false
+      "available": true,
+      "description": "Integra validação, processamento iterativo e relatórios usando laços combinados com condicionais.",
+      "summary": "Construção de pipelines completos de processamento com métricas e logs.",
+      "tags": ["loops", "condicionais", "integracao"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-23",
-      "title": "Aula 23: Revisão de Estruturas de Controle",
+      "title": "Aula 23: Atividade Assíncrona de Triagem Clínica",
       "file": "lesson-23.json",
-      "available": false
+      "available": true,
+      "description": "Atividade assíncrona de triagem clínica integrando laços, condicionais e documentação de testes.",
+      "summary": "Projeto remoto de triagem com entregas de código, CSV e relatório reflexivo.",
+      "tags": ["assincrona", "projeto", "triagem"],
+      "duration": 180,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-24",
-      "title": "Aula 24: Atividade Prática (Assíncrona) – Integração",
+      "title": "Aula 24: Síntese e Retrospectiva dos Laços",
       "file": "lesson-24.json",
-      "available": false
+      "available": true,
+      "description": "Sessão híbrida de retrospectiva e síntese dos aprendizados de laços com plano de ação coletivo.",
+      "summary": "Showcase da triagem, feedback estruturado e planejamento para o próximo módulo.",
+      "tags": ["retrospectiva", "feedback", "planejamento"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-25",

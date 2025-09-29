@@ -1,0 +1,172 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-20",
+  "title": "Aula 20: Dominando o laço do-while",
+  "summary": "Explora o laço do-while para fluxos que exigem execução mínima garantida e menus interativos.",
+  "objective": "Construir algoritmos com do-while assegurando validações e saídas consistentes.",
+  "objectives": [
+    "Identificar cenários em que do-while oferece vantagem sobre while.",
+    "Modelar menus interativos com repetição garantida.",
+    "Registrar testes que validam permanência e saída antecipada."
+  ],
+  "competencies": ["Pensamento computacional", "Qualidade de software", "Documentação técnica"],
+  "skills": [
+    "Projetar condições de permanência claras para do-while.",
+    "Implementar validações internas que previnam loops infinitos.",
+    "Construir relatórios de teste com casos de borda específicos."
+  ],
+  "outcomes": [
+    "Entrega menus funcionais com opções de retorno controladas por do-while.",
+    "Documenta cenários de testes cobrindo saída imediata, repetição e erros.",
+    "Integra feedback do professor para reforçar boas práticas de do-while."
+  ],
+  "prerequisites": [
+    "Conhecer while e condicionais.",
+    "Ter utilizado scanf e printf em exercícios anteriores."
+  ],
+  "tags": ["loops", "do-while", "menus"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Playbook do-while",
+      "type": "reading",
+      "file": "courses/algi/do-while-playbook.md",
+      "url": "https://static.md3.education/courses/algi/do-while-playbook.md"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "url": "https://www.onlinegdb.com/online_c_compiler",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020.",
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Entrega de menu bancário implementado em C com do-while e relatório de testes anexado."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Contexto",
+          "content": "Menus interativos que devem executar ao menos uma vez para coletar entrada."
+        },
+        {
+          "icon": "gears",
+          "title": "Metodologia",
+          "content": "Demonstração guiada + laboratório incremental com checkpoints de validação."
+        },
+        {
+          "icon": "bullseye",
+          "title": "Resultado",
+          "content": "Menu bancário documentado com prints de testes e checklist preenchido."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Recap de while e necessidade de execução garantida.",
+        "(20 min) Desmontar a sintaxe do do-while e analisar fluxograma.",
+        "(30 min) Coding dojo: montar menu bancário com feedback do professor.",
+        "(20 min) Laboratório individual com checkpoints de testes.",
+        "(20 min) Registro de testes + compartilhamento no mural.",
+        "(10 min) Orientações finais para a tarefa avaliativa."
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Sugestões de vídeo",
+      "videos": [
+        {
+          "youtubeId": "yYj7AF3c1Jc",
+          "title": "Como funciona o do-while em C"
+        },
+        {
+          "youtubeId": "CkGf8w6x6GQ",
+          "title": "Menus interativos com do-while"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estrutura do do-while",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O do-while executa o corpo antes de testar a condição, garantindo ao menos uma passagem pelo bloco."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "int opcao;\ndo {\n  mostraMenu();\n  scanf(\"%d\", &opcao);\n  trataOpcao(opcao);\n} while (opcao != 0);\n"
+        }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo de menu com do-while",
+      "nodes": [
+        { "id": "start", "type": "start", "title": "Início" },
+        { "id": "process-menu", "type": "process", "title": "Exibir menu" },
+        { "id": "input", "type": "process", "title": "Ler opção" },
+        {
+          "id": "decision",
+          "type": "decision",
+          "title": "Opção != 0?",
+          "branches": [
+            { "id": "continua", "label": "Sim", "target": "process-menu" },
+            { "id": "encerra", "label": "Não", "target": "end" }
+          ]
+        },
+        { "id": "end", "type": "end", "title": "Fim" }
+      ],
+      "connections": [
+        { "from": "start", "to": "process-menu" },
+        { "from": "process-menu", "to": "input" },
+        { "from": "input", "to": "decision" }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Casos para praticar",
+      "cards": [
+        {
+          "title": "Menu bancário",
+          "content": "Saldo, depósito, saque e saída."
+        },
+        {
+          "title": "Painel de configuração",
+          "content": "Alterar idioma, brilho, volume antes de sair."
+        },
+        {
+          "title": "Processador de formulários",
+          "content": "Executa ao menos um lote e pergunta se há mais entradas."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de qualidade",
+      "items": [
+        "A condição de saída foi documentada em comentário.",
+        "Todos os caminhos exibem mensagens claras ao usuário.",
+        "Registrei ao menos três casos de teste (saída imediata, repetição, entrada inválida)."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-03-02T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Playbook interno de menus interativos"]
+  }
+}
