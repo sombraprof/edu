@@ -276,7 +276,7 @@ import type {
   ValidationReportGenerationSummary,
 } from '../types/validation-report';
 
-const report = rawReport as ValidationReport;
+const report = rawReport as unknown as ValidationReport;
 
 const generationData = computed<ValidationReportGeneration>(
   () => report.generation ?? { exercises: [], supplements: [] }
