@@ -236,7 +236,7 @@ function nodeTypeLabel(type: FlowNodeType): string {
   background: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   position: relative;
 }
 
@@ -255,7 +255,7 @@ function nodeTypeLabel(type: FlowNodeType): string {
 .flowchart__node:hover::after,
 .flowchart__node:focus-within::after {
   border-color: color-mix(in srgb, var(--md-sys-color-primary) 35%, transparent);
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .flowchart__node-header {

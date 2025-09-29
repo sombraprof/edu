@@ -251,7 +251,7 @@ html[data-theme='dark'] .legacy-html :deep(.rounded-lg),
 html[data-theme='dark'] .legacy-html :deep(.rounded-xl) {
   background-color: var(--md-sys-color-surface-container);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 50%, transparent);
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .legacy-html :deep(h1),
@@ -344,7 +344,7 @@ html[data-theme='dark'] .legacy-html :deep(.rounded-xl) {
 .legacy-html :deep(img) {
   border-radius: var(--md-sys-border-radius-large);
   border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 40%, transparent);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   max-width: 100%;
   height: auto;
 }
@@ -420,7 +420,7 @@ html[data-theme='dark'] .legacy-html :deep(.rounded-xl) {
   border-radius: var(--md-sys-border-radius-large);
   border: none;
   cursor: pointer;
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -428,7 +428,7 @@ html[data-theme='dark'] .legacy-html :deep(.rounded-xl) {
 
 .legacy-html :deep(.btn:hover) {
   transform: translateY(-1px);
-  box-shadow: var(--shadow-elevation-3);
+  box-shadow: var(--md-sys-elevation-level3);
 }
 
 .legacy-html :deep(.btn-tonal) {
@@ -437,7 +437,7 @@ html[data-theme='dark'] .legacy-html :deep(.rounded-xl) {
 }
 
 .legacy-html :deep(.btn-tonal:hover) {
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .legacy-html :deep(.code-block) {

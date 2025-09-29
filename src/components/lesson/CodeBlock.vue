@@ -168,7 +168,7 @@ watch(
       transparent
     );
   border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-xl));
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   margin-block: var(--code-block-spacing, 0);
   overflow: hidden;
   position: relative;

@@ -204,7 +204,7 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
   background: var(--callout-bg);
   border: 1px solid var(--callout-border);
   color: var(--callout-text);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   align-items: start;
 }
 
@@ -278,7 +278,7 @@ function resolveVideoAccessibleName(block: RichVideo, index: number): string {
   padding-top: 56.25%;
   border-radius: var(--md-sys-shape-corner-large, var(--md-sys-border-radius-large));
   overflow: hidden;
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .callout__video-frame iframe {

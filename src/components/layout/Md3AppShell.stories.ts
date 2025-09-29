@@ -1,8 +1,10 @@
 import type { Meta, StoryObj, StoryFn } from '@storybook/vue3';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { ref, getCurrentInstance } from 'vue';
 import { createRouter, createMemoryHistory, useRoute } from 'vue-router';
 import Md3AppShell from './Md3AppShell.vue';
 import ThemeToggle from '../ThemeToggle.vue';
+import { teacherShellNavigation, teacherNavigationMetrics } from './storyMetrics';
 
 const router = createRouter({
   history: createMemoryHistory(),
@@ -28,40 +30,41 @@ function ensureRouter() {
   }
 }
 
-const navigationItems = [
-  {
-    id: 'overview',
-    label: 'Panorama',
-    icon: 'compass',
-    badge: 'Visão geral',
-    to: { name: 'course-overview' },
-  },
-  { id: 'lessons', label: 'Aulas', icon: 'book-open', badge: '18', to: { name: 'course-lessons' } },
-  {
-    id: 'exercises',
-    label: 'Exercícios',
-    icon: 'clipboard-list',
-    badge: '12',
-    to: { name: 'course-exercises' },
-  },
-  { id: 'governance', label: 'Governança', icon: 'shield-check', disabled: true },
-];
-
 const breadcrumbItems = [
   { id: 'dashboard', label: 'Cursos', href: '#' },
   { id: 'course', label: 'Algoritmos I', to: { name: 'course-overview' } },
   { id: 'unit', label: 'Unidade 02 · Estruturas de decisão' },
 ];
 
+const CUSTOM_VIEWPORTS = {
+  pixel7: {
+    name: 'Pixel 7',
+    styles: { width: '412px', height: '915px' },
+    type: 'mobile' as const,
+  },
+  desktop1440: {
+    name: 'Desktop 1440',
+    styles: { width: '1440px', height: '900px' },
+    type: 'desktop' as const,
+  },
+};
+
 const meta: Meta<typeof Md3AppShell> = {
   title: 'Layout/Md3AppShell',
   component: Md3AppShell,
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      viewports: {
+        ...INITIAL_VIEWPORTS,
+        ...CUSTOM_VIEWPORTS,
+      },
+      defaultViewport: 'desktop1440',
+    },
     docs: {
       description: {
         component:
-          'Shell responsivo que coordena rail, drawer modal, breadcrumbs, busca contextual e barra inferior para cursos MD3.',
+          'Shell responsivo que coordena rail, drawer modal, breadcrumbs, busca contextual e barra inferior para cursos MD3. O viewport padrão simula o cenário desktop com rail expandido; alternar para o preset Pixel 7 ativa a transição para drawer modal e bottom bar.',
       },
     },
   },
@@ -89,20 +92,26 @@ const modules = [
     id: 'module-2',
     title: 'Unidade 02 · Estruturas de decisão',
     summary: 'Fluxogramas, operadores lógicos, estudos de caso e preparação para a NP1.',
-    status: '6 aulas migradas',
+    status: `${teacherNavigationMetrics.lessonsPublished} aulas publicadas`,
   },
   {
     id: 'module-3',
     title: 'Unidade 03 · Laços de repetição',
     summary:
       'Atividades assíncronas e laboratórios com `while`, `for` e tabelas de acompanhamento.',
-    status: 'Em revisão docente',
+    status:
+      teacherNavigationMetrics.exercisesUpcoming > 0
+        ? `${teacherNavigationMetrics.exercisesUpcoming} entregas em preparação`
+        : 'Em revisão docente',
   },
   {
     id: 'project',
     title: 'Projeto integrador',
     summary: 'Plano de voo com checkpoints semanais, rubrica unificada e roteiros de laboratório.',
-    status: 'Entrega prevista em 30/09',
+    status:
+      teacherNavigationMetrics.governanceStatus === 'passed'
+        ? 'Governança em dia'
+        : 'Acompanhar alertas de governança',
   },
 ];
 
@@ -120,11 +129,19 @@ const upcoming = [
 export const CursoCompleto: Story = {
   args: {
     title: 'Algoritmos e Programação I',
-    navigation: navigationItems,
+    navigation: teacherShellNavigation,
     breadcrumbs: breadcrumbItems,
     topBarVariant: 'medium',
     enableSearch: true,
     searchPlaceholder: 'Buscar aulas, exercícios ou materiais',
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Viewport desktop com rail persistente. Os badges refletem a publicação real do curso (aulas, exercícios) e o status de governança do painel docente.',
+      },
+    },
   },
   render: (args) => ({
     components: { Md3AppShell, ThemeToggle },
@@ -156,6 +173,8 @@ export const CursoCompleto: Story = {
         lastBreadcrumb.value = id;
       };
 
+      const navigationItems = teacherShellNavigation;
+
       return {
         args,
         navigationItems,
@@ -167,6 +186,7 @@ export const CursoCompleto: Story = {
         lastNavigation,
         lastBreadcrumb,
         route,
+        teacherNavigationMetrics,
         handleSearchUpdate,
         handleSubmitSearch,
         handleClearSearch,
@@ -195,7 +215,9 @@ export const CursoCompleto: Story = {
             </div>
             <div style="display:flex;flex-direction:column;gap:0.125rem;">
               <span style="font-weight:600;">Algoritmos I</span>
-              <span style="font-size:0.875rem;color:var(--md-sys-color-on-surface-variant);">Turma 2025.1 · 6h restantes</span>
+              <span style="font-size:0.875rem;color:var(--md-sys-color-on-surface-variant);">
+                Turma 2025.1 · {{ teacherNavigationMetrics.migrationPercent }}% do acervo em MD3
+              </span>
             </div>
           </div>
         </template>
@@ -244,4 +266,23 @@ export const CursoCompleto: Story = {
       </Md3AppShell>
     `,
   }),
+};
+
+export const CursoMobileDrawer: Story = {
+  args: {
+    ...CursoCompleto.args,
+    topBarVariant: 'small',
+  },
+  parameters: {
+    viewport: {
+      defaultViewport: 'pixel7',
+    },
+    docs: {
+      description: {
+        story:
+          'Viewport mobile ativando drawer modal e bottom bar. Use o ícone de menu para abrir o drawer e conferir a mesma navegação orientada por métricas reais.',
+      },
+    },
+  },
+  render: CursoCompleto.render,
 };

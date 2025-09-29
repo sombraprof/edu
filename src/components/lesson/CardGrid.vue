@@ -281,7 +281,7 @@ function sanitizeList(items?: unknown[]): string[] {
   border-radius: var(--md-sys-border-radius-large);
   padding: var(--md-sys-spacing-5);
   border: 1px solid transparent;
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease;
@@ -289,7 +289,7 @@ function sanitizeList(items?: unknown[]): string[] {
 
 .card-grid__card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .card-grid__card--surface {

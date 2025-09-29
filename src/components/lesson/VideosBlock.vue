@@ -114,7 +114,7 @@ function toEmbedUrl(url: string): string {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-5);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-videos__header {
@@ -142,7 +142,7 @@ function toEmbedUrl(url: string): string {
   display: flex;
   flex-direction: column;
   gap: var(--md-sys-spacing-3);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-videos__item-title {
@@ -158,7 +158,7 @@ function toEmbedUrl(url: string): string {
   border-radius: var(--md-sys-border-radius-large);
   overflow: hidden;
   background: var(--md-sys-color-surface-variant);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-videos__iframe {

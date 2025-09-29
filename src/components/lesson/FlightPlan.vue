@@ -37,7 +37,7 @@ const sanitizedItems = computed(() => props.data.items.map((item) => sanitizeHtm
   grid-template-columns: auto 1fr;
   gap: var(--md-sys-spacing-4);
   align-items: start;
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .lesson-flight-plan__icon {

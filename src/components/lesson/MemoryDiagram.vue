@@ -32,7 +32,7 @@ defineProps<Props>();
   flex-direction: column;
   gap: var(--md-sys-spacing-3);
   align-items: center;
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .memory-diagram__title {

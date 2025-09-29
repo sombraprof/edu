@@ -13,7 +13,7 @@
         Operador E (AND)
       </h4>
       <div class="logic-operators__section">
-        <div class="card shadow-elevation-2 p-6 logic-operators__explanation">
+        <div class="card md-elevation-2 p-6 logic-operators__explanation">
           <p :style="{ marginBottom: 'var(--md-sys-spacing-4)' }">
             O operador <strong>E</strong> (ou <code class="inline-code">AND</code>) é exigente. Ele
             só resulta em <strong>verdadeiro</strong> se <strong>TODAS</strong> as condições
@@ -66,7 +66,7 @@
       </h4>
       <div class="logic-operators__section">
         <div
-          class="card shadow-elevation-2 logic-operators__explanation"
+          class="card md-elevation-2 logic-operators__explanation"
           :style="{ padding: 'var(--md-sys-spacing-6)' }"
         >
           <p :style="{ marginBottom: 'var(--md-sys-spacing-4)' }">
@@ -120,7 +120,7 @@
       </h4>
       <div class="logic-operators__section">
         <div
-          class="card shadow-elevation-2 logic-operators__explanation"
+          class="card md-elevation-2 logic-operators__explanation"
           :style="{ padding: 'var(--md-sys-spacing-6)' }"
         >
           <p :style="{ marginBottom: 'var(--md-sys-spacing-4)' }">

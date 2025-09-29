@@ -77,13 +77,13 @@ const idLabel = computed(() => (id.value ? toTitleCase(id.value) : ''));
   border-radius: var(--md-sys-border-radius-large);
   background-color: var(--md-sys-color-surface);
   border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 45%, transparent);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 html[data-theme='dark'] .legacy-section {
   background-color: var(--md-sys-color-surface-container);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 35%, transparent);
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .legacy-section__header {
@@ -101,7 +101,7 @@ html[data-theme='dark'] .legacy-section {
   border-radius: var(--md-sys-border-radius-full);
   background-color: var(--md-sys-color-primary-container);
   color: var(--md-sys-color-on-primary-container);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
 }
 
 .legacy-section__chip-icon {
@@ -140,7 +140,7 @@ html[data-theme='dark'] .legacy-section {
   background-color: var(--md-sys-color-surface-container);
   border-radius: var(--md-sys-border-radius-large);
   border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 40%, transparent);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   padding: var(--md-sys-spacing-4);
   display: flex;
   flex-direction: column;
@@ -150,7 +150,7 @@ html[data-theme='dark'] .legacy-section {
 html[data-theme='dark'] .legacy-section__body > :deep([data-legacy-card]) {
   background-color: var(--md-sys-color-surface-container-high);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 35%, transparent);
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .legacy-section__body :deep(h3),
@@ -244,7 +244,7 @@ html[data-theme='dark'] .legacy-section__body :deep(pre) {
   background-color: var(--md-sys-color-surface);
   border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 35%, transparent);
   border-radius: var(--md-sys-border-radius-large);
-  box-shadow: var(--shadow-elevation-1);
+  box-shadow: var(--md-sys-elevation-level1);
   padding: var(--md-sys-spacing-4);
   display: flex;
   flex-direction: column;
@@ -254,7 +254,7 @@ html[data-theme='dark'] .legacy-section__body :deep(pre) {
 html[data-theme='dark'] .legacy-section__body :deep([data-legacy-grid] > [data-legacy-card]) {
   background-color: var(--md-sys-color-surface-container-high);
   border-color: color-mix(in srgb, var(--md-sys-color-outline) 30%, transparent);
-  box-shadow: var(--shadow-elevation-2);
+  box-shadow: var(--md-sys-elevation-level2);
 }
 
 .legacy-section__body :deep(table) {
