@@ -25,6 +25,12 @@
           {{ lessonTitle }}
         </h2>
         <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
+        <LessonOverview
+          :summary="lessonSummary"
+          :duration="lessonDuration"
+          :modality="lessonModality"
+          :tags="lessonTags"
+        />
       </header>
 
       <LessonReadiness
@@ -57,6 +63,7 @@ import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Prism from 'prismjs';
 import LessonReadiness from '@/components/lesson/LessonReadiness.vue';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
+import LessonOverview from '@/components/lesson/LessonOverview.vue';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
 import type { NormalizedLesson } from '@/content/schema/lesson';
 import Md3Button from '@/components/Md3Button.vue';
@@ -79,6 +86,10 @@ interface LessonRef {
   file: string;
   description?: string;
   available?: boolean;
+  summary?: string;
+  duration?: number;
+  tags?: string[];
+  modality?: string;
 }
 
 const lessonIndexes = import.meta.glob('../content/courses/*/lessons.json');
@@ -90,9 +101,10 @@ const lessonId = computed(() => String(route.params.lessonId));
 
 const lessonTitle = ref<string>('');
 const lessonObjective = ref<string>('');
-const lessonSkills = ref<string[]>([]);
-const lessonOutcomes = ref<string[]>([]);
-const lessonPrerequisites = ref<string[]>([]);
+const lessonSummary = ref<string>('');
+const lessonDuration = ref<number | undefined>(undefined);
+const lessonModality = ref<string>('');
+const lessonTags = ref<string[]>([]);
 
 type LessonContent = NormalizedLesson & { content: LessonBlock[] };
 
@@ -118,9 +130,10 @@ async function loadLesson() {
   lessonData.value = null;
   lessonTitle.value = '';
   lessonObjective.value = '';
-  lessonSkills.value = [];
-  lessonOutcomes.value = [];
-  lessonPrerequisites.value = [];
+  lessonSummary.value = '';
+  lessonDuration.value = undefined;
+  lessonModality.value = '';
+  lessonTags.value = [];
 
   try {
     const currentCourse = courseId.value;
@@ -157,16 +170,23 @@ async function loadLesson() {
           ? entry.description
           : '';
 
-    lessonSkills.value = normalizeStringList(data.skills);
-    lessonOutcomes.value = normalizeStringList(data.outcomes);
-    lessonPrerequisites.value = normalizeStringList(data.prerequisites);
+    const summary = pickString(data.summary, entry.summary, entry.description);
+    const duration = pickNumber(data.duration, entry.duration);
+    const modality = pickString(data.modality, entry.modality);
+    const tags = mergeTags(data.tags, entry.tags);
+
+    lessonSummary.value = summary;
+    lessonDuration.value = duration;
+    lessonModality.value = modality;
+    lessonTags.value = tags;
 
     lessonData.value = {
       ...data,
+      summary: summary || data.summary,
+      duration: typeof duration === 'number' ? duration : data.duration,
+      modality: modality || data.modality,
+      tags: tags.length ? tags : data.tags,
       content: data.content,
-      skills: [...lessonSkills.value],
-      outcomes: [...lessonOutcomes.value],
-      prerequisites: [...lessonPrerequisites.value],
     };
 
     await nextTick();
@@ -188,4 +208,73 @@ onMounted(() => {
 watch([courseId, lessonId], () => {
   loadLesson();
 });
+
+function pickString(...candidates: Array<unknown>): string {
+  for (const candidate of candidates) {
+    const value = normalizeString(candidate);
+    if (value) {
+      return value;
+    }
+  }
+  return '';
+}
+
+function pickNumber(...candidates: Array<unknown>): number | undefined {
+  for (const candidate of candidates) {
+    const value = normalizePositiveNumber(candidate);
+    if (typeof value === 'number') {
+      return value;
+    }
+  }
+  return undefined;
+}
+
+function mergeTags(...sources: Array<unknown>): string[] {
+  const seen = new Set<string>();
+  const tags: string[] = [];
+
+  for (const source of sources) {
+    if (!Array.isArray(source)) {
+      continue;
+    }
+
+    for (const raw of source) {
+      const value = normalizeString(raw);
+      if (!value) {
+        continue;
+      }
+      const key = value.toLocaleLowerCase('pt-BR');
+      if (seen.has(key)) {
+        continue;
+      }
+      seen.add(key);
+      tags.push(value);
+    }
+  }
+
+  return tags;
+}
+
+function normalizeString(value: unknown): string {
+  if (typeof value !== 'string') {
+    return '';
+  }
+  const trimmed = value.trim();
+  return trimmed.length ? trimmed : '';
+}
+
+function normalizePositiveNumber(value: unknown): number | undefined {
+  if (typeof value === 'number' && Number.isFinite(value) && value > 0) {
+    return value;
+  }
+
+  if (typeof value === 'string') {
+    const parsed = Number.parseFloat(value);
+    if (Number.isFinite(parsed) && parsed > 0) {
+      return parsed;
+    }
+  }
+
+  return undefined;
+}
 </script>
