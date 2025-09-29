@@ -1,0 +1,158 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-22",
+  "title": "Aula 22: Integrando Laços e Condicionais",
+  "summary": "Integra estruturas de repetição com decisões complexas para tratar fluxos completos de processamento.",
+  "objective": "Construir rotinas robustas que combinem laços e condicionais com validação e relatórios de execução.",
+  "objectives": [
+    "Mapear pontos de decisão dentro e fora de laços.",
+    "Implementar validações de entrada antes de iniciar ciclos.",
+    "Gerar relatórios consolidados ao final do processamento."
+  ],
+  "competencies": ["Arquitetura de algoritmos", "Qualidade de software", "Comunicação técnica"],
+  "skills": [
+    "Aplicar condicionais múltiplas dentro de laços sem perder legibilidade.",
+    "Prevenir estados inconsistentes ao combinar fluxos.",
+    "Registrar métricas e mensagens significativas para o usuário."
+  ],
+  "outcomes": [
+    "Entrega algoritmos que integram validação, processamento e resumo final.",
+    "Apresenta relatório com métricas coletadas durante a execução.",
+    "Argumenta sobre as escolhas de estrutura e suas vantagens."
+  ],
+  "prerequisites": ["Dominar for/while/do-while.", "Conhecer if/else if/else e switch."],
+  "tags": ["loops", "condicionais", "integracao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia de integração laços + condicionais",
+      "type": "reading",
+      "file": "courses/algi/loops-condicionais-integracao.md",
+      "url": "https://static.md3.education/courses/algi/loops-condicionais-integracao.md"
+    },
+    {
+      "label": "Planilha de métricas (Google Sheets)",
+      "url": "https://docs.google.com/spreadsheets/d/1metrics-template",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021.",
+    "SEBESTA, R. W. Conceitos de Linguagens de Programação. Pearson, 2018."
+  ],
+  "assessment": {
+    "type": "portfolio",
+    "description": "Entrega de rotina de processamento de pedidos com relatório de métricas e justificativa técnica."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "settings",
+          "title": "Construção em camadas",
+          "content": "Separar fases: validação → processamento → resumo."
+        },
+        {
+          "icon": "gears",
+          "title": "Fluxo",
+          "content": "Mapear decisões dentro de laços e tratar exceções."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Entrega",
+          "content": "Métricas + código comentado + quadro de decisão."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h00)",
+      "items": [
+        "(15 min) Revisão do ciclo completo de processamento.",
+        "(20 min) Workshop: validar entrada antes do laço.",
+        "(30 min) Coding dojo: processamento de pedidos com regras condicionais.",
+        "(20 min) Laboratório em trios: tratamento de exceções e logs.",
+        "(15 min) Construção do relatório de métricas.",
+        "(10 min) Pausa ativa e dúvidas rápidas.",
+        "(10 min) Socialização das soluções.",
+        "(10 min) Briefing da tarefa avaliativa."
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Referências em vídeo",
+      "videos": [
+        {
+          "youtubeId": "l1dwYQz9g7E",
+          "title": "Pipelines de processamento com C"
+        },
+        {
+          "youtubeId": "vCsjG8xqQng",
+          "title": "Validação de dados em laços"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Blueprint do algoritmo",
+      "content": [
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Validar quantidade de itens antes de iniciar o laço.",
+            "Inicializar acumuladores e indicadores de erro.",
+            "Dentro do laço: ler item, validar campos e classificar via condicionais.",
+            "Atualizar métricas (totais, máximos, mínimos).",
+            "Após o laço: imprimir resumo e status geral."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Regras condicionais prioritárias",
+      "cards": [
+        {
+          "title": "Casos críticos",
+          "content": "Tratam prioridade absoluta (ex.: estoque zerado → alerta)."
+        },
+        {
+          "title": "Casos prioritários",
+          "content": "Aplicam descontos, filas preferenciais, mensagens personalizadas."
+        },
+        {
+          "title": "Casos padrão",
+          "content": "Processamento nominal com logs básicos."
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Integração completa",
+      "code": "int totalPedidos = 0, atrasados = 0;\nint quantidade;\nprintf(\"Quantos pedidos serão processados? \");\nscanf(\"%d\", &quantidade);\nif (quantidade <= 0) {\n  printf(\"Nada a processar.\\n\");\n  return 0;\n}\nfor (int i = 0; i < quantidade; i++) {\n  Pedido pedido = lerPedido();\n  if (!pedido.valido) {\n    printf(\"Pedido %d inválido.\\n\", i + 1);\n    continue;\n  }\n  if (pedido.prioridade == ALTA) {\n    trataPrioritario(pedido);\n  } else if (pedido.atrasado) {\n    atrasados++;\n    trataAtrasado(pedido);\n  } else {\n    trataNormal(pedido);\n  }\n  totalPedidos++;\n}\nprintf(\"Processados: %d | Atrasados: %d\\n\", totalPedidos, atrasados);\n"
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist do relatório",
+      "items": [
+        "Validei entradas fora do laço e tratei retornos inválidos.",
+        "Documentei cada regra condicional com comentários claros.",
+        "Registrei métricas e gerei resumo final com mensagens amigáveis."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-03-04T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Blueprint integração loops-condicionais 2024"
+    ]
+  }
+}

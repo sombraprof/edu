@@ -1,0 +1,147 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-23",
+  "title": "Aula 23: Atividade Assíncrona de Triagem Clínica",
+  "summary": "Propõe atividade assíncrona integradora que combina laços, condicionais e registro de testes na simulação de triagem.",
+  "objective": "Planejar e executar a triagem automatizada cumprindo requisitos funcionais, documentação e entrega assíncrona.",
+  "objectives": [
+    "Interpretar o briefing de triagem e planejar o fluxo de decisão.",
+    "Implementar algoritmo que percorre formulários e classifica pacientes.",
+    "Documentar testes, métricas e justificativas no relatório de entrega."
+  ],
+  "competencies": ["Autonomia", "Gestão do tempo", "Qualidade de software"],
+  "skills": [
+    "Planejar execução assíncrona com checkpoints claros.",
+    "Integrar laços, condicionais e estruturas de dados simples.",
+    "Produzir documentação mínima viável (código, CSV, relatório)."
+  ],
+  "outcomes": [
+    "Entrega código funcional acompanhado de CSV e relatório.",
+    "Apresenta mapa de testes com evidências anexadas.",
+    "Cumpre prazos e publica reflexão individual no fórum."
+  ],
+  "prerequisites": [
+    "Ter concluído as aulas 19 a 22.",
+    "Saber manipular arquivos de texto simples em C."
+  ],
+  "tags": ["assincrona", "projeto", "triagem"],
+  "duration": 180,
+  "modality": "async",
+  "resources": [
+    {
+      "label": "Briefing oficial da triagem",
+      "type": "document",
+      "file": "courses/algi/triagem-async-briefing.md",
+      "url": "https://static.md3.education/courses/algi/triagem-async-briefing.md"
+    },
+    {
+      "label": "Modelo de relatório (Google Docs)",
+      "url": "https://docs.google.com/document/d/1triagem-template",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Entrega no AVA com código, CSV, relatório de testes e reflexão individual."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano de execução assíncrona",
+      "cards": [
+        {
+          "icon": "calendar-days",
+          "title": "Timeline sugerida",
+          "content": "Dia 1: leitura e planejamento. Dia 2: implementação. Dia 3: testes e entrega."
+        },
+        {
+          "icon": "tasks",
+          "title": "Entregáveis",
+          "content": "Código C, CSV de saída, relatório de testes, reflexão no fórum."
+        },
+        {
+          "icon": "users",
+          "title": "Canais",
+          "content": "Fórum da disciplina + plantão remoto de 30 min na quarta-feira."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo assíncrono (3 dias)",
+      "items": [
+        "Dia 1 (1h) – Ler briefing, mapear fluxograma, listar dúvidas.",
+        "Dia 2 (1h30) – Codificar solução, gerar CSV e validar casos extremos.",
+        "Dia 3 (30 min) – Revisar testes, preencher relatório e publicar reflexão."
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Suportes em vídeo",
+      "videos": [
+        {
+          "youtubeId": "8kK-cA99SA0",
+          "title": "Triagem com estruturas de controle"
+        },
+        {
+          "youtubeId": "2LzgBBrZPdg",
+          "title": "Registrando testes e evidências"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist de planejamento",
+      "cards": [
+        {
+          "title": "Dados críticos",
+          "content": "Definir estruturas para sintomas, sinais vitais e riscos."
+        },
+        {
+          "title": "Regras de decisão",
+          "content": "Priorizar emergências, depois riscos e casos padrão."
+        },
+        {
+          "title": "Saídas",
+          "content": "CSV com nome, classificação e justificativa textual."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Sugestão de organização",
+      "content": [
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Criar struct `Paciente` com campos do briefing.",
+            "Usar laço for para percorrer até 50 registros ou até EOF.",
+            "Dentro do laço, aplicar condicionais exclusivas para emergências, prioritários e observação.",
+            "Acumular contadores de cada fila para relatório final.",
+            "Gravar linha no CSV com `fprintf`."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de submissão",
+      "items": [
+        "Subi código, CSV e relatório no AVA.",
+        "Publiquei reflexão no fórum destacando aprendizados.",
+        "Revisei o código com ferramenta de análise estática (clang-tidy ou cppcheck)."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-03-05T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing da clínica-escola 2025"]
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-21",
+  "title": "Aula 21: Laços Aninhados e Padrões Bidimensionais",
+  "summary": "Trabalha combinações de laços para gerar tabelas, padrões e simulações com múltiplos contadores.",
+  "objective": "Projetar laços aninhados com limites corretos e responsabilidades claras para cada nível.",
+  "objectives": [
+    "Entender o papel do laço externo e interno em problemas bidimensionais.",
+    "Aplicar laços aninhados para gerar tabelas, padrões e simulações.",
+    "Monitorar desempenho e evitar complexidade desnecessária."
+  ],
+  "competencies": ["Pensamento computacional", "Modelagem matemática", "Depuração"],
+  "skills": [
+    "Definir variáveis de controle com nomes expressivos.",
+    "Prevenir erros de limites em laços aninhados.",
+    "Instrumentar código com logs para depuração de múltiplos níveis."
+  ],
+  "outcomes": [
+    "Produz tabelas e padrões corretos usando laços aninhados.",
+    "Justifica a complexidade aproximada das soluções criadas.",
+    "Entrega relatório de testes cobrindo variações de entrada (linhas x colunas)."
+  ],
+  "prerequisites": ["Dominar laços simples (for, while).", "Conhecer condicionais básicas."],
+  "tags": ["loops", "aninhamento", "padroes"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Laboratório de laços aninhados",
+      "type": "lab",
+      "file": "courses/algi/lacos-aninhados-lab.md",
+      "url": "https://static.md3.education/courses/algi/lacos-aninhados-lab.md"
+    },
+    {
+      "label": "Ferramenta de desenho ASCII",
+      "url": "https://asciiflow.com/",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Entrega de mini-simulador de ocupação de auditório com relatórios gerados via laços aninhados."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Mapa mental",
+          "content": "Visualizar responsabilidades de cada laço e definir limites claros."
+        },
+        {
+          "icon": "gears",
+          "title": "Prática",
+          "content": "Construção de padrões, tabelas de multiplicação e simulação de assentos."
+        },
+        {
+          "icon": "graduation-cap",
+          "title": "Reflexão",
+          "content": "Avaliar complexidade e possíveis otimizações."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h00)",
+      "items": [
+        "(15 min) Revisão do laço simples e motivação para aninhar.",
+        "(20 min) Demonstração: tabela de multiplicação 1..10.",
+        "(30 min) Laboratório orientado: padrões com asteriscos e tabulação.",
+        "(25 min) Desafio em grupos: simulação de assentos com regras especiais.",
+        "(20 min) Debate sobre desempenho e legibilidade.",
+        "(10 min) Registro de aprendizados no mural colaborativo.",
+        "(10 min) Orientações sobre o mini-projeto avaliativo."
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Complementos em vídeo",
+      "videos": [
+        {
+          "youtubeId": "Q6G-f1v2kCc",
+          "title": "Construindo tabelas com laços aninhados"
+        },
+        {
+          "youtubeId": "1n8QZVq9l0k",
+          "title": "Complexidade de loops duplos"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Laço externo define contexto (linhas, dias, casos).",
+            "Laço interno cuida de detalhes (colunas, horários, atributos).",
+            "Evite modificar contadores manualmente dentro do laço interno sem necessidade.",
+            "Documente a ordem de execução em comentários quando houver dependências."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Impacto na complexidade",
+      "headers": ["Estrutura", "Complexidade", "Observações"],
+      "rows": [
+        [
+          { "value": "Laço simples" },
+          { "value": "O(n)" },
+          { "value": "Processa elementos lineares." }
+        ],
+        [
+          { "value": "Laço duplo" },
+          { "value": "O(n*m)" },
+          { "value": "Multiplica o esforço do externo pelo interno." }
+        ],
+        [
+          { "value": "Laço triplo" },
+          { "value": "O(n*m*k)" },
+          { "value": "Use apenas quando o problema exigir." }
+        ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Aplicações sugeridas",
+      "cards": [
+        {
+          "title": "Tabuada",
+          "content": "Gere tabelas 1..10 com alinhamento formatado."
+        },
+        {
+          "title": "Mapa de calor",
+          "content": "Simule temperaturas por sala x horário e destaque extremos."
+        },
+        {
+          "title": "Reserva de assentos",
+          "content": "Marque ocupações especiais e assentos bloqueados por acessibilidade."
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Tabela de multiplicação",
+      "code": "for (int linha = 1; linha <= 10; linha++) {\n  for (int coluna = 1; coluna <= 10; coluna++) {\n    printf(\"%4d\", linha * coluna);\n  }\n  printf(\"\\n\");\n}\n"
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de entrega",
+      "items": [
+        "Estruturei claramente laço externo/interno com nomes representativos.",
+        "Validei limites mínimo/máximo para cada contador.",
+        "Incluí comentários explicando regras especiais do problema."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-03-03T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório de laços aninhados 2024"]
+  }
+}

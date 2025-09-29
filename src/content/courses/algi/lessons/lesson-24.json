@@ -1,0 +1,148 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-24",
+  "title": "Aula 24: Síntese e Retrospectiva dos Laços",
+  "summary": "Consolida aprendizados das aulas 19-23 com showcase da triagem, retroalimentação e plano de melhoria contínua.",
+  "objective": "Refletir sobre o ciclo de laços, compartilhar entregas da triagem e definir próximos passos de estudo.",
+  "objectives": [
+    "Apresentar resultados da atividade assíncrona de triagem.",
+    "Identificar boas práticas e pontos de melhoria nas soluções.",
+    "Planejar próximos estudos antes da introdução de funções."
+  ],
+  "competencies": ["Comunicação", "Colaboração", "Aprendizagem contínua"],
+  "skills": [
+    "Dar e receber feedback construtivo.",
+    "Documentar aprendizados coletivos em painel compartilhado.",
+    "Transformar feedback em plano de ação individual."
+  ],
+  "outcomes": [
+    "Entrega painel de retroalimentação preenchido em grupo.",
+    "Registra ações de melhoria para próximos projetos.",
+    "Publica síntese pessoal com indicadores de evolução."
+  ],
+  "prerequisites": [
+    "Ter concluído a atividade assíncrona da aula 23.",
+    "Levar evidências (prints, CSV, relatório)."
+  ],
+  "tags": ["retrospectiva", "feedback", "planejamento"],
+  "duration": 100,
+  "modality": "hybrid",
+  "resources": [
+    {
+      "label": "Painel de retroalimentação",
+      "type": "worksheet",
+      "file": "courses/algi/retro-loop-review.md",
+      "url": "https://static.md3.education/courses/algi/retro-loop-review.md"
+    },
+    {
+      "label": "Quadro colaborativo (Miro)",
+      "url": "https://miro.com/app/board/uXjVKloopsRetro/",
+      "type": "board"
+    }
+  ],
+  "bibliography": [
+    "EDMONDS, J. Effective Peer Review for Programming Teams. O'Reilly, 2022.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "reflection",
+    "description": "Entrega de relatório reflexivo com plano de ação pessoal e feedback recebido."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro da sessão",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "Showcase",
+          "content": "Compartilhar artefatos da triagem em grupos (10 min por grupo)."
+        },
+        {
+          "icon": "users",
+          "title": "Feedback",
+          "content": "Trocar percepções estruturadas usando Start/Stop/Continue."
+        },
+        {
+          "icon": "target",
+          "title": "Planejamento",
+          "content": "Definir ações de melhoria antes do módulo de funções."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h40)",
+      "items": [
+        "(10 min) Icebreaker e alinhamento de objetivos.",
+        "(30 min) Showcase rápido: squads apresentam solução da triagem.",
+        "(20 min) Mesa de feedback cruzado com painel Start/Stop/Continue.",
+        "(15 min) Consolidação de boas práticas em mural coletivo.",
+        "(15 min) Redação de plano de ação individual.",
+        "(10 min) Compartilhamento voluntário e orientações finais."
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Inspirações",
+      "videos": [
+        {
+          "youtubeId": "Ud8Hksm_0vQ",
+          "title": "Como conduzir retrospectivas efetivas"
+        },
+        {
+          "youtubeId": "5nVvYw84yKc",
+          "title": "Feedback construtivo para times técnicos"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Perguntas norteadoras",
+      "cards": [
+        {
+          "title": "O que funcionou?",
+          "content": "Identifique práticas que devem continuar."
+        },
+        {
+          "title": "O que não funcionou?",
+          "content": "Liste obstáculos e gargalos encontrados."
+        },
+        {
+          "title": "O que mudar agora?",
+          "content": "Defina ações concretas para o próximo módulo."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Indicadores sugeridos",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Tempo médio por exercício na triagem.",
+            "Número de bugs encontrados antes/ depois dos testes.",
+            "Cobertura de casos críticos mapeados.",
+            "Feedback recebido de colegas (quantidade/temas)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de encerramento",
+      "items": [
+        "Enviei o relatório reflexivo com plano de ação.",
+        "Atualizei o painel compartilhado com contribuições do meu grupo.",
+        "Agendei estudo complementar sobre funções para a próxima semana."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-03-06T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia interno de retrospectivas 2024"]
+  }
+}
