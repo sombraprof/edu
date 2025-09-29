@@ -1,15 +1,19 @@
-[
-  {
-    "id": "glossario-ui",
-    "title": "Glossário de UI responsiva",
-    "description": "Tabela com termos, exemplos visuais e links para documentação oficial.",
-    "type": "reference",
-    "link": "courses/ddm/supplements/glossario-ui.pdf",
-    "available": false,
-    "metadata": {
-      "generatedBy": "Equipe EDU",
-      "model": "manual",
-      "timestamp": "2024-06-14T00:00:00.000Z"
+{
+  "version": "edu.manifest.v1",
+  "generatedAt": "2025-09-29T01:29:26.425Z",
+  "entries": [
+    {
+      "id": "glossario-ui",
+      "title": "Glossário de UI responsiva",
+      "description": "Tabela com termos, exemplos visuais e links para documentação oficial.",
+      "type": "reference",
+      "link": "courses/ddm/supplements/glossario-ui.pdf",
+      "available": false,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2024-06-14T00:00:00.000Z"
+      }
     }
-  }
-]
+  ]
+}

@@ -1,15 +1,19 @@
-[
-  {
-    "id": "bibliografia-base",
-    "title": "Bibliografia fundamental de game design",
-    "description": "Lista comentada de livros e talks para aprofundar mecânicas, narrativa e produção.",
-    "type": "reading",
-    "link": "courses/tdjd/supplements/bibliografia-base.pdf",
-    "available": false,
-    "metadata": {
-      "generatedBy": "Equipe EDU",
-      "model": "manual",
-      "timestamp": "2024-06-14T00:00:00.000Z"
+{
+  "version": "edu.manifest.v1",
+  "generatedAt": "2025-09-29T01:29:26.436Z",
+  "entries": [
+    {
+      "id": "bibliografia-base",
+      "title": "Bibliografia fundamental de game design",
+      "description": "Lista comentada de livros e talks para aprofundar mecânicas, narrativa e produção.",
+      "type": "reading",
+      "link": "courses/tdjd/supplements/bibliografia-base.pdf",
+      "available": false,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2024-06-14T00:00:00.000Z"
+      }
     }
-  }
-]
+  ]
+}

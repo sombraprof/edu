@@ -1,17 +1,21 @@
-[
-  {
-    "id": "guia-estudos",
-    "title": "Guia de estudos da disciplina",
-    "description": "Resumo dos objetivos de cada aula e exercícios recomendados para revisão semanal.",
-    "type": "reference",
-    "link": "courses/algi/supplements/guia-estudos.pdf",
-    "available": false,
-    "file": "guia-estudos.pdf",
-    "estimatedReadingMinutes": 60,
-    "metadata": {
-      "generatedBy": "Equipe EDU",
-      "model": "manual",
-      "timestamp": "2025-02-20T12:00:00.000Z"
+{
+  "version": "edu.manifest.v1",
+  "generatedAt": "2025-09-29T01:29:26.416Z",
+  "entries": [
+    {
+      "id": "guia-estudos",
+      "title": "Guia de estudos da disciplina",
+      "description": "Resumo dos objetivos de cada aula e exercícios recomendados para revisão semanal.",
+      "type": "reference",
+      "link": "courses/algi/supplements/guia-estudos.pdf",
+      "available": false,
+      "file": "guia-estudos.pdf",
+      "estimatedReadingMinutes": 60,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-02-20T12:00:00.000Z"
+      }
     }
-  }
-]
+  ]
+}

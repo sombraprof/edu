@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2025-09-29T00:13:25.492Z",
+  "generatedAt": "2025-09-29T01:32:41.398Z",
   "status": "passed",
   "totals": {
     "courses": 5,
-    "lessons": 69,
+    "lessons": 72,
     "lessonsWithIssues": 0,
     "problems": 0,
     "warnings": 0
@@ -22,21 +22,21 @@
         "byModel": {
           "manual": 2
         },
-        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
-        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "earliestTimestamp": "2025-02-20T12:00:00.000Z",
+        "latestTimestamp": "2025-02-20T12:00:00.000Z",
         "entries": [
           {
             "id": "lista1",
             "generatedBy": "Equipe EDU",
             "model": "manual",
-            "timestamp": "2024-06-14T00:00:00.000Z",
+            "timestamp": "2025-02-20T12:00:00.000Z",
             "available": false
           },
           {
             "id": "lista2",
             "generatedBy": "Equipe EDU",
             "model": "manual",
-            "timestamp": "2024-06-14T00:00:00.000Z",
+            "timestamp": "2025-02-20T12:00:00.000Z",
             "available": false
           }
         ]
@@ -174,15 +174,15 @@
         "byModel": {
           "manual": 1
         },
-        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
-        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "earliestTimestamp": "2025-02-20T12:00:00.000Z",
+        "latestTimestamp": "2025-02-20T12:00:00.000Z",
         "entries": [
           {
             "id": "guia-estudos",
             "type": "reference",
             "generatedBy": "Equipe EDU",
             "model": "manual",
-            "timestamp": "2024-06-14T00:00:00.000Z"
+            "timestamp": "2025-02-20T12:00:00.000Z"
           }
         ]
       },

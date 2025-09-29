@@ -1,156 +1,160 @@
-[
-  {
-    "id": "lesson-01",
-    "title": "Aula 1: Unidade I – Fundamentos do Android",
-    "file": "lesson-01.json",
-    "available": true,
-    "description": "Apresenta o plano da disciplina, contextualiza o mercado mobile e posiciona o Android no ecossistema atual.",
-    "summary": "Panorama histórico do Android, objetivos da disciplina e expectativas de aprendizagem com foco no mercado mobile.",
-    "tags": ["android", "fundamentos", "ecossistema"],
-    "duration": 100,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-02",
-    "title": "Aula 2: Unidade I – Configuração do Ambiente de Desenvolvimento",
-    "file": "lesson-02.json",
-    "available": true,
-    "description": "Guia passo a passo para preparar o Android Studio, emuladores e o primeiro projeto Kotlin.",
-    "summary": "Instalação do Android Studio, configuração do SDK, criação do projeto inicial e ajustes do emulador.",
-    "tags": ["android-studio", "ambiente", "kotlin"],
-    "duration": 110,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-03",
-    "title": "Aula 3: Unidade I – Estrutura Básica de um App Android",
-    "file": "lesson-03.json",
-    "available": true,
-    "description": "Explora a anatomia de um aplicativo Android e como as camadas se relacionam.",
-    "summary": "Manifests, resources, activities e ciclo de build explicados a partir de um app base.",
-    "tags": ["estrutura-app", "activity", "android"],
-    "duration": 100,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-04",
-    "title": "Aula 4: Unidade I – Componentes de UI",
-    "file": "lesson-04.json",
-    "available": true,
-    "description": "Apresenta os principais componentes visuais e padrões de layout no Material Design.",
-    "summary": "Views, ViewGroups, hierarquias de layout e orientações de Material Design aplicadas no Android.",
-    "tags": ["ui", "componentes", "material-design"],
-    "duration": 100,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-05",
-    "title": "Aula 5: Unidade I – Manipulação de Eventos e Uso de Logcat",
-    "file": "lesson-05.json",
-    "available": true,
-    "description": "Mostra como reagir a interações do usuário e monitorar a execução do app com ferramentas nativas.",
-    "summary": "Listeners, callbacks, tratamento de eventos comuns e depuração com Logcat.",
-    "tags": ["eventos", "logcat", "depuracao"],
-    "duration": 100,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-06",
-    "title": "Aula 6: Unidade I – Projeto Prático: App de Boas-vindas",
-    "file": "lesson-06.json",
-    "available": true,
-    "description": "Consolida o conteúdo inicial com um aplicativo completo de onboarding, do layout ao teste.",
-    "summary": "Construção de um app de boas-vindas com navegação básica, estados e refinamentos visuais.",
-    "tags": ["projeto", "android", "kotlin"],
-    "duration": 120,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-07",
-    "title": "Aula 7: Unidade II – O Ciclo de Vida das Activities",
-    "file": "lesson-07.json",
-    "available": true,
-    "description": "Mapeia o ciclo de vida das Activities, preservando estado e evitando vazamentos de memória.",
-    "summary": "Mapeia os estados da Activity, apresenta estratégias de preservação de estado e introduz componentes Jetpack lifecycle-aware.",
-    "tags": ["android", "lifecycle", "jetpack"],
-    "duration": 110,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-08",
-    "title": "Aula 8: Unidade II – Salvando Estado com Bundle",
-    "file": "lesson-08.json",
-    "available": true,
-    "description": "Explora Bundles, ViewModel e SavedStateHandle para manter dados entre mudanças de configuração.",
-    "summary": "Detalha estratégias para preservar e restaurar dados de interface usando Bundle, onRestoreInstanceState e SavedStateHandle.",
-    "tags": ["android", "state", "bundle"],
-    "duration": 105,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-09",
-    "title": "Aula 9: Unidade II – Intents Explícitas e Navegação",
-    "file": "lesson-09.json",
-    "available": true,
-    "description": "Planeja a navegação multi-Activity com Intents explícitas e transferência de dados segura.",
-    "summary": "Constrói fluxos de navegação multi-Activity usando Intents explícitas, passando dados e controlando a pilha de telas.",
-    "tags": ["android", "intents", "navigation"],
-    "duration": 110,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-10",
-    "title": "Aula 10: Unidade II – Passagem de Dados com Intent.putExtra",
-    "file": "lesson-10.json",
-    "available": true,
-    "description": "Aprofunda o envio de dados com extras, objetos Parcelable e Activity Result API.",
-    "summary": "Explora estratégias para enviar diferentes tipos de dados entre Activities, padronizando chaves e validando retornos.",
-    "tags": ["android", "intents", "parcelable"],
-    "duration": 105,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-11",
-    "title": "Aula 11: Unidade II – Intents Implícitas",
-    "file": "lesson-11.json",
-    "available": true,
-    "description": "Integra ações externas com Intents implícitas, validando handlers e protegendo informações.",
-    "summary": "Mostra como delegar ações a outros apps com Intents implícitas, validando disponibilidade e protegendo dados sensíveis.",
-    "tags": ["android", "intents", "ecosystem"],
-    "duration": 100,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-12",
-    "title": "Aula 12: Unidade II – Mini App de Contatos",
-    "file": "lesson-12.json",
-    "available": true,
-    "description": "Entrega o mini app de contatos consolidando navegação, estado e compartilhamento.",
-    "summary": "Integra ciclo de vida, Intents e persistência temporária para construir um mini app de contatos com navegação completa.",
-    "tags": ["android", "projeto", "contatos"],
-    "duration": 120,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-13",
-    "title": "Aula 13: Unidade III – Persistência com SharedPreferences",
-    "file": "lesson-13.json",
-    "available": true,
-    "description": "Apresenta SharedPreferences como solução de persistência leve, comparando com estado temporário e guiando a implementação de leitura/escrita.",
-    "summary": "Explora como persistir preferências e dados leves no Android usando SharedPreferences, comparando vantagens, armadilhas e boas práticas para manter configurações consistentes.",
-    "tags": ["android", "persistencia", "shared-preferences"],
-    "duration": 110,
-    "formatVersion": "md3.lesson.v1"
-  },
-  {
-    "id": "lesson-14",
-    "title": "Aula 14: Unidade III – Introdução ao Room: Entities e DAO",
-    "file": "lesson-14.json",
-    "available": true,
-    "description": "Introduz a biblioteca Room como camada moderna sobre SQLite, destacando entities, DAOs e montagem inicial do banco.",
-    "summary": "Apresenta o Room como camada de persistência moderna no Android, guiando a modelagem de entidades e a criação de DAO para operações seguras com banco de dados local.",
-    "tags": ["android", "room", "persistencia"],
-    "duration": 120,
-    "formatVersion": "md3.lesson.v1"
-  }
-]
+{
+  "version": "edu.manifest.v1",
+  "generatedAt": "2025-09-29T01:29:26.419Z",
+  "entries": [
+    {
+      "id": "lesson-01",
+      "title": "Aula 1: Unidade I – Fundamentos do Android",
+      "file": "lesson-01.json",
+      "available": true,
+      "description": "Apresenta o plano da disciplina, contextualiza o mercado mobile e posiciona o Android no ecossistema atual.",
+      "summary": "Panorama histórico do Android, objetivos da disciplina e expectativas de aprendizagem com foco no mercado mobile.",
+      "tags": ["android", "fundamentos", "ecossistema"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-02",
+      "title": "Aula 2: Unidade I – Configuração do Ambiente de Desenvolvimento",
+      "file": "lesson-02.json",
+      "available": true,
+      "description": "Guia passo a passo para preparar o Android Studio, emuladores e o primeiro projeto Kotlin.",
+      "summary": "Instalação do Android Studio, configuração do SDK, criação do projeto inicial e ajustes do emulador.",
+      "tags": ["android-studio", "ambiente", "kotlin"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-03",
+      "title": "Aula 3: Unidade I – Estrutura Básica de um App Android",
+      "file": "lesson-03.json",
+      "available": true,
+      "description": "Explora a anatomia de um aplicativo Android e como as camadas se relacionam.",
+      "summary": "Manifests, resources, activities e ciclo de build explicados a partir de um app base.",
+      "tags": ["estrutura-app", "activity", "android"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-04",
+      "title": "Aula 4: Unidade I – Componentes de UI",
+      "file": "lesson-04.json",
+      "available": true,
+      "description": "Apresenta os principais componentes visuais e padrões de layout no Material Design.",
+      "summary": "Views, ViewGroups, hierarquias de layout e orientações de Material Design aplicadas no Android.",
+      "tags": ["ui", "componentes", "material-design"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-05",
+      "title": "Aula 5: Unidade I – Manipulação de Eventos e Uso de Logcat",
+      "file": "lesson-05.json",
+      "available": true,
+      "description": "Mostra como reagir a interações do usuário e monitorar a execução do app com ferramentas nativas.",
+      "summary": "Listeners, callbacks, tratamento de eventos comuns e depuração com Logcat.",
+      "tags": ["eventos", "logcat", "depuracao"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-06",
+      "title": "Aula 6: Unidade I – Projeto Prático: App de Boas-vindas",
+      "file": "lesson-06.json",
+      "available": true,
+      "description": "Consolida o conteúdo inicial com um aplicativo completo de onboarding, do layout ao teste.",
+      "summary": "Construção de um app de boas-vindas com navegação básica, estados e refinamentos visuais.",
+      "tags": ["projeto", "android", "kotlin"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-07",
+      "title": "Aula 7: Unidade II – O Ciclo de Vida das Activities",
+      "file": "lesson-07.json",
+      "available": true,
+      "description": "Mapeia o ciclo de vida das Activities, preservando estado e evitando vazamentos de memória.",
+      "summary": "Mapeia os estados da Activity, apresenta estratégias de preservação de estado e introduz componentes Jetpack lifecycle-aware.",
+      "tags": ["android", "lifecycle", "jetpack"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-08",
+      "title": "Aula 8: Unidade II – Salvando Estado com Bundle",
+      "file": "lesson-08.json",
+      "available": true,
+      "description": "Explora Bundles, ViewModel e SavedStateHandle para manter dados entre mudanças de configuração.",
+      "summary": "Detalha estratégias para preservar e restaurar dados de interface usando Bundle, onRestoreInstanceState e SavedStateHandle.",
+      "tags": ["android", "state", "bundle"],
+      "duration": 105,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-09",
+      "title": "Aula 9: Unidade II – Intents Explícitas e Navegação",
+      "file": "lesson-09.json",
+      "available": true,
+      "description": "Planeja a navegação multi-Activity com Intents explícitas e transferência de dados segura.",
+      "summary": "Constrói fluxos de navegação multi-Activity usando Intents explícitas, passando dados e controlando a pilha de telas.",
+      "tags": ["android", "intents", "navigation"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-10",
+      "title": "Aula 10: Unidade II – Passagem de Dados com Intent.putExtra",
+      "file": "lesson-10.json",
+      "available": true,
+      "description": "Aprofunda o envio de dados com extras, objetos Parcelable e Activity Result API.",
+      "summary": "Explora estratégias para enviar diferentes tipos de dados entre Activities, padronizando chaves e validando retornos.",
+      "tags": ["android", "intents", "parcelable"],
+      "duration": 105,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-11",
+      "title": "Aula 11: Unidade II – Intents Implícitas",
+      "file": "lesson-11.json",
+      "available": true,
+      "description": "Integra ações externas com Intents implícitas, validando handlers e protegendo informações.",
+      "summary": "Mostra como delegar ações a outros apps com Intents implícitas, validando disponibilidade e protegendo dados sensíveis.",
+      "tags": ["android", "intents", "ecosystem"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-12",
+      "title": "Aula 12: Unidade II – Mini App de Contatos",
+      "file": "lesson-12.json",
+      "available": true,
+      "description": "Entrega o mini app de contatos consolidando navegação, estado e compartilhamento.",
+      "summary": "Integra ciclo de vida, Intents e persistência temporária para construir um mini app de contatos com navegação completa.",
+      "tags": ["android", "projeto", "contatos"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-13",
+      "title": "Aula 13: Unidade III – Persistência com SharedPreferences",
+      "file": "lesson-13.json",
+      "available": true,
+      "description": "Apresenta SharedPreferences como solução de persistência leve, comparando com estado temporário e guiando a implementação de leitura/escrita.",
+      "summary": "Explora como persistir preferências e dados leves no Android usando SharedPreferences, comparando vantagens, armadilhas e boas práticas para manter configurações consistentes.",
+      "tags": ["android", "persistencia", "shared-preferences"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-14",
+      "title": "Aula 14: Unidade III – Introdução ao Room: Entities e DAO",
+      "file": "lesson-14.json",
+      "available": true,
+      "description": "Introduz a biblioteca Room como camada moderna sobre SQLite, destacando entities, DAOs e montagem inicial do banco.",
+      "summary": "Apresenta o Room como camada de persistência moderna no Android, guiando a modelagem de entidades e a criação de DAO para operações seguras com banco de dados local.",
+      "tags": ["android", "room", "persistencia"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    }
+  ]
+}

@@ -1,51 +1,66 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://edu.local/schemas/lessons-index.schema.json",
-  "title": "Lessons Index",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "required": ["id", "title", "file", "available"],
-    "additionalProperties": false,
-    "properties": {
-      "id": {
-        "type": "string",
-        "pattern": "^lesson-[0-9]{2,}$"
-      },
-      "title": {
-        "type": "string",
-        "minLength": 1
-      },
-      "file": {
-        "type": "string",
-        "pattern": "^lesson-[0-9]{2,}\\.(vue|json)$"
-      },
-      "available": {
-        "type": "boolean"
-      },
-      "description": {
-        "type": "string",
-        "minLength": 1
-      },
-      "summary": {
-        "type": "string",
-        "minLength": 1
-      },
-      "duration": {
-        "type": "number",
-        "exclusiveMinimum": 0
-      },
-      "tags": {
-        "type": "array",
-        "items": {
-          "type": "string",
-          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
-        },
-        "uniqueItems": true
-      },
-      "formatVersion": {
-        "type": "string",
-        "enum": ["md3.lesson.v1"]
+  "title": "Lessons Manifest",
+  "type": "object",
+  "required": ["version", "entries"],
+  "additionalProperties": true,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "edu.manifest.v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "file", "available"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^lesson-[0-9]{2,}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^lesson-[0-9]{2,}\\.(vue|json)$"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "duration": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            },
+            "uniqueItems": true
+          },
+          "formatVersion": {
+            "type": "string",
+            "enum": ["md3.lesson.v1"]
+          }
+        }
       }
     }
   }

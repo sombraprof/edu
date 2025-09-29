@@ -1,32 +1,36 @@
-[
-  {
-    "id": "lista1",
-    "title": "Lista 1 — Algoritmos básicos",
-    "description": "Problemas de entrada, processamento e saída para consolidar a lógica sequencial.",
-    "link": "courses/algi/exercises/lista1.html",
-    "available": false,
-    "file": "lista1.vue",
-    "type": "worksheet",
-    "durationMinutes": 120,
-    "metadata": {
-      "generatedBy": "Equipe EDU",
-      "model": "manual",
-      "timestamp": "2025-02-20T12:00:00.000Z"
+{
+  "version": "edu.manifest.v1",
+  "generatedAt": "2025-09-29T01:29:26.415Z",
+  "entries": [
+    {
+      "id": "lista1",
+      "title": "Lista 1 — Algoritmos básicos",
+      "description": "Problemas de entrada, processamento e saída para consolidar a lógica sequencial.",
+      "link": "courses/algi/exercises/lista1.html",
+      "available": false,
+      "file": "lista1.vue",
+      "type": "worksheet",
+      "durationMinutes": 120,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-02-20T12:00:00.000Z"
+      }
+    },
+    {
+      "id": "lista2",
+      "title": "Lista 2 — Condicionais e operadores",
+      "description": "Questões com estruturas de decisão, operadores relacionais e expressões lógicas.",
+      "link": "courses/algi/exercises/lista2.html",
+      "available": false,
+      "file": "lista2.vue",
+      "type": "worksheet",
+      "durationMinutes": 140,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-02-20T12:00:00.000Z"
+      }
     }
-  },
-  {
-    "id": "lista2",
-    "title": "Lista 2 — Condicionais e operadores",
-    "description": "Questões com estruturas de decisão, operadores relacionais e expressões lógicas.",
-    "link": "courses/algi/exercises/lista2.html",
-    "available": false,
-    "file": "lista2.vue",
-    "type": "worksheet",
-    "durationMinutes": 140,
-    "metadata": {
-      "generatedBy": "Equipe EDU",
-      "model": "manual",
-      "timestamp": "2025-02-20T12:00:00.000Z"
-    }
-  }
-]
+  ]
+}

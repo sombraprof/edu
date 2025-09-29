@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-29T00:13:25.724Z",
+  "generatedAt": "2025-09-29T01:32:41.561Z",
   "hasValidationReport": true,
   "hasObservabilityReport": true,
   "validationStatus": "passed",
@@ -11,7 +11,7 @@
   "observabilityTotals": {
     "legacyBlocks": 0,
     "legacyLessons": 0,
-    "md3Blocks": 623,
+    "md3Blocks": 637,
     "lessonsTotal": 92,
     "courses": 5,
     "exercisesWithoutMetadata": 0,
@@ -82,11 +82,49 @@
     "shouldOpenIssue": false
   },
   "trend": {
-    "validationProblems": 0,
-    "validationWarnings": -4,
-    "legacyBlocks": -28,
-    "legacyLessons": -27,
-    "exercisesWithoutMetadata": 0,
-    "supplementsWithoutMetadata": 0
+    "validationProblems": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "validationWarnings": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "legacyBlocks": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "legacyLessons": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "exercisesWithoutMetadata": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "supplementsWithoutMetadata": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    }
+  },
+  "sparklines": {
+    "validationProblems": "▅▅▅▅▅",
+    "validationWarnings": "███▁▁",
+    "legacyBlocks": "███▁▁",
+    "legacyLessons": "███▁▁",
+    "exercisesWithoutMetadata": "▅▅▅▅▅",
+    "supplementsWithoutMetadata": "▅▅▅▅▅"
   }
 }

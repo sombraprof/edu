@@ -2,6 +2,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getManifestEntries, readManifest, writeManifest } from './utils/manifest.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -55,8 +56,8 @@ async function normalizeCourse(course) {
   const lessonsDir = path.join(courseDir, 'lessons');
   const lessonsIndexPath = path.join(courseDir, 'lessons.json');
 
-  const rawIndex = await fs.readFile(lessonsIndexPath, 'utf-8');
-  const lessonsIndex = JSON.parse(rawIndex);
+  const manifest = await readManifest(lessonsIndexPath);
+  const lessonsIndex = getManifestEntries(manifest);
 
   const updatedEntries = [];
 
@@ -98,7 +99,7 @@ async function normalizeCourse(course) {
     updatedEntries.push({ ...entry, id: newId, file: newFile });
   }
 
-  await fs.writeFile(lessonsIndexPath, `${JSON.stringify(updatedEntries, null, 2)}\n`, 'utf-8');
+  await writeManifest(lessonsIndexPath, { ...manifest, entries: updatedEntries });
 }
 
 async function main() {

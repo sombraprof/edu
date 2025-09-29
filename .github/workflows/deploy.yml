@@ -60,6 +60,16 @@ jobs:
         if: always()
         run: npm run report:governance:history
 
+      - name: Chromatic visual regression
+        if: steps.validate_report.outcome == 'success' && steps.observability.outcome == 'success'
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: |
+          if [ -z "$CHROMATIC_PROJECT_TOKEN" ]; then
+            echo "Chromatic token not configured; skipping visual regression." && exit 0
+          fi
+          npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes --only-changed
+
       - name: Compose governance issue body
         if: always()
         run: |
@@ -75,6 +85,7 @@ jobs:
             reports/governance-alert.json
             reports/governance-history.md
             reports/governance-history-summary.json
+            reports/governance-trends.json
             reports/governance-issue.md
           if-no-files-found: error
 

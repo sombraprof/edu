@@ -12,6 +12,7 @@ const defaultObservabilityPath = path.join(reportsRoot, 'content-observability.j
 const defaultMarkdownPath = path.join(reportsRoot, 'governance-alert.md');
 const defaultMetaPath = path.join(reportsRoot, 'governance-alert.json');
 const defaultHistoryPath = path.join(reportsRoot, 'governance-history.json');
+const defaultTrendsPath = path.join(reportsRoot, 'governance-trends.json');
 
 function parseArgs(argv) {
   const options = {
@@ -20,6 +21,7 @@ function parseArgs(argv) {
     markdownPath: defaultMarkdownPath,
     metaPath: defaultMetaPath,
     historyPath: defaultHistoryPath,
+    trendsPath: defaultTrendsPath,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -39,6 +41,9 @@ function parseArgs(argv) {
     } else if (arg === '--history' && argv[i + 1]) {
       options.historyPath = path.resolve(repoRoot, argv[i + 1]);
       i += 1;
+    } else if ((arg === '--trends' || arg === '--analytics') && argv[i + 1]) {
+      options.trendsPath = path.resolve(repoRoot, argv[i + 1]);
+      i += 1;
     } else if (arg === '--help' || arg === '-h') {
       printUsage();
       process.exit(0);
@@ -56,7 +61,8 @@ function printUsage() {
       '  --observability <arquivo>   Caminho para o JSON de observabilidade (padrão: reports/content-observability.json)\n' +
       '  --output <arquivo>          Caminho do Markdown gerado (padrão: reports/governance-alert.md)\n' +
       '  --meta <arquivo>            Caminho do JSON de metadados gerado (padrão: reports/governance-alert.json)\n' +
-      '  --history <arquivo>         Caminho do JSON histórico para comparação (padrão: reports/governance-history.json)\n'
+      '  --history <arquivo>         Caminho do JSON histórico para comparação (padrão: reports/governance-history.json)\n' +
+      '  --trends <arquivo>          Caminho do JSON analítico gerado (padrão: reports/governance-trends.json)\n'
   );
 }
 
@@ -255,31 +261,39 @@ function buildMarkdown(summary) {
     const entries = [
       {
         label: 'Problemas de validação',
-        delta: trend.validationProblems,
+        metric: trend.validationProblems,
+        sparkline: summary.sparklines?.validationProblems,
       },
       {
         label: 'Avisos de validação',
-        delta: trend.validationWarnings,
+        metric: trend.validationWarnings,
+        sparkline: summary.sparklines?.validationWarnings,
       },
       {
         label: 'Blocos legados',
-        delta: trend.legacyBlocks,
+        metric: trend.legacyBlocks,
+        sparkline: summary.sparklines?.legacyBlocks,
       },
       {
         label: 'Lições com blocos legados',
-        delta: trend.legacyLessons,
+        metric: trend.legacyLessons,
+        sparkline: summary.sparklines?.legacyLessons,
       },
       {
         label: 'Exercícios sem metadados',
-        delta: trend.exercisesWithoutMetadata,
+        metric: trend.exercisesWithoutMetadata,
+        sparkline: summary.sparklines?.exercisesWithoutMetadata,
       },
       {
         label: 'Suplementos sem metadados',
-        delta: trend.supplementsWithoutMetadata,
+        metric: trend.supplementsWithoutMetadata,
+        sparkline: summary.sparklines?.supplementsWithoutMetadata,
       },
     ];
     for (const entry of entries) {
-      lines.push(`- ${entry.label}: ${formatDelta(entry.delta)}`);
+      const percent = formatPercent(entry.metric.percentChange);
+      const spark = entry.sparkline ? ` ${entry.sparkline}` : '';
+      lines.push(`- ${entry.label}: ${formatDelta(entry.metric.delta)} (${percent})${spark}`);
     }
   }
 
@@ -366,16 +380,19 @@ function formatStatus(status) {
   }
 }
 
-function buildMeta({
-  validation,
-  observability,
-  metadataIssues,
-  courses,
-  generatedAt,
-  hasValidationReport,
-  hasObservabilityReport,
-  trend,
-}) {
+function buildMeta(
+  {
+    validation,
+    observability,
+    metadataIssues,
+    courses,
+    generatedAt,
+    hasValidationReport,
+    hasObservabilityReport,
+    trend,
+  },
+  analytics
+) {
   const hasProblems = validation.totals.problems > 0;
   const hasWarnings =
     validation.totals.warnings > 0 || courses.some((course) => course.warnings > 0);
@@ -398,6 +415,7 @@ function buildMeta({
       shouldOpenIssue,
     },
     trend,
+    sparklines: analytics?.sparklines ?? null,
   };
 }
 
@@ -410,6 +428,24 @@ function formatDelta(value) {
     return `▼ -${formatted}`;
   }
   return '— (sem alteração)';
+}
+
+function formatPercent(value) {
+  if (value === null || Number.isNaN(value)) {
+    return '—%';
+  }
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
+  const absolute = formatter.format(Math.abs(value));
+  if (value > 0) {
+    return `▲ +${absolute}%`;
+  }
+  if (value < 0) {
+    return `▼ -${absolute}%`;
+  }
+  return '—%';
 }
 
 async function loadHistory(historyPath) {
@@ -430,18 +466,18 @@ async function loadHistory(historyPath) {
   }
 }
 
-function buildSnapshot(meta) {
+function buildSnapshotFromCurrent(currentSnapshot) {
   return {
-    generatedAt: meta.generatedAt,
+    generatedAt: currentSnapshot.generatedAt,
     validation: {
-      problems: meta.validationTotals.problems,
-      warnings: meta.validationTotals.warnings,
+      problems: currentSnapshot.validation.problems,
+      warnings: currentSnapshot.validation.warnings,
     },
     observability: {
-      legacyBlocks: meta.observabilityTotals.legacyBlocks,
-      legacyLessons: meta.observabilityTotals.legacyLessons,
-      exercisesWithoutMetadata: meta.observabilityTotals.exercisesWithoutMetadata,
-      supplementsWithoutMetadata: meta.observabilityTotals.supplementsWithoutMetadata,
+      legacyBlocks: currentSnapshot.observability.legacyBlocks,
+      legacyLessons: currentSnapshot.observability.legacyLessons,
+      exercisesWithoutMetadata: currentSnapshot.observability.exercisesWithoutMetadata,
+      supplementsWithoutMetadata: currentSnapshot.observability.supplementsWithoutMetadata,
     },
   };
 }
@@ -452,19 +488,142 @@ function computeTrend(currentSnapshot, previousSnapshot) {
   }
 
   return {
-    validationProblems: currentSnapshot.validation.problems - previousSnapshot.validation.problems,
-    validationWarnings: currentSnapshot.validation.warnings - previousSnapshot.validation.warnings,
-    legacyBlocks:
-      currentSnapshot.observability.legacyBlocks - previousSnapshot.observability.legacyBlocks,
-    legacyLessons:
-      currentSnapshot.observability.legacyLessons - previousSnapshot.observability.legacyLessons,
-    exercisesWithoutMetadata:
-      currentSnapshot.observability.exercisesWithoutMetadata -
-      previousSnapshot.observability.exercisesWithoutMetadata,
-    supplementsWithoutMetadata:
-      currentSnapshot.observability.supplementsWithoutMetadata -
-      previousSnapshot.observability.supplementsWithoutMetadata,
+    validationProblems: buildTrendEntry(
+      currentSnapshot.validation.problems,
+      previousSnapshot.validation.problems
+    ),
+    validationWarnings: buildTrendEntry(
+      currentSnapshot.validation.warnings,
+      previousSnapshot.validation.warnings
+    ),
+    legacyBlocks: buildTrendEntry(
+      currentSnapshot.observability.legacyBlocks,
+      previousSnapshot.observability.legacyBlocks
+    ),
+    legacyLessons: buildTrendEntry(
+      currentSnapshot.observability.legacyLessons,
+      previousSnapshot.observability.legacyLessons
+    ),
+    exercisesWithoutMetadata: buildTrendEntry(
+      currentSnapshot.observability.exercisesWithoutMetadata,
+      previousSnapshot.observability.exercisesWithoutMetadata
+    ),
+    supplementsWithoutMetadata: buildTrendEntry(
+      currentSnapshot.observability.supplementsWithoutMetadata,
+      previousSnapshot.observability.supplementsWithoutMetadata
+    ),
   };
+}
+
+function buildTrendEntry(current, previous) {
+  const delta = current - previous;
+  let percentChange = null;
+  if (previous === 0) {
+    percentChange = current === 0 ? 0 : null;
+  } else {
+    percentChange = ((current - previous) / Math.abs(previous)) * 100;
+  }
+  return {
+    current,
+    previous,
+    delta,
+    percentChange,
+  };
+}
+
+function buildAnalytics({ history, currentSnapshot, previousSnapshot, trend }) {
+  const sparklines = buildSparklines(history);
+  const series = buildSeries(history);
+  return {
+    sparklines,
+    export: {
+      generatedAt: currentSnapshot.generatedAt,
+      snapshot: currentSnapshot,
+      previous: previousSnapshot,
+      trend,
+      sparklines,
+      series,
+      history,
+    },
+  };
+}
+
+function buildSparklines(history) {
+  const windowSize = 12;
+  return {
+    validationProblems: sparkline(history, (entry) => entry.validation.problems, windowSize),
+    validationWarnings: sparkline(history, (entry) => entry.validation.warnings, windowSize),
+    legacyBlocks: sparkline(history, (entry) => entry.observability.legacyBlocks, windowSize),
+    legacyLessons: sparkline(history, (entry) => entry.observability.legacyLessons, windowSize),
+    exercisesWithoutMetadata: sparkline(
+      history,
+      (entry) => entry.observability.exercisesWithoutMetadata,
+      windowSize
+    ),
+    supplementsWithoutMetadata: sparkline(
+      history,
+      (entry) => entry.observability.supplementsWithoutMetadata,
+      windowSize
+    ),
+  };
+}
+
+function buildSeries(history) {
+  return {
+    validationProblems: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: entry.validation.problems,
+    })),
+    validationWarnings: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: entry.validation.warnings,
+    })),
+    legacyBlocks: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: entry.observability.legacyBlocks,
+    })),
+    legacyLessons: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: entry.observability.legacyLessons,
+    })),
+    exercisesWithoutMetadata: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: entry.observability.exercisesWithoutMetadata,
+    })),
+    supplementsWithoutMetadata: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: entry.observability.supplementsWithoutMetadata,
+    })),
+  };
+}
+
+function sparkline(history, accessor, windowSize) {
+  const bars = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
+  const slice = history.slice(-windowSize);
+  if (slice.length === 0) {
+    return '—';
+  }
+  const values = slice.map((entry) => accessor(entry));
+  const finiteValues = values.filter((value) => Number.isFinite(value));
+  if (finiteValues.length === 0) {
+    return '—';
+  }
+  const min = Math.min(...finiteValues);
+  const max = Math.max(...finiteValues);
+  if (max === min) {
+    const bar = bars[Math.floor(bars.length / 2)];
+    return bar.repeat(values.length);
+  }
+  return values
+    .map((value) => {
+      if (!Number.isFinite(value)) {
+        return ' ';
+      }
+      const ratio = (value - min) / (max - min);
+      const index = Math.max(0, Math.min(bars.length - 1, Math.round(ratio * (bars.length - 1))));
+      return bars[index];
+    })
+    .join('');
 }
 
 function breakdownFromMap(map) {
@@ -478,6 +637,7 @@ async function main() {
   await fs.mkdir(path.dirname(options.markdownPath), { recursive: true });
   await fs.mkdir(path.dirname(options.metaPath), { recursive: true });
   await fs.mkdir(path.dirname(options.historyPath), { recursive: true });
+  await fs.mkdir(path.dirname(options.trendsPath), { recursive: true });
 
   const hasValidation = await fileExists(options.validationPath);
   const hasObservability = await fileExists(options.observabilityPath);
@@ -527,18 +687,29 @@ async function main() {
   const trend = computeTrend(currentSnapshot, previousSnapshot);
   summary.trend = trend;
 
-  const markdown = buildMarkdown(summary);
-  const meta = buildMeta(summary);
-  const snapshot = buildSnapshot(meta);
+  const snapshot = buildSnapshotFromCurrent(currentSnapshot);
   const updatedHistory = [...history, snapshot];
+  const analytics = buildAnalytics({
+    history: updatedHistory,
+    currentSnapshot,
+    previousSnapshot,
+    trend,
+  });
+
+  summary.sparklines = analytics.sparklines;
+
+  const markdown = buildMarkdown(summary);
+  const meta = buildMeta(summary, analytics);
 
   await fs.writeFile(options.markdownPath, `${markdown}\n`, 'utf8');
   await fs.writeFile(options.metaPath, `${JSON.stringify(meta, null, 2)}\n`, 'utf8');
   await fs.writeFile(options.historyPath, `${JSON.stringify(updatedHistory, null, 2)}\n`, 'utf8');
+  await fs.writeFile(options.trendsPath, `${JSON.stringify(analytics.export, null, 2)}\n`, 'utf8');
 
   console.log(`Resumo de governança salvo em ${path.relative(repoRoot, options.markdownPath)}`);
   console.log(`Metadados do alerta salvos em ${path.relative(repoRoot, options.metaPath)}`);
   console.log(`Histórico atualizado em ${path.relative(repoRoot, options.historyPath)}`);
+  console.log(`Tendências exportadas em ${path.relative(repoRoot, options.trendsPath)}`);
 }
 
 function mergeCourseSummaries(validationCourses, observabilityCoursesMap) {

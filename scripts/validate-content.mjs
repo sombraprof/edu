@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import { createRequire } from 'node:module';
+import { MANIFEST_VERSION, getManifestEntries, readManifest } from './utils/manifest.mjs';
 
 const require = createRequire(import.meta.url);
 const lessonSchema = require('../schemas/lesson.schema.json');
@@ -1074,8 +1075,27 @@ function recordLessonMetadataWarnings({ json, filePath, course, warnings }) {
 
 async function validateLessonsIndexFile(course, filePath, problems) {
   try {
-    const json = await readJson(filePath);
-    if (!validateLessonsIndex(json)) {
+    const manifest = await readManifest(filePath);
+    if (manifest.missing) {
+      problems.push({
+        type: 'read',
+        file: filePath,
+        course,
+        message: 'Manifesto de lições não encontrado.',
+      });
+      return [];
+    }
+
+    if (manifest.version !== MANIFEST_VERSION) {
+      problems.push({
+        type: 'manifest-version',
+        file: filePath,
+        course,
+        message: `lessons.json deve declarar version="${MANIFEST_VERSION}".`,
+      });
+    }
+
+    if (!validateLessonsIndex(manifest)) {
       problems.push({
         type: 'schema',
         file: filePath,
@@ -1085,9 +1105,10 @@ async function validateLessonsIndexFile(course, filePath, problems) {
       return [];
     }
 
+    const entries = getManifestEntries(manifest);
     const seen = new Set();
     const duplicates = [];
-    json.forEach((item) => {
+    entries.forEach((item) => {
       if (seen.has(item.id)) {
         duplicates.push(item.id);
       }
@@ -1131,7 +1152,7 @@ async function validateLessonsIndexFile(course, filePath, problems) {
       });
     }
 
-    return json;
+    return entries;
   } catch (error) {
     problems.push({ type: 'read', file: filePath, course, message: error.message });
     return [];
@@ -1179,8 +1200,21 @@ function validateGenerationMetadata({ metadata, filePath, problems, course, entr
 
 async function validateExercisesIndexFile(course, filePath, problems) {
   try {
-    const json = await readJson(filePath);
-    if (!validateExercisesIndex(json)) {
+    const manifest = await readManifest(filePath);
+    if (manifest.missing) {
+      return [];
+    }
+
+    if (manifest.version !== MANIFEST_VERSION) {
+      problems.push({
+        type: 'manifest-version',
+        file: filePath,
+        course,
+        message: `exercises.json deve declarar version="${MANIFEST_VERSION}".`,
+      });
+    }
+
+    if (!validateExercisesIndex(manifest)) {
       problems.push({
         type: 'schema',
         file: filePath,
@@ -1190,11 +1224,12 @@ async function validateExercisesIndexFile(course, filePath, problems) {
       return [];
     }
 
+    const entries = getManifestEntries(manifest);
     const seen = new Set();
     const duplicates = [];
     const linkPrefix = `courses/${course}/exercises/`;
 
-    json.forEach((item) => {
+    entries.forEach((item) => {
       if (seen.has(item.id)) {
         duplicates.push(item.id);
       }
@@ -1257,11 +1292,8 @@ async function validateExercisesIndexFile(course, filePath, problems) {
       });
     }
 
-    return json;
+    return entries;
   } catch (error) {
-    if (error.code === 'ENOENT') {
-      return [];
-    }
     problems.push({ type: 'read', file: filePath, course, message: error.message });
     return [];
   }
@@ -1269,8 +1301,21 @@ async function validateExercisesIndexFile(course, filePath, problems) {
 
 async function validateSupplementsIndexFile(course, filePath, problems) {
   try {
-    const json = await readJson(filePath);
-    if (!validateSupplementsIndex(json)) {
+    const manifest = await readManifest(filePath);
+    if (manifest.missing) {
+      return [];
+    }
+
+    if (manifest.version !== MANIFEST_VERSION) {
+      problems.push({
+        type: 'manifest-version',
+        file: filePath,
+        course,
+        message: `supplements.json deve declarar version="${MANIFEST_VERSION}".`,
+      });
+    }
+
+    if (!validateSupplementsIndex(manifest)) {
       problems.push({
         type: 'schema',
         file: filePath,
@@ -1280,11 +1325,12 @@ async function validateSupplementsIndexFile(course, filePath, problems) {
       return [];
     }
 
+    const entries = getManifestEntries(manifest);
     const seen = new Set();
     const duplicates = [];
     const linkPrefix = `courses/${course}/supplements/`;
 
-    json.forEach((item) => {
+    entries.forEach((item) => {
       if (seen.has(item.id)) {
         duplicates.push(item.id);
       }
@@ -1347,11 +1393,8 @@ async function validateSupplementsIndexFile(course, filePath, problems) {
       });
     }
 
-    return json;
+    return entries;
   } catch (error) {
-    if (error.code === 'ENOENT') {
-      return [];
-    }
     problems.push({ type: 'read', file: filePath, course, message: error.message });
     return [];
   }
