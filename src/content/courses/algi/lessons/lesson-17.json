@@ -1,0 +1,180 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-17",
+  "title": "Aula 17: Estrutura de Repetição while",
+  "summary": "Introduz laços while para repetir blocos enquanto condições permanecem verdadeiras, aplicando sentinelas e validações.",
+  "objective": "Compreender, modelar e implementar laços while controlados por condição e por sentinela.",
+  "objectives": [
+    "Identificar situações em que while é mais adequado que for ou decisões simples.",
+    "Traduzir fluxogramas com laço enquanto em pseudocódigo/C.",
+    "Planejar testes que cubram entradas válidas, inválidas e sentinelas."
+  ],
+  "competencies": ["Pensamento algorítmico", "Raciocínio lógico", "Validação de dados"],
+  "skills": [
+    "Definir condições de continuidade e de saída para laços.",
+    "Implementar loops com contadores e acumuladores.",
+    "Registrar evidências de teste usando sentinelas e limites."
+  ],
+  "outcomes": [
+    "Explica a diferença entre while e do-while com exemplos práticos.",
+    "Escreve algoritmo que lê dados até receber sentinela válido.",
+    "Entrega tabela de testes cobrindo casos de encerramento e erros."
+  ],
+  "prerequisites": ["Domínio de condicionais compostas e operadores lógicos."],
+  "tags": ["loops", "while", "repeticao"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Notebook ou IDE configurada",
+      "url": "https://www.onlinegdb.com/online_c_compiler",
+      "type": "tool"
+    },
+    {
+      "label": "Worksheet Laços Enquanto",
+      "url": "https://example.edu/algi/worksheets/while.pdf",
+      "type": "handout"
+    }
+  ],
+  "bibliography": [
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "MANZANO, J. Algoritmos. Érica, 2019."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Exercício guiado em dupla com entrega de pseudocódigo e tabela de testes ao final da aula."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(15 min) Aquecimento: identificar padrões que exigem repetição.",
+        "(25 min) Aula expositiva: sintaxe e fluxo do while.",
+        "(35 min) Laboratório guiado: cálculo de média até sentinela.",
+        "(20 min) Discussão de testes e edge cases.",
+        "(20 min) Exercício prático em dupla com feedback imediato."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Quando usar while",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize while quando não souber quantas iterações serão necessárias e desejar testar a condição antes de executar o bloco."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Leitura até receber um valor especial (sentinela).",
+            "Validação de entrada até o usuário fornecer dados corretos.",
+            "Monitoramento de sensores enquanto a leitura estiver dentro do intervalo."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo: média com sentinela",
+      "summary": "Fluxograma que representa a leitura de notas até o usuário digitar -1.",
+      "nodes": [
+        { "id": "start", "type": "start", "title": "Início" },
+        {
+          "id": "read",
+          "type": "process",
+          "title": "Ler nota",
+          "summary": "Solicita entrada da usuária."
+        },
+        {
+          "id": "check",
+          "type": "decision",
+          "title": "Nota é -1?",
+          "branches": [
+            {
+              "id": "is-sentinel",
+              "label": "Sim",
+              "target": "average",
+              "description": "Encerrar leituras e calcular média"
+            },
+            {
+              "id": "not-sentinel",
+              "label": "Não",
+              "target": "accumulate",
+              "description": "Somar e contar"
+            }
+          ]
+        },
+        {
+          "id": "accumulate",
+          "type": "process",
+          "title": "Acumular nota",
+          "summary": "Soma valor e incrementa contador."
+        },
+        {
+          "id": "loop",
+          "type": "process",
+          "title": "Repetir entrada",
+          "summary": "Retorna para leitura."
+        },
+        {
+          "id": "average",
+          "type": "process",
+          "title": "Calcular média",
+          "summary": "Divide soma pelo contador."
+        },
+        { "id": "end", "type": "end", "title": "Fim" }
+      ],
+      "connections": [
+        { "from": "start", "to": "read" },
+        { "from": "read", "to": "check" },
+        { "from": "accumulate", "to": "loop" },
+        { "from": "loop", "to": "read", "kind": "loop", "label": "Próxima nota" },
+        { "from": "average", "to": "end" }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "code": "int nota = 0;\nint soma = 0;\nint quantidade = 0;\n\nprintf(\"Digite uma nota ou -1 para encerrar: \");\nscanf(\"%d\", &nota);\nwhile (nota != -1) {\n  soma += nota;\n  quantidade++;\n  printf(\"Digite uma nota ou -1 para encerrar: \");\n  scanf(\"%d\", &nota);\n}\nif (quantidade > 0) {\n  printf(\"Média: %.2f\\n\", (float)soma / quantidade);\n} else {\n  printf(\"Nenhuma nota válida informada\\n\");\n}\n"
+    },
+    {
+      "type": "md3Table",
+      "title": "Comparação de padrões de repetição",
+      "headers": ["Padrão", "Quando usar", "Exemplo"],
+      "rows": [
+        [
+          { "value": "while" },
+          { "value": "Condição checada antes" },
+          { "value": "Leitura até sentinela" }
+        ],
+        [
+          { "value": "do-while" },
+          { "value": "Executa ao menos uma vez" },
+          { "value": "Menu interativo" }
+        ],
+        [
+          { "value": "for" },
+          { "value": "Número conhecido de repetições" },
+          { "value": "Percorrer vetor de tamanho fixo" }
+        ]
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, garanta que você",
+      "items": [
+        "Definiu sentinelas e condições de parada claramente.",
+        "Registrou o comportamento esperado quando nenhuma nota válida é informada.",
+        "Validou entradas negativas fora do sentinela."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Roteiro de laboratório while 2025"]
+  }
+}

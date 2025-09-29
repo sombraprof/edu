@@ -53,6 +53,7 @@
 - Reescrever conteúdos em formato declarativo (`.md`/`MDC` ou JSON normalizado) com componentes semânticos (`<md-section>`, `<md-stepper>`).
 - Criar novos componentes: "Tabela Verdade", "Fluxograma" e "Simulador de Execução" revisados, incluindo acessibilidade e animações MD.
 - Implementar trilhas de exercícios com gradação de dificuldade e feedback automático.
+- Migrar as aulas 16-18 para o schema `md3.lesson.v1`, cobrindo condicionais avançadas e introdução a laços, com índices atualizados. 【F:src/content/courses/algi/lessons/lesson-16.json†L1-L210】【F:src/content/courses/algi/lessons/lesson-17.json†L1-L212】【F:src/content/courses/algi/lessons/lesson-18.json†L1-L210】【F:src/content/courses/algi/lessons.json†L165-L210】
 
 ### 5.2 Desenvolvimento para Dispositivos Móveis (DDM)
 
@@ -65,17 +66,20 @@
 - As aulas 01-08 foram migradas para o schema `md3.lesson.v1`, reorganizando objetivos, planos de voo e novos blocos MD3 (fluxogramas, tabelas de visibilidade e diagramas de blocos). 【F:src/content/courses/lpoo/lessons/lesson-01.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-02.json†L1-L203】【F:src/content/courses/lpoo/lessons/lesson-03.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-04.json†L1-L227】【F:src/content/courses/lpoo/lessons/lesson-05.json†L1-L210】【F:src/content/courses/lpoo/lessons/lesson-06.json†L1-L208】【F:src/content/courses/lpoo/lessons/lesson-07.json†L1-L242】【F:src/content/courses/lpoo/lessons/lesson-08.json†L1-L211】
 - O índice `lessons.json` agora aponta para os arquivos JSON, traz resumo, tags, duração e `formatVersion`, permitindo que os relatórios de governança identifiquem o status real das aulas. 【F:src/content/courses/lpoo/lessons.json†L1-L64】
 - Próximos passos: preparar um componente "ClassDesigner" a partir do `Md3BlockDiagram` para ilustrar relações UML, migrar exercícios (`modelagem-uml.json`, `refatoracao.json`) para o novo schema e registrar rubricas alinhadas às competências de orientação a objetos.
+- ✅ `ClassDesigner` especificado e implementado com documentação MD3, habilitando diagramas de classes reusáveis nas próximas aulas. 【F:docs/didactics/class-designer.md†L1-L63】【F:src/components/lesson/ClassDesigner.vue†L1-L344】【F:src/components/lesson/**tests**/ClassDesigner.test.ts†L1-L81】
 
 ### 5.4 Tecnologia e Desenvolvimento para Jogos Digitais (TDJD)
 
 - Estruturar jornadas: Ideação → Prototipagem → Produção → Publicação → Pós-lançamento.
 - Desenvolver componentes visuais: "Pipeline Canvas", "Matriz de Mecânicas" e "Quadro de Assets".
+- ✅ `PipelineCanvas` publicado com estágios, entregáveis e marcos tonais, pronto para jornadas de produção de jogos. 【F:docs/didactics/pipeline-canvas.md†L1-L66】【F:src/components/lesson/PipelineCanvas.vue†L1-L324】【F:src/components/lesson/**tests**/PipelineCanvas.test.ts†L1-L82】
 - Integrar checklists técnicos (builds multiplataforma) e referências a motores modernos (Unity 6, Unreal 5, Godot 4).
 
 ### 5.5 Teoria Geral de Sistemas (TGS)
 
 - Reorganizar aulas para enfatizar pensamento sistêmico aplicado (mapas de causalidade, diagramas de loops, modelagem de estoques e fluxos).
 - Criar componente "System Mapper" para diagramas dinâmicos e "Radar de Competências" para avaliação formativa.
+- ✅ `SystemMapper` construído para loops de feedback com legenda MD3, desbloqueando as migrações de TGS. 【F:docs/didactics/system-mapper.md†L1-L63】【F:src/components/lesson/SystemMapper.vue†L1-L357】【F:src/components/lesson/**tests**/SystemMapper.test.ts†L1-L86】
 - Atualizar materiais com estudos de caso atuais (transformação digital, ESG, saúde pública).
 
 ## 6. Arquitetura de Conteúdo Proposta
@@ -219,3 +223,5 @@ O documento `docs/governance/faculty-review-sessions.md` organiza a agenda, indi
 - Entrega do novo `Md3Flowchart` com API declarativa, conectores configuráveis e tokens MD3 aplicados. 【F:src/components/lesson/Md3Flowchart.vue†L1-L214】
 - Documentação inicial publicada em `docs/didactics/md3-flowchart.md`, orientando próximos componentes. 【F:docs/didactics/md3-flowchart.md†L1-L60】
 - Testes atualizados para cobrir fluxos lineares, bifurcações e loops customizados. 【F:src/components/lesson/**tests**/Md3Flowchart.test.ts†L1-L74】
+- Biblioteca expandida com `ClassDesigner`, `PipelineCanvas` e `SystemMapper`, incluindo testes automatizados e documentação pedagógica. 【F:src/components/lesson/ClassDesigner.vue†L1-L344】【F:src/components/lesson/PipelineCanvas.vue†L1-L324】【F:src/components/lesson/SystemMapper.vue†L1-L357】【F:src/components/lesson/**tests**/ClassDesigner.test.ts†L1-L81】【F:docs/didactics/pipeline-canvas.md†L1-L66】
+- Índices de aulas, exercícios e suplementos do ALGI atualizados com metadados completos após as novas entregas. 【F:src/content/courses/algi/lessons.json†L165-L210】【F:src/content/courses/algi/exercises.json†L1-L32】【F:src/content/courses/algi/supplements.json†L1-L16】

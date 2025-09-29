@@ -1,0 +1,237 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-16",
+  "title": "Aula 16: Atividade Prática Assíncrona – Condicionais",
+  "summary": "Aplica condicionais compostas em um miniaplicativo de triagem, documentando decisões, testes e evidências de entrega.",
+  "objective": "Conduzir uma atividade autônoma que consolide condicionais aninhadas, operadores lógicos e planejamento de testes.",
+  "objectives": [
+    "Revisar requisitos funcionais de um fluxo de triagem clínica.",
+    "Desenhar fluxogramas que reflitam decisões exclusivas e caminhos alternativos.",
+    "Implementar e testar o pseudocódigo/documentação das decisões escritas."
+  ],
+  "competencies": ["Pensamento algorítmico", "Documentação técnica", "Autogestão"],
+  "skills": [
+    "Traduzir requisitos em condicionais compostas e encadeadas.",
+    "Registrar evidências de teste que comprovem a cobertura de casos críticos.",
+    "Comunicar decisões técnicas em formato de relatório curto."
+  ],
+  "outcomes": [
+    "Entrega fluxograma e pseudocódigo que cobrem todos os cenários descritos.",
+    "Apresenta tabela de testes com resultados esperados e obtidos.",
+    "Publica checklist de evidências com captura de tela/execução do algoritmo."
+  ],
+  "prerequisites": [
+    "Revisar as aulas 12 a 15 e trazer o ambiente configurado (IDE OnlineGDB ou DevC++)."
+  ],
+  "tags": ["condicionais", "atividade", "assincrona"],
+  "duration": 120,
+  "modality": "async",
+  "resources": [
+    {
+      "label": "Modelo de relatório de evidências",
+      "url": "https://example.edu/algi/modelos/relatorio-condicionais.docx",
+      "type": "template"
+    },
+    {
+      "label": "Ambiente de desenvolvimento OnlineGDB",
+      "url": "https://www.onlinegdb.com/online_c_compiler",
+      "type": "tool"
+    },
+    {
+      "label": "Revisão de operadores lógicos",
+      "url": "https://example.edu/algi/referenciais/operadores-logicos-md3.html",
+      "type": "reading"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Entrega individual com fluxograma, pseudocódigo e planilha de testes enviados no AVA até às 23h59."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da atividade",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Contexto",
+          "content": "Uma clínica precisa priorizar pacientes conforme sintomas relatados e histórico de risco."
+        },
+        {
+          "icon": "bullseye",
+          "title": "Produto",
+          "content": "Fluxograma + pseudocódigo comentado + tabela de testes registrados em planilha."
+        },
+        {
+          "icon": "clock",
+          "title": "Gestão do tempo",
+          "content": "Reserve 2h: 30 min de análise, 50 min de modelagem, 30 min de testes e 10 min para documentação."
+        }
+      ]
+    },
+    {
+      "type": "roadmap",
+      "title": "Sequência sugerida",
+      "steps": [
+        {
+          "title": "Estudo de caso",
+          "description": "Leia o briefing médico e identifique quais fatores classificam o paciente em observação imediata."
+        },
+        {
+          "title": "Modelagem",
+          "description": "Desenhe fluxograma com decisões exclusivas (if/else if) e caminhos alternativos claros."
+        },
+        {
+          "title": "Codificação",
+          "description": "Transcreva o fluxo para pseudocódigo C com comentários e validações de entrada."
+        },
+        {
+          "title": "Testes",
+          "description": "Monte tabela de testes cobrindo casos críticos: gestantes, febre alta, histórico cardíaco."
+        },
+        {
+          "title": "Evidências",
+          "description": "Capture execuções (print ou vídeo) e preencha o relatório com links/arquivos."
+        }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxograma de referência",
+      "summary": "Exemplo simplificado de triagem com condicionais encadeadas e saídas exclusivas.",
+      "nodes": [
+        {
+          "id": "start",
+          "type": "start",
+          "title": "Início",
+          "summary": "Recebe sintomas e riscos do paciente.",
+          "branches": [
+            {
+              "id": "branch-critical",
+              "label": "Sintoma grave",
+              "target": "grave",
+              "description": "Febre > 39ºC, dor torácica ou falta de ar intensa."
+            },
+            {
+              "id": "branch-regular",
+              "label": "Sem sintoma grave",
+              "target": "gestante",
+              "description": "Seguir para análise de fatores de risco."
+            }
+          ]
+        },
+        {
+          "id": "grave",
+          "type": "process",
+          "title": "Encaminhar para emergência",
+          "summary": "Prioridade imediata com equipe avançada."
+        },
+        {
+          "id": "gestante",
+          "type": "decision",
+          "title": "Paciente gestante?",
+          "branches": [
+            {
+              "id": "gestante-sim",
+              "label": "Sim",
+              "target": "obstetrico",
+              "description": "Encaminhar para sala de observação obstétrica."
+            },
+            {
+              "id": "gestante-nao",
+              "label": "Não",
+              "target": "cardiaco",
+              "description": "Verificar histórico cardíaco relevante."
+            }
+          ]
+        },
+        {
+          "id": "obstetrico",
+          "type": "process",
+          "title": "Observação obstétrica",
+          "summary": "Monitoramento dedicado até avaliação médica."
+        },
+        {
+          "id": "cardiaco",
+          "type": "process",
+          "title": "Histórico cardíaco",
+          "summary": "Prioridade média com monitoração contínua."
+        },
+        {
+          "id": "consultorio",
+          "type": "process",
+          "title": "Consulta agendada",
+          "summary": "Atendimento em ordem de chegada com orientação básica."
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "title": "Encerrar triagem"
+        }
+      ],
+      "connections": [
+        { "from": "grave", "to": "end", "label": "Atendimento imediato" },
+        { "from": "obstetrico", "to": "end", "label": "Observação especializada" },
+        { "from": "cardiaco", "to": "consultorio", "label": "Monitorar sinais" },
+        { "from": "consultorio", "to": "end", "label": "Consulta clínica" }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Entrega obrigatória",
+      "items": [
+        "Fluxograma digitalizado ou produzido no FigJam/Lucidchart.",
+        "Pseudocódigo ou código em C com comentários contextualizando decisões.",
+        "Tabela de testes preenchida com entradas, saídas esperadas, obtidas e evidências."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Rubrica de avaliação (20 pontos)",
+      "headers": ["Critério", "Peso", "Descrição"],
+      "rows": [
+        ["Cobertura de casos", "8", "Decisões contemplam sintomas críticos e exceções."],
+        [
+          "Clareza do pseudocódigo",
+          "6",
+          "Estrutura, indentação e comentários elucidam cada caminho."
+        ],
+        [
+          "Evidências de teste",
+          "4",
+          "Tabela exibe resultados esperados x obtidos com comprovação."
+        ],
+        [
+          "Pontualidade",
+          "2",
+          "Entrega realizada no AVA até o horário limite com arquivos organizados."
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Envio no AVA",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Faça upload em um único arquivo ZIP contendo fluxograma (PDF), pseudocódigo (.c ou .txt) e planilha de testes (.xlsx ou .ods)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nome do arquivo: ALG1_A16_NomeSobrenome.zip."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing clínico de triagem 2025"]
+  }
+}

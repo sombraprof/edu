@@ -168,19 +168,34 @@
     "id": "lesson-16",
     "title": "Aula 16: Atividade Prática (Assíncrona) – Condicionais",
     "file": "lesson-16.json",
-    "available": false
+    "available": true,
+    "description": "Conduz atividade autônoma de triagem clínica utilizando condicionais compostas, fluxogramas e testes.",
+    "summary": "Aplica decisões encadeadas em um cenário realista, produzindo fluxograma, pseudocódigo e relatório de testes com evidências.",
+    "tags": ["condicionais", "atividade", "assinc"],
+    "duration": 120,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-17",
     "title": "Aula 17: Estrutura de Repetição while",
     "file": "lesson-17.json",
-    "available": false
+    "available": true,
+    "description": "Apresenta laços while com foco em sentinelas, validações de entrada e planejamento de testes.",
+    "summary": "Constrói algoritmos com while para coletar dados até uma condição ser satisfeita, incluindo tabela de testes com casos limites.",
+    "tags": ["loops", "while", "sentinela"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-18",
     "title": "Aula 18: Estrutura de Repetição for",
     "file": "lesson-18.json",
-    "available": false
+    "available": true,
+    "description": "Explora o laço for para percorrer intervalos e coleções com controle explícito de contadores.",
+    "summary": "Descompõe o for em inicialização, condição e atualização, aplicando-o em tabuadas, somatórios e percursos sobre vetores.",
+    "tags": ["loops", "for", "controle-de-fluxo"],
+    "duration": 115,
+    "formatVersion": "md3.lesson.v1"
   },
   {
     "id": "lesson-19",
