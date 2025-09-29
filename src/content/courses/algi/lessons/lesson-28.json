@@ -91,6 +91,14 @@
     },
     {
       "type": "contentBlock",
+      "title": "Critérios para funções saudáveis",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Nomes descrevem claramente o efeito da função e seguem padrão consistente.",
+            "Blocos possuem no máximo 20 linhas e retornos antecipados são documentados.",
+            "Comentários explicam regras de negócio; detalhes técnicos vivem em testes ou documentação."
           ]
         }
       ]
