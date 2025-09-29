@@ -1,6 +1,6 @@
 # Alerta de governança de conteúdo
 
-_Gerado em 2025-09-29 00:13:25.724 UTC_
+_Gerado em 2025-09-29 01:32:41.561 UTC_
 
 ## Diagnóstico rápido
 
@@ -10,12 +10,12 @@ _Gerado em 2025-09-29 00:13:25.724 UTC_
 
 ### Evolução em relação à última execução
 
-- Problemas de validação: — (sem alteração)
-- Avisos de validação: ▼ -4
-- Blocos legados: ▼ -28
-- Lições com blocos legados: ▼ -27
-- Exercícios sem metadados: — (sem alteração)
-- Suplementos sem metadados: — (sem alteração)
+- Problemas de validação: — (sem alteração) (—%) ▅▅▅▅▅
+- Avisos de validação: — (sem alteração) (—%) ███▁▁
+- Blocos legados: — (sem alteração) (—%) ███▁▁
+- Lições com blocos legados: — (sem alteração) (—%) ███▁▁
+- Exercícios sem metadados: — (sem alteração) (—%) ▅▅▅▅▅
+- Suplementos sem metadados: — (sem alteração) (—%) ▅▅▅▅▅
 
 ## Cursos com apontamentos
 

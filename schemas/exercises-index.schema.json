@@ -1,56 +1,71 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://edu.local/schemas/exercises-index.schema.json",
-  "title": "Exercises Index",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "required": ["id", "title", "description", "metadata"],
-    "additionalProperties": true,
-    "properties": {
-      "id": {
-        "type": "string",
-        "minLength": 1
-      },
-      "title": {
-        "type": "string",
-        "minLength": 1
-      },
-      "description": {
-        "type": "string",
-        "minLength": 1
-      },
-      "type": {
-        "type": "string",
-        "minLength": 1
-      },
-      "link": {
-        "type": "string",
-        "minLength": 1
-      },
-      "file": {
-        "type": "string",
-        "pattern": "^.+\\.(vue|json)$"
-      },
-      "available": {
-        "type": "boolean"
-      },
-      "metadata": {
+  "title": "Exercises Manifest",
+  "type": "object",
+  "required": ["version", "entries"],
+  "additionalProperties": true,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "edu.manifest.v1"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
         "type": "object",
-        "required": ["generatedBy", "model", "timestamp"],
-        "additionalProperties": false,
+        "required": ["id", "title", "description", "metadata"],
+        "additionalProperties": true,
         "properties": {
-          "generatedBy": {
+          "id": {
             "type": "string",
             "minLength": 1
           },
-          "model": {
+          "title": {
             "type": "string",
             "minLength": 1
           },
-          "timestamp": {
+          "description": {
             "type": "string",
-            "format": "date-time"
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "link": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^.+\\.(vue|json)$"
+          },
+          "available": {
+            "type": "boolean"
+          },
+          "metadata": {
+            "type": "object",
+            "required": ["generatedBy", "model", "timestamp"],
+            "additionalProperties": false,
+            "properties": {
+              "generatedBy": {
+                "type": "string",
+                "minLength": 1
+              },
+              "model": {
+                "type": "string",
+                "minLength": 1
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
           }
         }
       }

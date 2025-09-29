@@ -1,6 +1,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getManifestEntries, readManifest } from './utils/manifest.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,7 +42,8 @@ async function summarizeLessons(coursePath) {
   const lessonsIndexPath = path.join(coursePath, 'lessons.json');
   const lessonsDir = path.join(coursePath, 'lessons');
 
-  const index = (await safeJsonRead(lessonsIndexPath)) ?? [];
+  const lessonsManifest = await readManifest(lessonsIndexPath);
+  const index = getManifestEntries(lessonsManifest);
   let directoryFiles = [];
   try {
     directoryFiles = await fs.readdir(lessonsDir);
@@ -95,7 +97,8 @@ async function summarizeLessons(coursePath) {
 
 async function summarizeManifest(coursePath, manifestName, baseDir) {
   const manifestPath = path.join(coursePath, `${manifestName}.json`);
-  const index = (await safeJsonRead(manifestPath)) ?? [];
+  const manifest = await readManifest(manifestPath);
+  const index = getManifestEntries(manifest);
   const dirPath = baseDir ? path.join(coursePath, baseDir) : null;
 
   let directoryFiles = [];

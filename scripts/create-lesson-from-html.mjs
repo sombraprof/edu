@@ -16,6 +16,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { JSDOM } from 'jsdom';
+import { getManifestEntries, readManifest, writeManifest } from './utils/manifest.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -182,16 +183,6 @@ import lessonData from './${id}.json';
   );
 }
 
-async function loadJson(pathname) {
-  try {
-    const raw = await fs.readFile(pathname, 'utf8');
-    return JSON.parse(raw);
-  } catch (error) {
-    if (error.code === 'ENOENT') return null;
-    throw error;
-  }
-}
-
 function upsertLessonIndex(index, entry) {
   const existingIndex = index.findIndex((item) => item.id === entry.id);
   if (existingIndex >= 0) {
@@ -246,7 +237,8 @@ async function run() {
     'utf8'
   );
 
-  const lessonsIndex = (await loadJson(indexPath)) ?? [];
+  const lessonsManifest = await readManifest(indexPath);
+  const lessonsIndex = getManifestEntries(lessonsManifest);
   upsertLessonIndex(lessonsIndex, {
     id: lessonId,
     title,
@@ -254,11 +246,7 @@ async function run() {
     available,
     ...(objective ? { description: objective } : {}),
   });
-  await fs.writeFile(
-    indexPath,
-    ensureTrailingNewline(JSON.stringify(lessonsIndex, null, 2)),
-    'utf8'
-  );
+  await writeManifest(indexPath, { ...lessonsManifest, entries: lessonsIndex });
 
   console.log(`Lesson ${lessonId} for course ${courseId} updated.`);
   console.log(`- JSON: ${path.relative(projectRoot, jsonPath)}`);

@@ -5,6 +5,7 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { JSDOM } from 'jsdom';
+import { getManifestEntries, readManifest } from './utils/manifest.mjs';
 
 const rootDir = process.cwd();
 const targetCoursesDir = path.join(rootDir, 'src', 'content', 'courses');
@@ -181,8 +182,8 @@ async function convertLessons(courseId) {
   const lessonsIndexPath = path.join(targetCoursesDir, courseId, 'lessons.json');
   if (!(await exists(lessonsIndexPath))) return;
 
-  const lessonsIndexRaw = await fs.readFile(lessonsIndexPath, 'utf8');
-  const lessonsIndex = JSON.parse(lessonsIndexRaw);
+  const manifest = await readManifest(lessonsIndexPath);
+  const lessonsIndex = getManifestEntries(manifest);
 
   for (const lesson of lessonsIndex) {
     await convertLesson(courseId, lesson.id);

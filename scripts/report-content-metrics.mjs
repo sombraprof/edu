@@ -2,12 +2,15 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { MANIFEST_VERSION, getManifestEntries, readManifest } from './utils/manifest.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '..');
 const coursesRoot = path.join(repoRoot, 'src', 'content', 'courses');
 const reportsRoot = path.join(repoRoot, 'reports');
 const defaultOutputPath = path.join(reportsRoot, 'content-observability.json');
+const defaultHistoryPath = path.join(reportsRoot, 'content-observability-history.json');
+const defaultTrendsPath = path.join(reportsRoot, 'content-observability-trends.json');
 
 const LEGACY_BLOCK_TYPES = new Set(['html', 'dragAndDrop', 'fileTree', 'quiz']);
 const MD3_BLOCK_TYPES = new Set([
@@ -35,10 +38,11 @@ const MD3_BLOCK_TYPES = new Set([
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const timestamp = new Date().toISOString();
+
   await fs.mkdir(reportsRoot, { recursive: true });
-  if (path.dirname(options.outputPath) !== reportsRoot) {
-    await fs.mkdir(path.dirname(options.outputPath), { recursive: true });
-  }
+  await fs.mkdir(path.dirname(options.outputPath), { recursive: true });
+  await fs.mkdir(path.dirname(options.historyPath), { recursive: true });
+  await fs.mkdir(path.dirname(options.trendsPath), { recursive: true });
 
   const courseDirs = (await fs.readdir(coursesRoot)).filter((entry) => !entry.startsWith('.'));
   courseDirs.sort();
@@ -86,8 +90,18 @@ async function main() {
     courses,
   };
 
-  await fs.writeFile(options.outputPath, JSON.stringify(payload, null, 2));
-  logSummary(payload, options.outputPath);
+  await fs.writeFile(options.outputPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
+
+  const history = await loadHistory(options.historyPath);
+  const previousSnapshot = history.length > 0 ? history[history.length - 1] : null;
+  const snapshot = buildSnapshot(payload, timestamp);
+  const updatedHistory = [...history, snapshot];
+  await fs.writeFile(options.historyPath, `${JSON.stringify(updatedHistory, null, 2)}\n`, 'utf8');
+
+  const analytics = buildAnalytics({ snapshot, previousSnapshot, history: updatedHistory });
+  await fs.writeFile(options.trendsPath, `${JSON.stringify(analytics.export, null, 2)}\n`, 'utf8');
+
+  logSummary(payload, options.outputPath, analytics.summary);
 
   if (options.failOnMetadataGaps) {
     const issues = collectMetadataGaps(payload);
@@ -104,15 +118,17 @@ async function main() {
 async function analyseCourse(courseId) {
   const courseDir = path.join(coursesRoot, courseId);
   const meta = await readJson(path.join(courseDir, 'meta.json')).catch(() => ({}));
-  const lessonsIndex = await readJson(path.join(courseDir, 'lessons.json')).catch(() => []);
-  const exercisesManifest = await readJson(path.join(courseDir, 'exercises.json')).catch(() => []);
-  const supplementsManifest = await readJson(path.join(courseDir, 'supplements.json')).catch(
-    () => []
-  );
+  const lessonsManifest = await readManifest(path.join(courseDir, 'lessons.json'));
+  const exercisesManifest = await readManifest(path.join(courseDir, 'exercises.json'));
+  const supplementsManifest = await readManifest(path.join(courseDir, 'supplements.json'));
 
-  const lessonMetrics = await analyseLessons(courseDir, lessonsIndex);
-  const exerciseMetrics = await analyseExercises(courseDir, exercisesManifest);
-  const supplementMetrics = analyseSupplements(supplementsManifest);
+  validateManifestVersion(courseId, 'lessons', lessonsManifest.version);
+  validateManifestVersion(courseId, 'exercises', exercisesManifest.version);
+  validateManifestVersion(courseId, 'supplements', supplementsManifest.version);
+
+  const lessonMetrics = await analyseLessons(courseDir, getManifestEntries(lessonsManifest));
+  const exerciseMetrics = await analyseExercises(courseDir, getManifestEntries(exercisesManifest));
+  const supplementMetrics = analyseSupplements(getManifestEntries(supplementsManifest));
 
   return {
     id: courseId,
@@ -265,29 +281,31 @@ function mapToObject(map) {
   return Object.fromEntries([...map.entries()].sort(([a], [b]) => a.localeCompare(b)));
 }
 
-function logSummary(payload, outputPath) {
+function logSummary(payload, outputPath, summary) {
   const { totals } = payload;
-  const md3Coverage = totals.lessons.totalBlocks
-    ? ((totals.lessons.md3Blocks / totals.lessons.totalBlocks) * 100).toFixed(1)
-    : '0.0';
-  const legacyCoverage = totals.lessons.totalBlocks
-    ? ((totals.lessons.legacyBlocks / totals.lessons.totalBlocks) * 100).toFixed(1)
-    : '0.0';
   console.log(`Relatório de observabilidade salvo em ${outputPath}`);
   console.log(
     `Lições: ${totals.lessons.total} (publicadas: ${totals.lessons.available}, pendentes: ${totals.lessons.unavailable})`
   );
   console.log(
-    `Blocos MD3: ${totals.lessons.md3Blocks} (${md3Coverage}%); blocos legados: ${totals.lessons.legacyBlocks} (${legacyCoverage}%)`
+    `Cobertura MD3: ${summary.lessons.md3Coverage.current.toFixed(1)}% (${formatDelta(summary.lessons.md3Coverage.delta, 'p.p.')}) ${summary.lessons.md3Coverage.sparkline}`
   );
   console.log(
-    `Exercícios com metadados completos: ${totals.exercises.withMetadata}/${totals.exercises.total}; suplementos: ${totals.supplements.withMetadata}/${totals.supplements.total}`
+    `Blocos legados: ${formatNumber(summary.lessons.legacyBlocks.current)} (${formatDelta(summary.lessons.legacyBlocks.delta)} | ${formatPercent(summary.lessons.legacyBlocks.percentChange)}) ${summary.lessons.legacyBlocks.sparkline}`
+  );
+  console.log(
+    `Exercícios sem metadados: ${formatNumber(summary.exercises.withoutMetadata.current)} (${formatDelta(summary.exercises.withoutMetadata.delta)} | ${formatPercent(summary.exercises.withoutMetadata.percentChange)}) ${summary.exercises.completeness.sparkline}`
+  );
+  console.log(
+    `Suplementos sem metadados: ${formatNumber(summary.supplements.withoutMetadata.current)} (${formatDelta(summary.supplements.withoutMetadata.delta)} | ${formatPercent(summary.supplements.withoutMetadata.percentChange)}) ${summary.supplements.completeness.sparkline}`
   );
 }
 
 function parseArgs(args) {
   const options = {
     outputPath: defaultOutputPath,
+    historyPath: defaultHistoryPath,
+    trendsPath: defaultTrendsPath,
     failOnMetadataGaps: false,
   };
 
@@ -299,6 +317,20 @@ function parseArgs(args) {
         throw new Error('É necessário informar um caminho após --output.');
       }
       options.outputPath = path.resolve(next);
+      index += 1;
+    } else if (arg === '--history') {
+      const next = args[index + 1];
+      if (!next) {
+        throw new Error('É necessário informar um caminho após --history.');
+      }
+      options.historyPath = path.resolve(next);
+      index += 1;
+    } else if (arg === '--trends') {
+      const next = args[index + 1];
+      if (!next) {
+        throw new Error('É necessário informar um caminho após --trends.');
+      }
+      options.trendsPath = path.resolve(next);
       index += 1;
     } else if (arg === '--fail-on-metadata-gaps' || arg === '--check') {
       options.failOnMetadataGaps = true;
@@ -326,6 +358,326 @@ function collectMetadataGaps(payload) {
     }
   }
   return issues;
+}
+
+function validateManifestVersion(courseId, manifestName, version) {
+  if (!version || version === 'legacy' || version !== MANIFEST_VERSION) {
+    console.warn(
+      `⚠️  Manifesto ${manifestName}.json do curso ${courseId} está com versão inválida (${version ?? 'indefinida'}). Utilize ${MANIFEST_VERSION}.`
+    );
+  }
+}
+
+async function loadHistory(filePath) {
+  try {
+    const raw = await fs.readFile(filePath, 'utf8');
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      return [];
+    }
+    throw error;
+  }
+}
+
+function buildSnapshot(payload, generatedAt) {
+  const { totals } = payload;
+  const md3Coverage = totals.lessons.totalBlocks
+    ? totals.lessons.md3Blocks / totals.lessons.totalBlocks
+    : 0;
+  const legacyCoverage = totals.lessons.totalBlocks
+    ? totals.lessons.legacyBlocks / totals.lessons.totalBlocks
+    : 0;
+  const exercisesWithoutMetadata = Math.max(
+    0,
+    totals.exercises.total - totals.exercises.withMetadata
+  );
+  const supplementsWithoutMetadata = Math.max(
+    0,
+    totals.supplements.total - totals.supplements.withMetadata
+  );
+
+  return {
+    generatedAt,
+    lessons: {
+      total: totals.lessons.total,
+      available: totals.lessons.available,
+      unavailable: totals.lessons.unavailable,
+      md3Blocks: totals.lessons.md3Blocks,
+      legacyBlocks: totals.lessons.legacyBlocks,
+      legacyLessons: totals.lessons.legacyLessons,
+      totalBlocks: totals.lessons.totalBlocks,
+      md3Coverage,
+      legacyCoverage,
+    },
+    exercises: {
+      total: totals.exercises.total,
+      withMetadata: totals.exercises.withMetadata,
+      withoutMetadata: exercisesWithoutMetadata,
+      completeness: totals.exercises.total
+        ? totals.exercises.withMetadata / totals.exercises.total
+        : 0,
+    },
+    supplements: {
+      total: totals.supplements.total,
+      withMetadata: totals.supplements.withMetadata,
+      withoutMetadata: supplementsWithoutMetadata,
+      completeness: totals.supplements.total
+        ? totals.supplements.withMetadata / totals.supplements.total
+        : 0,
+    },
+  };
+}
+
+function buildAnalytics({ snapshot, previousSnapshot, history }) {
+  const trend = computeTrend(snapshot, previousSnapshot);
+  const sparklines = buildSparklines(history);
+  const exportPayload = buildExportPayload({ snapshot, history, trend, sparklines });
+  const summary = buildSummaryAnalytics({ snapshot, trend, sparklines });
+  return { export: exportPayload, summary };
+}
+
+function computeTrend(current, previous) {
+  if (!previous) {
+    return null;
+  }
+
+  return {
+    lessons: {
+      md3Blocks: buildTrendEntry(current.lessons.md3Blocks, previous.lessons.md3Blocks),
+      legacyBlocks: buildTrendEntry(current.lessons.legacyBlocks, previous.lessons.legacyBlocks),
+      legacyLessons: buildTrendEntry(current.lessons.legacyLessons, previous.lessons.legacyLessons),
+      md3Coverage: buildTrendEntry(current.lessons.md3Coverage, previous.lessons.md3Coverage, {
+        multiplier: 100,
+        format: 'points',
+      }),
+      legacyCoverage: buildTrendEntry(
+        current.lessons.legacyCoverage,
+        previous.lessons.legacyCoverage,
+        { multiplier: 100, format: 'points' }
+      ),
+    },
+    exercises: {
+      withoutMetadata: buildTrendEntry(
+        current.exercises.withoutMetadata,
+        previous.exercises.withoutMetadata
+      ),
+      completeness: buildTrendEntry(
+        current.exercises.completeness,
+        previous.exercises.completeness,
+        { multiplier: 100, format: 'points' }
+      ),
+    },
+    supplements: {
+      withoutMetadata: buildTrendEntry(
+        current.supplements.withoutMetadata,
+        previous.supplements.withoutMetadata
+      ),
+      completeness: buildTrendEntry(
+        current.supplements.completeness,
+        previous.supplements.completeness,
+        { multiplier: 100, format: 'points' }
+      ),
+    },
+  };
+}
+
+function buildTrendEntry(current, previous, { multiplier = 1, format = 'absolute' } = {}) {
+  const currentValue = Number((current ?? 0) * multiplier);
+  const previousValue = Number((previous ?? 0) * multiplier);
+  const delta = currentValue - previousValue;
+
+  let percentChange = null;
+  if (previousValue === 0) {
+    percentChange = currentValue === 0 ? 0 : null;
+  } else {
+    percentChange = (delta / Math.abs(previousValue)) * 100;
+  }
+
+  return {
+    current: currentValue,
+    previous: previousValue,
+    delta,
+    percentChange,
+    format,
+  };
+}
+
+function buildSparklines(history) {
+  const windowSize = 12;
+  return {
+    md3Coverage: sparkline(history, (entry) => entry.lessons.md3Coverage * 100, windowSize),
+    legacyBlocks: sparkline(history, (entry) => entry.lessons.legacyBlocks, windowSize),
+    exercisesCompleteness: sparkline(
+      history,
+      (entry) => entry.exercises.completeness * 100,
+      windowSize
+    ),
+    supplementsCompleteness: sparkline(
+      history,
+      (entry) => entry.supplements.completeness * 100,
+      windowSize
+    ),
+  };
+}
+
+function buildExportPayload({ snapshot, history, trend, sparklines }) {
+  const series = {
+    md3Coverage: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: Number((entry.lessons.md3Coverage * 100).toFixed(2)),
+    })),
+    legacyBlocks: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: entry.lessons.legacyBlocks,
+    })),
+    exercisesCompleteness: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: Number((entry.exercises.completeness * 100).toFixed(2)),
+    })),
+    supplementsCompleteness: history.map((entry) => ({
+      generatedAt: entry.generatedAt,
+      value: Number((entry.supplements.completeness * 100).toFixed(2)),
+    })),
+  };
+
+  return {
+    generatedAt: snapshot.generatedAt,
+    snapshot,
+    previous: history.length > 1 ? history[history.length - 2] : null,
+    trend,
+    sparklines,
+    series,
+  };
+}
+
+function buildSummaryAnalytics({ snapshot, trend, sparklines }) {
+  const lessonsCoverage =
+    trend?.lessons.md3Coverage ??
+    buildTrendEntry(snapshot.lessons.md3Coverage, snapshot.lessons.md3Coverage, {
+      multiplier: 100,
+      format: 'points',
+    });
+  const legacyBlocks =
+    trend?.lessons.legacyBlocks ??
+    buildTrendEntry(snapshot.lessons.legacyBlocks, snapshot.lessons.legacyBlocks);
+  const exercisesWithoutMetadata =
+    trend?.exercises.withoutMetadata ??
+    buildTrendEntry(snapshot.exercises.withoutMetadata, snapshot.exercises.withoutMetadata);
+  const supplementsWithoutMetadata =
+    trend?.supplements.withoutMetadata ??
+    buildTrendEntry(snapshot.supplements.withoutMetadata, snapshot.supplements.withoutMetadata);
+
+  const exercisesCompleteness =
+    trend?.exercises.completeness ??
+    buildTrendEntry(snapshot.exercises.completeness, snapshot.exercises.completeness, {
+      multiplier: 100,
+      format: 'points',
+    });
+  const supplementsCompleteness =
+    trend?.supplements.completeness ??
+    buildTrendEntry(snapshot.supplements.completeness, snapshot.supplements.completeness, {
+      multiplier: 100,
+      format: 'points',
+    });
+
+  return {
+    lessons: {
+      md3Coverage: {
+        ...lessonsCoverage,
+        sparkline: sparklines.md3Coverage,
+      },
+      legacyBlocks: {
+        ...legacyBlocks,
+        sparkline: sparklines.legacyBlocks,
+      },
+    },
+    exercises: {
+      withoutMetadata: {
+        ...exercisesWithoutMetadata,
+        sparkline: sparklines.exercisesCompleteness,
+      },
+      completeness: {
+        ...exercisesCompleteness,
+        sparkline: sparklines.exercisesCompleteness,
+      },
+    },
+    supplements: {
+      withoutMetadata: {
+        ...supplementsWithoutMetadata,
+        sparkline: sparklines.supplementsCompleteness,
+      },
+      completeness: {
+        ...supplementsCompleteness,
+        sparkline: sparklines.supplementsCompleteness,
+      },
+    },
+  };
+}
+
+function sparkline(history, accessor, windowSize) {
+  const bars = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
+  const slice = history.slice(-windowSize);
+  if (slice.length === 0) {
+    return '—';
+  }
+  const values = slice.map((entry) => accessor(entry));
+  const filtered = values.filter((value) => Number.isFinite(value));
+  if (filtered.length === 0) {
+    return '—';
+  }
+  const min = Math.min(...filtered);
+  const max = Math.max(...filtered);
+  if (max === min) {
+    const middle = bars[Math.floor(bars.length / 2)];
+    return middle.repeat(values.length);
+  }
+  return values
+    .map((value) => {
+      if (!Number.isFinite(value)) {
+        return ' ';
+      }
+      const ratio = (value - min) / (max - min);
+      const index = Math.max(0, Math.min(bars.length - 1, Math.round(ratio * (bars.length - 1))));
+      return bars[index];
+    })
+    .join('');
+}
+
+function formatDelta(value, suffix = '') {
+  const isPoints = suffix.includes('p.p.');
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: isPoints ? 1 : 0,
+    maximumFractionDigits: isPoints ? 1 : 0,
+  });
+  const formatted = formatter.format(Math.abs(value));
+  if (value > 0) {
+    return `▲ +${formatted}${suffix ? ` ${suffix}` : ''}`;
+  }
+  if (value < 0) {
+    return `▼ -${formatted}${suffix ? ` ${suffix}` : ''}`;
+  }
+  return suffix ? `— (${suffix})` : '—';
+}
+
+function formatPercent(value) {
+  if (value === null || Number.isNaN(value)) {
+    return '—%';
+  }
+  const rounded = Number(value.toFixed(1));
+  const absolute = Math.abs(rounded);
+  if (rounded > 0) {
+    return `▲ +${absolute}%`;
+  }
+  if (rounded < 0) {
+    return `▼ -${absolute}%`;
+  }
+  return '—%';
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat('pt-BR').format(Math.round(value));
 }
 
 main().catch((error) => {

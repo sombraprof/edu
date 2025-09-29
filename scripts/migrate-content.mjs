@@ -1,6 +1,7 @@
 ﻿#!/usr/bin/env node
 import { promises as fs } from 'fs';
 import path from 'path';
+import { writeManifest } from './utils/manifest.mjs';
 
 const rootDir = process.cwd();
 // Allows running the migration against an alternate legacy directory (e.g. git archive extracts).
@@ -203,7 +204,7 @@ async function migrateLessons(courseId, options) {
 
   const targetIndexPath = path.join(targetCourseDir, 'lessons.json');
   if (options.force || !(await exists(targetIndexPath))) {
-    await fs.writeFile(targetIndexPath, `${JSON.stringify(newIndex, null, 2)}\n`, 'utf8');
+    await writeManifest(targetIndexPath, { entries: newIndex });
   }
 }
 
@@ -246,7 +247,7 @@ async function migrateExercises(courseId, options) {
 
   const targetIndexPath = path.join(targetCourseDir, 'exercises.json');
   if (options.force || !(await exists(targetIndexPath))) {
-    await fs.writeFile(targetIndexPath, `${JSON.stringify(newIndex, null, 2)}\n`, 'utf8');
+    await writeManifest(targetIndexPath, { entries: newIndex });
   }
 }
 

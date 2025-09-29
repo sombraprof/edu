@@ -1,6 +1,7 @@
 ﻿#!/usr/bin/env node
 import { promises as fs } from 'fs';
 import path from 'path';
+import { writeManifest } from './utils/manifest.mjs';
 import TurndownService from 'turndown';
 
 const courses = ['lpoo', 'ddm', 'tdjd', 'tgs'];
@@ -94,7 +95,7 @@ async function convertLessons(course) {
   }
 
   const targetIndexPath = path.join(targetDir, 'lessons.json');
-  await fs.writeFile(targetIndexPath, `${JSON.stringify(newIndex, null, 2)}\n`, 'utf8');
+  await writeManifest(targetIndexPath, { entries: newIndex });
 }
 
 async function convertExercises(course) {
@@ -156,7 +157,7 @@ async function convertExercises(course) {
   }
 
   const targetIndexPath = path.join(targetDir, 'exercises.json');
-  await fs.writeFile(targetIndexPath, `${JSON.stringify(newIndex, null, 2)}\n`, 'utf8');
+  await writeManifest(targetIndexPath, { entries: newIndex });
 }
 
 async function exists(p) {

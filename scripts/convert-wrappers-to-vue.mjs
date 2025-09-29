@@ -1,6 +1,7 @@
 ﻿#!/usr/bin/env node
 import { promises as fs } from 'fs';
 import path from 'path';
+import { getManifestEntries, readManifest, writeManifest } from './utils/manifest.mjs';
 
 const rootDir = process.cwd();
 const coursesDir = path.join(rootDir, 'src', 'content', 'courses');
@@ -111,16 +112,16 @@ async function fileExists(filePath) {
 
 async function updateIndex(indexPath) {
   if (!(await fileExists(indexPath))) return;
-  const raw = await fs.readFile(indexPath, 'utf8');
-  const data = JSON.parse(raw);
-  if (!Array.isArray(data)) return;
-  const updated = data.map((entry) => {
+  const manifest = await readManifest(indexPath);
+  const entries = getManifestEntries(manifest);
+  if (!Array.isArray(entries) || entries.length === 0) return;
+  const updated = entries.map((entry) => {
     if (entry?.file && typeof entry.file === 'string' && entry.file.endsWith('.md')) {
       return { ...entry, file: entry.file.replace(/\.md$/, '.vue') };
     }
     return entry;
   });
-  await fs.writeFile(indexPath, `${JSON.stringify(updated, null, 2)}\n`, 'utf8');
+  await writeManifest(indexPath, { ...manifest, entries: updated });
 }
 
 async function processCourse(courseId) {

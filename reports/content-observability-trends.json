@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2025-09-29T01:32:38.214Z",
+  "snapshot": {
+    "generatedAt": "2025-09-29T01:32:38.214Z",
+    "lessons": {
+      "total": 92,
+      "available": 72,
+      "unavailable": 20,
+      "md3Blocks": 637,
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "totalBlocks": 641,
+      "md3Coverage": 0.9937597503900156,
+      "legacyCoverage": 0
+    },
+    "exercises": {
+      "total": 10,
+      "withMetadata": 10,
+      "withoutMetadata": 0,
+      "completeness": 1
+    },
+    "supplements": {
+      "total": 5,
+      "withMetadata": 5,
+      "withoutMetadata": 0,
+      "completeness": 1
+    }
+  },
+  "previous": null,
+  "trend": null,
+  "sparklines": {
+    "md3Coverage": "▅",
+    "legacyBlocks": "▅",
+    "exercisesCompleteness": "▅",
+    "supplementsCompleteness": "▅"
+  },
+  "series": {
+    "md3Coverage": [
+      {
+        "generatedAt": "2025-09-29T01:32:38.214Z",
+        "value": 99.38
+      }
+    ],
+    "legacyBlocks": [
+      {
+        "generatedAt": "2025-09-29T01:32:38.214Z",
+        "value": 0
+      }
+    ],
+    "exercisesCompleteness": [
+      {
+        "generatedAt": "2025-09-29T01:32:38.214Z",
+        "value": 100
+      }
+    ],
+    "supplementsCompleteness": [
+      {
+        "generatedAt": "2025-09-29T01:32:38.214Z",
+        "value": 100
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@
  */
 import { promises as fs } from 'fs';
 import path from 'path';
+import { getManifestEntries, readManifest } from './utils/manifest.mjs';
 
 const rootDir = process.cwd();
 const coursesDir = path.join(rootDir, 'src', 'content', 'courses');
@@ -68,9 +69,9 @@ async function processCourse(courseId) {
   const lessonsIndexPath = path.join(coursesDir, courseId, 'lessons.json');
   if (!(await exists(lessonsIndexPath))) return;
 
-  const rawIndex = await fs.readFile(lessonsIndexPath, 'utf8');
-  const lessonsIndex = JSON.parse(rawIndex);
-  if (!Array.isArray(lessonsIndex)) return;
+  const lessonsManifest = await readManifest(lessonsIndexPath);
+  const lessonsIndex = getManifestEntries(lessonsManifest);
+  if (!Array.isArray(lessonsIndex) || lessonsIndex.length === 0) return;
 
   for (const entry of lessonsIndex) {
     if (!entry || typeof entry !== 'object') continue;

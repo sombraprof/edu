@@ -2,6 +2,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getManifestEntries, readManifest, updateManifest } from './utils/manifest.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -158,8 +159,10 @@ async function main() {
   const jsonPath = path.join(lessonsDir, `${id}.json`);
   const lessonsIndexPath = path.join(courseDir, 'lessons.json');
 
-  const [lessonsIndex] = await Promise.all([readJson(lessonsIndexPath, []), ensureDir(lessonsDir)]);
+  const lessonsManifest = await readManifest(lessonsIndexPath);
+  await ensureDir(lessonsDir);
 
+  const lessonsIndex = getManifestEntries(lessonsManifest);
   const duplicate = lessonsIndex.find((entry) => entry.id === id);
   assert(!duplicate, `Lesson id "${id}" already exists in ${lessonsIndexPath}.`);
 
@@ -178,14 +181,15 @@ async function main() {
     newEntry.description = description;
   }
 
-  lessonsIndex.push(newEntry);
-  lessonsIndex.sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
-
   const lessonJson = createLessonJson({ id, title, objective });
   const lessonMeta = createLessonMeta({ id, title, objective, available });
 
   const filesToWrite = [
-    writeJson(lessonsIndexPath, lessonsIndex),
+    updateManifest(lessonsIndexPath, (draft) => {
+      const updatedEntries = [...getManifestEntries(draft), newEntry];
+      updatedEntries.sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+      return { ...draft, entries: updatedEntries };
+    }),
     fs.writeFile(jsonPath, `${JSON.stringify(lessonJson, null, 2)}\n`, {
       flag: args.force ? 'w' : 'wx',
     }),

@@ -1,0 +1,276 @@
+{
+  "generatedAt": "2025-09-29T01:32:41.561Z",
+  "snapshot": {
+    "generatedAt": "2025-09-29T01:32:41.561Z",
+    "validation": {
+      "problems": 0,
+      "warnings": 0
+    },
+    "observability": {
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "exercisesWithoutMetadata": 0,
+      "supplementsWithoutMetadata": 0
+    }
+  },
+  "previous": {
+    "generatedAt": "2025-09-29T00:13:25.724Z",
+    "validation": {
+      "problems": 0,
+      "warnings": 0
+    },
+    "observability": {
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "exercisesWithoutMetadata": 0,
+      "supplementsWithoutMetadata": 0
+    }
+  },
+  "trend": {
+    "validationProblems": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "validationWarnings": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "legacyBlocks": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "legacyLessons": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "exercisesWithoutMetadata": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    },
+    "supplementsWithoutMetadata": {
+      "current": 0,
+      "previous": 0,
+      "delta": 0,
+      "percentChange": 0
+    }
+  },
+  "sparklines": {
+    "validationProblems": "▅▅▅▅▅",
+    "validationWarnings": "███▁▁",
+    "legacyBlocks": "███▁▁",
+    "legacyLessons": "███▁▁",
+    "exercisesWithoutMetadata": "▅▅▅▅▅",
+    "supplementsWithoutMetadata": "▅▅▅▅▅"
+  },
+  "series": {
+    "validationProblems": [
+      {
+        "generatedAt": "2025-09-26T23:07:28.105Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-26T23:08:24.294Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-26T23:47:02.143Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T00:13:25.724Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T01:32:41.561Z",
+        "value": 0
+      }
+    ],
+    "validationWarnings": [
+      {
+        "generatedAt": "2025-09-26T23:07:28.105Z",
+        "value": 4
+      },
+      {
+        "generatedAt": "2025-09-26T23:08:24.294Z",
+        "value": 4
+      },
+      {
+        "generatedAt": "2025-09-26T23:47:02.143Z",
+        "value": 4
+      },
+      {
+        "generatedAt": "2025-09-29T00:13:25.724Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T01:32:41.561Z",
+        "value": 0
+      }
+    ],
+    "legacyBlocks": [
+      {
+        "generatedAt": "2025-09-26T23:07:28.105Z",
+        "value": 28
+      },
+      {
+        "generatedAt": "2025-09-26T23:08:24.294Z",
+        "value": 28
+      },
+      {
+        "generatedAt": "2025-09-26T23:47:02.143Z",
+        "value": 28
+      },
+      {
+        "generatedAt": "2025-09-29T00:13:25.724Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T01:32:41.561Z",
+        "value": 0
+      }
+    ],
+    "legacyLessons": [
+      {
+        "generatedAt": "2025-09-26T23:07:28.105Z",
+        "value": 27
+      },
+      {
+        "generatedAt": "2025-09-26T23:08:24.294Z",
+        "value": 27
+      },
+      {
+        "generatedAt": "2025-09-26T23:47:02.143Z",
+        "value": 27
+      },
+      {
+        "generatedAt": "2025-09-29T00:13:25.724Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T01:32:41.561Z",
+        "value": 0
+      }
+    ],
+    "exercisesWithoutMetadata": [
+      {
+        "generatedAt": "2025-09-26T23:07:28.105Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-26T23:08:24.294Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-26T23:47:02.143Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T00:13:25.724Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T01:32:41.561Z",
+        "value": 0
+      }
+    ],
+    "supplementsWithoutMetadata": [
+      {
+        "generatedAt": "2025-09-26T23:07:28.105Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-26T23:08:24.294Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-26T23:47:02.143Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T00:13:25.724Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T01:32:41.561Z",
+        "value": 0
+      }
+    ]
+  },
+  "history": [
+    {
+      "generatedAt": "2025-09-26T23:07:28.105Z",
+      "validation": {
+        "problems": 0,
+        "warnings": 4
+      },
+      "observability": {
+        "legacyBlocks": 28,
+        "legacyLessons": 27,
+        "exercisesWithoutMetadata": 0,
+        "supplementsWithoutMetadata": 0
+      }
+    },
+    {
+      "generatedAt": "2025-09-26T23:08:24.294Z",
+      "validation": {
+        "problems": 0,
+        "warnings": 4
+      },
+      "observability": {
+        "legacyBlocks": 28,
+        "legacyLessons": 27,
+        "exercisesWithoutMetadata": 0,
+        "supplementsWithoutMetadata": 0
+      }
+    },
+    {
+      "generatedAt": "2025-09-26T23:47:02.143Z",
+      "validation": {
+        "problems": 0,
+        "warnings": 4
+      },
+      "observability": {
+        "legacyBlocks": 28,
+        "legacyLessons": 27,
+        "exercisesWithoutMetadata": 0,
+        "supplementsWithoutMetadata": 0
+      }
+    },
+    {
+      "generatedAt": "2025-09-29T00:13:25.724Z",
+      "validation": {
+        "problems": 0,
+        "warnings": 0
+      },
+      "observability": {
+        "legacyBlocks": 0,
+        "legacyLessons": 0,
+        "exercisesWithoutMetadata": 0,
+        "supplementsWithoutMetadata": 0
+      }
+    },
+    {
+      "generatedAt": "2025-09-29T01:32:41.561Z",
+      "validation": {
+        "problems": 0,
+        "warnings": 0
+      },
+      "observability": {
+        "legacyBlocks": 0,
+        "legacyLessons": 0,
+        "exercisesWithoutMetadata": 0,
+        "supplementsWithoutMetadata": 0
+      }
+    }
+  ]
+}

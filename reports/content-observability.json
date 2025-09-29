@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2025-09-27T23:50:30.569Z",
+  "generatedAt": "2025-09-29T01:32:38.214Z",
   "totals": {
     "courses": 5,
     "lessons": {
       "total": 92,
-      "available": 69,
-      "unavailable": 23,
+      "available": 72,
+      "unavailable": 20,
       "legacyLessons": 0,
-      "md3Blocks": 623,
+      "md3Blocks": 637,
       "legacyBlocks": 0,
-      "totalBlocks": 623
+      "totalBlocks": 641
     },
     "exercises": {
       "total": 10,
@@ -29,22 +29,25 @@
       "institution": "Unichristus",
       "lessons": {
         "total": 40,
-        "available": 17,
-        "unavailable": 23,
-        "totalBlocks": 160,
-        "md3Blocks": 160,
+        "available": 20,
+        "unavailable": 20,
+        "totalBlocks": 178,
+        "md3Blocks": 174,
         "legacyBlocks": 0,
         "legacyLessons": 0,
         "legacyLessonIds": [],
         "blocksByType": {
-          "callout": 21,
+          "callout": 22,
           "cardGrid": 8,
-          "checklist": 13,
+          "checklist": 16,
+          "code": 2,
           "component": 8,
-          "contentBlock": 58,
-          "flightPlan": 17,
-          "lessonPlan": 13,
-          "md3Table": 11,
+          "contentBlock": 60,
+          "flightPlan": 19,
+          "lessonPlan": 14,
+          "md3Flowchart": 3,
+          "md3Table": 14,
+          "roadmap": 1,
           "truthTable": 4,
           "videos": 7
         },
