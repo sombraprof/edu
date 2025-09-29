@@ -10,13 +10,54 @@
 import { computed } from 'vue';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
+type OrderedListEntry =
+  | string
+  | {
+      title?: unknown;
+      label?: unknown;
+      text?: unknown;
+      description?: unknown;
+      content?: unknown;
+      value?: unknown;
+      html?: unknown;
+    };
+
 interface Props {
-  items: string[];
+  items: OrderedListEntry[];
 }
 
 const props = defineProps<Props>();
 
-const sanitizedItems = computed(() => props.items.map((item) => sanitizeHtml(item)));
+const sanitizedItems = computed(() =>
+  props.items
+    .map((item) => {
+      if (typeof item === 'string') {
+        return sanitizeHtml(item);
+      }
+
+      if (item && typeof item === 'object') {
+        const title = sanitizeHtml(item.title ?? item.label ?? '');
+        const body =
+          sanitizeHtml(item.text ?? item.description ?? item.content ?? item.value ?? '') ||
+          sanitizeHtml(item.html ?? '');
+
+        if (title && body) {
+          return `<strong>${title}</strong> ${body}`.trim();
+        }
+
+        if (title) {
+          return `<strong>${title}</strong>`;
+        }
+
+        if (body) {
+          return body;
+        }
+      }
+
+      return '';
+    })
+    .filter((value): value is string => value.length > 0)
+);
 </script>
 
 <style scoped>
