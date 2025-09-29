@@ -1,0 +1,198 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-40",
+  "title": "Aula 40: Encerramento e Devolutiva",
+  "summary": "Celebra entregas finais, devolve resultados das NPs e orienta trilhas futuras (Git e estruturas de dados) com recursos para estudo contínuo.",
+  "objective": "Encerrar o semestre consolidando aprendizados, oferecendo devolutivas personalizadas e mapeando próximos passos de desenvolvimento.",
+  "objectives": [
+    "Apresentar síntese dos resultados das avaliações (NPs) e destacar evidências de evolução.",
+    "Promover showcase dos projetos finais com feedback estruturado e celebração da turma.",
+    "Definir plano de continuidade com roadmap de estudos (Git e estruturas de dados) e recursos de apoio."
+  ],
+  "competencies": ["Aprendizagem contínua", "Comunicação", "Planejamento de carreira"],
+  "skills": [
+    "Interpretar devolutivas qualitativas e quantitativas das avaliações.",
+    "Oferecer e receber feedback acionável em ambientes colaborativos.",
+    "Planejar trilha de estudos autônoma alinhada aos objetivos profissionais."
+  ],
+  "outcomes": [
+    "Entende pontos fortes e oportunidades individuais a partir das NPs.",
+    "Registra feedbacks recebidos durante o showcase em checklist dedicado.",
+    "Sai com roadmap pessoal de estudos focado em Git e estruturas de dados."
+  ],
+  "prerequisites": [
+    "Participação na avaliação NP3.",
+    "Entrega das versões finais do projeto integrador."
+  ],
+  "tags": ["encerramento", "feedback", "planejamento"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de feedback final",
+      "type": "checklist",
+      "file": "courses/algi/encerramento-feedback-checklist.md",
+      "url": "https://static.md3.education/courses/algi/encerramento-feedback-checklist.md"
+    },
+    {
+      "label": "Guia de showcase final",
+      "type": "guide",
+      "file": "courses/algi/showcase-final-guia.md",
+      "url": "https://static.md3.education/courses/algi/showcase-final-guia.md"
+    },
+    {
+      "label": "Roadmap pós-Algoritmos I",
+      "type": "roadmap",
+      "file": "courses/algi/roadmap-pos-algi.md",
+      "url": "https://static.md3.education/courses/algi/roadmap-pos-algi.md"
+    },
+    {
+      "label": "Formulário de feedback contínuo",
+      "type": "form",
+      "url": "https://forms.gle/algoritmosI-feedback-continuo"
+    }
+  ],
+  "bibliography": [
+    "EDMONDS, J. Effective Peer Review for Programming Teams. O'Reilly, 2022.",
+    "SZWARCFITER, J. L.; MARKENZON, L. Estruturas de Dados e seus Algoritmos. LTC, 2021.",
+    "CHACON, S.; STRAUB, B. Pro Git. Apress, 2023."
+  ],
+  "assessment": {
+    "type": "reflection",
+    "description": "Registro individual com lições aprendidas, feedback recebido e plano de ação para o próximo semestre."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo do encerramento (1h55)",
+      "items": [
+        "(10 min) Boas-vindas e retomada dos marcos do semestre.",
+        "(20 min) Devolutiva coletiva das NPs com análise de indicadores.",
+        "(35 min) Showcase de projetos com rodada de perguntas.",
+        "(15 min) Coleta de feedback estruturado via checklist e formulário.",
+        "(20 min) Painel de próximos passos e definição de compromissos.",
+        "(15 min) Roadmap futuro: Git, estruturas de dados e recursos complementares."
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro detalhado da devolutiva",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "Panorama das NPs",
+          "content": "Compartilhe gráfico com médias, dispersão e evolução por competência."
+        },
+        {
+          "icon": "users",
+          "title": "Escuta ativa",
+          "content": "Reserve tempo para perguntas e clarificações individuais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Celebrar conquistas",
+          "content": "Destaque histórias de superação e entregas de destaque."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Showcase de projetos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organize os grupos em estações. Cada equipe tem 5 minutos para apresentar problema, solução, impacto e próximos passos desejados."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Garanta registro visual (fotos, prints) para o mural digital." },
+            { "text": "Estimule perguntas usando a matriz Admirei / Sugiro." },
+            { "text": "Finalize cada rodada com destaque de uma prática replicável." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de feedback em aula",
+      "items": [
+        "Apresentei devolutiva coletiva com dados e narrativas.",
+        "Conduzi roda de feedback cruzado usando o checklist oficial.",
+        "Registrei feedbacks individuais no formulário contínuo.",
+        "Combinei com a turma como os dados serão revisitados no próximo semestre."
+      ]
+    },
+    {
+      "type": "roadmap",
+      "title": "Painel de próximos passos",
+      "steps": [
+        {
+          "title": "Curto prazo (1-2 semanas)",
+          "description": "Revisar devolutivas das NPs, atualizar portfólio e refatorar itens críticos do projeto."
+        },
+        {
+          "title": "Médio prazo (1 mês)",
+          "description": "Iniciar trilha de Git colaborativo com repositório compartilhado e pull requests semanais."
+        },
+        {
+          "title": "Longo prazo (3 meses)",
+          "description": "Estudar estruturas de dados dinâmicas (listas, filas, pilhas) e aplicar em projeto autoral guiado pelo roadmap."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Referências para estudos autônomos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Disponibilize a trilha pós-disciplina e recursos abertos para que estudantes mantenham ritmo de aprendizagem contínuo."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Curso gratuito \"Versionamento Colaborativo com Git\" na MD3 Academy (nível introdutório)."
+            },
+            {
+              "text": "Playlist \"Estruturas de Dados em C\" do canal Algoritmos em Foco para aprofundar listas e pilhas."
+            },
+            {
+              "text": "Livro \"Pro Git\" (capítulos 1-4) para consolidar fluxo GitFlow e boas práticas."
+            },
+            { "text": "Roadmap pós-Algoritmos I com metas semanais disponibilizado nos recursos." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Roadmap futuro",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Combine checkpoints bimestrais com a turma para revisar progresso em Git e estruturas de dados, oferecendo mentorias pontuais."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Celebrar e agradecer",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve tempo para agradecer as contribuições coletivas, reconhecer quem apoiou colegas e reforçar o senso de comunidade."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Relatórios de acompanhamento 2024"]
+  }
+}
