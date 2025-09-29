@@ -6,7 +6,7 @@ export type LessonModality = 'in-person' | 'remote' | 'hybrid' | 'async';
 
 export interface LessonResourceLink {
   label: string;
-  url: string;
+  url?: string;
   type?: string;
   [key: string]: unknown;
 }
@@ -19,7 +19,7 @@ export interface LessonAssessment {
 }
 
 export interface LessonMetadata {
-  status?: 'draft' | 'in-review' | 'published';
+  status?: 'draft' | 'in-review' | 'published' | string;
   updatedAt?: string;
   owners?: string[];
   sources?: string[];
@@ -32,7 +32,7 @@ export interface LessonBlock {
 }
 
 export interface NormalizedLesson {
-  formatVersion?: LessonFormatVersion;
+  formatVersion?: LessonFormatVersion | string;
   id: string;
   slug?: string;
   title: string;
@@ -45,7 +45,7 @@ export interface NormalizedLesson {
   prerequisites?: string[];
   tags?: string[];
   duration?: number;
-  modality?: LessonModality;
+  modality?: LessonModality | string;
   resources?: LessonResourceLink[];
   bibliography?: string[];
   assessment?: LessonAssessment;
