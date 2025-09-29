@@ -91,15 +91,6 @@
     },
     {
       "type": "contentBlock",
-      "title": "Indicadores de qualidade",
-      "content": [
-        {
-          "type": "list",
-          "items": [
-            "Cobertura mínima de 70% para funções críticas.",
-            "Tempo médio de leitura < 2 minutos por função.",
-            "Zero warnings com `-Wall -Wextra -Werror`.",
-            "Checklist completo com justificativas para itens pendentes."
           ]
         }
       ]
