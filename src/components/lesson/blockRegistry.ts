@@ -708,31 +708,7 @@ function toUmlClasses(value: unknown) {
         notes: toTrimmedStringArray(record.notes),
       };
     })
-    .filter(
-      (
-        umlClass
-      ): umlClass is {
-        id: string;
-        name: string;
-        stereotype?: string;
-        summary?: string;
-        type?: 'class' | 'interface' | 'enum';
-        attributes?: Array<{
-          id: string;
-          signature: string;
-          visibility?: 'public' | 'private' | 'protected' | 'package';
-          note?: string;
-        }>;
-        methods?: Array<{
-          id: string;
-          signature: string;
-          visibility?: 'public' | 'private' | 'protected' | 'package';
-          note?: string;
-        }>;
-        responsibilities?: string[];
-        notes?: string[];
-      } => Boolean(umlClass)
-    );
+    .filter((umlClass): umlClass is NonNullable<typeof umlClass> => Boolean(umlClass));
 }
 
 function toUmlMembers(value: unknown) {
@@ -760,16 +736,7 @@ function toUmlMembers(value: unknown) {
         note: toOptionalTrimmedString(record.note),
       };
     })
-    .filter(
-      (
-        member
-      ): member is {
-        id: string;
-        signature: string;
-        visibility?: 'public' | 'private' | 'protected' | 'package';
-        note?: string;
-      } => Boolean(member)
-    );
+    .filter((member): member is NonNullable<typeof member> => Boolean(member));
 }
 
 function toUmlRelationships(value: unknown) {
@@ -820,24 +787,8 @@ function toUmlRelationships(value: unknown) {
         toMultiplicity: toOptionalTrimmedString(record.toMultiplicity),
       };
     })
-    .filter(
-      (
-        relationship
-      ): relationship is {
-        id: string;
-        from: string;
-        to: string;
-        type:
-          | 'association'
-          | 'aggregation'
-          | 'composition'
-          | 'inheritance'
-          | 'realization'
-          | 'dependency';
-        description?: string;
-        fromMultiplicity?: string;
-        toMultiplicity?: string;
-      } => Boolean(relationship)
+    .filter((relationship): relationship is NonNullable<typeof relationship> =>
+      Boolean(relationship)
     );
 }
 
@@ -850,8 +801,18 @@ function toPipelineStages(value: unknown) {
       status?: 'not-started' | 'in-progress' | 'blocked' | 'done';
       owners?: string[];
       durationHours?: number;
-      activities?: Array<{ id: string; label: string; description?: string; role?: string }>;
-      deliverables?: Array<{ id: string; label: string; description?: string; evidence?: string }>;
+      activities?: Array<{
+        id: string;
+        label: string;
+        description?: string;
+        role?: string;
+      }>;
+      deliverables?: Array<{
+        id: string;
+        label: string;
+        description?: string;
+        evidence?: string;
+      }>;
       risks?: Array<{
         id: string;
         label: string;
@@ -883,32 +844,7 @@ function toPipelineStages(value: unknown) {
         checkpoints: toTrimmedStringArray(record.checkpoints),
       };
     })
-    .filter(
-      (
-        stage
-      ): stage is {
-        id: string;
-        title: string;
-        summary?: string;
-        status?: 'not-started' | 'in-progress' | 'blocked' | 'done';
-        owners?: string[];
-        durationHours?: number;
-        activities?: Array<{ id: string; label: string; description?: string; role?: string }>;
-        deliverables?: Array<{
-          id: string;
-          label: string;
-          description?: string;
-          evidence?: string;
-        }>;
-        risks?: Array<{
-          id: string;
-          label: string;
-          severity?: 'low' | 'medium' | 'high';
-          mitigation?: string;
-        }>;
-        checkpoints?: string[];
-      } => Boolean(stage)
-    );
+    .filter((stage): stage is NonNullable<typeof stage> => Boolean(stage));
 }
 
 function toPipelineActivities(value: unknown) {
@@ -930,10 +866,7 @@ function toPipelineActivities(value: unknown) {
         role: toOptionalTrimmedString(record.role ?? record.owner),
       };
     })
-    .filter(
-      (activity): activity is { id: string; label: string; description?: string; role?: string } =>
-        Boolean(activity)
-    );
+    .filter((activity): activity is NonNullable<typeof activity> => Boolean(activity));
 }
 
 function toPipelineDeliverables(value: unknown) {
@@ -955,12 +888,7 @@ function toPipelineDeliverables(value: unknown) {
         evidence: toOptionalTrimmedString(record.evidence ?? record.proof),
       };
     })
-    .filter(
-      (
-        deliverable
-      ): deliverable is { id: string; label: string; description?: string; evidence?: string } =>
-        Boolean(deliverable)
-    );
+    .filter((deliverable): deliverable is NonNullable<typeof deliverable> => Boolean(deliverable));
 }
 
 function toPipelineRisks(value: unknown) {
@@ -992,16 +920,7 @@ function toPipelineRisks(value: unknown) {
         mitigation: toOptionalTrimmedString(record.mitigation ?? record.response),
       };
     })
-    .filter(
-      (
-        risk
-      ): risk is {
-        id: string;
-        label: string;
-        severity?: 'low' | 'medium' | 'high';
-        mitigation?: string;
-      } => Boolean(risk)
-    );
+    .filter((risk): risk is NonNullable<typeof risk> => Boolean(risk));
 }
 
 function toPipelineMilestones(value: unknown) {
@@ -1024,10 +943,7 @@ function toPipelineMilestones(value: unknown) {
         due: toOptionalTrimmedString(record.due ?? record.date),
       };
     })
-    .filter(
-      (milestone): milestone is { id: string; title: string; description?: string; due?: string } =>
-        Boolean(milestone)
-    );
+    .filter((milestone): milestone is NonNullable<typeof milestone> => Boolean(milestone));
 }
 
 function toSystemFactors(value: unknown) {
@@ -1061,17 +977,7 @@ function toSystemFactors(value: unknown) {
         indicators: toTrimmedStringArray(record.indicators),
       };
     })
-    .filter(
-      (
-        factor
-      ): factor is {
-        id: string;
-        name: string;
-        summary?: string;
-        kind?: 'stock' | 'flow' | 'driver' | 'outcome' | 'constraint';
-        indicators?: string[];
-      } => Boolean(factor)
-    );
+    .filter((factor): factor is NonNullable<typeof factor> => Boolean(factor));
 }
 
 function toSystemLoops(value: unknown) {
@@ -1081,7 +987,7 @@ function toSystemLoops(value: unknown) {
       name: string;
       polarity: 'reinforcing' | 'balancing';
       summary?: string;
-      steps: Array<{
+      steps?: Array<{
         id: string;
         from: string;
         to: string;
@@ -1112,24 +1018,7 @@ function toSystemLoops(value: unknown) {
         insights: toTrimmedStringArray(record.insights),
       };
     })
-    .filter(
-      (
-        loop
-      ): loop is {
-        id: string;
-        name: string;
-        polarity: 'reinforcing' | 'balancing';
-        summary?: string;
-        steps: Array<{
-          id: string;
-          from: string;
-          to: string;
-          effect?: 'reinforces' | 'balances';
-          description?: string;
-        }>;
-        insights?: string[];
-      } => Boolean(loop)
-    );
+    .filter((loop): loop is NonNullable<typeof loop> => Boolean(loop));
 }
 
 function toSystemSteps(value: unknown) {
@@ -1163,17 +1052,7 @@ function toSystemSteps(value: unknown) {
         description: toOptionalTrimmedString(record.description),
       };
     })
-    .filter(
-      (
-        step
-      ): step is {
-        id: string;
-        from: string;
-        to: string;
-        effect?: 'reinforces' | 'balances';
-        description?: string;
-      } => Boolean(step)
-    );
+    .filter((step): step is NonNullable<typeof step> => Boolean(step));
 }
 
 function toSystemInsights(value: unknown) {
@@ -1195,9 +1074,7 @@ function toSystemInsights(value: unknown) {
         description: toOptionalTrimmedString(record.description),
       };
     })
-    .filter((insight): insight is { id: string; label: string; description?: string } =>
-      Boolean(insight)
-    );
+    .filter((insight): insight is NonNullable<typeof insight> => Boolean(insight));
 }
 
 function toUmlType(value: unknown) {
@@ -1257,17 +1134,7 @@ function toFlowNodes(value: unknown) {
         branches: toFlowBranches(record.branches),
       };
     })
-    .filter(
-      (
-        node
-      ): node is {
-        id: string;
-        type: 'start' | 'process' | 'input' | 'output' | 'decision' | 'end';
-        title: string;
-        summary?: string;
-        branches?: Array<{ id: string; label: string; target: string; description?: string }>;
-      } => Boolean(node)
-    );
+    .filter((node): node is NonNullable<typeof node> => Boolean(node));
 }
 
 function toFlowBranches(value: unknown) {
@@ -1290,10 +1157,7 @@ function toFlowBranches(value: unknown) {
         description: toOptionalTrimmedString(record.description),
       };
     })
-    .filter(
-      (branch): branch is { id: string; label: string; target: string; description?: string } =>
-        Boolean(branch)
-    );
+    .filter((branch): branch is NonNullable<typeof branch> => Boolean(branch));
 }
 
 function toFlowConnections(value: unknown) {
@@ -1325,16 +1189,7 @@ function toFlowConnections(value: unknown) {
         kind,
       };
     })
-    .filter(
-      (
-        connection
-      ): connection is {
-        from: string;
-        to: string;
-        label?: string;
-        kind?: 'default' | 'loop' | 'fallback';
-      } => Boolean(connection)
-    );
+    .filter((connection): connection is NonNullable<typeof connection> => Boolean(connection));
 }
 
 function toTrimmedStringArray(value: unknown) {
