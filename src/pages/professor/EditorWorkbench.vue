@@ -1,8 +1,8 @@
 <template>
   <section class="page flow">
-    <header class="card p-6 md:p-8">
-      <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-        <div class="flex flex-col gap-3">
+    <header class="card md3-surface-section">
+      <div class="flex flex-col md3-gap-lg md:flex-row md:items-start md:justify-between">
+        <div class="flex flex-col md3-gap-sm">
           <span class="chip chip--outlined self-start text-primary">Iteração 3</span>
           <h1 class="md-typescale-headline-small font-semibold text-on-surface">
             Editor visual de aulas e exercícios
@@ -12,14 +12,14 @@
             principais e exporte novamente para commit.
           </p>
         </div>
-        <div class="rounded-3xl bg-[var(--md-sys-color-surface-container-high)] p-4">
+        <div class="md3-surface-callout">
           <p class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
             Próximo aprimoramento
           </p>
           <p class="md-typescale-title-large font-semibold text-on-surface">
             Validações automatizadas
           </p>
-          <p class="mt-2 text-sm text-on-surface-variant">
+          <p class="md3-stack-xs text-sm text-on-surface-variant">
             Integração com os scripts CLI garantirá feedback de conformidade antes do commit.
           </p>
         </div>
@@ -27,8 +27,8 @@
     </header>
 
     <TeacherModeGate>
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Carregar JSON para edição
           </h2>
@@ -38,19 +38,19 @@
           </p>
         </header>
 
-        <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-          <form class="flex flex-col gap-4" @submit.prevent>
-            <label class="flex flex-col gap-2">
+        <div class="grid md3-gap-lg lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+          <form class="flex flex-col md3-gap-md" @submit.prevent>
+            <label class="flex flex-col md3-gap-xs">
               <span class="md-typescale-label-large text-on-surface">Conteúdo bruto</span>
               <textarea
                 v-model="rawInput"
                 rows="16"
-                class="rounded-3xl border border-outline bg-surface p-4 font-mono text-sm text-on-surface shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                class="md-shape-extra-large border border-outline bg-surface p-4 font-mono text-sm text-on-surface shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 placeholder="Cole aqui o JSON de uma aula, exercício ou suplemento"
               ></textarea>
             </label>
 
-            <div class="flex flex-wrap gap-3">
+            <div class="flex flex-wrap md3-gap-sm">
               <Md3Button type="button" variant="tonal" :disabled="!rawInput" @click="formatRaw">
                 Formatar JSON
               </Md3Button>
@@ -80,16 +80,19 @@
               Último arquivo carregado: <strong>{{ lastFileName }}</strong>
               <span v-if="lastUploadedAt"> · {{ lastUploadedAt }}</span>
             </p>
-            <p v-if="parseError" class="rounded-2xl bg-error/10 p-3 text-sm text-error">
+            <p
+              v-if="parseError"
+              class="md-shape-double-extra-large bg-error/10 p-3 text-sm text-error"
+            >
               {{ parseError }}
             </p>
           </form>
 
           <div
-            class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-highest)] p-5"
+            class="md-shape-extra-large md3-padding-md md-surface-container-highest border border-outline-variant"
           >
             <h3 class="md-typescale-title-medium font-semibold text-on-surface">Dicas rápidas</h3>
-            <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-on-surface-variant">
+            <ul class="md3-stack-sm list-disc md3-space-y-xs pl-5 text-sm text-on-surface-variant">
               <li>Garanta que o JSON passou pela validação da ingestão antes de editar.</li>
               <li>Campos desconhecidos não são exibidos aqui, mas permanecem no JSON exportado.</li>
               <li>
@@ -101,8 +104,8 @@
         </div>
       </section>
 
-      <section v-if="lessonModel" class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section v-if="lessonModel" class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Metadados principais
           </h2>
@@ -112,61 +115,61 @@
           </p>
         </header>
 
-        <div class="grid gap-4 md:grid-cols-2">
-          <label class="flex flex-col gap-2">
+        <div class="grid md3-gap-md md:grid-cols-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Título</span>
             <input
               v-model="lessonModel.title"
               type="text"
-              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             />
           </label>
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Resumo</span>
             <textarea
               v-model="lessonModel.summary"
               rows="3"
-              class="min-h-[3.5rem] rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="min-h-[3.5rem] md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             ></textarea>
           </label>
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Objetivo geral</span>
             <textarea
               v-model="lessonModel.objective"
               rows="3"
-              class="min-h-[3.5rem] rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="min-h-[3.5rem] md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             ></textarea>
           </label>
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Modalidade</span>
             <input
               v-model="lessonModel.modality"
               type="text"
-              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="in-person, remote, híbrida..."
             />
           </label>
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Duração (minutos)</span>
             <input
               v-model.number="lessonModel.duration"
               type="number"
               min="0"
-              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             />
           </label>
-          <label class="flex flex-col gap-2">
+          <label class="flex flex-col md3-gap-xs">
             <span class="md-typescale-label-large text-on-surface">Tags</span>
             <textarea
               v-model="tagsField"
               rows="2"
-              class="min-h-[3.5rem] rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              class="min-h-[3.5rem] md-shape-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="Uma tag por linha"
             ></textarea>
           </label>
         </div>
 
-        <div class="grid gap-4 md:grid-cols-2">
+        <div class="grid md3-gap-md md:grid-cols-2">
           <MetadataListEditor label="Objetivos específicos" v-model="objectivesField" />
           <MetadataListEditor label="Competências" v-model="competenciesField" />
           <MetadataListEditor label="Habilidades" v-model="skillsField" />
@@ -175,8 +178,8 @@
         </div>
       </section>
 
-      <section v-if="lessonModel" class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section v-if="lessonModel" class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Validação automática do schema
           </h2>
@@ -187,9 +190,9 @@
         </header>
 
         <div
-          class="flex flex-col gap-4 rounded-3xl border border-outline-variant bg-surface-container-high p-4 md:flex-row md:items-start md:justify-between"
+          class="flex flex-col md3-gap-md md-shape-extra-large border border-outline-variant bg-surface-container-high p-4 md:flex-row md:items-start md:justify-between"
         >
-          <div class="flex items-start gap-3">
+          <div class="flex items-start md3-gap-sm">
             <component
               :is="validationIcon"
               class="md-icon"
@@ -210,11 +213,11 @@
           </p>
         </div>
 
-        <ul v-if="validationSummary.errors.length" class="space-y-3">
+        <ul v-if="validationSummary.errors.length" class="md3-space-y-sm">
           <li
             v-for="(error, index) in validationSummary.errors"
             :key="index"
-            class="rounded-3xl border border-outline-variant bg-surface p-4 text-sm text-on-surface"
+            class="md-shape-extra-large border border-outline-variant bg-surface p-4 text-sm text-on-surface"
           >
             <p class="font-medium text-error">{{ error.message }}</p>
             <p v-if="error.instancePath" class="mt-1 text-xs text-on-surface-variant">
@@ -227,17 +230,20 @@
         </ul>
         <p
           v-else-if="validationSummary.state === 'valid'"
-          class="rounded-3xl bg-surface-container-high p-4 text-sm text-on-surface-variant"
+          class="md-shape-extra-large bg-surface-container-high p-4 text-sm text-on-surface-variant"
         >
           Tudo certo! Use a exportação abaixo ou volte para a ingestão para novos arquivos.
         </p>
-        <p v-else class="rounded-3xl bg-surface-container-high p-4 text-sm text-on-surface-variant">
+        <p
+          v-else
+          class="md-shape-extra-large bg-surface-container-high p-4 text-sm text-on-surface-variant"
+        >
           Carregue um JSON válido para verificar conformidade com o schema oficial.
         </p>
       </section>
 
-      <section v-if="lessonModel" class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section v-if="lessonModel" class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">Blocos de conteúdo</h2>
           <p class="supporting-text text-on-surface-variant">
             Selecione um bloco para editar. Alterações são aplicadas imediatamente na estrutura
@@ -247,14 +253,14 @@
 
         <div
           v-if="Array.isArray(lessonModel.blocks) && lessonModel.blocks.length"
-          class="grid gap-6 lg:grid-cols-[minmax(220px,260px)_minmax(0,1fr)]"
+          class="grid md3-gap-lg lg:grid-cols-[minmax(220px,260px)_minmax(0,1fr)]"
         >
-          <nav class="flex flex-col gap-2">
+          <nav class="flex flex-col md3-gap-xs">
             <button
               v-for="(block, index) in lessonModel.blocks"
               :key="index"
               type="button"
-              class="rounded-3xl border p-3 text-left transition"
+              class="md-shape-extra-large border p-3 text-left transition"
               :class="[
                 selectedBlockIndex === index
                   ? 'border-primary bg-primary/10 text-primary'
@@ -270,7 +276,7 @@
             </button>
           </nav>
 
-          <div class="flex flex-col gap-4">
+          <div class="flex flex-col md3-gap-md">
             <template v-if="selectedBlock">
               <component :is="blockEditorComponent" :block="selectedBlock" />
             </template>
@@ -279,14 +285,17 @@
             </p>
           </div>
         </div>
-        <p v-else class="rounded-3xl bg-surface-container-high p-4 text-sm text-on-surface-variant">
+        <p
+          v-else
+          class="md-shape-extra-large bg-surface-container-high p-4 text-sm text-on-surface-variant"
+        >
           Nenhum bloco encontrado. Importe um JSON com a propriedade <code>blocks</code> para
           habilitar a edição visual.
         </p>
       </section>
 
-      <section v-if="lessonModel" class="card flex flex-col gap-4 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section v-if="lessonModel" class="card md3-surface-section flex flex-col md3-gap-md">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Exportar JSON revisado
           </h2>
@@ -296,9 +305,9 @@
           </p>
         </header>
         <div
-          class="rounded-3xl border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-4"
+          class="md-shape-extra-large border border-outline-variant bg-[var(--md-sys-color-surface-container-high)] p-4"
         >
-          <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+          <div class="flex flex-col md3-gap-xs md:flex-row md:items-start md:justify-between">
             <div>
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
                 Status dos scripts obrigatórios
@@ -312,13 +321,13 @@
               </p>
             </div>
           </div>
-          <ul class="mt-4 grid gap-3 md:grid-cols-2">
+          <ul class="md3-stack-md grid md3-gap-sm md:grid-cols-2">
             <li
               v-for="item in validationStatusItems"
               :key="item.key"
-              class="flex flex-col gap-2 rounded-2xl bg-surface p-3 shadow-inner"
+              class="flex flex-col md3-gap-xs md-shape-double-extra-large bg-surface p-3 shadow-inner"
             >
-              <div class="flex items-start gap-3">
+              <div class="flex items-start md3-gap-sm">
                 <component
                   :is="item.icon"
                   class="md-icon"
@@ -342,13 +351,16 @@
             </li>
           </ul>
         </div>
-        <p v-if="hasBlockingRemoteErrors" class="rounded-2xl bg-error/10 p-3 text-sm text-error">
+        <p
+          v-if="hasBlockingRemoteErrors"
+          class="md-shape-double-extra-large bg-error/10 p-3 text-sm text-error"
+        >
           Há scripts com falhas registradas. Resolva os apontamentos na área de validações para
           liberar a exportação.
         </p>
         <p
           v-else-if="hasRemoteWarnings"
-          class="rounded-2xl border border-outline-variant bg-surface-container-high p-3 text-sm text-on-surface-variant"
+          class="md-shape-double-extra-large border border-outline-variant bg-surface-container-high p-3 text-sm text-on-surface-variant"
         >
           Há scripts com avisos registrados. Confirme se os apontamentos não impactam o envio antes
           de continuar.
@@ -357,9 +369,9 @@
           :value="formattedOutput"
           readonly
           rows="16"
-          class="rounded-3xl border border-outline bg-surface-container-high p-4 font-mono text-sm text-on-surface"
+          class="md-shape-extra-large border border-outline bg-surface-container-high p-4 font-mono text-sm text-on-surface"
         ></textarea>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap md3-gap-sm">
           <Md3Button
             type="button"
             variant="filled"

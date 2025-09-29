@@ -1,8 +1,8 @@
 <template>
   <section class="page flow">
-    <header class="card p-6 md:p-8">
-      <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-        <div class="flex flex-col gap-3">
+    <header class="card md3-surface-section">
+      <div class="flex flex-col md3-gap-lg md:flex-row md:items-start md:justify-between">
+        <div class="flex flex-col md3-gap-sm">
           <span class="chip chip--outlined self-start text-primary">Iteração 2</span>
           <h1 class="md-typescale-headline-small font-semibold text-on-surface">
             Ingestão e validação de conteúdo JSON
@@ -12,14 +12,14 @@
             pacote antes de abrir um commit.
           </p>
         </div>
-        <div class="rounded-3xl bg-[var(--md-sys-color-surface-container-high)] p-4">
+        <div class="md3-surface-callout">
           <p class="md-typescale-label-small tracking-[0.18em] text-on-surface-variant">
             Próximos aprimoramentos
           </p>
           <p class="md-typescale-title-large font-semibold text-on-surface">
             Editor visual de blocos
           </p>
-          <p class="mt-2 text-sm text-on-surface-variant">
+          <p class="md3-stack-xs text-sm text-on-surface-variant">
             A próxima iteração adicionará edição granular dos blocos com pré-visualização inline.
           </p>
         </div>
@@ -27,9 +27,9 @@
     </header>
 
     <TeacherModeGate>
-      <section class="card p-6 md:p-8">
-        <header class="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-          <div class="flex flex-col gap-2">
+      <section class="card md3-surface-section">
+        <header class="flex flex-col md3-gap-sm md:flex-row md:items-start md:justify-between">
+          <div class="flex flex-col md3-gap-xs">
             <h2 class="md-typescale-title-large font-semibold text-on-surface">
               Checklist operacional antes de iniciar
             </h2>
@@ -42,13 +42,13 @@
             Voltar para o painel
           </Md3Button>
         </header>
-        <ol class="mt-6 space-y-4 text-on-surface">
+        <ol class="md3-stack-lg md3-space-y-md text-on-surface">
           <li
             v-for="step in checklist"
             :key="step.title"
-            class="rounded-3xl border border-outline-variant p-4"
+            class="md-shape-extra-large border border-outline-variant p-4"
           >
-            <header class="flex items-center gap-3">
+            <header class="flex items-center md3-gap-sm">
               <component :is="step.icon" class="md-icon" aria-hidden="true" />
               <div>
                 <h3 class="md-typescale-title-medium font-semibold">{{ step.title }}</h3>
@@ -59,7 +59,7 @@
             </header>
             <pre
               v-if="step.command"
-              class="mt-3 overflow-x-auto rounded-2xl bg-surface-variant/40 p-3 text-sm"
+              class="md3-stack-sm overflow-x-auto md-shape-double-extra-large bg-surface-variant/40 p-3 text-sm"
             >
 <code>{{ step.command }}</code>
             </pre>
@@ -67,8 +67,8 @@
         </ol>
       </section>
 
-      <section class="card flex flex-col gap-6 p-6 md:p-8">
-        <header class="flex flex-col gap-2">
+      <section class="card md3-surface-section flex flex-col md3-gap-lg">
+        <header class="flex flex-col md3-gap-xs">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">
             Enviar ou colar JSON para validação
           </h2>
@@ -78,13 +78,13 @@
           </p>
         </header>
 
-        <div class="flex flex-col gap-6 lg:flex-row">
-          <form class="flex flex-1 flex-col gap-4" @submit.prevent>
-            <label class="flex flex-col gap-2">
+        <div class="flex flex-col md3-gap-lg lg:flex-row">
+          <form class="flex flex-1 flex-col md3-gap-md" @submit.prevent>
+            <label class="flex flex-col md3-gap-xs">
               <span class="md-typescale-label-large text-on-surface">Tipo de artefato</span>
               <select
                 v-model="selectedSchemaKey"
-                class="rounded-2xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                class="md-shape-double-extra-large border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               >
                 <option v-for="option in schemaOptions" :key="option.key" :value="option.key">
                   {{ option.label }}
@@ -97,10 +97,10 @@
             </label>
 
             <div
-              class="rounded-3xl border-2 border-dashed border-outline-variant bg-surface-container-high p-6"
+              class="md-shape-extra-large md3-padding-lg border-2 border-dashed border-outline-variant bg-surface-container-high"
             >
               <label
-                class="flex cursor-pointer flex-col items-center gap-3 text-center"
+                class="flex cursor-pointer flex-col items-center md3-gap-sm text-center"
                 for="ingestion-file-input"
               >
                 <UploadCloud class="md-icon" aria-hidden="true" />
@@ -120,23 +120,26 @@
                   @change="handleFileInput"
                 />
               </label>
-              <p v-if="lastFileName" class="mt-4 text-center text-sm text-on-surface-variant">
+              <p
+                v-if="lastFileName"
+                class="md3-stack-md text-center text-sm text-on-surface-variant"
+              >
                 Último arquivo carregado: <strong>{{ lastFileName }}</strong>
                 <span v-if="lastUploadedAt"> · {{ lastUploadedAt }}</span>
               </p>
             </div>
 
-            <label class="flex flex-col gap-2">
+            <label class="flex flex-col md3-gap-xs">
               <span class="md-typescale-label-large text-on-surface">Conteúdo bruto</span>
               <textarea
                 v-model="rawInput"
                 rows="14"
-                class="rounded-3xl border border-outline bg-surface p-4 font-mono text-sm text-on-surface shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                class="md-shape-extra-large border border-outline bg-surface p-4 font-mono text-sm text-on-surface shadow-inner focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 placeholder="Cole aqui o JSON gerado pelo LLM ou ferramentas externas"
               ></textarea>
             </label>
 
-            <div class="flex flex-wrap gap-3">
+            <div class="flex flex-wrap md3-gap-sm">
               <Md3Button type="button" variant="filled" :disabled="!canFormat" @click="formatJson">
                 Formatar JSON
               </Md3Button>
@@ -157,9 +160,9 @@
             </div>
           </form>
 
-          <aside class="flex w-full max-w-xl flex-col gap-4">
-            <div class="rounded-3xl border border-outline-variant bg-surface-container-high p-6">
-              <header class="flex items-center gap-3">
+          <aside class="flex w-full max-w-xl flex-col md3-gap-md">
+            <div class="md3-surface-tile border border-outline-variant">
+              <header class="flex items-center md3-gap-sm">
                 <component
                   :is="statusIcon"
                   class="md-icon"
@@ -176,14 +179,17 @@
                 </div>
               </header>
 
-              <ul v-if="validationErrors.length" class="mt-4 space-y-3 text-sm text-on-surface">
+              <ul
+                v-if="validationErrors.length"
+                class="md3-stack-md md3-space-y-sm text-sm text-on-surface"
+              >
                 <li
                   v-for="(error, index) in validationErrors"
                   :key="`${error.instancePath}-${index}`"
-                  class="rounded-2xl border border-outline-variant bg-surface p-3"
+                  class="md-shape-double-extra-large border border-outline-variant bg-surface p-3"
                 >
                   <p class="font-medium text-error">{{ error.message }}</p>
-                  <p v-if="error.hint" class="mt-1 text-xs text-on-surface-variant">
+                  <p v-if="error.hint" class="md3-stack-xs text-xs text-on-surface-variant">
                     {{ error.hint }}
                   </p>
                 </li>
@@ -191,21 +197,21 @@
 
               <p
                 v-else-if="status === 'valid'"
-                class="mt-4 rounded-2xl bg-success-container p-3 text-sm text-on-success"
+                class="md3-stack-md md-shape-double-extra-large bg-success-container p-3 text-sm text-on-success"
               >
                 Estrutura válida! O conteúdo pode seguir para revisão e commit.
               </p>
             </div>
 
-            <div class="rounded-3xl border border-outline-variant bg-surface-container-high p-6">
+            <div class="md3-surface-tile border border-outline-variant">
               <h3 class="md-typescale-title-medium font-semibold text-on-surface">
                 Próximos passos sugeridos
               </h3>
-              <ol class="mt-4 space-y-3 text-sm text-on-surface">
+              <ol class="md3-stack-md md3-space-y-sm text-sm text-on-surface">
                 <li
                   v-for="nextStep in nextSteps"
                   :key="nextStep.title"
-                  class="rounded-2xl bg-surface p-3"
+                  class="md-shape-double-extra-large bg-surface p-3"
                 >
                   <p class="font-medium">{{ nextStep.title }}</p>
                   <p class="text-on-surface-variant">{{ nextStep.description }}</p>
@@ -216,24 +222,24 @@
         </div>
       </section>
 
-      <section class="card p-6 md:p-8">
-        <div class="flex flex-col gap-2">
+      <section class="card md3-surface-section">
+        <div class="flex flex-col md3-gap-sm">
           <h2 class="md-typescale-title-large font-semibold text-on-surface">Documentação viva</h2>
           <p class="supporting-text text-on-surface-variant">
             As decisões e aprendizados desta iteração estão sendo registrados continuamente para
             facilitar ajustes futuros.
           </p>
         </div>
-        <ul class="mt-6 grid gap-4 md:grid-cols-2">
+        <ul class="md3-stack-lg grid md3-gap-md md:grid-cols-2">
           <li
             v-for="doc in livingDocs"
             :key="doc.href"
-            class="rounded-3xl border border-outline-variant bg-surface-container-high p-5"
+            class="md3-surface-tile border border-outline-variant"
           >
             <h3 class="md-typescale-title-medium font-semibold text-on-surface">{{ doc.title }}</h3>
-            <p class="mt-2 text-sm text-on-surface-variant">{{ doc.description }}</p>
+            <p class="md3-stack-xs text-sm text-on-surface-variant">{{ doc.description }}</p>
             <Md3Button
-              class="mt-4"
+              class="md3-stack-md"
               variant="text"
               as="a"
               :href="doc.href"
