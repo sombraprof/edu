@@ -1,0 +1,205 @@
+{
+  "id": "lesson-16",
+  "title": "Aula 16: Integração de Sistemas Empresariais",
+  "objective": "Discutir estratégias de integração e interoperabilidade entre sistemas empresariais.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "gears",
+          "title": "CONTEÚDO",
+          "content": "Arquiteturas de integração, padrões (ETL, APIs, eventos) e governança de dados."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Compreender desafios de interoperabilidade.\n- Avaliar modelos de integração adequados a diferentes cenários.\n- Planejar ações de governança e monitoramento."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Demonstração técnica guiada, estudo de caso crítico e debate estruturado sobre impactos organizacionais."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Jornada de integração",
+      "steps": [
+        {
+          "title": "Diagnóstico",
+          "content": "Mapear fluxos de dados, sistemas origem e destino, bem como requisitos de tempo real vs. batelada."
+        },
+        {
+          "title": "Desenho",
+          "content": "Selecionar padrões (API, mensageria, ETL, iPaaS) considerando acoplamento e governança."
+        },
+        {
+          "title": "Implementação",
+          "content": "Configurar conectores, orquestrar transformações e validar qualidade dos dados."
+        },
+        {
+          "title": "Monitoramento",
+          "content": "Estabelecer observabilidade, SLAs e mecanismos de reação a falhas."
+        },
+        {
+          "title": "Evolução",
+          "content": "Revisar arquitetura periodicamente frente a novas demandas ou sistemas adicionados."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Padrões de integração",
+      "cards": [
+        {
+          "title": "API REST",
+          "content": "Integração síncrona e padronizada. Ideal para necessidades em tempo quase real com baixo volume."
+        },
+        {
+          "title": "Event Streaming",
+          "content": "Publicação/assinatura para eventos de negócio (Kafka, Pulsar). Suporta escalabilidade e desacoplamento."
+        },
+        {
+          "title": "ETL/ELT",
+          "content": "Bateladas para consolidar dados em data warehouses e lakes. Útil para BI e compliance."
+        },
+        {
+          "title": "ESB/iPaaS",
+          "content": "Plataformas que orquestram integrações complexas, tratam protocolos heterogêneos e monitoram fluxos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso crítico",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma rede hospitalar precisa sincronizar prontuários, faturamento e logística farmacêutica. Quais riscos surgem com integrações ponto a ponto?"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Inconsistência de dados entre sistemas clínicos e financeiros.",
+            "Dificuldade de rastrear falhas ou mensagens perdidas.",
+            "Aumento de custo de manutenção quando novos sistemas entram em operação."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Demonstração hands-on",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O docente demonstra, em uma plataforma iPaaS, como construir um fluxo que integra ERP → CRM → BI usando conectores, transformações e validações. Observe logs, métricas e alertas configurados."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Debate estruturado",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Governança",
+              "text": "Como definir proprietários de dados e responsabilidades por integrações?"
+            },
+            {
+              "title": "Segurança",
+              "text": "Que controles (criptografia, máscaras, RBAC) são essenciais em fluxos sensíveis?"
+            },
+            {
+              "title": "Escalabilidade",
+              "text": "O que muda quando eventos em tempo real passam a representar 80% do tráfego?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Diagnóstico relâmpago",
+      "items": [
+        "Identificar três integrações críticas da organização estudada.",
+        "Avaliar riscos de indisponibilidade e redundância de dados.",
+        "Elencar indicadores para acompanhar saúde das integrações."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Registre no AVA, até às 23h de amanhã, um diagnóstico das integrações do estudo de caso: (1) mapa do fluxo atual, (2) proposta de melhoria com justificativa e (3) métricas para monitoramento. Anexe o checklist preenchido em sala."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-16-integracao-de-sistemas-empresariais",
+  "summary": "Explora padrões de integração, desafios de governança e estratégias para garantir interoperabilidade sustentável entre sistemas empresariais.",
+  "objectives": [
+    "Reconhecer padrões e tecnologias de integração aplicáveis a diferentes cenários.",
+    "Avaliar riscos e impactos organizacionais decorrentes de integrações mal planejadas.",
+    "Propor ações de governança e monitoramento para fluxos críticos de dados."
+  ],
+  "competencies": [
+    "Arquitetura de sistemas",
+    "Gestão de dados e integrações",
+    "Resolução colaborativa de problemas"
+  ],
+  "skills": [
+    "Mapear fluxos sistêmicos de dados.",
+    "Selecionar padrões de integração alinhados a requisitos de negócio.",
+    "Definir indicadores para monitorar integrações em produção."
+  ],
+  "outcomes": [
+    "Apresenta diagnóstico e plano de integração para o estudo de caso.",
+    "Documenta riscos e controles de governança.",
+    "Compartilha evidências no AVA seguindo o roteiro proposto."
+  ],
+  "prerequisites": [
+    "Revisar taxonomias de sistemas estudadas na aula 15.",
+    "Trazer o mapa de processos elaborado na aula 12."
+  ],
+  "tags": ["aula-16-integracao"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia rápido de padrões de integração",
+      "url": "https://example.edu/tgs/guias/padroes-integracao",
+      "type": "guide"
+    },
+    {
+      "label": "Acesso demo iPaaS",
+      "url": "https://example.edu/tgs/demo/ipaas",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "HOHPE, Gregor; WOOLF, Bobby. Enterprise Integration Patterns. Addison-Wesley, 2012.",
+    "KREPS, Jay. I Love Logs: Data Lakes, Event Streams, and the Rise of Real-Time. O'Reilly, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega de diagnóstico de integração e plano de monitoramento no AVA."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
+}
