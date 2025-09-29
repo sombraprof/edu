@@ -1,0 +1,201 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-30",
+  "title": "Aula 30: Introdução a Vetores",
+  "summary": "Apresenta o conceito de vetores (arrays) em C, destacando sua utilidade na organização de dados homogêneos e no cálculo de estatísticas básicas.",
+  "objective": "Reconhecer vetores como estruturas de dados fundamentais, compreender sua sintaxe em C e aplicar percursos lineares para obter estatísticas simples.",
+  "objectives": [
+    "Declarar e inicializar vetores em C respeitando tipos e tamanhos.",
+    "Percorrer vetores com loops for para calcular média, mínimo e máximo.",
+    "Relacionar vetores a cenários reais de armazenamento sequencial de dados."
+  ],
+  "competencies": ["Pensamento computacional", "Modelagem de dados"],
+  "skills": [
+    "Planejar a leitura e escrita em posições específicas de um vetor.",
+    "Utilizar variáveis auxiliares para estatísticas acumuladas.",
+    "Interpretar diagramas e tabelas que representam vetores."
+  ],
+  "outcomes": [
+    "Implementa um programa que calcula média, valor mínimo e máximo de um vetor de notas.",
+    "Documenta o percurso sequencial em um fluxograma MD3.",
+    "Seleciona estruturas adequadas para armazenar registros homogêneos."
+  ],
+  "prerequisites": [
+    "Domínio de loops for (Aulas 18-19).",
+    "Conhecimento de variáveis e tipos numéricos em C."
+  ],
+  "tags": ["vetores", "arrays", "estatistica-basica"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Dataset de notas (CSV)",
+      "type": "dataset",
+      "file": "courses/algi/vetores-notas.csv",
+      "url": "https://static.md3.education/courses/algi/vetores-notas.csv"
+    },
+    {
+      "label": "CS50 2023 - Arrays",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=q5uM4VKywbA"
+    },
+    {
+      "label": "Khan Academy - Introdução a arrays",
+      "type": "course",
+      "url": "https://pt.khanacademy.org/computing/ap-computer-science-principles/computers-101/arrays-intro/a/intro-to-arrays"
+    }
+  ],
+  "bibliography": [
+    "ASCENCIO, A. F.; CAMPOS, E. R. Fundamentos da Programação de Computadores. Pearson, 2022.",
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos. Prentice Hall, 2021."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega de script em C que calcula média, mínimo e máximo das notas fornecidas no dataset."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro da sessão",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Contextualização",
+          "content": "Discussão de situações que exigem armazenamento sequencial (10 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Sintaxe em C",
+          "content": "Declaração, inicialização e acesso sequencial (25 min)."
+        },
+        {
+          "icon": "database",
+          "title": "Estatísticas",
+          "content": "Cálculo de média, mínimo e máximo com for (35 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Oficina guiada",
+          "content": "Uso do dataset de notas em pares (30 min)."
+        },
+        {
+          "icon": "graduation-cap",
+          "title": "Desafio pós-aula",
+          "content": "Propor variações para diferentes turmas e faixas de notas (10 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Icebreaker: cole o post-it com a palavra que associa a 'vetor'.",
+        "(20 min) Mini-aula: anatomia de um vetor em C.",
+        "(25 min) Demonstração no projetor: percorrendo o vetor e imprimindo índices.",
+        "(35 min) Oficina prática: cálculo de média/mínimo/máximo usando o CSV.",
+        "(10 min) Compartilhamento de resultados no quadro.",
+        "(10 min) Atividade pós-aula orientada."
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Para revisar depois",
+      "videos": [
+        {
+          "youtubeId": "Q0qkBhe-Z4w",
+          "title": "CS50 Shorts - Arrays"
+        },
+        {
+          "youtubeId": "gQcW5Pg0TBM",
+          "title": "Array basics (Khan Academy)"
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Sintaxe essencial do vetor em C",
+      "headers": ["Elemento", "Exemplo", "Observação"],
+      "rows": [
+        ["Declaração", "int notas[5];", "Cria vetor com 5 inteiros não inicializados."],
+        ["Inicialização", "float medias[3] = {7.2, 8.5, 6.9};", "Valores em ordem definida."],
+        ["Acesso", "notas[i]", "Índices iniciam em 0 e vão até tamanho-1."],
+        [
+          "Tamanho",
+          "sizeof(notas)/sizeof(notas[0])",
+          "Estratégia para calcular o número de posições."
+        ]
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo do cálculo de média, mínimo e máximo",
+      "nodes": [
+        { "id": "start", "type": "start", "label": "Início" },
+        { "id": "read", "type": "process", "label": "Ler vetor de notas" },
+        { "id": "init", "type": "process", "label": "media = 0, min = notas[0], max = notas[0]" },
+        { "id": "loop", "type": "loop", "label": "Para i = 0 até n-1" },
+        { "id": "acc", "type": "process", "label": "media += notas[i]" },
+        { "id": "min", "type": "decision", "label": "notas[i] < min?" },
+        { "id": "updateMin", "type": "process", "label": "min = notas[i]" },
+        { "id": "max", "type": "decision", "label": "notas[i] > max?" },
+        { "id": "updateMax", "type": "process", "label": "max = notas[i]" },
+        { "id": "calc", "type": "process", "label": "media = media / n" },
+        { "id": "end", "type": "end", "label": "Fim" }
+      ],
+      "edges": [
+        ["start", "read"],
+        ["read", "init"],
+        ["init", "loop"],
+        ["loop", "acc"],
+        ["acc", "min"],
+        ["min", "updateMin", "sim"],
+        ["min", "max", "não"],
+        ["updateMin", "max"],
+        ["max", "updateMax", "sim"],
+        ["max", "loop", "não"],
+        ["updateMax", "loop"],
+        ["loop", "calc", "fim"],
+        ["calc", "end"]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo prático: estatísticas de notas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize o arquivo vetores-notas.csv para ler as notas de 5 avaliações, calcule média, mínimo e máximo e imprima no formato \"Aluno: média (min - max)\"."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            { "text": "Carregue os valores em um vetor float." },
+            { "text": "Percorra o vetor atualizando acumuladores." },
+            { "text": "Formate a saída com duas casas decimais." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Atividades pós-aula",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Adaptar o código para aceitar 10 notas informadas via teclado.",
+            "Adicionar contagem de notas acima de 8,0 e abaixo de 5,0.",
+            "Registrar dúvidas no fórum da turma sobre manipulação de índices."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-10T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Notas de planejamento Vetores 2025"]
+  }
+}

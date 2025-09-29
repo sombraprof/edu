@@ -1,0 +1,21 @@
+{
+  "descricao": "Matrizes de indicadores para cruzamento de tutores e atividades",
+  "A": {
+    "linhas": ["ADS", "Engenharia", "Design"],
+    "colunas": ["Tutoria presencial", "Tutoria online", "Monitoria"],
+    "valores": [
+      [4, 3, 2],
+      [5, 4, 3],
+      [3, 2, 2]
+    ]
+  },
+  "B": {
+    "linhas": ["Tutoria presencial", "Tutoria online", "Monitoria"],
+    "colunas": ["Horas práticas", "Horas teóricas"],
+    "valores": [
+      [6, 2],
+      [4, 3],
+      [5, 1]
+    ]
+  }
+}
