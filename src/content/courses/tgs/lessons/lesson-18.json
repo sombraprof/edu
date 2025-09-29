@@ -1,0 +1,219 @@
+{
+  "id": "lesson-18",
+  "title": "Aula 18: CRM e Relacionamento com Clientes",
+  "objective": "Analisar estratégias de CRM para fortalecer o relacionamento com clientes.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDOS",
+          "content": "Conceitos de CRM, jornada do cliente, automação de marketing e indicadores de fidelização."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Mapear etapas do relacionamento com clientes.\n- Avaliar funcionalidades essenciais de plataformas CRM.\n- Conectar dados de CRM a estratégias de fidelização."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Estudo de caso, demonstração prática e debate orientado sobre dilemas éticos e estratégicos."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Jornada do cliente e pontos de contato",
+      "steps": [
+        {
+          "title": "Aquisição",
+          "content": "Leads chegam via campanhas digitais. Como o CRM captura a origem e segmenta automaticamente?"
+        },
+        {
+          "title": "Conversão",
+          "content": "Equipe comercial acompanha pipeline, define tarefas e nutre oportunidades com conteúdos personalizados."
+        },
+        {
+          "title": "Entrega",
+          "content": "Integração com ERP garante emissão de pedidos, faturamento e onboarding consistente."
+        },
+        {
+          "title": "Retenção",
+          "content": "Dashboards de NPS, tickets e churn alimentam squads de sucesso do cliente."
+        },
+        {
+          "title": "Evangelização",
+          "content": "Programas de indicação e comunidades fortalecem advocacy e feedback contínuo."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Componentes essenciais de um CRM",
+      "cards": [
+        {
+          "title": "360º do cliente",
+          "content": "Histórico consolidado de interações, compras, tickets e preferências."
+        },
+        {
+          "title": "Automação",
+          "content": "Fluxos de e-mail, scoring de leads, campanhas omnichannel com base em gatilhos."
+        },
+        {
+          "title": "Inteligência",
+          "content": "Dashboards de funil, previsão de vendas e análises de churn."
+        },
+        {
+          "title": "Integrações",
+          "content": "Conexões com ERP, plataformas de marketing, centrais de atendimento e ferramentas de BI."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso: Startup SaaS",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma startup cresce 20% ao mês, mas enfrenta churn alto após 90 dias. Analise como o CRM pode apoiar ações de sucesso do cliente."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Dados necessários",
+              "text": "Que informações devem ser monitoradas para identificar sinais de abandono?"
+            },
+            {
+              "title": "Fluxos automáticos",
+              "text": "Quais gatilhos podem gerar contatos proativos da equipe de sucesso?"
+            },
+            {
+              "title": "Debate",
+              "text": "Quando insistir em retenção pode ser invasivo ou antiético?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Demonstração prática",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A docente percorre um pipeline em uma ferramenta CRM (ex.: RD Station), mostrando criação de persona, configuração de gatilhos e painel de NPS. Registre telas que evidenciem métricas críticas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Debate orientado",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Privacidade",
+              "text": "Como equilibrar personalização e respeito à LGPD?"
+            },
+            {
+              "title": "Cultura",
+              "text": "Como engajar equipe de vendas e pós-venda no uso do CRM?"
+            },
+            {
+              "title": "Valor",
+              "text": "Quais métricas comprovam o ROI de iniciativas de fidelização?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Indicadores para monitorar",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Taxa de conversão por etapa do funil.",
+            "Tempo médio de resposta (SLA).",
+            "Net Promoter Score (NPS).",
+            "Customer Lifetime Value (CLV)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "TED",
+      "items": [
+        "Registrar no AVA, até às 22h de amanhã, um plano de ação de CRM com três iniciativas priorizadas.",
+        "Anexar evidências da demonstração (print ou descrição) que embasam as escolhas.",
+        "Indicar como cada iniciativa será medida (indicador, meta e frequência)."
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-18-crm-e-relacionamento-com-clientes",
+  "summary": "Explora conceitos e práticas de CRM, conectando jornada do cliente, automação e indicadores de fidelização a decisões estratégicas.",
+  "objectives": [
+    "Mapear jornada do cliente e relacioná-la a funcionalidades de CRM.",
+    "Avaliar impactos éticos e estratégicos de ações de relacionamento.",
+    "Planejar iniciativas de fidelização baseadas em dados."
+  ],
+  "competencies": [
+    "Gestão de relacionamento",
+    "Comunicação orientada ao cliente",
+    "Uso estratégico de dados"
+  ],
+  "skills": [
+    "Configurar fluxos básicos em plataformas CRM.",
+    "Interpretar indicadores de fidelização e satisfação.",
+    "Elaborar planos de ação alinhados à jornada do cliente."
+  ],
+  "outcomes": [
+    "Entrega plano de ação de CRM contextualizado ao estudo de caso.",
+    "Relaciona métricas a objetivos de retenção.",
+    "Compartilha reflexões éticas no AVA."
+  ],
+  "prerequisites": [
+    "Revisar análise de dashboards da aula 17.",
+    "Ler o material introdutório de CRM disponibilizado no AVA."
+  ],
+  "tags": ["aula-18-crm"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de plano de fidelização",
+      "url": "https://example.edu/tgs/modelos/plano-crm",
+      "type": "template"
+    },
+    {
+      "label": "Playbook de atendimento omnichannel",
+      "url": "https://example.edu/tgs/guias/playbook-omnichannel",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "PAYNE, Adrian; FROW, Pennie. Strategic Customer Management. Cambridge University Press, 2017.",
+    "KOTLER, Philip; KARTAJAYA, Hermawan; SETIAWAN, Iwan. Marketing 5.0. Wiley, 2021."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Plano de ação de CRM publicado com indicadores definidos."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
+}
