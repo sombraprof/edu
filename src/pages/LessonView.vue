@@ -27,6 +27,12 @@
         <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
       </header>
 
+      <LessonReadiness
+        :skills="lessonSkills"
+        :outcomes="lessonOutcomes"
+        :prerequisites="lessonPrerequisites"
+      />
+
       <div class="divider" role="presentation"></div>
 
       <LessonRenderer
@@ -49,6 +55,7 @@ import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Prism from 'prismjs';
+import LessonReadiness from '@/components/lesson/LessonReadiness.vue';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
 import type { NormalizedLesson } from '@/content/schema/lesson';
@@ -83,10 +90,23 @@ const lessonId = computed(() => String(route.params.lessonId));
 
 const lessonTitle = ref<string>('');
 const lessonObjective = ref<string>('');
+const lessonSkills = ref<string[]>([]);
+const lessonOutcomes = ref<string[]>([]);
+const lessonPrerequisites = ref<string[]>([]);
 
 type LessonContent = NormalizedLesson & { content: LessonBlock[] };
 
 const lessonData = shallowRef<LessonContent | null>(null);
+
+function normalizeStringList(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => (typeof entry === 'string' ? entry.trim() : ''))
+    .filter((entry): entry is string => entry.length > 0);
+}
 
 function highlight() {
   requestAnimationFrame(() => {
@@ -98,6 +118,9 @@ async function loadLesson() {
   lessonData.value = null;
   lessonTitle.value = '';
   lessonObjective.value = '';
+  lessonSkills.value = [];
+  lessonOutcomes.value = [];
+  lessonPrerequisites.value = [];
 
   try {
     const currentCourse = courseId.value;
@@ -133,7 +156,18 @@ async function loadLesson() {
         : typeof entry.description === 'string'
           ? entry.description
           : '';
-    lessonData.value = { ...data, content: data.content };
+
+    lessonSkills.value = normalizeStringList(data.skills);
+    lessonOutcomes.value = normalizeStringList(data.outcomes);
+    lessonPrerequisites.value = normalizeStringList(data.prerequisites);
+
+    lessonData.value = {
+      ...data,
+      content: data.content,
+      skills: [...lessonSkills.value],
+      outcomes: [...lessonOutcomes.value],
+      prerequisites: [...lessonPrerequisites.value],
+    };
 
     await nextTick();
     highlight();
@@ -141,6 +175,9 @@ async function loadLesson() {
     console.error('[LessonView] Failed to load lesson:', error);
     lessonTitle.value = 'Erro ao carregar aula';
     lessonObjective.value = 'Não foi possível localizar o material solicitado.';
+    lessonSkills.value = [];
+    lessonOutcomes.value = [];
+    lessonPrerequisites.value = [];
   }
 }
 
