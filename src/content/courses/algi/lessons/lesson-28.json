@@ -1,0 +1,143 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-28",
+  "title": "Aula 28: Boas Práticas e Manutenção de Funções",
+  "summary": "Consolida padrões de escrita, testes e documentação para funções em C, com foco em revisão de código e qualidade contínua.",
+  "objective": "Aplicar boas práticas de legibilidade, cobertura de testes e monitoramento de métricas em projetos modulares.",
+  "objectives": [
+    "Avaliar código usando checklist de boas práticas.",
+    "Instrumentar funções com logs e medições simples.",
+    "Planejar manutenção preventiva em projetos com funções reutilizáveis."
+  ],
+  "competencies": ["Qualidade de software", "Trabalho em equipe", "Aprendizagem contínua"],
+  "skills": [
+    "Conduzir revisão de código guiada por rubrica.",
+    "Utilizar ferramentas de cobertura para medir testes.",
+    "Criar plano de manutenção destacando riscos e prioridades."
+  ],
+  "outcomes": [
+    "Entrega relatório de revisão cruzada com checklist aplicado.",
+    "Apresenta métricas de cobertura ou logs coletados.",
+    "Define backlog de melhorias preventivas para o projeto modular."
+  ],
+  "prerequisites": [
+    "Completar projeto modular da aula 27.",
+    "Trazer testes atualizados executados localmente."
+  ],
+  "tags": ["boas-praticas", "qualidade", "testes"],
+  "duration": 110,
+  "modality": "hybrid",
+  "resources": [
+    {
+      "label": "Checklist de boas práticas em funções",
+      "type": "checklist",
+      "file": "courses/algi/boas-praticas-funcoes-checklist.md",
+      "url": "https://static.md3.education/courses/algi/boas-praticas-funcoes-checklist.md"
+    },
+    {
+      "label": "Rubrica de modularização",
+      "type": "rubric",
+      "file": "courses/algi/modularizacao-rubrica.md",
+      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
+    },
+    {
+      "label": "Playlist: Clean Code em C",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PLbIBj8vQhvm32N8DXJ5Z-zsU5sXJ8h_zu"
+    }
+  ],
+  "bibliography": [
+    "MARTIN, R. Clean Code. Prentice Hall, 2018.",
+    "MEYERS, S. Effective C. No Starch, 2021.",
+    "SPOLSKY, J. Joel on Software. Apress, 2010."
+  ],
+  "assessment": {
+    "type": "reflection",
+    "description": "Entrega individual de relatório de revisão cruzada com plano de manutenção de curto prazo."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Dinâmica da sessão",
+      "cards": [
+        {
+          "icon": "users",
+          "title": "Revisão entre pares",
+          "content": "Duplas trocam módulos e aplicam checklist para identificar melhorias."
+        },
+        {
+          "icon": "monitor",
+          "title": "Métricas",
+          "content": "Coleta de tempo de execução e cobertura usando ferramentas disponíveis."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Plano preventivo",
+          "content": "Organização de backlog técnico com ações de curto prazo."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Abertura: valor de manter funções pequenas e testáveis.",
+        "(20 min) Revisão demonstrativa: comparar função verbosa vs. refatorada.",
+        "(30 min) Rodada 1 de revisão cruzada com checklist.",
+        "(20 min) Coleta de métricas de cobertura/logs.",
+        "(20 min) Rodada 2 focada em naming e contratos.",
+        "(10 min) Síntese e definição de backlog preventivo."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Indicadores de qualidade",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Cobertura mínima de 70% para funções críticas.",
+            "Tempo médio de leitura < 2 minutos por função.",
+            "Zero warnings com `-Wall -Wextra -Werror`.",
+            "Checklist completo com justificativas para itens pendentes."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Curadoria de vídeos",
+      "videos": [
+        { "youtubeId": "E8I19uA-wGY", "title": "Como revisar código de maneira efetiva" },
+        { "youtubeId": "s0g4ty29wqo", "title": "Cobertura de testes em C com gcov" }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Perguntas para revisão",
+      "cards": [
+        { "title": "Responsabilidade", "content": "Esta função faz apenas uma coisa?" },
+        { "title": "Testabilidade", "content": "Há casos negativos cobrindo erros e limites?" },
+        {
+          "title": "Observabilidade",
+          "content": "Existe log ou retorno que ajude a diagnosticar problemas?"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Entregáveis da aula",
+      "items": [
+        "Checklist preenchido e anexado no repositório.",
+        "Cobertura registrada (print ou arquivo de relatório).",
+        "Plano de manutenção submetido ao mural da turma."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-13T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia interno de qualidade 2025"]
+  }
+}

@@ -270,25 +270,45 @@
       "id": "lesson-25",
       "title": "Aula 25: Introdução a Funções e Modularização",
       "file": "lesson-25.json",
-      "available": false
+      "available": true,
+      "description": "Introduz funções em C destacando protótipos, escopo e os ganhos de modularizar programas sequenciais.",
+      "summary": "Motivação para modularizar, criação de protótipos e laboratório guiado com testes base.",
+      "tags": ["funcoes", "modularizacao", "qualidade"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-26",
       "title": "Aula 26: Funções com Parâmetros e Retorno",
       "file": "lesson-26.json",
-      "available": false
+      "available": true,
+      "description": "Aprofunda o uso de parâmetros, ponteiros e contratos de funções com apoio de laboratório e testes.",
+      "summary": "Passagem por valor e referência, escrita de contratos e adaptação da suíte de testes.",
+      "tags": ["funcoes", "parametros", "ponteiros"],
+      "duration": 115,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-27",
       "title": "Aula 27: Programas Modulares com Múltiplas Funções",
       "file": "lesson-27.json",
-      "available": false
+      "available": true,
+      "description": "Orienta squads na construção de projeto modular com headers dedicados, Makefile e responsabilidades claras.",
+      "summary": "Blueprint modular, criação de headers e build incremental com testes por módulo.",
+      "tags": ["modularizacao", "headers", "makefile"],
+      "duration": 125,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-28",
       "title": "Aula 28: Boas Práticas em Funções",
       "file": "lesson-28.json",
-      "available": false
+      "available": true,
+      "description": "Consolida padrões de revisão, métricas e manutenção preventiva para código modular em C.",
+      "summary": "Revisão cruzada com checklist, coleta de métricas e planejamento de manutenção preventiva.",
+      "tags": ["boas-praticas", "qualidade", "testes"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-29",

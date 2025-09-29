@@ -1,0 +1,147 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-25",
+  "title": "Aula 25: Introdução a Funções e Modularização",
+  "summary": "Motiva a decomposição de programas em funções, introduzindo protótipos, escopo e primeiros padrões de modularização.",
+  "objective": "Compreender por que dividir o código em funções torna programas mais legíveis, testáveis e sustentáveis.",
+  "objectives": [
+    "Identificar sinais de que um algoritmo deve ser quebrado em funções.",
+    "Escrever protótipos simples com parâmetros e retorno.",
+    "Organizar arquivo C com seções de protótipos, main e funções auxiliares."
+  ],
+  "competencies": ["Pensamento computacional", "Design de software", "Depuração"],
+  "skills": [
+    "Declarar e chamar funções com e sem retorno.",
+    "Documentar o propósito de cada função em comentários breves.",
+    "Configurar projeto com separação de protótipos e implementação."
+  ],
+  "outcomes": [
+    "Entrega um programa que utiliza ao menos três funções bem nomeadas.",
+    "Publica comentário explicando responsabilidade de cada função.",
+    "Anexa registro de testes básicos executados nas funções criadas."
+  ],
+  "prerequisites": [
+    "Rever laços e condicionais (aulas 19-24).",
+    "Trazer compilador configurado com flags -Wall -Wextra."
+  ],
+  "tags": ["funcoes", "modularizacao", "c-basico"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Rubrica de modularização",
+      "type": "rubric",
+      "file": "courses/algi/modularizacao-rubrica.md",
+      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
+    },
+    {
+      "label": "Suíte de testes base para funções",
+      "type": "code",
+      "file": "courses/algi/funcoes-unit-tests.c",
+      "url": "https://static.md3.education/courses/algi/funcoes-unit-tests.c"
+    },
+    {
+      "label": "Playlist: Funções em C (Programação Descomplicada)",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PL8iN9FQ7_jt6t-6eJX0sUqIxon1H2mS2I"
+    }
+  ],
+  "bibliography": [
+    "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019.",
+    "HARVEY, B.; WRIGHT, J. Think C. O'Reilly, 2023.",
+    "KERNIGHAN, B.; RITCHIE, D. A Linguagem de Programação C. Prentice Hall, 2020."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Miniatividade individual: refatorar um algoritmo sequencial em funções com protótipo documentado."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da sessão",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Motivação",
+          "content": "Histórias reais de bugs resolvidos após modularização e revisão de responsabilidades."
+        },
+        {
+          "icon": "code",
+          "title": "Demonstração",
+          "content": "Construção de função `double calcular_media(...)` ao vivo destacando protótipo, chamada e retorno."
+        },
+        {
+          "icon": "users",
+          "title": "Laboratório guiado",
+          "content": "Times refatoram exercício da aula 23 dividindo em funções reutilizáveis."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h00)",
+      "items": [
+        "(10 min) Check-in: dores de manutenção em códigos monolíticos.",
+        "(20 min) Anatomia de uma função: protótipo, assinatura e escopo.",
+        "(25 min) Live coding: separando cálculos e impressões.",
+        "(30 min) Oficina em duplas: refatorar algoritmo de triagem médica.",
+        "(20 min) Revisão cruzada usando a rubrica de modularização.",
+        "(10 min) Configuração da suíte de testes base.",
+        "(5 min) TED com compromissos para a próxima aula."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Por que modularizar?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Funções encapsulam regras de negócio e reduzem a repetição de código, favorecendo manutenção e testes."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Evita duplicação de lógica crítica.",
+            "Facilita leitura com nomes expressivos.",
+            "Permite testes unitários direcionados."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Checklist de um protótipo bem escrito",
+      "headers": ["Item", "Pergunta", "Status"],
+      "rows": [
+        [{ "value": "Nome" }, { "value": "Representa ação clara?" }, { "value": "✅/⚠️" }],
+        [
+          { "value": "Parâmetros" },
+          { "value": "Inclui apenas o necessário?" },
+          { "value": "✅/⚠️" }
+        ],
+        [{ "value": "Retorno" }, { "value": "Comunica sucesso/erro?" }, { "value": "✅/⚠️" }]
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Exemplo inicial",
+      "code": "double calcular_media(double soma, int quantidade) {\n  if (quantidade <= 0) {\n    return 0.0;\n  }\n  return soma / quantidade;\n}\n\nint main(void) {\n  double media = calcular_media(42.0, 6);\n  printf(\"Media: %.2f\\n\", media);\n  return 0;\n}\n"
+    },
+    {
+      "type": "checklist",
+      "title": "Antes de entregar",
+      "items": [
+        "Usei nomes verbais para todas as funções.",
+        "Adicionei comentários de propósito.",
+        "Rodei a suíte de testes fornecida e registrei os resultados."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-10T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Diário de bordo do módulo de funções 2025"]
+  }
+}
