@@ -1,6 +1,5 @@
 import { defineConfig, type PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import { VitePWA } from 'vite-plugin-pwa';
 import path from 'path';
 import { mkdir, writeFile } from 'fs/promises';
 import { BASE_COLOR_SCHEMES, FALLBACK_COLOR_TOKENS } from './src/theme/base-palette';
@@ -115,40 +114,101 @@ function materialBasePalettePlugin(): PluginOption {
   };
 }
 
+function serviceWorkerPlugin(base: string): PluginOption {
+  return {
+    name: 'edu-service-worker',
+    apply: 'build',
+    generateBundle(_, bundle) {
+      const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+      const precache = new Set<string>();
+
+      for (const file of Object.values(bundle)) {
+        if ((file.type === 'chunk' || file.type === 'asset') && !file.fileName.endsWith('.map')) {
+          precache.add(`${normalizedBase}${file.fileName}`);
+        }
+      }
+
+      const staticAssets = ['index.html', 'offline.html', 'manifest.webmanifest', 'favicon.svg'];
+      staticAssets.forEach((asset) => precache.add(`${normalizedBase}${asset}`));
+
+      const precacheList = JSON.stringify(Array.from(precache).sort());
+      const offlineUrl = `${normalizedBase}offline.html`;
+      const swSource = [
+        "const CACHE_NAME = 'edu-precache-v1';",
+        `const PRECACHE_URLS = ${precacheList};`,
+        `const OFFLINE_URL = '${offlineUrl}';`,
+        "self.addEventListener('install', (event) => {",
+        '  event.waitUntil(',
+        '    caches',
+        '      .open(CACHE_NAME)',
+        '      .then((cache) => cache.addAll(PRECACHE_URLS))',
+        '      .then(() => self.skipWaiting())',
+        '  );',
+        '});',
+        "self.addEventListener('activate', (event) => {",
+        '  event.waitUntil(',
+        '    caches',
+        '      .keys()',
+        '      .then((keys) =>',
+        '        Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))',
+        '      )',
+        '      .then(() => self.clients.claim())',
+        '  );',
+        '});',
+        "self.addEventListener('fetch', (event) => {",
+        '  const { request } = event;',
+        "  if (request.method !== 'GET') {",
+        '    return;',
+        '  }',
+        "  if (request.mode === 'navigate') {",
+        '    event.respondWith(',
+        '      (async () => {',
+        '        try {',
+        '          const networkResponse = await fetch(request);',
+        '          const cache = await caches.open(CACHE_NAME);',
+        '          cache.put(request, networkResponse.clone());',
+        '          return networkResponse;',
+        '        } catch (error) {',
+        '          const cache = await caches.open(CACHE_NAME);',
+        '          const cached = await cache.match(request);',
+        '          return cached ?? (await cache.match(OFFLINE_URL));',
+        '        }',
+        '      })()',
+        '    );',
+        '    return;',
+        '  }',
+        '  const url = new URL(request.url);',
+        '  if (url.origin === self.location.origin) {',
+        '    event.respondWith(',
+        '      (async () => {',
+        '        const cached = await caches.match(request);',
+        '        if (cached) {',
+        '          return cached;',
+        '        }',
+        '        const response = await fetch(request);',
+        '        if (response && response.ok) {',
+        '          const cache = await caches.open(CACHE_NAME);',
+        '          cache.put(request, response.clone());',
+        '        }',
+        '        return response;',
+        '      })()',
+        '    );',
+        '  }',
+        '});',
+        '',
+      ].join('\n');
+
+      this.emitFile({ type: 'asset', fileName: 'service-worker.js', source: swSource });
+    },
+  };
+}
+
 export default defineConfig(({ command }) => {
   const base = command === 'build' ? '/edu/' : '/';
 
   return {
     base,
-    plugins: [
-      materialBasePalettePlugin(),
-      vue(),
-      VitePWA({
-        registerType: 'autoUpdate',
-        includeAssets: ['favicon.svg'],
-        manifest: {
-          name: 'EDU - Courses Hub',
-          short_name: 'EDU',
-          start_url: base,
-          scope: base,
-          display: 'standalone',
-          background_color: '#0B0F19',
-          theme_color: '#0B0F19',
-          icons: [
-            {
-              src: 'favicon.svg',
-              sizes: 'any',
-              type: 'image/svg+xml',
-            },
-          ],
-        },
-        workbox: {
-          // Ensure SPA fallback works on static hosts like GitHub Pages
-          navigateFallback: `${base}index.html`,
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff,woff2}'],
-        },
-      }),
-    ],
+    plugins: [materialBasePalettePlugin(), vue(), serviceWorkerPlugin(base)],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
