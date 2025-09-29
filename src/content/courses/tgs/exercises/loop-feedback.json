@@ -1,8 +1,8 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "loop-feedback",
-  "title": "Exercício — Análise de feedback loops",
-  "summary": "Identifique ciclos reforçadores e balanceadores em um sistema real, propondo indicadores de monitoramento.",
+  "title": "Exercício — Análise de loops de feedback",
+  "summary": "Identifique ciclos reforçadores e balanceadores em um sistema real e proponha indicadores de monitoramento e intervenções.",
   "content": [
     {
       "type": "contentBlock",
@@ -10,33 +10,65 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Escolha um sistema estudado em aula e descubra como loops de feedback sustentam ou desequilibram seu funcionamento."
+          "text": "Investigue como loops de feedback sustentam, amplificam ou enfraquecem o funcionamento de um sistema estudado em aula."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Passos",
+      "title": "Preparação",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Releia o mapa do sistema produzido anteriormente e atualize atores, recursos e indicadores, se necessário.",
+            "Garanta acesso às métricas ou registros que ilustram o comportamento histórico do sistema.",
+            "Combine com o grupo qual ferramenta será usada para diagramar loops (causal loop diagram, CLD)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Passo a passo",
       "content": [
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Mapeie o contexto",
-              "text": "Liste atores, recursos e fronteiras do sistema."
+              "title": "Selecione comportamentos-chave",
+              "text": "Escolha tendências observáveis (crescimento de usuários, queda de qualidade, aumento de custos) que merecem investigação."
             },
             {
-              "title": "Identifique loops",
-              "text": "Registre ao menos dois loops reforçadores e dois balanceadores, destacando atrasos."
+              "title": "Identifique loops reforçadores",
+              "text": "Descreva pelo menos dois ciclos que ampliam o comportamento analisado, explicitando variáveis, sinais (+/−) e atrasos."
             },
             {
-              "title": "Defina indicadores",
-              "text": "Associe métricas que sinalizem quando o loop está saudável ou problemático."
+              "title": "Identifique loops balanceadores",
+              "text": "Mapeie pelo menos dois ciclos que estabilizam o sistema, indicando os mecanismos de correção envolvidos."
             },
             {
-              "title": "Prepare síntese",
-              "text": "Produza um parágrafo explicando possíveis intervenções e seus impactos."
+              "title": "Avalie indicadores",
+              "text": "Associe métricas existentes ou proponha novas medições que revelem o estado de cada loop."
+            },
+            {
+              "title": "Proponha intervenções",
+              "text": "Redija hipóteses sobre ações possíveis e seus impactos esperados em cada ciclo (reforço, amortecimento, mitigação de atrasos)."
             }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Recursos de apoio",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "📄 Ficha de trabalho: Identificando loops de feedback (disponível no drive do curso).",
+            "🎧 Podcast 'System Thinking for Social Change' — episódio sobre causal loop diagrams (https://systemsthinkingxchange.org/podcast).",
+            "🛠️ Ferramenta gratuita Loopy (https://ncase.me/loopy/) para experimentar e visualizar ciclos dinâmicos."
           ]
         }
       ]
@@ -45,9 +77,9 @@
       "type": "checklist",
       "title": "Entrega",
       "items": [
-        "Diagrama com loops identificados.",
-        "Tabela com indicadores e hipóteses de intervenção.",
-        "Texto-síntese com aprendizados do grupo."
+        "Diagrama com loops identificados, destacando sinais de relação e atrasos.",
+        "Tabela ou quadro com indicadores propostos e hipótese de intervenção associada.",
+        "Texto-síntese com principais aprendizados, riscos e sugestões de monitoramento contínuo."
       ]
     }
   ]
