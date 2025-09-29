@@ -1,0 +1,185 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-33",
+  "title": "Aula 33: Matrizes 2D e Geração de Tabelas",
+  "summary": "Apresenta matrizes bidimensionais em C para organizar dados tabulares e gerar relatórios estruturados.",
+  "objective": "Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar tabelas formatadas.",
+  "objectives": [
+    "Declarar matrizes estáticas e inicializá-las com dados reais.",
+    "Percorrer linhas e colunas utilizando loops aninhados.",
+    "Gerar tabelas formatadas a partir de matrizes."
+  ],
+  "competencies": ["Modelagem de dados", "Comunicação técnica"],
+  "skills": [
+    "Planejar percursos linha-coluna com controle de índices.",
+    "Aplicar formatação alinhada com printf para dados tabulares.",
+    "Interpretar matrizes como coleções de vetores."
+  ],
+  "outcomes": [
+    "Implementa programa que imprime tabela de presença a partir de matriz 2D.",
+    "Desenha fluxograma MD3 com loops aninhados.",
+    "Documenta estratégias de testes para percorrer matrizes."
+  ],
+  "prerequisites": [
+    "Domínio de vetores e loops (Aulas 30-31).",
+    "Capacidade de formatar saídas com printf."
+  ],
+  "tags": ["matrizes", "arrays", "loops-aninhados"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Dataset de presença em laboratório (CSV)",
+      "type": "dataset",
+      "file": "courses/algi/matriz-laboratorio.csv",
+      "url": "https://static.md3.education/courses/algi/matriz-laboratorio.csv"
+    },
+    {
+      "label": "CS50 - Lecture Arrays (2D)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=Q0qkBhe-Z4w&t=1800s"
+    },
+    {
+      "label": "Khan Academy - Matriz como tabela",
+      "type": "course",
+      "url": "https://pt.khanacademy.org/math/precalculus/precalc-matrices/introduction-to-matrices/a/introduction-to-matrices"
+    }
+  ],
+  "bibliography": [
+    "DEITEL, P.; DEITEL, H. C: Como Programar. 9. ed. Pearson, 2022.",
+    "ZIVIANI, N. Projetos de Algoritmos em C. Cengage, 2021."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Percurso da aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Contexto",
+          "content": "Por que representar tabelas como matrizes? (10 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Sintaxe",
+          "content": "Declaração e inicialização de matrizes (25 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Loops aninhados",
+          "content": "Percorrer linhas e colunas (25 min)."
+        },
+        {
+          "icon": "database",
+          "title": "Formatação",
+          "content": "Construir relatório com printf (25 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Aplicação",
+          "content": "Mini-projeto com dataset de presença (20 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Warm-up com quiz sobre índices.",
+        "(20 min) Aula expositiva com slides e md3Table de sintaxe.",
+        "(25 min) Demonstração de loops aninhados em C.",
+        "(30 min) Oficina: gerar tabela de presença a partir do CSV.",
+        "(20 min) Revisão de código em duplas.",
+        "(10 min) Orientação da prática pós-aula."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Sintaxe de matrizes em C",
+      "headers": ["Elemento", "Exemplo", "Descrição"],
+      "rows": [
+        ["Declaração", "int matriz[3][4];", "3 linhas, 4 colunas não inicializadas."],
+        ["Inicialização", "int notas[2][3] = {{7,8,9},{6,5,10}};", "Valores linha a linha."],
+        ["Acesso", "matriz[i][j]", "Primeiro índice = linha, segundo = coluna."],
+        ["Percurso", "for (i) for (j)", "Loops aninhados para percorrer todos os elementos."],
+        ["Constante de coluna", "#define COL 4", "Facilita manutenção de dimensões."]
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxograma de impressão da matriz",
+      "nodes": [
+        { "id": "start", "type": "start", "label": "Início" },
+        { "id": "initI", "type": "process", "label": "i = 0" },
+        { "id": "loopI", "type": "loop", "label": "Enquanto i < linhas" },
+        { "id": "initJ", "type": "process", "label": "j = 0" },
+        { "id": "loopJ", "type": "loop", "label": "Enquanto j < colunas" },
+        { "id": "print", "type": "process", "label": "Imprimir matriz[i][j]" },
+        { "id": "incJ", "type": "process", "label": "j++" },
+        { "id": "newline", "type": "process", "label": "Imprimir \n" },
+        { "id": "incI", "type": "process", "label": "i++" },
+        { "id": "end", "type": "end", "label": "Fim" }
+      ],
+      "edges": [
+        ["start", "initI"],
+        ["initI", "loopI"],
+        ["loopI", "initJ"],
+        ["initJ", "loopJ"],
+        ["loopJ", "print"],
+        ["print", "incJ"],
+        ["incJ", "loopJ"],
+        ["loopJ", "newline", "fim"],
+        ["newline", "incI"],
+        ["incI", "loopI"],
+        ["loopI", "end", "fim"]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo prático: tabela de presença",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O arquivo matriz-laboratorio.csv contém a presença (0/1) de 4 encontros para 6 estudantes."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            { "text": "Importar os dados e armazenar em matriz int[6][4]." },
+            { "text": "Calcular total de presenças por estudante e por encontro." },
+            { "text": "Imprimir tabela com cabeçalhos e totais usando printf alinhado." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Para continuar estudando",
+      "videos": [
+        { "youtubeId": "Q0qkBhe-Z4w", "title": "CS50 2023 - Arrays (trecho de matrizes)" },
+        { "youtubeId": "0oGJTQCy4cQ", "title": "Khan Academy - Introdução a matrizes" }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Atividades pós-aula",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Adicionar coluna de porcentagem de presença na tabela.",
+            "Criar função que retorna a linha com maior frequência de presenças.",
+            "Postar captura do relatório gerado no fórum da disciplina."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-13T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Checklist de laboratório 2D Arrays"]
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-32",
+  "title": "Aula 32: Buscas em Vetores",
+  "summary": "Introduz algoritmos de busca linear e variantes com sentinela, conectando-os a cenários de catálogo e relatórios.",
+  "objective": "Selecionar e implementar estratégias de busca apropriadas para localizar elementos em vetores não ordenados.",
+  "objectives": [
+    "Implementar busca linear tradicional e com sentinela.",
+    "Analisar custo temporal das buscas e seu impacto em coleções grandes.",
+    "Planejar saídas informativas quando o elemento não é encontrado."
+  ],
+  "competencies": ["Resolução de problemas", "Análise de algoritmos"],
+  "skills": [
+    "Documentar pré e pós-condições de funções de busca.",
+    "Comparar abordagens a partir de tabelas de desempenho.",
+    "Construir fluxogramas que explicitem decisões de parada."
+  ],
+  "outcomes": [
+    "Entrega função buscaLinear que retorna índice ou -1.",
+    "Explica vantagens da técnica do sentinela em relatório curto.",
+    "Relaciona número de comparações com tamanho do vetor."
+  ],
+  "prerequisites": [
+    "Familiaridade com loops for/while.",
+    "Conhecimento de operadores relacionais e condicionais."
+  ],
+  "tags": ["vetores", "busca", "arrays"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Catálogo de produtos (CSV)",
+      "type": "dataset",
+      "file": "courses/algi/busca-catalogo.csv",
+      "url": "https://static.md3.education/courses/algi/busca-catalogo.csv"
+    },
+    {
+      "label": "CS50 Shorts - Linear Search",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=9YddVVsdG5A"
+    },
+    {
+      "label": "Khan Academy - Pesquisa linear",
+      "type": "course",
+      "url": "https://pt.khanacademy.org/computing/computer-science/algorithms#linear-search"
+    }
+  ],
+  "bibliography": [
+    "CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 4. ed. MIT Press, 2022.",
+    "LAFORE, R. Estruturas de Dados & Algoritmos em C. Pearson, 2021."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro da aula",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "Provocação",
+          "content": "Quantas comparações você faria para achar um livro? (10 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Busca linear",
+          "content": "Implementação passo a passo (25 min)."
+        },
+        {
+          "icon": "settings",
+          "title": "Sentinela",
+          "content": "Otimização para evitar checagem duplicada (20 min)."
+        },
+        {
+          "icon": "cpu",
+          "title": "Métricas",
+          "content": "Coletar número de comparações por tamanho (25 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Debrief",
+          "content": "Compartilhar heurísticas e limitações (10 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Aquecimento com estimativas de busca.",
+        "(20 min) Demonstração da função buscaLinear no dataset.",
+        "(20 min) Refatoração para versão com sentinela.",
+        "(30 min) Laboratório: medir comparações para elementos existentes e ausentes.",
+        "(20 min) Discussão guiada sobre eficiência.",
+        "(10 min) Briefing da atividade pós-aula."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Comparativo de variantes de busca",
+      "headers": ["Algoritmo", "Pré-condição", "Retorno", "Comparações médias"],
+      "rows": [
+        ["Linear simples", "Vetor não ordenado", "Índice ou -1", "n/2"],
+        [
+          "Linear com sentinela",
+          "Vetor não ordenado com espaço extra",
+          "Índice ou n",
+          "n/2 (menos checagens de limite)"
+        ],
+        ["Busca binária", "Vetor ordenado", "Índice ou -1", "log2 n"]
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxograma da busca linear",
+      "nodes": [
+        { "id": "start", "type": "start", "label": "Início" },
+        { "id": "init", "type": "process", "label": "i = 0" },
+        { "id": "loop", "type": "loop", "label": "Enquanto i < n" },
+        { "id": "decision", "type": "decision", "label": "v[i] == chave?" },
+        { "id": "found", "type": "process", "label": "Retornar i" },
+        { "id": "inc", "type": "process", "label": "i++" },
+        { "id": "notfound", "type": "process", "label": "Retornar -1" },
+        { "id": "end", "type": "end", "label": "Fim" }
+      ],
+      "edges": [
+        ["start", "init"],
+        ["init", "loop"],
+        ["loop", "decision"],
+        ["decision", "found", "sim"],
+        ["decision", "inc", "não"],
+        ["inc", "loop"],
+        ["loop", "notfound", "fim"],
+        ["notfound", "end"],
+        ["found", "end"]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo prático: localizar SKU no catálogo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use o arquivo busca-catalogo.csv (código;nome;estoque) para localizar um SKU informado via teclado e imprimir o registro."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            { "text": "Carregar os códigos em vetor inteiro e nomes em vetor paralelo." },
+            { "text": "Utilizar busca linear para encontrar o índice correspondente." },
+            { "text": "Apresentar mensagem clara quando o SKU não existir." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Recomendações de estudo",
+      "videos": [
+        { "youtubeId": "9YddVVsdG5A", "title": "CS50 Shorts - Linear Search" },
+        { "youtubeId": "qN3b9YzKz7w", "title": "Khan Academy - Linear search walkthrough" }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Atividades pós-aula",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Implementar buscaLinearSentinela e comparar tempo com a versão simples.",
+            "Redigir parágrafo explicando quando migrar para busca binária.",
+            "Subir resultados da medição para planilha colaborativa da turma."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-12T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Guia interno de algoritmos de busca 2024"]
+  }
+}

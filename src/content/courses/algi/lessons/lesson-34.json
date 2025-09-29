@@ -1,0 +1,221 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-34",
+  "title": "Aula 34: Manipulações com Matrizes",
+  "summary": "Aprofunda o trabalho com matrizes 2D realizando transposição, somas e multiplicação para resolver problemas de relatórios e transformações.",
+  "objective": "Aplicar operações clássicas de matrizes para gerar indicadores combinados e preparar o terreno para algoritmos de processamento de imagens e dados.",
+  "objectives": [
+    "Implementar funções para transpor e somar matrizes.",
+    "Executar multiplicação matricial com três loops.",
+    "Validar dimensões e tratar entradas inválidas."
+  ],
+  "competencies": ["Pensamento algorítmico", "Raciocínio matemático"],
+  "skills": [
+    "Estruturar loops aninhados para combinações linha x coluna.",
+    "Utilizar matrizes auxiliares sem desperdício de memória.",
+    "Comunicar resultados em formato tabular e visual."
+  ],
+  "outcomes": [
+    "Entrega funções transpose e multiply com testes básicos.",
+    "Gera relatório combinando duas matrizes de indicadores.",
+    "Interpreta resultados da multiplicação no contexto de distribuição de recursos."
+  ],
+  "prerequisites": ["Compreensão de matrizes 2D (Aula 33).", "Conforto com loops for aninhados."],
+  "tags": ["matrizes", "arrays", "multiplicacao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Matrizes de indicadores (JSON)",
+      "type": "dataset",
+      "file": "courses/algi/matriz-multiplicacao-exemplo.json",
+      "url": "https://static.md3.education/courses/algi/matriz-multiplicacao-exemplo.json"
+    },
+    {
+      "label": "CS50 - Short: Matrix Multiplication",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=ykP1t9hYx7A"
+    },
+    {
+      "label": "Khan Academy - Multiplicação de matrizes",
+      "type": "course",
+      "url": "https://pt.khanacademy.org/math/algebra-home/alg-matrices/alg-matrix-multiplication/a/matrix-multiplication"
+    }
+  ],
+  "bibliography": [
+    "PRESSMAN, R. Engenharia de Software. McGraw Hill, 2023 (capítulo sobre métricas e matrizes).",
+    "STANLEY, R. Algoritmos Numéricos em C. Pioneira, 2020."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro detalhado",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Revisão",
+          "content": "Recapitular declaração de matrizes e loops (10 min)."
+        },
+        {
+          "icon": "settings",
+          "title": "Transposição",
+          "content": "Converter linhas em colunas com matriz auxiliar (25 min)."
+        },
+        {
+          "icon": "database",
+          "title": "Soma e diferença",
+          "content": "Construir funções elementwise (20 min)."
+        },
+        {
+          "icon": "cpu",
+          "title": "Multiplicação",
+          "content": "Multiplicar matrizes A(m x n) e B(n x p) (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Aplicação guiada",
+          "content": "Usar dataset para combinar indicadores e gerar insights (30 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h00)",
+      "items": [
+        "(10 min) Check-in com quiz sobre matrizes.",
+        "(20 min) Código ao vivo da função transpose.",
+        "(15 min) Exercício individual: soma de matrizes.",
+        "(35 min) Workshop: multiplicação com validação de dimensões.",
+        "(25 min) Estudo de caso: combinar matrizes de indicadores do JSON.",
+        "(15 min) Apresentação rápida dos resultados por squads."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Operações com matrizes",
+      "headers": ["Operação", "Pré-condição", "Assinatura sugerida", "Observações"],
+      "rows": [
+        [
+          "Transposição",
+          "Matriz m x n",
+          "void transpose(int src[m][n], int dst[n][m])",
+          "Usar matrizes distintas para evitar sobrescrita."
+        ],
+        [
+          "Soma",
+          "Mesmas dimensões",
+          "void add(int A[m][n], int B[m][n], int C[m][n])",
+          "Executar operação elemento a elemento."
+        ],
+        [
+          "Subtração",
+          "Mesmas dimensões",
+          "void subtract(int A[m][n], int B[m][n], int C[m][n])",
+          "Útil para variação entre indicadores."
+        ],
+        [
+          "Multiplicação",
+          "A m x n, B n x p",
+          "void multiply(int A[m][n], int B[n][p], int C[m][p])",
+          "Três loops e acumulador local."
+        ],
+        [
+          "Escalonamento",
+          "Qualquer dimensão",
+          "void scale(float A[m][n], float fator)",
+          "Multiplica cada elemento pelo fator."
+        ]
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxograma da multiplicação de matrizes",
+      "nodes": [
+        { "id": "start", "type": "start", "label": "Início" },
+        { "id": "check", "type": "decision", "label": "n == colunasA && n == linhasB?" },
+        { "id": "error", "type": "process", "label": "Exibir erro de dimensão" },
+        { "id": "initI", "type": "process", "label": "i = 0" },
+        { "id": "loopI", "type": "loop", "label": "Enquanto i < m" },
+        { "id": "initJ", "type": "process", "label": "j = 0" },
+        { "id": "loopJ", "type": "loop", "label": "Enquanto j < p" },
+        { "id": "acc", "type": "process", "label": "soma = 0" },
+        { "id": "initK", "type": "process", "label": "k = 0" },
+        { "id": "loopK", "type": "loop", "label": "Enquanto k < n" },
+        { "id": "mul", "type": "process", "label": "soma += A[i][k] * B[k][j]" },
+        { "id": "incK", "type": "process", "label": "k++" },
+        { "id": "assign", "type": "process", "label": "C[i][j] = soma" },
+        { "id": "incJ", "type": "process", "label": "j++" },
+        { "id": "incI", "type": "process", "label": "i++" },
+        { "id": "end", "type": "end", "label": "Fim" }
+      ],
+      "edges": [
+        ["start", "check"],
+        ["check", "error", "não"],
+        ["error", "end"],
+        ["check", "initI", "sim"],
+        ["initI", "loopI"],
+        ["loopI", "initJ"],
+        ["initJ", "loopJ"],
+        ["loopJ", "acc"],
+        ["acc", "initK"],
+        ["initK", "loopK"],
+        ["loopK", "mul"],
+        ["mul", "incK"],
+        ["incK", "loopK"],
+        ["loopK", "assign", "fim"],
+        ["assign", "incJ"],
+        ["incJ", "loopJ"],
+        ["loopJ", "incI", "fim"],
+        ["incI", "loopI"],
+        ["loopI", "end", "fim"]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo prático: cruzando indicadores de campus",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O arquivo matriz-multiplicacao-exemplo.json traz matrizes A (alocação de tutores por curso) e B (horas planejadas por atividade)."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            { "text": "Validar dimensões antes de multiplicar." },
+            { "text": "Gerar matriz resultado C representando horas totais de tutores por curso." },
+            { "text": "Imprimir resumo destacando curso com maior carga resultante." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Referências audiovisuais",
+      "videos": [
+        { "youtubeId": "ykP1t9hYx7A", "title": "CS50 Short - Matrix Multiplication" },
+        { "youtubeId": "zjMuIxRvygQ", "title": "Khan Academy - Matrix multiplication" }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Atividades pós-aula",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Extender o código para aceitar dimensões informadas pelo usuário.",
+            "Comparar desempenho com e sem matrizes auxiliares usando clock().",
+            "Escrever breve relato conectando multiplicação de matrizes a análise de dados reais da instituição."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-14T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Oficina de matrizes avançadas 2025"]
+  }
+}

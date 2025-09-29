@@ -321,31 +321,56 @@
       "id": "lesson-30",
       "title": "Aula 30: Introdução a Vetores (Arrays)",
       "file": "lesson-30.json",
-      "available": false
+      "available": true,
+      "description": "Apresenta vetores como coleções homogêneas, destacando sintaxe em C e cálculo de estatísticas básicas.",
+      "summary": "Declaração, inicialização e percurso de vetores para média, mínimo e máximo usando datasets reais.",
+      "tags": ["vetores", "arrays", "estatistica"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-31",
       "title": "Aula 31: Operações sobre Vetores",
       "file": "lesson-31.json",
-      "available": false
+      "available": true,
+      "description": "Explora operações de somatório, normalização e geração de tabelas de frequência com vetores.",
+      "summary": "Funções reutilizáveis para manipular vetores e produzir tabelas e indicadores percentuais.",
+      "tags": ["vetores", "arrays", "manipulacao"],
+      "duration": 115,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-32",
       "title": "Aula 32: Busca e Contagem em Vetores",
       "file": "lesson-32.json",
-      "available": false
+      "available": true,
+      "description": "Discute algoritmos de busca linear e variações com sentinela aplicados a catálogos e inventários.",
+      "summary": "Implementação de busca linear, análise de comparações e boas práticas de relatórios de resultado.",
+      "tags": ["vetores", "busca", "arrays"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-33",
       "title": "Aula 33: Matrizes (Arrays 2D)",
       "file": "lesson-33.json",
-      "available": false
+      "available": true,
+      "description": "Introduz matrizes 2D, loops aninhados e geração de tabelas formatadas com dados de presença.",
+      "summary": "Declaração de matrizes, percursos linha/coluna e relatório tabular completo a partir de dataset real.",
+      "tags": ["matrizes", "arrays", "loops-aninhados"],
+      "duration": 115,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-34",
       "title": "Aula 34: Operações sobre Matrizes",
       "file": "lesson-34.json",
-      "available": false
+      "available": true,
+      "description": "Aprofunda manipulações matriciais com transposição, somas e multiplicação aplicada a indicadores.",
+      "summary": "Implementação de operações matriciais clássicas e estudo de caso combinando matrizes de indicadores.",
+      "tags": ["matrizes", "arrays", "multiplicacao"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-35",

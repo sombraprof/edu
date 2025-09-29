@@ -1,0 +1,199 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-31",
+  "title": "Aula 31: Operações e Transformações com Vetores",
+  "summary": "Explora padrões de somatório, normalização e geração de tabelas a partir de vetores, consolidando o domínio de loops e acumuladores.",
+  "objective": "Aplicar percursos sobre vetores para executar operações agregadas e construir tabelas de frequência ou rankings simples.",
+  "objectives": [
+    "Implementar funções para somar, normalizar e copiar vetores.",
+    "Construir tabelas de frequência a partir de dados numéricos.",
+    "Interpretar impactos de operações em tempo e memória."
+  ],
+  "competencies": ["Pensamento crítico", "Análise de dados"],
+  "skills": [
+    "Separar operações em funções reutilizáveis.",
+    "Utilizar acumuladores e contadores com clareza semântica.",
+    "Documentar resultados em tabelas alinhadas ao padrão MD3."
+  ],
+  "outcomes": [
+    "Entrega funções em C para somatório, média móvel e normalização de vetores.",
+    "Gera tabela de frequência com contagem e percentual.",
+    "Avalia custo de copiar vetores versus trabalhar in-place."
+  ],
+  "prerequisites": [
+    "Compreensão de vetores e loops (Aula 30).",
+    "Conhecimento de funções básicas em C."
+  ],
+  "tags": ["vetores", "arrays", "operacoes"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Dataset de vendas diárias (CSV)",
+      "type": "dataset",
+      "file": "courses/algi/vetores-vendas.csv",
+      "url": "https://static.md3.education/courses/algi/vetores-vendas.csv"
+    },
+    {
+      "label": "CS50 - PSet Arrays Walkthrough",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=4QhF9FvX0jY"
+    },
+    {
+      "label": "Khan Academy - Tabelas de frequência",
+      "type": "course",
+      "url": "https://pt.khanacademy.org/math/statistics-probability/data-distributions-a1/summarizing-center-distributions/v/constructing-a-frequency-table"
+    }
+  ],
+  "bibliography": [
+    "MANZANO, J. A. N.; OLIVEIRA, J. L. Algoritmos: Lógica para Desenvolvimento de Programação de Computadores. Elsevier, 2023.",
+    "SZWARCFITER, J. L.; MARKENZON, L. Estruturas de Dados e Seus Algoritmos. LTC, 2022."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Sequência da aula",
+      "cards": [
+        {
+          "icon": "bullseye",
+          "title": "Aquecimento",
+          "content": "Revisar cálculo de média de vetor (10 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Somatórios",
+          "content": "Implementação e teste de somatórios com vetores (25 min)."
+        },
+        {
+          "icon": "settings",
+          "title": "Normalização",
+          "content": "Dividir elementos pelo total acumulado (20 min)."
+        },
+        {
+          "icon": "database",
+          "title": "Tabelas",
+          "content": "Construir tabela de frequência a partir do dataset (30 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Wrap-up",
+          "content": "Checklist e encaminhamento da prática pós-aula (10 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Perguntas diagnósticas sobre Aula 30.",
+        "(20 min) Live coding: funções soma e média.",
+        "(25 min) Mini-projeto: normalizar vendas para percentual.",
+        "(30 min) Geração de tabela de frequência em MD3 Table.",
+        "(20 min) Rodada de revisão por pares.",
+        "(10 min) Atividade pós-aula guiada em sala virtual."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Operações comuns sobre vetores",
+      "headers": ["Operação", "Assinatura sugerida", "Tempo", "Observações"],
+      "rows": [
+        ["Somatório", "int soma(int v[], int n)", "O(n)", "Retorna a soma, não altera o vetor."],
+        [
+          "Cópia",
+          "void copia(int origem[], int destino[], int n)",
+          "O(n)",
+          "Necessário vetor destino previamente alocado."
+        ],
+        [
+          "Normalização",
+          "void normaliza(float v[], int n)",
+          "O(n)",
+          "Divide cada posição pelo somatório total."
+        ],
+        [
+          "Média móvel",
+          "void mediaMovel(float v[], int n, int janela, float saida[])",
+          "O(n)",
+          "Requer vetor auxiliar para resultados."
+        ],
+        [
+          "Busca maior",
+          "int indiceMaior(float v[], int n)",
+          "O(n)",
+          "Retorna índice do maior elemento."
+        ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo prático: Tabela de frequência de faixas de vendas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A partir do arquivo vetores-vendas.csv, contabilize quantas vendas caem em cada faixa de valor e apresente porcentagens."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            { "text": "Ler 30 valores de vendas diárias em um vetor float." },
+            { "text": "Criar vetor de contadores para faixas: <100, 100-299, 300-599, >=600." },
+            { "text": "Calcular percentual relativo ao total e imprimir tabela formatada." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo de normalização do vetor",
+      "nodes": [
+        { "id": "start", "type": "start", "label": "Início" },
+        { "id": "sum", "type": "process", "label": "total = soma(v)" },
+        { "id": "decision", "type": "decision", "label": "total == 0?" },
+        { "id": "guard", "type": "process", "label": "Se zero, emitir aviso" },
+        { "id": "loop", "type": "loop", "label": "Para i = 0 até n-1" },
+        { "id": "norm", "type": "process", "label": "v[i] = v[i] / total" },
+        { "id": "end", "type": "end", "label": "Fim" }
+      ],
+      "edges": [
+        ["start", "sum"],
+        ["sum", "decision"],
+        ["decision", "guard", "sim"],
+        ["decision", "loop", "não"],
+        ["guard", "end"],
+        ["loop", "norm"],
+        ["norm", "loop"],
+        ["loop", "end", "fim"]
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Clipes recomendados",
+      "videos": [
+        { "youtubeId": "N-0At__Wwzg", "title": "CS50 Lab Arrays" },
+        { "youtubeId": "mYVz5ZdGJ0s", "title": "Khan Academy - Frequency tables" }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Atividades pós-aula",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Implementar função de ordenação parcial (top 5) reutilizando operações de cópia.",
+            "Registrar resultados de normalização em planilha compartilhada.",
+            "Assistir aos vídeos recomendados e anotar dúvidas sobre eficiência."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-04-11T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Briefing de oficinas Vetores 2025"]
+  }
+}
