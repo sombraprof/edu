@@ -53,6 +53,7 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
+import { extractManifestEntries } from '@/utils/contentManifest';
 
 interface CourseMeta {
   id: string;
@@ -71,6 +72,10 @@ interface ExerciseSummary {
   title: string;
 }
 
+const metaModules = import.meta.glob('../content/courses/*/meta.json');
+const lessonIndexModules = import.meta.glob('../content/courses/*/lessons.json');
+const exerciseIndexModules = import.meta.glob('../content/courses/*/exercises.json');
+
 const route = useRoute();
 const courseId = computed(() => String(route.params.courseId ?? ''));
 
@@ -84,8 +89,13 @@ const exercisesCount = computed(() => exercises.value.length);
 
 async function loadMeta(id: string) {
   try {
-    const module = await import(`../content/courses/${id}/meta.json`);
-    meta.value = module.default as CourseMeta;
+    const path = `../content/courses/${id}/meta.json`;
+    const importer = metaModules[path];
+    if (!importer) throw new Error(`Meta manifest not found for ${path}`);
+
+    const module: any = await importer();
+    const payload = module.default ?? module;
+    meta.value = payload as CourseMeta;
   } catch (error) {
     console.error('[CourseLayout] Failed to load meta', error);
     meta.value = null;
@@ -94,8 +104,13 @@ async function loadMeta(id: string) {
 
 async function loadLessons(id: string) {
   try {
-    const module = await import(`../content/courses/${id}/lessons.json`);
-    lessons.value = (module.default as LessonSummary[]).map((lesson) => ({
+    const path = `../content/courses/${id}/lessons.json`;
+    const importer = lessonIndexModules[path];
+    if (!importer) throw new Error(`Lessons manifest not found for ${path}`);
+
+    const module = await importer();
+    const entries = extractManifestEntries<LessonSummary>(module);
+    lessons.value = entries.map((lesson) => ({
       id: lesson.id,
       title: lesson.title,
     }));
@@ -107,8 +122,13 @@ async function loadLessons(id: string) {
 
 async function loadExercises(id: string) {
   try {
-    const module = await import(`../content/courses/${id}/exercises.json`);
-    exercises.value = (module.default as ExerciseSummary[]).map((exercise) => ({
+    const path = `../content/courses/${id}/exercises.json`;
+    const importer = exerciseIndexModules[path];
+    if (!importer) throw new Error(`Exercises manifest not found for ${path}`);
+
+    const module = await importer();
+    const entries = extractManifestEntries<ExerciseSummary>(module);
+    exercises.value = entries.map((exercise) => ({
       id: exercise.id,
       title: exercise.title,
     }));

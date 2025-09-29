@@ -52,6 +52,7 @@ import Prism from 'prismjs';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
 import Md3Button from '@/components/Md3Button.vue';
+import { extractManifestEntries } from '@/utils/contentManifest';
 
 import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-javascript';
@@ -110,8 +111,10 @@ async function loadLesson() {
     if (!indexImporter) throw new Error(`Could not find lesson index for path: ${indexPath}`);
 
     const indexModule: any = await indexImporter();
-    const index: LessonRef[] = indexModule.default || indexModule;
-    if (!Array.isArray(index)) throw new Error('Lesson index is not an array.');
+    const index = extractManifestEntries<LessonRef>(indexModule);
+    if (!Array.isArray(index)) {
+      throw new Error('Lesson index payload is invalid.');
+    }
 
     const entry = index.find((item) => item.id === currentLesson);
     if (!entry) throw new Error(`Lesson ${currentLesson} not found`);
