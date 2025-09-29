@@ -157,6 +157,47 @@
     },
     {
       "type": "contentBlock",
+      "title": "Estudo de caso: Nubank como sistema adaptativo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O Nubank nasceu como um único aplicativo de cartão de crédito, mas hoje opera dezenas de serviços digitais integrados (conta, investimentos, marketplace). Cada produto funciona como um subsistema que precisa conversar com os demais sem perder desempenho ou segurança."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Entradas: requisições dos clientes via app, dados transacionais, integrações bancárias.",
+            "Processamento: motor antifraude, motor de crédito, orquestração de microserviços.",
+            "Saídas: limites atualizados, confirmações de pagamento, relatórios de uso em tempo real.",
+            "Feedback: monitoramento de erros, NPS, squads de atendimento analisando logs."
+          ]
+        },
+        {
+          "component": "Callout",
+          "props": {
+            "variant": "good-practice",
+            "title": "Sugestão de aprofundamento",
+            "content": "Leia o relato técnico publicado pela equipe do Nubank sobre sua arquitetura de microserviços: https://building.nubank.com.br/por-que-microservicos/"
+          }
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos complementares",
+      "videos": [
+        {
+          "title": "Pensamento sistêmico aplicado a organizações",
+          "src": "https://www.youtube.com/embed/Ps6vT_taFfo"
+        },
+        {
+          "title": "Modelando sistemas abertos",
+          "src": "https://www.youtube.com/embed/4VNI0YI7K8w"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "🔗 A Ponte entre TGS e Sistemas de Informação",
       "content": [
         {
@@ -352,6 +393,16 @@
       "label": "Vídeo: O que é pensamento sistêmico?",
       "url": "https://www.youtube.com/watch?v=Q1E6qGk8OCM",
       "type": "video"
+    },
+    {
+      "label": "Mapa interativo de sistemas sociotécnicos (MIT Sloan)",
+      "url": "https://mitsloan.mit.edu/ideas-made-to-matter/systems-thinking-interactive-guide",
+      "type": "interactive"
+    },
+    {
+      "label": "Estudo de caso: Estratégia de microserviços do Nubank",
+      "url": "https://building.nubank.com.br/por-que-microservicos/",
+      "type": "article"
     }
   ],
   "bibliography": [

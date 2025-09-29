@@ -170,6 +170,55 @@
     },
     {
       "type": "contentBlock",
+      "title": "Oficina guiada: desenhando uma ação extensionista",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Após a roda de conversa, organize os estudantes em trios para preencher um canvas simplificado de planejamento extensionista. Cada trio escolhe um problema real levantado e avança pelas etapas abaixo."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Diagnóstico rápido",
+              "text": "Liste as principais dores da comunidade-alvo e os indicadores que ajudarão a medir impacto (ex.: número de atendimentos, horas de capacitação)."
+            },
+            {
+              "title": "Proposta de solução",
+              "text": "Defina quais competências técnicas da turma serão aplicadas, quais recursos precisam ser mobilizados e qual é o cronograma mínimo de execução."
+            },
+            {
+              "title": "Articulação com o curso",
+              "text": "Relacione a proposta com conteúdos da disciplina e com outros componentes curriculares que podem somar, preparando a documentação exigida pela coordenação."
+            }
+          ]
+        },
+        {
+          "component": "Callout",
+          "props": {
+            "variant": "info",
+            "title": "Canvas para download",
+            "content": "Modelo editável em Google Slides: https://bit.ly/tgs-canvas-extensao. Inclua no AVA antes da aula para agilizar a dinâmica."
+          }
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos inspiradores",
+      "videos": [
+        {
+          "title": "Como planejar um projeto de extensão",
+          "src": "https://www.youtube.com/embed/9mFvM6mXutg"
+        },
+        {
+          "title": "Case: Laboratório de inovação social em TI",
+          "src": "https://www.youtube.com/embed/CFVN5x9z0nA"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "📝 Tarefa (TED)",
       "content": [
         {
@@ -253,6 +302,16 @@
       "label": "Guia de curricularização da extensão (MEC)",
       "url": "https://example.edu/tgs/guia-extensao",
       "type": "guide"
+    },
+    {
+      "label": "Mapa de projetos de extensão UFPE",
+      "url": "https://www.ufpe.br/proexc/projetos",
+      "type": "repository"
+    },
+    {
+      "label": "Vídeo: Extensão universitária na prática (UFSC)",
+      "url": "https://www.youtube.com/watch?v=aBv_L0P0g4w",
+      "type": "video"
     }
   ],
   "bibliography": [

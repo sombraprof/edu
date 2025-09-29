@@ -38,6 +38,16 @@
       "label": "Quadro colaborativo online",
       "type": "tool",
       "url": "https://whiteboard.example.edu"
+    },
+    {
+      "label": "Gerador de tabela-verdade (labs.dcc.ufmg.br)",
+      "type": "tool",
+      "url": "https://lab.dcc.ufmg.br/truth-table"
+    },
+    {
+      "label": "Artigo: Operadores lógicos aplicados a algoritmos",
+      "type": "article",
+      "url": "https://www.devmedia.com.br/logica-de-programacao-operadores-logicos/23821"
     }
   ],
   "bibliography": [
@@ -281,6 +291,41 @@
     },
     {
       "type": "contentBlock",
+      "title": "Demonstração passo a passo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Projete no laboratório o simulador de tabela-verdade indicado nos recursos e resolva com a turma o exemplo do desconto. Alterne os valores das entradas para mostrar como o operador AND reage ao receber uma condição falsa."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Modelagem em quadro",
+              "text": "Desenhe o fluxograma com os ramos \"cliente VIP\" e \"possui cupom\" antes de abrir a ferramenta digital."
+            },
+            {
+              "title": "Simulação no navegador",
+              "text": "Digite a expressão no formato ((valor>200) && (clienteVIP || possuiCupom)) e registre a tabela exportada em PDF."
+            },
+            {
+              "title": "Discussão de cenários",
+              "text": "Convide duplas a propor mudanças (por exemplo, cupom exclusivo) e repita a simulação para comparar resultados."
+            }
+          ]
+        },
+        {
+          "component": "Callout",
+          "props": {
+            "variant": "good-practice",
+            "title": "Compartilhe os materiais",
+            "content": "Envie o PDF gerado pelo simulador e o fluxograma digitalizado no Moodle para que quem faltou acompanhe o raciocínio."
+          }
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Prática guiada",
       "content": [
         {
@@ -294,6 +339,20 @@
             "Regras condicionais usando operadores lógicos.",
             "Tabela-verdade para validar a principal decisão."
           ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos recomendados",
+      "videos": [
+        {
+          "title": "Operadores lógicos explicados em 10 minutos",
+          "src": "https://www.youtube.com/embed/4VVF7qZ_g4E"
+        },
+        {
+          "title": "Tabela verdade na prática",
+          "src": "https://www.youtube.com/embed/pwW8sHhY_tg"
         }
       ]
     },
