@@ -146,6 +146,61 @@
       "formatVersion": "md3.lesson.v1"
     },
     {
+      "id": "lesson-14",
+      "title": "Aula 14: Correção e Feedback da NP1",
+      "file": "lesson-14.json",
+      "available": true,
+      "description": "Promove devolutiva estruturada da NP1 com discussão coletiva dos resultados.",
+      "summary": "Realiza devolutiva colaborativa da NP1, destacando melhorias e planos de reforço.",
+      "tags": ["aula-14-np1"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-15",
+      "title": "Aula 15: Tipos de Sistemas Empresariais",
+      "file": "lesson-15.json",
+      "available": true,
+      "description": "Examina categorias de sistemas empresariais e seus usos em áreas corporativas distintas.",
+      "summary": "Analisa categorias de sistemas empresariais e critérios para selecionar soluções alinhadas ao negócio.",
+      "tags": ["aula-15-sistemas-empresariais"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-16",
+      "title": "Aula 16: Integração de Sistemas Empresariais",
+      "file": "lesson-16.json",
+      "available": true,
+      "description": "Apresenta modelos e tecnologias para conectar sistemas empresariais e garantir fluxo contínuo de informações.",
+      "summary": "Investiga estratégias de integração e governança para manter interoperabilidade entre sistemas empresariais.",
+      "tags": ["aula-16-integracao"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-17",
+      "title": "Aula 17: Business Intelligence e Dashboards",
+      "file": "lesson-17.json",
+      "available": true,
+      "description": "Debate aplicações de BI e demonstra dashboards que transformam dados em insights acionáveis.",
+      "summary": "Explora práticas de BI e dashboards para transformar dados em decisões acionáveis.",
+      "tags": ["aula-17-bi"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-18",
+      "title": "Aula 18: CRM e Relacionamento com Clientes",
+      "file": "lesson-18.json",
+      "available": true,
+      "description": "Apresenta conceitos de CRM e discute casos sobre fidelização e personalização de experiências.",
+      "summary": "Discute estratégias de CRM e fidelização integrando jornada do cliente e automação.",
+      "tags": ["aula-18-crm"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
       "id": "lesson-28",
       "title": "Aula 28: Avaliação – NP2",
       "file": "lesson-28.json",
@@ -167,5 +222,29 @@
       "duration": 110,
       "formatVersion": "md3.lesson.v1"
     }
-  ]
+  ],
+  "metadata": {
+    "metadata": {
+      "metadata": {
+        "metadata": {
+          "metadata": {},
+          "filePath": "/workspace/edu/src/content/courses/tgs/lessons.json",
+          "legacy": false,
+          "missing": false
+        },
+        "filePath": "/workspace/edu/src/content/courses/tgs/lessons.json",
+        "legacy": false,
+        "missing": false
+      },
+      "filePath": "/workspace/edu/src/content/courses/tgs/lessons.json",
+      "legacy": false,
+      "missing": false
+    },
+    "filePath": "/workspace/edu/src/content/courses/tgs/lessons.json",
+    "legacy": false,
+    "missing": false
+  },
+  "filePath": "/workspace/edu/src/content/courses/tgs/lessons.json",
+  "legacy": false,
+  "missing": false
 }

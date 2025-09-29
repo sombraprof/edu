@@ -1,0 +1,208 @@
+{
+  "id": "lesson-15",
+  "title": "Aula 15: Tipos de Sistemas Empresariais",
+  "objective": "Analisar classificações de sistemas empresariais e relacioná-las a necessidades organizacionais.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDOS",
+          "content": "Panorama dos principais sistemas empresariais (ERP, CRM, SCM, BPM, BI) e critérios de seleção."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Diferenciar categorias de sistemas empresariais.\n- Avaliar aderência de soluções a cenários reais.\n- Mapear impactos sistêmicos de cada escolha."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Estudo de caso em squads, debate socrático e demonstração guiada de catálogo de soluções."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Por que existem tantos sistemas empresariais?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cada sistema nasce para resolver uma dor específica do negócio. Quando avaliamos pela ótica sistêmica, enxergamos dependências, integrações e trade-offs que vão além do software isolado."
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Pergunta norteadora: quais fluxos de informação o sistema precisa orquestrar para gerar valor perceptível?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Panorama dos sistemas empresariais",
+      "headers": ["Categoria", "Objetivo principal", "Indicadores afetados", "Exemplo"],
+      "rows": [
+        [
+          "ERP",
+          "Integrar processos centrais (finanças, estoque, RH)",
+          "OTIF, custo operacional, conformidade",
+          "TOTVS Protheus"
+        ],
+        [
+          "CRM",
+          "Gerenciar relacionamento, pipeline e pós-venda",
+          "CAC, NPS, taxa de conversão",
+          "Salesforce"
+        ],
+        [
+          "SCM",
+          "Otimizar cadeia de suprimentos e logística",
+          "Lead time, nível de estoque, fill rate",
+          "SAP SCM"
+        ],
+        [
+          "BPM/Workflow",
+          "Orquestrar processos e garantir conformidade",
+          "Tempo de ciclo, retrabalho, SLA",
+          "Pipefy"
+        ],
+        [
+          "BI/Analytics",
+          "Transformar dados em insights acionáveis",
+          "Tempo de decisão, assertividade, ROI de campanhas",
+          "Power BI"
+        ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Estudo de caso em squads",
+      "cards": [
+        {
+          "title": "Retail Mix",
+          "content": "Rede varejista com gargalos de estoque e visão fragmentada de clientes. Qual combinação de sistemas atende melhor?"
+        },
+        {
+          "title": "HealthConnect",
+          "content": "Clínica que precisa integrar prontuários, agenda médica e faturamento, mantendo compliance LGPD."
+        },
+        {
+          "title": "Indústria 4.0",
+          "content": "Fábrica que adota sensores IoT e precisa sincronizar produção, manutenção e cadeia logística."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Debate socrático",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Critérios de aderência",
+              "text": "Quais dimensões (processos, pessoas, dados, tecnologia) pesaram na escolha do sistema?"
+            },
+            {
+              "title": "Riscos sistêmicos",
+              "text": "Que efeitos colaterais podem emergir em outros subsistemas da organização?"
+            },
+            {
+              "title": "Governança",
+              "text": "Como garantir atualização, suporte e evolução contínua do sistema selecionado?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Demonstração guiada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A turma acompanha, em tempo real, a navegação por um catálogo de soluções SaaS. Observe como filtros por segmento, porte e integrações ajudam a estreitar opções."
+        },
+        {
+          "type": "paragraph",
+          "text": "Anote integrações essenciais e requisitos técnicos que surgirem durante a demonstração para alimentar o estudo de caso."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Poste no AVA, até às 22h de amanhã, a análise do seu squad com: (1) sistema(s) recomendados, (2) justificativa sistêmica e (3) integrações prioritárias. Inclua uma evidência (print ou link) da ferramenta utilizada na demonstração."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-15-tipos-de-sistemas-empresariais",
+  "summary": "Compara categorias de sistemas empresariais, relacionando critérios de escolha a casos reais e integrações necessárias.",
+  "objectives": [
+    "Diferenciar sistemas empresariais por propósito e escopo.",
+    "Relacionar necessidades organizacionais a soluções tecnológicas específicas.",
+    "Identificar critérios de governança e integração para adoção de sistemas."
+  ],
+  "competencies": [
+    "Análise sistêmica de processos",
+    "Tomada de decisão baseada em dados",
+    "Colaboração interdisciplinar"
+  ],
+  "skills": [
+    "Mapear requisitos de negócio e traduzi-los em capacidades de sistemas.",
+    "Argumentar escolhas tecnológicas considerando impactos organizacionais.",
+    "Utilizar catálogos e matrizes comparativas como suporte à decisão."
+  ],
+  "outcomes": [
+    "Entrega estudo de caso justificando sistemas selecionados.",
+    "Documenta riscos e integrações essenciais.",
+    "Compartilha aprendizados coletivos no AVA."
+  ],
+  "prerequisites": [
+    "Revisar conceitos das aulas 9 a 12 sobre níveis de SI.",
+    "Trazer notas da NP1 para conectar lacunas a novos conteúdos."
+  ],
+  "tags": ["aula-15-sistemas-empresariais"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Catálogo Gartner de aplicações empresariais",
+      "url": "https://example.edu/tgs/recursos/catalogo-sistemas",
+      "type": "guide"
+    },
+    {
+      "label": "Ficha de estudo de caso",
+      "url": "https://example.edu/tgs/modelos/ficha-case",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "LAUDON, Kenneth; LAUDON, Jane. Sistemas de Informação Gerenciais. Pearson, 2024.",
+    "TURBAN, Efraim et al. Tecnologia da Informação para Gestão. Bookman, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Análise do estudo de caso registrada e debatida no AVA."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
+}
