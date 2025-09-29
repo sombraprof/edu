@@ -1,0 +1,207 @@
+{
+  "id": "lesson-30",
+  "title": "Aula 30: Diagnóstico e Análise SWOT do Ambiente de SI",
+  "objective": "Aplicar ferramentas de diagnóstico para mapear forças, fraquezas, oportunidades e ameaças do ambiente de SI.",
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Agenda",
+      "items": [
+        "Revisão de fontes de dados para diagnóstico interno e externo.",
+        "Construção colaborativa da matriz SWOT específica para SI.",
+        "Priorização de riscos e vantagens competitivas."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Fontes essenciais do diagnóstico",
+      "cards": [
+        {
+          "title": "Inventário de ativos",
+          "content": "Lista de sistemas, contratos, integrações e custos associados."
+        },
+        {
+          "title": "Mapa de processos",
+          "content": "Fluxos ponta a ponta com indicadores de desempenho e gargalos."
+        },
+        {
+          "title": "Pesquisa com stakeholders",
+          "content": "Entrevistas, workshops e NPS de áreas usuárias para captar expectativas."
+        },
+        {
+          "title": "Análise de tendências",
+          "content": "Relatórios de mercado, concorrentes e benchmarks regulatórios."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Matriz SWOT orientada a SI",
+      "headers": ["Quadrante", "Perguntas de apoio", "Exemplos de achados"],
+      "rows": [
+        [
+          "Forças",
+          "Quais capacidades tecnológicas já diferenciam o negócio?",
+          "Time ágil maduro, arquitetura em microserviços, governança de dados consolidada"
+        ],
+        [
+          "Fraquezas",
+          "Onde estão os principais gargalos internos?",
+          "Backlog represado, dependência de fornecedor único, automação limitada"
+        ],
+        [
+          "Oportunidades",
+          "Que movimentos de mercado podem ser acelerados com SI?",
+          "Open finance, parcerias com startups, analytics avançado"
+        ],
+        [
+          "Ameaças",
+          "Que riscos externos podem comprometer resultados?",
+          "Novos entrantes digitais, ataques cibernéticos, mudanças regulatórias"
+        ]
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Conexões do diagnóstico",
+      "summary": "Relaciona fatores internos e externos que influenciam decisões do PESI.",
+      "factors": [
+        {
+          "id": "capabilidades",
+          "name": "Capacidades de TI",
+          "summary": "Competências e ativos internos",
+          "kind": "resource",
+          "indicators": ["maturidade_devops", "cobertura_automacoes"]
+        },
+        {
+          "id": "demandas",
+          "name": "Demandas do negócio",
+          "summary": "Iniciativas estratégicas e OKRs",
+          "kind": "flow",
+          "indicators": ["okr_entregues", "nps_stakeholders"]
+        },
+        {
+          "id": "mercado",
+          "name": "Movimentos de mercado",
+          "summary": "Tendências e benchmark",
+          "kind": "external",
+          "indicators": ["participacao_digital", "indice_inovacao"]
+        },
+        {
+          "id": "riscos",
+          "name": "Riscos críticos",
+          "summary": "Ameaças regulatórias e cibernéticas",
+          "kind": "constraint",
+          "indicators": ["incidentes_criticos", "pendencias_auditoria"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "capabilidades",
+          "to": "demandas",
+          "description": "Capacidades existentes viabilizam entregas prioritárias."
+        },
+        {
+          "from": "mercado",
+          "to": "demandas",
+          "description": "Movimentos externos redefinem prioridades de produto."
+        },
+        {
+          "from": "riscos",
+          "to": "capabilidades",
+          "description": "Fragilidades de segurança exigem investimentos estruturantes."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Roteiro de diagnóstico em 4 semanas",
+      "steps": [
+        {
+          "title": "Semana 1",
+          "content": "Coleta dados internos: inventários, custos e indicadores."
+        },
+        { "title": "Semana 2", "content": "Realiza entrevistas e jornadas com áreas de negócio." },
+        { "title": "Semana 3", "content": "Analisa tendências, concorrentes e riscos externos." },
+        {
+          "title": "Semana 4",
+          "content": "Consolida SWOT, prioriza achados e prepara workshop de validação."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Estudos recomendados",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/case-diagnostico-pesi",
+          "title": "Diagnóstico PESI em varejo",
+          "caption": "Como um varejista redesenhou seu portfólio após análise SWOT de TI."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/trends-ti-2025",
+          "title": "Tendências de tecnologia 2025",
+          "caption": "Painel Gartner sobre ameaças e oportunidades para CIOs."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 30 — SWOT individual",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza uma SWOT da área de SI da sua empresa ou de um estudo de caso, classificando ao menos três itens por quadrante e justificando cada evidência com dados coletados. Submeta até 48h após a aula."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-30-diagnostico-e-analise-swot-si",
+  "summary": "Explora ferramentas de diagnóstico e consolidação da análise SWOT aplicada a sistemas de informação.",
+  "objectives": [
+    "Identificar fontes e dados necessários para o diagnóstico do PESI.",
+    "Construir matriz SWOT alinhada à realidade de SI.",
+    "Priorizar achados críticos para a etapa de formulação."
+  ],
+  "competencies": ["Análise estratégica", "Gestão de riscos", "Comunicação executiva"],
+  "outcomes": [
+    "Entrega SWOT individual com evidências quantitativas e qualitativas.",
+    "Relaciona tendências externas às demandas de tecnologia.",
+    "Propõe prioridades para validação em workshop de diagnóstico."
+  ],
+  "prerequisites": [
+    "Concluir coleta inicial de dados iniciada na aula 29.",
+    "Rever indicadores de desempenho das áreas de negócio."
+  ],
+  "tags": ["diagnostico", "swot", "pesi"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de diagnóstico PESI",
+      "url": "https://example.edu/tgs/checklists/diagnostico-pesi",
+      "type": "checklist"
+    },
+    {
+      "label": "Template SWOT de SI",
+      "url": "https://example.edu/tgs/templates/swot-si",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "WARD, John; PEPPARD, Joe. Strategic Planning for Information Systems. Wiley, 2016.",
+    "GARTNER. IT Score for CIOs — Strategy & Execution. Gartner, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "SWOT individual fundamentada em dados reais ou simulados."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Toolkit Diagnóstico 2024"]
+  }
+}
