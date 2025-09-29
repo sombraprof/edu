@@ -193,6 +193,12 @@
               >
                 Código de saída: {{ getRemoteExecution(key).exitCode }}
               </p>
+              <p
+                v-if="formatQueueSummary(getRemoteExecution(key))"
+                class="text-xs text-on-surface-variant"
+              >
+                {{ formatQueueSummary(getRemoteExecution(key)) }}
+              </p>
             </div>
             <p
               v-if="getTimestamp(key)"
@@ -635,6 +641,8 @@ interface RemoteExecutionState {
   exitCode: number | null;
   startedAt: string | null;
   finishedAt: string | null;
+  queuePosition: number | null;
+  queueWaitMs: number | null;
 }
 
 const remoteExecutions = reactive<Record<ValidationScriptKey, RemoteExecutionState>>(
@@ -646,6 +654,8 @@ const remoteExecutions = reactive<Record<ValidationScriptKey, RemoteExecutionSta
         exitCode: null,
         startedAt: null,
         finishedAt: null,
+        queuePosition: null,
+        queueWaitMs: null,
       } satisfies RemoteExecutionState;
       return acc;
     },
@@ -853,6 +863,24 @@ function formatDuration(value: number | null | undefined) {
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
   return `${hours}h ${minutes.toString().padStart(2, '0')}min`;
+}
+
+function formatQueueSummary(state: RemoteExecutionState) {
+  if (
+    typeof state.queueWaitMs !== 'number' ||
+    !Number.isFinite(state.queueWaitMs) ||
+    state.queueWaitMs < 0
+  ) {
+    return '';
+  }
+
+  const waitLabel = formatDuration(state.queueWaitMs);
+  const positionLabel =
+    typeof state.queuePosition === 'number' && state.queuePosition >= 0
+      ? ` (posição inicial ${state.queuePosition + 1})`
+      : '';
+
+  return `A execução aguardou ${waitLabel} na fila${positionLabel}.`;
 }
 
 function statusIconClass(status: CheckStatus) {
@@ -1089,6 +1117,8 @@ async function executeViaAutomation(key: ValidationScriptKey) {
   const startedAt = new Date().toISOString();
   state.startedAt = startedAt;
   state.finishedAt = null;
+  state.queuePosition = null;
+  state.queueWaitMs = null;
 
   try {
     const result = await runTeacherScript(key);
@@ -1096,6 +1126,8 @@ async function executeViaAutomation(key: ValidationScriptKey) {
     state.startedAt = result.startedAt ?? startedAt;
     state.finishedAt = result.finishedAt ?? new Date().toISOString();
     state.status = result.exitCode === 0 ? 'success' : 'error';
+    state.queuePosition = typeof result.queuePosition === 'number' ? result.queuePosition : null;
+    state.queueWaitMs = typeof result.queueDurationMs === 'number' ? result.queueDurationMs : null;
 
     const normalizedOutput = typeof result.output === 'string' ? result.output.trimEnd() : '';
     scriptLogs[key].value = normalizedOutput;
@@ -1113,6 +1145,8 @@ async function executeViaAutomation(key: ValidationScriptKey) {
   } catch (error) {
     state.status = 'error';
     state.finishedAt = new Date().toISOString();
+    state.queuePosition = null;
+    state.queueWaitMs = null;
     const message =
       error instanceof TeacherAutomationError
         ? error.message

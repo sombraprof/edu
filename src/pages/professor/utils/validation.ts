@@ -11,7 +11,14 @@ export interface FormattedAjvError {
 
 export function createAjvInstance() {
   const ajv = new Ajv2020({ allErrors: true, strict: false });
-  ajv.addMetaSchema(draft2020Schema);
+  const metaSchemaId =
+    typeof draft2020Schema === 'object' && draft2020Schema && '$id' in draft2020Schema
+      ? String((draft2020Schema as { $id?: unknown }).$id ?? '')
+      : '';
+
+  if (!metaSchemaId || !ajv.getSchema(metaSchemaId)) {
+    ajv.addMetaSchema(draft2020Schema);
+  }
   addFormats(ajv);
   return ajv;
 }

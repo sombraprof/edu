@@ -11,7 +11,7 @@ const ProfessorEditor = () => import('../pages/professor/EditorWorkbench.vue');
 const ProfessorValidation = () => import('../pages/professor/ValidationWorkbench.vue');
 const ProfessorPublication = () => import('../pages/professor/PublicationWorkbench.vue');
 
-const routes: RouteRecordRaw[] = [
+export const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: Home },
   {
     path: '/course/:courseId',

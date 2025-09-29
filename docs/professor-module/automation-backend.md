@@ -31,12 +31,17 @@ npm run teacher:service
 
 Variáveis de ambiente suportadas:
 
-| Variável                        | Descrição                                                                            | Padrão      |
-| ------------------------------- | ------------------------------------------------------------------------------------ | ----------- |
-| `TEACHER_SERVICE_PORT`          | Porta TCP usada pelo servidor HTTP.                                                  | `4178`      |
-| `TEACHER_SERVICE_HOST`          | Host/interface de escuta. Ajuste para `0.0.0.0` se quiser receber chamadas externas. | `127.0.0.1` |
-| `TEACHER_SERVICE_HISTORY_LIMIT` | Quantidade máxima de execuções armazenadas no histórico local.                       | `50`        |
-| `TEACHER_SERVICE_TOKEN`         | Token obrigatório para autenticar chamadas da SPA.                                   | _(vazio)_   |
+| Variável                                   | Descrição                                                                                  | Padrão      |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------ | ----------- |
+| `TEACHER_SERVICE_PORT`                     | Porta TCP usada pelo servidor HTTP.                                                        | `4178`      |
+| `TEACHER_SERVICE_HOST`                     | Host/interface de escuta. Ajuste para `0.0.0.0` se quiser receber chamadas externas.       | `127.0.0.1` |
+| `TEACHER_SERVICE_HISTORY_LIMIT`            | Quantidade máxima de execuções armazenadas no histórico local.                             | `50`        |
+| `TEACHER_SERVICE_TOKEN`                    | Token obrigatório para autenticar chamadas da SPA.                                         | _(vazio)_   |
+| `TEACHER_SERVICE_PR_TOKEN`                 | Token pessoal de GitHub usado pelo serviço para abrir PRs via API.                         | _(vazio)_   |
+| `TEACHER_SERVICE_PR_TOKEN_FILE`            | Caminho para arquivo protegido contendo o token de GitHub (permissões recomendadas `600`). | _(vazio)_   |
+| `TEACHER_SERVICE_PR_ALLOWLIST`             | Lista de atores autorizados (header `X-Teacher-Actor`) a criar PRs automaticamente.        | _(vazio)_   |
+| `TEACHER_SERVICE_PR_DEFAULT_BASE`          | Branch base padrão usada ao criar PRs quando não informada pela SPA.                       | `main`      |
+| `TEACHER_SERVICE_PR_ALLOW_MAINTAINER_EDIT` | Controla o envio de `maintainer_can_modify` para o GitHub (`true` ou `false`).             | `true`      |
 
 Para que a SPA utilize a API é necessário definir `VITE_TEACHER_API_URL` apontando para o endereço exposto pelo serviço. Exemplo: `VITE_TEACHER_API_URL=http://127.0.0.1:4178`.
 Quando o token estiver habilitado, defina também `VITE_TEACHER_API_TOKEN` para que a SPA envie o header `X-Teacher-Token` automaticamente.
@@ -59,7 +64,7 @@ Recebe um JSON com a chave do script a ser executado:
 { "key": "report" }
 ```
 
-Retorna payload com `exitCode`, `output`, `startedAt`, `finishedAt`, `durationMs`, `reportKey`, `recordedAt` e `success`. A SPA usa o resultado para preencher os logs automaticamente e atualizar o histórico local.
+Retorna payload com `exitCode`, `output`, `startedAt`, `finishedAt`, `durationMs`, `reportKey`, `recordedAt` e `success`. Quando há mais de uma solicitação em paralelo, o serviço enfileira a execução e inclui `queuePosition`, `queueDurationMs` e `queuedAt`, permitindo sinalizar o tempo de espera antes do script iniciar. A SPA usa o resultado para preencher os logs automaticamente e atualizar o histórico local.
 
 ### `GET /api/teacher/reports/:id`
 
@@ -177,10 +182,55 @@ Envia a branch atual para o remoto configurado.
 
 O retorno segue o padrão de `success`, `exitCode`, `stdout`, `stderr`, `command`, `remote`, `branch`, `setUpstream` e `status` (quando o comando conclui com sucesso). O painel marca `setUpstream: true` apenas quando o workspace ainda não possui upstream configurado.
 
+### `POST /api/teacher/git/pull-request`
+
+Abre um pull request reutilizando a branch local já publicada com `git push`. O serviço usa o token configurado no ambiente (via `TEACHER_SERVICE_PR_TOKEN` ou `TEACHER_SERVICE_PR_TOKEN_FILE`) e nunca expõe o segredo à SPA.
+
+Exemplo de corpo:
+
+```json
+{
+  "remote": "origin",
+  "head": "feat/professor-publicacao",
+  "base": "main",
+  "title": "feat: preparar rodada do módulo do professor",
+  "body": "## Resumo...",
+  "draft": false
+}
+```
+
+- `remote` – opcional. Padrão `origin`.
+- `head` – obrigatório. Nome da branch que será usada como origem do PR.
+- `base` – opcional. Padrão `TEACHER_SERVICE_PR_DEFAULT_BASE` (tipicamente `main`).
+- `title` – obrigatório. Título enviado à API do GitHub.
+- `body` – opcional. Descrição completa do PR no formato Markdown.
+- `draft` – opcional. Quando `true`, cria o PR como rascunho.
+- `allowMaintainerEdit` – opcional. Sobrescreve o valor de `maintainer_can_modify` (padrão definido pela variável de ambiente).
+
+Além do `X-Teacher-Token`, o endpoint aceita o header opcional `X-Teacher-Actor`. Quando `TEACHER_SERVICE_PR_ALLOWLIST` está configurado, apenas os atores listados podem abrir PRs automaticamente.
+
+Resposta típica:
+
+```json
+{
+  "success": true,
+  "number": 128,
+  "htmlUrl": "https://github.com/org/repo/pull/128",
+  "repository": "org/repo",
+  "head": "feat/professor-publicacao",
+  "base": "main",
+  "draft": false,
+  "command": "gh pr create --title \"feat: preparar rodada do módulo do professor\" --base main --head feat/professor-publicacao --web"
+}
+```
+
+Em caso de falha, o serviço devolve `success: false`, detalhes do erro retornado pelo GitHub e o comando equivalente sugerido para executar manualmente.
+
 ## Autenticação
 
 - Defina `TEACHER_SERVICE_TOKEN` ao iniciar o serviço; requisições aos endpoints `/api/teacher/` passam a exigir o header `X-Teacher-Token` com o mesmo valor.
 - Configure `VITE_TEACHER_API_TOKEN` na SPA para que as chamadas automáticas incluam o token.
+- Para auditoria, o painel envia `X-Teacher-Actor` com o identificador do responsável pela rodada. Quando `TEACHER_SERVICE_PR_ALLOWLIST` é definido, apenas valores presentes na lista podem criar PRs.
 - O endpoint `/health` continua público para diagnósticos locais. Avalie reverse proxy ou VPN caso exponha o serviço externamente.
 
 ## Integração com a SPA
@@ -194,7 +244,7 @@ O retorno segue o padrão de `success`, `exitCode`, `stdout`, `stderr`, `command
 
 - Autenticação e autorização antes de expor o serviço além do ambiente local.
 - Auditoria enriquecida com identificação do usuário, branch e artefatos publicados.
-- Suporte a filas de execução e cancelamento seguro.
-- Evoluir das operações de checkout para automações completas de `git add`, `commit`, `push` e abertura de PR alinhadas à [Iteração 5](./iteration-05.md).
+- Cancelamento seguro e monitoramento detalhado das execuções enfileiradas.
+- Evoluir das operações atuais para incluir anexos, rótulos e revisão cruzada ao abrir PRs, alinhando com a [Iteração 5](./iteration-05.md).
   - ✅ `git add`, `git commit` e `git push` já expostos na API e integrados ao painel de publicação.
-  - 🚧 Abertura automática de PRs permanece no backlog.
+  - ✅ Abertura automática de PRs integrada ao painel de publicação, com controle de permissões e token protegido.
