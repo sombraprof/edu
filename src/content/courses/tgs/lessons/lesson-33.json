@@ -1,0 +1,198 @@
+{
+  "id": "lesson-33",
+  "title": "Aula 33: Priorização e Roadmap do Plano Estratégico de SI",
+  "objective": "Transformar objetivos estratégicos em um roadmap priorizado de iniciativas de SI.",
+  "content": [
+    {
+      "type": "cardGrid",
+      "title": "Critérios de priorização",
+      "cards": [
+        {
+          "title": "Valor estratégico",
+          "content": "Contribuição direta aos objetivos do BSC e KPIs corporativos."
+        },
+        {
+          "title": "Urgência regulatória",
+          "content": "Prazos legais ou riscos de continuidade se não executar."
+        },
+        {
+          "title": "Viabilidade",
+          "content": "Disponibilidade de recursos, maturidade tecnológica e complexidade."
+        },
+        {
+          "title": "Dependências",
+          "content": "Sequência lógica entre iniciativas e impactos em programas correlatos."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Matriz de pontuação",
+      "headers": ["Iniciativa", "Valor", "Urgência", "Esforço", "Score ponderado"],
+      "rows": [
+        ["Plataforma de dados corporativos", "5", "4", "3", "4,4"],
+        ["Portal omnicanal", "4", "5", "4", "4,2"],
+        ["Automação de backoffice", "3", "3", "2", "3,2"],
+        ["Programa de cibersegurança", "5", "5", "4", "4,8"],
+        ["ERP financeiro-cloud", "4", "4", "5", "4,0"]
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Roadmap macro (12 trimestres)",
+      "steps": [
+        {
+          "title": "T1-T2",
+          "content": "Quick wins regulatórios e fundação de governança de dados."
+        },
+        {
+          "title": "T3-T4",
+          "content": "Entrega da primeira onda da plataforma de dados e pilotos omnicanal."
+        },
+        {
+          "title": "T5-T6",
+          "content": "Implantação do programa de cibersegurança e automações críticas."
+        },
+        {
+          "title": "T7-T8",
+          "content": "Rollout do ERP financeiro-cloud e expansão dos casos de analytics."
+        },
+        {
+          "title": "T9-T12",
+          "content": "Escala das jornadas digitais e revisão estratégica do portfólio."
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Carteira integrada",
+      "summary": "Visualiza dependências chave entre iniciativas prioritárias.",
+      "factors": [
+        {
+          "id": "dados_plataforma",
+          "name": "Plataforma de dados",
+          "summary": "Lago corporativo e catálogo",
+          "kind": "resource",
+          "indicators": ["datasets_publicados"]
+        },
+        {
+          "id": "omni",
+          "name": "Omnicanalidade",
+          "summary": "Portal e apps unificados",
+          "kind": "outcome",
+          "indicators": ["clientes_ativos"]
+        },
+        {
+          "id": "seguranca",
+          "name": "Cibersegurança",
+          "summary": "Controles e conformidade",
+          "kind": "constraint",
+          "indicators": ["incidentes_severos"]
+        },
+        {
+          "id": "erp",
+          "name": "ERP Cloud",
+          "summary": "Plataforma financeira e compliance",
+          "kind": "resource",
+          "indicators": ["processos_migrados"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "dados_plataforma",
+          "to": "omni",
+          "description": "Dados consistentes alimentam personalização."
+        },
+        {
+          "from": "seguranca",
+          "to": "dados_plataforma",
+          "description": "Controles definem padrões de acesso e criptografia."
+        },
+        {
+          "from": "erp",
+          "to": "dados_plataforma",
+          "description": "Integrações financeiras alimentam indicadores estratégicos."
+        },
+        {
+          "from": "seguranca",
+          "to": "omni",
+          "description": "Camadas de proteção garantem confiança do cliente."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Casos de roadmap",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/roadmap-ti-financas",
+          "title": "Roadmap de TI em serviços financeiros",
+          "caption": "Sequenciamento de 12 trimestres em banco digital."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/priorizacao-portfolio-ti",
+          "title": "Priorização com value scoring",
+          "caption": "Aplicação prática da matriz de pontuação."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 33 — Roadmap trimestral",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza um roadmap em trimestres para as cinco principais iniciativas de SI, incluindo dependências e quick wins. Publique no mural do curso e comente coerência de pelo menos dois colegas."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-33-priorizacao-e-roadmap-pesi",
+  "summary": "Converte objetivos estratégicos em um roadmap priorizado com visão integrada do portfólio de SI.",
+  "objectives": [
+    "Definir critérios de priorização alinhados a valor e risco.",
+    "Construir roadmap plurianual conectando iniciativas e dependências.",
+    "Preparar comunicação executiva sobre sequenciamento do PESI."
+  ],
+  "competencies": ["Gestão de portfólio", "Planejamento tático", "Gestão de stakeholders"],
+  "outcomes": [
+    "Aplica matriz de pontuação para ordenar iniciativas.",
+    "Elabora roadmap com entregas e marcos trimestrais.",
+    "Comunica dependências críticas para patrocínio executivo."
+  ],
+  "prerequisites": [
+    "Mapa estratégico aprovado na aula 32.",
+    "Disponibilidade de estimativas de esforço e custos."
+  ],
+  "tags": ["roadmap", "priorizacao", "pesi"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Planilha de scoring",
+      "url": "https://example.edu/tgs/templates/matriz-scoring",
+      "type": "template"
+    },
+    {
+      "label": "Canvas de roadmap trimestral",
+      "url": "https://example.edu/tgs/templates/roadmap-trimestral",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "PMI. Standard for Portfolio Management. Project Management Institute, 2023.",
+    "MCKINSEY. Orchestrating Technology Roadmaps. McKinsey, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Roadmap trimestral publicado com feedback colaborativo."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Toolkit Roadmap 2024"]
+  }
+}

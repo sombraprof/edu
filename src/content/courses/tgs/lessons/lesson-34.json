@@ -1,0 +1,204 @@
+{
+  "id": "lesson-34",
+  "title": "Aula 34: Governança e Alinhamento Estratégico SI-Negócio",
+  "objective": "Estabelecer mecanismos de governança que sustentem o alinhamento contínuo entre SI e estratégia corporativa.",
+  "content": [
+    {
+      "type": "cardGrid",
+      "title": "Pilares de governança",
+      "cards": [
+        { "title": "Estruturas", "content": "Comitês, fóruns e papéis que conectam negócio e TI." },
+        {
+          "title": "Processos",
+          "content": "Ritos de priorização, gestão de demanda e avaliação de benefícios."
+        },
+        {
+          "title": "Pessoas",
+          "content": "Patrocinadores, product owners e gestores de relacionamento."
+        },
+        {
+          "title": "Tecnologia",
+          "content": "Plataformas colaborativas, OKRs e dashboards compartilhados."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Fóruns de decisão",
+      "headers": ["Fórum", "Periodicidade", "Decisões", "Indicadores"],
+      "rows": [
+        [
+          "Conselho Digital",
+          "Mensal",
+          "Direcionadores estratégicos e investimentos",
+          "ROI carteira, risco tecnológico"
+        ],
+        [
+          "Comitê de Portfólio",
+          "Quinzenal",
+          "Priorização e balanceamento da carteira",
+          "Valor entregue, capacidade disponível"
+        ],
+        [
+          "Tribo de Produto",
+          "Semanal",
+          "Status das iniciativas e impedimentos",
+          "Lead time, valor gerado"
+        ],
+        [
+          "Fórum de Operações",
+          "Diário",
+          "Gestão de incidentes e disponibilidade",
+          "SLA, backlog crítico"
+        ]
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Fluxo de alinhamento",
+      "summary": "Mostra como demandas chegam, são avaliadas e transformadas em valor.",
+      "factors": [
+        {
+          "id": "demandas_negocio",
+          "name": "Demandas de negócio",
+          "summary": "OKRs e propostas",
+          "kind": "flow",
+          "indicators": ["demandas_registradas"]
+        },
+        {
+          "id": "avaliacao",
+          "name": "Avaliação de portfólio",
+          "summary": "Modelos de priorização",
+          "kind": "constraint",
+          "indicators": ["tempo_decisao"]
+        },
+        {
+          "id": "entrega",
+          "name": "Entrega de valor",
+          "summary": "Squads e PMOs",
+          "kind": "flow",
+          "indicators": ["valor_entregue"]
+        },
+        {
+          "id": "beneficios",
+          "name": "Realização de benefícios",
+          "summary": "Monitoramento pós-implementação",
+          "kind": "outcome",
+          "indicators": ["beneficios_realizados"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "demandas_negocio",
+          "to": "avaliacao",
+          "description": "Demandas formalizadas são avaliadas com critérios comuns."
+        },
+        {
+          "from": "avaliacao",
+          "to": "entrega",
+          "description": "Itens aprovados entram no backlog priorizado."
+        },
+        {
+          "from": "entrega",
+          "to": "beneficios",
+          "description": "Resultados monitorados fecham o ciclo de alinhamento."
+        },
+        {
+          "from": "beneficios",
+          "to": "demandas_negocio",
+          "description": "Lições aprendidas inspiram novas demandas e ajustes."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Ritos de relacionamento SI-negócio",
+      "steps": [
+        {
+          "title": "Diariamente",
+          "content": "Dailies operacionais com presença de representantes de negócio."
+        },
+        {
+          "title": "Semanalmente",
+          "content": "Revisão de backlog integrado e indicadores de squads."
+        },
+        { "title": "Mensalmente", "content": "Comitê executivo revisa roadmap e aprova ajustes." },
+        { "title": "Trimestralmente", "content": "Planejamento integrado e recalibração dos OKRs." }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Governança na prática",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/governanca-si-negocio",
+          "title": "Modelo de governança em indústria",
+          "caption": "Integração de SI com PMO corporativo."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/okrs-ti-case",
+          "title": "OKRs compartilhados",
+          "caption": "Como TI e negócio co-criam metas e cadências."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 34 — Fórum de alinhamento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Desenhe a proposta de um fórum de alinhamento SI-negócio para sua realidade, definindo propósito, participantes, cadência e indicadores. Submeta na plataforma e discuta no fórum com o time de governança."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-34-governanca-e-alinhamento-si-negocio",
+  "summary": "Define estruturas e ritos de governança que mantêm SI alinhado ao negócio e asseguram geração de valor contínua.",
+  "objectives": [
+    "Configurar fóruns e papéis que sustentam o alinhamento SI-negócio.",
+    "Estabelecer cadências e indicadores para monitorar execução do PESI.",
+    "Integrar lições aprendidas e benefícios ao ciclo de planejamento."
+  ],
+  "competencies": ["Governança de TI", "Gestão de stakeholders", "Liderança colaborativa"],
+  "outcomes": [
+    "Apresenta proposta de fórum de alinhamento contextualizada.",
+    "Relaciona indicadores de governança aos objetivos estratégicos.",
+    "Implementa cadências de acompanhamento conjunto."
+  ],
+  "prerequisites": [
+    "Roadmap preliminar definido na aula 33.",
+    "Patrocinadores identificados e comprometidos."
+  ],
+  "tags": ["governanca", "alinhamento", "planejamento"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Modelo de charter de comitê",
+      "url": "https://example.edu/tgs/templates/charter-comite",
+      "type": "template"
+    },
+    {
+      "label": "Guia de OKRs compartilhados",
+      "url": "https://example.edu/tgs/guides/okrs-compartilhados",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "ISACA. COBIT 2019 Framework. ISACA, 2019.",
+    "MIT CISR. Achieving Business Outcomes with IT. MIT, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Proposta de fórum de alinhamento SI-negócio com indicadores e cadência."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Guia Governança Integrada 2024"]
+  }
+}

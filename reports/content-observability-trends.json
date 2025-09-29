@@ -1,6 +1,32 @@
 {
-  "generatedAt": "2025-09-29T01:32:38.214Z",
+  "generatedAt": "2025-09-29T13:56:11.002Z",
   "snapshot": {
+    "generatedAt": "2025-09-29T13:56:11.002Z",
+    "lessons": {
+      "total": 117,
+      "available": 97,
+      "unavailable": 20,
+      "md3Blocks": 784,
+      "legacyBlocks": 0,
+      "legacyLessons": 0,
+      "totalBlocks": 807,
+      "md3Coverage": 0.9714993804213135,
+      "legacyCoverage": 0
+    },
+    "exercises": {
+      "total": 10,
+      "withMetadata": 10,
+      "withoutMetadata": 0,
+      "completeness": 1
+    },
+    "supplements": {
+      "total": 5,
+      "withMetadata": 5,
+      "withoutMetadata": 0,
+      "completeness": 1
+    }
+  },
+  "previous": {
     "generatedAt": "2025-09-29T01:32:38.214Z",
     "lessons": {
       "total": 92,
@@ -26,24 +52,101 @@
       "completeness": 1
     }
   },
-  "previous": null,
-  "trend": null,
+  "trend": {
+    "lessons": {
+      "md3Blocks": {
+        "current": 784,
+        "previous": 637,
+        "delta": 147,
+        "percentChange": 23.076923076923077,
+        "format": "absolute"
+      },
+      "legacyBlocks": {
+        "current": 0,
+        "previous": 0,
+        "delta": 0,
+        "percentChange": 0,
+        "format": "absolute"
+      },
+      "legacyLessons": {
+        "current": 0,
+        "previous": 0,
+        "delta": 0,
+        "percentChange": 0,
+        "format": "absolute"
+      },
+      "md3Coverage": {
+        "current": 97.14993804213134,
+        "previous": 99.37597503900156,
+        "delta": -2.2260369968702207,
+        "percentChange": -2.240015251167679,
+        "format": "points"
+      },
+      "legacyCoverage": {
+        "current": 0,
+        "previous": 0,
+        "delta": 0,
+        "percentChange": 0,
+        "format": "points"
+      }
+    },
+    "exercises": {
+      "withoutMetadata": {
+        "current": 0,
+        "previous": 0,
+        "delta": 0,
+        "percentChange": 0,
+        "format": "absolute"
+      },
+      "completeness": {
+        "current": 100,
+        "previous": 100,
+        "delta": 0,
+        "percentChange": 0,
+        "format": "points"
+      }
+    },
+    "supplements": {
+      "withoutMetadata": {
+        "current": 0,
+        "previous": 0,
+        "delta": 0,
+        "percentChange": 0,
+        "format": "absolute"
+      },
+      "completeness": {
+        "current": 100,
+        "previous": 100,
+        "delta": 0,
+        "percentChange": 0,
+        "format": "points"
+      }
+    }
+  },
   "sparklines": {
-    "md3Coverage": "▅",
-    "legacyBlocks": "▅",
-    "exercisesCompleteness": "▅",
-    "supplementsCompleteness": "▅"
+    "md3Coverage": "█▁",
+    "legacyBlocks": "▅▅",
+    "exercisesCompleteness": "▅▅",
+    "supplementsCompleteness": "▅▅"
   },
   "series": {
     "md3Coverage": [
       {
         "generatedAt": "2025-09-29T01:32:38.214Z",
         "value": 99.38
+      },
+      {
+        "generatedAt": "2025-09-29T13:56:11.002Z",
+        "value": 97.15
       }
     ],
     "legacyBlocks": [
       {
         "generatedAt": "2025-09-29T01:32:38.214Z",
+        "value": 0
+      },
+      {
+        "generatedAt": "2025-09-29T13:56:11.002Z",
         "value": 0
       }
     ],
@@ -51,11 +154,19 @@
       {
         "generatedAt": "2025-09-29T01:32:38.214Z",
         "value": 100
+      },
+      {
+        "generatedAt": "2025-09-29T13:56:11.002Z",
+        "value": 100
       }
     ],
     "supplementsCompleteness": [
       {
         "generatedAt": "2025-09-29T01:32:38.214Z",
+        "value": 100
+      },
+      {
+        "generatedAt": "2025-09-29T13:56:11.002Z",
         "value": 100
       }
     ]

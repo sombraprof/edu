@@ -1,0 +1,196 @@
+{
+  "id": "lesson-31",
+  "title": "Aula 31: Capabilidades Digitais e Portfólio de Processos",
+  "objective": "Avaliar capacidades internas de SI para orientar decisões do portfólio estratégico.",
+  "content": [
+    {
+      "type": "cardGrid",
+      "title": "Dimensões da capacidade digital",
+      "cards": [
+        {
+          "title": "Arquitetura",
+          "content": "Sistemas, integrações, dados e padrões que sustentam entregas."
+        },
+        {
+          "title": "Talentos",
+          "content": "Competências técnicas, soft skills e estruturas de squads."
+        },
+        {
+          "title": "Processos",
+          "content": "Ritos, governança de mudanças e automação de fluxos."
+        },
+        {
+          "title": "Cultura",
+          "content": "Abertura à experimentação, colaboração e aprendizado contínuo."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Matriz de criticidade dos processos",
+      "headers": ["Processo", "Impacto no negócio", "Saúde atual", "Observações"],
+      "rows": [
+        ["Onboarding de clientes", "Alta", "Baixa", "Integrações manuais geram atrasos de 48h"],
+        ["Fechamento financeiro", "Alta", "Média", "Dependência de planilhas fora do ERP"],
+        ["Gestão de estoque", "Média", "Alta", "Automação consolidada com IoT e WMS"],
+        [
+          "Suporte ao cliente",
+          "Alta",
+          "Baixa",
+          "Falta visão 360° e base de conhecimento unificada"
+        ],
+        ["Gestão de campanhas", "Média", "Média", "Ferramentas diversas sem governança comum"]
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Mapa de valor da SI",
+      "summary": "Relaciona capacidades internas com benefícios percebidos pelo negócio.",
+      "factors": [
+        {
+          "id": "dados",
+          "name": "Dados confiáveis",
+          "summary": "Governança e qualidade de dados",
+          "kind": "resource",
+          "indicators": ["qualidade_dados", "tempo_disponibilidade"]
+        },
+        {
+          "id": "experiencia",
+          "name": "Experiência do cliente",
+          "summary": "Omnicanalidade e personalização",
+          "kind": "outcome",
+          "indicators": ["nps", "taxa_conversao"]
+        },
+        {
+          "id": "eficiencia",
+          "name": "Eficiência operacional",
+          "summary": "Automação e redução de retrabalho",
+          "kind": "outcome",
+          "indicators": ["custo_operacional", "tempo_ciclo"]
+        },
+        {
+          "id": "inovacao",
+          "name": "Inovação contínua",
+          "summary": "Capacidade de experimentar e escalar",
+          "kind": "capability",
+          "indicators": ["experimentos_trimestre", "time_to_market"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "dados",
+          "to": "experiencia",
+          "description": "Dados confiáveis habilitam personalização em escala."
+        },
+        {
+          "from": "dados",
+          "to": "eficiencia",
+          "description": "Padronização de dados reduz retrabalho e auditorias."
+        },
+        {
+          "from": "inovacao",
+          "to": "experiencia",
+          "description": "Experimentação gera novas jornadas digitais."
+        },
+        {
+          "from": "inovacao",
+          "to": "eficiencia",
+          "description": "Pilotos de automação são escalados para backoffice."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Sprint de imersão nas capacidades",
+      "steps": [
+        {
+          "title": "Dia 1",
+          "content": "Workshop com líderes de negócio para mapear processos críticos."
+        },
+        {
+          "title": "Dia 2",
+          "content": "Avaliação técnica de sistemas e integrações prioritárias."
+        },
+        { "title": "Dia 3", "content": "Análise de competências e dimensionamento de equipes." },
+        {
+          "title": "Dia 4",
+          "content": "Consolidação dos gaps e oportunidades em relatório executivo."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Casos para estudo",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/capacidades-digitais-industria",
+          "title": "Capacidades digitais em manufatura",
+          "caption": "Diagnóstico de TI que priorizou automação e analytics na linha de produção."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/portfolio-processos-servicos",
+          "title": "Rebalanceamento de portfólio em serviços",
+          "caption": "Como uma empresa de saúde digital reposicionou investimentos de TI."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 31 — Inventário comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Atualize o inventário de processos e sistemas priorizados, incluindo nível de criticidade e riscos associados. Publique no fórum até 72h e comente em pelo menos um trabalho de colega."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-31-capacidades-digitais-e-portfolio",
+  "summary": "Aprofunda a avaliação das capacidades digitais internas e seu impacto no portfólio estratégico de SI.",
+  "objectives": [
+    "Mensurar criticidade de processos e sistemas sob a ótica de valor.",
+    "Relacionar capacidades digitais com benefícios esperados pelo negócio.",
+    "Preparar insumos para priorização de iniciativas do PESI."
+  ],
+  "competencies": ["Gestão de portfólio", "Arquitetura empresarial", "Colaboração interfuncional"],
+  "outcomes": [
+    "Classifica processos críticos com base em impacto e saúde atual.",
+    "Articula como capacidades digitais sustentam valor para clientes e operação.",
+    "Compartilha inventário atualizado em fórum de prática."
+  ],
+  "prerequisites": [
+    "Trazer resultados preliminares da SWOT (aula 30).",
+    "Disponibilizar indicadores de desempenho dos processos avaliados."
+  ],
+  "tags": ["capacidades-digitais", "portfolio", "planejamento"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de matriz de criticidade",
+      "url": "https://example.edu/tgs/templates/matriz-criticidade",
+      "type": "template"
+    },
+    {
+      "label": "Guia de entrevistas com stakeholders",
+      "url": "https://example.edu/tgs/guides/entrevistas-stakeholders",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "ROSS, Jeanne et al. Designed for Digital. MIT Press, 2019.",
+    "BCG. Digital Acceleration Index 2024. Boston Consulting Group, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Inventário comentado com criticidade e riscos dos processos prioritários."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Playbook Capacidades Digitais 2024"]
+  }
+}

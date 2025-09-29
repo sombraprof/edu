@@ -1,0 +1,199 @@
+{
+  "id": "lesson-32",
+  "title": "Aula 32: Objetivos Estratégicos e Balanced Scorecard de SI",
+  "objective": "Construir objetivos, indicadores e iniciativas do Balanced Scorecard aplicado a SI.",
+  "content": [
+    {
+      "type": "cardGrid",
+      "title": "Perspectivas do BSC de SI",
+      "cards": [
+        {
+          "title": "Financeira",
+          "content": "Valor entregue por TI, otimização de custos e retorno de investimentos."
+        },
+        {
+          "title": "Clientes",
+          "content": "Experiência dos usuários finais e satisfação das áreas de negócio."
+        },
+        {
+          "title": "Processos internos",
+          "content": "Eficiência, confiabilidade e segurança dos serviços de TI."
+        },
+        {
+          "title": "Aprendizado e inovação",
+          "content": "Capacitação, cultura ágil e adoção de novas tecnologias."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Exemplo de mapa de objetivos",
+      "headers": ["Perspectiva", "Objetivo", "Indicador", "Meta 2025"],
+      "rows": [
+        ["Financeira", "Reduzir custo por transação digital", "Custo médio por transação", "-15%"],
+        ["Clientes", "Elevar NPS das soluções digitais", "NPS digital", ">= 65"],
+        [
+          "Processos internos",
+          "Aumentar disponibilidade crítica",
+          "Disponibilidade 24x7",
+          ">= 99,8%"
+        ],
+        ["Processos internos", "Reduzir tempo de entrega", "Lead time de squads", "-25%"],
+        [
+          "Aprendizado e inovação",
+          "Escalar competências em analytics",
+          "% equipes certificadas",
+          ">= 70%"
+        ],
+        ["Aprendizado e inovação", "Fomentar inovação aberta", "Provas de conceito/ano", ">= 6"]
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Mapa estratégico simplificado",
+      "summary": "Ilustra relações de causa e efeito entre objetivos do BSC de SI.",
+      "factors": [
+        {
+          "id": "capacitacao",
+          "name": "Capacitação analítica",
+          "summary": "Treinamentos e comunidades",
+          "kind": "capability",
+          "indicators": ["certificacoes"]
+        },
+        {
+          "id": "automacao",
+          "name": "Automação de processos",
+          "summary": "Plataformas low-code e RPA",
+          "kind": "flow",
+          "indicators": ["processos_automatizados"]
+        },
+        {
+          "id": "experiencia_cliente",
+          "name": "Experiência digital",
+          "summary": "Jornadas omnicanal",
+          "kind": "outcome",
+          "indicators": ["nps_digital"]
+        },
+        {
+          "id": "eficiencia_custo",
+          "name": "Eficiência de custos",
+          "summary": "Uso racional de infraestrutura",
+          "kind": "outcome",
+          "indicators": ["custo_transacao"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "capacitacao",
+          "to": "automacao",
+          "description": "Equipes capacitadas implementam automação com menor retrabalho."
+        },
+        {
+          "from": "automacao",
+          "to": "experiencia_cliente",
+          "description": "Automação reduz fricção e erros em jornadas digitais."
+        },
+        {
+          "from": "automacao",
+          "to": "eficiencia_custo",
+          "description": "Automação otimiza uso de infraestrutura e licenças."
+        },
+        {
+          "from": "capacitacao",
+          "to": "experiencia_cliente",
+          "description": "Competências analíticas melhoram personalização."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Workshop de formulação do BSC",
+      "steps": [
+        { "title": "Pré-work", "content": "Consolide SWOT e matriz de capacidades como insumo." },
+        {
+          "title": "Sessão 1",
+          "content": "Definir objetivos por perspectiva com patrocínio executivo."
+        },
+        { "title": "Sessão 2", "content": "Selecionar indicadores e metas realistas." },
+        {
+          "title": "Sessão 3",
+          "content": "Priorizar iniciativas estratégicas e donos dos objetivos."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Referências em vídeo",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/bsc-ti-servicos",
+          "title": "Balanced Scorecard em empresa de serviços",
+          "caption": "Case sobre alinhamento entre diretoria de TI e conselho."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/mapa-estrategico-data-driven",
+          "title": "Mapa estratégico para jornada data-driven",
+          "caption": "Discussão sobre indicadores e governança de métricas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 32 — Mapa estratégico de SI",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Construa um mapa estratégico visual com objetivos, indicadores e relações de causa e efeito para a área de SI. Utilize o template disponibilizado e poste no fórum para feedback cruzado."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-32-objetivos-e-balanced-scorecard-si",
+  "summary": "Traduz a análise estratégica em objetivos, indicadores e iniciativas no formato Balanced Scorecard.",
+  "objectives": [
+    "Transformar achados do diagnóstico em objetivos estratégicos de SI.",
+    "Selecionar indicadores e metas alinhados às perspectivas do BSC.",
+    "Visualizar relações de causa e efeito no mapa estratégico de TI."
+  ],
+  "competencies": ["Gestão estratégica de TI", "Medição de desempenho", "Facilitação executiva"],
+  "outcomes": [
+    "Propõe objetivos de SI alinhados ao negócio.",
+    "Define indicadores e metas realistas para cada perspectiva.",
+    "Publica mapa estratégico visual para discussão coletiva."
+  ],
+  "prerequisites": [
+    "Ter SWOT e inventário de capacidades consolidados (aulas 30 e 31).",
+    "Revisar metas corporativas vigentes."
+  ],
+  "tags": ["balanced-scorecard", "objetivos", "planejamento"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de mapa estratégico",
+      "url": "https://example.edu/tgs/templates/mapa-estrategico",
+      "type": "template"
+    },
+    {
+      "label": "Guia de indicadores de TI",
+      "url": "https://example.edu/tgs/guides/indicadores-ti",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "KAPLAN, Robert; NORTON, David. Mapas Estratégicos. Elsevier, 2004.",
+    "ISACA. COBIT Focus: Aligning BSC with Governance Objectives. ISACA, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Mapa estratégico de SI publicado em fórum para peer review."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Playbook BSC TI 2024"]
+  }
+}

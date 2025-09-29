@@ -1,0 +1,178 @@
+{
+  "id": "lesson-38",
+  "title": "Aula 38: Oficina Integrada – Roadmap, Mudança e Comunicação",
+  "objective": "Conectar roadmap estratégico à gestão de mudança e comunicação executiva do PESI.",
+  "content": [
+    {
+      "type": "cardGrid",
+      "title": "Alavancas de mudança",
+      "cards": [
+        {
+          "title": "Patrocínio visível",
+          "content": "Executivos comunicam visão e desbloqueiam recursos."
+        },
+        {
+          "title": "Gestão de impactos",
+          "content": "Mapeamento de processos, personas e riscos de adoção."
+        },
+        { "title": "Capacitação", "content": "Trilhas de aprendizagem e suporte contínuo." },
+        {
+          "title": "Comunicação segmentada",
+          "content": "Mensagens personalizadas por stakeholder."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Plano de comunicação",
+      "headers": ["Stakeholder", "Mensagem-chave", "Canal", "Frequência"],
+      "rows": [
+        ["Conselho", "Status do roadmap e resultados", "Relatório executivo", "Mensal"],
+        ["Gestores", "Impactos operacionais e decisões", "Reuniões de liderança", "Quinzenal"],
+        ["Colaboradores", "Benefícios e suporte", "Intranet, newsletters", "Semanal"],
+        ["Parceiros", "Integrações e mudanças contratuais", "Workshops dedicados", "Trimestral"]
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Gestão de mudança integrada",
+      "summary": "Mostra como comunicação, capacitação e suporte sustentam a adoção do roadmap.",
+      "factors": [
+        {
+          "id": "comunicacao",
+          "name": "Comunicação",
+          "summary": "Mensagens direcionadas",
+          "kind": "flow",
+          "indicators": ["alcance_mensagens"]
+        },
+        {
+          "id": "capacitacao",
+          "name": "Capacitação",
+          "summary": "Treinamentos e coaching",
+          "kind": "capability",
+          "indicators": ["horas_treinamento"]
+        },
+        {
+          "id": "suporte",
+          "name": "Suporte",
+          "summary": "Canais e help desk",
+          "kind": "resource",
+          "indicators": ["chamados_resolvidos"]
+        },
+        {
+          "id": "adocao",
+          "name": "Adoção",
+          "summary": "Uso efetivo das novas soluções",
+          "kind": "outcome",
+          "indicators": ["usuarios_ativos"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "comunicacao",
+          "to": "capacitacao",
+          "description": "Comunicação convoca públicos para trilhas de aprendizado."
+        },
+        {
+          "from": "capacitacao",
+          "to": "adocao",
+          "description": "Treinamentos aumentam confiança no uso."
+        },
+        {
+          "from": "suporte",
+          "to": "adocao",
+          "description": "Suporte rápido remove barreiras pós-go-live."
+        },
+        {
+          "from": "capacitacao",
+          "to": "suporte",
+          "description": "Insights dos treinamentos orientam base de conhecimento."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Cronograma da oficina",
+      "steps": [
+        { "title": "Bloco 1", "content": "Atualização do roadmap e dependências críticas." },
+        { "title": "Bloco 2", "content": "Mapeamento de impactos e stakeholders." },
+        { "title": "Bloco 3", "content": "Definição de mensagens e canais por segmento." },
+        { "title": "Bloco 4", "content": "Plano de capacitação e métricas de adoção." }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Gestão de mudança em ação",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/change-management-ti",
+          "title": "Transformação digital orientada à mudança",
+          "caption": "Como comunicar roadmap de TI em escala."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/case-capacitacao-pesi",
+          "title": "Capacitação contínua",
+          "caption": "Case de onboarding digital com academias internas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 38 — Plano de engajamento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza um plano de engajamento resumido com stakeholders críticos, mensagens-chave e indicadores de adoção. Entregue no fórum e responda à banca de perguntas em aula seguinte."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-38-oficina-integrada-roadmap-mudanca",
+  "summary": "Integra roadmap estratégico com gestão de mudança, comunicação e engajamento de stakeholders.",
+  "objectives": [
+    "Relacionar roadmap do PESI às necessidades de comunicação e mudança.",
+    "Elaborar plano de comunicação segmentado por stakeholder.",
+    "Definir indicadores de adoção e suporte contínuo."
+  ],
+  "competencies": ["Gestão de mudança", "Comunicação executiva", "Engajamento de stakeholders"],
+  "outcomes": [
+    "Entrega plano de engajamento alinhado ao roadmap.",
+    "Mapeia impactos e planos de capacitação por público.",
+    "Define métricas de adoção para monitoramento contínuo."
+  ],
+  "prerequisites": [
+    "Roadmap priorizado (aula 33) e governança definida (aula 34).",
+    "Indicadores de monitoramento estruturados (aula 35)."
+  ],
+  "tags": ["mudanca", "comunicacao", "roadmap"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de plano de engajamento",
+      "url": "https://example.edu/tgs/templates/plano-engajamento",
+      "type": "template"
+    },
+    {
+      "label": "Kit de comunicação PESI",
+      "url": "https://example.edu/tgs/kits/comunicacao-pesi",
+      "type": "kit"
+    }
+  ],
+  "bibliography": [
+    "HIATT, Jeff. ADKAR: um modelo de gestão de mudanças. Elsevier, 2014.",
+    "PROSCI. Best Practices in Change Management. Prosci, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Plano de engajamento com indicadores de adoção."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Playbook Change Management 2024"]
+  }
+}

@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2025-09-29T01:32:38.214Z",
+  "generatedAt": "2025-09-29T13:56:11.002Z",
   "totals": {
     "courses": 5,
     "lessons": {
-      "total": 92,
-      "available": 72,
+      "total": 117,
+      "available": 97,
       "unavailable": 20,
       "legacyLessons": 0,
-      "md3Blocks": 637,
+      "md3Blocks": 784,
       "legacyBlocks": 0,
-      "totalBlocks": 641
+      "totalBlocks": 807
     },
     "exercises": {
       "total": 10,
@@ -192,25 +192,27 @@
       "title": "Teoria Geral de Sistemas",
       "institution": "Unichristus",
       "lessons": {
-        "total": 15,
-        "available": 15,
+        "total": 40,
+        "available": 40,
         "unavailable": 0,
-        "totalBlocks": 153,
-        "md3Blocks": 153,
+        "totalBlocks": 319,
+        "md3Blocks": 300,
         "legacyBlocks": 0,
         "legacyLessons": 0,
         "legacyLessonIds": [],
         "blocksByType": {
           "accordion": 11,
           "bibliographyBlock": 9,
-          "callout": 28,
-          "cardGrid": 20,
-          "checklist": 4,
-          "contentBlock": 54,
-          "flightPlan": 6,
-          "lessonPlan": 9,
-          "md3Table": 7,
-          "timeline": 1,
+          "callout": 57,
+          "cardGrid": 45,
+          "checklist": 8,
+          "contentBlock": 63,
+          "flightPlan": 8,
+          "lessonPlan": 23,
+          "md3Table": 27,
+          "systemMapper": 19,
+          "timeline": 24,
+          "videos": 21,
           "videosBlock": 4
         },
         "legacyBlocksByType": {}
