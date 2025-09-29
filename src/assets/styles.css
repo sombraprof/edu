@@ -1192,9 +1192,9 @@ html {
     font-size: var(--md-sys-typescale-label-large-size);
     line-height: var(--md-sys-typescale-label-large-line-height);
     letter-spacing: var(--md-sys-typescale-label-large-tracking);
-    min-height: 2.75rem;
-    padding-inline: 1.5rem;
-    padding-block: 0.5rem;
+    min-height: var(--md-sys-spacing-10);
+    padding-inline: var(--md-sys-spacing-6);
+    padding-block: var(--md-sys-spacing-2);
     border-radius: var(--md-sys-border-radius-full);
     background-color: var(--md3-button-container);
     color: var(--md3-button-color);
@@ -1286,9 +1286,9 @@ html {
 
   .btn-text,
   .md3-button--text {
-    padding-inline: 0.75rem;
-    padding-block: 0.5rem;
-    min-height: 2.5rem;
+    padding-inline: var(--md-sys-spacing-3);
+    padding-block: var(--md-sys-spacing-2);
+    min-height: var(--md-sys-spacing-10);
     border-radius: var(--md-sys-border-radius-full);
     width: fit-content;
     --md3-button-state-layer: var(--md-sys-state-layer-primary);
@@ -1299,6 +1299,9 @@ html {
     --md3-button-outline-color: color-mix(in srgb, var(--md-sys-color-outline) 75%, transparent);
     --md3-button-container: color-mix(in srgb, var(--md-sys-color-surface) 92%, transparent);
     --md3-button-state-layer: var(--md-sys-state-layer-on-surface-container);
+    padding-inline: var(--md-sys-spacing-6);
+    padding-block: var(--md-sys-spacing-2);
+    min-height: var(--md-sys-spacing-10);
   }
 
   .btn-outlined:disabled,
@@ -1311,10 +1314,10 @@ html {
   .btn-icon,
   .md3-button--icon {
     @apply inline-grid place-items-center;
-    height: 2.75rem;
-    width: 2.75rem;
+    height: var(--md-sys-spacing-10);
+    width: var(--md-sys-spacing-10);
     padding: 0;
-    border-radius: 9999px;
+    border-radius: var(--md-sys-border-radius-full);
     border: 1px solid transparent;
     font-family: var(--md-sys-typescale-font);
     --md3-button-color: var(--md-sys-color-on-surface-variant);
