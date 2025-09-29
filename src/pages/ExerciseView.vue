@@ -49,7 +49,7 @@ import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } fro
 import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
-import { extractManifestEntries } from '@/utils/contentManifest';
+import { normalizeManifest } from '@/content/loaders';
 
 interface GenerationMetadata {
   generatedBy: string;
@@ -94,7 +94,9 @@ async function loadExercise() {
     if (!indexImporter) throw new Error(`Exercise index not found for path: ${indexPath}`);
 
     const indexModule = await indexImporter();
-    const index = extractManifestEntries<ExerciseRef>(indexModule);
+    const { entries: index } = normalizeManifest<ExerciseRef>(indexModule, {
+      context: `ExerciseView:index:${currentCourse}`,
+    });
     const entry = index.find((item) => item.id === currentExercise);
     if (!entry) throw new Error(`Exercise ${currentExercise} not found`);
 
