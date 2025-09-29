@@ -34,6 +34,13 @@ Estabelecer a célula multidisciplinar responsável por guiar a modernização d
 3. **Checklist de qualidade inicial** cobrindo MD3, acessibilidade, metadados e critérios pedagógicos.
 4. **Calendário de saneamento** com docentes por disciplina e artefatos necessários para cada sessão.
 
+Artefatos registrados:
+
+- `docs/governance/raci-matrix.md`
+- `docs/governance/roadmap-semanas-1-12.md`
+- `docs/governance/checklist-qualidade.md`
+- `docs/governance/calendario-saneamento.md`
+
 > Registrar os entregáveis em issues dedicadas e anexar os artefatos a este diretório.
 
 ## 5. Backlog inicial da squad
