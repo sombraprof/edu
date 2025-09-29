@@ -376,25 +376,45 @@
       "id": "lesson-35",
       "title": "Aula 35: Introdução a Structs (Registros)",
       "file": "lesson-35.json",
-      "available": false
+      "available": true,
+      "description": "Apresenta structs em C como registros compostos e organiza um CRUD inicial para consolidar o modelo de dados.",
+      "summary": "Declaração de structs, acesso a campos e mini-CRUD em memória inspirado em dados do SEBRAE.",
+      "tags": ["structs", "crud", "revisao"],
+      "duration": 115,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-36",
       "title": "Aula 36: Vetores de Structs",
       "file": "lesson-36.json",
-      "available": false
+      "available": true,
+      "description": "Organiza coleções de registros com structs em vetor, adicionando ordenação e relatórios.",
+      "summary": "Vetores de structs com contagem ativa, integração do CRUD e ordenação baseada em dados do SEBRAE.",
+      "tags": ["structs", "crud", "revisao"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-37",
       "title": "Aula 37: Busca e Atualização em Vetores de Structs",
       "file": "lesson-37.json",
-      "available": false
+      "available": true,
+      "description": "Aprofunda operações de busca, atualização e remoção em vetores de structs com foco em integridade.",
+      "summary": "Busca por múltiplos critérios, atualização validada e remoção com logs usando dados IBGE/SEBRAE.",
+      "tags": ["structs", "crud", "revisao"],
+      "duration": 125,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-38",
       "title": "Aula 38: Revisão Geral do Semestre",
       "file": "lesson-38.json",
-      "available": false
+      "available": true,
+      "description": "Revisa o semestre com dinâmica gamificada envolvendo Jeopardy, ranking colaborativo e feedbacks.",
+      "summary": "Revisão gamificada com quizzes de structs/CRUD, desafios relâmpago e mural de aprendizados.",
+      "tags": ["structs", "crud", "revisao"],
+      "duration": 130,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-39",

@@ -1,0 +1,175 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-37",
+  "title": "Aula 37: Busca e Atualização em Vetores de Structs",
+  "summary": "Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria.",
+  "objective": "Desenvolver habilidades para localizar, atualizar e remover registros em vetores de structs, garantindo integridade dos dados.",
+  "objectives": [
+    "Implementar buscas lineares e por chave composta.",
+    "Atualizar campos selecionados mantendo histórico mínimo.",
+    "Realizar remoção lógica e física comparando abordagens."
+  ],
+  "competencies": ["Pensamento crítico", "Confiabilidade de software"],
+  "skills": [
+    "Projetar funções de busca reutilizáveis.",
+    "Definir protocolos de atualização com validação.",
+    "Gerenciar remoção com deslocamento de elementos e logs."
+  ],
+  "outcomes": [
+    "Entrega funções searchById e searchByPrefix documentadas.",
+    "Atualiza registros com validação de domínios e feedback ao usuário.",
+    "Implementa remoção com compactação e ajuste do contador de elementos ativos."
+  ],
+  "prerequisites": [
+    "Vetores de structs com ordenação básica (Aula 36).",
+    "Entendimento de CRUD sequencial."
+  ],
+  "tags": ["structs", "crud", "revisao"],
+  "duration": 125,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Dataset IBGE - Cadastro Central de Empresas (Tabela 6463)",
+      "type": "dataset",
+      "url": "https://sidra.ibge.gov.br/tabela/6463"
+    },
+    {
+      "label": "Rubrica CRUD em memória",
+      "type": "rubric",
+      "file": "courses/algi/crud-lab-rubrica.md",
+      "url": "https://static.md3.education/courses/algi/crud-lab-rubrica.md"
+    },
+    {
+      "label": "Guia SEBRAE - Boas práticas de atendimento",
+      "type": "article",
+      "url": "https://www.sebrae.com.br/sites/PortalSebrae/artigos/boas-praticas-de-atendimento"
+    }
+  ],
+  "bibliography": [
+    "LAFORE, R. Estruturas de Dados e Algoritmos em C++. Pearson, 2019.",
+    "SOMMERVILLE, I. Engenharia de Software. 11. ed. Pearson, 2020."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro detalhado",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Kick-off",
+          "content": "Desafio relâmpago com buscas sobre vetor já ordenado (10 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Estratégias de busca",
+          "content": "Busca linear, sentinela e comparação com busca binária (30 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Atualizações seguras",
+          "content": "Validação de domínio e campos derivados (30 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Remoções",
+          "content": "Remoção lógica vs física e implicações no ranking (25 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Debriefing",
+          "content": "Retro coletiva com métricas de cobertura das operações (20 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h05)",
+      "items": [
+        "(15 min) Estudo de caso: empresas que cresceram segundo IBGE.",
+        "(25 min) Live coding: busca por id com retorno de ponteiro.",
+        "(30 min) Oficina: atualização de faturamento com logs de alterações.",
+        "(25 min) Laboratório: remoção e compactação do vetor com relatório automático.",
+        "(20 min) Testes cruzados entre squads (pair review).",
+        "(10 min) Reflexão escrita sobre integridade e auditoria."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Boas práticas para atualização e busca",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Conecte as operações CRUD às métricas de atendimento SEBRAE, justificando por que determinados campos precisam de validação adicional e feedback claro ao usuário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Implemente busca por múltiplos critérios (id, setor, faixa de faturamento)."
+            },
+            { "text": "Mantenha log textual das alterações relevantes para auditoria." },
+            { "text": "Crie testes unitários simples para funções de atualização e remoção." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Padrões de retorno para operações CRUD",
+      "headers": ["Operação", "Retorno sugerido", "Descrição", "Quando aplicar"],
+      "rows": [
+        [
+          "create",
+          "int (novo tamanho)",
+          "Incrementa contador e retorna total de registros.",
+          "Ao inserir no fim do vetor."
+        ],
+        [
+          "read",
+          "int (índice) ou ponteiro",
+          "Localiza registro e permite inspeção.",
+          "Quando busca por id ou prefixo."
+        ],
+        [
+          "update",
+          "bool",
+          "Indica sucesso/falha após validações.",
+          "Atualização de campos sensíveis."
+        ],
+        [
+          "delete",
+          "bool",
+          "Retorna sucesso após compactação.",
+          "Remoção física movendo elementos."
+        ],
+        [
+          "auditLog",
+          "void",
+          "Gera linha de log com contexto da alteração.",
+          "Chamar após operações críticas."
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Checklist de testes",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Busca inexistente retorna NULL/índice -1?",
+            "Atualização rejeita valores negativos?",
+            "Remoção mantém coleção ordenada após compactação?"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-03T08:45:00.000Z",
+    "owners": ["Equipe Algoritmos I"],
+    "sources": ["Plano de ensino Algoritmos I 2025.2", "Relatórios IBGE 2024"]
+  }
+}

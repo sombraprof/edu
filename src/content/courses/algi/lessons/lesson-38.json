@@ -1,0 +1,180 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-38",
+  "title": "Aula 38: Revisão Gamificada do Semestre",
+  "summary": "Consolida conteúdos com dinâmica Jeopardy, ranking colaborativo e síntese dos aprendizados em squads.",
+  "objective": "Promover revisão abrangente dos conceitos-chave da disciplina por meio de atividades gamificadas e colaborativas.",
+  "objectives": [
+    "Relembrar tópicos centrais (fluxo sequencial, controle, funções, structs).",
+    "Aplicar conhecimento em desafios práticos e quizzes competitivos.",
+    "Mapear pontos de melhoria individuais a partir do ranking e feedbacks."
+  ],
+  "competencies": ["Trabalho em equipe", "Pensamento crítico", "Comunicação"],
+  "skills": [
+    "Resolver desafios de código em tempo limitado.",
+    "Registrar resultados e feedbacks em planilha de ranking.",
+    "Refletir sobre evolução pessoal e do squad."
+  ],
+  "outcomes": [
+    "Completa tabuleiro Jeopardy com perguntas de múltiplos níveis.",
+    "Entrega ranking final com medalhas e feedback qualitativo.",
+    "Publica mural digital com síntese dos aprendizados do semestre."
+  ],
+  "prerequisites": [
+    "Participação nas aulas anteriores do semestre.",
+    "Projeto CRUD em memória iniciado."
+  ],
+  "tags": ["structs", "crud", "revisao"],
+  "duration": 130,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Kit Jeopardy para revisão",
+      "type": "guide",
+      "file": "courses/algi/gamificacao-jeopardy-kit.md",
+      "url": "https://static.md3.education/courses/algi/gamificacao-jeopardy-kit.md"
+    },
+    {
+      "label": "Template de ranking gamificado",
+      "type": "template",
+      "file": "courses/algi/gamificacao-ranking-template.csv",
+      "url": "https://static.md3.education/courses/algi/gamificacao-ranking-template.csv"
+    },
+    {
+      "label": "Artigo Harvard Business Review - Gamification in Education",
+      "type": "article",
+      "url": "https://hbr.org/2020/03/how-gamification-can-boost-learner-engagement"
+    }
+  ],
+  "bibliography": [
+    "KAPP, K. The Gamification of Learning and Instruction. Wiley, 2020.",
+    "GEE, J. P. What Video Games Have to Teach Us About Learning and Literacy. Palgrave, 2019."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro detalhado",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Boas-vindas",
+          "content": "Aquecimento com quiz flash revisando structs e CRUD (10 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Jeopardy",
+          "content": "Tabuleiro com cinco categorias (Structs, Vetores, Funções, Controle, Desafios) (45 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Ranking dinâmico",
+          "content": "Atualização em tempo real da planilha de pontuação (20 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Oficina de retrospectiva",
+          "content": "Canvas de lições aprendidas e próximos passos (30 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Encerramento",
+          "content": "Entrega de medalhas e feedbacks individuais (25 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h10)",
+      "items": [
+        "(15 min) Icebreaker: bingo de conceitos-chave.",
+        "(45 min) Rodadas Jeopardy com perguntas de código e interpretação.",
+        "(20 min) Desafio relâmpago: refatorar função CRUD indicada pelo ranking.",
+        "(25 min) Sessão de feedback 360° entre squads.",
+        "(20 min) Construção do mural digital com insights.",
+        "(5 min) Anúncio dos destaques e próximos passos para NP3."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estratégias de gamificação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Combine Jeopardy, ranking visível e badges digitais para manter engajamento alto durante a revisão. Cada squad assume papéis (porta-voz, programador, analista) e alterna a cada rodada."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Use perguntas que envolvam leitura de código, correção de bugs e estimativa de complexidade."
+            },
+            {
+              "text": "Atribua badges extras para squads que colaborarem com outras equipes durante a revisão."
+            },
+            {
+              "text": "Publique ranking parcial a cada rodada para incentivar planejamento estratégico."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Categorias e exemplos de perguntas",
+      "headers": ["Categoria", "Exemplo", "Resolução esperada", "Pontuação"],
+      "rows": [
+        [
+          "Structs",
+          "Identificar erro em typedef e sugerir correção.",
+          "Mostrar typedef completo e motivo da falha.",
+          "200"
+        ],
+        [
+          "Vetores",
+          "Reordenar vetor de registros após remoção.",
+          "Apresentar código com deslocamento correto.",
+          "300"
+        ],
+        [
+          "CRUD",
+          "Escolher retorno adequado para função delete.",
+          "Explicar bool e mensagens ao usuário.",
+          "100"
+        ],
+        [
+          "Controle",
+          "Converter laço while em for mantendo lógica.",
+          "Código equivalente com justificativa.",
+          "400"
+        ],
+        [
+          "Desafios",
+          "Aplicar busca por prefixo em lista ordenada.",
+          "Implementar varredura até mismatch.",
+          "500"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Checklist para ranking saudável",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Atualize a planilha ao final de cada rodada.",
+            "Garanta feedback construtivo para todas as posições.",
+            "Documente insights coletivos na ata compartilhada."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-04T11:20:00.000Z",
+    "owners": ["Equipe Algoritmos I"],
+    "sources": ["Plano de ensino Algoritmos I 2025.2", "HBR Gamification Strategies 2020"]
+  }
+}
