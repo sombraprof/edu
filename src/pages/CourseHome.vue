@@ -117,7 +117,7 @@ import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ChevronRight, Grid3x3, List } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
-import { extractManifestEntries } from '@/utils/contentManifest';
+import { normalizeManifest } from '@/content/loaders';
 
 interface LessonRef {
   id: string;
@@ -177,7 +177,10 @@ async function loadLessons(id: string) {
     if (!importer) throw new Error(`Lessons manifest not found for ${path}`);
 
     const module = await importer();
-    lessons.value = extractManifestEntries<LessonRef>(module);
+    const { entries } = normalizeManifest<LessonRef>(module, {
+      context: `CourseHome:lessons:${id}`,
+    });
+    lessons.value = entries;
   } catch (err) {
     console.error('[CourseHome] Failed to load lessons.json', err);
     lessons.value = [];
@@ -191,7 +194,10 @@ async function loadExercises(id: string) {
     if (!importer) throw new Error(`Exercises manifest not found for ${path}`);
 
     const module = await importer();
-    exercises.value = extractManifestEntries<ExerciseRef>(module);
+    const { entries } = normalizeManifest<ExerciseRef>(module, {
+      context: `CourseHome:exercises:${id}`,
+    });
+    exercises.value = entries;
   } catch (err) {
     console.warn('[CourseHome] Exercises not available', err);
     exercises.value = [];

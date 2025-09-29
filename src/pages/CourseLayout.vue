@@ -53,7 +53,7 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
-import { extractManifestEntries } from '@/utils/contentManifest';
+import { normalizeManifest } from '@/content/loaders';
 
 interface CourseMeta {
   id: string;
@@ -109,7 +109,9 @@ async function loadLessons(id: string) {
     if (!importer) throw new Error(`Lessons manifest not found for ${path}`);
 
     const module = await importer();
-    const entries = extractManifestEntries<LessonSummary>(module);
+    const { entries } = normalizeManifest<LessonSummary>(module, {
+      context: `CourseLayout:lessons:${id}`,
+    });
     lessons.value = entries.map((lesson) => ({
       id: lesson.id,
       title: lesson.title,
@@ -127,7 +129,9 @@ async function loadExercises(id: string) {
     if (!importer) throw new Error(`Exercises manifest not found for ${path}`);
 
     const module = await importer();
-    const entries = extractManifestEntries<ExerciseSummary>(module);
+    const { entries } = normalizeManifest<ExerciseSummary>(module, {
+      context: `CourseLayout:exercises:${id}`,
+    });
     exercises.value = entries.map((exercise) => ({
       id: exercise.id,
       title: exercise.title,
