@@ -1599,6 +1599,10 @@ main().catch((error) => {
 });
 
 function resolveReportPath(args) {
+  if (args.includes('--no-report')) {
+    return null;
+  }
+
   const equalsArg = args.find((arg) => arg.startsWith('--report='));
   if (equalsArg) {
     const candidate = equalsArg.slice('--report='.length).trim();
@@ -1607,7 +1611,7 @@ function resolveReportPath(args) {
 
   const flagIndex = args.indexOf('--report');
   if (flagIndex === -1) {
-    return null;
+    return toAbsoluteReportPath(DEFAULT_REPORT_PATH);
   }
 
   const nextArg = args[flagIndex + 1];

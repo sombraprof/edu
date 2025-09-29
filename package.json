@@ -17,7 +17,7 @@
     "validate:report": "node scripts/validate-content.mjs --report",
     "report:observability": "node scripts/report-content-metrics.mjs",
     "report:observability:check": "node scripts/report-content-metrics.mjs --check",
-    "report:governance": "node scripts/generate-governance-alert.mjs",
+    "report:governance": "npm run validate:content && node scripts/generate-governance-alert.mjs",
     "report:governance:history": "node scripts/report-governance-history.mjs",
     "report:courses": "node scripts/report-course-summary.mjs",
     "teacher:service": "node scripts/teacher-automation-server.mjs",
@@ -67,7 +67,7 @@
   },
   "lint-staged": {
     "**/*.{vue,ts,tsx,js,jsx,cjs,mjs,json,md,css,scss}": "prettier --write",
-    "src/content/**/*.{json,vue}": "npm run validate:content --"
+    "src/content/**/*.{json,vue}": "npm run validate:content -- --no-report"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
