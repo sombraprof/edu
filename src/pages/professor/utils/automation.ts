@@ -28,6 +28,9 @@ export interface TeacherScriptRunResult {
   reportKey: ValidationReportKey | null;
   recordedAt?: string;
   success?: boolean;
+  queuedAt?: string | null;
+  queueDurationMs?: number | null;
+  queuePosition?: number | null;
 }
 
 async function request(path: string, init?: RequestInit) {
@@ -125,6 +128,54 @@ export interface TeacherScriptSummary {
 export async function listTeacherScripts() {
   const payload = await request('/api/teacher/scripts', { method: 'GET' });
   return payload as TeacherScriptSummary[];
+}
+
+export interface TeacherPullRequestResult {
+  success: boolean;
+  number: number | null;
+  url: string | null;
+  htmlUrl: string | null;
+  head: string;
+  base: string;
+  draft: boolean;
+  actor: string | null;
+  repository: string;
+  remote: string;
+  createdAt: string | null;
+  command: string;
+  message?: string;
+}
+
+export async function createTeacherPullRequest(params: {
+  title: string;
+  body: string;
+  head: string;
+  base?: string;
+  remote?: string;
+  draft?: boolean;
+  actor?: string | null;
+  allowMaintainerEdit?: boolean;
+}) {
+  const headers: Record<string, string> = {};
+  if (params.actor) {
+    headers['X-Teacher-Actor'] = params.actor;
+  }
+
+  const payload = await request('/api/teacher/git/pull-request', {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      title: params.title,
+      body: params.body,
+      head: params.head,
+      base: params.base,
+      remote: params.remote,
+      draft: params.draft,
+      allowMaintainerEdit: params.allowMaintainerEdit,
+    }),
+  });
+
+  return payload as TeacherPullRequestResult;
 }
 
 export interface TeacherGitChange {

@@ -15,15 +15,16 @@ Este documento acompanha a implementação incremental da nova área administrat
   - ✅ Botão "Buscar atualizações da main" sincroniza o workspace via backend antes da rodada de commits.
   - ✅ Botão "Criar branch automaticamente" prepara a branch de trabalho a partir da `main` diretamente na SPA.
   - ✅ Automação de `git add` e `git commit` a partir dos caminhos cadastrados no painel de publicação.
-  - ✅ Envio automático de `git push` com configuração de upstream direto do painel de publicação.
-  - ✅ Serviço auxiliar `npm run teacher:service` expõe API local para executar scripts oficiais e sincronizar relatórios com o painel.
-    - ✅ Histórico de execuções remotas disponível diretamente no painel de validação ao integrar com o `teacher:service`.
-    - ✅ Autenticação por token no serviço auxiliar para permitir exposição controlada além do ambiente local.
+- ✅ Envio automático de `git push` com configuração de upstream direto do painel de publicação.
+- ✅ Criação automática de pull requests reutilizando o serviço auxiliar com token protegido.
+- ✅ Serviço auxiliar `npm run teacher:service` expõe API local para executar scripts oficiais e sincronizar relatórios com o painel.
+  - ✅ Histórico de execuções remotas disponível diretamente no painel de validação ao integrar com o `teacher:service`.
+  - ✅ Autenticação por token no serviço auxiliar para permitir exposição controlada além do ambiente local.
 
 - **Próximos passos imediatos**
-- 🧩 Automatizar abertura de PRs diretamente pelo painel de publicação.
-  - 🗃️ Definir estratégia de permissões e governança para expor a API em ambientes compartilhados.
-  - 🔐 Definir política de rotação/armazenamento seguro do token do serviço auxiliar.
+- 🧩 Exibir e permitir cancelamento de execuções enfileiradas diretamente no painel de validação.
+  - 🗃️ Expandir auditoria de PRs automáticos (labels, reviewers, anexos) antes da integração contínua.
+  - 🔐 Revisar política de rotação do token de PRs e automatizar alertas de expiração.
 
 ## Atualização em curso — Iteração 2 (Ingestão de JSON)
 
@@ -60,7 +61,7 @@ Este documento acompanha a implementação incremental da nova área administrat
 - ✅ Checkout automático de branch a partir da `main` via backend para alinhar o workspace antes dos commits.
 - ✅ Painel executa `git add` e `git commit` diretamente pela API, reaproveitando o checklist de conteúdos cadastrados.
 - ✅ Painel envia a branch ativa com `git push`, configurando o upstream na primeira execução quando necessário.
-- 🚧 Backend para abertura de PRs automatizados permanece no roadmap.
+- ✅ Backend para abertura de PRs automatizados com verificação de permissões e token protegido.
 - 📓 Registro contínuo em [`iteration-05.md`](./iteration-05.md).
 
 ## 1. Mapeamento de requisitos e workflows

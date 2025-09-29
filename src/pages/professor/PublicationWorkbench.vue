@@ -231,6 +231,33 @@
               Resuma a alteração principal no formato convencional de mensagens de commit.
             </span>
           </label>
+
+          <label class="flex flex-col gap-2">
+            <span class="md-typescale-label-large text-on-surface">Branch base para o PR</span>
+            <input
+              v-model="baseBranchName"
+              type="text"
+              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              placeholder="main"
+            />
+            <span class="text-xs text-on-surface-variant">
+              Informe a branch padrão do repositório (ex.: <code>main</code>) usada como base do PR.
+            </span>
+          </label>
+
+          <label class="flex flex-col gap-2">
+            <span class="md-typescale-label-large text-on-surface">Responsável pela rodada</span>
+            <input
+              v-model="teacherActor"
+              type="text"
+              class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              placeholder="professor.andre"
+            />
+            <span class="text-xs text-on-surface-variant">
+              Nome ou identificador registrado na governança. Usado na auditoria do backend ao criar
+              PRs.
+            </span>
+          </label>
         </div>
 
         <div
@@ -327,6 +354,15 @@
                 O serviço executa <code>git add</code> com os caminhos preenchidos e reutiliza o
                 título de commit configurado acima.
               </p>
+              <label class="mt-1 flex items-center gap-2 text-xs text-on-surface">
+                <input
+                  id="publication-pr-draft-toggle"
+                  v-model="prDraft"
+                  type="checkbox"
+                  class="h-4 w-4 rounded border border-outline text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                />
+                <span class="select-none"> Criar PR como rascunho ao acionar a automação </span>
+              </label>
             </div>
             <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
               <Md3Button
@@ -358,6 +394,18 @@
                   <UploadCloud class="md-icon md-icon--sm" aria-hidden="true" />
                 </template>
                 {{ gitPushLoading ? 'Enviando branch…' : 'Enviar branch com git push' }}
+              </Md3Button>
+              <Md3Button
+                type="button"
+                variant="filled"
+                class="inline-flex items-center gap-2"
+                :disabled="prCreationLoading || !canCreatePullRequest"
+                @click="createPullRequest"
+              >
+                <template #leading>
+                  <GitPullRequest class="md-icon md-icon--sm" aria-hidden="true" />
+                </template>
+                {{ prCreationLoading ? 'Abrindo PR…' : 'Criar PR automaticamente' }}
               </Md3Button>
             </div>
           </div>
@@ -523,6 +571,51 @@
           <p class="text-xs text-on-surface-variant">
             Revise o diff local após executar o commit automático e antes de enviar a branch para o
             repositório remoto.
+          </p>
+
+          <div
+            v-if="prCreationError"
+            class="flex flex-col gap-3 rounded-2xl bg-error-container p-4 text-on-error-container"
+          >
+            <div class="flex items-start gap-3">
+              <AlertCircle class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ prCreationError }}</p>
+                <p v-if="prCreationResult?.command" class="text-xs">
+                  Chamada equivalente:
+                  <code class="font-mono">{{ prCreationResult.command }}</code>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            v-else-if="prCreationResult"
+            class="flex flex-col gap-3 rounded-2xl bg-success-container p-4 text-on-success-container"
+          >
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="md-icon md-icon--sm" aria-hidden="true" />
+              <div class="flex flex-col gap-1">
+                <p class="text-sm font-medium">{{ prCreationSuccessMessage }}</p>
+                <p class="text-xs">
+                  Repositório: {{ prCreationResult.repository }} · Base:
+                  {{ prCreationResult.base }}
+                </p>
+                <a
+                  v-if="prCreationLink"
+                  :href="prCreationLink"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="text-xs font-medium underline"
+                >
+                  Abrir PR no GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-on-surface-variant">
+            O backend usa um token protegido para criar o PR via API do GitHub. Comando equivalente:
+            <code class="font-mono">{{ prCommandPreview }}</code>
           </p>
         </div>
 
@@ -698,7 +791,7 @@ $ {{ gitCommands.join('\n$ ') }}
             <pre
               class="rounded-2xl bg-surface p-4 font-mono text-xs text-on-surface shadow-inner"
               aria-live="polite"
-              >{{ prTemplate }}
+              >{{ prPreview }}
             </pre>
           </article>
         </div>
@@ -717,13 +810,14 @@ $ {{ gitCommands.join('\n$ ') }}
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, ref } from 'vue';
+import { computed, onMounted, reactive, ref, watch } from 'vue';
 import {
   AlertCircle,
   CheckCircle2,
   Copy,
   Download,
   GitBranch,
+  GitPullRequest,
   Plus,
   RefreshCcw,
   Trash2,
@@ -734,6 +828,7 @@ import Md3Button from '@/components/Md3Button.vue';
 import {
   TeacherAutomationError,
   checkoutTeacherGitBranch,
+  createTeacherPullRequest,
   commitTeacherGitChanges,
   fetchTeacherGitStatus,
   fetchTeacherGitUpdates,
@@ -746,6 +841,7 @@ import {
   type TeacherGitPushResult,
   type TeacherGitStageResult,
   type TeacherGitStatus,
+  type TeacherPullRequestResult,
 } from './utils/automation';
 
 type ArtifactType = 'lesson' | 'exercise' | 'supplement' | 'component' | 'assessment' | 'other';
@@ -765,10 +861,20 @@ type ValidationStep = {
   enabled: boolean;
 };
 
+const ACTOR_STORAGE_KEY = 'professor.publication.actor';
+const BASE_BRANCH_STORAGE_KEY = 'professor.publication.base-branch';
+
 const branchName = ref('');
+const baseBranchName = ref('main');
 const commitTitle = ref('');
 const prDescription = ref('');
+const teacherActor = ref('');
+const prDraft = ref(false);
 const copyLabel = ref('Copiar comandos');
+
+const prCreationLoading = ref(false);
+const prCreationError = ref<string | null>(null);
+const prCreationResult = ref<TeacherPullRequestResult | null>(null);
 
 const gitStatus = ref<TeacherGitStatus | null>(null);
 const gitStatusError = ref<string | null>(null);
@@ -1247,10 +1353,102 @@ async function pushCurrentBranch() {
   }
 }
 
+async function createPullRequest() {
+  if (!teacherAutomationEnabled) {
+    prCreationError.value =
+      'Serviço de automação não configurado. Defina VITE_TEACHER_API_URL para habilitar abertura automática de PRs.';
+    return;
+  }
+
+  if (!hasBranchInput.value) {
+    prCreationError.value =
+      'Informe o nome da branch de trabalho antes de criar o pull request automaticamente.';
+    return;
+  }
+
+  if (!hasCommitInput.value) {
+    prCreationError.value =
+      'Defina o título do commit; ele também será usado como sugestão para o título do PR.';
+    return;
+  }
+
+  prCreationLoading.value = true;
+  prCreationError.value = null;
+  prCreationResult.value = null;
+
+  try {
+    const result = await createTeacherPullRequest({
+      title: prTitle.value,
+      body: prBodyForSubmission.value,
+      head: sanitizedBranch.value,
+      base: sanitizedBaseBranch.value,
+      remote: 'origin',
+      draft: prDraft.value,
+      actor: sanitizedActor.value || null,
+    });
+
+    prCreationResult.value = result;
+
+    if (!result.success) {
+      prCreationError.value =
+        result.message || 'Não foi possível criar o pull request automaticamente.';
+    } else {
+      prCreationError.value = null;
+    }
+  } catch (error) {
+    prCreationResult.value = null;
+    if (error instanceof TeacherAutomationError) {
+      prCreationError.value = error.message;
+    } else if (error instanceof Error) {
+      prCreationError.value = error.message;
+    } else {
+      prCreationError.value = 'Falha inesperada ao criar o pull request.';
+    }
+  } finally {
+    prCreationLoading.value = false;
+  }
+}
+
 onMounted(() => {
+  if (typeof window !== 'undefined') {
+    const storedActor = window.localStorage.getItem(ACTOR_STORAGE_KEY);
+    if (typeof storedActor === 'string') {
+      teacherActor.value = storedActor;
+    }
+    const storedBase = window.localStorage.getItem(BASE_BRANCH_STORAGE_KEY);
+    if (typeof storedBase === 'string' && storedBase.trim().length > 0) {
+      baseBranchName.value = storedBase;
+    }
+  }
+
   if (teacherAutomationEnabled) {
     refreshGitStatus();
   }
+});
+
+watch(teacherActor, (value) => {
+  if (typeof window === 'undefined') return;
+  const normalized = value.trim();
+  if (normalized) {
+    window.localStorage.setItem(ACTOR_STORAGE_KEY, normalized);
+  } else {
+    window.localStorage.removeItem(ACTOR_STORAGE_KEY);
+  }
+});
+
+watch(baseBranchName, (value) => {
+  if (typeof window === 'undefined') return;
+  const normalized = value.trim();
+  if (normalized) {
+    window.localStorage.setItem(BASE_BRANCH_STORAGE_KEY, normalized);
+  } else {
+    window.localStorage.removeItem(BASE_BRANCH_STORAGE_KEY);
+  }
+});
+
+watch([branchName, commitTitle, prDescription, prDraft, baseBranchName], () => {
+  prCreationResult.value = null;
+  prCreationError.value = null;
 });
 
 const artifactTypeOptions: Array<{ value: ArtifactType; label: string }> = [
@@ -1330,6 +1528,8 @@ const sanitizedBranch = computed(() => branchName.value.trim() || 'feat/professo
 const sanitizedCommitTitle = computed(
   () => commitTitle.value.trim() || 'chore: preparar pacote de publicação'
 );
+const sanitizedBaseBranch = computed(() => baseBranchName.value.trim() || 'main');
+const sanitizedActor = computed(() => teacherActor.value.trim());
 
 const gitPushBranchCandidate = computed(() => {
   const explicit = branchName.value.trim();
@@ -1415,7 +1615,8 @@ const gitCommands = computed(() => {
 
   commands.push(`git commit -m "${sanitizedCommitTitle.value}"`);
   commands.push(gitPushCommandPreview.value);
-  commands.push('gh pr create --web');
+  commands.push('# Abra o PR pelo painel ou use o comando abaixo no terminal:');
+  commands.push(prCommandPreview.value);
 
   return commands;
 });
@@ -1424,19 +1625,71 @@ const prTitle = computed(
   () => commitTitle.value.trim() || 'feat: atualizar conteúdos no módulo do professor'
 );
 
-const prTemplate = computed(() => {
-  const header = `## Título sugerido\n${prTitle.value}`;
-  const summary = `\n## Resumo\n${prDescription.value.trim() || 'Descreva as alterações principais realizadas nesta rodada.'}`;
-  const contentList = artifactSummaries.value.length
-    ? ['\n', '### Conteúdos incluídos', ...artifactSummaries.value]
-    : [];
-  const checklist = [
-    '\n',
-    '### Checklist',
-    ...enabledValidations.value.map((step) => `- [ ] ${step.label} (${step.command})`),
-  ];
+const prBodyForSubmission = computed(() => {
+  const summary =
+    prDescription.value.trim() || 'Descreva as alterações principais realizadas nesta rodada.';
+  const sections = ['## Resumo', summary];
 
-  return [header, summary, ...contentList, ...checklist].join('\n');
+  if (artifactSummaries.value.length > 0) {
+    sections.push('', '### Conteúdos incluídos', ...artifactSummaries.value);
+  }
+
+  sections.push(
+    '',
+    '### Checklist',
+    ...enabledValidations.value.map((step) => `- [ ] ${step.label} (${step.command})`)
+  );
+
+  if (sanitizedActor.value) {
+    sections.push('', `> Rodada preparada por ${sanitizedActor.value}.`);
+  }
+
+  return sections.join('\n');
+});
+
+const prPreview = computed(() =>
+  [`Título: ${prTitle.value}`, '', prBodyForSubmission.value].join('\n')
+);
+
+const safePrTitleForCommand = computed(() => {
+  const normalized = prTitle.value.replace(/\s+/g, ' ').trim();
+  const sanitized = normalized.replace(/"/g, '\\"');
+  return sanitized || 'Atualizar conteúdos no módulo do professor';
+});
+
+const prCommandPreview = computed(() => {
+  const parts = [
+    'gh pr create',
+    `--title "${safePrTitleForCommand.value}"`,
+    `--base ${sanitizedBaseBranch.value}`,
+    `--head ${sanitizedBranch.value}`,
+  ];
+  if (prDraft.value) {
+    parts.push('--draft');
+  }
+  parts.push('--web');
+  return parts.join(' ');
+});
+
+const hasBranchInput = computed(() => branchName.value.trim().length > 0);
+const hasCommitInput = computed(() => commitTitle.value.trim().length > 0);
+
+const canCreatePullRequest = computed(
+  () => teacherAutomationEnabled && hasBranchInput.value && hasCommitInput.value
+);
+
+const prCreationLink = computed(
+  () => prCreationResult.value?.htmlUrl ?? prCreationResult.value?.url ?? null
+);
+
+const prCreationSuccessMessage = computed(() => {
+  if (!prCreationResult.value?.success) {
+    return '';
+  }
+  if (typeof prCreationResult.value.number === 'number' && prCreationResult.value.number > 0) {
+    return `Pull request #${prCreationResult.value.number} criado com sucesso.`;
+  }
+  return 'Pull request criado com sucesso.';
 });
 
 const checklistItems = computed(() => {

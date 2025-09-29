@@ -3,7 +3,7 @@ import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve, relative } from 'node:path';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, stat } from 'node:fs/promises';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -60,13 +60,81 @@ const host = process.env.TEACHER_SERVICE_HOST ?? '127.0.0.1';
 const requiredToken = (process.env.TEACHER_SERVICE_TOKEN ?? '').trim();
 const authenticationEnabled = requiredToken.length > 0;
 
+function parseBooleanEnv(value, fallback) {
+  if (value === undefined) {
+    return fallback;
+  }
+  const normalized = value.trim().toLowerCase();
+  if (!normalized) {
+    return fallback;
+  }
+  if (['1', 'true', 'yes', 'y', 'enable', 'enabled'].includes(normalized)) {
+    return true;
+  }
+  if (['0', 'false', 'no', 'n', 'disable', 'disabled'].includes(normalized)) {
+    return false;
+  }
+  return fallback;
+}
+
+const prTokenEnv = (process.env.TEACHER_SERVICE_PR_TOKEN ?? '').trim();
+const prTokenFile = (process.env.TEACHER_SERVICE_PR_TOKEN_FILE ?? '').trim();
+const prDefaultBaseBranch =
+  (process.env.TEACHER_SERVICE_PR_DEFAULT_BASE ?? 'main').trim() || 'main';
+const prActorAllowlist = new Set(
+  (process.env.TEACHER_SERVICE_PR_ALLOWLIST ?? '')
+    .split(',')
+    .map((value) => value.trim())
+    .filter((value) => value.length > 0)
+);
+const prMaintainerEditDefault = parseBooleanEnv(
+  process.env.TEACHER_SERVICE_PR_ALLOW_MAINTAINER_EDIT,
+  true
+);
+
+const scriptQueue = [];
+let scriptQueueRunning = false;
+
+function getPendingScriptsCount() {
+  return scriptQueue.length + (scriptQueueRunning ? 1 : 0);
+}
+
+function enqueueScriptExecution(executor) {
+  return new Promise((resolveExec, rejectExec) => {
+    scriptQueue.push({ executor, resolve: resolveExec, reject: rejectExec });
+    processScriptQueue();
+  });
+}
+
+async function processScriptQueue() {
+  if (scriptQueueRunning) {
+    return;
+  }
+  const next = scriptQueue.shift();
+  if (!next) {
+    return;
+  }
+  scriptQueueRunning = true;
+  try {
+    const result = await next.executor();
+    next.resolve(result);
+  } catch (error) {
+    next.reject(error);
+  } finally {
+    scriptQueueRunning = false;
+    processScriptQueue();
+  }
+}
+
+const teacherServiceUserAgent = 'teacher-service/0.2.0';
+
 function jsonResponse(res, statusCode, payload) {
   const body = JSON.stringify(payload, null, 2);
   res.writeHead(statusCode, {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token, X-Teacher-Actor',
   });
   res.end(body);
 }
@@ -75,7 +143,7 @@ function handleOptions(res) {
   res.writeHead(204, {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token, X-Teacher-Actor',
   });
   res.end();
 }
@@ -105,6 +173,53 @@ function ensureAuthenticated(req, res) {
       'Autenticação obrigatória. Inclua o header X-Teacher-Token com o token configurado no serviço.',
   });
   return false;
+}
+
+function extractActor(req) {
+  return extractToken(req.headers['x-teacher-actor']).trim();
+}
+
+async function resolveTokenFromFile(path) {
+  const resolved = path.startsWith('/') ? path : resolve(projectRoot, path);
+  let stats;
+  try {
+    stats = await stat(resolved);
+  } catch (error) {
+    const reason = error && typeof error === 'object' && 'code' in error ? `(${error.code})` : '';
+    throw new Error(`Arquivo de token não pode ser lido ${reason}.`);
+  }
+
+  if (!stats.isFile()) {
+    throw new Error(
+      'O caminho configurado para TEACHER_SERVICE_PR_TOKEN_FILE deve apontar para um arquivo.'
+    );
+  }
+
+  const permissions = stats.mode & 0o777;
+  if ((permissions & 0o077) !== 0) {
+    throw new Error(
+      'As permissões do arquivo de token devem restringir acesso a outros usuários (ex.: chmod 600).'
+    );
+  }
+
+  const content = await readFile(resolved, 'utf-8');
+  const token = content.trim();
+  if (!token) {
+    throw new Error('Arquivo de token configurado, porém vazio.');
+  }
+  return token;
+}
+
+async function loadPullRequestToken() {
+  if (prTokenEnv) {
+    return prTokenEnv;
+  }
+
+  if (!prTokenFile) {
+    return '';
+  }
+
+  return resolveTokenFromFile(prTokenFile);
 }
 
 function parseRequestBody(req) {
@@ -229,8 +344,20 @@ async function serveScriptRun(req, res) {
     }
 
     const config = scriptConfigs[key];
-    const result = await executeScript(config);
-    const historyEntry = await appendHistory(result);
+    const queuedAt = new Date();
+    const queuePosition = getPendingScriptsCount();
+    const result = await enqueueScriptExecution(() => executeScript(config));
+    const startedAtMs = Date.parse(result.startedAt);
+    const queueDurationMs = Number.isFinite(startedAtMs)
+      ? Math.max(0, startedAtMs - queuedAt.getTime())
+      : null;
+    const payload = {
+      ...result,
+      queuedAt: queuedAt.toISOString(),
+      queueDurationMs,
+      queuePosition,
+    };
+    const historyEntry = await appendHistory(payload);
     jsonResponse(res, 200, historyEntry);
   } catch (error) {
     jsonResponse(res, 500, {
@@ -455,6 +582,92 @@ async function captureGitStatus() {
 
 function isSafeGitToken(value) {
   return /^[A-Za-z0-9._/-]+$/.test(value);
+}
+
+function parseGitHubRemote(remoteUrl) {
+  if (typeof remoteUrl !== 'string') {
+    return null;
+  }
+  const trimmed = remoteUrl.trim();
+  if (!trimmed) {
+    return null;
+  }
+
+  const normalize = (host, path) => {
+    if (!/^github\.com$/i.test(host)) {
+      return null;
+    }
+    const cleaned = path.replace(/\.git$/i, '').replace(/^\/+/, '');
+    const [owner, repo] = cleaned.split('/');
+    if (!owner || !repo) {
+      return null;
+    }
+    return { host: 'github.com', owner, repo };
+  };
+
+  if (trimmed.startsWith('git@')) {
+    const match = trimmed.match(/^git@([^:]+):(.+)$/);
+    if (!match) {
+      return null;
+    }
+    return normalize(match[1], match[2]);
+  }
+
+  try {
+    const url = new URL(trimmed);
+    return normalize(url.hostname, url.pathname);
+  } catch (error) {
+    // Support ssh://git@github.com/owner/repo.git
+    if (trimmed.startsWith('ssh://')) {
+      try {
+        const sshUrl = new URL(trimmed);
+        return normalize(sshUrl.hostname, sshUrl.pathname);
+      } catch (sshError) {
+        return null;
+      }
+    }
+  }
+
+  return null;
+}
+
+async function resolveRemoteRepository(remote) {
+  const { exitCode, stdout, stderr } = await runCommand('git', [
+    'config',
+    '--get',
+    `remote.${remote}.url`,
+  ]);
+
+  if (exitCode !== 0) {
+    const error = new Error(
+      `Remote ${remote} não encontrado. Configure o repositório antes de criar PRs automaticamente.`
+    );
+    error.details = stderr || stdout;
+    throw error;
+  }
+
+  const remoteUrl = stdout.trim();
+  const parsed = parseGitHubRemote(remoteUrl);
+  if (!parsed) {
+    const error = new Error(
+      'Apenas repositórios hospedados no GitHub são suportados para criação automática de PRs.'
+    );
+    error.details = remoteUrl;
+    throw error;
+  }
+
+  return { ...parsed, remoteUrl };
+}
+
+function buildPullRequestCommandPreview({ title, head, base, draft }) {
+  const normalizedTitle = title.replace(/\s+/g, ' ').trim().replace(/"/g, '\\"');
+  const safeTitle = normalizedTitle || 'Atualizar conteúdos no módulo do professor';
+  const parts = ['gh pr create', `--title "${safeTitle}"`, `--base ${base}`, `--head ${head}`];
+  if (draft) {
+    parts.push('--draft');
+  }
+  parts.push('--web');
+  return parts.join(' ');
 }
 
 async function serveGitStatus(res) {
@@ -826,6 +1039,177 @@ async function serveGitPush(req, res) {
   }
 }
 
+async function serveGitPullRequest(req, res) {
+  try {
+    const body = await parseRequestBody(req);
+
+    const rawTitle = typeof body.title === 'string' ? body.title : '';
+    const normalizedTitle = rawTitle.replace(/\r\n?/g, '\n').split('\n')[0]?.trim() ?? '';
+    const title = normalizedTitle || 'Atualizar conteúdos no módulo do professor';
+
+    const headInput = typeof body.head === 'string' ? body.head.trim() : '';
+    if (!headInput || !isSafeGitToken(headInput)) {
+      jsonResponse(res, 400, {
+        error: 'Informe a branch (head) que será usada como origem do PR.',
+      });
+      return;
+    }
+
+    const baseInputRaw = typeof body.base === 'string' ? body.base.trim() : '';
+    const baseInput = baseInputRaw || prDefaultBaseBranch;
+    if (!isSafeGitToken(baseInput)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de branch base inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    const remoteInputRaw = typeof body.remote === 'string' ? body.remote.trim() : '';
+    const remote = remoteInputRaw || 'origin';
+    if (!isSafeGitToken(remote)) {
+      jsonResponse(res, 400, {
+        error: 'Nome de remote inválido. Use apenas letras, números, ., -, _ e /.',
+      });
+      return;
+    }
+
+    const actor = extractActor(req);
+    if (prActorAllowlist.size > 0) {
+      if (!actor) {
+        jsonResponse(res, 403, {
+          error: 'Informe o header X-Teacher-Actor para criar PRs automaticamente.',
+        });
+        return;
+      }
+      if (!prActorAllowlist.has(actor)) {
+        jsonResponse(res, 403, {
+          error: 'Perfil não autorizado a criar PRs automaticamente.',
+        });
+        return;
+      }
+    }
+
+    let token;
+    try {
+      token = await loadPullRequestToken();
+    } catch (error) {
+      jsonResponse(res, 500, {
+        success: false,
+        error: 'Não foi possível carregar o token do GitHub configurado para o serviço.',
+        details: error instanceof Error ? error.message : String(error),
+      });
+      return;
+    }
+
+    if (!token) {
+      jsonResponse(res, 503, {
+        success: false,
+        error:
+          'Token do GitHub não configurado. Defina TEACHER_SERVICE_PR_TOKEN ou TEACHER_SERVICE_PR_TOKEN_FILE para habilitar a criação automática de PRs.',
+      });
+      return;
+    }
+
+    let repository;
+    try {
+      repository = await resolveRemoteRepository(remote);
+    } catch (error) {
+      jsonResponse(res, 400, {
+        success: false,
+        error:
+          error instanceof Error
+            ? error.message
+            : 'Não foi possível identificar o repositório remoto configurado.',
+        details:
+          error && typeof error === 'object' && 'details' in error ? error.details : undefined,
+      });
+      return;
+    }
+
+    const draft = Boolean(body.draft);
+    const allowMaintainerEdit = Object.prototype.hasOwnProperty.call(body, 'allowMaintainerEdit')
+      ? Boolean(body.allowMaintainerEdit)
+      : prMaintainerEditDefault;
+
+    const description = typeof body.body === 'string' ? body.body : '';
+    const commandPreview = buildPullRequestCommandPreview({
+      title,
+      head: headInput,
+      base: baseInput,
+      draft,
+    });
+
+    const githubPayload = {
+      title,
+      head: headInput,
+      base: baseInput,
+      body: description,
+      draft,
+      maintainer_can_modify: allowMaintainerEdit,
+    };
+
+    const response = await fetch(
+      `https://api.github.com/repos/${repository.owner}/${repository.repo}/pulls`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/vnd.github+json',
+          Authorization: `Bearer ${token}`,
+          'User-Agent': teacherServiceUserAgent,
+        },
+        body: JSON.stringify(githubPayload),
+      }
+    );
+
+    const rawPayload = await response.text();
+    let parsedPayload = {};
+    try {
+      parsedPayload = rawPayload ? JSON.parse(rawPayload) : {};
+    } catch (parseError) {
+      parsedPayload = {};
+    }
+
+    if (!response.ok) {
+      const details =
+        parsedPayload && typeof parsedPayload === 'object' && 'message' in parsedPayload
+          ? parsedPayload.message
+          : rawPayload || 'Resposta inesperada do GitHub.';
+      jsonResponse(res, 502, {
+        success: false,
+        error: 'Falha ao criar o pull request via API do GitHub.',
+        details,
+        command: commandPreview,
+      });
+      return;
+    }
+
+    const payload = parsedPayload && typeof parsedPayload === 'object' ? parsedPayload : {};
+
+    jsonResponse(res, 200, {
+      success: true,
+      number: typeof payload.number === 'number' ? payload.number : null,
+      url: typeof payload.url === 'string' ? payload.url : null,
+      htmlUrl: typeof payload.html_url === 'string' ? payload.html_url : null,
+      head: payload.head && typeof payload.head.ref === 'string' ? payload.head.ref : headInput,
+      base: payload.base && typeof payload.base.ref === 'string' ? payload.base.ref : baseInput,
+      draft: typeof payload.draft === 'boolean' ? payload.draft : draft,
+      actor: actor || null,
+      repository: `${repository.owner}/${repository.repo}`,
+      remote,
+      createdAt:
+        typeof payload.created_at === 'string' ? payload.created_at : new Date().toISOString(),
+      command: commandPreview,
+    });
+  } catch (error) {
+    jsonResponse(res, 500, {
+      success: false,
+      error: 'Falha inesperada ao criar o pull request automaticamente.',
+      details: error instanceof Error ? error.message : String(error),
+    });
+  }
+}
+
 function buildGitCommitCommandString({ messageParts, allowEmpty }) {
   const chunks = ['git commit'];
   messageParts.forEach((part) => {
@@ -913,6 +1297,11 @@ const server = createServer(async (req, res) => {
 
   if (url.pathname === '/api/teacher/git/push' && req.method === 'POST') {
     await serveGitPush(req, res);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/git/pull-request' && req.method === 'POST') {
+    await serveGitPullRequest(req, res);
     return;
   }
 

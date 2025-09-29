@@ -21,6 +21,7 @@
 - Botão **Criar branch automaticamente** usa o backend para abrir a branch de trabalho a partir da `main` sem sair da SPA.
 - Automação de `git add` e `git commit` reaproveitando os caminhos cadastrados e a mensagem configurada no painel.
 - Botão **Enviar branch com git push** usa o backend para configurar o upstream e publicar a branch direto da SPA.
+- Botão **Criar PR automaticamente** chama o `teacher:service` com auditoria do `X-Teacher-Actor` e token protegido.
 
 ### Linha do tempo
 
@@ -31,6 +32,7 @@
 - **2024-07-12** — Checkout automatizado integrado ao painel de publicação após validar fluxos de token/autenticação.
 - **2024-07-13** — Automação de staging e commit integrada ao serviço auxiliar e ao painel de publicação.
 - **2024-07-14** — `git push` automatizado com detecção de upstream e feedback no painel de publicação.
+- **2024-07-18** — Criação automática de PRs habilitada no painel com política de permissões e template reutilizável.
 
 ## Fluxo sugerido
 
@@ -52,15 +54,15 @@
 - ✅ Ter o checklist de validações e comandos num único lugar facilita orientar novos professores no fluxo de publicação.
 - ✅ O resumo automático do PR reduz divergências no momento de revisar os arquivos alterados.
 - ✅ Sincronizar a `main` pela própria SPA ajuda a lembrar de atualizar o workspace antes de gerar commits.
-- ⚠️ Ainda é necessário copiar manualmente os comandos de Git; próximo passo é expor automações no backend.
+- ✅ Automação de abertura de PR evita cópia manual de comandos e reaproveita o template sugerido pelo painel.
 - ⚠️ Precisamos sincronizar seções de validação e publicação com o status retornado pelo serviço para bloquear envios incompletos.
 
 ## Próximos passos / pendências
 
 - [x] Implementar backend auxiliar que execute `git status`, `fetch`, `checkout`, `add`, `commit` e `push` diretamente a partir da SPA.
-- [ ] Evoluir o backend auxiliar para preparar PRs completos reutilizando a branch criada automaticamente.
+- [x] Evoluir o backend auxiliar para preparar PRs completos reutilizando a branch criada automaticamente.
 - [ ] Registrar no painel os diffs gerados para facilitar a revisão visual antes do commit.
-- [ ] Adicionar integração com serviços de PR (ex.: GitHub) para preencher título e corpo automaticamente via API.
+- [ ] Adicionar integração com serviços de PR (ex.: GitHub) para preencher labels, reviewers e anexos automaticamente.
 - [ ] Expandir checklist para cobrir publicação de múltiplas branches/PRs em paralelo.
 
 ## Referências úteis
