@@ -51,6 +51,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'classDesigner',
   'pipelineCanvas',
   'systemMapper',
+  'balancedScorecard',
   'component',
   'legacySection',
 ];
@@ -68,6 +69,7 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'ClassDesigner',
   'PipelineCanvas',
   'SystemMapper',
+  'BalancedScorecard',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([
