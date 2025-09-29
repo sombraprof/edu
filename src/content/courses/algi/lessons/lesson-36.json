@@ -1,0 +1,175 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-36",
+  "title": "Aula 36: Vetores de Structs",
+  "summary": "Constrói coleções de registros com structs em vetor e prepara o terreno para operações CRUD completas.",
+  "objective": "Estruturar vetores de structs para representar catálogos de dados e aplicar operações coletivas de ordenação e agregação.",
+  "objectives": [
+    "Armazenar múltiplos registros em vetores de structs com limites configuráveis.",
+    "Aplicar ordenação simples para organizar a coleção.",
+    "Documentar o estado da coleção com relatórios resumidos."
+  ],
+  "competencies": ["Pensamento algorítmico", "Organização da informação"],
+  "skills": [
+    "Gerenciar contagem de elementos ativos em vetores de structs.",
+    "Reutilizar funções de comparação para ordenar registros.",
+    "Gerar estatísticas básicas a partir de coleções."
+  ],
+  "outcomes": [
+    "Produz vetor de Empresas carregado com dados iniciais.",
+    "Integra funções de ordenação com o menu CRUD do laboratório.",
+    "Entrega relatório com ranking por faturamento e categoria."
+  ],
+  "prerequisites": [
+    "Domínio da declaração e uso de structs (Aula 35).",
+    "Conhecimento prévio de ordenação básica."
+  ],
+  "tags": ["structs", "crud", "revisao"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Laboratório Integrado CRUD + Ordenação",
+      "type": "guide",
+      "file": "courses/algi/crud-ordenacao-lab.md",
+      "url": "https://static.md3.education/courses/algi/crud-ordenacao-lab.md"
+    },
+    {
+      "label": "Dataset SEBRAE - Perfil dos Pequenos Negócios",
+      "type": "dataset",
+      "url": "https://dados.sebrae.com.br/dataset/perfil-dos-pequenos-negocios"
+    },
+    {
+      "label": "Artigo DevDocs - qsort em C",
+      "type": "article",
+      "url": "https://devdocs.io/c/program/qsort"
+    }
+  ],
+  "bibliography": [
+    "ZIVIANI, N. Projetos de Algoritmos. Cengage, 2020.",
+    "DEITEL, P.; DEITEL, H. C Como Programar. 9. ed. Pearson, 2022."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro detalhado",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Check-in",
+          "content": "Revisão relâmpago sobre structs individuais (10 min)."
+        },
+        {
+          "icon": "database",
+          "title": "Coleções",
+          "content": "Configuração de vetores de structs e contadores de uso (25 min)."
+        },
+        {
+          "icon": "settings",
+          "title": "Ordenação",
+          "content": "Comparadores personalizados com Bubble/Insertion Sort (30 min)."
+        },
+        {
+          "icon": "database",
+          "title": "Relatórios",
+          "content": "Geração de ranking de faturamento e segmentação por setor (25 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Wrap-up",
+          "content": "Debate sobre limitações de armazenamento estático (20 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h00)",
+      "items": [
+        "(15 min) Icebreaker com cards de dados reais SEBRAE.",
+        "(20 min) Live coding: carga inicial do vetor com dados fictícios.",
+        "(25 min) Oficina: implementar função de ordenação crescente por faturamento.",
+        "(30 min) Laboratório orientado: integrar ordenação ao menu CRUD.",
+        "(20 min) Relato rápido por squads: métricas derivadas do vetor.",
+        "(10 min) Quiz interativo sobre complexidade e estabilidade de ordenações."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Estratégias de ordenação para vetores de structs",
+      "headers": ["Algoritmo", "Quando usar", "Custo", "Observações"],
+      "rows": [
+        [
+          "Bubble Sort",
+          "Listas pequenas e necessidade de implementação rápida",
+          "O(n^2)",
+          "Fácil de adaptar para ordenação decrescente."
+        ],
+        [
+          "Insertion Sort",
+          "Coleções quase ordenadas",
+          "O(n^2)",
+          "Bom para inserir novos registros mantendo a ordem."
+        ],
+        [
+          "qsort (stdlib)",
+          "Quando o custo de implementação importa",
+          "O(n log n)",
+          "Exige comparador consistente e inclui ponteiros void."
+        ],
+        [
+          "Selection Sort",
+          "Situações de memória crítica",
+          "O(n^2)",
+          "Poucas trocas, útil para dados estáticos."
+        ],
+        [
+          "Counting Sort",
+          "Campos inteiros com domínio pequeno",
+          "O(n + k)",
+          "Requer estrutura auxiliar e limites bem definidos."
+        ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Laboratório: integração CRUD com ordenação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A turma evolui o CRUD iniciado na aula anterior adicionando ordenação configurável e relatórios baseados em estatísticas do vetor."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Implementar menu com opções de ordenação por faturamento e por ordem alfabética de setor."
+            },
+            {
+              "text": "Registrar no relatório do squad como a ordenação impacta a busca e as atualizações."
+            },
+            {
+              "text": "Comparar desempenho das abordagens Bubble vs Insertion para 200 registros simulados."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Cuidados com dados reais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os datasets do SEBRAE podem conter campos sensíveis. Redija um plano de anonimização quando necessário e registre as decisões na ata do laboratório."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-02T09:30:00.000Z",
+    "owners": ["Equipe Algoritmos I"],
+    "sources": ["Plano de ensino Algoritmos I 2025.2", "Workshops SEBRAE de Dados 2024"]
+  }
+}

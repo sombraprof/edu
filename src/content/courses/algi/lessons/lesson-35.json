@@ -1,0 +1,174 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-35",
+  "title": "Aula 35: Introdução a Structs (Registros)",
+  "summary": "Apresenta structs em C como registros compostos e conduz um CRUD básico em memória para consolidar o modelo de dados.",
+  "objective": "Compreender a declaração, instância e manipulação inicial de structs em C, preparando-se para coleções de registros.",
+  "objectives": [
+    "Declarar structs com campos adequados ao domínio proposto.",
+    "Inicializar e acessar membros por ponto e ponteiros.",
+    "Construir um mini-CRUD em memória com ênfase em criação e leitura."
+  ],
+  "competencies": ["Pensamento algorítmico", "Modelagem de dados"],
+  "skills": [
+    "Mapear requisitos simples para campos de registros.",
+    "Encapsular operações básicas em funções.",
+    "Documentar structs com comentários significativos."
+  ],
+  "outcomes": [
+    "Define struct Empresa alinhada ao laboratório do semestre.",
+    "Implementa funções create e list utilizando vetor fixo.",
+    "Entrega relatório curto descrevendo decisões de modelagem."
+  ],
+  "prerequisites": [
+    "Conhecimento de vetores simples (Aula 30).",
+    "Noções de funções e passagem de parâmetros."
+  ],
+  "tags": ["structs", "crud", "revisao"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template inicial de struct e impressão",
+      "type": "template",
+      "file": "courses/algi/struct-cadastro-template.c",
+      "url": "https://static.md3.education/courses/algi/struct-cadastro-template.c"
+    },
+    {
+      "label": "Artigo Microsoft Learn - Estruturas em C",
+      "type": "article",
+      "url": "https://learn.microsoft.com/pt-br/cpp/c-language/c-structures"
+    },
+    {
+      "label": "Rubrica CRUD em memória",
+      "type": "rubric",
+      "file": "courses/algi/crud-lab-rubrica.md",
+      "url": "https://static.md3.education/courses/algi/crud-lab-rubrica.md"
+    }
+  ],
+  "bibliography": [
+    "KERNIGHAN, B.; RITCHIE, D. Linguagem de Programação C. 2. ed. Pearson, 2021.",
+    "PRESSMAN, R. Engenharia de Software. McGraw Hill, 2023."
+  ],
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro detalhado",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Aquecimento",
+          "content": "Quiz com cinco cenários para identificar campos de dados (10 min)."
+        },
+        {
+          "icon": "database",
+          "title": "Sintaxe de struct",
+          "content": "Declaração, typedef e alinhamento na memória (25 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Manipulação",
+          "content": "Atribuições, acesso por ponto/seta e funções auxiliares (20 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Mini-CRUD",
+          "content": "Criar e listar registros de Empresas em vetor fixo (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Retrospectiva",
+          "content": "Mapa mental com principais boas práticas (15 min)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Icebreaker com cartões de atributos empresariais.",
+        "(20 min) Live coding: declaração e inicialização de Empresa.",
+        "(15 min) Exercício individual: função para imprimir struct formatada.",
+        "(30 min) Laboratório guiado: operações create/list com vetor local.",
+        "(20 min) Debriefing: decisões de modelagem e validação de dados.",
+        "(20 min) Check-out com quiz interativo (Kahoot) sobre sintaxe de structs."
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Componentes essenciais de um registro",
+      "headers": ["Elemento", "Descrição", "Exemplo", "Boas práticas"],
+      "rows": [
+        [
+          "Campos",
+          "Definem as informações necessárias do domínio.",
+          "int id; char nome[64];",
+          "Escolha tipos apropriados e limites realistas."
+        ],
+        [
+          "Typedef",
+          "Simplifica a declaração de variáveis do registro.",
+          "typedef struct { ... } Empresa;",
+          "Use nomes no singular representando a entidade."
+        ],
+        [
+          "Funções auxiliares",
+          "Centralizam operações comuns sobre o registro.",
+          "void imprimir(const Empresa *e);",
+          "Evite duplicar prints/formatos no código."
+        ],
+        [
+          "Constantes",
+          "Guardam limites e tamanhos máximos.",
+          "#define MAX_EMPRESAS 50",
+          "Documente o motivo do limite em comentários."
+        ],
+        [
+          "Documentação",
+          "Explica finalidade e origem dos campos.",
+          "// Faturamento médio mensal (R$)",
+          "Padronize comentários para revisão coletiva."
+        ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Prática de laboratório: CRUD em memória",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os squads implementam um CRUD mínimo (Create/Read) apenas em memória usando um vetor de structs Empresa. Cada equipe documenta o fluxo em um quadro Kanban simplificado para registrar progresso."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Modelar struct Empresa alinhada aos dados do SEBRAE/IBGE trabalhados no semestre."
+            },
+            { "text": "Codificar funções create/list, validando tamanhos e duplicidade de id." },
+            {
+              "text": "Preparar checklist de testes exploratórios baseado na rubrica compartilhada."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Integração com dados oficiais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize dados de perfil do Microempreendedor Individual disponíveis no portal do SEBRAE para sugerir campos realistas e discutir ética no uso de dados."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-01T10:00:00.000Z",
+    "owners": ["Equipe Algoritmos I"],
+    "sources": ["Plano de ensino Algoritmos I 2025.2", "Relatórios SEBRAE 2024"]
+  }
+}
