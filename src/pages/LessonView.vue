@@ -51,6 +51,7 @@ import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Prism from 'prismjs';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
+import type { NormalizedLesson } from '@/content/schema/lesson';
 import Md3Button from '@/components/Md3Button.vue';
 import { normalizeManifest } from '@/content/loaders';
 
@@ -82,12 +83,8 @@ const lessonId = computed(() => String(route.params.lessonId));
 
 const lessonTitle = ref<string>('');
 const lessonObjective = ref<string>('');
-interface LessonContent {
-  id: string;
-  title: string;
-  objective?: string;
-  content: LessonBlock[];
-}
+
+type LessonContent = NormalizedLesson & { content: LessonBlock[] };
 
 const lessonData = shallowRef<LessonContent | null>(null);
 
@@ -123,12 +120,20 @@ async function loadLesson() {
     if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
 
     const mod: any = await lessonImporter();
-    const data: LessonContent = mod.default ?? mod;
+    const data = (mod.default ?? mod) as LessonContent | null;
     if (!data || typeof data !== 'object') throw new Error('Lesson payload is invalid.');
+    if (!Array.isArray(data.content))
+      throw new Error('Lesson payload is missing a valid "content" array.');
 
-    lessonTitle.value = data.title ?? entry.title;
-    lessonObjective.value = data.objective ?? entry.description ?? '';
-    lessonData.value = data;
+    lessonTitle.value =
+      typeof data.title === 'string' && data.title.length ? data.title : entry.title;
+    lessonObjective.value =
+      typeof data.objective === 'string' && data.objective.length
+        ? data.objective
+        : typeof entry.description === 'string'
+          ? entry.description
+          : '';
+    lessonData.value = { ...data, content: data.content };
 
     await nextTick();
     highlight();
