@@ -1,0 +1,282 @@
+{
+  "id": "lesson-21",
+  "title": "Aula 21: Integração ERP com a Cadeia de Suprimentos",
+  "objective": "Analisar como o ERP conecta fornecedores, estoques e distribuição em processos colaborativos.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "CONTEÚDO",
+          "content": "Processos order-to-cash e plan-to-produce, integrações com WMS, TMS e portais de fornecedores."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Visualizar fluxos interorganizacionais suportados pelo ERP.\n- Identificar riscos quando integrações falham.\n- Discutir métricas logísticas e de serviço ao cliente."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Debate guiado com base em estudo de caso, construção de fluxograma e apresentação relâmpago."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Pontos críticos de integração",
+      "cards": [
+        {
+          "title": "Portal do fornecedor",
+          "content": "Como as confirmações de entrega impactam planejamento de produção?"
+        },
+        {
+          "title": "WMS",
+          "content": "Quais dados de localização de estoque retornam ao ERP em tempo real?"
+        },
+        {
+          "title": "TMS",
+          "content": "Que eventos de transporte atualizam promessas ao cliente?"
+        },
+        {
+          "title": "Cliente",
+          "content": "Como status de pedido e faturas sincronizam com CRM e plataformas digitais?"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Ciclo order-to-cash",
+      "summary": "Representação dos elos que suportam a entrega ao cliente.",
+      "factors": [
+        {
+          "id": "pedido-cliente",
+          "name": "Pedido do cliente",
+          "summary": "Entrada de demanda.",
+          "kind": "driver",
+          "indicators": ["sla_prometido"]
+        },
+        {
+          "id": "estoque",
+          "name": "Disponibilidade de estoque",
+          "summary": "Materiais prontos para expedição.",
+          "kind": "stock",
+          "indicators": ["dias_estoque", "otif"]
+        },
+        {
+          "id": "expedicao",
+          "name": "Expedição",
+          "summary": "Separação e despacho de mercadorias.",
+          "kind": "flow",
+          "indicators": ["tempo_separacao"]
+        },
+        {
+          "id": "transporte",
+          "name": "Transporte",
+          "summary": "Entrega ao cliente com rastreamento.",
+          "kind": "flow",
+          "indicators": ["atrasos_transporte"]
+        },
+        {
+          "id": "faturamento",
+          "name": "Faturamento",
+          "summary": "Emissão de nota e cobrança.",
+          "kind": "flow",
+          "indicators": ["tempo_faturamento"]
+        },
+        {
+          "id": "satisfacao",
+          "name": "Satisfação do cliente",
+          "summary": "Percepção de confiabilidade e serviço.",
+          "kind": "outcome",
+          "indicators": ["nps", "taxa_reclamacoes"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "feedback-servico",
+          "name": "Feedback de serviço",
+          "polarity": "reinforcing",
+          "summary": "Clientes satisfeitos tendem a realizar novos pedidos, sustentando a cadeia.",
+          "steps": [
+            {
+              "id": "otc-1",
+              "from": "pedido-cliente",
+              "to": "estoque",
+              "effect": "reinforces",
+              "description": "Planejamento adequado garante disponibilidade."
+            },
+            {
+              "id": "otc-2",
+              "from": "estoque",
+              "to": "expedicao",
+              "effect": "reinforces",
+              "description": "Estoque correto acelera separação."
+            },
+            {
+              "id": "otc-3",
+              "from": "expedicao",
+              "to": "transporte",
+              "effect": "reinforces",
+              "description": "Despachos ágeis reduzem atrasos."
+            },
+            {
+              "id": "otc-4",
+              "from": "transporte",
+              "to": "faturamento",
+              "effect": "reinforces",
+              "description": "Confirmações de entrega disparam faturamento."
+            },
+            {
+              "id": "otc-5",
+              "from": "faturamento",
+              "to": "satisfacao",
+              "effect": "reinforces",
+              "description": "Cobranças corretas melhoram confiança."
+            },
+            {
+              "id": "otc-6",
+              "from": "satisfacao",
+              "to": "pedido-cliente",
+              "effect": "reinforces",
+              "description": "Clientes satisfeitos geram novos pedidos."
+            }
+          ]
+        },
+        {
+          "id": "monitoramento-riscos",
+          "name": "Monitoramento de riscos",
+          "polarity": "balancing",
+          "summary": "Alertas evitam ruptura de estoque e multas por atraso.",
+          "steps": [
+            {
+              "id": "risk-1",
+              "from": "estoque",
+              "to": "pedido-cliente",
+              "effect": "balances",
+              "description": "Sinais de ruptura disparam priorização de pedidos críticos."
+            },
+            {
+              "id": "risk-2",
+              "from": "transporte",
+              "to": "expedicao",
+              "effect": "balances",
+              "description": "Ocorrências logísticas ajustam planos de expedição."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-otc-1",
+          "label": "Integração com WMS",
+          "description": "Inventário em tempo real evita promessas não cumpridas."
+        },
+        {
+          "id": "insight-otc-2",
+          "label": "Rastreabilidade fiscal",
+          "description": "Notas fiscais alinhadas a eventos logísticos reduzem autuações."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Sinalizadores de risco logístico",
+      "steps": [
+        {
+          "title": "Pedido atrasado",
+          "content": "ERP identifica pedido sem confirmação de produção."
+        },
+        { "title": "Estoque crítico", "content": "Alertas do WMS são enviados ao planejamento." },
+        {
+          "title": "Ocorrência de transporte",
+          "content": "TMS registra evento e atualiza promessa ao cliente."
+        },
+        {
+          "title": "Reemissão fiscal",
+          "content": "ERP gera carta de correção ou nota complementar."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Casos recomendados",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/case-sap-scm",
+          "title": "Case SAP: integração SCM + ERP",
+          "caption": "Multinacional de bens de consumo reduz 20% dos atrasos com visibilidade ponta a ponta."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/case-totvs-logistica",
+          "title": "Case TOTVS: logística integrada",
+          "caption": "Rede varejista sincroniza ERP, WMS e TMS e melhora OTIF em 12 pontos."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 21 — Fluxograma order-to-cash",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Desenhe um fluxograma Order-to-Cash destacando integrações críticas entre ERP, WMS e TMS. Publique no AVA até às 23h de amanhã em PDF ou imagem, acompanhado de breve descrição (máx. 150 palavras)."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-21-integracao-erp-cadeia-de-suprimentos",
+  "summary": "Examplifica a integração do ERP com sistemas logísticos, destacando fluxos order-to-cash e riscos associados.",
+  "objectives": [
+    "Mapear fluxos logísticos suportados pelo ERP.",
+    "Reconhecer riscos e indicadores de integração com WMS/TMS.",
+    "Produzir fluxograma que evidencie responsabilidades e dados críticos."
+  ],
+  "competencies": [
+    "Gestão da cadeia de suprimentos",
+    "Modelagem visual de processos",
+    "Colaboração com parceiros externos"
+  ],
+  "outcomes": [
+    "Entrega fluxograma com integrações anotadas.",
+    "Identifica indicadores logísticos relevantes.",
+    "Apresenta argumentos sobre riscos e mitigação em sala."
+  ],
+  "prerequisites": [
+    "Participar do fórum da aula 20.",
+    "Revisar conceitos de integração da aula 16."
+  ],
+  "tags": ["aula-21-order-to-cash"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template fluxograma O2C",
+      "url": "https://example.edu/tgs/templates/fluxograma-o2c",
+      "type": "template"
+    },
+    {
+      "label": "Checklist de integrações logísticas",
+      "url": "https://example.edu/tgs/guias/checklist-logistica",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "CHOPRA, Sunil; MEINDL, Peter. Gestão da Cadeia de Suprimentos. Pearson, 2022.",
+    "JACOBS, F. Robert; CHASE, Richard. Administração da Produção e Operações. AMGH, 2021."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega do fluxograma comentado no AVA."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Estudos de caso logística integrada"]
+  }
+}

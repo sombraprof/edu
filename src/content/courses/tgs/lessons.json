@@ -201,6 +201,105 @@
       "formatVersion": "md3.lesson.v1"
     },
     {
+      "id": "lesson-19",
+      "title": "Aula 19: Introdução aos Sistemas ERP",
+      "file": "lesson-19.json",
+      "available": true,
+      "description": "Apresenta fundamentos de ERP, evolução histórica e benefícios estratégicos da integração de processos.",
+      "summary": "Apresenta fundamentos dos sistemas ERP, sua evolução e implicações estratégicas para o negócio.",
+      "tags": ["aula-19-erp"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-20",
+      "title": "Aula 20: Módulos Essenciais e Processos Integrados",
+      "file": "lesson-20.json",
+      "available": true,
+      "description": "Explora módulos centrais do ERP e relaciona dependências em fluxos procure-to-pay.",
+      "summary": "Mapeia módulos centrais do ERP e suas integrações para suportar processos ponta a ponta.",
+      "tags": ["aula-20-modulos-erp"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-21",
+      "title": "Aula 21: Integração ERP com a Cadeia de Suprimentos",
+      "file": "lesson-21.json",
+      "available": true,
+      "description": "Analisa fluxos order-to-cash e integrações do ERP com WMS e TMS em cadeias logísticas.",
+      "summary": "Investiga integrações entre ERP, logística e parceiros para entregar experiência order-to-cash consistente.",
+      "tags": ["aula-21-order-to-cash"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-22",
+      "title": "Aula 22: Governança de Dados Mestres no ERP",
+      "file": "lesson-22.json",
+      "available": true,
+      "description": "Estrutura políticas e papéis para garantir qualidade e segurança dos dados mestres do ERP.",
+      "summary": "Detalha papéis, riscos e indicadores para governança de dados mestres em ambientes ERP.",
+      "tags": ["aula-22-dados-mestres"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-23",
+      "title": "Aula 23: Metodologias de Implantação de ERP",
+      "file": "lesson-23.json",
+      "available": true,
+      "description": "Compara abordagens de implantação, riscos e práticas de patrocínio em projetos ERP.",
+      "summary": "Analisa fases, abordagens e riscos de implantação de ERP com foco em patrocínio e governança.",
+      "tags": ["aula-23-implantacao-erp"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-24",
+      "title": "Aula 24 (Sábado Letivo): Estudo de Caso SAP em Operações",
+      "file": "lesson-24.json",
+      "available": true,
+      "description": "Realiza sábado letivo imersivo analisando caso SAP focado em produção, manutenção e estabilização pós-go-live.",
+      "summary": "Sábado letivo com estudo de caso SAP, conectando produção, manutenção e governança pós-go-live.",
+      "tags": ["aula-24-sabado-sap"],
+      "duration": 210,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-25",
+      "title": "Aula 25: Estudo de Caso TOTVS em Serviços",
+      "file": "lesson-25.json",
+      "available": true,
+      "description": "Estuda implantação TOTVS em empresa de serviços, relacionando operação, finanças e BI.",
+      "summary": "Analisa caso TOTVS em serviços destacando integração serviço-to-cash e ganhos financeiros.",
+      "tags": ["aula-25-totvs"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-26",
+      "title": "Aula 26: ERP, E-commerce e Plataformas Digitais",
+      "file": "lesson-26.json",
+      "available": true,
+      "description": "Debate integrações entre ERP, e-commerce, OMS e marketplaces com foco em experiência omnicanal.",
+      "summary": "Explora integrações digitais entre ERP e canais omnicanal, apontando dados críticos e monitoramento.",
+      "tags": ["aula-26-erp-ecommerce"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-27",
+      "title": "Aula 27: Fatores Críticos de Sucesso em Projetos ERP",
+      "file": "lesson-27.json",
+      "available": true,
+      "description": "Consolida fatores críticos de sucesso, indicadores e roadmap de maturidade pós-implantação de ERP.",
+      "summary": "Sintetiza fatores críticos de sucesso e propõe roadmap de maturidade para projetos ERP.",
+      "tags": ["aula-27-fcs-erp"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
       "id": "lesson-28",
       "title": "Aula 28: Avaliação – NP2",
       "file": "lesson-28.json",

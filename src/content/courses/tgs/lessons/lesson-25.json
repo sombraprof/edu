@@ -1,0 +1,236 @@
+{
+  "id": "lesson-25",
+  "title": "Aula 25: Estudo de Caso TOTVS em Serviços",
+  "objective": "Analisar implantação de TOTVS em uma empresa de serviços e identificar lições de integração financeira e operacional.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "desktop",
+          "title": "CONTEÚDO",
+          "content": "Contexto da empresa, módulos TOTVS implantados, integrações com CRM e BI."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Interpretar indicadores pós-implantação.\n- Identificar sinergias entre finanças, faturamento e prestação de serviços.\n- Construir recomendações de melhoria."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Análise de relatório gerencial, construção de sistemaMapper colaborativo e debates orientados."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Resultados pós-implantação",
+      "headers": ["Indicador", "Antes", "Depois", "Fonte"],
+      "rows": [
+        ["Prazo médio de faturamento", "12 dias", "4 dias", "ERP TOTVS + automação fiscal"],
+        ["Taxa de retrabalho", "15%", "4%", "Workflow TOTVS de ordens de serviço"],
+        ["Satisfação do cliente", "72 NPS", "84 NPS", "Pesquisa trimestral"],
+        ["Tempo de fechamento", "8 dias úteis", "3 dias úteis", "Financeiro integrado"],
+        ["Receita recorrente", "R$ 1,2M/mês", "R$ 1,6M/mês", "Dashboard BI"]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Pontos de discussão",
+      "cards": [
+        {
+          "title": "Contrato ↔ Serviço",
+          "content": "Como o módulo de contratos conversa com a agenda de técnicos?"
+        },
+        {
+          "title": "Financeiro",
+          "content": "Quais controles garantem reconciliação com gateways de pagamento?"
+        },
+        { "title": "BI", "content": "Como as informações alimentam dashboards de churn e upsell?" },
+        {
+          "title": "Suporte",
+          "content": "Que lições foram aprendidas com o hiper-care de 30 dias?"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Fluxo serviço-to-cash",
+      "summary": "Integração TOTVS entre atendimento, faturamento e análise financeira.",
+      "factors": [
+        {
+          "id": "agendamento",
+          "name": "Agendamento",
+          "summary": "Ordem de serviço aberta no TOTVS.",
+          "kind": "flow",
+          "indicators": ["tempo_agenda"]
+        },
+        {
+          "id": "execucao-servico",
+          "name": "Execução",
+          "summary": "Técnico registra execução via app.",
+          "kind": "flow",
+          "indicators": ["sla_execucao"]
+        },
+        {
+          "id": "faturamento",
+          "name": "Faturamento",
+          "summary": "Emissão automática de notas e boletos.",
+          "kind": "flow",
+          "indicators": ["tempo_faturamento"]
+        },
+        {
+          "id": "receita",
+          "name": "Receita recorrente",
+          "summary": "Consolidação financeira no TOTVS.",
+          "kind": "stock",
+          "indicators": ["inadimplencia"]
+        },
+        {
+          "id": "insights",
+          "name": "Insights BI",
+          "summary": "Painéis para retenção e upsell.",
+          "kind": "outcome",
+          "indicators": ["churn", "taxa_renovacao"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "feedback-servico",
+          "name": "Feedback serviço-finanças",
+          "polarity": "reinforcing",
+          "summary": "Serviços bem executados geram receita estável e insights para novas ofertas.",
+          "steps": [
+            {
+              "id": "svc-1",
+              "from": "agendamento",
+              "to": "execucao-servico",
+              "effect": "reinforces",
+              "description": "Agendas organizadas reduzem deslocamentos."
+            },
+            {
+              "id": "svc-2",
+              "from": "execucao-servico",
+              "to": "faturamento",
+              "effect": "reinforces",
+              "description": "Dados de execução alimentam faturamento automático."
+            },
+            {
+              "id": "svc-3",
+              "from": "faturamento",
+              "to": "receita",
+              "effect": "reinforces",
+              "description": "Cobranças ágeis elevam a previsibilidade."
+            },
+            {
+              "id": "svc-4",
+              "from": "receita",
+              "to": "insights",
+              "effect": "reinforces",
+              "description": "Receita consolidada gera indicadores de churn."
+            },
+            {
+              "id": "svc-5",
+              "from": "insights",
+              "to": "agendamento",
+              "effect": "reinforces",
+              "description": "Insights orientam priorização de serviços com maior margem."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-totvs-1",
+          "label": "Mobile-first",
+          "description": "Registro mobile reduz falhas de digitação."
+        },
+        {
+          "id": "insight-totvs-2",
+          "label": "KPIs integrados",
+          "description": "Financeiro e operação compartilham a mesma base de indicadores."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos indicados",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/totvs-servicos-demo",
+          "title": "Demonstração TOTVS Serviços",
+          "caption": "Fluxo completo do atendimento ao faturamento."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/case-servicos-erp",
+          "title": "Case cliente TOTVS",
+          "caption": "Relato de CFO sobre ganhos em previsibilidade."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 25 — Relatório executivo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Elabore um relatório executivo (máx. 6 slides) com diagnóstico e três recomendações para evolução do caso TOTVS. Entregue no AVA até às 23h do dia seguinte."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-25-estudo-de-caso-totvs-em-servicos",
+  "summary": "Analisa estudo de caso TOTVS em serviços, conectando execução operacional, faturamento e inteligência financeira.",
+  "objectives": [
+    "Interpretar resultados pós-implantação TOTVS.",
+    "Relacionar módulos de serviços a indicadores financeiros.",
+    "Gerar recomendações executivas baseadas em dados."
+  ],
+  "competencies": [
+    "Análise de desempenho",
+    "Integração financeiro-operacional",
+    "Comunicação executiva"
+  ],
+  "outcomes": [
+    "Entrega relatório com recomendações.",
+    "Argumenta sobre sinergia serviço-finanças.",
+    "Identifica oportunidades de evolução analítica."
+  ],
+  "prerequisites": [
+    "Completar diário de campo da aula 24.",
+    "Revisar conceitos de CRM da aula 18."
+  ],
+  "tags": ["aula-25-totvs"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Relatório TOTVS Serviços",
+      "url": "https://example.edu/tgs/cases/totvs-servicos",
+      "type": "dataset"
+    },
+    {
+      "label": "Template de slides executivos",
+      "url": "https://example.edu/tgs/templates/slides-executivos",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "TOTVS. Guia de Boas Práticas para Serviços. TOTVS, 2024.",
+    "HARVARD BUSINESS REVIEW. Why Service Businesses Need ERP. HBR, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Relatório executivo entregue com recomendações."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Case TOTVS Serviços 2024"]
+  }
+}
