@@ -1,0 +1,276 @@
+{
+  "id": "lesson-27",
+  "title": "Aula 27: Fatores Críticos de Sucesso em Projetos ERP",
+  "objective": "Consolidar aprendizados sobre ERP destacando fatores críticos de sucesso, indicadores e mecanismos de melhoria contínua.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "CONTEÚDO",
+          "content": "Fatores críticos de sucesso (FCS), indicadores de maturidade, governança pós-implantação e roadmap evolutivo."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Sintetizar aprendizados das aulas 19-26.\n- Classificar FCS por dimensão (processos, pessoas, tecnologia, dados).\n- Construir plano de ação incremental."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "World café, construção colaborativa de tabela de FCS e priorização via matriz impacto × esforço."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Fatores críticos por dimensão",
+      "headers": ["Dimensão", "Fator", "Indicadores de sucesso", "Riscos se negligenciado"],
+      "rows": [
+        [
+          "Processos",
+          "Mapeamento e padronização",
+          "Tempo de ciclo, % automação",
+          "Retrabalho, desvios fiscais"
+        ],
+        [
+          "Pessoas",
+          "Patrocínio executivo e change management",
+          "Participação em treinamentos, NPS interno",
+          "Resistência, baixa adoção"
+        ],
+        [
+          "Tecnologia",
+          "Arquitetura integrada e monitorada",
+          "Disponibilidade, incidentes críticos",
+          "Paradas não planejadas"
+        ],
+        [
+          "Dados",
+          "Governança de dados mestres",
+          "Score de qualidade, conformidade LGPD",
+          "Dados inconsistentes"
+        ],
+        ["Valor", "KPIs de negócio acompanhados", "Margem, OTIF, churn", "Perda de credibilidade"]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Indicadores para o dashboard de governança",
+      "cards": [
+        {
+          "title": "People",
+          "content": "Adesão a treinamentos, engajamento no AVA e taxa de uso de funcionalidades."
+        },
+        {
+          "title": "Process",
+          "content": "Tempo médio de processos críticos e % de tarefas automatizadas."
+        },
+        { "title": "Data", "content": "Score de qualidade de dados, incidentes de LGPD." },
+        {
+          "title": "Tech",
+          "content": "Disponibilidade do ERP, tempo médio de resposta a incidentes."
+        },
+        { "title": "Value", "content": "KPIs de negócio (margem, OTIF, NPS) vinculados ao ERP." }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Ciclo de maturidade ERP",
+      "summary": "Como ações contínuas sustentam benefícios do ERP.",
+      "factors": [
+        {
+          "id": "estrategia",
+          "name": "Estratégia",
+          "summary": "Visão de longo prazo alinhada ao negócio.",
+          "kind": "driver",
+          "indicators": ["roadmap_atualizado"]
+        },
+        {
+          "id": "capacitacao",
+          "name": "Capacitação",
+          "summary": "Programas de treinamento e comunidade de prática.",
+          "kind": "flow",
+          "indicators": ["horas_treinamento"]
+        },
+        {
+          "id": "operacao",
+          "name": "Operação",
+          "summary": "Execução diária e suporte.",
+          "kind": "flow",
+          "indicators": ["tickets_resolvidos", "sla_suporte"]
+        },
+        {
+          "id": "dados",
+          "name": "Dados",
+          "summary": "Qualidade e governança contínua.",
+          "kind": "flow",
+          "indicators": ["score_dados"]
+        },
+        {
+          "id": "valor",
+          "name": "Valor de negócio",
+          "summary": "Resultados tangíveis.",
+          "kind": "outcome",
+          "indicators": ["roi_erp", "margem"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "melhoria",
+          "name": "Melhoria contínua",
+          "polarity": "reinforcing",
+          "summary": "Capacitação e monitoramento sustentam geração de valor.",
+          "steps": [
+            {
+              "id": "mat-1",
+              "from": "estrategia",
+              "to": "capacitacao",
+              "effect": "reinforces",
+              "description": "Roadmap define trilhas de capacitação."
+            },
+            {
+              "id": "mat-2",
+              "from": "capacitacao",
+              "to": "operacao",
+              "effect": "reinforces",
+              "description": "Usuários treinados executam processos com precisão."
+            },
+            {
+              "id": "mat-3",
+              "from": "operacao",
+              "to": "dados",
+              "effect": "reinforces",
+              "description": "Execução correta gera dados confiáveis."
+            },
+            {
+              "id": "mat-4",
+              "from": "dados",
+              "to": "valor",
+              "effect": "reinforces",
+              "description": "Dados de qualidade suportam decisões e medição de benefícios."
+            },
+            {
+              "id": "mat-5",
+              "from": "valor",
+              "to": "estrategia",
+              "effect": "reinforces",
+              "description": "Resultados alimentam revisão de metas e investimentos."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-maturidade-1",
+          "label": "Comitê de governança",
+          "description": "Reuniões mensais mantêm alinhamento entre TI e negócio."
+        },
+        {
+          "id": "insight-maturidade-2",
+          "label": "Academia ERP",
+          "description": "Plano contínuo de capacitação evita perda de conhecimento."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Roadmap de evolução (12 meses)",
+      "steps": [
+        { "title": "Mês 1-2", "content": "Consolidar KPIs e instalar dashboard de governança." },
+        {
+          "title": "Mês 3-5",
+          "content": "Executar sprints de melhoria de dados e automações prioritárias."
+        },
+        {
+          "title": "Mês 6-8",
+          "content": "Expandir integrações digitais e revisar processos críticos."
+        },
+        {
+          "title": "Mês 9-10",
+          "content": "Rodar avaliação de maturidade e ajustar trilhas de capacitação."
+        },
+        {
+          "title": "Mês 11-12",
+          "content": "Planejar nova onda de projetos (analytics avançado, IA aplicada)."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Inspirações",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/case-sap-maturidade",
+          "title": "Case SAP: governança contínua",
+          "caption": "Empresa de varejo apresenta roadmap evolutivo."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/case-totvs-melhoria",
+          "title": "Case TOTVS: programa de melhoria",
+          "caption": "Companhia de serviços mostra academia ERP e indicadores."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 27 — Plano 30-60-90",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Crie um plano 30-60-90 dias com ações, responsáveis e indicadores para elevar a maturidade ERP do estudo de caso escolhido (SAP ou TOTVS). Entregue no AVA até às 23h de três dias após a aula."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-27-fatores-criticos-de-sucesso-em-projetos-erp",
+  "summary": "Sintetiza fatores críticos de sucesso em projetos ERP e propõe roadmap de evolução contínua com indicadores de maturidade.",
+  "objectives": [
+    "Consolidar fatores críticos de sucesso observados nos estudos de caso.",
+    "Planejar roadmap evolutivo alinhado a indicadores.",
+    "Produzir plano 30-60-90 orientado à maturidade."
+  ],
+  "competencies": ["Pensamento estratégico", "Gestão de desempenho", "Facilitação colaborativa"],
+  "outcomes": [
+    "Entrega plano 30-60-90 estruturado.",
+    "Curadoria de indicadores para dashboard de governança.",
+    "Participação ativa no world café."
+  ],
+  "prerequisites": [
+    "Ter concluído as entregas das aulas 24 a 26.",
+    "Revisar notas das apresentações de casos."
+  ],
+  "tags": ["aula-27-fcs-erp"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template plano 30-60-90",
+      "url": "https://example.edu/tgs/templates/plano-30-60-90",
+      "type": "template"
+    },
+    {
+      "label": "Dashboard de governança exemplo",
+      "url": "https://example.edu/tgs/guias/dashboard-governanca-erp",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "GARTNER. Critical Capabilities for ERP for Product-Centric Enterprises. Gartner, 2024.",
+    "MOTWANI, J. et al. Critical Factors for Successful ERP Implementation. Journal of Business Process Management, 2005."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Plano 30-60-90 com indicadores de maturidade."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Sumário executivo dos casos SAP/TOTVS"]
+  }
+}

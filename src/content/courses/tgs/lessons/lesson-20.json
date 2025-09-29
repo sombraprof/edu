@@ -1,0 +1,291 @@
+{
+  "id": "lesson-20",
+  "title": "Aula 20: Módulos Essenciais e Processos Integrados",
+  "objective": "Explorar os módulos centrais de um ERP e compreender como eles suportam processos ponta a ponta.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "gears",
+          "title": "CONTEÚDO",
+          "content": "Módulos Financeiro, Controladoria, Suprimentos, Vendas, Produção e RH, além de integrações de dados mestres."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Relacionar módulos às macroetapas do negócio.\n- Identificar dependências de dados e eventos entre áreas.\n- Avaliar impactos da configuração inadequada de módulos."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Aula dialogada com análise de processos reais, dinâmica em grupos e fórum mediado no AVA."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Módulos e macroprocessos",
+      "headers": ["Módulo", "Processo suportado", "Indicadores críticos", "Stakeholders"],
+      "rows": [
+        [
+          "Financeiro",
+          "Contas a pagar e receber, fluxo de caixa",
+          "DSO, liquidez corrente",
+          "Tesouraria, diretoria"
+        ],
+        [
+          "Controladoria",
+          "Fechamento contábil, consolidação",
+          "Tempo de fechamento, compliance fiscal",
+          "Controladoria, auditoria"
+        ],
+        [
+          "Suprimentos",
+          "Compras, contratos, gestão de estoque",
+          "Lead time de compras, giro de estoque",
+          "Compradores, almoxarifado"
+        ],
+        [
+          "Vendas",
+          "Pedidos, faturamento, faturamento recorrente",
+          "Conversão, ticket médio",
+          "Comercial, faturamento"
+        ],
+        [
+          "Produção",
+          "Planejamento e execução",
+          "Eficiência global, desperdício",
+          "PCP, manufatura"
+        ],
+        ["RH", "Folha, benefícios, performance", "Turnover, absenteísmo", "RH, líderes de equipe"]
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Sequência recomendada de ativação",
+      "steps": [
+        {
+          "title": "Dados mestres",
+          "content": "Revisar cadastros de materiais, clientes e fornecedores antes da ativação."
+        },
+        {
+          "title": "Financeiro + Suprimentos",
+          "content": "Garantir conformidade fiscal e capacidade de reposição de estoque."
+        },
+        {
+          "title": "Vendas",
+          "content": "Sincronizar catálogo e políticas comerciais com estoques disponíveis."
+        },
+        {
+          "title": "Produção",
+          "content": "Planejar ordens de produção conectadas ao planejamento de materiais."
+        },
+        {
+          "title": "RH e controladoria",
+          "content": "Fechar ciclo de informações e entregar relatórios gerenciais integrados."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Dinâmica: pontos de atenção",
+      "cards": [
+        {
+          "title": "Dependências",
+          "content": "Quais módulos precisam estar sincronizados para liberar a emissão de notas fiscais?"
+        },
+        {
+          "title": "Alertas",
+          "content": "Que eventos devem gerar notificações automáticas (ex.: estoque mínimo, pedido bloqueado)?"
+        },
+        {
+          "title": "Escalonamento",
+          "content": "Como a TI deve ser acionada quando um módulo crítico fica indisponível?"
+        },
+        {
+          "title": "Backups",
+          "content": "Que cadastros necessitam de versão histórica para auditoria?"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Fluxo Procure-to-Pay",
+      "summary": "Interações entre módulos do ERP para compras e pagamentos.",
+      "factors": [
+        {
+          "id": "requisicao",
+          "name": "Requisição",
+          "summary": "Pedido interno de compra.",
+          "kind": "flow",
+          "indicators": ["tempo_aprovacao"]
+        },
+        {
+          "id": "pedido",
+          "name": "Pedido de compra",
+          "summary": "Documento formal enviado ao fornecedor.",
+          "kind": "flow",
+          "indicators": ["pedidos_em_aberto"]
+        },
+        {
+          "id": "recebimento",
+          "name": "Recebimento",
+          "summary": "Entrada física e fiscal de materiais.",
+          "kind": "flow",
+          "indicators": ["divergencias_recebimento"]
+        },
+        {
+          "id": "financeiro",
+          "name": "Liquidação financeira",
+          "summary": "Pagamento conforme condições negociadas.",
+          "kind": "flow",
+          "indicators": ["antecipacoes", "descontos_perdidos"]
+        },
+        {
+          "id": "relatorio",
+          "name": "Relatórios de controle",
+          "summary": "Visão consolidada para gestão.",
+          "kind": "outcome",
+          "indicators": ["economia_negociacao", "conformidade_fiscal"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "controle",
+          "name": "Loop de controle de gastos",
+          "polarity": "balancing",
+          "summary": "Limites aprovados evitam estouro orçamentário e alimentam decisões futuras.",
+          "steps": [
+            {
+              "id": "c-step-1",
+              "from": "requisicao",
+              "to": "pedido",
+              "effect": "reinforces",
+              "description": "Requisições aprovadas convertem-se em pedidos alinhados à política de compras."
+            },
+            {
+              "id": "c-step-2",
+              "from": "pedido",
+              "to": "recebimento",
+              "effect": "reinforces",
+              "description": "Pedidos corretos reduzem divergências de recebimento."
+            },
+            {
+              "id": "c-step-3",
+              "from": "recebimento",
+              "to": "financeiro",
+              "effect": "reinforces",
+              "description": "Notas fiscais sem erro aceleram pagamentos."
+            },
+            {
+              "id": "c-step-4",
+              "from": "financeiro",
+              "to": "relatorio",
+              "effect": "reinforces",
+              "description": "Pagamentos rastreáveis produzem relatórios confiáveis."
+            },
+            {
+              "id": "c-step-5",
+              "from": "relatorio",
+              "to": "requisicao",
+              "effect": "balances",
+              "description": "Indicadores de gastos alimentam ajustes em limites e políticas."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-a",
+          "label": "Auditoria contínua",
+          "description": "Cada etapa registra evidências usadas para fiscalizações."
+        },
+        {
+          "id": "insight-b",
+          "label": "Papéis claros",
+          "description": "Perfis de aprovação bem definidos evitam gargalos."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Demonstrações recomendadas",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/sap-procure-to-pay",
+          "title": "SAP S/4HANA: fluxo procure-to-pay",
+          "caption": "Demonstração da criação da requisição até o pagamento com monitor de conformidade."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/totvs-compras-integradas",
+          "title": "TOTVS Protheus: compras integradas",
+          "caption": "Apresenta parametrização de aprovação múltipla e integração com estoque."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 20 — Fórum moderado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Publique no fórum \"Integração Procure-to-Pay\" até às 20h de dois dias após a aula: descreva um gargalo vivido ou observado em processos de compras e indique qual módulo do ERP poderia mitigar o problema. Responda a pelo menos um colega com uma sugestão adicional."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-20-modulos-essenciais-e-processos-integrados",
+  "summary": "Mapeia módulos centrais do ERP e como eles suportam o fluxo procure-to-pay com indicadores e decisões integradas.",
+  "objectives": [
+    "Relacionar módulos a processos ponta a ponta.",
+    "Identificar indicadores e stakeholders responsáveis por cada módulo.",
+    "Planejar uma sequência de ativação coerente com governança de dados."
+  ],
+  "competencies": [
+    "Modelagem de processos empresariais",
+    "Gestão integrada de dados",
+    "Comunicação colaborativa online"
+  ],
+  "outcomes": [
+    "Participa ativamente do fórum relatando gargalos reais.",
+    "Elabora mapa de dependências entre módulos.",
+    "Sinaliza indicadores críticos para monitorar a integração."
+  ],
+  "prerequisites": [
+    "Concluir o resumo crítico da aula 19.",
+    "Revisar mapa de processos elaborado na aula 12."
+  ],
+  "tags": ["aula-20-modulos-erp"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Ficha técnica dos módulos SAP",
+      "url": "https://example.edu/tgs/guias/sap-modulos",
+      "type": "guide"
+    },
+    {
+      "label": "Catálogo TOTVS por processos",
+      "url": "https://example.edu/tgs/guias/totvs-processos",
+      "type": "handout"
+    }
+  ],
+  "bibliography": [
+    "SUMNER, Mary. Enterprise Resource Planning. Prentice Hall, 2018.",
+    "O'LEARY, Daniel. Enterprise Resource Planning Systems. Cambridge University Press, 2000."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Participação qualificada no fórum e registro dos aprendizados."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Roteiro de módulos ERP"]
+  }
+}

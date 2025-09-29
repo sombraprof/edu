@@ -1,0 +1,276 @@
+{
+  "id": "lesson-22",
+  "title": "Aula 22: Governança de Dados Mestres no ERP",
+  "objective": "Estruturar políticas e processos para garantir qualidade, consistência e segurança dos dados mestres.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "settings",
+          "title": "CONTEÚDO",
+          "content": "Dados mestres, hierarquias, workflows de aprovação, segregação de funções e políticas de segurança."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Definir papéis e responsabilidades para gestão de dados mestres.\n- Estabelecer métricas de qualidade.\n- Avaliar impactos de inconsistências na operação."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Workshop de desenho de políticas, discussão de incidentes reais e construção colaborativa de mapa mental."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Domínios de dados mestres",
+      "headers": ["Domínio", "Exemplos", "Riscos de baixa qualidade", "Controles sugeridos"],
+      "rows": [
+        [
+          "Produtos",
+          "SKU, unidade, impostos",
+          "Tributação incorreta, estoque divergente",
+          "Revisão fiscal, validação automática"
+        ],
+        [
+          "Clientes",
+          "CNPJ/CPF, crédito, endereço",
+          "Faturamento rejeitado, inadimplência",
+          "Consulta a bureaus, SLA de atualização"
+        ],
+        [
+          "Fornecedores",
+          "Dados bancários, condições",
+          "Pagamentos indevidos, compras bloqueadas",
+          "Validação bancária, segregação"
+        ],
+        [
+          "Localidades",
+          "Centros, armazéns",
+          "Logística ineficiente, relatórios errados",
+          "Checklist de abertura, auditoria"
+        ],
+        [
+          "Recursos humanos",
+          "Colaboradores, cargos",
+          "Erro em folha, acesso inadequado",
+          "Integração com SSO, dupla aprovação"
+        ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Papéis na governança",
+      "cards": [
+        {
+          "title": "Data owner",
+          "content": "Responsável por políticas, indicadores e aprovação final."
+        },
+        {
+          "title": "Data steward",
+          "content": "Orquestra cadastros, conduz limpezas e monitora qualidade."
+        },
+        {
+          "title": "Usuário chave",
+          "content": "Solicita alterações e valida aderência ao processo."
+        },
+        {
+          "title": "TI/Segurança",
+          "content": "Mantém controles de acesso, logs e trilhas de auditoria."
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Ciclo de governança",
+      "summary": "Fluxo contínuo de monitoramento e melhoria da qualidade de dados.",
+      "factors": [
+        {
+          "id": "politicas",
+          "name": "Políticas",
+          "summary": "Diretrizes e padrões documentados.",
+          "kind": "constraint",
+          "indicators": ["politicas_publicadas"]
+        },
+        {
+          "id": "cadastro",
+          "name": "Cadastro",
+          "summary": "Processo de criação e alteração de dados.",
+          "kind": "flow",
+          "indicators": ["tempo_cadastro", "erros_detectados"]
+        },
+        {
+          "id": "monitoramento",
+          "name": "Monitoramento",
+          "summary": "Medições de qualidade e auditorias.",
+          "kind": "flow",
+          "indicators": ["score_qualidade"]
+        },
+        {
+          "id": "remediacao",
+          "name": "Remediação",
+          "summary": "Correções e limpezas periódicas.",
+          "kind": "flow",
+          "indicators": ["registros_corrigidos"]
+        },
+        {
+          "id": "valor",
+          "name": "Valor entregue",
+          "summary": "Impacto percebido pelas áreas de negócio.",
+          "kind": "outcome",
+          "indicators": ["redução_retrabalho", "compliance_lgpd"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "qualidade",
+          "name": "Loop de qualidade",
+          "polarity": "reinforcing",
+          "summary": "Melhor qualidade gera confiança e incentiva cumprimento das políticas.",
+          "steps": [
+            {
+              "id": "dq-1",
+              "from": "politicas",
+              "to": "cadastro",
+              "effect": "reinforces",
+              "description": "Políticas claras orientam cadastros corretos."
+            },
+            {
+              "id": "dq-2",
+              "from": "cadastro",
+              "to": "monitoramento",
+              "effect": "reinforces",
+              "description": "Registros completos facilitam medições."
+            },
+            {
+              "id": "dq-3",
+              "from": "monitoramento",
+              "to": "remediacao",
+              "effect": "reinforces",
+              "description": "Indicadores apontam prioridades de correção."
+            },
+            {
+              "id": "dq-4",
+              "from": "remediacao",
+              "to": "valor",
+              "effect": "reinforces",
+              "description": "Dados limpos reduzem retrabalho."
+            },
+            {
+              "id": "dq-5",
+              "from": "valor",
+              "to": "politicas",
+              "effect": "reinforces",
+              "description": "Benefícios percebidos estimulam revisão periódica das políticas."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-dados-1",
+          "label": "Workflow digital",
+          "description": "Automatizar aprovações reduz tempo de ciclo."
+        },
+        {
+          "id": "insight-dados-2",
+          "label": "Indicadores sociais",
+          "description": "Metas visíveis no cockpit do ERP promovem accountability."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Resposta a incidentes de dados",
+      "steps": [
+        {
+          "title": "Detecção",
+          "content": "Monitor identifica ruptura de qualidade ou violação de acesso."
+        },
+        { "title": "Comunicação", "content": "Data steward notifica stakeholders e abre chamado." },
+        {
+          "title": "Correção",
+          "content": "Equipe executa plano de remediação priorizando processos críticos."
+        },
+        { "title": "Prevenção", "content": "Revisão das políticas e atualização de treinamentos." }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Referências audiovisuais",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/sap-master-data-governance",
+          "title": "SAP MDG em ação",
+          "caption": "Demonstra workflow de aprovação e validações automáticas."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/totvs-governanca-dados",
+          "title": "TOTVS: governança de cadastros",
+          "caption": "Apresenta políticas de segregação de funções e auditoria."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 22 — Mapa mental",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Construa um mapa mental digital resumindo papéis, indicadores e controles de governança de dados mestres. Entregue o link ou arquivo no AVA até às 18h do próximo encontro presencial."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-22-governanca-dados-mestres-no-erp",
+  "summary": "Detalha como estruturar a governança de dados mestres em ERPs, com papéis, processos e indicadores de qualidade.",
+  "objectives": [
+    "Classificar domínios de dados mestres e riscos associados.",
+    "Estabelecer papéis e políticas para governança.",
+    "Planejar mapa mental que consolide práticas e indicadores."
+  ],
+  "competencies": ["Gestão de dados", "Governança corporativa", "Visualização de conhecimento"],
+  "outcomes": [
+    "Entrega mapa mental com papéis e indicadores.",
+    "Propõe controles compatíveis com a realidade organizacional.",
+    "Participa ativamente da discussão de incidentes."
+  ],
+  "prerequisites": [
+    "Realizar fluxograma da aula 21.",
+    "Revisar políticas institucionais de segurança da informação."
+  ],
+  "tags": ["aula-22-dados-mestres"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de qualidade de dados",
+      "url": "https://example.edu/tgs/guias/checklist-dados",
+      "type": "guide"
+    },
+    {
+      "label": "Ferramentas de mapa mental",
+      "url": "https://example.edu/tgs/ferramentas/mapas-mentais",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "OTTO, Boris. Managing Master Data Quality. Springer, 2011.",
+    "REDMAN, Thomas. Data Driven. Harvard Business Review Press, 2015."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Mapa mental publicado com todos os requisitos."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Manual corporativo de governança de dados"]
+  }
+}

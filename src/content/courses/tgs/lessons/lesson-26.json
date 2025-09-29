@@ -1,0 +1,250 @@
+{
+  "id": "lesson-26",
+  "title": "Aula 26: ERP, E-commerce e Plataformas Digitais",
+  "objective": "Discutir estratégias de integração do ERP com canais digitais e marketplaces, garantindo consistência de estoque, preços e atendimento.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "CONTEÚDO",
+          "content": "Integração ERP ↔ e-commerce, OMS, marketplaces, política de preços e experiência do cliente."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Identificar dados críticos compartilhados.\n- Avaliar modelos de sincronização (batch vs. near real-time).\n- Planejar monitoramento de SLA e atendimento."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Estudo de arquitetura de referência, construção de tabela comparativa e simulação de incidentes."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Dados que circulam entre ERP e canais digitais",
+      "headers": ["Categoria", "Origem", "Frequência", "Risco se falhar"],
+      "rows": [
+        ["Estoque", "ERP/WMS", "Quase real-time", "Venda de item indisponível"],
+        ["Preço", "ERP/Financeiro", "Diária ou sob evento", "Margens incorretas"],
+        ["Pedidos", "E-commerce/OMS", "Imediata", "Não faturamento"],
+        ["Clientes", "E-commerce/CRM", "Sob evento", "Entrega inviabilizada"],
+        ["Promoções", "Marketing", "Agendada", "Campanha inválida"]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Incidentes simulados",
+      "cards": [
+        {
+          "title": "Duplicidade de pedidos",
+          "content": "Marketplace envia pedido duas vezes. Como o ERP evita faturamento duplicado?"
+        },
+        {
+          "title": "Divergência de preço",
+          "content": "Tabela no ERP não sincroniza. Que monitoria detecta?"
+        },
+        {
+          "title": "Estoque negativo",
+          "content": "Reserva online excede disponibilidade. Qual política aplicar?"
+        },
+        {
+          "title": "Cancelamento tardio",
+          "content": "Cliente cancela após faturamento. Quais integrações tratam devolução?"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Arquitetura integrada",
+      "summary": "Componentes que sustentam a jornada digital.",
+      "factors": [
+        {
+          "id": "erp",
+          "name": "ERP",
+          "summary": "Fonte de estoque, preços e faturamento.",
+          "kind": "driver",
+          "indicators": ["atualizacao_precos", "acuracia_estoque"]
+        },
+        {
+          "id": "oms",
+          "name": "Order Management",
+          "summary": "Orquestra pedidos multicanal.",
+          "kind": "flow",
+          "indicators": ["sla_roteamento"]
+        },
+        {
+          "id": "marketplaces",
+          "name": "Marketplaces",
+          "summary": "Canais externos com regras próprias.",
+          "kind": "flow",
+          "indicators": ["penalidades"]
+        },
+        {
+          "id": "ecommerce",
+          "name": "E-commerce próprio",
+          "summary": "Vitrine digital e carrinho.",
+          "kind": "flow",
+          "indicators": ["taxa_conversao"]
+        },
+        {
+          "id": "cliente",
+          "name": "Cliente final",
+          "summary": "Experiência e fidelização.",
+          "kind": "outcome",
+          "indicators": ["nps_digital", "recompra"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "experiencia-omnicanal",
+          "name": "Experiência omnicanal",
+          "polarity": "reinforcing",
+          "summary": "Sincronização eficiente aumenta satisfação e gera novas vendas.",
+          "steps": [
+            {
+              "id": "omni-1",
+              "from": "erp",
+              "to": "oms",
+              "effect": "reinforces",
+              "description": "Dados atualizados permitem roteamento correto."
+            },
+            {
+              "id": "omni-2",
+              "from": "oms",
+              "to": "marketplaces",
+              "effect": "reinforces",
+              "description": "OMS publica status confiáveis nos canais."
+            },
+            {
+              "id": "omni-3",
+              "from": "marketplaces",
+              "to": "ecommerce",
+              "effect": "reinforces",
+              "description": "Experiência consistente fortalece marca própria."
+            },
+            {
+              "id": "omni-4",
+              "from": "ecommerce",
+              "to": "cliente",
+              "effect": "reinforces",
+              "description": "Compra fluida melhora satisfação."
+            },
+            {
+              "id": "omni-5",
+              "from": "cliente",
+              "to": "erp",
+              "effect": "reinforces",
+              "description": "Feedback influencia planejamento de estoque e preços."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-omni-1",
+          "label": "Monitoria unificada",
+          "description": "Dashboard único com SLAs por canal evita visão fragmentada."
+        },
+        {
+          "id": "insight-omni-2",
+          "label": "Governança tributária",
+          "description": "Regras fiscais variam por marketplace e exigem parametrização específica."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Checklist de go-live digital",
+      "steps": [
+        { "title": "H-48", "content": "Congelar catálogo e validar preços." },
+        { "title": "H-24", "content": "Executar sincronização completa de estoque." },
+        { "title": "H-12", "content": "Rodar pedidos de teste end-to-end." },
+        { "title": "H", "content": "Abrir canais com monitoria dedicada." },
+        { "title": "H+24", "content": "Revisar SLAs, incidentes e ajustar regras." }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Demonstrações sugeridas",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/sap-commerce-integration",
+          "title": "SAP Commerce + S/4HANA",
+          "caption": "Fluxo de sincronização de catálogo, preços e pedidos."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/totvs-omnicanal",
+          "title": "TOTVS Omnichannel",
+          "caption": "Integração Protheus com marketplaces brasileiros."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 26 — Plano de monitoramento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Monte um plano de monitoramento com indicadores, ferramentas e rotinas para integrações digitais. Entregue no AVA até às 22h de dois dias após a aula."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-26-erp-ecommerce-e-plataformas-digitais",
+  "summary": "Explora integrações entre ERP, e-commerce, OMS e marketplaces para garantir experiência omnicanal consistente.",
+  "objectives": [
+    "Mapear dados críticos compartilhados entre ERP e canais digitais.",
+    "Planejar sincronização e monitoramento de integrações.",
+    "Propor plano de monitoramento com indicadores e rotinas."
+  ],
+  "competencies": [
+    "Arquitetura de integrações digitais",
+    "Gestão de SLAs",
+    "Planejamento orientado ao cliente"
+  ],
+  "outcomes": [
+    "Entrega plano de monitoramento com indicadores coerentes.",
+    "Identifica riscos de sincronização por categoria de dado.",
+    "Participa da simulação de incidentes propondo respostas."
+  ],
+  "prerequisites": [
+    "Ler relatório executivo da aula 25.",
+    "Revisar integrações estudadas na aula 21."
+  ],
+  "tags": ["aula-26-erp-ecommerce"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Arquitetura de referência omnicanal",
+      "url": "https://example.edu/tgs/guias/arquitetura-omnicanal",
+      "type": "guide"
+    },
+    {
+      "label": "Planilha de monitoramento",
+      "url": "https://example.edu/tgs/templates/monitoramento-erp-digital",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "DION, Chris. Omnichannel Retail: How to Build Winning Stores in a Digital World. Wiley, 2023.",
+    "GARTNER. Market Guide for Digital Commerce Integrations. Gartner, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Plano de monitoramento das integrações digitais."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Referência Omnicanal 2024"]
+  }
+}

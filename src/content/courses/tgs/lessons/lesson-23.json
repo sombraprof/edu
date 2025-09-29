@@ -1,0 +1,256 @@
+{
+  "id": "lesson-23",
+  "title": "Aula 23: Metodologias de Implantação de ERP",
+  "objective": "Avaliar abordagens de implantação, gestão da mudança e critérios de sucesso em projetos ERP.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "CONTEÚDO",
+          "content": "Fases de projeto, abordagens big bang vs. ondas, gestão da mudança, indicadores de prontidão."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Comparar metodologias de implantação.\n- Identificar artefatos críticos (BPML, testes, cutover).\n- Planejar ações de gestão da mudança."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Discussão de casos, análise de linha do tempo e dinâmica de priorização de riscos."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Fases de implantação",
+      "steps": [
+        {
+          "title": "Descoberta",
+          "content": "Alinhamento estratégico, levantamento de processos atuais."
+        },
+        { "title": "Desenho", "content": "To-be, configurações, integrações planejadas." },
+        {
+          "title": "Construção",
+          "content": "Parametrização, desenvolvimentos complementares, testes unitários."
+        },
+        { "title": "Validação", "content": "Testes integrados, migração piloto, treinamento." },
+        { "title": "Cutover", "content": "Plano de virada, estabilização, suporte hiper-care." }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Comparativo de abordagens",
+      "headers": ["Abordagem", "Vantagens", "Riscos", "Quando usar"],
+      "rows": [
+        [
+          "Big bang",
+          "Transição única, simplifica interfaces temporárias",
+          "Maior impacto caso ocorra falha",
+          "Organizações com alta disciplina e forte patrocínio"
+        ],
+        [
+          "Ondas",
+          "Permite aprendizado incremental",
+          "Integrações temporárias e custo prolongado",
+          "Empresas multinegócio ou com alta complexidade"
+        ],
+        [
+          "Greenfield",
+          "Revisão completa de processos",
+          "Esforço elevado de gestão da mudança",
+          "Cenários com legado obsoleto"
+        ],
+        [
+          "Brownfield",
+          "Aproveita configurações existentes",
+          "Risco de carregar problemas antigos",
+          "Quando há boa aderência ao template global"
+        ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Riscos prioritários",
+      "cards": [
+        { "title": "Dados", "content": "Migração incompleta pode interromper faturamento." },
+        { "title": "Processos", "content": "Workflows não testados geram filas e retrabalho." },
+        { "title": "Pessoas", "content": "Usuários resistentes atrasam adoção." },
+        { "title": "Tecnologia", "content": "Infraestrutura insuficiente afeta performance." }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Rede de patrocínio",
+      "summary": "Stakeholders que sustentam um projeto de implantação.",
+      "factors": [
+        {
+          "id": "patrocinador",
+          "name": "Patrocinador executivo",
+          "summary": "Define prioridades e aprova orçamento.",
+          "kind": "driver",
+          "indicators": ["decisoes_tomadas"]
+        },
+        {
+          "id": "pm",
+          "name": "PMO / gerente de projeto",
+          "summary": "Coordena cronograma, riscos e comunicação.",
+          "kind": "flow",
+          "indicators": ["status_semanais"]
+        },
+        {
+          "id": "processo",
+          "name": "Líderes de processo",
+          "summary": "Validam desenhos e testes.",
+          "kind": "flow",
+          "indicators": ["roteiros_aprovados"]
+        },
+        {
+          "id": "ti",
+          "name": "TI e integração",
+          "summary": "Garante infraestrutura, interfaces e segurança.",
+          "kind": "flow",
+          "indicators": ["defeitos_resolvidos"]
+        },
+        {
+          "id": "usuarios-finais",
+          "name": "Usuários finais",
+          "summary": "Adotam o sistema e executam processos.",
+          "kind": "outcome",
+          "indicators": ["adesao_treinamento", "satisfacao_lancamento"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "patrocinio",
+          "name": "Loop de patrocínio",
+          "polarity": "reinforcing",
+          "summary": "Engajamento executivo garante recursos e remove impedimentos.",
+          "steps": [
+            {
+              "id": "s-1",
+              "from": "patrocinador",
+              "to": "pm",
+              "effect": "reinforces",
+              "description": "Direcionamentos claros aceleram decisões."
+            },
+            {
+              "id": "s-2",
+              "from": "pm",
+              "to": "processo",
+              "effect": "reinforces",
+              "description": "Coordenação eficiente garante entregas em tempo."
+            },
+            {
+              "id": "s-3",
+              "from": "processo",
+              "to": "ti",
+              "effect": "reinforces",
+              "description": "Requisitos consolidados orientam integrações."
+            },
+            {
+              "id": "s-4",
+              "from": "ti",
+              "to": "usuarios-finais",
+              "effect": "reinforces",
+              "description": "Soluções estáveis elevam confiança dos usuários."
+            },
+            {
+              "id": "s-5",
+              "from": "usuarios-finais",
+              "to": "patrocinador",
+              "effect": "reinforces",
+              "description": "Adoção positiva gera relatos de sucesso ao patrocinador."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-impl-1",
+          "label": "Comunicação",
+          "description": "Newsletters semanais evitam ruídos e boatos."
+        },
+        {
+          "id": "insight-impl-2",
+          "label": "Treinamento aplicado",
+          "description": "Treinar usando dados reais acelera transferência de conhecimento."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Estudos de caso",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/case-implantacao-sap",
+          "title": "Implantação SAP em indústria farmacêutica",
+          "caption": "Aborda estratégia em ondas com foco em validação regulatória."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/case-implantacao-totvs",
+          "title": "TOTVS em empresa de serviços",
+          "caption": "Explora abordagem big bang com squad de hiper-care."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 23 — Briefing de riscos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregue até às 21h de dois dias após a aula um briefing (máx. 1 página) listando cinco riscos para um projeto ERP e respectivas respostas. Publique em PDF no AVA identificando responsáveis por cada ação."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-23-metodologias-de-implantacao-de-erp",
+  "summary": "Compara metodologias de implantação de ERP e destaca fatores de patrocínio, riscos e gestão da mudança.",
+  "objectives": [
+    "Discutir fases e abordagens de implantação.",
+    "Avaliar riscos críticos e planos de resposta.",
+    "Elaborar briefing de riscos alinhado à governança."
+  ],
+  "competencies": ["Gestão de projetos", "Liderança de mudanças", "Análise de riscos"],
+  "outcomes": [
+    "Entrega briefing com riscos priorizados.",
+    "Aplica conceitos de patrocínio ao estudo de caso.",
+    "Argumenta sobre escolha de abordagem ideal."
+  ],
+  "prerequisites": ["Concluir mapa mental da aula 22.", "Revisar leituras sobre governança."],
+  "tags": ["aula-23-implantacao-erp"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de plano de projeto ERP",
+      "url": "https://example.edu/tgs/templates/plano-projeto-erp",
+      "type": "template"
+    },
+    {
+      "label": "Matriz de riscos exemplo",
+      "url": "https://example.edu/tgs/guias/matriz-riscos-erp",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "SOMERS, Toni; NELSON, Klara. The Impact of Critical Success Factors across the Stages of ERP Implementations. IEEE, 2004.",
+    "PMI. Practice Guide for Adaptive Project Management. Project Management Institute, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Briefing de riscos entregue no AVA."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Playbook interno de implantação"]
+  }
+}
