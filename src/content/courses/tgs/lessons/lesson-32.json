@@ -4,48 +4,180 @@
   "objective": "Construir objetivos, indicadores e iniciativas do Balanced Scorecard aplicado a SI.",
   "content": [
     {
-      "type": "cardGrid",
-      "title": "Perspectivas do BSC de SI",
-      "cards": [
+      "type": "balancedScorecard",
+      "title": "Balanced Scorecard de SI",
+      "summary": "Organiza objetivos, indicadores e iniciativas por perspectiva para conectar SI à estratégia corporativa.",
+      "perspectives": [
         {
+          "id": "finance",
           "title": "Financeira",
-          "content": "Valor entregue por TI, otimização de custos e retorno de investimentos."
+          "summary": "Valor entregue por TI, otimização de custos e retorno de investimentos.",
+          "tone": "primary",
+          "badge": "Financeira"
         },
         {
+          "id": "customer",
           "title": "Clientes",
-          "content": "Experiência dos usuários finais e satisfação das áreas de negócio."
+          "summary": "Experiência dos usuários finais e satisfação das áreas de negócio.",
+          "tone": "info",
+          "badge": "Clientes"
         },
         {
+          "id": "process",
           "title": "Processos internos",
-          "content": "Eficiência, confiabilidade e segurança dos serviços de TI."
+          "summary": "Eficiência, confiabilidade e segurança dos serviços de TI.",
+          "tone": "warning",
+          "badge": "Processos"
         },
         {
+          "id": "learning",
           "title": "Aprendizado e inovação",
-          "content": "Capacitação, cultura ágil e adoção de novas tecnologias."
+          "summary": "Capacitação, cultura ágil e adoção de novas tecnologias.",
+          "tone": "success",
+          "badge": "Aprendizado"
         }
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Exemplo de mapa de objetivos",
-      "headers": ["Perspectiva", "Objetivo", "Indicador", "Meta 2025"],
-      "rows": [
-        ["Financeira", "Reduzir custo por transação digital", "Custo médio por transação", "-15%"],
-        ["Clientes", "Elevar NPS das soluções digitais", "NPS digital", ">= 65"],
-        [
-          "Processos internos",
-          "Aumentar disponibilidade crítica",
-          "Disponibilidade 24x7",
-          ">= 99,8%"
-        ],
-        ["Processos internos", "Reduzir tempo de entrega", "Lead time de squads", "-25%"],
-        [
-          "Aprendizado e inovação",
-          "Escalar competências em analytics",
-          "% equipes certificadas",
-          ">= 70%"
-        ],
-        ["Aprendizado e inovação", "Fomentar inovação aberta", "Provas de conceito/ano", ">= 6"]
+      ],
+      "objectives": [
+        {
+          "id": "reduce-cost",
+          "perspectiveId": "finance",
+          "title": "Reduzir custo por transação digital",
+          "summary": "Racionalizar infraestrutura e licenças para manter margem e escala.",
+          "owner": "Diretoria de TI",
+          "initiatives": [
+            "Renegociar contratos de nuvem e softwares críticos.",
+            "Ampliar automações de backoffice e billing."
+          ]
+        },
+        {
+          "id": "improve-nps",
+          "perspectiveId": "customer",
+          "title": "Elevar NPS das soluções digitais",
+          "summary": "Orquestrar jornadas omnicanal com suporte proativo ao usuário.",
+          "owner": "Head de Produtos Digitais",
+          "initiatives": [
+            "Mapear jornadas prioritárias com squads mistos.",
+            "Implantar analytics de feedback em tempo real."
+          ]
+        },
+        {
+          "id": "increase-uptime",
+          "perspectiveId": "process",
+          "title": "Aumentar disponibilidade crítica",
+          "summary": "Reforçar observabilidade e contingência para serviços prioritários.",
+          "owner": "Gerência de Operações",
+          "initiatives": [
+            "Expandir cobertura SRE e revisões de confiabilidade.",
+            "Atualizar planos de contingência e testes de DR."
+          ]
+        },
+        {
+          "id": "accelerate-delivery",
+          "perspectiveId": "process",
+          "title": "Reduzir tempo de entrega",
+          "summary": "Aprimorar fluxo de desenvolvimento com práticas DevOps.",
+          "owner": "PMO Digital",
+          "initiatives": [
+            "Adotar fluxo contínuo com gestão visual e limites de WIP.",
+            "Incluir métricas de throughput nos fóruns de portfólio."
+          ]
+        },
+        {
+          "id": "scale-analytics",
+          "perspectiveId": "learning",
+          "title": "Escalar competências em analytics",
+          "summary": "Desenvolver talentos e trilhas de dados aplicadas.",
+          "owner": "CoE Analytics",
+          "initiatives": [
+            "Implementar trilhas de certificação e mentoria.",
+            "Criar comunidades de prática de dados e AI."
+          ]
+        },
+        {
+          "id": "foster-innovation",
+          "perspectiveId": "learning",
+          "title": "Fomentar inovação aberta",
+          "summary": "Sustentar pipeline de pilotos com parceiros estratégicos.",
+          "owner": "Líder de Inovação",
+          "initiatives": [
+            "Lançar calendário de desafios com parceiros e startups.",
+            "Priorizar pilotos com ROI validado e sponsor claro."
+          ]
+        }
+      ],
+      "indicators": [
+        {
+          "id": "cost-per-transaction",
+          "objectiveId": "reduce-cost",
+          "title": "Custo médio por transação",
+          "summary": "Dashboard de eficiência financeira consolidado com controladoria.",
+          "target": "-15%",
+          "current": "-6%",
+          "baseline": "2024: R$ 2,40",
+          "frequency": "Mensal",
+          "owner": "Controladoria de TI",
+          "status": "at-risk"
+        },
+        {
+          "id": "digital-nps",
+          "objectiveId": "improve-nps",
+          "title": "NPS digital",
+          "summary": "Pesquisa contínua com clientes e colaboradores das áreas de negócio.",
+          "target": "≥ 65",
+          "current": "61",
+          "baseline": "2024: 58",
+          "frequency": "Mensal",
+          "owner": "CX Office",
+          "status": "on-track"
+        },
+        {
+          "id": "uptime",
+          "objectiveId": "increase-uptime",
+          "title": "Disponibilidade 24x7",
+          "summary": "Monitoramento em tempo real para serviços mission critical.",
+          "target": "≥ 99,8%",
+          "current": "99,4%",
+          "baseline": "2024: 99,0%",
+          "frequency": "Semanal",
+          "owner": "SRE",
+          "status": "at-risk"
+        },
+        {
+          "id": "lead-time",
+          "objectiveId": "accelerate-delivery",
+          "title": "Lead time de squads",
+          "summary": "Tempo médio do compromisso ao deploy por squad multidisciplinar.",
+          "target": "-25%",
+          "current": "14 dias (-12%)",
+          "baseline": "2024: 16 dias",
+          "frequency": "Quinzenal",
+          "owner": "Agile Office",
+          "status": "off-track"
+        },
+        {
+          "id": "certified-teams",
+          "objectiveId": "scale-analytics",
+          "title": "% equipes certificadas",
+          "summary": "Capacitações focadas em dados, analytics e governança.",
+          "target": "≥ 70%",
+          "current": "54%",
+          "baseline": "2024: 32%",
+          "frequency": "Trimestral",
+          "owner": "RH Tech",
+          "status": "at-risk"
+        },
+        {
+          "id": "innovation-pocs",
+          "objectiveId": "foster-innovation",
+          "title": "Provas de conceito/ano",
+          "summary": "Pilotos priorizados pelo comitê de inovação aberta.",
+          "target": "≥ 6",
+          "current": "4",
+          "baseline": "2024: 3",
+          "frequency": "Trimestral",
+          "owner": "Lab de Inovação",
+          "status": "on-track"
+        }
       ]
     },
     {
@@ -109,12 +241,18 @@
       "type": "timeline",
       "title": "Workshop de formulação do BSC",
       "steps": [
-        { "title": "Pré-work", "content": "Consolide SWOT e matriz de capacidades como insumo." },
+        {
+          "title": "Pré-work",
+          "content": "Consolide SWOT e matriz de capacidades como insumo."
+        },
         {
           "title": "Sessão 1",
           "content": "Definir objetivos por perspectiva com patrocínio executivo."
         },
-        { "title": "Sessão 2", "content": "Selecionar indicadores e metas realistas." },
+        {
+          "title": "Sessão 2",
+          "content": "Selecionar indicadores e metas realistas."
+        },
         {
           "title": "Sessão 3",
           "content": "Priorizar iniciativas estratégicas e donos dos objetivos."
