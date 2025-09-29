@@ -117,6 +117,7 @@ import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ChevronRight, Grid3x3, List } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
+import { extractManifestEntries } from '@/utils/contentManifest';
 
 interface LessonRef {
   id: string;
@@ -154,6 +155,9 @@ interface ContentItem {
   attrs: Record<string, unknown>;
 }
 
+const lessonIndexModules = import.meta.glob('../content/courses/*/lessons.json');
+const exerciseIndexModules = import.meta.glob('../content/courses/*/exercises.json');
+
 const route = useRoute();
 const router = useRouter();
 const courseId = computed(() => String(route.params.courseId ?? ''));
@@ -168,8 +172,12 @@ const searchTerm = computed(() => rawSearchQuery.value.toLowerCase());
 
 async function loadLessons(id: string) {
   try {
-    const module = await import(`../content/courses/${id}/lessons.json`);
-    lessons.value = module.default as LessonRef[];
+    const path = `../content/courses/${id}/lessons.json`;
+    const importer = lessonIndexModules[path];
+    if (!importer) throw new Error(`Lessons manifest not found for ${path}`);
+
+    const module = await importer();
+    lessons.value = extractManifestEntries<LessonRef>(module);
   } catch (err) {
     console.error('[CourseHome] Failed to load lessons.json', err);
     lessons.value = [];
@@ -178,8 +186,12 @@ async function loadLessons(id: string) {
 
 async function loadExercises(id: string) {
   try {
-    const module = await import(`../content/courses/${id}/exercises.json`);
-    exercises.value = module.default as ExerciseRef[];
+    const path = `../content/courses/${id}/exercises.json`;
+    const importer = exerciseIndexModules[path];
+    if (!importer) throw new Error(`Exercises manifest not found for ${path}`);
+
+    const module = await importer();
+    exercises.value = extractManifestEntries<ExerciseRef>(module);
   } catch (err) {
     console.warn('[CourseHome] Exercises not available', err);
     exercises.value = [];

@@ -49,6 +49,7 @@ import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } fro
 import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
+import { extractManifestEntries } from '@/utils/contentManifest';
 
 interface GenerationMetadata {
   generatedBy: string;
@@ -68,6 +69,7 @@ interface ExerciseRef {
   type?: string;
 }
 
+const exerciseIndexModules = import.meta.glob('../content/courses/*/exercises.json');
 const exerciseModules = import.meta.glob('../content/courses/*/exercises/*.vue');
 
 const route = useRoute();
@@ -87,8 +89,12 @@ async function loadExercise() {
     const currentCourse = courseId.value;
     const currentExercise = exerciseId.value;
 
-    const indexModule = await import(`../content/courses/${currentCourse}/exercises.json`);
-    const index: ExerciseRef[] = indexModule.default;
+    const indexPath = `../content/courses/${currentCourse}/exercises.json`;
+    const indexImporter = exerciseIndexModules[indexPath];
+    if (!indexImporter) throw new Error(`Exercise index not found for path: ${indexPath}`);
+
+    const indexModule = await indexImporter();
+    const index = extractManifestEntries<ExerciseRef>(indexModule);
     const entry = index.find((item) => item.id === currentExercise);
     if (!entry) throw new Error(`Exercise ${currentExercise} not found`);
 
