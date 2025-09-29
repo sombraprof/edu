@@ -42,9 +42,14 @@ const SUPPORTED_BLOCK_TYPES = [
   'accordion',
   'representations',
   'truthTable',
+  'roadmap',
   'audio',
   'audioBlock',
   'md3Table',
+  'md3Flowchart',
+  'classDesigner',
+  'pipelineCanvas',
+  'systemMapper',
   'component',
   'legacySection',
 ];
@@ -59,6 +64,9 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'MemoryDiagram',
   'OrderedList',
   'CardGrid',
+  'ClassDesigner',
+  'PipelineCanvas',
+  'SystemMapper',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([

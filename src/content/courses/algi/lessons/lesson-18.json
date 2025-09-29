@@ -1,0 +1,154 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-18",
+  "title": "Aula 18: Estrutura de Repetição for",
+  "summary": "Explora o laço for para repetir instruções com contadores definidos, destacando inicialização, condição e atualização.",
+  "objective": "Planejar e implementar laços for para percorrer intervalos, vetores e produzir tabulações controladas.",
+  "objectives": [
+    "Mapear os três componentes do for (inicialização, condição, atualização).",
+    "Comparar equivalências entre for e while em exemplos reais.",
+    "Aplicar for em tabelas e cálculos acumulativos com validação de limites."
+  ],
+  "competencies": ["Pensamento computacional", "Organização algorítmica", "Raciocínio matemático"],
+  "skills": [
+    "Selecionar variáveis de controle adequadas.",
+    "Garantir que a condição torne-se falsa em tempo finito.",
+    "Documentar testes que validem limites inferior e superior."
+  ],
+  "outcomes": [
+    "Produz algoritmos que percorrem vetores e faixas numéricas usando for.",
+    "Justifica quando converter um while em for melhora a legibilidade.",
+    "Entrega exercícios com evidências de testes e análise de complexidade básica."
+  ],
+  "prerequisites": ["Conhecer laços while e operadores aritméticos."],
+  "tags": ["loops", "for", "repeticao"],
+  "duration": 115,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Slides Estrutura for",
+      "url": "https://example.edu/algi/slides/for-md3.pdf",
+      "type": "slide"
+    },
+    {
+      "label": "Compilador OnlineGDB",
+      "url": "https://www.onlinegdb.com/online_c_compiler",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020.",
+    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Checklist de exercícios práticos com tabuada, somatórios e percorrimento de vetores."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h55)",
+      "items": [
+        "(10 min) Recap do while e introdução ao for.",
+        "(20 min) Desmembrar sintaxe e exemplos no quadro.",
+        "(35 min) Laboratório: geração de tabuada e somatórios.",
+        "(20 min) Debug coletivo: evitar loops infinitos.",
+        "(30 min) Exercícios avaliativos com feedback em tempo real."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Componentes do for",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O laço for é ideal quando conhecemos o número de repetições ou conseguimos derivá-lo de um intervalo controlado."
+        },
+        {
+          "type": "roadmap",
+          "steps": [
+            {
+              "title": "Inicialização",
+              "description": "Executada uma vez antes da primeira iteração."
+            },
+            { "title": "Condição", "description": "Verificada antes de cada ciclo." },
+            { "title": "Atualização", "description": "Executada após cada iteração." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Comparativo for x while",
+      "headers": ["Aspecto", "for", "while"],
+      "rows": [
+        [
+          { "value": "Estrutura" },
+          { "value": "Tudo em uma linha (início; condição; atualização)" },
+          { "value": "Elementos separados no corpo" }
+        ],
+        [
+          { "value": "Legibilidade" },
+          { "value": "Excelente para contadores e percursos" },
+          { "value": "Melhor para repetições condicionais sem contagem" }
+        ],
+        [
+          { "value": "Risco" },
+          { "value": "Esquecer atualização resulta em loop infinito" },
+          { "value": "Esquecer leitura no fim pode travar condição" }
+        ]
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "code": "int soma = 0;\nfor (int i = 1; i <= 10; i++) {\n  soma += i;\n  printf(\"Iteração %d - soma parcial: %d\\n\", i, soma);\n}\nprintf(\"Resultado final: %d\\n\", soma);\n"
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo: tabuada com for",
+      "nodes": [
+        { "id": "start", "type": "start", "title": "Início" },
+        { "id": "set", "type": "process", "title": "i = 1" },
+        {
+          "id": "condition",
+          "type": "decision",
+          "title": "i <= 10?",
+          "branches": [
+            { "id": "loop-continues", "label": "Sim", "target": "print" },
+            { "id": "loop-ends", "label": "Não", "target": "end" }
+          ]
+        },
+        {
+          "id": "print",
+          "type": "process",
+          "title": "Imprimir linha",
+          "summary": "Mostra fator x multiplicador."
+        },
+        { "id": "increment", "type": "process", "title": "i++" },
+        { "id": "end", "type": "end", "title": "Fim" }
+      ],
+      "connections": [
+        { "from": "start", "to": "set" },
+        { "from": "set", "to": "condition" },
+        { "from": "print", "to": "increment" },
+        { "from": "increment", "to": "condition", "kind": "loop", "label": "Próximo valor" }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Próximos passos",
+      "items": [
+        "Implementar exercícios 1, 2 e 3 da worksheet usando for.",
+        "Analisar equivalência com while e registrar diferenças no caderno.",
+        "Preparar dúvidas para a aula 19 (for vs while)."
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "owners": ["Profa. Carla Mendes", "Prof. Miguel Souza"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Worksheet loops contados 2025"]
+  }
+}
