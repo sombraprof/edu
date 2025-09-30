@@ -30,6 +30,47 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "📎 Recursos de Abertura da Disciplina",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Tenha os principais materiais em mãos para acompanhar o semestre sem surpresas."
+        },
+        {
+          "type": "button",
+          "text": "Plano de Ensino Completo (PDF)",
+          "href": "https://sombraprof.github.io/tdjd/plano-ensino.pdf"
+        },
+        {
+          "type": "button",
+          "text": "Vídeo de Boas-Vindas (YouTube)",
+          "href": "https://www.youtube.com/watch?v=8zKuNo4ay8E"
+        },
+        {
+          "type": "button",
+          "text": "Formulário de Expectativas da Turma",
+          "href": "https://forms.gle/tdjd-expectativas"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "⚙️ Checklist e Credenciais do Laboratório",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Verifique se os computadores estão com a Unity 2022 LTS e o Visual Studio Code atualizados (licença acadêmica já instalada).",
+            "Credenciais: login \"aluno.tdjd\" · senha inicial \"Unity@2024\" (altere no primeiro acesso).",
+            "Confirme acesso ao Google Drive institucional e ao repositório GitHub Classroom antes de iniciar os trabalhos."
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Dinâmica Inicial: O Jogo Inesquecível",
@@ -274,26 +315,46 @@
     },
     {
       "type": "contentBlock",
-      "title": "📝 Tarefa (TED): Conectando com o Mercado",
+      "title": "📝 Tarefa (TED Reflexivo): Conectando com o Mercado",
       "content": [
         {
           "type": "paragraph",
-          "text": "Para a próxima aula, a tarefa tem dois objetivos: entender as profissões e o que o mercado exige."
+          "text": "Para a próxima aula, realize uma investigação guiada sobre carreiras em jogos e produza um registro reflexivo conectando mercado e seus objetivos."
         },
         {
-          "type": "list",
+          "type": "orderedList",
           "items": [
-            "Fórum - A Minha Profissão Gamer: Leia um dos artigos recomendados abaixo e participe do fórum no Moodle respondendo:\"Com qual profissão dentro da indústria de jogos você mais se identifica e por quê?\" 📚 Leitura recomendada: - Games: um mercado de trabalho em expansão no Brasil (EBAC) (https://ebaconline.com.br/blog/games-mercado-de-trabalho-em-expansao-no-brasil) - Carreira em Jogos Digitais: como trabalhar na indústria dos games (Uniasselvi) (https://blog.uniasselvi.com.br/carreira-em-jogos-digitais/)",
-            "Pesquisa de Mercado - Vaga Real: Pesquise em sites como LinkedIn (https://www.linkedin.com/jobs/) ou Catho (https://www.catho.com.br/vagas/) por uma vaga real na área de jogos que te interesse (ex: \"Programador Unity Júnior\", \"Game Designer\", \"Artista 3D\"). Anote e traga para a próxima aula: - O nome da vaga e da empresa. - Pelo menos 3 habilidades (skills) técnicas ou comportamentais exigidas na descrição."
+            {
+              "title": "Explorar referências",
+              "text": "Leia ao menos um dos artigos indicados (EBAC ou Uniasselvi) e destaque três ideias que ampliaram sua visão sobre a indústria."
+            },
+            {
+              "title": "Mapear oportunidades reais",
+              "text": "Localize uma vaga atual em portais como LinkedIn ou Catho e anote cargo, empresa e três competências repetidas em diferentes anúncios."
+            },
+            {
+              "title": "Refletir sobre seu percurso",
+              "text": "No fórum \"Carreiras em Jogos\" do Moodle, escreva um parágrafo conectando suas motivações às exigências observadas, indicando quais habilidades você já possui e quais precisa desenvolver neste semestre."
+            }
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Entregável: postagem no fórum com 12 a 15 linhas, incluindo links das vagas consultadas e o resumo das ideias-chave extraídas das leituras."
         },
         {
           "type": "callout",
           "variant": "info",
+          "title": "Critérios de reflexão",
           "content": [
             {
-              "type": "paragraph",
-              "text": "💡 Dica: Ao escolher a vaga, observe quais habilidades se repetem entre diferentes empresas. Isso dará uma visão clara de quais competências são mais valorizadas na indústria de jogos."
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Relaciona competências do mercado com seu plano de desenvolvimento pessoal.",
+                "Cita evidências (vaga/leitura) para sustentar o argumento.",
+                "Aponta uma ação concreta para o próximo mês (curso, leitura, prática)."
+              ]
             }
           ]
         }
