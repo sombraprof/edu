@@ -234,7 +234,40 @@
             {
               "type": "paragraph",
               "text": "Envie o vídeo, checklist e link do repositório no Moodle até 23h59 do dia seguinte."
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Link da tarefa: https://moodle.unichristus.br/mod/assign/view.php?id=98171.",
+                "Publique o feedback no fórum: https://moodle.unichristus.br/mod/forum/view.php?id=45322.",
+                "Atualize a planilha de checkpoint antes de enviar (planilha compartilhada na aba Unidade II)."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Checklist mínimo: vídeo MP4 de até 3 minutos, checklist em PDF e repositório com README atualizado e tag release."
             }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Fórum de feedback obrigatório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Após enviar a entrega, registre um resumo das melhorias priorizadas no fórum da turma para receber comentários dos pares."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Use o tópico: Fórum de Iterações do Mini App de Contatos.",
+            "Inclua link para o vídeo e destaques do backlog.",
+            "Responda a pelo menos dois colegas até 24h após a postagem."
           ]
         }
       ]
@@ -250,8 +283,16 @@
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2024-05-28T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano de projeto DDM", "Notas de laboratório 2024.1"]
+    "updatedAt": "2024-06-18T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra", "Ana Paula (Governança)"],
+    "sources": [
+      "Plano de projeto DDM",
+      "Notas de laboratório 2024.1",
+      "docs/governance/moodle-ted-crosswalk.md"
+    ],
+    "evidences": [
+      "Ata: docs/governance/professor-validation-meeting.md",
+      "Planilha: docs/governance/post-module-monitoring.md"
+    ]
   }
 }

@@ -185,6 +185,39 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Checklist de entrega no Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie todos os materiais em Moodle > DDM 2024.1 > Unidade I > TED 06 – App de Boas-vindas."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Link direto: https://moodle.unichristus.br/mod/assign/view.php?id=98155.",
+            "Anexe: vídeo (MP4 até 150 MB), checklist preenchido (PDF) e link do repositório no campo de texto.",
+            "Responsável pela validação: Prof. Tiago Sombra (confirmação no prazo de 48h)."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica oficial aplicada ao envio:"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Funcionalidade completa e sem erros críticos (40%).",
+            "Documentação e checklist anexados com evidências claras (30%).",
+            "Apresentação em vídeo destacando decisões de design (30%)."
+          ]
+        }
+      ]
+    },
+    {
       "type": "bibliography",
       "title": "Bibliografia recomendada",
       "items": [
@@ -195,8 +228,16 @@
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2024-05-10T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Backlog da sprint Descoberta – DDM"]
+    "updatedAt": "2024-06-18T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra", "Ana Paula (Governança)"],
+    "sources": [
+      "Backlog da sprint Descoberta – DDM",
+      "docs/governance/moodle-ted-crosswalk.md",
+      "docs/governance/professor-validation-meeting.md"
+    ],
+    "evidences": [
+      "Checklist: docs/governance/post-module-monitoring.md",
+      "Ata: docs/governance/professor-validation-meeting.md"
+    ]
   }
 }
