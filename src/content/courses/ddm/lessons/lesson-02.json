@@ -185,6 +185,26 @@
           ]
         },
         {
+          "type": "callout",
+          "variant": "info",
+          "title": "Envio oficial no Moodle",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Acesse Moodle > DDM 2024.1 > Unidade I > TED 02 – Configuração do Ambiente para anexar a evidência."
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Link direto: https://moodle.unichristus.br/mod/assign/view.php?id=98142.",
+                "Prazo oficial: 20/06/2024 às 23h59 (horário de Fortaleza).",
+                "Formatos aceitos: PNG, JPG ou PDF com até 10 MB (anexe captura e comentários)."
+              ]
+            }
+          ]
+        },
+        {
           "type": "bibliographyBlock",
           "title": "Bibliografia Recomendada",
           "references": [
@@ -197,8 +217,12 @@
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2024-05-06T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Guia de Laboratório DDM – Ambiente"]
+    "updatedAt": "2024-06-18T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra", "Ana Paula (Governança)"],
+    "sources": ["Guia de Laboratório DDM – Ambiente", "docs/governance/moodle-ted-crosswalk.md"],
+    "evidences": [
+      "Ata: docs/governance/professor-validation-meeting.md",
+      "Planilha: docs/governance/post-module-monitoring.md"
+    ]
   }
 }
