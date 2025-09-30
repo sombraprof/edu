@@ -26,34 +26,24 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Slides Estrutura for",
-      "url": "https://example.edu/algi/slides/for-md3.pdf",
-      "type": "slide"
+      "label": "Slides comparativos for x while",
+      "type": "presentation",
+      "url": "https://example.edu/algi/slides/for-vs-while.pdf"
     },
     {
-      "label": "Compilador OnlineGDB",
-      "url": "https://www.onlinegdb.com/online_c_compiler",
-      "type": "tool"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Planilha de contagem incremental",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIPatternsFor"
+    },
+    {
+      "label": "Vídeo: For loops em C (freeCodeCamp)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=1Lfd8F7U3eE"
+    },
+    {
+      "label": "Projeto OnlineGDB – Tabuada parametrizada",
+      "type": "tool",
+      "url": "https://onlinegdb.com/H1ForTabuada"
     }
   ],
   "bibliography": [
@@ -91,6 +81,42 @@
       ]
     },
     {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "Comparativo inicial",
+          "content": "Revisar diferenças entre while e for com exemplos lado a lado (10 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Componentes do for",
+          "content": "Mapear inicialização, condição e atualização em exercícios guiados (20 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Gerar tabuadas, séries e varreduras controladas (30 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Experimentos",
+          "content": "Testar incrementos alternativos e laços decrescentes (25 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Debrief",
+          "content": "Comparar implementação em for versus while e registrar aprendizados (15 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Alinhar entregáveis e rubrica da prática pós-aula (15 min)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo (1h55)",
       "items": [
@@ -123,6 +149,31 @@
             {
               "title": "Atualização",
               "description": "Executada após cada iteração."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Experimente incrementos diferentes",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Teste saltos de 2, decrementos e atualizações múltiplas na mesma expressão para observar impactos no fluxo."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Documente na planilha os valores percorridos em cada variação."
+            },
+            {
+              "text": "Verifique se a condição permanece coerente ao inverter a direção."
+            },
+            {
+              "text": "Utilize comentários para explicar a intenção de saltos não unitários."
             }
           ]
         }
@@ -166,6 +217,28 @@
             "value": "Esquecer leitura no fim pode travar condição"
           }
         ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Padrões com laço for",
+      "cards": [
+        {
+          "title": "Contagem crescente",
+          "content": "Ideal para iterar intervalos conhecidos (0..n) com atualização unitária."
+        },
+        {
+          "title": "Contagem decrescente",
+          "content": "Útil para timers, contagem regressiva e percursos reversos."
+        },
+        {
+          "title": "Saltos regulares",
+          "content": "Percorra apenas elementos pares/ímpares usando incrementos maiores que 1."
+        },
+        {
+          "title": "Loop vazio",
+          "content": "Quando lógica está na expressão de atualização, documente riscos de legibilidade."
+        }
       ]
     },
     {
@@ -253,55 +326,57 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "TED 18 – Tabuada parametrizada",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 18' para anexar o artefato solicitado."
+          "text": "Submeta até 23h59: código em C gerando tabuadas configuráveis, captura do console e planilha com cenários testados."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entregue aula18_series.c aplicando laço for em pelo menos dois cenários (somatório e progressão)."
+              "text": "Arquivo aula18_tabuada.c."
             },
             {
-              "text": "Anexe captura ou planilha comprovando evolução do contador e resultado final de cada série."
+              "text": "Imagem ou PDF com saída para diferentes parâmetros."
+            },
+            {
+              "text": "Planilha 'TED18_contagens.xlsx' com incrementos variados."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 18",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Uso correto do for com inicialização, condição e atualização claros (30%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Suporte a diferentes incrementos e faixas sem ajustes manuais (30%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Registros de testes completos com evidências (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Organização dos arquivos e comentários explicativos (15%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Worksheet loops contados 2025"]
   }

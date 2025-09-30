@@ -28,39 +28,34 @@
   "modality": "async",
   "resources": [
     {
-      "label": "Modelo de relatório de evidências",
-      "url": "https://example.edu/algi/modelos/relatorio-condicionais.docx",
-      "type": "template"
+      "label": "Pacote de casos clínicos (ZIP)",
+      "type": "dataset",
+      "url": "https://example.edu/algi/datasets/condicionais-clinica.zip"
     },
     {
-      "label": "Ambiente de desenvolvimento OnlineGDB",
-      "url": "https://www.onlinegdb.com/online_c_compiler",
-      "type": "tool"
+      "label": "Fluxograma de referência",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/fluxograma-triagem.pdf"
     },
     {
-      "label": "Revisão de operadores lógicos",
-      "url": "https://example.edu/algi/referenciais/operadores-logicos-md3.html",
-      "type": "reading"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Planilha de checklist de testes",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistTriagem"
+    },
+    {
+      "label": "Formulário de dúvidas",
+      "type": "form",
+      "url": "https://forms.gle/DuvidasAula16"
+    },
+    {
+      "label": "Template de relatório assíncrono",
+      "type": "document",
+      "url": "https://example.edu/algi/templates/relatorio-assincrono.docx"
+    },
+    {
+      "label": "Repositório modelo Git",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-triage-template"
     }
   ],
   "bibliography": [
@@ -98,6 +93,31 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Prazos e formato da entrega",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie todos os arquivos pela tarefa 'Atividade Assíncrona Aula 16' até 23h59 da sexta-feira. Submissões parciais não serão corrigidas."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Arquivos obrigatórios: fluxograma (PDF ou imagem), pseudocódigo (.txt ou .pdf), código C (.c) e relatório sintetizando os testes."
+            },
+            {
+              "text": "Compacte tudo em ALG1_A16_NomeSobrenome.zip antes do envio."
+            },
+            {
+              "text": "Registre dúvidas no formulário até 24h antes do prazo para garantir retorno."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da atividade",
       "cards": [
@@ -115,6 +135,149 @@
           "icon": "clock",
           "title": "Gestão do tempo",
           "content": "Reserve 2h: 30 min de análise, 50 min de modelagem, 30 min de testes e 10 min para documentação."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Fluxo da atividade assíncrona",
+      "summary": "Três etapas obrigatórias para concluir a triagem médica digital.",
+      "stages": [
+        {
+          "id": "briefing",
+          "title": "Estudo do briefing",
+          "summary": "Ler o pacote de casos, entender prioridades e registrar dúvidas.",
+          "owners": ["Dupla"],
+          "durationHours": 2,
+          "activities": [
+            {
+              "id": "leitura",
+              "label": "Ler briefing médico",
+              "description": "Destaque fatores críticos e exceções."
+            },
+            {
+              "id": "dúvidas",
+              "label": "Enviar dúvidas",
+              "description": "Utilize o formulário até 24h antes do prazo."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "anotacoes",
+              "label": "Notas compartilhadas",
+              "description": "Resumo no documento de trabalho."
+            }
+          ],
+          "risks": [
+            {
+              "id": "atraso",
+              "label": "Atraso na leitura",
+              "severity": "medium",
+              "mitigation": "Agendar sessão síncrona inicial."
+            }
+          ],
+          "checkpoints": ["Briefing compreendido", "Dúvidas registradas"]
+        },
+        {
+          "id": "modelagem",
+          "title": "Modelagem e pseudocódigo",
+          "summary": "Transformar regras em fluxograma e pseudocódigo anotado.",
+          "owners": ["Dupla"],
+          "durationHours": 3,
+          "activities": [
+            {
+              "id": "fluxograma",
+              "label": "Desenhar fluxograma",
+              "description": "Usar símbolos padrão e indicar saídas."
+            },
+            {
+              "id": "pseudocodigo",
+              "label": "Escrever pseudocódigo",
+              "description": "Comentários explicam cada decisão."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "diagramas",
+              "label": "Fluxograma final",
+              "description": "Exportado em PDF ou PNG."
+            },
+            {
+              "id": "pseudo",
+              "label": "Pseudocódigo anotado"
+            }
+          ],
+          "risks": [
+            {
+              "id": "escopo",
+              "label": "Regras incompletas",
+              "severity": "high",
+              "mitigation": "Validar com checklist de testes antes de codificar."
+            }
+          ],
+          "checkpoints": ["Fluxograma validado", "Pseudocódigo revisado"]
+        },
+        {
+          "id": "implementacao",
+          "title": "Codificação e testes",
+          "summary": "Implementar a solução em C e registrar evidências de teste.",
+          "owners": ["Indivíduo"],
+          "durationHours": 3,
+          "activities": [
+            {
+              "id": "codificar",
+              "label": "Codificar em C",
+              "description": "Reutilizar template do repositório."
+            },
+            {
+              "id": "testar",
+              "label": "Executar testes",
+              "description": "Preencher planilha com resultados e anexar prints."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "codigo",
+              "label": "Arquivo .c",
+              "description": "Compila sem warnings no OnlineGDB."
+            },
+            {
+              "id": "relatorio",
+              "label": "Relatório de testes",
+              "description": "Checklist preenchido e prints anexos."
+            }
+          ],
+          "risks": [
+            {
+              "id": "bugs",
+              "label": "Casos não cobertos",
+              "severity": "medium",
+              "mitigation": "Revisar com colega e rodar testes extras."
+            }
+          ],
+          "checkpoints": ["Código compilado", "Planilha de testes concluída"]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Critérios de avaliação",
+      "cards": [
+        {
+          "title": "Clareza da modelagem",
+          "content": "Fluxograma e pseudocódigo refletem todas as regras e exceções do briefing."
+        },
+        {
+          "title": "Cobertura de testes",
+          "content": "Planilha apresenta cenários críticos, limites e casos inválidos com resultado esperado e obtido."
+        },
+        {
+          "title": "Qualidade do código",
+          "content": "Implementação compila sem warnings e segue boas práticas comentadas na aula."
+        },
+        {
+          "title": "Documentação e reflexão",
+          "content": "Relatório destaca aprendizados, riscos identificados e próximos passos."
         }
       ]
     },
@@ -290,55 +453,64 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "Entrega Aula 16 – Triagem assíncrona",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 16' para anexar o artefato solicitado."
+          "text": "Compacte todos os artefatos em ALG1_A16_NomeSobrenome.zip e envie no Moodle até 23h59 da sexta-feira."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Envie pacote ZIP contendo fluxograma, pseudocódigo ou código em C e planilha de testes preenchida."
+              "text": "Fluxograma exportado (PDF/PNG)."
             },
             {
-              "text": "Inclua breve diário de bordo (3 parágrafos) relatando decisões tomadas em cada etapa do pipeline."
+              "text": "Pseudocódigo comentado (PDF ou TXT)."
+            },
+            {
+              "text": "Código em C (.c) com comentários."
+            },
+            {
+              "text": "Relatório de testes e checklist preenchidos."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Rubrica da atividade assíncrona",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Entrega completa e dentro do prazo (20%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Consistência entre fluxograma, pseudocódigo e código final (35%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Evidências de testes documentadas com prints ou logs (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Reflexão sobre riscos e próximos passos no relatório (20%)."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Envios sem checklist ou sem relatório serão considerados incompletos."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing clínico de triagem 2025"]
   }

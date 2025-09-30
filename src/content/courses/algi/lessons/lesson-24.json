@@ -29,35 +29,24 @@
   "modality": "hybrid",
   "resources": [
     {
-      "label": "Painel de retroalimentação",
-      "type": "worksheet",
-      "file": "courses/algi/retro-loop-review.md",
-      "url": "https://static.md3.education/courses/algi/retro-loop-review.md"
+      "label": "Painel Start/Stop/Continue (Miro)",
+      "type": "board",
+      "url": "https://miro.com/app/board/uXjVKloopsRetro/"
     },
     {
-      "label": "Quadro colaborativo (Miro)",
-      "url": "https://miro.com/app/board/uXjVKloopsRetro/",
-      "type": "board"
+      "label": "Formulário de reflexão final",
+      "type": "form",
+      "url": "https://forms.gle/ReflexaoFinalLoops"
     },
     {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
+      "label": "Vídeo inspiração: Boas práticas de laços",
+      "type": "playlist",
+      "url": "https://www.youtube.com/watch?v=HnYEm4hXH7s"
     },
     {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Template de plano de ação",
+      "type": "document",
+      "url": "https://example.edu/algi/templates/plano-acao-pos-lacos.docx"
     }
   ],
   "bibliography": [
@@ -100,18 +89,33 @@
       "cards": [
         {
           "icon": "monitor",
+          "title": "Boas-vindas",
+          "content": "Alinhar objetivos da retrospectiva e reforçar combinação 360° (10 min)."
+        },
+        {
+          "icon": "book-open",
           "title": "Showcase",
-          "content": "Compartilhar artefatos da triagem em grupos (10 min por grupo)."
+          "content": "Times apresentam artefatos da triagem (20 min)."
         },
         {
           "icon": "users",
-          "title": "Feedback",
-          "content": "Trocar percepções estruturadas usando Start/Stop/Continue."
+          "title": "Feedback cruzado",
+          "content": "Trocar percepções usando Start/Stop/Continue (25 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Painel 360°",
+          "content": "Registrar evidências no board colaborativo (20 min)."
         },
         {
           "icon": "target",
-          "title": "Planejamento",
-          "content": "Definir ações de melhoria antes do módulo de funções."
+          "title": "Plano individual",
+          "content": "Preencher template com compromissos pós-aula (15 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Encerramento",
+          "content": "Orientar entrega no Moodle e próximos passos (10 min)."
         }
       ]
     },
@@ -125,6 +129,49 @@
         "(15 min) Consolidação de boas práticas em mural coletivo.",
         "(15 min) Redação de plano de ação individual.",
         "(10 min) Compartilhamento voluntário e orientações finais."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Board 360° de feedback",
+      "cards": [
+        {
+          "title": "Start",
+          "content": "Quais práticas iniciar a partir dos insights da triagem."
+        },
+        {
+          "title": "Stop",
+          "content": "Atividades que devem ser interrompidas ou revistas."
+        },
+        {
+          "title": "Continue",
+          "content": "Boas práticas que precisam ser mantidas."
+        },
+        {
+          "title": "Amplify",
+          "content": "Iniciativas que merecem investimento extra."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Evidências necessárias",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Captura do board 360° preenchido pelo grupo."
+            },
+            {
+              "text": "Plano de ação individual assinado."
+            },
+            {
+              "text": "Link para artefatos da triagem (código, dataset, relatório)."
+            }
+          ]
+        }
       ]
     },
     {
@@ -175,6 +222,28 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Compromissos pós-aula",
+      "cards": [
+        {
+          "title": "Estudos complementares",
+          "content": "Agende revisão sobre funções antes do próximo módulo."
+        },
+        {
+          "title": "Dupla de responsabilidade",
+          "content": "Combine check-ins quinzenais com um colega."
+        },
+        {
+          "title": "Aplicação prática",
+          "content": "Selecione um projeto pessoal para aplicar laços e logs."
+        },
+        {
+          "title": "Monitoria",
+          "content": "Reserve horário na monitoria para dúvidas pendentes."
+        }
+      ]
+    },
+    {
       "type": "checklist",
       "title": "Checklist de encerramento",
       "items": [
@@ -185,55 +254,57 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "Entrega Aula 24",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 24' para anexar o artefato solicitado."
+          "text": "Envie no Moodle até 23h59: plano de ação individual, evidências do board e síntese pessoal."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Compartilhe no Moodle o plano de ação individual alinhado ao showcase de triagem."
+              "text": "Plano de ação (PDF) com metas SMART."
             },
             {
-              "text": "Anexe registro de feedback recebido (checklist ou quadro 360°) com os compromissos assumidos."
+              "text": "Imagem ou link do board 360° com destaques marcados."
+            },
+            {
+              "text": "Parágrafo reflexivo sobre evolução nos laços."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Rubrica Aula 24",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Participação e evidências do feedback 360° (30%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Plano de ação alinhado às metas pessoais (30%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Síntese reflexiva consistente e honesta (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Entrega pontual e arquivos organizados (15%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia interno de retrospectivas 2024"]
   }

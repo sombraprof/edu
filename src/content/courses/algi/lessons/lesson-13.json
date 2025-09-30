@@ -31,34 +31,24 @@
       "url": "https://example.edu/algi/guias/operadores-logicos.pdf"
     },
     {
-      "label": "Planilha para mapa de testes",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/testes-condicionais.xlsx"
-    },
-    {
-      "label": "Compilador OnlineGDB",
-      "type": "tool",
-      "url": "https://www.onlinegdb.com/online_c_compiler"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Planilha colaborativa de combinações",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGICombosLogicos"
+    },
+    {
+      "label": "Projeto OnlineGDB – Condições compostas",
+      "type": "tool",
+      "url": "https://onlinegdb.com/H1CondicoesCompostas"
+    },
+    {
+      "label": "Playlist Condicionais avançadas",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dm6wYOIwxbG5C0s6ydQIJe7"
+    },
+    {
+      "label": "Template de relatório de validação lógica",
+      "type": "document",
+      "url": "https://example.edu/algi/templates/relatorio-validacao-logica.docx"
     }
   ],
   "bibliography": [
@@ -123,6 +113,7 @@
       "items": [
         "(10 min) Aquecimento: revisão das cadeias else if e diagnóstico de dúvidas da NP1.",
         "(20 min) Operadores &&, || e ! aplicados a intervalos e exclusões.",
+        "(15 min) Construção colaborativa da tabela verdade do caso de acesso.",
         "(25 min) Estudo guiado: validador de benefícios com múltiplos critérios.",
         "(25 min) Oficina em duplas para mapear cenários e implementar cadeias.",
         "(20 min) Revisão coletiva dos testes criados pelas duplas.",
@@ -245,6 +236,31 @@
         {
           "label": "Condição falsa",
           "state": "false"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Justificativa obrigatória no Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "No envio do TED, registre no campo de comentários a lógica adotada e explique como a tabela verdade comprova cada decisão."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Aponte qual combinação de sinais concede acesso."
+            },
+            {
+              "text": "Descreva o cenário que resulta em bloqueio."
+            },
+            {
+              "text": "Explique como tratou exceções ou casos especiais."
+            }
+          ]
         }
       ]
     },
@@ -506,55 +522,61 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "TED 13 – Relatório de validação lógica",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 13' para anexar o artefato solicitado."
+          "text": "Submeta até 23h59 do dia seguinte: código em C, planilha de combinações preenchida e relatório em PDF (1 página) com análise dos casos limites."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Submeta aula13_validacao_login.c tratando combinações de tentativas, bloqueio e status do usuário."
+              "text": "Arquivo aula13_validacao.c com condições compostas."
             },
             {
-              "text": "Anexe justificativa textual explicando o raciocínio das combinações rejeitadas."
+              "text": "Planilha 'Mapa_Combos.xlsx' exportada ou linkada."
+            },
+            {
+              "text": "Relatório 'TED13_relatorio.pdf' seguindo o template fornecido."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 13",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Expressões lógicas corretas e sem redundâncias (35%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Cobertura dos cenários na tabela verdade e planilha (30%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Relatório com justificativa textual clara (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Organização dos arquivos e envio no prazo (10%)."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Submissões sem justificativa textual no Moodle serão devolvidas para revisão."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

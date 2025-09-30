@@ -29,35 +29,34 @@
   "modality": "async",
   "resources": [
     {
-      "label": "Briefing oficial da triagem",
+      "label": "Briefing da triagem (PDF)",
+      "type": "handout",
+      "url": "https://example.edu/algi/briefings/triagem-async.pdf"
+    },
+    {
+      "label": "Dataset de pacientes (CSV)",
+      "type": "dataset",
+      "url": "https://example.edu/algi/datasets/pacientes-triagem.csv"
+    },
+    {
+      "label": "Modelo de relatório de triagem",
       "type": "document",
-      "file": "courses/algi/triagem-async-briefing.md",
-      "url": "https://static.md3.education/courses/algi/triagem-async-briefing.md"
+      "url": "https://example.edu/algi/templates/relatorio-triagem.docx"
     },
     {
-      "label": "Modelo de relatório (Google Docs)",
-      "url": "https://docs.google.com/document/d/1triagem-template",
-      "type": "template"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Planilha de acompanhamento (Google Sheets)",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGITrilha23"
+    },
+    {
+      "label": "Formulário de autoavaliação",
+      "type": "form",
+      "url": "https://forms.gle/AutoavaliacaoAula23"
+    },
+    {
+      "label": "Repositório modelo Git",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-triagem-async"
     }
   ],
   "bibliography": [
@@ -112,6 +111,45 @@
           "icon": "users",
           "title": "Canais",
           "content": "Fórum da disciplina + plantão remoto de 30 min na quarta-feira."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Cronograma de 3 dias",
+      "steps": [
+        {
+          "title": "Dia 1 – Briefing e modelagem",
+          "content": "Ler briefing, definir responsabilidades e desenhar fluxograma."
+        },
+        {
+          "title": "Dia 2 – Implementação",
+          "content": "Codificar solução, registrar logs e validar com checklist."
+        },
+        {
+          "title": "Dia 3 – Testes e relatório",
+          "content": "Executar testes completos, finalizar relatório e preparar envio."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Prazos e checkpoints",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Dia 1 até 22h: fluxograma e checklist inicial no repositório."
+            },
+            {
+              "text": "Dia 2 até 21h: versão funcional com logs publicados."
+            },
+            {
+              "text": "Dia 3 até 23h59: envio do pacote completo no Moodle."
+            }
+          ]
         }
       ]
     },
@@ -183,56 +221,80 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Critérios da triagem",
+      "cards": [
+        {
+          "title": "Cobertura de casos",
+          "content": "Fluxo trata pacientes críticos, regulares e encerramento."
+        },
+        {
+          "title": "Automação de testes",
+          "content": "Planilha e scripts demonstram execução repetível."
+        },
+        {
+          "title": "Relatório técnico",
+          "content": "Documento resume decisões, métricas e próximos passos."
+        },
+        {
+          "title": "Trabalho colaborativo",
+          "content": "Registre contribuições de cada membro no repositório."
+        }
+      ]
+    },
+    {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "Entrega Aula 23",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 23' para anexar o artefato solicitado."
+          "text": "Compacte código, fluxograma, planilha, relatório e reflexões em ALG1_A23_Nome.zip."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Carregue no Moodle o dossiê da atividade assíncrona (relatório + código + evidências de teste)."
+              "text": "Código em C com logs."
             },
             {
-              "text": "Complete o formulário de autoavaliação destacando pontos fortes e riscos identificados."
+              "text": "Fluxograma atualizado e checklist de testes."
+            },
+            {
+              "text": "Relatório final com métricas e autoavaliação."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Rubrica Aula 23",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Cumprimento dos checkpoints (25%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Funcionalidade e logs confiáveis (35%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Qualidade da documentação (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Reflexão e autoavaliação (15%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing da clínica-escola 2025"]
   }

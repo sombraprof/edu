@@ -29,35 +29,24 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia comparativo for x while (PDF de apoio)",
-      "type": "reading",
-      "file": "courses/algi/loops-for-while-comparativo.md",
-      "url": "https://static.md3.education/courses/algi/loops-for-while-comparativo.md"
+      "label": "Guia comparativo for x while",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/for-vs-while.pdf"
     },
     {
-      "label": "Ferramenta de diff online",
-      "url": "https://www.diffchecker.com/",
-      "type": "tool"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Planilha de refatoração",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIComparativoLoops"
+    },
+    {
+      "label": "Repositório de exemplos equivalentes",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-loops-comparativos"
+    },
+    {
+      "label": "Vídeo: Debate CS50 sobre loops",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=3WrJj90OBZU"
     }
   ],
   "bibliography": [
@@ -99,19 +88,29 @@
       "title": "Plano da aula",
       "cards": [
         {
+          "icon": "book-open",
+          "title": "Provocação",
+          "content": "Revisar dois trechos equivalentes e listar diferenças percebidas (10 min)."
+        },
+        {
           "icon": "target",
-          "title": "Foco",
-          "content": "Comparar implementações equivalentes usando for e while e discutir critérios objetivos."
+          "title": "Debate orientado",
+          "content": "Discutir critérios de escolha com argumentos baseados em clareza, testes e manutenção (25 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Refatoração cruzada",
+          "content": "Converter for → while e vice-versa garantindo comportamento idêntico (30 min)."
         },
         {
           "icon": "users",
-          "title": "Metodologia",
-          "content": "Estudo de caso guiado, laboratório em duplas e retrospectiva coletiva com quadro comparativo."
+          "title": "Feedback em mural",
+          "content": "Registrar decisões no quadro colaborativo e comentar soluções de outras duplas (20 min)."
         },
         {
-          "icon": "check-circle",
-          "title": "Evidências",
-          "content": "Quadro resumo preenchido + código revisado publicado em repositório da turma."
+          "icon": "tasks",
+          "title": "Exit-ticket",
+          "content": "Escrever justificativa individual no AVA e anexar testes (20 min)."
         }
       ]
     },
@@ -142,6 +141,24 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Quadro de refatoração cruzada",
+      "cards": [
+        {
+          "title": "Coluna A – Código original",
+          "content": "Cole trechos em for e anote o propósito do laço."
+        },
+        {
+          "title": "Coluna B – Versão alternativa",
+          "content": "Reescreva com while mantendo comportamento e indique mudanças."
+        },
+        {
+          "title": "Coluna C – Evidências",
+          "content": "Registre testes executados, diferenças percebidas e riscos."
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Critérios de decisão",
       "content": [
@@ -156,6 +173,80 @@
             "Quantidade conhecida ou intervalo definido → prefira for.",
             "Repetição até uma condição externa mudar → prefira while.",
             "Legibilidade > preferências pessoais: documente o motivo da escolha."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Matriz de decisão for x while",
+      "headers": ["Critério", "for", "while", "Observações"],
+      "rows": [
+        [
+          {
+            "value": "Quantidade de iterações"
+          },
+          {
+            "value": "Conhecida ou facilmente derivada"
+          },
+          {
+            "value": "Desconhecida ou dependente de condição externa"
+          },
+          {
+            "value": "Escolha baseada na previsibilidade do laço."
+          }
+        ],
+        [
+          {
+            "value": "Legibilidade"
+          },
+          {
+            "value": "Boa para contadores simples"
+          },
+          {
+            "value": "Melhor quando condição precisa ficar em destaque"
+          },
+          {
+            "value": "Considere a equipe e o padrão adotado."
+          }
+        ],
+        [
+          {
+            "value": "Risco"
+          },
+          {
+            "value": "Esquecer atualização gera loop infinito"
+          },
+          {
+            "value": "Esquecer leitura antes da condição pode travar o fluxo"
+          },
+          {
+            "value": "Ambos exigem checklist de testes."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Justificativa obrigatória no AVA",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "No exit-ticket descreva por que escolheu cada laço, citando critérios da matriz e evidências de teste."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Informe cenários onde a versão alternativa seria inferior."
+            },
+            {
+              "text": "Relacione impacto na manutenção e leitura por terceiros."
+            },
+            {
+              "text": "Anexe link ou imagem da planilha de comparação."
+            }
           ]
         }
       ]
@@ -235,55 +326,57 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "Exit-ticket Aula 19",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 19' para anexar o artefato solicitado."
+          "text": "Preencha o formulário no AVA até 23h59 anexando a planilha comparativa e os códigos refatorados."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Produza relatório comparando soluções em while e for para o mesmo problema (ex.: cálculo de médias)."
+              "text": "Envie links do repositório ou arquivos .c com as duas versões."
             },
             {
-              "text": "Anexe código-fonte de ambas as abordagens com comentários sobre legibilidade e controle."
+              "text": "Anexe planilha 'Comparativo_for_while.xlsx' com critérios preenchidos."
+            },
+            {
+              "text": "Responda às perguntas sobre clareza, testes e manutenção."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação do exit-ticket",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Entrega completa com códigos e planilha anexados (30%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Análise crítica coerente com a matriz de decisão (40%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Evidências de testes e riscos documentados (20%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Comunicação clara e objetiva (10%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Relatório de revisão loops for/while 2024"]
   }

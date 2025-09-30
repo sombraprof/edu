@@ -26,9 +26,9 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Prova impressa NP1",
-      "type": "assessment",
-      "url": "https://example.edu/algi/avaliacoes/np1-2025.pdf"
+      "label": "Rubrica oficial da NP1",
+      "type": "handout",
+      "url": "https://example.edu/algi/avaliacoes/np1-rubrica.pdf"
     },
     {
       "label": "Folha de respostas padrão",
@@ -36,24 +36,19 @@
       "url": "https://example.edu/algi/avaliacoes/folha-respostas.pdf"
     },
     {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Checklist de preparação para a NP1",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIPreparacaoNP1"
+    },
+    {
+      "label": "Formulário de percepção pós-prova",
+      "type": "form",
+      "url": "https://forms.gle/NP1PercepcaoAluno"
+    },
+    {
+      "label": "Guia de conduta 10-90-10",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/conduta-10-90-10.pdf"
     }
   ],
   "bibliography": [
@@ -64,7 +59,21 @@
   ],
   "assessment": {
     "type": "exam",
-    "description": "Avaliação presencial manuscrita cobrindo lógica, fluxogramas e condicionais simples e compostas."
+    "description": "Avaliação presencial manuscrita com 10 minutos de orientação, 90 minutos de resolução individual e 10 minutos de coleta, cobrindo lógica sequencial, fluxogramas e condicionais.",
+    "phases": [
+      {
+        "title": "Orientação (10%)",
+        "description": "Leitura das instruções, esclarecimento de dúvidas gerais e assinatura das listas."
+      },
+      {
+        "title": "Execução (90%)",
+        "description": "Resolução individual sem consulta, focada nas quatro questões distribuídas nos domínios avaliados."
+      },
+      {
+        "title": "Coleta (10%)",
+        "description": "Revisão final, organização das folhas e entrega ao fiscal com confirmação da presença."
+      }
+    ]
   },
   "content": [
     {
@@ -124,6 +133,24 @@
       ]
     },
     {
+      "type": "timeline",
+      "title": "Cronograma 10-90-10",
+      "steps": [
+        {
+          "title": "0 – 10 min | Orientação",
+          "content": "Conferência de documentos, leitura das regras e esclarecimento coletivo."
+        },
+        {
+          "title": "10 – 100 min | Execução",
+          "content": "Resolução individual das questões com acompanhamento do professor e fiscais."
+        },
+        {
+          "title": "100 – 110 min | Coleta",
+          "content": "Revisão final, organização das folhas, assinatura da ata e entrega."
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Escopo da avaliação",
       "content": [
@@ -135,6 +162,28 @@
             "Unidade III – Programas sequenciais em C com entrada e saída.",
             "Início da Unidade IV – Estruturas condicionais simples e compostas."
           ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Domínios avaliados",
+      "cards": [
+        {
+          "title": "Lógica sequencial",
+          "content": "Algoritmos estruturados em pseudocódigo, ordem das instruções e rastreamento manual."
+        },
+        {
+          "title": "Fluxogramas",
+          "content": "Uso correto de símbolos, ramificações e caminhos alternativos completos."
+        },
+        {
+          "title": "Condições e operadores",
+          "content": "Aplicação de operadores relacionais e lógicos, incluindo cadeias else if e equivalências."
+        },
+        {
+          "title": "Análise e justificativa",
+          "content": "Explicações escritas, documentação de hipóteses e clareza nas respostas."
         }
       ]
     },
@@ -187,6 +236,31 @@
             "value": "3,0"
           }
         ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Conduta durante a NP1 (regra 10-90-10)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mantenha silêncio absoluto e posicione materiais não autorizados dentro da mochila. Levantamentos só serão permitidos após os 90 minutos de execução."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Orientação (10 min): dúvidas somente coletivas; sem consulta a materiais."
+            },
+            {
+              "text": "Execução (90 min): uso exclusivo de caneta azul/preta; proibido celular ou smartwatch."
+            },
+            {
+              "text": "Coleta (10 min): permaneça sentado até a equipe autorizar a saída e confirme a entrega da folha de respostas."
+            }
+          ]
+        }
       ]
     },
     {
@@ -320,7 +394,7 @@
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

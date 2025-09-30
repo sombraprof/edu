@@ -26,35 +26,24 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia de integração laços + condicionais",
-      "type": "reading",
-      "file": "courses/algi/loops-condicionais-integracao.md",
-      "url": "https://static.md3.education/courses/algi/loops-condicionais-integracao.md"
+      "label": "Briefing do sistema de portfólio",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/briefing-portfolio.pdf"
     },
     {
-      "label": "Planilha de métricas (Google Sheets)",
-      "url": "https://docs.google.com/spreadsheets/d/1metrics-template",
-      "type": "template"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Planilha de métricas de execução",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIMetricasLoops"
+    },
+    {
+      "label": "Modelo de relatório técnico",
+      "type": "document",
+      "url": "https://example.edu/algi/templates/relatorio-portfolio.docx"
+    },
+    {
+      "label": "Vídeo: Integrando menus e laços",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=G4q1WmtiSPQ"
     }
   ],
   "bibliography": [
@@ -109,6 +98,144 @@
           "icon": "check-circle",
           "title": "Entrega",
           "content": "Métricas + código comentado + quadro de decisão."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da integração",
+      "summary": "Etapas para combinar laços e condicionais em um mini-sistema.",
+      "stages": [
+        {
+          "id": "validacao",
+          "title": "Validação do briefing",
+          "summary": "Entender requisitos, entradas e saídas.",
+          "owners": ["Squad"],
+          "durationHours": 1.5,
+          "activities": [
+            {
+              "id": "requisitos",
+              "label": "Ler briefing",
+              "description": "Identificar regras e exceções."
+            },
+            {
+              "id": "risco",
+              "label": "Registrar riscos",
+              "description": "Listar dúvidas e dependências."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "canvas",
+              "label": "Canvas de requisitos"
+            }
+          ],
+          "risks": [
+            {
+              "id": "escopo",
+              "label": "Requisitos ambíguos",
+              "severity": "medium",
+              "mitigation": "Validar com professor."
+            }
+          ],
+          "checkpoints": ["Briefing validado"]
+        },
+        {
+          "id": "dojo",
+          "title": "Dojo guiado",
+          "summary": "Implementar esqueleto com apoio do professor.",
+          "owners": ["Squad"],
+          "durationHours": 2,
+          "activities": [
+            {
+              "id": "setup",
+              "label": "Configurar projeto",
+              "description": "Clonar template e preparar ambiente."
+            },
+            {
+              "id": "rotinas",
+              "label": "Criar rotinas base",
+              "description": "Menus, validações e loops principais."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "checkpoint",
+              "label": "Commit inicial"
+            }
+          ],
+          "risks": [
+            {
+              "id": "bloqueio",
+              "label": "Divergência de abordagem",
+              "severity": "low",
+              "mitigation": "Seguir padrão definido no dojo."
+            }
+          ],
+          "checkpoints": ["Commit compartilhado"]
+        },
+        {
+          "id": "laboratorio",
+          "title": "Laboratório e relatório",
+          "summary": "Refinar funcionalidades e documentar métricas.",
+          "owners": ["Dupla"],
+          "durationHours": 3,
+          "activities": [
+            {
+              "id": "refino",
+              "label": "Refinar funcionalidades",
+              "description": "Adicionar logs, validações e testes."
+            },
+            {
+              "id": "documentar",
+              "label": "Escrever relatório",
+              "description": "Preencher métricas e reflexões."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "portfolio",
+              "label": "Código final"
+            },
+            {
+              "id": "relatorio",
+              "label": "Relatório técnico"
+            }
+          ],
+          "risks": [
+            {
+              "id": "prazo",
+              "label": "Atraso na documentação",
+              "severity": "high",
+              "mitigation": "Reservar 1h exclusiva para o relatório."
+            }
+          ],
+          "checkpoints": ["Logs revisados", "Relatório submetido"]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Entrega obrigatória no portfólio",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Submeta código, relatório e métricas no AVA na tarefa 'Integração de laços e condicionais'."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Inclua link do repositório e PDF do relatório."
+            },
+            {
+              "text": "Faça upload da planilha de métricas preenchida."
+            },
+            {
+              "text": "Descreva no texto do envio quais logs foram coletados."
+            }
+          ]
         }
       ]
     },
@@ -191,56 +318,80 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Checklist de logs",
+      "cards": [
+        {
+          "title": "Entradas",
+          "content": "Registre valores recebidos e validações aplicadas."
+        },
+        {
+          "title": "Decisões",
+          "content": "Anote quando condicionais direcionam para caminhos distintos."
+        },
+        {
+          "title": "Iterações",
+          "content": "Logue quantas vezes cada laço executou."
+        },
+        {
+          "title": "Erros",
+          "content": "Documente exceções e como foram tratadas."
+        }
+      ]
+    },
+    {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "Entrega Aula 22 – Portfólio",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 22' para anexar o artefato solicitado."
+          "text": "Envie até 23h59: repositório atualizado, relatório técnico e planilha de métricas."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entregue miniaplicativo integrando condicionais e laços para um fluxo completo de processamento (tema da aula)."
+              "text": "Link do repositório com README atualizado."
             },
             {
-              "text": "Anexe checklist de testes cobrindo caminhos felizes e exceções."
+              "text": "Relatório 'A22_portfolio.pdf' seguindo o template."
+            },
+            {
+              "text": "Planilha 'Metricas_A22.xlsx' com logs consolidados."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação Aula 22",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Integração correta de laços e condicionais (35%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Documentação de logs e métricas (30%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Relatório técnico com análise crítica (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Organização do repositório e comunicação (10%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": [
       "Plano pedagógico Algoritmos I 2025.1",
