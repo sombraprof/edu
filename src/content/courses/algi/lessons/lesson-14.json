@@ -34,6 +34,26 @@
       "label": "Folha de respostas padrão",
       "type": "handout",
       "url": "https://example.edu/algi/avaliacoes/folha-respostas.pdf"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -47,6 +67,31 @@
     "description": "Avaliação presencial manuscrita cobrindo lógica, fluxogramas e condicionais simples e compostas."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Avaliação NP1. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 14."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Formato da aplicação",
@@ -249,19 +294,33 @@
     },
     {
       "type": "callout",
-      "variant": "task",
-      "title": "TED",
+      "variant": "info",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Não há TED nesta aula. Utilize o tempo pós-prova para revisar as questões com as anotações pessoais e preparar dúvidas para a devolutiva."
+          "text": "Esta aula substitui a TED por atividades avaliativas presenciais. Utilize o tempo pós-aula para registrar percepções e organizar as evidências."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Preencha o formulário de percepção pós-avaliação disponível no Moodle até 23h59."
+            },
+            {
+              "text": "Arquive digitalmente a prova escaneada ou registrada conforme orientação institucional."
+            },
+            {
+              "text": "Anote dúvidas específicas para a devolutiva coletiva."
+            }
+          ]
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

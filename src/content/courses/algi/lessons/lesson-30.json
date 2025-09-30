@@ -43,6 +43,26 @@
       "label": "Khan Academy - Introdução a arrays",
       "type": "course",
       "url": "https://pt.khanacademy.org/computing/ap-computer-science-principles/computers-101/arrays-intro/a/intro-to-arrays"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -54,6 +74,31 @@
     "description": "Entrega de script em C que calcula média, mínimo e máximo das notas fornecidas no dataset."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Vetores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 30."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro da sessão",
@@ -130,17 +175,61 @@
       "type": "md3Flowchart",
       "title": "Fluxo do cálculo de média, mínimo e máximo",
       "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "read", "type": "process", "label": "Ler vetor de notas" },
-        { "id": "init", "type": "process", "label": "media = 0, min = notas[0], max = notas[0]" },
-        { "id": "loop", "type": "loop", "label": "Para i = 0 até n-1" },
-        { "id": "acc", "type": "process", "label": "media += notas[i]" },
-        { "id": "min", "type": "decision", "label": "notas[i] < min?" },
-        { "id": "updateMin", "type": "process", "label": "min = notas[i]" },
-        { "id": "max", "type": "decision", "label": "notas[i] > max?" },
-        { "id": "updateMax", "type": "process", "label": "max = notas[i]" },
-        { "id": "calc", "type": "process", "label": "media = media / n" },
-        { "id": "end", "type": "end", "label": "Fim" }
+        {
+          "id": "start",
+          "type": "start",
+          "label": "Início"
+        },
+        {
+          "id": "read",
+          "type": "process",
+          "label": "Ler vetor de notas"
+        },
+        {
+          "id": "init",
+          "type": "process",
+          "label": "media = 0, min = notas[0], max = notas[0]"
+        },
+        {
+          "id": "loop",
+          "type": "loop",
+          "label": "Para i = 0 até n-1"
+        },
+        {
+          "id": "acc",
+          "type": "process",
+          "label": "media += notas[i]"
+        },
+        {
+          "id": "min",
+          "type": "decision",
+          "label": "notas[i] < min?"
+        },
+        {
+          "id": "updateMin",
+          "type": "process",
+          "label": "min = notas[i]"
+        },
+        {
+          "id": "max",
+          "type": "decision",
+          "label": "notas[i] > max?"
+        },
+        {
+          "id": "updateMax",
+          "type": "process",
+          "label": "max = notas[i]"
+        },
+        {
+          "id": "calc",
+          "type": "process",
+          "label": "media = media / n"
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "label": "Fim"
+        }
       ],
       "edges": [
         ["start", "read"],
@@ -169,9 +258,15 @@
         {
           "type": "orderedList",
           "items": [
-            { "text": "Carregue os valores em um vetor float." },
-            { "text": "Percorra o vetor atualizando acumuladores." },
-            { "text": "Formate a saída com duas casas decimais." }
+            {
+              "text": "Carregue os valores em um vetor float."
+            },
+            {
+              "text": "Percorra o vetor atualizando acumuladores."
+            },
+            {
+              "text": "Formate a saída com duas casas decimais."
+            }
           ]
         }
       ]
@@ -190,11 +285,58 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 30' para anexar o artefato solicitado."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Implemente aula30_vetores.c lendo 10 valores e calculando média, mínimo e máximo."
+            },
+            {
+              "text": "Anexe planilha com os vetores utilizados, resultados esperados e prints do console."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-10T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Notas de planejamento Vetores 2025"]
   }

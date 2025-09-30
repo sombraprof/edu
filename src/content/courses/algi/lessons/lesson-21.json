@@ -35,6 +35,26 @@
       "label": "Ferramenta de desenho ASCII",
       "url": "https://asciiflow.com/",
       "type": "tool"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -46,6 +66,31 @@
     "description": "Entrega de mini-simulador de ocupação de auditório com relatórios gerados via laços aninhados."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Laços Aninhados e Padrões Bidimensionais. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 21."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -115,19 +160,37 @@
       "headers": ["Estrutura", "Complexidade", "Observações"],
       "rows": [
         [
-          { "value": "Laço simples" },
-          { "value": "O(n)" },
-          { "value": "Processa elementos lineares." }
+          {
+            "value": "Laço simples"
+          },
+          {
+            "value": "O(n)"
+          },
+          {
+            "value": "Processa elementos lineares."
+          }
         ],
         [
-          { "value": "Laço duplo" },
-          { "value": "O(n*m)" },
-          { "value": "Multiplica o esforço do externo pelo interno." }
+          {
+            "value": "Laço duplo"
+          },
+          {
+            "value": "O(n*m)"
+          },
+          {
+            "value": "Multiplica o esforço do externo pelo interno."
+          }
         ],
         [
-          { "value": "Laço triplo" },
-          { "value": "O(n*m*k)" },
-          { "value": "Use apenas quando o problema exigir." }
+          {
+            "value": "Laço triplo"
+          },
+          {
+            "value": "O(n*m*k)"
+          },
+          {
+            "value": "Use apenas quando o problema exigir."
+          }
         ]
       ]
     },
@@ -163,11 +226,58 @@
         "Validei limites mínimo/máximo para cada contador.",
         "Incluí comentários explicando regras especiais do problema."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 21' para anexar o artefato solicitado."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Submeta aula21_tabela.c gerando tabela ou matriz textual com laços aninhados."
+            },
+            {
+              "text": "Inclua planilha de planejamento contendo valores iniciais, incrementos e resultado esperado para cada iteração."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-03T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório de laços aninhados 2024"]
   }
