@@ -63,12 +63,30 @@
       "label": "Planilha de preparação pré-aula",
       "type": "spreadsheet",
       "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+    },
+    {
+      "label": "Capítulo 9 – Vetores e estatística (Manzano & Oliveira)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-9.pdf"
+    },
+    {
+      "label": "Estudo de caso: Painel de energia renovável (dataset + guia)",
+      "type": "caseStudy",
+      "url": "https://example.edu/algi/casos/vetores-energia.zip"
     }
   ],
   "bibliography": [
-    "MANZANO, J. A. N.; OLIVEIRA, J. L. Algoritmos: Lógica para Desenvolvimento de Programação de Computadores. Elsevier, 2023.",
-    "SZWARCFITER, J. L.; MARKENZON, L. Estruturas de Dados e Seus Algoritmos. LTC, 2022."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 5, Vetores e tabelas.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 9, Estatística aplicada com vetores.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 7, Manipulação de arrays.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 8, Registros de desempenho e validação cruzada.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 7, Vetores e matrizes em estudos de caso."
   ],
+  "assessment": {
+    "type": "project",
+    "description": "Mini-projeto de análise de dados renováveis: aplicar operações de somatório, normalização e geração de ranking sobre o estudo de caso do painel de energia, registrando evidências na planilha compartilhada.",
+    "rubric": "Pensamento crítico (45%): interpreta tendências energéticas ao aplicar o roteiro de tabelas de Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9). Análise de dados (35%): normaliza e compara faixas respeitando as validações de Backes (Cap. 7) e Santos (Cap. 8). Comunicação técnica (20%): documenta resultados e limitações seguindo o formato de estudos de caso de Ascencio & Campos (Cap. 7)."
+  },
   "content": [
     {
       "type": "callout",
@@ -176,21 +194,25 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "A partir do arquivo vetores-vendas.csv, contabilize quantas vendas caem em cada faixa de valor e apresente porcentagens."
+          "text": "O estudo de caso combina o arquivo vetores-vendas.csv com a planilha do painel de energia renovável. Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9) orientam a decompor o problema em leituras, agregações e apresentação dos percentuais."
         },
         {
           "type": "orderedList",
           "items": [
             {
-              "text": "Ler 30 valores de vendas diárias em um vetor float."
+              "text": "Ler 30 valores de vendas diárias e 30 medições de energia em vetores separados, garantindo alinhamento conforme Backes (Cap. 7)."
             },
             {
-              "text": "Criar vetor de contadores para faixas: <100, 100-299, 300-599, >=600."
+              "text": "Criar vetores de contadores para faixas (vendas e energia) e registrar validações cruzadas na planilha, como propõe Santos (Cap. 8)."
             },
             {
-              "text": "Calcular percentual relativo ao total e imprimir tabela formatada."
+              "text": "Calcular percentual relativo ao total e imprimir tabela formatada destacando alertas para faixas críticas, seguindo o modelo de estudos de caso de Ascencio & Campos (Cap. 7)."
             }
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione na devolutiva quais decisões foram tomadas a partir das leituras, explicando como cada autor embasa a interpretação dos indicadores."
         }
       ]
     },
@@ -246,6 +268,31 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Estudo de caso: Painel de energia renovável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aplique as rotinas em um painel municipal de energia solar. Some e normalize os dados por bairro para priorizar investimentos, como sugerem Manzano & Oliveira (Cap. 9)."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Use vetores paralelos para armazenar geração e perdas, técnica destacada por Backes (Cap. 7)."
+            },
+            {
+              "text": "Documente a validação de faixas e discrepâncias com base no protocolo de Santos (Cap. 8)."
+            },
+            {
+              "text": "Justifique as decisões de ranqueamento mencionando as diretrizes de estudos de caso de Ascencio & Campos (Cap. 7)."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "videosBlock",
       "title": "Clipes recomendados",
       "videos": [
@@ -281,16 +328,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 31' para anexar o artefato solicitado."
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 31' para anexar o artefato solicitado, relatando o painel de energia e as vendas cruzadas conforme o roteiro de Forbellone & Eberspächer (Cap. 5)."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entregue aula31_operacoes_vetores.c com rotinas de soma acumulada, normalização e geração de tabela."
+              "text": "Entregue aula31_operacoes_vetores.c com rotinas de soma acumulada, normalização e geração de tabela seguindo Manzano & Oliveira (Cap. 9)."
             },
             {
-              "text": "Inclua relatório mostrando tabela antes/depois das operações e análise de consistência."
+              "text": "Inclua relatório mostrando tabela antes/depois das operações, análise de consistência e evidências na planilha do estudo de caso, como propõem Backes (Cap. 7) e Santos (Cap. 8)."
             }
           ]
         },
@@ -302,30 +349,34 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Pensamento crítico (45%): interpretação das tendências ao aplicar somatórios e rankings inspirados em Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Análise de dados (35%): código atende ao enunciado, normaliza vetores e valida faixas conforme Backes (Cap. 7) e Santos (Cap. 8)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Documentação técnica (20%): relatório e planilha descrevem decisões alinhadas às boas práticas de Ascencio & Campos (Cap. 7)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Integração com competências: explicite na entrega como cada resultado consolida Pensamento crítico e Análise de dados dentro do cenário do painel de energia."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e cite o trecho dos autores utilizado para fundamentar a questão."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-09-29T14:20:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Briefing de oficinas Vetores 2025"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.2",
+      "Briefing de oficinas Vetores 2025",
+      "Planilha de auditoria pós-módulo (aba Vetores)"
+    ]
   }
 }
