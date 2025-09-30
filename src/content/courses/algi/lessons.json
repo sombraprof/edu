@@ -315,7 +315,11 @@
       "title": "Aula 29: Avaliação NP2",
       "file": "lesson-29.json",
       "available": true,
-      "description": "Avaliar a capacidade de aplicar if/else encadeados, operadores lógicos e estruturas de repetição (while, for, do-while), bem como a modularização com funções (parâmetros, retorno e boas práticas de escopo/protótipos) em problemas práticos de pequena escala."
+      "description": "Avaliar a capacidade de aplicar if/else encadeados, operadores lógicos e estruturas de repetição (while, for, do-while), bem como a modularização com funções (parâmetros, retorno e boas práticas de escopo/protótipos) em problemas práticos de pequena escala.",
+      "summary": "Avaliação presencial manuscrita sintetizando condicionais, laços e modularização com funções em problemas de negócios.",
+      "tags": ["avaliacao", "np2", "estruturas-de-controle"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-30",
@@ -421,7 +425,11 @@
       "title": "Aula 39: Avaliação NP3",
       "file": "lesson-39.json",
       "available": true,
-      "description": "Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas."
+      "description": "Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas.",
+      "summary": "Prova integradora que abrange lógica, estruturas de controle, funções, vetores, matrizes e structs.",
+      "tags": ["avaliacao", "np3", "integrador"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-40",
