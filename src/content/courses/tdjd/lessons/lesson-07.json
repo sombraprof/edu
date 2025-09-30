@@ -45,6 +45,81 @@
     },
     {
       "type": "contentBlock",
+      "title": "🧮 Operadores Relacionais e Lógicos em C",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Quando prototipamos regras de gameplay em C, precisamos entender como as comparações e combinações lógicas se comportam para validar triggers, checkpoints e condições de vitória."
+        },
+        {
+          "type": "truthTable",
+          "title": "Tabela-verdade com exemplos práticos",
+          "headers": [
+            "x",
+            "y",
+            "x > y",
+            "x == y",
+            "x != y",
+            "x > y && y > 0",
+            "(x == y) || (y == 0)"
+          ],
+          "rows": [
+            [
+              { "value": "5" },
+              { "value": "3" },
+              { "state": "true", "display": "✔" },
+              { "state": "false", "display": "✖" },
+              { "state": "true", "display": "✔" },
+              { "state": "true", "display": "✔" },
+              { "state": "false", "display": "✖" }
+            ],
+            [
+              { "value": "4" },
+              { "value": "4" },
+              { "state": "false", "display": "✖" },
+              { "state": "true", "display": "✔" },
+              { "state": "false", "display": "✖" },
+              { "state": "false", "display": "✖" },
+              { "state": "true", "display": "✔" }
+            ],
+            [
+              { "value": "1" },
+              { "value": "6" },
+              { "state": "false", "display": "✖" },
+              { "state": "false", "display": "✖" },
+              { "state": "true", "display": "✔" },
+              { "state": "false", "display": "✖" },
+              { "state": "false", "display": "✖" }
+            ],
+            [
+              { "value": "0" },
+              { "value": "2" },
+              { "state": "false", "display": "✖" },
+              { "state": "false", "display": "✖" },
+              { "state": "true", "display": "✔" },
+              { "state": "false", "display": "✖" },
+              { "state": "true", "display": "✔" }
+            ]
+          ]
+        },
+        {
+          "type": "videosBlock",
+          "videos": [
+            {
+              "youtubeId": "HCzg2WFmWDw",
+              "title": "Operadores em C: precedência e avaliação curta"
+            }
+          ]
+        },
+        {
+          "type": "button",
+          "text": "Worksheet progressiva: operadores lógicos",
+          "href": "https://docs.google.com/spreadsheets/d/1S1R7uQhci5gLY0J8gEZgqvH4yKX1pgdC3QyXGz9L2uQ/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Prototipagem Rápida com ProBuilder",
       "content": [
         {

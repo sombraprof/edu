@@ -42,6 +42,83 @@
     },
     {
       "type": "contentBlock",
+      "title": "🔀 Comparativo: if-else vs switch-case",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escolher a estrutura condicional correta impacta legibilidade e performance ao controlar estados do jogo."
+        },
+        {
+          "type": "truthTable",
+          "title": "Quando usar cada estrutura",
+          "headers": ["Cenário", "if-else", "switch-case", "Observações"],
+          "rows": [
+            [
+              { "value": "Intervalos numéricos (ex.: vida < 20)" },
+              { "state": "true", "display": "✔" },
+              { "state": "false", "display": "✖" },
+              { "value": "Avalia expressões booleanas e comparações complexas." }
+            ],
+            [
+              { "value": "Múltiplos estados discretos (MenuState)" },
+              { "state": "true", "display": "✔" },
+              { "state": "true", "display": "✔" },
+              { "value": "switch mantém legível quando há muitas opções constantes." }
+            ],
+            [
+              { "value": "Valores inteiros ou enum fixos" },
+              { "state": "false", "display": "✖" },
+              { "state": "true", "display": "✔" },
+              { "value": "switch-case evita cadeia extensa de else if." }
+            ],
+            [
+              { "value": "Condições com ranges + verificação adicional" },
+              { "state": "true", "display": "✔" },
+              { "state": "false", "display": "✖" },
+              { "value": "Combine if-else com métodos auxiliares para clareza." }
+            ]
+          ]
+        },
+        {
+          "type": "code",
+          "language": "csharp",
+          "title": "Exemplo híbrido",
+          "code": "public void HandleState(GameState state, int score)\n{\n    if (score < 0) return;\n\n    switch (state)\n    {\n        case GameState.Menu:\n            ShowMainMenu();\n            break;\n        case GameState.Playing when score > highScore:\n            UpdateHighScore();\n            break;\n        case GameState.Paused:\n            TogglePauseUI(true);\n            break;\n        default:\n            Debug.LogWarning($\"Estado não tratado: {state}\");\n            break;\n    }\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🎯 Rubrica do simulador de lógica",
+      "content": [
+        {
+          "type": "md3Table",
+          "headers": ["Critério", "Excelente (100%)", "Adequado (70%)", "Revisar (40%)"],
+          "rows": [
+            [
+              "Implementação",
+              "Scripts compilam, sem warnings, e cobrem todos os estados previstos.",
+              "Scripts funcionam, mas há warnings ou casos não tratados.",
+              "Erros impedem a execução ou faltam estados essenciais."
+            ],
+            [
+              "Organização",
+              "Nomes, comentários e pastas seguem padrão da turma.",
+              "Pequenos desvios de padrão, porém compreensível.",
+              "Arquivos soltos, difícil rastrear responsabilidades."
+            ],
+            [
+              "Testes",
+              "Console limpo e logs relevantes anexados na entrega.",
+              "Há logs, porém sem evidências completas.",
+              "Sem testes registrados ou logs inconsistentes."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Hands-on guiado",
       "content": [
         {
