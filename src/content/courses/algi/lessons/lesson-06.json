@@ -130,7 +130,7 @@
     },
     {
       "type": "md3Table",
-      "headers": ["Tipo", "Intervalo aproximado", "Especificador", "Uso comum"],
+      "headers": ["Tipo", "Intervalo aproximado", "printf", "scanf", "Uso comum"],
       "rows": [
         [
           {
@@ -140,10 +140,34 @@
             "value": "-2.147.483.648 a 2.147.483.647"
           },
           {
-            "value": "%d"
+            "value": "%d",
+            "mono": true
+          },
+          {
+            "value": "%d",
+            "mono": true
           },
           {
             "value": "Contagens, idades, quantidades"
+          }
+        ],
+        [
+          {
+            "value": "unsigned int"
+          },
+          {
+            "value": "0 a 4.294.967.295"
+          },
+          {
+            "value": "%u",
+            "mono": true
+          },
+          {
+            "value": "%u",
+            "mono": true
+          },
+          {
+            "value": "Contadores que nunca ficam negativos"
           }
         ],
         [
@@ -154,7 +178,12 @@
             "value": "±3.4e38 (7 casas)"
           },
           {
-            "value": "%f"
+            "value": "%0.2f",
+            "mono": true
+          },
+          {
+            "value": "%f",
+            "mono": true
           },
           {
             "value": "Médias, preços, sensores"
@@ -168,7 +197,12 @@
             "value": "±1.7e308 (15 casas)"
           },
           {
-            "value": "%lf"
+            "value": "%0.4lf",
+            "mono": true
+          },
+          {
+            "value": "%lf",
+            "mono": true
           },
           {
             "value": "Cálculos científicos, finanças"
@@ -182,12 +216,60 @@
             "value": "0 a 255"
           },
           {
-            "value": "%c"
+            "value": "%c",
+            "mono": true
           },
           {
-            "value": "Caracteres isolados"
+            "value": " %c",
+            "mono": true
+          },
+          {
+            "value": "Caracteres isolados, respostas de menu"
+          }
+        ],
+        [
+          {
+            "value": "char[]"
+          },
+          {
+            "value": "Strings terminadas com caractere nulo"
+          },
+          {
+            "value": "%s",
+            "mono": true
+          },
+          {
+            "value": " %29s",
+            "mono": true
+          },
+          {
+            "value": "Nomes, descrições curtas"
           }
         ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Cheat sheet C para consulta rápida",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Salve o resumo oficial com sintaxe de tipos, operadores e formatação para tirar dúvidas durante o laboratório: https://example.edu/algi/guias/c-cheatsheet.pdf"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Destacar na folha os especificadores de printf/scanf mais usados nesta aula."
+            },
+            {
+              "text": "Registrar exemplos adicionais de constantes e intervalos com base nos exercícios."
+            },
+            {
+              "text": "Anotar perguntas para trazer ao plantão ou fórum do Moodle."
+            }
+          ]
+        }
       ]
     },
     {
@@ -239,6 +321,31 @@
         "Declarei variáveis e constantes usando tipos corretos.",
         "Testei entradas válidas e inválidas.",
         "Atualizei minha tabela de especificadores printf/scanf."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Teste no OnlineGDB antes de entregar",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Execute o código no projeto pré-configurado e registre evidências."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Valide pelo menos três cenários (padrão, limite e inválido)."
+            },
+            {
+              "text": "Faça captura de tela do console com os testes principais."
+            },
+            {
+              "text": "Anexe o link da execução compartilhável quando enviar a TED."
+            }
+          ]
+        }
       ]
     },
     {

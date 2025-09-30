@@ -413,6 +413,96 @@
       ]
     },
     {
+      "type": "truthTable",
+      "title": "Operadores relacionais alimentando decisões lógicas",
+      "headers": [
+        "Entrada",
+        "idade >= 18",
+        "cartao == 'S'",
+        "Pode viajar (idade >= 18 && cartao == 'S')"
+      ],
+      "rows": [
+        [
+          {
+            "value": "17 anos, cartão S"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Barrado"
+          }
+        ],
+        [
+          {
+            "value": "18 anos, cartão N"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Barrado"
+          }
+        ],
+        [
+          {
+            "value": "21 anos, cartão S"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Autorizado"
+          }
+        ],
+        [
+          {
+            "value": "16 anos, cartão N"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Barrado"
+          }
+        ]
+      ],
+      "legend": [
+        {
+          "label": "Condição satisfeita",
+          "state": "true"
+        },
+        {
+          "label": "Condição não satisfeita",
+          "state": "false"
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Precedência e agrupamento",
       "content": [
@@ -427,6 +517,21 @@
             "Evite misturar muitos operadores diferentes em uma única linha.",
             "Teste expressões complexas isoladamente antes de inseri-las em decisões.",
             "Documente com comentários quando a intenção não for óbvia."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Worksheet progressiva",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Nível 1 – Resolva cinco expressões simples e marque o operador dominante.",
+            "Nível 2 – Compare pares de valores e complete os resultados esperados em uma tabela.",
+            "Nível 3 – Combine relacionais e lógicos, anotando o passo a passo que levou ao valor final.",
+            "Nível 4 – Reescreva as expressões usando parênteses para deixar a intenção explícita e valide no OnlineGDB."
           ]
         }
       ]
@@ -464,6 +569,16 @@
           "type": "code",
           "language": "c",
           "code": "float n1, n2, n3;\nfloat media;\n\nprintf(\"Digite as tres notas: \");\nscanf(\"%f %f %f\", &n1, &n2, &n3);\nmedia = (n1 * 4 + n2 * 3 + n3 * 3) / 10.0f;\nif (media >= 7.0f && media <= 10.0f) {\n  printf(\"Aprovado com media %.1f\\n\", media);\n} else if (media >= 5.0f) {\n  printf(\"Recuperacao com media %.1f\\n\", media);\n} else {\n  printf(\"Reprovado com media %.1f\\n\", media);\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Reforço em precedência",
+      "videos": [
+        {
+          "title": "Ordem de operadores em C",
+          "src": "https://www.youtube.com/embed/JnAmSrg0xgk"
         }
       ]
     },

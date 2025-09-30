@@ -31,6 +31,11 @@
       "url": "https://example.edu/algi/guias/casos-sequenciais.pdf"
     },
     {
+      "label": "Planilha de dados de teste compartilhada",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGI_testeSequencial"
+    },
+    {
       "label": "Repositório de exemplos resolvidos",
       "type": "repository",
       "url": "https://example.edu/algi/repos/sequencial-exemplos"
@@ -116,13 +121,13 @@
       "type": "flightPlan",
       "title": "Plano de voo (1h55)",
       "items": [
-        "(10 min) Revisão colaborativa do fluxo sequencial.",
-        "(25 min) Estudo de caso: salário líquido com descontos e gratificações.",
-        "(20 min) Estudo de caso: calculadora de IMC com análise textual.",
-        "(20 min) Debate: padrões em comum e validações.",
-        "(30 min) Oficina em duplas: problema escolhido.",
-        "(10 min) Apresentações rápidas e feedback.",
-        "(10 min) TED e registro dos testes."
+        "(10 min) Check-in colaborativo reforçando Entrada → Processamento → Saída.",
+        "(25 min) Estudo de caso 1 — Salário líquido (usa planilha de dados de teste e valida descontos).",
+        "(20 min) Estudo de caso 2 — IMC comentado (interpretação + mensagens ao usuário).",
+        "(15 min) Estudo de caso 3 — Desconto cumulativo (explora encadeamento de cálculos).",
+        "(15 min) Debate guiado: padrões encontrados e ajustes necessários.",
+        "(30 min) Oficina em duplas: escolher caso da planilha e registrar validações.",
+        "(10 min) Apresentações rápidas, checklist e registro da TED."
       ]
     },
     {
@@ -209,6 +214,30 @@
             "Implementar a solução em C com comentários descrevendo cada etapa.",
             "Testar ao menos três cenários diferentes registrando resultados.",
             "Preparar um pitch de 2 minutos explicando decisões adotadas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checklists de validação",
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "Antes de codar",
+          "items": [
+            "Preencher a planilha de dados de teste com entradas típicas, limites e inválidas.",
+            "Definir o formato de saída esperado para cada cenário (valores e mensagens).",
+            "Confirmar quais variáveis precisam de validação extra (negativos, zero, strings vazias)."
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "Antes de entregar",
+          "items": [
+            "Executar todos os casos registrados na planilha e registrar resultados.",
+            "Capturar evidências (console ou prints) anexando o link da planilha preenchida.",
+            "Revisar comentários e mensagens exibidas para garantir alinhamento com o enunciado."
           ]
         }
       ]

@@ -176,6 +176,26 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Encadeando leituras e cálculos",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Leia primeiro todos os dados brutos (preço, quantidade, descontos).",
+            "Crie variáveis para armazenar cada subtotal antes de aplicar novos fatores.",
+            "Atualize o recibo a cada etapa, imprimindo valores intermediários para validar.",
+            "Teste sequências alternativas (com ou sem desconto) para garantir consistência."
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "float base, descontoPromocional, descontoFidelidade, total;\nscanf(\"%f %f %f\", &base, &descontoPromocional, &descontoFidelidade);\nfloat etapa1 = base - descontoPromocional;\nfloat etapa2 = etapa1 - (etapa1 * descontoFidelidade / 100.0f);\nprintf(\"Subtotal: %.2f\\n\", etapa1);\nprintf(\"Total final: %.2f\\n\", etapa2);"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "good-practice",
       "title": "Máscaras printf úteis",
@@ -227,6 +247,19 @@
         ],
         [
           {
+            "value": "%010.2f",
+            "mono": true
+          },
+          {
+            "value": "Preenche com zeros até 10 caracteres"
+          },
+          {
+            "value": "0000123.45",
+            "code": true
+          }
+        ],
+        [
+          {
             "value": "%d%%",
             "mono": true
           },
@@ -235,6 +268,19 @@
           },
           {
             "value": "10%",
+            "code": true
+          }
+        ],
+        [
+          {
+            "value": "%#x",
+            "mono": true
+          },
+          {
+            "value": "Inteiro em hexadecimal com prefixo 0x"
+          },
+          {
+            "value": "0x7b",
             "code": true
           }
         ],
@@ -270,6 +316,42 @@
           "type": "code",
           "language": "c",
           "code": "printf(\"--- RECIBO ---\\n\");\nprintf(\"%-12s %3s %10s\\n\", \"Produto\", \"Qtd\", \"Subtotal\");\nprintf(\"%-12s %3d R$ %8.2f\\n\", nome1, qtd1, subtotal1);"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Template completo de recibo",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n  char produto1[30], produto2[30];\n  int qtd1, qtd2;\n  float preco1, preco2;\n\n  printf(\"Item, quantidade e preço: \");\n  scanf(\"%29s %d %f\", produto1, &qtd1, &preco1);\n  printf(\"Item, quantidade e preço: \");\n  scanf(\"%29s %d %f\", produto2, &qtd2, &preco2);\n\n  float subtotal1 = qtd1 * preco1;\n  float subtotal2 = qtd2 * preco2;\n  float subtotal = subtotal1 + subtotal2;\n  float desconto = subtotal * 0.10f;\n  float total = subtotal - desconto;\n\n  printf(\"\\n--- RECIBO DIGITAL ---\\n\");\n  printf(\"%-12s %3s %10s\\n\", \"Produto\", \"Qtd\", \"Subtotal\");\n  printf(\"%-12s %3d R$ %8.2f\\n\", produto1, qtd1, subtotal1);\n  printf(\"%-12s %3d R$ %8.2f\\n\", produto2, qtd2, subtotal2);\n  printf(\"---------------------------\\n\");\n  printf(\"Subtotal:      R$ %8.2f\\n\", subtotal);\n  printf(\"Desconto (10%%): R$ %8.2f\\n\", desconto);\n  printf(\"TOTAL:         R$ %8.2f\\n\", total);\n  return 0;\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "error",
+      "title": "Comprovação visual obrigatória",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Capture o console exibindo o recibo final e o código utilizado lado a lado antes de enviar a atividade."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Mostre pelo menos dois cenários diferentes (com desconto e sem desconto adicional)."
+            },
+            {
+              "text": "Garanta que a máscara printf usada apareça claramente na captura."
+            },
+            {
+              "text": "Nomeie o arquivo da evidência como screenshot_aula08.png e anexe ao Moodle."
+            }
+          ]
         }
       ]
     },
