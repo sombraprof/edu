@@ -197,6 +197,69 @@
       ]
     },
     {
+      "type": "truthTable",
+      "title": "Quando usar if-else ou switch-case",
+      "headers": ["Cenário", "if-else", "switch-case", "Observação"],
+      "rows": [
+        [
+          {
+            "value": "Comparar faixas numéricas (ex.: idade)"
+          },
+          {
+            "value": "Permite intervalos complexos"
+          },
+          {
+            "value": "Pouco eficiente"
+          },
+          {
+            "value": "Use if-else para lidar com <, >, >=, <="
+          }
+        ],
+        [
+          {
+            "value": "Verificar estados de string ou boolean"
+          },
+          {
+            "value": "Funciona, mas exige várias comparações"
+          },
+          {
+            "value": "Aceita apenas números/char"
+          },
+          {
+            "value": "Converta para códigos inteiros antes de usar switch"
+          }
+        ],
+        [
+          {
+            "value": "Menu com opções fixas (1,2,3,4)"
+          },
+          {
+            "value": "Funciona, porém repetitivo"
+          },
+          {
+            "value": "Legível e direto"
+          },
+          {
+            "value": "Prefira switch-case para listar alternativas"
+          }
+        ],
+        [
+          {
+            "value": "Verificar combinações de condições"
+          },
+          {
+            "value": "Agrupa com operadores lógicos"
+          },
+          {
+            "value": "Não suporta expressões complexas"
+          },
+          {
+            "value": "if-else permite &&, || e funções auxiliares"
+          }
+        ]
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Estrutura de um if",
       "content": [
@@ -335,6 +398,29 @@
             "Em duplas, modelem um cenário que dependa de uma decisão binária (ex.: desconto fidelidade, envio de alerta).",
             "Identifiquem quais entradas são necessárias e qual mensagem cada ramo deve exibir.",
             "Implementem o programa em C, documentando os casos de teste utilizados."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica do simulador de aprovação",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Lógica (40%) – Condições cobrem todos os cenários previstos (aprovado, recuperação, reprovado)."
+            },
+            {
+              "text": "Organização (25%) – Variáveis nomeadas, comentários indicando cada ramo e mensagens claras."
+            },
+            {
+              "text": "Testes (25%) – Evidências de execução com notas limite (6.9, 7.0, 10.0) e casos negativos."
+            },
+            {
+              "text": "Apresentação (10%) – Pitch de 2 minutos explicando a regra e melhorias futuras."
+            }
           ]
         }
       ]

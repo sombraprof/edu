@@ -126,6 +126,25 @@
     },
     {
       "type": "contentBlock",
+      "title": "Mini-teste Moodle (15 min)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Realize individualmente o mini-teste 'Switch Essentials' disponível no Moodle ao final da aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Acesse a atividade em Avaliações → Aula 11 → Mini-teste.",
+            "Responda às 5 questões de múltipla escolha (tempo limite: 15 minutos).",
+            "Faça upload do arquivo .c utilizado durante a resolução (mesmo que incompleto).",
+            "Confirme o envio na página de resumo e registre o recibo em PDF."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Quando if-else fica verboso demais",
       "content": [
         {
@@ -135,6 +154,31 @@
         {
           "type": "paragraph",
           "text": "Além de mais legível, a estrutura facilita adicionar ou remover opções sem alterar a lógica principal do programa."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Revisão individual obrigatória",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Depois da aula, reserve 20 minutos para revisar sozinho o menu implementado, anotando dúvidas para o plantão."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Refaça os casos de teste sugeridos sem apoio do colega."
+            },
+            {
+              "text": "Registre no caderno quais cases demandaram ajustes."
+            },
+            {
+              "text": "Envie um resumo no fórum #revisao-individual antes da próxima aula."
+            }
+          ]
         }
       ]
     },
@@ -258,6 +302,21 @@
           }
         ]
       }
+    },
+    {
+      "type": "contentBlock",
+      "title": "Template de comentário linha a linha",
+      "content": [
+        {
+          "type": "code",
+          "language": "text",
+          "code": "// Linha 12: valida entrada e evita opções inválidas\n// Linha 18: agrupa cases 2 e 3 para reutilizar mensagem\n// Linha 26: default orienta o usuário a repetir a escolha\n// TODO Linha 30: considerar adicionar confirmação antes de sair"
+        },
+        {
+          "type": "paragraph",
+          "text": "Use o modelo acima para documentar feedback ao colega no Moodle, apontando linha, ação executada e sugestão."
+        }
+      ]
     },
     {
       "type": "contentBlock",
