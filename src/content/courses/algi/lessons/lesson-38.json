@@ -35,10 +35,21 @@
       "url": "https://static.md3.education/courses/algi/gamificacao-jeopardy-kit.md"
     },
     {
+      "label": "Slides oficiais da dinâmica Jeopardy",
+      "type": "slides",
+      "file": "courses/algi/aula-38-jeopardy-slides.pdf",
+      "url": "https://static.md3.education/courses/algi/aula-38-jeopardy-slides.pdf"
+    },
+    {
       "label": "Template de ranking gamificado",
       "type": "template",
       "file": "courses/algi/gamificacao-ranking-template.csv",
       "url": "https://static.md3.education/courses/algi/gamificacao-ranking-template.csv"
+    },
+    {
+      "label": "Planilha de pontuação em tempo real",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGJeopardyPontuacao"
     },
     {
       "label": "Artigo Harvard Business Review - Gamification in Education",
@@ -101,29 +112,61 @@
       "title": "Roteiro detalhado",
       "cards": [
         {
-          "icon": "clock",
-          "title": "Boas-vindas",
-          "content": "Aquecimento com quiz flash revisando structs e CRUD (10 min)."
+          "icon": "bullseye",
+          "title": "Briefing e kits",
+          "content": "(10 min) Apresente os slides oficiais, distribua kits (cartelas, cartas, sineta) e alinhe papéis do squad."
         },
         {
-          "icon": "tasks",
-          "title": "Jeopardy",
-          "content": "Tabuleiro com cinco categorias (Structs, Vetores, Funções, Controle, Desafios) (45 min)."
+          "icon": "code",
+          "title": "Rodadas Jeopardy",
+          "content": "(45 min) Use o tabuleiro projetado; squads escolhem casas, respondem em 90s e validam com o gabarito do kit."
         },
         {
-          "icon": "check-circle",
-          "title": "Ranking dinâmico",
-          "content": "Atualização em tempo real da planilha de pontuação (20 min)."
+          "icon": "monitor",
+          "title": "Ranking em tempo real",
+          "content": "(15 min) Atualize a planilha oficial a cada rodada, sinalizando badges de consistência e colaboração."
         },
         {
           "icon": "users",
-          "title": "Oficina de retrospectiva",
-          "content": "Canvas de lições aprendidas e próximos passos (30 min)."
+          "title": "Laboratório de estratégias",
+          "content": "(20 min) Squads analisam ranking, definem apostas para rodada relâmpago e registram lições no mural."
+        },
+        {
+          "icon": "gears",
+          "title": "Rodada relâmpago",
+          "content": "(20 min) Perguntas bônus com badges especiais (Insight, Apoio Técnico, Fair Play) e atualização final do ranking."
         },
         {
           "icon": "check-circle",
-          "title": "Encerramento",
-          "content": "Entrega de medalhas e feedbacks individuais (25 min)."
+          "title": "Premiação e feedback",
+          "content": "(20 min) Entregue certificados, colete impressões rápidas e sinalize abertura do formulário de feedback 360°."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Kit Jeopardy por squad",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cada kit deve ser entregue completo em envelope identificado: cartelas de respostas, cartas de categorias, gabarito laminado, contadores de ponto e badge cards."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Cartelas numeradas de 100 a 500 por categoria para escolha das perguntas." },
+            {
+              "text": "Campainha ou sinalizador para indicar resposta pronta (alternativa: reação no chat)."
+            },
+            {
+              "text": "Cartões de badge (Insight, Fair Play, Mentor Relâmpago) para premiações adicionais."
+            },
+            { "text": "Guia rápido com critérios de desempate e penalidades." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Reserve um kit extra para demonstração durante o briefing e mantenha spray sanitizante para revezamento seguro."
         }
       ]
     },
@@ -131,12 +174,12 @@
       "type": "flightPlan",
       "title": "Plano de voo (2h10)",
       "items": [
-        "(15 min) Icebreaker: bingo de conceitos-chave.",
-        "(45 min) Rodadas Jeopardy com perguntas de código e interpretação.",
-        "(20 min) Desafio relâmpago: refatorar função CRUD indicada pelo ranking.",
-        "(25 min) Sessão de feedback 360° entre squads.",
-        "(20 min) Construção do mural digital com insights.",
-        "(5 min) Anúncio dos destaques e próximos passos para NP3."
+        "(10 min) Icebreaker com quiz flash e revisão das regras nos slides.",
+        "(45 min) Rodadas principais: squads escolhem casas, respondem e registram tentativas na planilha.",
+        "(15 min) Painel do ranking: atualização coletiva e registro dos badges conquistados.",
+        "(20 min) Desafio relâmpago com perguntas de alta complexidade e possibilidade de aposta.",
+        "(25 min) Círculo de feedback 360° mediado por roteiro de perguntas.",
+        "(15 min) Construção do mural digital com insights e anúncio dos destaques."
       ]
     },
     {
@@ -154,12 +197,39 @@
               "text": "Use perguntas que envolvam leitura de código, correção de bugs e estimativa de complexidade."
             },
             {
-              "text": "Atribua badges extras para squads que colaborarem com outras equipes durante a revisão."
+              "text": "Atribua badges extras (Fair Play, Mentor Relâmpago, Insight) para squads que colaborarem com outras equipes ou justificarem soluções com profundidade."
             },
             {
-              "text": "Publique ranking parcial a cada rodada para incentivar planejamento estratégico."
+              "text": "Publique ranking parcial a cada rodada usando o dashboard da planilha oficial para incentivar planejamento estratégico."
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Feedback 360° orientado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve 25 minutos para o círculo de feedback 360°. Projete o roteiro no slide 12 e oriente que cada squad forneça percepções sobre comunicação, domínio técnico e colaboração."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Preencha o formulário https://forms.gle/algi-feedback-360 durante a roda para capturar evidências."
+            },
+            {
+              "text": "Garanta que todos recebam ao menos um elogio (Keep) e uma sugestão de melhoria (Grow)."
+            },
+            { "text": "Colete compromissos no mural digital para acompanhamento na aula 40." }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Reforce sigilo e respeito mútuo: feedback deve ser específico, gentil e orientado a ações futuras."
         }
       ]
     },
@@ -264,9 +334,13 @@
     }
   ],
   "metadata": {
-    "status": "draft",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
-    "owners": ["Equipe Algoritmos I"],
-    "sources": ["Plano de ensino Algoritmos I 2025.2", "HBR Gamification Strategies 2020"]
+    "status": "published",
+    "updatedAt": "2025-03-11T12:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": [
+      "Plano de ensino Algoritmos I 2025.2",
+      "HBR Gamification Strategies 2020",
+      "Relatório de monitoria gamificada 2024"
+    ]
   }
 }

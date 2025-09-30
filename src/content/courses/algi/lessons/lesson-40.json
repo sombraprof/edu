@@ -47,9 +47,9 @@
       "url": "https://static.md3.education/courses/algi/roadmap-pos-algi.md"
     },
     {
-      "label": "Formulário de feedback contínuo",
+      "label": "Formulário de feedback final",
       "type": "form",
-      "url": "https://forms.gle/algoritmosI-feedback-continuo"
+      "url": "https://forms.gle/algoritmosI-feedback-final"
     },
     {
       "label": "OnlineGDB - Projeto C pré-configurado",
@@ -114,9 +114,9 @@
         "(10 min) Boas-vindas e retomada dos marcos do semestre.",
         "(20 min) Devolutiva coletiva das NPs com análise de indicadores.",
         "(35 min) Showcase de projetos com rodada de perguntas.",
-        "(15 min) Coleta de feedback estruturado via checklist e formulário.",
+        "(15 min) Coleta de feedback estruturado via checklist e formulário final.",
         "(20 min) Painel de próximos passos e definição de compromissos.",
-        "(15 min) Roadmap futuro: Git, estruturas de dados e recursos complementares."
+        "(15 min) Roadmap futuro: Git colaborativo, estruturas de dados avançadas e agenda de monitoria."
       ]
     },
     {
@@ -141,12 +141,24 @@
       ]
     },
     {
+      "type": "checklist",
+      "title": "Checklist de devolutiva (aplicação em sala)",
+      "description": "Preencha em conjunto com a turma logo após a apresentação dos resultados.",
+      "items": [
+        "Compartilhei médias e distribuição das NPs utilizando o dashboard projetado.",
+        "Comuniquei critérios de correção e respondi às principais dúvidas coletivas.",
+        "Entreguei envelopes individuais com notas e feedbacks escritos.",
+        "Registrei compromissos de melhoria de cada squad no mural digital.",
+        "Alertei sobre prazos para recursos ou revisões formais."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Showcase de projetos",
       "content": [
         {
           "type": "paragraph",
-          "text": "Organize os grupos em estações. Cada equipe tem 5 minutos para apresentar problema, solução, impacto e próximos passos desejados."
+          "text": "Organize os grupos em estações. Cada equipe tem 5 minutos para apresentar problema, solução, impacto e próximos passos desejados, seguindo o Guia de showcase final para orientar storytelling e avaliação."
         },
         {
           "type": "unorderedList",
@@ -155,10 +167,10 @@
               "text": "Garanta registro visual (fotos, prints) para o mural digital."
             },
             {
-              "text": "Estimule perguntas usando a matriz Admirei / Sugiro."
+              "text": "Estimule perguntas usando a matriz Admirei / Sugiro e documente no template compartilhado."
             },
             {
-              "text": "Finalize cada rodada com destaque de uma prática replicável."
+              "text": "Convide banca (professor, monitor, convidado) a atribuir badges rápidos (Pitch, UX, Solução Técnica) ao fim de cada rodada."
             }
           ]
         }
@@ -170,8 +182,33 @@
       "items": [
         "Apresentei devolutiva coletiva com dados e narrativas.",
         "Conduzi roda de feedback cruzado usando o checklist oficial.",
-        "Registrei feedbacks individuais no formulário contínuo.",
+        "Registrei feedbacks individuais no formulário de feedback final.",
         "Combinei com a turma como os dados serão revisitados no próximo semestre."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Formulário de feedback final",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve 10 minutos ao término do showcase para que cada estudante preencha o formulário oficial: https://forms.gle/algoritmosI-feedback-final."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Reforce que o envio é obrigatório para consolidar a presença e registrar percepções da disciplina."
+            },
+            {
+              "text": "Solicite que indiquem highlights, pontos de melhoria e interesses para monitoria."
+            },
+            {
+              "text": "Baixe a planilha de respostas ao final da semana para embasar a reunião de planejamento do próximo semestre."
+            }
+          ]
+        }
       ]
     },
     {
@@ -180,11 +217,15 @@
       "steps": [
         {
           "title": "Curto prazo (1-2 semanas)",
-          "description": "Revisar devolutivas das NPs, atualizar portfólio e refatorar itens críticos do projeto."
+          "description": "Revisar devolutivas das NPs, atualizar portfólio, refatorar itens críticos do projeto e agendar conversa individual com monitoria."
         },
         {
           "title": "Médio prazo (1 mês)",
           "description": "Iniciar trilha de Git colaborativo com repositório compartilhado e pull requests semanais."
+        },
+        {
+          "title": "Apoio contínuo (monitoria)",
+          "description": "Participar das sessões semanais de monitoria para revisar conteúdos de C, tirar dúvidas sobre Git e receber desafios extras de estruturas de dados."
         },
         {
           "title": "Longo prazo (3 meses)",
@@ -291,8 +332,12 @@
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-03-11T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Relatórios de acompanhamento 2024"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Relatórios de acompanhamento 2024",
+      "Ata de devolutiva final 2024.2"
+    ]
   }
 }

@@ -29,35 +29,87 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Escopo e formato da avaliação",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Duração total: 120 minutos, prova presencial com consulta vedada." },
+            {
+              "text": "Estrutura: três blocos (diagnóstico, desenvolvimento, reflexão) com entregas sequenciais."
+            },
+            {
+              "text": "Material permitido: apenas caneta azul ou preta, lápis para rascunho e régua para organização do papel."
+            },
+            {
+              "text": "Entregáveis: caderno de questões, folha de respostas e rascunhos assinados."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Mapa da avaliação integradora",
       "items": [
-        "Escopo: Prova NP3 presencial abrangendo todos os tópicos do semestre, com duração de 120 minutos.",
-        "Formato: Questões discursivas, resolução de algoritmos completos e análise de código existente.",
-        "Objetivo: Demonstrar domínio de lógica, estruturas de dados lineares e modularização em C.",
-        "Estratégia: Planejar tempo entre leitura, rascunho e revisão, priorizando clareza de raciocínio.",
-        "Entrega: Respostas devem conter pseudocódigo ou C legível, acompanhadas de explicações breves."
+        "(10 min) Orientações iniciais: regras de conduta, checagem de documentos e distribuição dos cadernos.",
+        "(25 min) Bloco 1 — Diagnóstico: questões objetivas e problemas curtos para aquecer raciocínio lógico.",
+        "(45 min) Bloco 2 — Desenvolvimento: resolução de algoritmos completos com vetores, matrizes e structs.",
+        "(30 min) Bloco 3 — Reflexão: análise crítica de código legado, justificativas e estimativas de complexidade.",
+        "(10 min) Revisão final e entrega: conferência de respostas, organização dos materiais e assinatura de recebimento."
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro operacional da NP3",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Bloco 0 — Conduta",
+          "content": "Explique normas de sigilo, desligamento de dispositivos e procedimento para dúvidas antes do início da contagem de tempo."
+        },
+        {
+          "icon": "book-open",
+          "title": "Bloco 1 — Diagnóstico",
+          "content": "Liberado após orientações; alunos respondem perguntas de múltipla escolha e pequenos algoritmos (25 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Bloco 2 — Desenvolvimento",
+          "content": "Questões de implementação em C com suporte a rascunho. Professores registram dúvidas frequentes no quadro (45 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Bloco 3 — Revisão crítica",
+          "content": "Análise de código legado e perguntas discursivas orientadas à justificativa de escolhas (30 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Bloco 4 — Encerramento",
+          "content": "Colete provas, rascunhos e listas de presença; confirme recibo de entrega e orientações para devolutiva (10 min)."
+        }
       ]
     },
     {
       "type": "cardGrid",
-      "title": "Componentes-chave da prova",
+      "title": "Rubrica oficial NP3",
       "cards": [
         {
-          "title": "Fluxos completos",
-          "content": "Avalia a capacidade de ligar entrada, processamento e saída com estruturas sequenciais, condicionais e iterativas."
+          "title": "Corretude — 40%",
+          "content": "Implementa solução que compila, atende aos requisitos e trata casos de borda (entradas inválidas, limites de loops)."
         },
         {
-          "title": "Coleções",
-          "content": "Questões com vetores, matrizes e structs, explorando percursos, buscas e agregações de dados."
+          "title": "Estrutura e modularização — 25%",
+          "content": "Organiza o código em funções coesas, usa variáveis bem nomeadas e respeita o fluxo proposto no enunciado."
         },
         {
-          "title": "Funções reutilizáveis",
-          "content": "Exige decomposição em funções bem nomeadas, com parâmetros e retorno adequados para reutilização."
+          "title": "Domínio de dados — 20%",
+          "content": "Manipula vetores, matrizes e structs com precisão, mantendo integridade e desempenho aceitável."
         },
         {
-          "title": "Análise crítica",
-          "content": "Inclui identificação de erros lógicos, discussão de complexidade e sugestões de melhoria em códigos fornecidos."
+          "title": "Clareza comunicativa — 15%",
+          "content": "Apresenta comentários breves, justificativas e rascunhos legíveis, apoiando a correção e a rastreabilidade da solução."
         }
       ]
     },
@@ -85,6 +137,10 @@
         {
           "type": "paragraph",
           "text": "Utilize rascunho para mapear as etapas do algoritmo antes de codificar. A clareza na apresentação vale pontos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sinalize dúvidas levantando a mão; deslocamentos só são autorizados com acompanhamento do fiscal."
         }
       ]
     },
@@ -97,9 +153,9 @@
           "title": "Como a nota é distribuída",
           "items": [
             "Corretude (40%): resultados esperados, tratamento de bordas e validação de entrada.",
-            "Estrutura (30%): uso apropriado de laços, decisões e funções para organizar o algoritmo.",
+            "Estrutura (25%): uso apropriado de laços, decisões e funções para organizar o algoritmo.",
             "Dados (20%): manipulação correta de vetores, matrizes e registros, incluindo índices e inicializações.",
-            "Apresentação (10%): indentação, nomenclatura consistente e explicações concisas quando solicitadas."
+            "Apresentação (15%): indentação, nomenclatura consistente e explicações concisas quando solicitadas."
           ]
         },
         {
@@ -134,6 +190,21 @@
         {
           "type": "paragraph",
           "text": "Prova individual, sem consulta. Entregue todo material de rascunho ao final e mantenha dispositivos desligados."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Chegue com 15 minutos de antecedência para acomodação e conferência de documentos."
+            },
+            {
+              "text": "Durante os blocos 1 e 2, somente perguntas de compreensão do enunciado serão respondidas."
+            },
+            {
+              "text": "Saídas ao banheiro são registradas e realizadas uma pessoa por vez, com supervisão."
+            },
+            { "text": "Assine a lista de presença e o recibo de entrega antes de deixar a sala." }
+          ]
         }
       ]
     },
@@ -165,9 +236,13 @@
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-03-11T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Ata pedagógica de revisão 2024-12",
+      "Guia operacional de avaliações NP3 2025"
+    ]
   },
   "formatVersion": "md3.lesson.v1",
   "slug": "avaliacao-np3",
