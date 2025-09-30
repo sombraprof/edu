@@ -463,6 +463,45 @@
     },
     {
       "type": "contentBlock",
+      "title": "🧠 Tipos Primitivos em C (Referência Rápida)",
+      "content": [
+        {
+          "type": "md3Table",
+          "headers": ["Tipo", "Tamanho típico", "Faixa de valores", "Máscara no printf"],
+          "rows": [
+            ["char", "1 byte", "-128 a 127 (com sinal)", "%c / %d"],
+            ["unsigned char", "1 byte", "0 a 255", "%c / %u"],
+            ["short", "2 bytes", "-32.768 a 32.767", "%hd"],
+            ["int", "4 bytes", "-2.147.483.648 a 2.147.483.647", "%d"],
+            ["unsigned int", "4 bytes", "0 a 4.294.967.295", "%u"],
+            ["float", "4 bytes", "~1,2×10⁻³⁸ a 3,4×10³⁸", "%f"],
+            ["double", "8 bytes", "~2,3×10⁻³⁰⁸ a 1,7×10³⁰⁸", "%lf"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Use esta tabela como apoio rápido enquanto implementa algoritmos numéricos na aula."
+        },
+        {
+          "type": "button",
+          "text": "Cheat Sheet C — Sintaxe Essencial",
+          "href": "https://quickref.me/c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Teste obrigatório no OnlineGDB",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Antes de enviar qualquer exercício desta aula, rode o código no OnlineGDB (modo C) e anexe o link de execução nos comentários da entrega."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "📚 Recursos Oficiais e Ferramentas",
       "content": [
         {

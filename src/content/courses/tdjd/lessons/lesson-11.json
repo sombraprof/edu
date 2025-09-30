@@ -82,6 +82,59 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "📝 Mini-teste relâmpago (Moodle)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Complete o mini-teste individual e envie as respostas no Moodle > Aula 11 > Mini-teste até 23h59."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão 1",
+              "text": "Explique, em até 3 linhas, quando preferir eventos em vez de chamadas diretas entre componentes."
+            },
+            {
+              "title": "Questão 2",
+              "text": "Descreva a diferença entre yield return null e WaitForSeconds(2f) dentro de uma corrotina."
+            },
+            {
+              "title": "Questão 3",
+              "text": "Indique um risco comum ao não cancelar corrotinas ao trocar de cena e como mitigá-lo."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Formato do envio: um PDF ou texto direto no Moodle contendo respostas numeradas. Nomeie o arquivo como TURMA_SOBRENOME_A11.pdf."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Revisão individual obrigatória",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Após o envio, reserve 15 minutos para revisar sua própria cena: execute o build, valide logs e registre ajustes necessários no GDD técnico."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🗒️ Template de feedback linha a linha",
+      "content": [
+        {
+          "type": "code",
+          "language": "markdown",
+          "code": "| Linha | Contexto | Comentário | Ação Próxima |\n|-------|----------|------------|--------------|\n| 12    | EnemySpawner.cs | Evento dispara duas vezes | Consolidar unsubscribe em OnDisable |\n| 27    | BossSequence.cs | Coroutine não cancela | Adicionar StopCoroutine no fim do combate |"
+        }
+      ]
+    },
+    {
       "type": "checklist",
       "title": "Pronto para seguir?",
       "items": [

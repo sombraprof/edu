@@ -25,6 +25,17 @@
       ]
     },
     {
+      "type": "flightPlan",
+      "title": "Estudos de caso que guiam a aula",
+      "items": [
+        "Estudo de caso: Celeste — onboarding suave com narrativa integrada; observar como as salas iniciais introduzem cada mecânica.",
+        "Estudo de caso: Portal — ritmo de puzzles e teletransportes; analisar checkpoints, feedbacks visuais e trilha do jogador.",
+        "Estudo de caso: Hades — ciclos de tentativa e erro; notar como o GDD descreve progressão e economia persistente.",
+        "Aplicar insights: mapear qual elemento do seu protótipo conversa com cada referência e registrar no GDD.",
+        "Planejar próximos passos: definir cenas prioritárias e metas de playtest baseadas nas métricas acima."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "A Trindade do Design: Cena, Narrativa e Mecânica",
       "content": [
@@ -372,6 +383,72 @@
             "Atualize seu GDD: verifique se mecânicas, metas e métricas batem com a cena. Inclua um print atual da cena funcional.",
             "Troque feedback com um colega: peça avaliação da clareza e da conexão GDD↔Cena. Registre as sugestões-chave.",
             "Publique no Fórum: poste no Moodle o GDD e um resumo do feedback recebido e as ações que você fará."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📊 Planilha de Dados de Teste",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use a planilha para registrar cada rodada de playtest: cenário, objetivo, métricas e observações qualitativas. Atualize antes da mentoria."
+        },
+        {
+          "type": "button",
+          "text": "Planilha TDJD - Dados de Teste",
+          "href": "https://docs.google.com/spreadsheets/d/1hA9ZcFZkByXlP_U2xFVLtYeRRa0Tirjb1Pn8dlfTest/edit?usp=sharing"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "✅ Checklists de Validação do Build",
+      "content": [
+        {
+          "type": "contentBlock",
+          "title": "Cena & Jogabilidade",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Spawn inicial correto e sem clipping.",
+                "Loops de gameplay fechados (entrada → feedback → recompensa) funcionando.",
+                "Triggers de progressão ativam logs no Console ou UI conforme definido no GDD."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Interface & Feedback",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "HUD sincronizado com variáveis (vida, moedas, objetivo atual).",
+                "Mensagens de erro/sucesso localizadas e sem texto placeholder.",
+                "Áudio e partículas disparando apenas quando previstos."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "contentBlock",
+          "title": "Documentação & Build",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "GDD atualizado com data da build e mudanças relevantes.",
+                "Planilha de testes preenchida com status (OK / Ação necessária).",
+                "Build exportada sem warnings críticos no Console."
+              ]
+            }
           ]
         }
       ]
