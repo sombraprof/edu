@@ -26,14 +26,24 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Miro ou Draw.io (versão web)",
+      "label": "Miro (versão web)",
       "type": "tool",
       "url": "https://miro.com"
+    },
+    {
+      "label": "Draw.io (app.diagrams.net)",
+      "type": "tool",
+      "url": "https://app.diagrams.net/"
     },
     {
       "label": "Folhas A3 e canetas hidrográficas",
       "type": "material",
       "url": "https://example.edu/algi/kit-visuais.pdf"
+    },
+    {
+      "label": "Guia MD3 de simbologia para fluxogramas",
+      "type": "document",
+      "url": "https://static.md3.education/courses/algi/guias/simbologia-fluxogramas.pdf"
     },
     {
       "label": "OnlineGDB - Projeto C pré-configurado",
@@ -108,6 +118,67 @@
           "icon": "gears",
           "title": "Metodologia",
           "content": "Exposição dialogada, demonstração com Md3Flowchart e prática em duplas."
+        }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Biblioteca MD3 de símbolos para fluxogramas",
+      "nodes": [
+        {
+          "id": "inicio",
+          "type": "start",
+          "title": "Início/Fim",
+          "summary": "Usado para delimitar o fluxo. Formato oval."
+        },
+        {
+          "id": "entrada",
+          "type": "input-output",
+          "title": "Entrada/Saída",
+          "summary": "Representa leitura de dados ou exibição de resultados (paralelogramo)."
+        },
+        {
+          "id": "processo",
+          "type": "process",
+          "title": "Processo",
+          "summary": "Mostra cálculos ou atribuições (retângulo)."
+        },
+        {
+          "id": "decisao",
+          "type": "decision",
+          "title": "Decisão",
+          "summary": "Indica ramificações com perguntas fechadas (losango)."
+        },
+        {
+          "id": "conector",
+          "type": "connector",
+          "title": "Conector",
+          "summary": "Liga pontos distantes do diagrama mantendo a leitura limpa."
+        }
+      ],
+      "connections": [
+        {
+          "from": "inicio",
+          "to": "entrada"
+        },
+        {
+          "from": "entrada",
+          "to": "processo"
+        },
+        {
+          "from": "processo",
+          "to": "decisao"
+        },
+        {
+          "from": "decisao",
+          "to": "conector",
+          "label": "Sim"
+        },
+        {
+          "from": "decisao",
+          "to": "processo",
+          "kind": "loop",
+          "label": "Não / repetir"
         }
       ]
     },
@@ -259,6 +330,21 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Roteiro de revisão cruzada",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Compare o fluxograma recebido com o Guia MD3 de simbologia e a biblioteca acima; marque símbolos ausentes ou trocados.",
+            "Percorra cada caminho respondendo: entrada → processamento → decisão → saída estão completos? Documente lacunas.",
+            "Sugira melhorias objetivas (organização, textos nos símbolos, conectores) e combine ajustes em até 10 minutos."
+          ]
+        }
+      ]
+    },
+    {
       "type": "checklist",
       "title": "Checklist de saída",
       "description": "Antes de encerrar:",
@@ -281,10 +367,10 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Anexe o fluxograma final exportado em PDF ou imagem (Draw.io, Miro ou similar)."
+              "text": "Faça upload do fluxograma final exportado (PDF ou imagem) junto com o arquivo-fonte da ferramenta utilizada."
             },
             {
-              "text": "Adicione checklist de símbolos utilizados e justifique escolhas em um parágrafo."
+              "text": "Preencha o checklist de símbolos (Início/Fim, Entrada/Saída, Processo, Decisão, Conectores) indicando onde aparecem e justifique escolhas em um parágrafo."
             }
           ]
         },

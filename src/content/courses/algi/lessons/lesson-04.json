@@ -51,6 +51,11 @@
       "url": "https://github.com/md3-education/algi-c-template"
     },
     {
+      "label": "Vídeo-guia: Convertendo Portugol em C (MD3)",
+      "type": "video",
+      "url": "https://static.md3.education/videos/algi/portugol-para-c.mp4"
+    },
+    {
       "label": "Planilha de preparação pré-aula",
       "type": "spreadsheet",
       "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
@@ -99,6 +104,21 @@
         "(25 min) Tradução guiada de um algoritmo de soma.",
         "(30 min) Laboratório: implementar variações em dupla (média, desconto, conversões).",
         "(15 min) Testes, depuração e checklist de entrega."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Prepare o ambiente antes de codar",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Clone o template \"VS Code - Template C com CMake\" listado em Recursos e execute a tarefa Run Build Task uma vez para baixar dependências. O projeto já traz o arquivo main.c, configuração de depuração e script de testes rápidos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Prefere navegador? Acesse o vídeo-guia de conversão e deixe-o aberto para consultar as equivalências enquanto transpila o pseudocódigo."
+        }
       ]
     },
     {
@@ -160,6 +180,28 @@
         {
           "type": "paragraph",
           "text": "Observe como cada comando possui equivalente direto, mas exige atenção à sintaxe e aos tipos utilizados."
+        },
+        {
+          "type": "md3Table",
+          "title": "Comparativo MD3: Entrada, Processamento e Saída",
+          "headers": ["Etapa", "Portugol", "C"],
+          "rows": [
+            [
+              { "value": "Entrada" },
+              { "value": "LEIA(num1, num2)" },
+              { "value": "scanf(\"%d\", &num1); scanf(\"%d\", &num2);" }
+            ],
+            [
+              { "value": "Processamento" },
+              { "value": "soma <- num1 + num2" },
+              { "value": "soma = num1 + num2;" }
+            ],
+            [
+              { "value": "Saída" },
+              { "value": "ESCREVA(\"A soma é\", soma)" },
+              { "value": "printf(\"A soma é: %d\\n\", soma);" }
+            ]
+          ]
         }
       ]
     },
@@ -213,21 +255,18 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "TED pós-aula",
+      "title": "TED pós-aula: Programa de Soma",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 04' para anexar o artefato solicitado."
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 04' para anexar um pacote contendo código, checklist e evidências."
         },
         {
-          "type": "unorderedList",
+          "type": "orderedList",
           "items": [
-            {
-              "text": "Faça upload do arquivo .c convertendo o pseudocódigo trabalhado em sala."
-            },
-            {
-              "text": "Inclua comentários linha a linha nas seções críticas e uma captura da execução bem-sucedida."
-            }
+            "Implemente no template do VS Code o algoritmo de soma apresentado (entrada de dois inteiros, processamento da soma e saída formatada).",
+            "Valide o comportamento comparando cada etapa com a tabela \"Comparativo MD3\" e registre os testes executados (mínimo três pares de números).",
+            "Faça upload do arquivo .c, do print da execução e de um checklist assinalando Entrada, Processamento e Saída utilizados."
           ]
         },
         {
@@ -253,7 +292,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e mencione a etapa (entrada, processamento ou saída) onde está com dificuldade."
         }
       ]
     }
