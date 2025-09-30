@@ -29,35 +29,29 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Playbook do-while",
-      "type": "reading",
-      "file": "courses/algi/do-while-playbook.md",
-      "url": "https://static.md3.education/courses/algi/do-while-playbook.md"
+      "label": "Playbook do menu bancário",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/menu-bancario-do-while.pdf"
     },
     {
-      "label": "Compilador OnlineGDB",
-      "url": "https://www.onlinegdb.com/online_c_compiler",
-      "type": "tool"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Checklist de testes do-while",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistDoWhile"
+    },
+    {
+      "label": "Vídeo: Do-while loops (Curso em Vídeo)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=OB6s06eQGP0"
+    },
+    {
+      "label": "Projeto OnlineGDB – Menu bancário",
+      "type": "tool",
+      "url": "https://onlinegdb.com/H1MenuDoWhile"
+    },
+    {
+      "label": "Template de relatório de menu",
+      "type": "document",
+      "url": "https://example.edu/algi/templates/relatorio-menu.docx"
     }
   ],
   "bibliography": [
@@ -214,16 +208,41 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Valide entrada antes de repetir",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mesmo com execução garantida, cheque limites e opções inválidas dentro do laço antes de continuar."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Exiba mensagem amigável quando a opção não existir."
+            },
+            {
+              "text": "Garanta que a condição de saída só aceita valores permitidos."
+            },
+            {
+              "text": "Logue tentativas inválidas na planilha de testes."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Casos para praticar",
       "cards": [
         {
           "title": "Menu bancário",
-          "content": "Saldo, depósito, saque e saída."
+          "content": "Saldo, depósito, saque e saída controlados pelo do-while."
         },
         {
           "title": "Painel de configuração",
-          "content": "Alterar idioma, brilho, volume antes de sair."
+          "content": "Alterar idioma, brilho e volume e retornar ao menu."
         },
         {
           "title": "Processador de formulários",
@@ -242,55 +261,57 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "TED 20 – Menu bancário",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 20' para anexar o artefato solicitado."
+          "text": "Envie até 23h59: código do menu, checklist de testes preenchido e breve explicação sobre a condição de permanência."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Implemente aula20_menu_do_while.c com menu interativo que executa ao menos três ações antes de perguntar se deseja repetir."
+              "text": "Arquivo aula20_menu.c."
             },
             {
-              "text": "Anexe vídeo curto ou GIF mostrando a navegação e os cenários de saída."
+              "text": "Checklist 'TED20_do_while.xlsx' com casos de saída imediata e repetição."
+            },
+            {
+              "text": "Comentário no Moodle descrevendo validações aplicadas."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 20",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Menu executa ao menos uma vez e encerra corretamente (30%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Validações de entrada e mensagens claras ao usuário (30%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Checklist de testes completo com evidências (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Relato sobre aprendizados e próximos ajustes (15%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Playbook interno de menus interativos"]
   }

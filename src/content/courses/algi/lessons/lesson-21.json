@@ -26,35 +26,24 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Laboratório de laços aninhados",
-      "type": "lab",
-      "file": "courses/algi/lacos-aninhados-lab.md",
-      "url": "https://static.md3.education/courses/algi/lacos-aninhados-lab.md"
+      "label": "Laboratório de padrões ASCII",
+      "type": "worksheet",
+      "url": "https://example.edu/algi/labs/padroes-ascii.pdf"
     },
     {
-      "label": "Ferramenta de desenho ASCII",
-      "url": "https://asciiflow.com/",
-      "type": "tool"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
+      "label": "Editor ASCII online",
       "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
+      "url": "https://asciiflow.com/"
     },
     {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
+      "label": "Dataset de padrões (CSV)",
+      "type": "dataset",
+      "url": "https://example.edu/algi/datasets/padroes-ascii.csv"
     },
     {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Rubrica do mini-projeto de laços aninhados",
+      "type": "handout",
+      "url": "https://example.edu/algi/rubricas/mini-projeto-loops.pdf"
     }
   ],
   "bibliography": [
@@ -97,18 +86,28 @@
       "cards": [
         {
           "icon": "book-open",
-          "title": "Mapa mental",
-          "content": "Visualizar responsabilidades de cada laço e definir limites claros."
+          "title": "Demonstração ASCII",
+          "content": "Desenhar padrões no quadro usando caracteres para entender coordenadas (15 min)."
         },
         {
           "icon": "gears",
-          "title": "Prática",
-          "content": "Construção de padrões, tabelas de multiplicação e simulação de assentos."
+          "title": "Modelagem de loops duplos",
+          "content": "Planejar relação linha x coluna antes de codificar (20 min)."
         },
         {
-          "icon": "graduation-cap",
-          "title": "Reflexão",
-          "content": "Avaliar complexidade e possíveis otimizações."
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Implementar padrões em C com orientação do professor (30 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Mini-projeto",
+          "content": "Em squads, adaptar padrões para o case integrador (25 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Debrief",
+          "content": "Compartilhar métricas coletadas e próximos passos (15 min)."
         }
       ]
     },
@@ -228,56 +227,213 @@
       ]
     },
     {
+      "type": "md3Flowchart",
+      "title": "Fluxo de loops aninhados",
+      "summary": "Percorre linhas e colunas gerando padrões ASCII.",
+      "nodes": [
+        {
+          "id": "start",
+          "type": "start",
+          "title": "Início"
+        },
+        {
+          "id": "linha",
+          "type": "process",
+          "title": "linha = 0"
+        },
+        {
+          "id": "linha-cond",
+          "type": "decision",
+          "title": "linha < linhas?",
+          "branches": [
+            {
+              "id": "linha-sim",
+              "label": "Sim",
+              "target": "coluna"
+            },
+            {
+              "id": "linha-nao",
+              "label": "Não",
+              "target": "end"
+            }
+          ]
+        },
+        {
+          "id": "coluna",
+          "type": "process",
+          "title": "coluna = 0"
+        },
+        {
+          "id": "coluna-cond",
+          "type": "decision",
+          "title": "coluna < colunas?",
+          "branches": [
+            {
+              "id": "coluna-sim",
+              "label": "Sim",
+              "target": "imprimir"
+            },
+            {
+              "id": "coluna-nao",
+              "label": "Não",
+              "target": "linha-inc"
+            }
+          ]
+        },
+        {
+          "id": "imprimir",
+          "type": "process",
+          "title": "Imprimir caractere"
+        },
+        {
+          "id": "coluna-inc",
+          "type": "process",
+          "title": "coluna++"
+        },
+        {
+          "id": "linha-inc",
+          "type": "process",
+          "title": "linha++"
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "title": "Fim"
+        }
+      ],
+      "connections": [
+        {
+          "from": "start",
+          "to": "linha"
+        },
+        {
+          "from": "linha",
+          "to": "linha-cond"
+        },
+        {
+          "from": "linha-cond",
+          "to": "coluna",
+          "label": "Sim"
+        },
+        {
+          "from": "linha-cond",
+          "to": "end",
+          "label": "Não"
+        },
+        {
+          "from": "coluna",
+          "to": "coluna-cond"
+        },
+        {
+          "from": "coluna-cond",
+          "to": "imprimir",
+          "label": "Sim"
+        },
+        {
+          "from": "coluna-cond",
+          "to": "linha-inc",
+          "label": "Não"
+        },
+        {
+          "from": "imprimir",
+          "to": "coluna-inc"
+        },
+        {
+          "from": "coluna-inc",
+          "to": "coluna-cond"
+        },
+        {
+          "from": "linha-inc",
+          "to": "linha-cond"
+        }
+      ]
+    },
+    {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "Mini-projeto integrador",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 21' para anexar o artefato solicitado."
+          "text": "Use o dataset de padrões para escolher um desenho e adaptá-lo ao contexto da triagem. Registre métricas coletadas (tempo, linhas geradas)."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Métricas para acompanhar",
+      "cards": [
+        {
+          "title": "Tempo de execução",
+          "content": "Meça quanto tempo leva para gerar padrões maiores."
+        },
+        {
+          "title": "Contagem de caracteres",
+          "content": "Registre quantidade de caracteres impressos por padrão."
+        },
+        {
+          "title": "Uso de memória",
+          "content": "Observe variação ao armazenar padrões em matrizes."
+        },
+        {
+          "title": "Feedback da dupla",
+          "content": "Anote sugestões recebidas durante o mini-projeto."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED 21 – Padrões aninhados",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregue até 23h59: código com dois padrões, captura ASCII e relatório rápido com métricas coletadas."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Submeta aula21_tabela.c gerando tabela ou matriz textual com laços aninhados."
+              "text": "Arquivo aula21_padroes.c com funções separadas."
             },
             {
-              "text": "Inclua planilha de planejamento contendo valores iniciais, incrementos e resultado esperado para cada iteração."
+              "text": "Print do console exibindo padrões selecionados."
+            },
+            {
+              "text": "Relatório 'TED21_metricas.pdf' com indicadores do mini-projeto."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios TED 21",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Loops aninhados corretos e legíveis (35%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Integração com dataset ou case da triagem (25%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Métricas registradas e analisadas (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Entrega no prazo com organização dos arquivos (15%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório de laços aninhados 2024"]
   }

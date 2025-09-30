@@ -26,34 +26,24 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Notebook ou IDE configurada",
-      "url": "https://www.onlinegdb.com/online_c_compiler",
-      "type": "tool"
+      "label": "Vídeo: Laços while em C (Curso em Vídeo)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=HfX5ZtsdS0c"
     },
     {
-      "label": "Worksheet Laços Enquanto",
-      "url": "https://example.edu/algi/worksheets/while.pdf",
-      "type": "handout"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
+      "label": "Planilha de testes para while",
       "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIWhileTestSuite"
+    },
+    {
+      "label": "Projeto OnlineGDB – Média com sentinela",
+      "type": "tool",
+      "url": "https://onlinegdb.com/H1WhileSentinela"
+    },
+    {
+      "label": "Template de relatório de loops",
+      "type": "document",
+      "url": "https://example.edu/algi/templates/relatorio-while.docx"
     }
   ],
   "bibliography": [
@@ -91,6 +81,42 @@
       ]
     },
     {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Diagnóstico",
+          "content": "Retomar situações que exigem repetição com verificação antes da execução (10 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Desenho do fluxo",
+          "content": "Converter briefing em fluxograma com sentinela destacado (15 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Implementar média até sentinela usando OnlineGDB (30 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Testes orientados",
+          "content": "Preencher planilha com entradas válidas, inválidas e sentinelas (25 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Retro",
+          "content": "Compartilhar armadilhas encontradas e ajustes realizados (20 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Detalhar entrega com código, planilha e relato das validações (15 min)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo (1h55)",
       "items": [
@@ -117,6 +143,24 @@
             "Validação de entrada até o usuário fornecer dados corretos.",
             "Monitoramento de sensores enquanto a leitura estiver dentro do intervalo."
           ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Erros comuns em while",
+      "cards": [
+        {
+          "title": "Loop infinito",
+          "content": "Condição nunca atualizada ou sentinela não lida corretamente."
+        },
+        {
+          "title": "Sentinela somada",
+          "content": "Somar o valor de saída distorce média e contadores."
+        },
+        {
+          "title": "Validação tardia",
+          "content": "Checar entrada após acumular exige desfazer operações."
         }
       ]
     },
@@ -205,6 +249,27 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Validação de entradas obrigatória",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Rejeite notas fora do intervalo 0-10 antes de acumular."
+            },
+            {
+              "text": "Solicite nova entrada quando usuário digitar valor inválido."
+            },
+            {
+              "text": "Documente na planilha os casos rejeitados e o comportamento esperado."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "code",
       "language": "c",
       "code": "int nota = 0;\nint soma = 0;\nint quantidade = 0;\n\nprintf(\"Digite uma nota ou -1 para encerrar: \");\nscanf(\"%d\", &nota);\nwhile (nota != -1) {\n  soma += nota;\n  quantidade++;\n  printf(\"Digite uma nota ou -1 para encerrar: \");\n  scanf(\"%d\", &nota);\n}\nif (quantidade > 0) {\n  printf(\"Média: %.2f\\n\", (float)soma / quantidade);\n} else {\n  printf(\"Nenhuma nota válida informada\\n\");\n}\n"
@@ -260,55 +325,57 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "TED 17 – Média até sentinela",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 17' para anexar o artefato solicitado."
+          "text": "Envie até 23h59 do dia seguinte: código em C, planilha de testes e breve relato explicando a lógica de saída."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Implemente aula17_sentinal.c com laço while controlado por sentinela para registrar entradas até condição de parada."
+              "text": "Arquivo aula17_media_while.c."
             },
             {
-              "text": "Inclua planilha mostrando simulação passo a passo das iterações e valores acumulados."
+              "text": "Planilha 'TED17_while.xlsx' com casos válidos, inválidos e sentinela."
+            },
+            {
+              "text": "Parágrafo no Moodle descrevendo como evita loops infinitos."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 17",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Entrega no prazo com todos os arquivos (20%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Controle correto do sentinela e validação das entradas (35%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Planilha de testes completa com resultados conferidos (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Relato claro das decisões tomadas e riscos observados (20%)."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Roteiro de laboratório while 2025"]
   }

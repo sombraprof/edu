@@ -26,34 +26,34 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Planilha de testes para cadeias de decisão",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/planilha-else-if.xlsx"
+      "label": "Playlist Estruturas Condicionais – Curso em Vídeo",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dk_nZHmxxf_J0WRAqy5Cz9"
     },
     {
-      "label": "Compilador OnlineGDB",
+      "label": "Planilha de testes - Cadeias else if",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGICadeiasElseIfTests"
+    },
+    {
+      "label": "Checklist de validação manual",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistElseIf"
+    },
+    {
+      "label": "Template OnlineGDB - Cadeias de decisão",
       "type": "tool",
-      "url": "https://www.onlinegdb.com/online_c_compiler"
+      "url": "https://onlinegdb.com/H1ElseIfTemplate"
     },
     {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
+      "label": "Repositório modelo C com CMake",
       "type": "repository",
       "url": "https://github.com/md3-education/algi-c-template"
     },
     {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Guia de documentação de regras",
+      "type": "handout",
+      "url": "https://example.edu/algi/guias/documentar-regras.pdf"
     }
   ],
   "bibliography": [
@@ -97,18 +97,33 @@
       "cards": [
         {
           "icon": "book-open",
-          "title": "Conteúdo",
-          "content": "Cadeias else if, combinações com operadores lógicos e documentação de faixas."
+          "title": "Recap",
+          "content": "Revisar if/else e exemplos de priorização de faixas (10 min)."
         },
         {
-          "icon": "bullseye",
-          "title": "Objetivo",
-          "content": "Garantir que cada faixa de regra seja coberta por um único ramo claramente documentado."
+          "icon": "target",
+          "title": "Briefing",
+          "content": "Apresentar o estudo de caso e mapear entradas/saídas esperadas (15 min)."
         },
         {
-          "icon": "gears",
-          "title": "Metodologia",
-          "content": "Exposição dialogada, análise de estudos de caso e laboratório orientado para criar classificadores completos."
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Construir o esqueleto do classificador em C com acompanhamento (30 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Testes orientados",
+          "content": "Executar tabela de casos limite na planilha compartilhada (25 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Retrospectiva",
+          "content": "Compartilhar falhas detectadas e ajustes realizados (20 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Detalhar entregáveis, rubrica e checklist final antes do envio (15 min)."
         }
       ]
     },
@@ -286,6 +301,30 @@
       }
     },
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Checklist de testes manuais",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Valide limites inferior, superior e valores médios para cada faixa."
+            },
+            {
+              "text": "Registre caso negativo que deve acionar o else final."
+            },
+            {
+              "text": "Anote em planilha o resultado obtido e o esperado para cada entrada."
+            },
+            {
+              "text": "Inclua captura de tela ou log do console quando houver divergência."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "md3Table",
       "title": "Cobertura das faixas",
       "headers": ["Condição", "Intervalo tratado", "Saída"],
@@ -376,6 +415,24 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Armadilhas em cadeias else if",
+      "cards": [
+        {
+          "title": "Faixas sobrepostas",
+          "content": "Condições com >= e <= mal ordenadas fazem valores caírem no ramo errado."
+        },
+        {
+          "title": "Condições inalcançáveis",
+          "content": "Quando um if cobre toda a faixa, os próximos else if nunca executam."
+        },
+        {
+          "title": "Valores padrão frágeis",
+          "content": "Esquecer validações no else final pode aceitar entradas inválidas sem aviso."
+        }
+      ]
+    },
+    {
       "type": "videos",
       "title": "Vídeos de apoio",
       "videos": [
@@ -400,55 +457,61 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "TED pós-aula",
+      "variant": "info",
+      "title": "TED 12 – Classificador com cobertura total",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 12' para anexar o artefato solicitado."
+          "text": "Envie no Moodle (atividade TED Aula 12) até 23h59 do dia seguinte: código em C, planilha de testes preenchida e um parágrafo justificando a ordem dos ramos."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entregue aula12_classificador.c com decisões encadeadas para frequência e nota."
+              "text": "Arquivo principal: aula12_classificador.c."
             },
             {
-              "text": "Inclua planilha com casos de teste (limites, extremos e casos inválidos) evidenciando resultado esperado."
+              "text": "Planilha 'TED12_Testes.xlsx' com casos válidos, limites e inválidos."
+            },
+            {
+              "text": "Comentário textual destacando decisões críticas adotadas."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 12",
+      "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Entrega no prazo registrado no Moodle (20%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Cobertura total das faixas solicitadas sem lacunas (40%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Planilha de testes com evidências e resultados conferidos (25%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Justificativa sobre ordenação das condições e casos críticos (15%)."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Envios sem planilha ou sem evidência de testes serão devolvidos para reenvio com desconto."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-04-05T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }
