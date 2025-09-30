@@ -72,6 +72,35 @@
     },
     {
       "type": "contentBlock",
+      "title": "🎙️ Dinâmica Fishbowl para Debates de Referências",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organize dois círculos concêntricos: o interno debate ativamente enquanto o externo observa e registra insights. A cada rodada, troque participantes para que todos vivenciem os dois papéis."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Rodada 1 (8 min): grupo interno discute qual elemento torna um case Indie inspirador; observadores anotam padrões de inovação.",
+            "Rodada 2 (8 min): troca de posições e análise das estratégias AAA; observadores registram riscos e oportunidades.",
+            "Síntese (4 min): toda a turma gera um mural de aprendizados no Miro, destacando convergências entre os dois modelos."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Papéis claros",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Facilitador mantém o tempo e garante a escuta ativa; relator compila as notas para disponibilizar no Moodle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "O que são Jogos Indie e AAA?",
       "content": [
         {
@@ -197,6 +226,36 @@
               "text": "Insight: Um bom desenvolvedor entende que o pipeline define mais do que etapas técnicas: ele influencia o próprio design do jogo. Projetos híbridos podem combinar a agilidade Indie com o polimento AAA, adaptando processos para equipes médias."
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "📄 Template de Pseudocódigo (Portugol Studio)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize o modelo abaixo para organizar o raciocínio antes de migrar para uma engine. O formato é compatível com o Portugol Studio e favorece o registro padronizado das mecânicas."
+        },
+        {
+          "type": "code",
+          "language": "portugol",
+          "code": "programa {\n\tfuncao inicio() {\n\t\t// Configurar variaveis iniciais\n\t\tinteiro vidas <- 3\n\t\treal tempoJogo <- 0\n\n\t\t// Loop principal\n\t\tenquanto (vidas > 0) {\n\t\t\tchamar atualizarEntradaJogador()\n\t\t\tchamar atualizarMundo()\n\t\t\tchamar verificarCondicoesDeVitoria()\n\t\t\ttempoJogo <- tempoJogo + delta_tempo\n\t\t}\n\n\t\t// Encerrar\n\t\tchamar exibirResumoPartida(tempoJogo)\n\t}\n}\n\nprocedimento atualizarEntradaJogador() {\n\t// TODO: Mapear comandos e estados\n}\n\nprocedimento atualizarMundo() {\n\t// TODO: Resolver física, IA e colisões\n}\n\nprocedimento verificarCondicoesDeVitoria() {\n\t// TODO: Definir regras de vitória/derrota\n}\n"
+        },
+        {
+          "type": "button",
+          "text": "Baixar template .por (Google Drive)",
+          "href": "https://drive.google.com/file/d/tdjd-template-portugol/view"
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "🎥 Demonstração Alura+ – Do Pseudocódigo ao Protótipo",
+      "videos": [
+        {
+          "title": "Playlist Alura+ • Algoritmos para Jogos",
+          "youtubeId": "k1BneeJTDcU"
         }
       ]
     },
@@ -613,32 +672,41 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Para consolidar a habilidade de análise crítica, a tarefa desta semana é uma pesquisa de campo. O objetivo é aplicar os conceitos vistos em aula a dois jogos de sua escolha."
+          "text": "Consolide a habilidade de análise crítica comparando dois jogos de escalas distintas (Indie vs AAA ou híbridos). O foco é evidenciar decisões de design com base em dados observáveis."
         },
         {
-          "type": "list",
+          "type": "orderedList",
           "items": [
-            "Escolha dos Jogos: Selecione dois jogos de gêneros diferentes. Pode ser um que você já jogou ou um que você irá observar através de vídeos de gameplay.",
-            "Análise Individual: Para cada jogo, analise e anote os seguintes pontos: - Gênero e Hibridismo: Qual o gênero principal e quais elementos de outros gêneros ele incorpora? - Mecânicas Centrais: Quais são as 2-3 ações que formam o core loop do jogo? - Público-Alvo: Para quem você acredita que este jogo foi feito? (Casual, hardcore, família, etc.) - Conceitos Físico-Matemáticos: Quais conceitos de física (colisão, gravidade, momento) ou matemática (vetores, IA, grafos) você identificou?",
-            "Publicação no Fórum: Crie uma postagem no Moodle com o título \"Análise Comparativa: [Jogo 1] vs. [Jogo 2]\". Na postagem, apresente sua análise de forma comparativa, destacando as principais diferenças e semelhanças no design, mecânicas e público-alvo dos dois jogos."
+            {
+              "title": "Selecionar referências",
+              "text": "Escolha dois jogos de gêneros diferentes e reúna fontes (gameplay próprio ou vídeos) que permitam observar o core loop completo."
+            },
+            {
+              "title": "Analisar sistematicamente",
+              "text": "Para cada título, descreva gênero/hibridismo, três mecânicas centrais e o público-alvo, comentando como física e matemática sustentam essas escolhas."
+            },
+            {
+              "title": "Comparar e concluir",
+              "text": "Publique no fórum do Moodle uma síntese de 20 linhas destacando convergências/divergências e insights para o projeto autoral do semestre."
+            }
           ]
         },
         {
-          "type": "callout",
-          "variant": "good-practice",
-          "title": "Checklist de Avaliação",
-          "content": [
-            {
-              "type": "list",
-              "ordered": false,
-              "items": [
-                "A comparação está bem estruturada e clara.",
-                "Usei corretamente os conceitos de gênero, mecânica e público-alvo.",
-                "Minha análise conectou as mecânicas com a experiência do jogador.",
-                "Identifiquei os conceitos de física/matemática aplicados.",
-                "Citei as fontes (Salen & Zimmerman, 2012; Schuytema, 2008) para fortalecer a argumentação."
-              ]
-            }
+          "type": "md3Table",
+          "headers": ["Critério", "Evidência esperada"],
+          "rows": [
+            [
+              "Rigor analítico",
+              "Apresenta dados observáveis (tempos, capturas ou referências) para sustentar cada argumento."
+            ],
+            [
+              "Clareza comparativa",
+              "Organiza a síntese com marcadores ou subtítulos que diferenciam os jogos analisados."
+            ],
+            [
+              "Aplicabilidade",
+              "Fecha o texto com ao menos uma implicação prática para o projeto da equipe."
+            ]
           ]
         }
       ]
