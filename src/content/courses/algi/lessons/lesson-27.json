@@ -44,6 +44,26 @@
       "label": "Playlist: Modularização em projetos C",
       "type": "playlist",
       "url": "https://www.youtube.com/playlist?list=PL85ITvJ7FLoiLzI0ul9nrSfoU4l-Ve4dP"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -56,6 +76,31 @@
     "description": "Projeto em squads: construir mini-sistema de triagem modular com build automatizado e relatório de integração."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Programas Modulares com Múltiplas Funções. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 27."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Estrutura da aula",
@@ -109,25 +154,56 @@
       "headers": ["Alvo", "Dependências", "Comando"],
       "rows": [
         [
-          { "value": "app" },
-          { "value": "main.o entrada.o dominio.o relatorios.o" },
-          { "value": "gcc -Wall -Wextra -Werror $^ -o app" }
+          {
+            "value": "app"
+          },
+          {
+            "value": "main.o entrada.o dominio.o relatorios.o"
+          },
+          {
+            "value": "gcc -Wall -Wextra -Werror $^ -o app"
+          }
         ],
         [
-          { "value": "%.o" },
-          { "value": "%.c %.h" },
-          { "value": "gcc -Wall -Wextra -Werror -c $<" }
+          {
+            "value": "%.o"
+          },
+          {
+            "value": "%.c %.h"
+          },
+          {
+            "value": "gcc -Wall -Wextra -Werror -c $<"
+          }
         ],
-        [{ "value": "clean" }, { "value": "" }, { "value": "rm -f *.o app" }]
+        [
+          {
+            "value": "clean"
+          },
+          {
+            "value": ""
+          },
+          {
+            "value": "rm -f *.o app"
+          }
+        ]
       ]
     },
     {
       "type": "cardGrid",
       "title": "Papéis na squad",
       "cards": [
-        { "title": "Arquiteto/a", "content": "Garante coesão entre módulos e revisa o canvas." },
-        { "title": "Líder de testes", "content": "Mantém suíte de testes atualizada por módulo." },
-        { "title": "Integrador/a", "content": "Configura Makefile e monitora builds." }
+        {
+          "title": "Arquiteto/a",
+          "content": "Garante coesão entre módulos e revisa o canvas."
+        },
+        {
+          "title": "Líder de testes",
+          "content": "Mantém suíte de testes atualizada por módulo."
+        },
+        {
+          "title": "Integrador/a",
+          "content": "Configura Makefile e monitora builds."
+        }
       ]
     },
     {
@@ -138,11 +214,58 @@
         "Makefile compila cada módulo isoladamente.",
         "Testes unitários passam sem regressões."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 27' para anexar o artefato solicitado."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Submeta repositório ZIP com estrutura modular (src, include, tests) e Makefile gerado em sala."
+            },
+            {
+              "text": "Inclua quadro de responsabilidades do squad e checklist de integração contínua."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-12T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": [
       "Plano pedagógico Algoritmos I 2025.1",

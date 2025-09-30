@@ -43,6 +43,26 @@
       "label": "Khan Academy - Pesquisa linear",
       "type": "course",
       "url": "https://pt.khanacademy.org/computing/computer-science/algorithms#linear-search"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -50,6 +70,31 @@
     "LAFORE, R. Estruturas de Dados & Algoritmos em C. Pearson, 2021."
   ],
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Buscas em Vetores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 32."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro da aula",
@@ -112,14 +157,46 @@
       "type": "md3Flowchart",
       "title": "Fluxograma da busca linear",
       "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "init", "type": "process", "label": "i = 0" },
-        { "id": "loop", "type": "loop", "label": "Enquanto i < n" },
-        { "id": "decision", "type": "decision", "label": "v[i] == chave?" },
-        { "id": "found", "type": "process", "label": "Retornar i" },
-        { "id": "inc", "type": "process", "label": "i++" },
-        { "id": "notfound", "type": "process", "label": "Retornar -1" },
-        { "id": "end", "type": "end", "label": "Fim" }
+        {
+          "id": "start",
+          "type": "start",
+          "label": "Início"
+        },
+        {
+          "id": "init",
+          "type": "process",
+          "label": "i = 0"
+        },
+        {
+          "id": "loop",
+          "type": "loop",
+          "label": "Enquanto i < n"
+        },
+        {
+          "id": "decision",
+          "type": "decision",
+          "label": "v[i] == chave?"
+        },
+        {
+          "id": "found",
+          "type": "process",
+          "label": "Retornar i"
+        },
+        {
+          "id": "inc",
+          "type": "process",
+          "label": "i++"
+        },
+        {
+          "id": "notfound",
+          "type": "process",
+          "label": "Retornar -1"
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "label": "Fim"
+        }
       ],
       "edges": [
         ["start", "init"],
@@ -144,9 +221,15 @@
         {
           "type": "orderedList",
           "items": [
-            { "text": "Carregar os códigos em vetor inteiro e nomes em vetor paralelo." },
-            { "text": "Utilizar busca linear para encontrar o índice correspondente." },
-            { "text": "Apresentar mensagem clara quando o SKU não existir." }
+            {
+              "text": "Carregar os códigos em vetor inteiro e nomes em vetor paralelo."
+            },
+            {
+              "text": "Utilizar busca linear para encontrar o índice correspondente."
+            },
+            {
+              "text": "Apresentar mensagem clara quando o SKU não existir."
+            }
           ]
         }
       ]
@@ -155,8 +238,14 @@
       "type": "videosBlock",
       "title": "Recomendações de estudo",
       "videos": [
-        { "youtubeId": "9YddVVsdG5A", "title": "CS50 Shorts - Linear Search" },
-        { "youtubeId": "qN3b9YzKz7w", "title": "Khan Academy - Linear search walkthrough" }
+        {
+          "youtubeId": "9YddVVsdG5A",
+          "title": "CS50 Shorts - Linear Search"
+        },
+        {
+          "youtubeId": "qN3b9YzKz7w",
+          "title": "Khan Academy - Linear search walkthrough"
+        }
       ]
     },
     {
@@ -173,11 +262,58 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 32' para anexar o artefato solicitado."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Implemente aula32_busca_linear.c com duas estratégias (padrão e com sentinela)."
+            },
+            {
+              "text": "Anexe planilha comparando número de iterações e resultado encontrado em diferentes cenários."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-12T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Guia interno de algoritmos de busca 2024"]
   }

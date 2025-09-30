@@ -38,6 +38,26 @@
       "label": "Compilador OnlineGDB",
       "url": "https://www.onlinegdb.com/online_c_compiler",
       "type": "tool"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -49,6 +69,31 @@
     "description": "Entrega de menu bancário implementado em C com do-while e relatório de testes anexado."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Dominando o laço do-while. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 20."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -115,24 +160,57 @@
       "type": "md3Flowchart",
       "title": "Fluxo de menu com do-while",
       "nodes": [
-        { "id": "start", "type": "start", "title": "Início" },
-        { "id": "process-menu", "type": "process", "title": "Exibir menu" },
-        { "id": "input", "type": "process", "title": "Ler opção" },
+        {
+          "id": "start",
+          "type": "start",
+          "title": "Início"
+        },
+        {
+          "id": "process-menu",
+          "type": "process",
+          "title": "Exibir menu"
+        },
+        {
+          "id": "input",
+          "type": "process",
+          "title": "Ler opção"
+        },
         {
           "id": "decision",
           "type": "decision",
           "title": "Opção != 0?",
           "branches": [
-            { "id": "continua", "label": "Sim", "target": "process-menu" },
-            { "id": "encerra", "label": "Não", "target": "end" }
+            {
+              "id": "continua",
+              "label": "Sim",
+              "target": "process-menu"
+            },
+            {
+              "id": "encerra",
+              "label": "Não",
+              "target": "end"
+            }
           ]
         },
-        { "id": "end", "type": "end", "title": "Fim" }
+        {
+          "id": "end",
+          "type": "end",
+          "title": "Fim"
+        }
       ],
       "connections": [
-        { "from": "start", "to": "process-menu" },
-        { "from": "process-menu", "to": "input" },
-        { "from": "input", "to": "decision" }
+        {
+          "from": "start",
+          "to": "process-menu"
+        },
+        {
+          "from": "process-menu",
+          "to": "input"
+        },
+        {
+          "from": "input",
+          "to": "decision"
+        }
       ]
     },
     {
@@ -161,11 +239,58 @@
         "Todos os caminhos exibem mensagens claras ao usuário.",
         "Registrei ao menos três casos de teste (saída imediata, repetição, entrada inválida)."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 20' para anexar o artefato solicitado."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Implemente aula20_menu_do_while.c com menu interativo que executa ao menos três ações antes de perguntar se deseja repetir."
+            },
+            {
+              "text": "Anexe vídeo curto ou GIF mostrando a navegação e os cenários de saída."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-02T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Playbook interno de menus interativos"]
   }

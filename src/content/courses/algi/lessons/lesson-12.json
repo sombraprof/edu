@@ -34,6 +34,26 @@
       "label": "Compilador OnlineGDB",
       "type": "tool",
       "url": "https://www.onlinegdb.com/online_c_compiler"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -46,6 +66,31 @@
     "description": "Implementação de um classificador de faixas com relatório de testes incluindo limites e casos extremos."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Cadeias de decisão com else if. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 12."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -331,20 +376,6 @@
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Tarefa (TED)",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Crie aula12_classificador.c para ler a nota final e frequência do aluno. Use else if para retornar Aprovado, Recuperação ou Reprovado considerando nota e presença mínima de 75%."
-        },
-        {
-          "type": "paragraph",
-          "text": "Envie junto uma planilha com os testes realizados (limites, casos de falha e sucesso)."
-        }
-      ]
-    },
-    {
       "type": "videos",
       "title": "Vídeos de apoio",
       "videos": [
@@ -366,11 +397,58 @@
         "Combinar condições com operadores lógicos respeitando a prioridade.",
         "Validar limites superior e inferior para cada faixa implementada."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 12' para anexar o artefato solicitado."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entregue aula12_classificador.c com decisões encadeadas para frequência e nota."
+            },
+            {
+              "text": "Inclua planilha com casos de teste (limites, extremos e casos inválidos) evidenciando resultado esperado."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

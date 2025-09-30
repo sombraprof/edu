@@ -40,6 +40,26 @@
       "label": "Khan Academy - Multiplicação de matrizes",
       "type": "course",
       "url": "https://pt.khanacademy.org/math/algebra-home/alg-matrices/alg-matrix-multiplication/a/matrix-multiplication"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -47,6 +67,31 @@
     "STANLEY, R. Algoritmos Numéricos em C. Pioneira, 2020."
   ],
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Manipulações com Matrizes. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 34."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro detalhado",
@@ -131,22 +176,86 @@
       "type": "md3Flowchart",
       "title": "Fluxograma da multiplicação de matrizes",
       "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "check", "type": "decision", "label": "n == colunasA && n == linhasB?" },
-        { "id": "error", "type": "process", "label": "Exibir erro de dimensão" },
-        { "id": "initI", "type": "process", "label": "i = 0" },
-        { "id": "loopI", "type": "loop", "label": "Enquanto i < m" },
-        { "id": "initJ", "type": "process", "label": "j = 0" },
-        { "id": "loopJ", "type": "loop", "label": "Enquanto j < p" },
-        { "id": "acc", "type": "process", "label": "soma = 0" },
-        { "id": "initK", "type": "process", "label": "k = 0" },
-        { "id": "loopK", "type": "loop", "label": "Enquanto k < n" },
-        { "id": "mul", "type": "process", "label": "soma += A[i][k] * B[k][j]" },
-        { "id": "incK", "type": "process", "label": "k++" },
-        { "id": "assign", "type": "process", "label": "C[i][j] = soma" },
-        { "id": "incJ", "type": "process", "label": "j++" },
-        { "id": "incI", "type": "process", "label": "i++" },
-        { "id": "end", "type": "end", "label": "Fim" }
+        {
+          "id": "start",
+          "type": "start",
+          "label": "Início"
+        },
+        {
+          "id": "check",
+          "type": "decision",
+          "label": "n == colunasA && n == linhasB?"
+        },
+        {
+          "id": "error",
+          "type": "process",
+          "label": "Exibir erro de dimensão"
+        },
+        {
+          "id": "initI",
+          "type": "process",
+          "label": "i = 0"
+        },
+        {
+          "id": "loopI",
+          "type": "loop",
+          "label": "Enquanto i < m"
+        },
+        {
+          "id": "initJ",
+          "type": "process",
+          "label": "j = 0"
+        },
+        {
+          "id": "loopJ",
+          "type": "loop",
+          "label": "Enquanto j < p"
+        },
+        {
+          "id": "acc",
+          "type": "process",
+          "label": "soma = 0"
+        },
+        {
+          "id": "initK",
+          "type": "process",
+          "label": "k = 0"
+        },
+        {
+          "id": "loopK",
+          "type": "loop",
+          "label": "Enquanto k < n"
+        },
+        {
+          "id": "mul",
+          "type": "process",
+          "label": "soma += A[i][k] * B[k][j]"
+        },
+        {
+          "id": "incK",
+          "type": "process",
+          "label": "k++"
+        },
+        {
+          "id": "assign",
+          "type": "process",
+          "label": "C[i][j] = soma"
+        },
+        {
+          "id": "incJ",
+          "type": "process",
+          "label": "j++"
+        },
+        {
+          "id": "incI",
+          "type": "process",
+          "label": "i++"
+        },
+        {
+          "id": "end",
+          "type": "end",
+          "label": "Fim"
+        }
       ],
       "edges": [
         ["start", "check"],
@@ -181,9 +290,15 @@
         {
           "type": "orderedList",
           "items": [
-            { "text": "Validar dimensões antes de multiplicar." },
-            { "text": "Gerar matriz resultado C representando horas totais de tutores por curso." },
-            { "text": "Imprimir resumo destacando curso com maior carga resultante." }
+            {
+              "text": "Validar dimensões antes de multiplicar."
+            },
+            {
+              "text": "Gerar matriz resultado C representando horas totais de tutores por curso."
+            },
+            {
+              "text": "Imprimir resumo destacando curso com maior carga resultante."
+            }
           ]
         }
       ]
@@ -192,8 +307,14 @@
       "type": "videosBlock",
       "title": "Referências audiovisuais",
       "videos": [
-        { "youtubeId": "ykP1t9hYx7A", "title": "CS50 Short - Matrix Multiplication" },
-        { "youtubeId": "zjMuIxRvygQ", "title": "Khan Academy - Matrix multiplication" }
+        {
+          "youtubeId": "ykP1t9hYx7A",
+          "title": "CS50 Short - Matrix Multiplication"
+        },
+        {
+          "youtubeId": "zjMuIxRvygQ",
+          "title": "Khan Academy - Matrix multiplication"
+        }
       ]
     },
     {
@@ -210,11 +331,58 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 34' para anexar o artefato solicitado."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entregue aula34_matriz_operacoes.c com funções para transpor, somar e multiplicar matrizes."
+            },
+            {
+              "text": "Anexe relatório descrevendo casos de teste e validação de dimensões."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-14T12:00:00.000Z",
+    "updatedAt": "2025-03-07T12:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Oficina de matrizes avançadas 2025"]
   }
