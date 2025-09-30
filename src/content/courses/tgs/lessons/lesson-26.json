@@ -4,23 +4,38 @@
   "objective": "Discutir estratégias de integração do ERP com canais digitais e marketplaces, garantindo consistência de estoque, preços e atendimento.",
   "content": [
     {
+      "type": "flightPlan",
+      "title": "Trilha híbrida da aula",
+      "items": [
+        "Pré-aula online: leitura guiada e quiz diagnóstico sobre integrações ERP ↔ canais digitais.",
+        "Encontro síncrono (60 min): revisão conceitual, walkthrough do fluxo e debate de riscos.",
+        "Laboratório híbrido (30 min): squads ajustam conectores em sandbox compartilhado com acompanhamento remoto.",
+        "Pós-aula assíncrona: registrar decisões e pendências no board de integrações."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
           "icon": "monitor",
-          "title": "CONTEÚDO",
-          "content": "Integração ERP ↔ e-commerce, OMS, marketplaces, política de preços e experiência do cliente."
+          "title": "Contextualização",
+          "content": "Mapeamos pressões comerciais e operacionais que exigem sincronização omnicanal."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Identificar dados críticos compartilhados.\n- Avaliar modelos de sincronização (batch vs. near real-time).\n- Planejar monitoramento de SLA e atendimento."
+          "icon": "gears",
+          "title": "Arquitetura",
+          "content": "Desmontamos componentes ERP, OMS, middleware e canais, destacando dados críticos."
         },
         {
           "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Estudo de arquitetura de referência, construção de tabela comparativa e simulação de incidentes."
+          "title": "Oficina orientada",
+          "content": "Times simulam incidentes, definem SLAs e documentam contratos de integração."
+        },
+        {
+          "icon": "calendar-days",
+          "title": "Follow-up",
+          "content": "Fechamos com plano de monitoramento contínuo e próximos experimentos digitais."
         }
       ]
     },
@@ -34,6 +49,103 @@
         ["Pedidos", "E-commerce/OMS", "Imediata", "Não faturamento"],
         ["Clientes", "E-commerce/CRM", "Sob evento", "Entrega inviabilizada"],
         ["Promoções", "Marketing", "Agendada", "Campanha inválida"]
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Fluxo de dados ERP ↔ canais digitais",
+        "summary": "Visão simplificada do ciclo pedido → faturamento → atendimento ao cliente.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Início" },
+          { "id": "pedido", "type": "input", "title": "Pedido no canal" },
+          {
+            "id": "oms",
+            "type": "process",
+            "title": "OMS valida regra",
+            "description": "Checa estoque, preço e promoções."
+          },
+          {
+            "id": "decision-estoque",
+            "type": "decision",
+            "title": "Estoque disponível?",
+            "branches": [
+              {
+                "id": "estoque-sim",
+                "label": "Sim",
+                "target": "erp",
+                "description": "Reserva SKU"
+              },
+              {
+                "id": "estoque-nao",
+                "label": "Não",
+                "target": "process-escalonar",
+                "description": "Aciona fallback"
+              }
+            ]
+          },
+          {
+            "id": "process-escalonar",
+            "type": "process",
+            "title": "Escalonar para atendimento",
+            "description": "Notifica SAC para reter cliente."
+          },
+          {
+            "id": "erp",
+            "type": "process",
+            "title": "ERP atualiza saldo",
+            "description": "Registra pedido, impostos e condições de pagamento."
+          },
+          {
+            "id": "fiscal",
+            "type": "process",
+            "title": "Módulo fiscal",
+            "description": "Emite NF-e/boletos e integra gateway."
+          },
+          { "id": "envio", "type": "process", "title": "WMS despacha" },
+          {
+            "id": "pos-venda",
+            "type": "process",
+            "title": "CS atualiza cliente",
+            "description": "Comunica tracking e opções de troca."
+          },
+          { "id": "fim", "type": "end", "title": "Fim" }
+        ],
+        "connections": [
+          { "from": "start", "to": "pedido" },
+          { "from": "pedido", "to": "oms" },
+          { "from": "oms", "to": "decision-estoque" },
+          { "from": "decision-estoque", "to": "erp", "label": "Sim" },
+          { "from": "decision-estoque", "to": "process-escalonar", "label": "Não" },
+          { "from": "process-escalonar", "to": "pos-venda" },
+          { "from": "erp", "to": "fiscal" },
+          { "from": "fiscal", "to": "envio" },
+          { "from": "envio", "to": "pos-venda" },
+          { "from": "pos-venda", "to": "fim" }
+        ]
+      }
+    },
+    {
+      "type": "cardGrid",
+      "title": "Parâmetros que sustentam a integração",
+      "cards": [
+        {
+          "title": "Catálogo & SKUs",
+          "content": "Estrutura de atributos, hierarquias e políticas de substituição."
+        },
+        {
+          "title": "Regras de preço",
+          "content": "Faixas, promoções, cupons e impostos dinâmicos."
+        },
+        {
+          "title": "SLA e fulfillment",
+          "content": "Service level agreements por canal e regras de roteamento logístico."
+        },
+        {
+          "title": "Contratos de integração",
+          "content": "Versionamento de APIs, webhooks, janelas de manutenção e fallback."
+        }
       ]
     },
     {
@@ -154,6 +266,17 @@
           "id": "insight-omni-2",
           "label": "Governança tributária",
           "description": "Regras fiscais variam por marketplace e exigem parametrização específica."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Documentação obrigatória dos contratos de integração",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Toda alteração em APIs, webhooks ou SLAs deve gerar atualização do contrato técnico-funcional assinado pelos responsáveis de TI, Comercial e Jurídico. Registre versionamento, logs de testes e plano de rollback."
         }
       ]
     },

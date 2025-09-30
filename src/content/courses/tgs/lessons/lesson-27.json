@@ -25,6 +25,154 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Squads e papéis na oficina",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Líder de integração: mantém visão do backlog e prioriza riscos." },
+            {
+              "text": "Dono de processo: garante aderência às rotinas de negócio e valida indicadores."
+            },
+            {
+              "text": "Tech lead: avalia viabilidade técnica, dependências de middleware e testes."
+            },
+            {
+              "text": "Analista de dados: verifica governança de mestres, qualidade e plano de monitoramento."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline de integração pós-go-live",
+      "summary": "Etapas para consolidar entregas de ERP em squads multidisciplinares.",
+      "stages": [
+        {
+          "id": "discovery",
+          "title": "Discovery + Diagnóstico",
+          "summary": "Revisitar dores, priorizar FCS e definir backlog imediato.",
+          "owners": ["Líder de integração", "Dono de processo"],
+          "durationHours": 6,
+          "activities": [
+            {
+              "id": "workshop",
+              "label": "Workshop de lições aprendidas",
+              "description": "Consolidar insights da implantação."
+            },
+            {
+              "id": "mapa-risco",
+              "label": "Mapa de riscos",
+              "description": "Classificar riscos por probabilidade × impacto."
+            }
+          ],
+          "deliverables": [{ "id": "canvas-fcs", "label": "Canvas de fatores críticos" }],
+          "risks": [
+            {
+              "id": "agenda",
+              "label": "Agenda dos sponsors",
+              "severity": "medium",
+              "mitigation": "Planejar sessões curtas."
+            }
+          ],
+          "checkpoints": ["Backlog priorizado"]
+        },
+        {
+          "id": "blueprint",
+          "title": "Blueprint de melhoria",
+          "summary": "Detalhar integrações, dados e KPIs alvo.",
+          "owners": ["Tech lead", "Analista de dados"],
+          "durationHours": 10,
+          "activities": [
+            {
+              "id": "mapeamento",
+              "label": "Mapear integrações",
+              "description": "Identificar pontos de acoplamento e fallback."
+            },
+            {
+              "id": "design-dados",
+              "label": "Rever mestres",
+              "description": "Revisar políticas de dados críticos."
+            }
+          ],
+          "deliverables": [
+            { "id": "modelo", "label": "Modelo de dados revisado" },
+            { "id": "sla", "label": "SLA negociado" }
+          ],
+          "risks": [
+            {
+              "id": "tecnico",
+              "label": "Limitação do legado",
+              "severity": "high",
+              "mitigation": "Plano de feature toggle."
+            }
+          ],
+          "checkpoints": ["Blueprint aprovado"]
+        },
+        {
+          "id": "sprint",
+          "title": "Sprints de estabilização",
+          "summary": "Executar melhorias incrementais e medir resultados.",
+          "owners": ["Squad"],
+          "durationHours": 40,
+          "activities": [
+            {
+              "id": "devops",
+              "label": "Pipeline DevOps",
+              "description": "Automatizar deploy e testes."
+            },
+            {
+              "id": "treinamento",
+              "label": "Treinamento contínuo",
+              "description": "Preparar superusuários para novas rotinas."
+            }
+          ],
+          "deliverables": [{ "id": "release", "label": "Release validado" }],
+          "risks": [
+            {
+              "id": "adoção",
+              "label": "Baixa adesão",
+              "severity": "medium",
+              "mitigation": "Campanhas e coaching."
+            }
+          ],
+          "checkpoints": ["KPIs revisados"]
+        },
+        {
+          "id": "hypercare",
+          "title": "Hypercare + Sustentação",
+          "summary": "Monitorar indicadores e alimentar ciclo de melhoria.",
+          "owners": ["Suporte", "Comitê executivo"],
+          "durationHours": 12,
+          "activities": [
+            {
+              "id": "monitoracao",
+              "label": "Monitorar KPIs",
+              "description": "Rodar rotinas de saúde e alertas."
+            },
+            {
+              "id": "retro",
+              "label": "Retrospectiva",
+              "description": "Atualizar backlog preventivo."
+            }
+          ],
+          "deliverables": [{ "id": "relatorio", "label": "Relatório de saúde" }],
+          "risks": [
+            {
+              "id": "sustentacao",
+              "label": "Perda de conhecimento",
+              "severity": "low",
+              "mitigation": "Documentação viva."
+            }
+          ],
+          "checkpoints": ["Plano de evolução"]
+        }
+      ]
+    },
+    {
       "type": "md3Table",
       "title": "Fatores críticos por dimensão",
       "headers": ["Dimensão", "Fator", "Indicadores de sucesso", "Riscos se negligenciado"],
@@ -54,6 +202,28 @@
           "Dados inconsistentes"
         ],
         ["Valor", "KPIs de negócio acompanhados", "Margem, OTIF, churn", "Perda de credibilidade"]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist de integração contínua",
+      "cards": [
+        {
+          "title": "Dados mestres",
+          "content": "Executar reconciliação semanal entre cadastros de clientes, produtos e fornecedores."
+        },
+        {
+          "title": "Testes fiscais",
+          "content": "Validar notas em ambiente de homologação a cada release e revisar regras de tributação."
+        },
+        {
+          "title": "Observabilidade",
+          "content": "Monitorar filas, erros de integração e alertas de performance com dashboard único."
+        },
+        {
+          "title": "Change management",
+          "content": "Atualizar playbooks, realizar sessões de coaching e coletar feedback dos squads."
+        }
       ]
     },
     {
@@ -248,6 +418,16 @@
   "duration": 110,
   "modality": "in-person",
   "resources": [
+    {
+      "label": "Canvas de design de integração (Miro)",
+      "url": "https://miro.com/app/board/uXjTOTVSDesignCanvas/",
+      "type": "board"
+    },
+    {
+      "label": "Template Makefile para pipelines ERP",
+      "url": "https://example.edu/tgs/templates/makefile-erp-pipeline",
+      "type": "template"
+    },
     {
       "label": "Template plano 30-60-90",
       "url": "https://example.edu/tgs/templates/plano-30-60-90",

@@ -5,22 +5,44 @@
   "content": [
     {
       "type": "lessonPlan",
-      "title": "Plano da aula",
+      "title": "Roteiro motivação → laboratório",
       "cards": [
         {
-          "icon": "desktop",
-          "title": "CONTEÚDO",
-          "content": "Contexto da empresa, módulos TOTVS implantados, integrações com CRM e BI."
+          "icon": "bullseye",
+          "title": "Motivação",
+          "content": "Abrimos com vídeo de bastidor sobre a virada de atendimento da Totus Service para contextualizar dor do cliente."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Interpretar indicadores pós-implantação.\n- Identificar sinergias entre finanças, faturamento e prestação de serviços.\n- Construir recomendações de melhoria."
+          "icon": "monitor",
+          "title": "Análise guiada",
+          "content": "Grupos interpretam indicadores antes/depois e registram hipóteses no quadro colaborativo."
         },
         {
           "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Análise de relatório gerencial, construção de sistemaMapper colaborativo e debates orientados."
+          "title": "Debate estruturado",
+          "content": "Moderamos perguntas sobre integrações, apontando impactos em finanças, contratos e BI."
+        },
+        {
+          "icon": "gears",
+          "title": "Laboratório",
+          "content": "Laboratório de simulação: squads ajustam parâmetros no sandbox TOTVS e observam repercussões nos módulos."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica da atividade de laboratório",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Diagnóstico (30%): leitura crítica dos indicadores fornecidos e identificação de gargalos.",
+            "Integração sistêmica (30%): coerência ao relacionar módulos e dependências de dados.",
+            "Plano de ação (25%): clareza das recomendações, prazos e responsáveis.",
+            "Documentação (15%): registro no template compartilhado, com evidências do sandbox."
+          ]
         }
       ]
     },
@@ -38,119 +60,122 @@
     },
     {
       "type": "cardGrid",
-      "title": "Pontos de discussão",
+      "title": "Assinaturas necessárias para o rollout",
       "cards": [
         {
-          "title": "Contrato ↔ Serviço",
-          "content": "Como o módulo de contratos conversa com a agenda de técnicos?"
+          "title": "Diretoria de Operações",
+          "content": "Valida SLAs de campo e aderência do módulo de Serviços à jornada real."
         },
         {
-          "title": "Financeiro",
-          "content": "Quais controles garantem reconciliação com gateways de pagamento?"
+          "title": "Financeiro & Controladoria",
+          "content": "Aprova integrações fiscais, conciliações e segregação de funções."
         },
-        { "title": "BI", "content": "Como as informações alimentam dashboards de churn e upsell?" },
         {
-          "title": "Suporte",
-          "content": "Que lições foram aprendidas com o hiper-care de 30 dias?"
+          "title": "Jurídico & Compliance",
+          "content": "Analisa contratos, LGPD e termos com marketplaces/parceiros."
+        },
+        {
+          "title": "Customer Success",
+          "content": "Confirma scripts de atendimento, playbooks de hiper-care e feedback loop."
         }
       ]
     },
     {
       "type": "systemMapper",
-      "title": "Fluxo serviço-to-cash",
-      "summary": "Integração TOTVS entre atendimento, faturamento e análise financeira.",
+      "title": "Módulos TOTVS e interdependências",
+      "summary": "Mapa das relações entre CRM, Serviços, Financeiro, Faturamento e Analytics no estudo de caso.",
       "factors": [
         {
-          "id": "agendamento",
-          "name": "Agendamento",
-          "summary": "Ordem de serviço aberta no TOTVS.",
-          "kind": "flow",
-          "indicators": ["tempo_agenda"]
+          "id": "crm",
+          "name": "CRM",
+          "summary": "Registro de contratos, SLAs e preferências do cliente.",
+          "kind": "driver",
+          "indicators": ["taxa_renovacao", "lead_time_onboarding"]
         },
         {
-          "id": "execucao-servico",
-          "name": "Execução",
-          "summary": "Técnico registra execução via app.",
+          "id": "servicos",
+          "name": "Serviços de Campo",
+          "summary": "Agenda técnicos, captura checklists e sincroniza status em tempo real.",
           "kind": "flow",
-          "indicators": ["sla_execucao"]
+          "indicators": ["sla_execucao", "first_time_fix"]
         },
         {
           "id": "faturamento",
           "name": "Faturamento",
-          "summary": "Emissão automática de notas e boletos.",
+          "summary": "Gera notas, boletos e integra gateways, aplicando regras tributárias.",
           "kind": "flow",
-          "indicators": ["tempo_faturamento"]
+          "indicators": ["tempo_faturamento", "erros_fiscais"]
         },
         {
-          "id": "receita",
-          "name": "Receita recorrente",
-          "summary": "Consolidação financeira no TOTVS.",
+          "id": "financeiro",
+          "name": "Financeiro",
+          "summary": "Controla contas a receber, reconciliação bancária e projeções de caixa.",
           "kind": "stock",
-          "indicators": ["inadimplencia"]
+          "indicators": ["inadimplencia", "previsibilidade_caixa"]
         },
         {
-          "id": "insights",
-          "name": "Insights BI",
-          "summary": "Painéis para retenção e upsell.",
+          "id": "analytics",
+          "name": "Analytics/BI",
+          "summary": "Unifica indicadores de atendimento, receita e NPS para decisões.",
           "kind": "outcome",
-          "indicators": ["churn", "taxa_renovacao"]
+          "indicators": ["churn", "nps_servico"]
         }
       ],
       "loops": [
         {
-          "id": "feedback-servico",
-          "name": "Feedback serviço-finanças",
+          "id": "loop-excelencia",
+          "name": "Excelência em serviço",
           "polarity": "reinforcing",
-          "summary": "Serviços bem executados geram receita estável e insights para novas ofertas.",
+          "summary": "Melhorias em CRM e Serviços elevam satisfação, geram receita previsível e alimentam analytics para novos ajustes.",
           "steps": [
             {
-              "id": "svc-1",
-              "from": "agendamento",
-              "to": "execucao-servico",
+              "id": "mod-1",
+              "from": "crm",
+              "to": "servicos",
               "effect": "reinforces",
-              "description": "Agendas organizadas reduzem deslocamentos."
+              "description": "Contratos atualizados direcionam ordens corretas."
             },
             {
-              "id": "svc-2",
-              "from": "execucao-servico",
+              "id": "mod-2",
+              "from": "servicos",
               "to": "faturamento",
               "effect": "reinforces",
-              "description": "Dados de execução alimentam faturamento automático."
+              "description": "Execução registrada dispara faturamento automático."
             },
             {
-              "id": "svc-3",
+              "id": "mod-3",
               "from": "faturamento",
-              "to": "receita",
+              "to": "financeiro",
               "effect": "reinforces",
-              "description": "Cobranças ágeis elevam a previsibilidade."
+              "description": "Recebimentos alimentam projeções e alocação de recursos."
             },
             {
-              "id": "svc-4",
-              "from": "receita",
-              "to": "insights",
+              "id": "mod-4",
+              "from": "financeiro",
+              "to": "analytics",
               "effect": "reinforces",
-              "description": "Receita consolidada gera indicadores de churn."
+              "description": "Dados consolidados qualificam análises de margem."
             },
             {
-              "id": "svc-5",
-              "from": "insights",
-              "to": "agendamento",
+              "id": "mod-5",
+              "from": "analytics",
+              "to": "crm",
               "effect": "reinforces",
-              "description": "Insights orientam priorização de serviços com maior margem."
+              "description": "Insights orientam renovações e upsell no CRM."
             }
           ]
         }
       ],
       "insights": [
         {
-          "id": "insight-totvs-1",
-          "label": "Mobile-first",
-          "description": "Registro mobile reduz falhas de digitação."
+          "id": "insight-modulos-1",
+          "label": "Playbook unificado",
+          "description": "Scripts de atendimento conectam dados do CRM ao app de campo."
         },
         {
-          "id": "insight-totvs-2",
-          "label": "KPIs integrados",
-          "description": "Financeiro e operação compartilham a mesma base de indicadores."
+          "id": "insight-modulos-2",
+          "label": "Painéis compartilhados",
+          "description": "Financeiro e operações tomam decisões com o mesmo conjunto de indicadores."
         }
       ]
     },

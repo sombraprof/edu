@@ -35,6 +35,28 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Domínios e recursos pré-prova",
+      "cards": [
+        {
+          "title": "Estratégia & Governança",
+          "content": "Revisar mapa estratégico e usar o guia de alinhamento PESI para conectar metas a iniciativas."
+        },
+        {
+          "title": "Processos & Operações",
+          "content": "Mapear processos críticos utilizando o canvas de diagnóstico disponibilizado na pasta da disciplina."
+        },
+        {
+          "title": "Dados & Tecnologia",
+          "content": "Organizar inventário de sistemas com o template de catálogo de aplicações e integrações."
+        },
+        {
+          "title": "Pessoas & Cultura",
+          "content": "Planejar entrevistas com stakeholders apoiando-se no roteiro de mudança organizacional."
+        }
+      ]
+    },
+    {
       "type": "timeline",
       "title": "Evolução do planejamento de TI",
       "steps": [
@@ -90,6 +112,30 @@
           "Como medir valor e ajustar continuamente?",
           "Painéis de indicadores, ritos de revisão, lições aprendidas"
         ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Conduta durante atividades avaliativas",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Material autorizado apenas o entregue pelo professor; demais dispositivos permanecem guardados."
+            },
+            {
+              "text": "Trabalhos em grupo exigem registro de contribuição individual no formulário oficial."
+            },
+            {
+              "text": "Referencie fontes externas explicitamente para evitar plágio e reprovação."
+            },
+            {
+              "text": "Solicite apoio em caso de dúvida; combinações paralelas durante prova anulam a entrega."
+            }
+          ]
+        }
       ]
     },
     {
@@ -155,6 +201,11 @@
       "label": "Guia COBIT Design para PESI",
       "url": "https://example.edu/tgs/guides/cobit-design",
       "type": "guide"
+    },
+    {
+      "label": "Checklist pré-prova PESI",
+      "url": "https://example.edu/tgs/checklists/pre-prova-pesi",
+      "type": "checklist"
     }
   ],
   "bibliography": [
@@ -163,7 +214,14 @@
   ],
   "assessment": {
     "type": "formative",
-    "description": "Linha do tempo comentada conectando marcos históricos a impactos estratégicos."
+    "description": "Linha do tempo comentada conectando marcos históricos a impactos estratégicos.",
+    "deliverables": [
+      "Linha do tempo em formato visual (PDF ou Miro exportado) com pelo menos cinco marcos.",
+      "Comentário analítico para cada marco destacando impactos e indicadores associados.",
+      "Resumo executivo (até 300 palavras) relacionando aprendizados às prioridades da organização estudada."
+    ],
+    "rubric": "Avalia clareza narrativa, conexão com objetivos de SI, evidências utilizadas e viabilidade das recomendações.",
+    "dueDate": "2025-03-20T23:59:00.000Z"
   },
   "metadata": {
     "status": "draft",
