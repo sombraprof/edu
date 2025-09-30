@@ -15,9 +15,19 @@ Este plano consolida os ajustes necessários nas 40 aulas de **Algoritmos e Prog
 3. **Pré-aula (Warm-up)** – incluir sempre um parágrafo ou card com orientações prévias: leitura indicada, vídeo sugerido e checklist do ambiente. Quando houver TED no Moodle, explicitar formato (texto, código, relatório) e prazo.
 4. **Pós-aula (TED)** – registrar no bloco final o enunciado da atividade, critérios de submissão e rubrica compacta; quando for substituído por avaliação, indicar explicitamente em `assessment`.
 5. **Integração com Moodle** – usar `callout` com `variant: "info"` para sinalizar uploads no Moodle (planilha, relatório, código) e `variant: "warning"` para alertas de prazos ou condutas.
-6. **Bibliografia** – repetir a bibliografia do plano de ensino para garantir consistência nas referências: Forbellone & Eberpspacher, Manzano & Oliveira, Backes, Santos, Ascencio & Campos (quando pertinente).
+6. **Bibliografia com citação rastreável** – repetir a bibliografia do plano de ensino para garantir consistência nas referências (Forbellone & Eberpspacher, Manzano & Oliveira, Backes, Santos, Ascencio & Campos), citando explicitamente capítulos, seções ou páginas sempre que um recurso for acionado em `resources` ou `lessonPlan`.
+7. **Metodologias ativas alinhadas ao MD3** – relacionar cada metodologia ativa (sala de aula invertida, fishbowl, pair programming, oficinas, estudos de caso, etc.) aos blocos MD3 em que aparecem (`lessonPlan`, `flightPlan`, `cardGrid`, `callout`, `pipelineCanvas`, entre outros) para evidenciar a intencionalidade pedagógica.
 
-## 3. Ajustes por unidade temática
+## 3. Plano de melhoria da riqueza e qualidade
+
+| Fase           | Objetivo                                                                | Ações principais                                                                                                                             | Metas mensuráveis                                                                                                                                                      |
+| -------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Diagnóstico    | Mapear lacunas de conteúdo, referências e evidências em cada aula.      | Revisar `lesson-XX.json`, coletar dados de uso no Moodle e entrevistas rápidas com docentes/monitores.                                       | Checklist de cobertura preenchido para 100% das aulas; identificar ≥2 lacunas críticas por unidade e registrar na planilha de auditoria.                               |
+| Curadoria      | Selecionar materiais e metodologias que elevem profundidade e contexto. | Priorizar autores clássicos, estudos de caso locais e materiais multimídia aderentes aos objetivos.                                          | Garantir ≥2 autores clássicos citados (com capítulo/página) por unidade temática; consolidar checklist de exemplos locais/contextualizados por unidade.                |
+| Enriquecimento | Incorporar recursos e ajustes nos blocos MD3 correspondentes.           | Atualizar `lessonPlan`, `flightPlan`, `callout`, tabelas e fluxogramas; anexar planilhas, templates e vídeos alinhados ao repertório curado. | Pelo menos 90% das aulas com referências cruzadas entre metodologia ativa e bloco MD3; ≥80% das TEDs com rubrica atualizada e vínculo a planilhas de testes/auditoria. |
+| Validação      | Confirmar aderência pedagógica e registrar evidências para governança.  | Rodar revisões por pares, validar com professor responsável, coletar feedback de estudantes e consolidar documentação de governança.         | Relatório de validação emitido para cada unidade; evidências arquivadas em `docs/governance/` com registro de data e responsáveis; índice de conformidade ≥95%.        |
+
+## 4. Ajustes por unidade temática
 
 ### Unidade I – Noções básicas de lógica e algoritmos (Aulas 1–3)
 
@@ -94,7 +104,7 @@ A partir da aula 12, as revisões devem destacar planilhas de testes, fluxograma
 - **Aula 39 (`lesson-39.json`)** – garantir metadados completos (`summary`, `tags`, `duration`, `assessment`). Incluir roteiro da NP3 (blocos temáticos, duração, conduta) e rubrica em `cardGrid`.
 - **Aula 40 (`lesson-40.json`)** – documentar checklist da devolutiva, guia de showcase, formulário de feedback final (Google Forms) e roadmap sugerido (Git, Estruturas de Dados, monitoria).
 
-## 4. Recursos recomendados por categoria
+## 5. Recursos recomendados por categoria
 
 | Categoria       | Recursos sugeridos                                                                                                                              |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,13 +113,13 @@ A partir da aula 12, as revisões devem destacar planilhas de testes, fluxograma
 | Guias & artigos | Apostilas SENAC, artigos do SEBRAE (casos de uso de comércio), documentação oficial do compilador GCC.                                          |
 | Avaliação       | Rubricas das NPs (NP1, NP2, NP3), planilhas de feedback, formulários de autoavaliação no Moodle.                                                |
 
-## 5. Próximos passos operacionais
+## 6. Próximos passos operacionais
 
-1. **Auditar cada `lesson-XX.json`** – verificar se todos os ajustes acima estão refletidos; atualizar `metadata.updatedAt` e `owners` após alterações.
+1. **Auditar cada `lesson-XX.json`** – verificar se todos os ajustes acima estão refletidos; atualizar `metadata.updatedAt` e `owners` após alterações. Consolidar achados na planilha de auditoria compartilhada.
 2. **Validar com `npm run validate:content`** – assegurar que os schemas estão conformes após adicionar recursos e metadados.
-3. **Sincronizar com o professor** – apresentar este plano, colher feedback sobre recursos adicionais (vídeos próprios, datasets). Registrar decisões em `docs/governance/`.
-4. **Atualizar Moodle** – garantir que links de recursos e TEDs coincidam com o ambiente virtual oficial (descrições, prazos, rubricas).
-5. **Monitorar entregas** – após cada módulo, coletar métricas de participação e resultados das NPs para ajustar materiais e evidências.
+3. **Sincronizar com o professor** – apresentar este plano, colher feedback sobre recursos adicionais (vídeos próprios, datasets). Registrar decisões e evidências em `docs/governance/` com identificação de responsáveis e datas.
+4. **Atualizar Moodle** – garantir que links de recursos e TEDs coincidam com o ambiente virtual oficial (descrições, prazos, rubricas). Registrar indicadores de observabilidade (acessos, submissões, comentários) em relatório mensal.
+5. **Monitorar entregas** – após cada módulo, coletar métricas de participação e resultados das NPs para ajustar materiais e evidências, anexando relatórios de observabilidade e a planilha de auditoria às pastas de governança.
 
 ---
 
