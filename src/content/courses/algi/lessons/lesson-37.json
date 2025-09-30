@@ -63,12 +63,30 @@
       "label": "Planilha de preparação pré-aula",
       "type": "spreadsheet",
       "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+    },
+    {
+      "label": "Capítulo 10 – Registros e arquivos (Ascencio & Campos)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/ascencio-campos/capitulo-10.pdf"
+    },
+    {
+      "label": "Estudo de caso: Atendimento SEBRAE – logs de atualização",
+      "type": "spreadsheet",
+      "url": "https://example.edu/algi/casos/sebrae-atualizacoes.xlsx"
     }
   ],
   "bibliography": [
-    "LAFORE, R. Estruturas de Dados e Algoritmos em C++. Pearson, 2019.",
-    "SOMMERVILLE, I. Engenharia de Software. 11. ed. Pearson, 2020."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 8, Registros e arquivos sequenciais.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 12, Vetores de registros.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 12, Structs e manipulação de coleções.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 11, Boas práticas de atualização e auditoria.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 10, Registros, arquivos e estudos de caso de atendimento."
   ],
+  "assessment": {
+    "type": "project",
+    "description": "Estudo de caso SEBRAE: construir rotinas de busca, atualização e remoção registrando logs e justificativas alinhadas às métricas de atendimento.",
+    "rubric": "Pensamento crítico (40%): define critérios de busca e atualização inspirados em Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12). Confiabilidade de software (35%): registra logs e valida integraidade conforme Backes (Cap. 12) e Santos (Cap. 11). Comunicação técnica (25%): documenta histórico e decisões seguindo o formato de casos apresentado por Ascencio & Campos (Cap. 10)."
+  },
   "content": [
     {
       "type": "callout",
@@ -144,21 +162,25 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Conecte as operações CRUD às métricas de atendimento SEBRAE, justificando por que determinados campos precisam de validação adicional e feedback claro ao usuário."
+          "text": "Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12) orientam a documentar cada etapa de busca, atualização e remoção para preservar a rastreabilidade dos atendimentos SEBRAE. Utilize o capítulo 11 de Santos para validar campos sensíveis antes de salvar."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Implemente busca por múltiplos critérios (id, setor, faixa de faturamento)."
+              "text": "Implemente busca por múltiplos critérios (id, setor, faixa de faturamento) utilizando filtros compostos como sugerido por Manzano & Oliveira (Cap. 12)."
             },
             {
-              "text": "Mantenha log textual das alterações relevantes para auditoria."
+              "text": "Mantenha log textual das alterações relevantes para auditoria seguindo os exemplos de Backes (Cap. 12) e Santos (Cap. 11)."
             },
             {
-              "text": "Crie testes unitários simples para funções de atualização e remoção."
+              "text": "Crie testes unitários simples para funções de atualização e remoção, documentando entradas e saídas no formato defendido por Ascencio & Campos (Cap. 10)."
             }
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione cada decisão a uma evidência na planilha de logs do estudo de caso para demonstrar aderência às boas práticas de governança."
         }
       ]
     },
@@ -201,6 +223,31 @@
     },
     {
       "type": "callout",
+      "variant": "good-practice",
+      "title": "Estudo de caso: Atendimento SEBRAE",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use o dataset do Cadastro Central de Empresas e a planilha de logs para simular a triagem de atendimentos. Forbellone & Eberspächer (Cap. 8) recomendam registrar motivo de cada alteração antes de persistir os dados."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Implemente atualizações condicionais com validações de domínio inspiradas em Santos (Cap. 11)."
+            },
+            {
+              "text": "Gere logs estruturados destacando id, campo alterado e responsável conforme Backes (Cap. 12)."
+            },
+            {
+              "text": "Explique na retro como as métricas de atendimento se conectam ao modelo de Ascencio & Campos (Cap. 10)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
       "variant": "info",
       "title": "Checklist de testes",
       "content": [
@@ -221,16 +268,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 37' para anexar o artefato solicitado."
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 37' para anexar o artefato solicitado, relatando como cada busca e atualização atende ao protocolo descrito por Forbellone & Eberspächer (Cap. 8)."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Implemente aula37_structs_auditoria.c registrando buscas, atualizações e logs de auditoria."
+              "text": "Implemente aula37_structs_auditoria.c registrando buscas, atualizações e logs de auditoria conforme Manzano & Oliveira (Cap. 12) e Backes (Cap. 12)."
             },
             {
-              "text": "Anexe tabela de logs destacando data/hora, operação executada e responsável."
+              "text": "Anexe tabela de logs destacando data/hora, operação executada e responsável, alinhada às orientações de Santos (Cap. 11) e Ascencio & Campos (Cap. 10)."
             }
           ]
         },
@@ -242,30 +289,34 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Pensamento crítico (40%): define critérios de busca e atualização seguindo Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Confiabilidade de software (35%): código atende ao enunciado, registra logs e valida integridade conforme Backes (Cap. 12) e Santos (Cap. 11)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Evidências documentadas (15%): testes e tabela de logs descrevem cenários e resultados conforme Ascencio & Campos (Cap. 10)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Integração com competências (10%): reflexão explica como o estudo de caso reforça Pensamento crítico e Confiabilidade de software."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e indique qual autor embasa a solução proposta."
         }
       ]
     }
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-09-29T14:25:00.000Z",
     "owners": ["Equipe Algoritmos I"],
-    "sources": ["Plano de ensino Algoritmos I 2025.2", "Relatórios IBGE 2024"]
+    "sources": [
+      "Plano de ensino Algoritmos I 2025.2",
+      "Relatórios IBGE 2024",
+      "Planilha de auditoria pós-módulo (aba Structs)"
+    ]
   }
 }

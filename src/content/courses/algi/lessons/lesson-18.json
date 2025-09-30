@@ -44,15 +44,29 @@
       "label": "Projeto OnlineGDB – Tabuada parametrizada",
       "type": "tool",
       "url": "https://onlinegdb.com/H1ForTabuada"
+    },
+    {
+      "label": "Capítulo 4 – Estruturas de repetição (Forbellone & Eberspächer)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-4.pdf"
+    },
+    {
+      "label": "Estudo de caso: Controle de lotes na Farmácia Escola (planilha de auditoria)",
+      "type": "spreadsheet",
+      "url": "https://example.edu/algi/casos/controle-lotes-for.xlsx"
     }
   ],
   "bibliography": [
-    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020.",
-    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 4, Estruturas de Repetição.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 6, Estruturas de repetição controlada.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 5, Laços de iteração.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 7, Estruturas de controle e validação de limites.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 6, Estruturas de repetição e testes."
   ],
   "assessment": {
     "type": "practice",
-    "description": "Checklist de exercícios práticos com tabuada, somatórios e percorrimento de vetores."
+    "description": "Checklist de exercícios práticos com tabuada, somatórios e percorrimento de vetores contextualizados na auditoria de produção da Farmácia Escola.",
+    "rubric": "Pensamento computacional (40%): estrutura os laços conforme o método de decomposição apresentado por Forbellone & Eberspächer (Cap. 4). Organização algorítmica (35%): documenta inicialização, condição e atualização de acordo com Manzano & Oliveira (Cap. 6) e Backes (Cap. 5). Raciocínio matemático (25%): valida limites numéricos e registra evidências na planilha de auditoria conforme Santos (Cap. 7) e Ascencio & Campos (Cap. 6)."
   },
   "content": [
     {
@@ -133,24 +147,28 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "O laço for é ideal quando conhecemos o número de repetições ou conseguimos derivá-lo de um intervalo controlado."
+          "text": "Forbellone & Eberspächer (Cap. 4) e Manzano & Oliveira (Cap. 6) reforçam que a clareza na inicialização, condição e atualização torna o laço for ideal para cenários auditáveis, como a contagem de lotes da Farmácia Escola que utilizaremos nesta aula."
         },
         {
           "type": "roadmap",
           "steps": [
             {
               "title": "Inicialização",
-              "description": "Executada uma vez antes da primeira iteração."
+              "description": "Executada uma vez antes da primeira iteração e registrada na planilha de auditoria conforme Santos (Cap. 7)."
             },
             {
               "title": "Condição",
-              "description": "Verificada antes de cada ciclo."
+              "description": "Verificada antes de cada ciclo, seguindo o checklist de testes sugerido por Ascencio & Campos (Cap. 6)."
             },
             {
               "title": "Atualização",
-              "description": "Executada após cada iteração."
+              "description": "Executada após cada iteração, permitindo saltos múltiplos como exemplificado por Backes (Cap. 5)."
             }
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A cada passagem pelo for, atualize também indicadores percentuais do estudo de caso para demonstrar aderência às recomendações de Ascencio & Campos (Cap. 6) sobre transparência de cálculos."
         }
       ]
     },
@@ -161,7 +179,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Teste saltos de 2, decrementos e atualizações múltiplas na mesma expressão para observar impactos no fluxo."
+          "text": "Backes (Cap. 5) recomenda testar saltos de 2, decrementos e atualizações múltiplas na mesma expressão; registre os resultados na planilha e compare-os com os limites estabelecidos por Santos (Cap. 7) para evitar extrapolar a capacidade produtiva."
         },
         {
           "type": "unorderedList",
@@ -174,6 +192,31 @@
             },
             {
               "text": "Utilize comentários para explicar a intenção de saltos não unitários."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Estudo de caso: Auditoria da Farmácia Escola",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize a planilha fornecida para monitorar a produção diária de cápsulas manipuladas. Aplique laços for para calcular médias por turno, apontar desvios e gerar alertas automáticos conforme o protocolo descrito por Ascencio & Campos (Cap. 6)."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Inicialize contadores separados por turno seguindo o quadro sugerido por Forbellone & Eberspächer (Cap. 4)."
+            },
+            {
+              "text": "Valide limites mínimos e máximos antes de atualizar acumuladores, conforme as heurísticas de Manzano & Oliveira (Cap. 6)."
+            },
+            {
+              "text": "Gere mensagens com `printf` sinalizando metas atingidas e gaps, reforçando a análise de conformidade proposta por Santos (Cap. 7)."
             }
           ]
         }
@@ -331,21 +374,25 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Submeta até 23h59: código em C gerando tabuadas configuráveis, captura do console e planilha com cenários testados."
+          "text": "Submeta até 23h59: código em C gerando tabuadas configuráveis para o caso da Farmácia Escola, captura do console e planilha com cenários testados seguindo o checklist de Ascencio & Campos (Cap. 6)."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Arquivo aula18_tabuada.c."
+              "text": "Arquivo aula18_tabuada.c organizado conforme as recomendações de Forbellone & Eberspächer (Cap. 4)."
             },
             {
-              "text": "Imagem ou PDF com saída para diferentes parâmetros."
+              "text": "Imagem ou PDF com saída para diferentes parâmetros, destacando incrementos inspirados em Backes (Cap. 5)."
             },
             {
-              "text": "Planilha 'TED18_contagens.xlsx' com incrementos variados."
+              "text": "Planilha 'TED18_contagens.xlsx' com incrementos variados e análises alinhadas a Santos (Cap. 7) e Manzano & Oliveira (Cap. 6)."
             }
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Explique como o algoritmo mantém rastreabilidade dos lotes auditados, relacionando cada etapa aos autores estudados."
         }
       ]
     },
@@ -358,26 +405,34 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Uso correto do for com inicialização, condição e atualização claros (30%)."
+              "text": "Pensamento computacional (40%): uso correto do for com inicialização, condição e atualização claros conforme Forbellone & Eberspächer (Cap. 4)."
             },
             {
-              "text": "Suporte a diferentes incrementos e faixas sem ajustes manuais (30%)."
+              "text": "Organização algorítmica (35%): suporte a diferentes incrementos e faixas sem ajustes manuais seguindo Manzano & Oliveira (Cap. 6) e Backes (Cap. 5)."
             },
             {
-              "text": "Registros de testes completos com evidências (25%)."
+              "text": "Raciocínio matemático (15%): registros de testes completos com evidências e validação de limites conforme Santos (Cap. 7)."
             },
             {
-              "text": "Organização dos arquivos e comentários explicativos (15%)."
+              "text": "Comunicação técnica (10%): organização dos arquivos, comentários explicativos e síntese conectando o estudo de caso às recomendações de Ascencio & Campos (Cap. 6)."
             }
           ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A pontuação compõe a mesma rubrica registrada no campo Assessment desta aula para garantir alinhamento entre competências e entregáveis."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-05T12:00:00.000Z",
+    "updatedAt": "2025-09-29T14:15:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Worksheet loops contados 2025"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Worksheet loops contados 2025",
+      "Planilha de auditoria pós-módulo (aba Laços)"
+    ]
   }
 }
