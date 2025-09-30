@@ -4,6 +4,37 @@
   "objective": "Explorar tendências tecnológicas e seu impacto no planejamento estratégico de SI.",
   "content": [
     {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "calendar-days",
+          "title": "Contexto",
+          "content": "Panorama de tendências 2025-2028 alinhado às prioridades do PESI (15 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Dinâmica",
+          "content": "Squads analisam impactos de cada tendência por domínio de negócio (30 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Laboratório",
+          "content": "Construção colaborativa do radar tecnológico com critérios de priorização (35 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Aplicação",
+          "content": "Desenho de pipeline de experimentação e salvaguardas de risco (20 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Orientações sobre entregáveis, checklist e submissão (10 min)."
+        }
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Macro tendências 2025-2028",
       "cards": [
@@ -23,6 +54,33 @@
           "title": "Sustentabilidade digital",
           "content": "Green IT, medição de carbono e circularidade de hardware."
         }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Fluxo de avaliação de tendência",
+      "nodes": [
+        { "id": "start", "type": "start", "label": "Início" },
+        { "id": "scan", "type": "process", "label": "Consolidar sinais e drivers" },
+        { "id": "fit", "type": "decision", "label": "Aderência ao PESI?" },
+        { "id": "priorizar", "type": "process", "label": "Classificar impacto × esforço" },
+        { "id": "risco", "type": "decision", "label": "Risco crítico identificado?" },
+        { "id": "mitigar", "type": "process", "label": "Definir salvaguardas e owners" },
+        { "id": "pipeline", "type": "process", "label": "Inserir na esteira de experimentos" },
+        { "id": "forum", "type": "process", "label": "Apresentar ao comitê" },
+        { "id": "end", "type": "end", "label": "Decisão" }
+      ],
+      "edges": [
+        ["start", "scan"],
+        ["scan", "fit"],
+        ["fit", "priorizar", "sim"],
+        ["fit", "end", "não"],
+        ["priorizar", "risco"],
+        ["risco", "mitigar", "sim"],
+        ["risco", "pipeline", "não"],
+        ["mitigar", "pipeline"],
+        ["pipeline", "forum"],
+        ["forum", "end"]
       ]
     },
     {
@@ -60,6 +118,103 @@
           "Redução de carbono, compliance ESG",
           "Necessidade de métricas confiáveis"
         ]
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline de experimentação de tendências",
+      "summary": "Sequência para transformar sinais em iniciativas priorizadas.",
+      "stages": [
+        {
+          "id": "scouting",
+          "title": "Scouting",
+          "summary": "Monitorar relatórios, startups e benchmarks.",
+          "owners": ["Analista de inovação"],
+          "durationHours": 8,
+          "activities": [
+            {
+              "id": "scan",
+              "label": "Scan mensal",
+              "description": "Consolidar sinais e atualizar backlog."
+            },
+            {
+              "id": "catalog",
+              "label": "Catalogar sinais",
+              "description": "Registrar em planilha oficial."
+            }
+          ],
+          "deliverables": [{ "id": "catalogo", "label": "Catálogo de sinais priorizados" }],
+          "risks": [
+            {
+              "id": "overload",
+              "label": "Excesso de fontes",
+              "severity": "medium",
+              "mitigation": "Definir curadoria trimestral."
+            }
+          ],
+          "checkpoints": ["Painel de sinais atualizado"]
+        },
+        {
+          "id": "experiment",
+          "title": "Experimentação",
+          "summary": "Testar hipótese com prova de conceito controlada.",
+          "owners": ["Product manager", "Tech lead"],
+          "durationHours": 24,
+          "activities": [
+            {
+              "id": "poc",
+              "label": "Prova de conceito",
+              "description": "Criar script automatizado ou mock."
+            },
+            {
+              "id": "test-plan",
+              "label": "Plano de testes",
+              "description": "Executar casos e registrar logs."
+            }
+          ],
+          "deliverables": [
+            { "id": "script", "label": "Script automatizado" },
+            { "id": "relatorio", "label": "Relatório de testes" }
+          ],
+          "risks": [
+            {
+              "id": "dados",
+              "label": "Exposição de dados",
+              "severity": "high",
+              "mitigation": "Aplicar mascaramento e controles de auditoria."
+            }
+          ],
+          "checkpoints": ["Critérios de sucesso mensurados"]
+        },
+        {
+          "id": "decision",
+          "title": "Decisão",
+          "summary": "Apresentar resultado ao comitê e atualizar roadmap.",
+          "owners": ["Comitê de inovação"],
+          "durationHours": 6,
+          "activities": [
+            {
+              "id": "forum",
+              "label": "Fórum executivo",
+              "description": "Avaliar risco, valor e dependências."
+            },
+            {
+              "id": "roadmap",
+              "label": "Atualizar roadmap",
+              "description": "Incluir iniciativa e salvaguardas."
+            }
+          ],
+          "deliverables": [{ "id": "ata", "label": "Ata com deliberação" }],
+          "risks": [
+            {
+              "id": "alinhamento",
+              "label": "Falta de patrocínio",
+              "severity": "medium",
+              "mitigation": "Engajar sponsors nas etapas anteriores."
+            }
+          ],
+          "checkpoints": ["Roadmap atualizado"]
+        }
       ]
     },
     {
@@ -127,7 +282,10 @@
           "title": "Fase 1",
           "content": "Explorar tendências com pilotos controlados e métricas claras."
         },
-        { "title": "Fase 2", "content": "Escalar soluções com arquitetura modular e governança." },
+        {
+          "title": "Fase 2",
+          "content": "Escalar soluções com arquitetura modular e governança."
+        },
         {
           "title": "Fase 3",
           "content": "Integrar novas capacidades ao core e às jornadas do cliente."
@@ -143,14 +301,14 @@
       "title": "Panorama de tendências",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/trends-gartner-2025",
-          "title": "Gartner Top Strategic Technology Trends",
-          "caption": "Resumo executivo das principais tendências."
+          "url": "https://www.youtube.com/watch?v=rs1bV0w0Sx0",
+          "title": "Curso em Vídeo — Panorama de Transformação Digital",
+          "caption": "Resumo introdutório sobre transformação digital e impactos para negócios."
         },
         {
-          "url": "https://example.edu/tgs/videos/case-ia-generativa",
-          "title": "Case IA generativa em seguros",
-          "caption": "Como a seguradora Sirius aplicou copilotos a processos de sinistro."
+          "url": "https://www.youtube.com/watch?v=Q8TXgCzxEnw",
+          "title": "freeCodeCamp — Tendências de IA para líderes",
+          "caption": "Discussão prática sobre uso responsável de IA em produtos digitais."
         }
       ]
     },
@@ -161,7 +319,25 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Monte um radar de tendências personalizado com quatro iniciativas prioritárias e avaliação de impacto, esforço e horizonte. Publique no fórum e compare com colegas de outros setores."
+          "text": "Produza um radar com quatro tendências priorizadas, anexando script de coleta dos sinais, relatório de testes da prova de conceito e log de auditoria. Publique no Moodle até 23h59 do dia seguinte."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Script automatizado (YAML/JSON/notebook) com critérios de classificação." },
+            { "text": "Relatório de testes contendo métricas de impacto, esforço e riscos." },
+            { "text": "Log de auditoria consolidando acessos e salvaguardas." }
+          ]
+        },
+        {
+          "type": "checklist",
+          "title": "Checklist de submissão",
+          "items": [
+            "Radar exportado em PDF ou imagem com legenda de categorias.",
+            "Script versionado e linkado no repositório da turma.",
+            "Relatório de testes com data, responsáveis e evidências.",
+            "Log de auditoria em CSV ou JSON revisado por um colega."
+          ]
         }
       ]
     }
@@ -191,6 +367,31 @@
     {
       "label": "Template de radar de tendências",
       "url": "https://example.edu/tgs/templates/radar-tendencias",
+      "type": "template"
+    },
+    {
+      "label": "Dataset CSV — Indicadores de maturidade digital",
+      "url": "https://data.gov.br/dataset/maturidade-transformacao-digital.csv",
+      "type": "dataset"
+    },
+    {
+      "label": "Vídeo Curso em Vídeo — Transformação Digital e Inovação",
+      "url": "https://www.youtube.com/watch?v=rs1bV0w0Sx0",
+      "type": "video"
+    },
+    {
+      "label": "Vídeo freeCodeCamp — Responsible AI Trends",
+      "url": "https://www.youtube.com/watch?v=Q8TXgCzxEnw",
+      "type": "video"
+    },
+    {
+      "label": "Planilha de testes para provas de conceito",
+      "url": "https://docs.google.com/spreadsheets/d/1TGS_PoC_Test_Plan",
+      "type": "spreadsheet"
+    },
+    {
+      "label": "Template de log de auditoria (JSON)",
+      "url": "https://example.edu/tgs/templates/log-auditoria.json",
       "type": "template"
     },
     {
