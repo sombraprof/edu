@@ -33,6 +33,28 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Backlog preventivo pré-avaliação",
+      "cards": [
+        {
+          "title": "Loops de feedback",
+          "content": "Revisar mapas produzidos, verificar polaridade e indicadores associados."
+        },
+        {
+          "title": "Homeostase",
+          "content": "Listar exemplos e contraexemplos em cada estudo de caso trabalhado."
+        },
+        {
+          "title": "Fronteiras",
+          "content": "Checar delimitações do sistema, atores e fluxos externos relevantes."
+        },
+        {
+          "title": "Riscos & mitigação",
+          "content": "Registrar hipóteses de ruptura e contramedidas no quadro colaborativo."
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Estrutura da prova",
       "content": [
@@ -60,6 +82,28 @@
       ]
     },
     {
+      "type": "timeline",
+      "title": "Oficina de revisão (véspera da NP2)",
+      "steps": [
+        {
+          "title": "Bloco 1 — Diagnóstico",
+          "content": "15 min para avaliar rubric score da aula 25-27 e definir lacunas prioritárias."
+        },
+        {
+          "title": "Bloco 2 — Troca entre duplas",
+          "content": "20 min de revisão cruzada utilizando o board de pares para comentar mapas sistêmicos."
+        },
+        {
+          "title": "Bloco 3 — Mini-simulado",
+          "content": "30 min respondendo questão inédita e comparando com gabarito comentado."
+        },
+        {
+          "title": "Bloco 4 — Ações preventivas",
+          "content": "15 min para atualizar backlog preventivo, definir métricas de acompanhamento e próximos passos."
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Critérios de correção",
       "content": [
@@ -78,11 +122,17 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Orientações logísticas",
+      "title": "Métricas a monitorar durante a NP2",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Prova individual, sem consulta. Trazer documento oficial com foto e caneta azul ou preta. Dispositivos devem permanecer desligados."
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Tempo de resposta por questão para evitar correria final.",
+            "Cobertura de conceitos (loops, homeostase, fronteiras) em cada resposta.",
+            "Clareza de evidências utilizadas: citar dados do caso, indicadores e stakeholders.",
+            "Consistência terminológica: evitar contradições entre diagnósticos e propostas."
+          ]
         }
       ]
     },
@@ -129,6 +179,11 @@
       "label": "Guia de revisão NP2",
       "url": "https://example.edu/tgs/guia-np2",
       "type": "guide"
+    },
+    {
+      "label": "Board de revisão por pares",
+      "url": "https://miro.com/app/board/uXjRevisaoNP2Squads/",
+      "type": "board"
     },
     {
       "label": "Checklist de preparação",
