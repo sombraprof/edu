@@ -1,0 +1,91 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "refatoracao-modular",
+  "title": "Refatoração modular: folha de pagamento",
+  "summary": "Transforme um algoritmo sequencial de folha de pagamento em um programa modular composto por cinco funções colaborativas.",
+  "description": "Antes da NP2, reestruture uma solução de folha de pagamento separando responsabilidades em funções específicas para entrada, cálculos e exibição.",
+  "objectives": [
+    "Praticar a divisão de responsabilidades em funções com nomes descritivos.",
+    "Reduzir repetição de código ao separar entrada, processamento e saída.",
+    "Documentar contratos de entrada e saída para cada função criada."
+  ],
+  "competencies": ["02", "05", "08"],
+  "skills": [
+    "Isolar cálculos em funções puras com parâmetros e retornos explícitos.",
+    "Planejar a interface de cada função definindo tipos e ordem dos parâmetros.",
+    "Validar o fluxo modular utilizando casos de teste representativos."
+  ],
+  "outcomes": [
+    "Entrega versão modular com cinco funções nomeadas conforme especificação.",
+    "Disponibiliza documentação curta explicando contratos de entrada e saída de cada função.",
+    "Executa testes comparando resultados da versão sequencial e da versão refatorada."
+  ],
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Contexto",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Parta de um algoritmo sequencial de folha de pagamento que calcula salário bruto, descontos e salário líquido."
+        },
+        {
+          "type": "paragraph",
+          "text": "Seu objetivo é separar responsabilidades em funções nomeadas e bem documentadas antes da avaliação NP2."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Passos para refatorar",
+      "items": [
+        "Mapeie variáveis de entrada, processamento e saída do algoritmo original.",
+        "Implemente a função coletarEntrada() para capturar dados do colaborador.",
+        "Crie calcularSalarioBruto() somando horas, adicionais e benefícios.",
+        "Implemente calcularDescontos() aplicando impostos e abatimentos obrigatórios.",
+        "Escreva exibirRecibo() para formatar o resultado e main() para orquestrar as chamadas."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Critérios de avaliação",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Cada função deve ter propósito único e nomes autoexplicativos." },
+            { "text": "Parâmetros e retornos devem refletir os dados realmente necessários." },
+            { "text": "A main() precisa coordenar o fluxo sem repetir cálculos ou exibições." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Antes de mover código, escreva comentários descrevendo o que cada parte realiza e quais dados consome."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Prefira passar estruturas por referência para evitar cópias desnecessárias."
+            },
+            {
+              "text": "Crie um plano de testes rápido comparando a versão original com a refatorada."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "generatedBy": "LLM-Assistente-Edu",
+    "model": "gpt-4o",
+    "timestamp": "2025-10-01T09:18:10Z"
+  }
+}

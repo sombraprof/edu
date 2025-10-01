@@ -91,6 +91,19 @@
         "model": "manual",
         "timestamp": "2025-02-21T12:00:00.000Z"
       }
+    },
+    {
+      "id": "refatoracao-modular",
+      "title": "Refatoração modular: folha de pagamento",
+      "description": "Refatore um algoritmo sequencial de folha de pagamento separando responsabilidades em cinco funções colaborativas antes da NP2.",
+      "link": "courses/algi/exercises/refatoracao-modular.html",
+      "available": true,
+      "file": "refatoracao-modular.vue",
+      "metadata": {
+        "generatedBy": "LLM-Assistente-Edu",
+        "model": "gpt-4o",
+        "timestamp": "2025-10-01T09:18:10Z"
+      }
     }
   ]
 }
