@@ -62,6 +62,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade III",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
+          "title": "Room: arquitetando persistência local",
+          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
+          "title": "Android Jetpack Architecture Components",
+          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da aula",
       "items": [
@@ -85,7 +101,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "@Database(entities = [Produto::class], version = 2, exportSchema = true)\nabstract class AppDatabase : RoomDatabase() {\n    abstract fun produtoDao(): ProdutoDao\n\n    companion object {\n        @Volatile\n        private var INSTANCE: AppDatabase? = null\n\n        fun getInstance(context: Context): AppDatabase {\n            return INSTANCE ?: synchronized(this) {\n                val instance = Room.databaseBuilder(\n                    context.applicationContext,\n                    AppDatabase::class.java,\n                    \"catalogo.db\"\n                )\n                    .addMigrations(MIGRATION_1_2)\n                    .fallbackToDestructiveMigrationOnDowngrade()\n                    .build()\n                INSTANCE = instance\n                instance\n            }\n        }\n    }\n}"
+          "code": "@Database(entities = [Produto::class], version = 2, exportSchema = true)\nabstract class AppDatabase : RoomDatabase() {\n    abstract fun produtoDao(): ProdutoDao\n\n    companion object {\n        @Volatile\n        private var INSTANCE: AppDatabase? = null\n\n        fun getInstance(context: Context): AppDatabase {\n            return INSTANCE ?: synchronized(this) {\n                val instance = Room.databaseBuilder(\n                    context.applicationContext,\n                    AppDatabase::class.java,\n                    \"catalogo.db\"\n                )\n                    .addMigrations(MIGRATION_1_2)\n                    .fallbackToDestructiveMigrationOnDowngrade()\n                    .build()\n                INSTANCE = instance\n                instance\n            }\n        }\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "callout",
@@ -136,7 +152,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "val MIGRATION_1_2 = object : Migration(1, 2) {\n    override fun migrate(database: SupportSQLiteDatabase) {\n        database.execSQL(\n            \"ALTER TABLE produto ADD COLUMN favorito INTEGER NOT NULL DEFAULT 0\"\n        )\n    }\n}"
+          "code": "val MIGRATION_1_2 = object : Migration(1, 2) {\n    override fun migrate(database: SupportSQLiteDatabase) {\n        database.execSQL(\n            \"ALTER TABLE produto ADD COLUMN favorito INTEGER NOT NULL DEFAULT 0\"\n        )\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
         }
       ]
     },
@@ -171,6 +187,61 @@
         {
           "type": "paragraph",
           "text": "Atualize o repositório no Moodle Classroom com a branch \"feature/roomdatabase\" antes da aula 17."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de Estruturando o RoomDatabase e Migrações."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ANDROID DEVELOPERS. Migrate Room databases. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reforce os conceitos de Estruturando o RoomDatabase e Migrações relacionando SharedPreferences, Room e estratégias de migração."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: ANDROID DEVELOPERS. Migrate Room databases. 2024.",
+            "Conecte com o estudo: FARQUHAR, I. et al. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+        },
+        {
+          "type": "blockquote",
+          "text": "FARQUHAR, I. et al. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2023."
         }
       ]
     }

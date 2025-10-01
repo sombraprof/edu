@@ -54,6 +54,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade III",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
+          "title": "Room: arquitetando persistência local",
+          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
+          "title": "Android Jetpack Architecture Components",
+          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da aula",
       "items": [
@@ -135,7 +151,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "val sharedPreferences = getSharedPreferences(\"PREFS_DO_MEU_APP\", MODE_PRIVATE)"
+          "code": "val sharedPreferences = getSharedPreferences(\"PREFS_DO_MEU_APP\", MODE_PRIVATE)\n\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "paragraph",
@@ -144,7 +160,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "val editor = sharedPreferences.edit()\neditor.putString(\"CHAVE_NOME_USUARIO\", \"Tiago Sombra\")\neditor.putBoolean(\"CHAVE_MODO_NOTURNO\", true)\neditor.apply()"
+          "code": "val editor = sharedPreferences.edit()\neditor.putString(\"CHAVE_NOME_USUARIO\", \"Tiago Sombra\")\neditor.putBoolean(\"CHAVE_MODO_NOTURNO\", true)\neditor.apply()\n\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "callout",
@@ -164,7 +180,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "val nomeSalvo = sharedPreferences.getString(\"CHAVE_NOME_USUARIO\", \"Usuário\")\nval modoNoturnoAtivo = sharedPreferences.getBoolean(\"CHAVE_MODO_NOTURNO\", false)"
+          "code": "val nomeSalvo = sharedPreferences.getString(\"CHAVE_NOME_USUARIO\", \"Usuário\")\nval modoNoturnoAtivo = sharedPreferences.getBoolean(\"CHAVE_MODO_NOTURNO\", false)\n\n// Referência: ANDROID DEVELOPERS (2024)"
         }
       ]
     },
@@ -183,7 +199,7 @@
         {
           "type": "code",
           "language": "xml",
-          "code": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout ... android:orientation=\"vertical\" android:padding=\"16dp\">\n    <TextView\n        android:id=\"@+id/textViewSaudacao\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:textSize=\"20sp\"\n        tools:text=\"Olá, Visitante!\" />\n    <EditText\n        android:id=\"@+id/editTextNome\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"24dp\"\n        android:hint=\"Qual o seu nome?\" />\n    <Button\n        android:id=\"@+id/buttonSalvar\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"16dp\"\n        android:text=\"Salvar Nome\" />\n</LinearLayout>"
+          "code": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<LinearLayout ... android:orientation=\"vertical\" android:padding=\"16dp\">\n    <TextView\n        android:id=\"@+id/textViewSaudacao\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:textSize=\"20sp\"\n        tools:text=\"Olá, Visitante!\" />\n    <EditText\n        android:id=\"@+id/editTextNome\"\n        android:layout_width=\"match_parent\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"24dp\"\n        android:hint=\"Qual o seu nome?\" />\n    <Button\n        android:id=\"@+id/buttonSalvar\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"16dp\"\n        android:text=\"Salvar Nome\" />\n</LinearLayout>\n\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "paragraph",
@@ -192,7 +208,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "package br.com.unichristus.ads.sharedprefs\n\nimport android.content.SharedPreferences\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.widget.Button\nimport android.widget.EditText\nimport android.widget.TextView\n\nclass MainActivity : AppCompatActivity() {\n\n    private lateinit var textViewSaudacao: TextView\n    private lateinit var editTextNome: EditText\n    private lateinit var buttonSalvar: Button\n    private lateinit var sharedPreferences: SharedPreferences\n\n    companion object {\n        private const val ARQUIVO_PREFS = \"AppPrefs\"\n        private const val CHAVE_NOME = \"NOME_USUARIO\"\n    }\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        textViewSaudacao = findViewById(R.id.textViewSaudacao)\n        editTextNome = findViewById(R.id.editTextNome)\n        buttonSalvar = findViewById(R.id.buttonSalvar)\n\n        sharedPreferences = getSharedPreferences(ARQUIVO_PREFS, MODE_PRIVATE)\n\n        carregarSaudacao()\n\n        buttonSalvar.setOnClickListener {\n            salvarNome()\n        }\n    }\n\n    private fun carregarSaudacao() {\n        val nomeSalvo = sharedPreferences.getString(CHAVE_NOME, null)\n        if (nomeSalvo != null && nomeSalvo.isNotBlank()) {\n            textViewSaudacao.text = \"Olá, $nomeSalvo!\"\n        } else {\n            textViewSaudacao.text = \"Olá, Visitante!\"\n        }\n    }\n\n    private fun salvarNome() {\n        val nomeDigitado = editTextNome.text.toString()\n        if (nomeDigitado.isNotBlank()) {\n            val editor = sharedPreferences.edit()\n            editor.putString(CHAVE_NOME, nomeDigitado)\n            editor.apply()\n\n            textViewSaudacao.text = \"Olá, $nomeDigitado!\"\n            editTextNome.text.clear()\n        }\n    }\n}"
+          "code": "package br.com.unichristus.ads.sharedprefs\n\nimport android.content.SharedPreferences\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.widget.Button\nimport android.widget.EditText\nimport android.widget.TextView\n\nclass MainActivity : AppCompatActivity() {\n\n    private lateinit var textViewSaudacao: TextView\n    private lateinit var editTextNome: EditText\n    private lateinit var buttonSalvar: Button\n    private lateinit var sharedPreferences: SharedPreferences\n\n    companion object {\n        private const val ARQUIVO_PREFS = \"AppPrefs\"\n        private const val CHAVE_NOME = \"NOME_USUARIO\"\n    }\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        textViewSaudacao = findViewById(R.id.textViewSaudacao)\n        editTextNome = findViewById(R.id.editTextNome)\n        buttonSalvar = findViewById(R.id.buttonSalvar)\n\n        sharedPreferences = getSharedPreferences(ARQUIVO_PREFS, MODE_PRIVATE)\n\n        carregarSaudacao()\n\n        buttonSalvar.setOnClickListener {\n            salvarNome()\n        }\n    }\n\n    private fun carregarSaudacao() {\n        val nomeSalvo = sharedPreferences.getString(CHAVE_NOME, null)\n        if (nomeSalvo != null && nomeSalvo.isNotBlank()) {\n            textViewSaudacao.text = \"Olá, $nomeSalvo!\"\n        } else {\n            textViewSaudacao.text = \"Olá, Visitante!\"\n        }\n    }\n\n    private fun salvarNome() {\n        val nomeDigitado = editTextNome.text.toString()\n        if (nomeDigitado.isNotBlank()) {\n            val editor = sharedPreferences.edit()\n            editor.putString(CHAVE_NOME, nomeDigitado)\n            editor.apply()\n\n            textViewSaudacao.text = \"Olá, $nomeDigitado!\"\n            editTextNome.text.clear()\n        }\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
         }
       ]
     },
@@ -223,6 +239,61 @@
         "OLIVEIRA, Diego Bittencourt de et al. Desenvolvimento para Dispositivos Móveis. Porto Alegre: SAGAH, 2019. v. 1.",
         "SIMAS, V. L. et al. Desenvolvimento para Dispositivos Móveis – Volume 2. Grupo A, 2019.",
         "Documentação oficial sobre SharedPreferences (https://developer.android.com/training/data-storage/shared-preferences)."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de Persistência com SharedPreferences."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ANDROID DEVELOPERS. Data and file storage overview. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reforce os conceitos de Persistência com SharedPreferences relacionando SharedPreferences, Room e estratégias de migração."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: ANDROID DEVELOPERS. Data and file storage overview. 2024.",
+            "Conecte com o estudo: PHILLIPS, M. Kotlin Apprentice. raywenderlich, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+        },
+        {
+          "type": "blockquote",
+          "text": "PHILLIPS, M. Kotlin Apprentice. raywenderlich, 2023."
+        }
       ]
     }
   ],

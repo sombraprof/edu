@@ -43,6 +43,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade I",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE",
+          "title": "Android Basics in Kotlin (Android Developers)",
+          "caption": "Playlist oficial sobre fundamentos de Android e Kotlin. Créditos: Android Developers (Google, 2024)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ldM6QZy9e0s",
+          "title": "Kotlin-first no Google I/O 2019",
+          "caption": "Keynote institucional destacando a adoção do Kotlin no Android. Créditos: Google I/O (2019)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de Voo da Aula",
       "items": [
@@ -211,6 +227,61 @@
             "OLIVEIRA, Diego Bittencourt de et al. Desenvolvimento para Dispositivos Móveis. Porto Alegre: SAGAH, 2019. v. 1.",
             "SIMAS, V. L. et al. Desenvolvimento para Dispositivos Móveis – Volume 2. Grupo A, 2019."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O trecho abaixo demonstra como instrumentar o registo de eventos no contexto de Configuração do Ambiente de Desenvolvimento, reforçando o que discutimos em sala."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "// Exemplo aplicado de Configuração do Ambiente de Desenvolvimento\nval moduloAtual = \"Configuração do Ambiente de Desenvolvimento\"\nandroid.util.Log.d(\"UnidadeI\", \"Preparando $moduloAtual\")\n// Referência: Google (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Note como o comentário final conecta o exemplo às diretrizes oficiais discutidas em Google (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Google. \"Install Android Studio.\" 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para aprofundar Configuração do Ambiente de Desenvolvimento, retome as leituras indicadas e conecte com as práticas de laboratório."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: Google. \"Install Android Studio.\" 2024.",
+            "Conecte com o estudo: JetBrains. \"Kotlin Documentation.\" 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione os indicadores discutidos com os dados de mercado apresentados na bibliografia."
+        },
+        {
+          "type": "blockquote",
+          "text": "JetBrains. \"Kotlin Documentation.\" 2024."
         }
       ]
     }

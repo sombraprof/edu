@@ -51,6 +51,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Cronograma da avaliação (160 min)",
       "items": [
@@ -73,7 +89,9 @@
         {
           "type": "unorderedList",
           "items": [
-            { "text": "Entrega fora do AVA ou após o horário limite implica nota 0." },
+            {
+              "text": "Entrega fora do AVA ou após o horário limite implica nota 0."
+            },
             {
               "text": "A prova exige commit final assinado digitalmente no repositório individual."
             },
@@ -265,6 +283,61 @@
             }
           ],
           "checkpoints": ["Upload confirmado", "Autoavaliação enviada"]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Avaliação NP2 (Prova Integrada) usando Expo e React Navigation."
+        },
+        {
+          "type": "code",
+          "language": "tsx",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Avaliação NP2 (Prova Integrada): stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: Material compilado da disciplina (Aulas 13-29) (s.d.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de Material compilado da disciplina (Aulas 13-29) (s.d.)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Material compilado da disciplina (Aulas 13-29)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Avaliação NP2 (Prova Integrada) relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: Material compilado da disciplina (Aulas 13-29).",
+            "Conecte com o estudo: GOOGLE. Android Developers Guides. 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "GOOGLE. Android Developers Guides. 2024."
         }
       ]
     }
