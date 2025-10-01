@@ -15,17 +15,23 @@ Este plano consolida os ajustes necessários nas 40 aulas de **Algoritmos e Prog
 3. **Pré-aula (Warm-up)** – incluir sempre um parágrafo ou card com orientações prévias: leitura indicada, vídeo sugerido e checklist do ambiente. Quando houver TED no Moodle, explicitar formato (texto, código, relatório) e prazo.
 4. **Pós-aula (TED)** – registrar no bloco final o enunciado da atividade, critérios de submissão e rubrica compacta; quando for substituído por avaliação, indicar explicitamente em `assessment`.
 5. **Integração com Moodle** – usar `callout` com `variant: "info"` para sinalizar uploads no Moodle (planilha, relatório, código) e `variant: "warning"` para alertas de prazos ou condutas.
-6. **Bibliografia com citação rastreável** – repetir a bibliografia do plano de ensino para garantir consistência nas referências (Forbellone & Eberpspacher, Manzano & Oliveira, Backes, Santos, Ascencio & Campos), citando explicitamente capítulos, seções ou páginas sempre que um recurso for acionado em `resources` ou `lessonPlan`.
-7. **Metodologias ativas alinhadas ao MD3** – relacionar cada metodologia ativa (sala de aula invertida, fishbowl, pair programming, oficinas, estudos de caso, etc.) aos blocos MD3 em que aparecem (`lessonPlan`, `flightPlan`, `cardGrid`, `callout`, `pipelineCanvas`, entre outros) para evidenciar a intencionalidade pedagógica.
+6. **Bibliografia com citação rastreável** – repetir a bibliografia do plano de ensino para garantir consistência nas referências (Forbellone & Eberpspacher, Manzano & Oliveira, Backes, Santos, Ascencio & Campos) e registrar a cada uso a citação explícita do capítulo, seção e/ou página correspondente (ex.: "Forbellone & Eberpspacher, cap. 4, p. 85") nos campos `bibliography`, `resources` e nos blocos do `lessonPlan`.
+7. **Metodologias ativas alinhadas ao MD3** – relacionar cada metodologia ativa (sala de aula invertida, fishbowl, pair programming, oficinas, estudos de caso, etc.) aos blocos MD3 em que são operacionalizadas (`lessonPlan`, `flightPlan`, `cardGrid`, `callout`, `pipelineCanvas`, entre outros), explicitando o vínculo na descrição da atividade (ex.: "Fishbowl (MD3: flightPlan → debate)").
 
 ## 3. Plano de melhoria da riqueza e qualidade
 
 | Fase           | Objetivo                                                                | Ações principais                                                                                                                             | Metas mensuráveis                                                                                                                                                      |
 | -------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Diagnóstico    | Mapear lacunas de conteúdo, referências e evidências em cada aula.      | Revisar `lesson-XX.json`, coletar dados de uso no Moodle e entrevistas rápidas com docentes/monitores.                                       | Checklist de cobertura preenchido para 100% das aulas; identificar ≥2 lacunas críticas por unidade e registrar na planilha de auditoria.                               |
+| Diagnóstico    | Mapear lacunas de conteúdo, referências e evidências em cada aula.      | Revisar `lesson-XX.json`, coletar dados de uso no Moodle e entrevistas rápidas com docentes/monitores.                                       | Checklist de cobertura preenchido para 100% das aulas; identificar ≥2 lacunas críticas por unidade e registrar na planilha de auditoria compartilhada.                 |
 | Curadoria      | Selecionar materiais e metodologias que elevem profundidade e contexto. | Priorizar autores clássicos, estudos de caso locais e materiais multimídia aderentes aos objetivos.                                          | Garantir ≥2 autores clássicos citados (com capítulo/página) por unidade temática; consolidar checklist de exemplos locais/contextualizados por unidade.                |
 | Enriquecimento | Incorporar recursos e ajustes nos blocos MD3 correspondentes.           | Atualizar `lessonPlan`, `flightPlan`, `callout`, tabelas e fluxogramas; anexar planilhas, templates e vídeos alinhados ao repertório curado. | Pelo menos 90% das aulas com referências cruzadas entre metodologia ativa e bloco MD3; ≥80% das TEDs com rubrica atualizada e vínculo a planilhas de testes/auditoria. |
 | Validação      | Confirmar aderência pedagógica e registrar evidências para governança.  | Rodar revisões por pares, validar com professor responsável, coletar feedback de estudantes e consolidar documentação de governança.         | Relatório de validação emitido para cada unidade; evidências arquivadas em `docs/governance/` com registro de data e responsáveis; índice de conformidade ≥95%.        |
+
+### Indicadores e entregáveis transversais
+
+- **Planilha de auditoria** – atualizar `docs/didactics/algi-content-audit.csv` a cada ciclo, garantindo rastreabilidade das lacunas identificadas e das ações corretivas aplicadas.
+- **Relatório de observabilidade** – consolidar métricas de uso (acessos, submissões, feedbacks) em documento mensal anexado ao ciclo de validação, com histórico disponível para a equipe docente.
+- **Registro em `docs/governance/`** – arquivar decisões, evidências e atas de validação por unidade temática, mantendo a rastreabilidade entre ações implementadas e indicadores monitorados.
 
 ## 4. Ajustes por unidade temática
 
@@ -121,7 +127,7 @@ A partir da aula 12, as revisões devem destacar planilhas de testes, fluxograma
 4. **Atualizar Moodle** – garantir que links de recursos e TEDs coincidam com o ambiente virtual oficial (descrições, prazos, rubricas). Registrar indicadores de observabilidade (acessos, submissões, comentários) em relatório mensal.
 5. **Monitorar entregas** – após cada módulo, coletar métricas de participação e resultados das NPs para ajustar materiais e evidências, anexando relatórios de observabilidade e a planilha de auditoria às pastas de governança.
 
-## 6. Auditoria de conteúdo (set/2025)
+## 7. Auditoria de conteúdo (set/2025)
 
 - **Planilha de acompanhamento**: [`docs/didactics/algi-content-audit.csv`](./algi-content-audit.csv) reúne a verificação automática das 40 aulas (bibliografia, capítulos/páginas citados, exemplos aplicados, metodologias e rubricas). Gere-a novamente com `node scripts/didactics/generate-algi-audit.js` sempre que atualizar os arquivos `lesson-XX.json`; a planilha traz uma linha por aula com os campos "OK", "Parcial" ou "Ausente" e, em "Observações", o caminho do arquivo e o ajuste pendente.
 
