@@ -85,7 +85,7 @@
           "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Fluxogramas e Visualização da Lógica. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
@@ -335,12 +335,13 @@
       "title": "Roteiro de revisão cruzada",
       "content": [
         {
-          "type": "orderedList",
+          "type": "list",
           "items": [
             "Compare o fluxograma recebido com o Guia MD3 de simbologia e a biblioteca acima; marque símbolos ausentes ou trocados.",
             "Percorra cada caminho respondendo: entrada → processamento → decisão → saída estão completos? Documente lacunas.",
             "Sugira melhorias objetivas (organização, textos nos símbolos, conectores) e combine ajustes em até 10 minutos."
-          ]
+          ],
+          "ordered": true
         }
       ]
     },
@@ -364,7 +365,7 @@
           "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 05' para anexar o artefato solicitado."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Faça upload do fluxograma final exportado (PDF ou imagem) junto com o arquivo-fonte da ferramenta utilizada."
@@ -379,7 +380,7 @@
           "text": "Rubrica de avaliação"
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Entrega dentro do prazo indicado no Moodle (20%)."

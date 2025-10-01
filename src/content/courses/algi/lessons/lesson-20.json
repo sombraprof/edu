@@ -118,9 +118,11 @@
           "text": "Garanta que as variáveis usadas na condição sejam inicializadas com um valor coerente antes do laço."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
-            { "text": "Faça a limpeza do buffer de entrada quando uma leitura falhar." },
+            {
+              "text": "Faça a limpeza do buffer de entrada quando uma leitura falhar."
+            },
             {
               "text": "Mantenha a lógica de decisão dentro de um switch ou função dedicada para evitar blocos extensos."
             }
@@ -141,7 +143,9 @@
         {
           "type": "orderedList",
           "items": [
-            { "text": "Descarte resíduos do buffer antes de repetir o menu." },
+            {
+              "text": "Descarte resíduos do buffer antes de repetir o menu."
+            },
             {
               "text": "Centralize a lógica de decisão em funções ou switch para manter o laço enxuto."
             },
@@ -162,10 +166,14 @@
           "text": "Adapte o menu para calcular o fatorial solicitado no TED, garantindo repetição até que o usuário peça para sair."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
-            { "text": "Inclua opção para exibir histórico das últimas respostas válidas." },
-            { "text": "Documente no relatório quando preferiria while ou for e por quê." }
+            {
+              "text": "Inclua opção para exibir histórico das últimas respostas válidas."
+            },
+            {
+              "text": "Documente no relatório quando preferiria while ou for e por quê."
+            }
           ]
         }
       ]

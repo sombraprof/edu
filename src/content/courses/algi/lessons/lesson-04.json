@@ -80,7 +80,7 @@
           "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Do Pseudocódigo ao Primeiro Programa em C. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
@@ -187,19 +187,37 @@
           "headers": ["Etapa", "Portugol", "C"],
           "rows": [
             [
-              { "value": "Entrada" },
-              { "value": "LEIA(num1, num2)" },
-              { "value": "scanf(\"%d\", &num1); scanf(\"%d\", &num2);" }
+              {
+                "value": "Entrada"
+              },
+              {
+                "value": "LEIA(num1, num2)"
+              },
+              {
+                "value": "scanf(\"%d\", &num1); scanf(\"%d\", &num2);"
+              }
             ],
             [
-              { "value": "Processamento" },
-              { "value": "soma <- num1 + num2" },
-              { "value": "soma = num1 + num2;" }
+              {
+                "value": "Processamento"
+              },
+              {
+                "value": "soma <- num1 + num2"
+              },
+              {
+                "value": "soma = num1 + num2;"
+              }
             ],
             [
-              { "value": "Saída" },
-              { "value": "ESCREVA(\"A soma é\", soma)" },
-              { "value": "printf(\"A soma é: %d\\n\", soma);" }
+              {
+                "value": "Saída"
+              },
+              {
+                "value": "ESCREVA(\"A soma é\", soma)"
+              },
+              {
+                "value": "printf(\"A soma é: %d\\n\", soma);"
+              }
             ]
           ]
         }
@@ -262,19 +280,20 @@
           "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 04' para anexar um pacote contendo código, checklist e evidências."
         },
         {
-          "type": "orderedList",
+          "type": "list",
           "items": [
             "Implemente no template do VS Code o algoritmo de soma apresentado (entrada de dois inteiros, processamento da soma e saída formatada).",
             "Valide o comportamento comparando cada etapa com a tabela \"Comparativo MD3\" e registre os testes executados (mínimo três pares de números).",
             "Faça upload do arquivo .c, do print da execução e de um checklist assinalando Entrada, Processamento e Saída utilizados."
-          ]
+          ],
+          "ordered": true
         },
         {
           "type": "paragraph",
           "text": "Rubrica de avaliação"
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Entrega dentro do prazo indicado no Moodle (20%)."

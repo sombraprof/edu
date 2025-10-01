@@ -136,7 +136,7 @@
           "text": "Comentários curtos ou nomes descritivos ajudam a equipe a compreender por que determinado laço foi escolhido."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Registre no cabeçalho quais variáveis são invariantes durante a repetição."
@@ -155,10 +155,18 @@
         {
           "type": "unorderedList",
           "items": [
-            { "text": "A sequência de valores processados é idêntica nas duas versões?" },
-            { "text": "O contador ou sentinela é inicializado com o mesmo valor de referência?" },
-            { "text": "Os efeitos colaterais dentro do laço permanecem na mesma ordem?" },
-            { "text": "Os casos de parada antecipada continuam garantidos?" }
+            {
+              "text": "A sequência de valores processados é idêntica nas duas versões?"
+            },
+            {
+              "text": "O contador ou sentinela é inicializado com o mesmo valor de referência?"
+            },
+            {
+              "text": "Os efeitos colaterais dentro do laço permanecem na mesma ordem?"
+            },
+            {
+              "text": "Os casos de parada antecipada continuam garantidos?"
+            }
           ]
         }
       ]
@@ -179,12 +187,14 @@
           "text": "Escolha um exercício da Unidade III e produza versões equivalentes usando for e while."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Registre na planilha da turma o problema escolhido e o critério de escolha de cada laço."
             },
-            { "text": "Anexe no AVA os casos de teste que comprovam a equivalência das saídas." }
+            {
+              "text": "Anexe no AVA os casos de teste que comprovam a equivalência das saídas."
+            }
           ]
         }
       ]
