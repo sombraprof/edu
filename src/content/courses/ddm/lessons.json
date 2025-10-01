@@ -1,6 +1,6 @@
 {
   "version": "edu.manifest.v1",
-  "generatedAt": "2025-09-29T01:29:26.419Z",
+  "generatedAt": "2025-10-01T00:39:17.436867Z",
   "entries": [
     {
       "id": "lesson-01",
@@ -8,7 +8,7 @@
       "file": "lesson-01.json",
       "available": true,
       "description": "Apresenta o plano da disciplina, contextualiza o mercado mobile e posiciona o Android no ecossistema atual.",
-      "summary": "Panorama histórico do Android, objetivos da disciplina e expectativas de aprendizagem com foco no mercado mobile.",
+      "summary": "Panorama do ecossistema Android, objetivos da disciplina e expectativas para a jornada mobile ao longo do semestre.",
       "tags": ["android", "fundamentos", "ecossistema"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -19,7 +19,7 @@
       "file": "lesson-02.json",
       "available": true,
       "description": "Guia passo a passo para preparar o Android Studio, emuladores e o primeiro projeto Kotlin.",
-      "summary": "Instalação do Android Studio, configuração do SDK, criação do projeto inicial e ajustes do emulador.",
+      "summary": "Instalação e configuração do Android Studio, SDKs e emuladores para iniciar o desenvolvimento com Kotlin.",
       "tags": ["android-studio", "ambiente", "kotlin"],
       "duration": 110,
       "formatVersion": "md3.lesson.v1"
@@ -30,7 +30,7 @@
       "file": "lesson-03.json",
       "available": true,
       "description": "Explora a anatomia de um aplicativo Android e como as camadas se relacionam.",
-      "summary": "Manifests, resources, activities e ciclo de build explicados a partir de um app base.",
+      "summary": "Mapeamento da anatomia de um app Android: Manifest, resources, Gradle e ciclo de build.",
       "tags": ["estrutura-app", "activity", "android"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -41,7 +41,7 @@
       "file": "lesson-04.json",
       "available": true,
       "description": "Apresenta os principais componentes visuais e padrões de layout no Material Design.",
-      "summary": "Views, ViewGroups, hierarquias de layout e orientações de Material Design aplicadas no Android.",
+      "summary": "Introdução aos componentes visuais do Android e às diretrizes do Material Design 3 para construir interfaces consistentes.",
       "tags": ["ui", "componentes", "material-design"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -52,7 +52,7 @@
       "file": "lesson-05.json",
       "available": true,
       "description": "Mostra como reagir a interações do usuário e monitorar a execução do app com ferramentas nativas.",
-      "summary": "Listeners, callbacks, tratamento de eventos comuns e depuração com Logcat.",
+      "summary": "Manipulação de eventos de interface e uso do Logcat para depuração e análise de comportamento.",
       "tags": ["eventos", "logcat", "depuracao"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -63,7 +63,7 @@
       "file": "lesson-06.json",
       "available": true,
       "description": "Consolida o conteúdo inicial com um aplicativo completo de onboarding, do layout ao teste.",
-      "summary": "Construção de um app de boas-vindas com navegação básica, estados e refinamentos visuais.",
+      "summary": "Integração dos fundamentos em um app de boas-vindas completo, reforçando navegação, estado e refinamento visual.",
       "tags": ["projeto", "android", "kotlin"],
       "duration": 120,
       "formatVersion": "md3.lesson.v1"
