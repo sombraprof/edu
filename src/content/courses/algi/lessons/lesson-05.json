@@ -5,20 +5,20 @@
   "summary": "Apresenta a simbologia essencial dos fluxogramas e orienta a tradução de algoritmos textuais para representações visuais.",
   "objective": "Representar algoritmos usando fluxogramas claros que facilitem a comunicação entre equipe e stakeholders.",
   "objectives": [
-    "Identificar os símbolos básicos de um fluxograma e suas funções.",
-    "Construir fluxogramas coerentes a partir de algoritmos previamente elaborados.",
-    "Utilizar ferramentas digitais para documentar fluxos e compartilhar revisões."
+    "Mapear algoritmos simples em fluxogramas legíveis.",
+    "Relacionar símbolos padronizados a operações de entrada, processamento e decisão.",
+    "Interpretar fluxos produzidos por colegas para validar raciocínios."
   ],
-  "competencies": ["Modelagem visual de processos", "Comunicação técnica", "Colaboração em dupla"],
+  "competencies": ["02", "12"],
   "skills": [
-    "Converter passos textuais em representações gráficas padronizadas.",
-    "Evidenciar pontos de decisão e caminhos alternativos.",
-    "Validar fluxogramas com colegas e ajustar rotas incoerentes."
+    "Selecionar símbolos de fluxo compatíveis com o propósito de cada etapa do algoritmo.",
+    "Organizar setas e conectores garantindo leitura sequencial coerente.",
+    "Explicar oralmente como o fluxograma traduz o algoritmo descrito em texto."
   ],
   "outcomes": [
-    "Entrega fluxograma consistente para um algoritmo já estudado.",
-    "Explica a lógica representada para quem não acompanhou o planejamento inicial.",
-    "Documenta ferramentas e boas práticas para manutenção dos fluxos."
+    "Entrega fluxograma com início, decisões e término claramente identificados.",
+    "Justifica a escolha de caminhos alternativos ao revisar fluxos de colegas.",
+    "Identifica inconsistências ou ciclos incorretos ao analisar um diagrama proposto."
   ],
   "prerequisites": ["Trazer o algoritmo/pseudocódigo desenvolvido na Aula 4."],
   "tags": ["fluxograma", "visualizacao", "processos"],
