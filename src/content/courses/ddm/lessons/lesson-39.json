@@ -1,0 +1,147 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-39",
+  "title": "Aula 39: Projeto Integrador – Avaliação NP3",
+  "slug": "projeto-integrador-avaliacao-np3",
+  "summary": "Realiza a apresentação oficial do projeto integrador perante a banca avaliadora, aplicando os critérios da NP3 e registrando feedbacks formais.",
+  "objective": "Conduzir a sessão de avaliação NP3 garantindo critérios transparentes, registro de notas e devolutivas construtivas para cada equipe.",
+  "objectives": [
+    "Executar as apresentações seguindo o cronograma e protocolo da banca.",
+    "Aplicar a rubrica de avaliação NP3 e registrar notas parciais e gerais.",
+    "Formalizar feedbacks qualitativos e acordar ajustes finais pós-banca."
+  ],
+  "competencies": [
+    "Gestão de avaliações",
+    "Comunicação institucional",
+    "Análise crítica de projetos digitais"
+  ],
+  "skills": [
+    "Conduzir sessões de banca mantendo tempo, ordem e participação equitativa.",
+    "Registrar notas e observações em planilha oficial.",
+    "Comunicar feedbacks objetivos e alinhados aos critérios da NP3."
+  ],
+  "outcomes": [
+    "Avaliação concluída com notas registradas e validadas pela banca.",
+    "Feedbacks entregues às equipes com pontos fortes e oportunidades de melhoria.",
+    "Checklist de pendências pós-NP3 acordado com prazos realistas."
+  ],
+  "prerequisites": [
+    "Entrega da pasta 'Entrega NP3' validada na Aula 38.",
+    "Presença dos integrantes da equipe na sessão de avaliação."
+  ],
+  "tags": ["projeto-integrador", "avaliacao", "np3"],
+  "duration": 180,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de Planilha de Avaliação NP3",
+      "url": "https://docs.google.com/spreadsheets/d/template-np3",
+      "type": "template"
+    },
+    {
+      "label": "Guia de condução de bancas avaliativas",
+      "url": "https://educacao.diretrizes/bancas-avaliativas",
+      "type": "article"
+    }
+  ],
+  "bibliography": [
+    "BARBOSA, S. D. J.; SILVA, B. S. Interação Humano-Computador. Elsevier, 2010.",
+    "ISO/IEC 25010. Systems and software engineering — Systems and software Quality Requirements and Evaluation. 2011."
+  ],
+  "assessment": {
+    "type": "summative",
+    "description": "Rubrica oficial NP3 aplicada pela banca para atribuição das notas finais do projeto integrador."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Protocolo da Sessão",
+      "items": [
+        "Abertura: apresentação da banca, regras e critérios.",
+        "Sequência de pitches conforme cronograma divulgado.",
+        "Rodada de perguntas e respostas (5 minutos por equipe).",
+        "Deliberação da banca e registro de notas.",
+        "Feedback imediato para cada equipe.",
+        "Orientações sobre ajustes finais e prazos pós-banca."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica Oficial NP3",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Dimensão", "Peso", "Descrição"],
+          "rows": [
+            [
+              "Produto (40%)",
+              "0,4",
+              "Avalia completude funcional, estabilidade, performance e aderência aos requisitos do usuário."
+            ],
+            [
+              "Experiência do usuário (20%)",
+              "0,2",
+              "Considera consistência visual, usabilidade, acessibilidade e resultados dos testes com usuários."
+            ],
+            [
+              "Processo e documentação (20%)",
+              "0,2",
+              "Examina coerência do planejamento, registros de sprint, documentação técnica e versionamento."
+            ],
+            [
+              "Apresentação e pitch (20%)",
+              "0,2",
+              "Avalia clareza do storytelling, domínio da equipe, qualidade dos materiais e gestão do tempo."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checklist da Banca",
+      "content": [
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Validar presença de todos os integrantes e assinaturas da ata.",
+            "Conferir envio prévio dos materiais (slides, demo, documentação).",
+            "Registrar horários de início e término de cada apresentação.",
+            "Preencher planilha de notas em tempo real e coletar assinaturas da banca.",
+            "Salvar feedbacks escritos em PDF e anexar no Moodle.",
+            "Divulgar prazos de ajustes pós-banca e publicação das notas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Orientações de Documentação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Ao final da sessão, anexar no repositório da turma (pasta /avaliacoes/np3) a planilha assinada, ata digitalizada e PDFs dos feedbacks individuais. Atualizar o documento principal do projeto com a seção 'Feedback da Banca' e ações previstas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Aviso Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assunto: Publicação das Notas NP3. Texto sugerido: \"As notas e feedbacks da NP3 serão publicados até as 22h de hoje no tópico 'Resultados NP3'. Confiram a planilha anexada e registrem no fórum quaisquer pedidos de reconsideração até 24h após a divulgação.\""
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2024-10-05T00:00:00.000Z",
+    "owners": ["Equipe DDM"],
+    "sources": ["Regulamento de Avaliações Integradas DDM", "Ata de banca NP3 2023"]
+  }
+}

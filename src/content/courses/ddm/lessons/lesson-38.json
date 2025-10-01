@@ -1,0 +1,160 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-38",
+  "title": "Aula 38: Projeto Integrador – Preparação e Ensaio de Apresentação",
+  "slug": "projeto-integrador-preparacao-e-ensaio",
+  "summary": "Guia as equipes na construção do storytelling, materiais de apoio e ensaio geral para a apresentação final do projeto integrador.",
+  "objective": "Preparar pitch consistente, alinhado às evidências técnicas, garantindo materiais entregáveis e documentação finalizada.",
+  "objectives": [
+    "Estruturar roteiro da apresentação com narrativa orientada a problema, solução e resultados.",
+    "Finalizar documentação técnica e anexos obrigatórios.",
+    "Realizar ensaios cronometrados com feedback estruturado."
+  ],
+  "competencies": [
+    "Storytelling de produtos digitais",
+    "Comunicação técnica",
+    "Gestão de entregas finais"
+  ],
+  "skills": [
+    "Construir apresentações visuais concisas e alinhadas à identidade do produto.",
+    "Destacar métricas e aprendizados relevantes em discurso técnico.",
+    "Aplicar feedbacks rápidos para ajustar tempo e clareza do pitch."
+  ],
+  "outcomes": [
+    "Roteiro final aprovado e apresentação ajustada ao tempo limite.",
+    "Documentação técnica consolidada e enviada com antecedência.",
+    "Equipe segura quanto à divisão de falas e material de apoio."
+  ],
+  "prerequisites": [
+    "Relatório de Testes & UX entregue na Aula 37.",
+    "Incremento final integrado ao repositório."
+  ],
+  "tags": ["projeto-integrador", "apresentacao", "pitch"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guy Kawasaki – Regra 10/20/30 do pitch",
+      "url": "https://guykawasaki.com/the-102030-rule/",
+      "type": "article"
+    },
+    {
+      "label": "Pitch Canvas – Ferramenta de Storytelling",
+      "url": "https://pitchcanvas.io/",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "DUARTE, N. Slide:ology. O'Reilly, 2010.",
+    "OSTERWALDER, A.; PIGNEUR, Y. Value Proposition Design. Wiley, 2014."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica de prontidão para verificar roteiro, materiais e segurança da equipe antes da avaliação NP3."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Kick-off: alinhamento das regras da banca e critérios NP3.",
+        "Construção colaborativa do roteiro (Pitch Canvas).",
+        "Mentorias sobre slides, demo e materiais de apoio.",
+        "Ensaio cronometrado com registro em vídeo.",
+        "Feedback 360° (colegas, docentes, mentores).",
+        "Checklist final de documentação e submissão Moodle."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica de Prontidão para o Pitch",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Critério", "Excelente (A)", "Adequado (B)", "Insuficiente (C)"],
+          "rows": [
+            [
+              "Narrativa",
+              "Apresentação segue estrutura clara (problema, solução, diferenciais, resultados) dentro do tempo.",
+              "Narrativa compreensível, porém com ajustes de tempo ou aprofundamento necessários.",
+              "História confusa, sem conexão com o problema ou estourando tempo."
+            ],
+            [
+              "Demonstração",
+              "Demo fluida, com roteiro ensaiado e plano B documentado em caso de falhas.",
+              "Demo funcional, mas com dependência de conexão ou pequenos riscos não mitigados.",
+              "Demo inexistente ou não testada previamente."
+            ],
+            [
+              "Material de apoio",
+              "Slides, one-pager e anexos técnicos prontos, padronizados e acessíveis à banca.",
+              "Materiais quase finalizados, demandando ajustes de formatação ou acesso.",
+              "Materiais incompletos ou indisponíveis para a banca."
+            ],
+            [
+              "Documentação",
+              "Relatório final, manual do usuário e repositório com tag de release publicados.",
+              "Documentação publicada parcialmente ou sem versão final marcada.",
+              "Ausência de documentação consolidada ou release final."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Checklist Final de Preparação",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Slides exportados em PDF e enviados à banca.",
+            "One-pager com resumo do projeto (problema, solução, métricas).",
+            "Manual do usuário atualizado com versão do app apresentada.",
+            "Vídeo do ensaio salvo no drive e compartilhado com o time.",
+            "Tag de release (v1.0-NP3) criada no repositório."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Orientações de Documentação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Consolidem tudo no pacote \"Entrega NP3\": pasta com subpastas 01-Slides, 02-Demo, 03-Documentação, 04-Métricas. Incluam README.txt com instruções de navegação e contatos da equipe."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Atualizar o arquivo SUMMARY.md indicando os anexos da entrega.",
+            "Inserir link do vídeo de ensaio e timecodes principais.",
+            "Garantir que os documentos sigam o padrão de nomenclatura: equipe_nome-artefato_v1.0.pdf."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Aviso Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assunto: Upload da Pasta 'Entrega NP3'. Texto sugerido: \"Realizem o envio da pasta compactada (ZIP) com todos os materiais do pitch no tópico 'Preparação NP3' até às 23h59. Comentem no mesmo tópico com o link do vídeo de ensaio.\""
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2024-10-02T00:00:00.000Z",
+    "owners": ["Equipe DDM"],
+    "sources": ["Guia da Banca NP3", "Manual de Apresentações Acadêmicas"]
+  }
+}

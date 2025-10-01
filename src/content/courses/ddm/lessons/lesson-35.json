@@ -1,0 +1,160 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-35",
+  "title": "Aula 35: Projeto Integrador – Planejamento Final",
+  "slug": "projeto-integrador-planejamento-final",
+  "summary": "Orienta o planejamento detalhado do projeto integrador, consolidando escopo, cronograma e responsabilidades da equipe para a fase conclusiva.",
+  "objective": "Estruturar o plano final do projeto integrador garantindo clareza de entregas, riscos e estratégias de validação.",
+  "objectives": [
+    "Revisar o escopo do projeto integrador à luz dos requisitos das unidades anteriores.",
+    "Definir backlog final, responsáveis e cronograma de desenvolvimento e testes.",
+    "Elaborar matriz de riscos e estratégias de mitigação alinhadas às entregas avaliativas."
+  ],
+  "competencies": [
+    "Gestão de projetos ágeis",
+    "Planejamento orientado a produtos digitais",
+    "Comunicação e documentação técnica"
+  ],
+  "skills": [
+    "Priorizar histórias de usuário considerando valor e esforço.",
+    "Estimar tarefas utilizando métricas de capacidade da equipe.",
+    "Documentar plano de execução com critérios de aceite verificáveis."
+  ],
+  "outcomes": [
+    "Consolida um plano de projeto integrador claro, sequenciado e com responsáveis definidos.",
+    "Produz artefatos de planejamento compartilháveis com stakeholders e mentores.",
+    "Alinha o time sobre riscos, mitigação e checkpoints até a apresentação final."
+  ],
+  "prerequisites": [
+    "Backlog inicial construído nas aulas 31 a 34.",
+    "Resultados dos testes intermediários do protótipo funcional."
+  ],
+  "tags": ["projeto-integrador", "planejamento", "agil"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Google Design Sprints – Checklist de Preparação",
+      "url": "https://designsprintkit.withgoogle.com/methodology/phase1-understand/checklist",
+      "type": "reference"
+    },
+    {
+      "label": "Atlassian – Guia de Backlog para times ágeis",
+      "url": "https://www.atlassian.com/agile/backlog",
+      "type": "article"
+    }
+  ],
+  "bibliography": [
+    "SCHWABER, K.; SUTHERLAND, J. Scrum Guide. 2023.",
+    "PRESSMAN, R.; MAXIM, B. Engenharia de Software. 9. ed. McGraw-Hill, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica diagnóstica para avaliar a consistência do plano final do projeto integrador e orientar ajustes antes dos ciclos de desenvolvimento acompanhados."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Contextualização: objetivos do projeto integrador e critérios de avaliação finais.",
+        "Revisão de backlog e priorização com foco em valor mínimo viável.",
+        "Matriz de riscos e definição de ações mitigadoras.",
+        "Planejamento de sprints de acompanhamento (Aulas 36 e 37).",
+        "Checklist de documentação e integração com Moodle.",
+        "Síntese e definição de próximos passos."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica de Planejamento",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Critério", "Excelente (A)", "Adequado (B)", "Insuficiente (C)"],
+          "rows": [
+            [
+              "Escopo",
+              "Lista de histórias priorizadas com critérios de aceite completos e alinhados à persona.",
+              "Backlog contém histórias principais, mas alguns critérios de aceite estão genéricos.",
+              "Escopo incompleto, histórias vagas ou sem vínculo com requisitos do cliente."
+            ],
+            [
+              "Cronograma",
+              "Sprints detalhadas com marcos, dependências e capacidade ajustada ao calendário.",
+              "Sprints definidas, porém com estimativas aproximadas ou dependências parcialmente mapeadas.",
+              "Ausência de datas claras, estimativas ou identificação de gargalos."
+            ],
+            [
+              "Riscos",
+              "Matriz de riscos com severidade, probabilidade, donos e plano de resposta registrado.",
+              "Riscos mapeados, mas com planos de resposta superficiais ou sem responsáveis.",
+              "Poucos riscos identificados e sem estratégia de mitigação."
+            ],
+            [
+              "Documentação",
+              "Plano anexado ao Moodle com versionamento, histórico de decisões e referências de testes.",
+              "Plano disponível, porém sem histórico de versões ou anexos de apoio.",
+              "Plano disperso em arquivos locais ou sem compartilhamento com a turma."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Checklist de Entrega",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Backlog priorizado (até 10 histórias) com critérios de aceite.",
+            "Cronograma das próximas três semanas no formato sprint ou kanban.",
+            "Matriz de riscos com pelo menos cinco itens.",
+            "Definição do responsável por cada entrega crítica.",
+            "Upload do documento no Moodle em PDF ou link compartilhável até 23h59."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Orientações de Documentação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize o template de planejamento disponibilizado na pasta compartilhada. Atualize o versionamento no topo do documento (v1.0, v1.1 etc.) e mantenha os quadros de backlog sincronizados com o repositório do time (GitHub ou GitLab)."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Padronize nomes de histórias: [Persona] quer [funcionalidade] para [valor].",
+            "Inclua critérios de aceite mensuráveis e alinhados à avaliação NP3.",
+            "Registrar decisões estratégicas e mudanças de escopo no changelog do documento."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Aviso Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assunto: Entrega do Plano Final do Projeto Integrador. Texto sugerido: \"Equipe, o plano final deve ser anexado até 23h59 de hoje no tópico 'Projeto Integrador – Planejamento Final'. Utilizem o campo de comentários para indicar dúvidas específicas sobre riscos ou cronograma.\""
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2024-09-15T00:00:00.000Z",
+    "owners": ["Equipe DDM"],
+    "sources": ["Plano de Ensino DDM 2024", "Guia do Projeto Integrador 2024"]
+  }
+}

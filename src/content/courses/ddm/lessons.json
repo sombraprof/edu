@@ -155,6 +155,72 @@
       "tags": ["android", "room", "persistencia"],
       "duration": 120,
       "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-35",
+      "title": "Aula 35: Projeto Integrador – Planejamento Final",
+      "file": "lesson-35.json",
+      "available": true,
+      "description": "Consolida o plano final do projeto integrador, detalhando escopo, riscos e cronograma até a apresentação.",
+      "summary": "Planejamento detalhado do projeto integrador com priorização, matriz de riscos e integração ao Moodle.",
+      "tags": ["projeto-integrador", "planejamento", "agil"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-36",
+      "title": "Aula 36: Projeto Integrador – Ciclo de Desenvolvimento 1",
+      "file": "lesson-36.json",
+      "available": true,
+      "description": "Acompanha o primeiro ciclo de desenvolvimento com foco em incremento funcional, integração contínua e registros de progresso.",
+      "summary": "Entrega de incremento priorizado, revisão técnica e atualização de relatórios do projeto integrador.",
+      "tags": ["projeto-integrador", "desenvolvimento", "ciclo-1"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-37",
+      "title": "Aula 37: Projeto Integrador – Ciclo de Desenvolvimento 2",
+      "file": "lesson-37.json",
+      "available": true,
+      "description": "Foca no segundo ciclo acompanhado, priorizando testes integrados, refinamentos de UX e preparação de métricas para a banca.",
+      "summary": "Consolidação de estabilidade, usabilidade e indicadores que embasam a apresentação final.",
+      "tags": ["projeto-integrador", "desenvolvimento", "ciclo-2"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-38",
+      "title": "Aula 38: Projeto Integrador – Preparação e Ensaio de Apresentação",
+      "file": "lesson-38.json",
+      "available": true,
+      "description": "Apoia a construção do storytelling, materiais e ensaio geral do pitch final da NP3.",
+      "summary": "Roteiro, materiais e documentação final organizados para a apresentação final do projeto.",
+      "tags": ["projeto-integrador", "apresentacao", "pitch"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-39",
+      "title": "Aula 39: Projeto Integrador – Avaliação NP3",
+      "file": "lesson-39.json",
+      "available": true,
+      "description": "Realiza a banca avaliadora da NP3, aplicando rubrica oficial e registrando feedbacks para cada equipe.",
+      "summary": "Sessão de apresentação oficial com registro de notas, feedbacks e pendências pós-banca.",
+      "tags": ["projeto-integrador", "avaliacao", "np3"],
+      "duration": 180,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-40",
+      "title": "Aula 40: Projeto Integrador – Encerramento e Feedback 360°",
+      "file": "lesson-40.json",
+      "available": true,
+      "description": "Encaminha o encerramento da disciplina com feedbacks consolidados, retrospectiva e planos de desenvolvimento individual.",
+      "summary": "Encerramento da disciplina com lições aprendidas, PDIs e comunicação final aos stakeholders.",
+      "tags": ["projeto-integrador", "encerramento", "feedback"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
     }
   ]
 }
