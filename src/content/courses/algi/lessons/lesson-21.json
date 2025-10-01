@@ -1,24 +1,24 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-21",
-  "title": "Aula 21: Laços Aninhados e Padrões Bidimensionais",
-  "summary": "Trabalha combinações de laços para gerar tabelas, padrões e simulações com múltiplos contadores.",
-  "objective": "Projetar laços aninhados com limites corretos e responsabilidades claras para cada nível.",
+  "title": "Problemas com laços aninhados simples",
+  "summary": "Integra laços aninhados para resolver problemas bidimensionais, produzindo tabelas e padrões em C.",
+  "description": "Os estudantes exploram como organizar laços aninhados para percorrer estruturas 2D, representar o fluxo em diferentes formatos e depurar erros comuns.",
   "objectives": [
-    "Entender o papel do laço externo e interno em problemas bidimensionais.",
-    "Aplicar laços aninhados para gerar tabelas, padrões e simulações.",
-    "Monitorar desempenho e evitar complexidade desnecessária."
+    "Planejar estruturas de dados bidimensionais que dependem de laços aninhados.",
+    "Implementar algoritmos com laços aninhados simples para tabulações e padrões visuais.",
+    "Analisar o custo computacional e a ordem de execução em aninhamentos."
   ],
-  "competencies": ["Pensamento computacional", "Modelagem matemática", "Depuração"],
+  "competencies": ["05", "12"],
   "skills": [
-    "Definir variáveis de controle com nomes expressivos.",
-    "Prevenir erros de limites em laços aninhados.",
-    "Instrumentar código com logs para depuração de múltiplos níveis."
+    "Definir limites e variáveis de controle para cada nível de laço.",
+    "Manipular tabelas e matrizes garantindo atualização correta das posições.",
+    "Explicar a ordem de execução usando diagramas ou tabelas de rastreamento."
   ],
   "outcomes": [
-    "Produz tabelas e padrões corretos usando laços aninhados.",
-    "Justifica a complexidade aproximada das soluções criadas.",
-    "Entrega relatório de testes cobrindo variações de entrada (linhas x colunas)."
+    "Entrega solução integradora que utiliza laços aninhados para gerar uma estrutura 2D coerente.",
+    "Apresenta representação visual alinhada ao algoritmo implementado.",
+    "Identifica gargalos ou repetições desnecessárias durante a depuração conjunta."
   ],
   "prerequisites": ["Dominar laços simples (for, while).", "Conhecer condicionais básicas."],
   "tags": ["loops", "aninhamento", "padroes"],
@@ -30,11 +30,7 @@
       "type": "worksheet",
       "url": "https://example.edu/algi/labs/padroes-ascii.pdf"
     },
-    {
-      "label": "Editor ASCII online",
-      "type": "tool",
-      "url": "https://asciiflow.com/"
-    },
+    { "label": "Editor ASCII online", "type": "tool", "url": "https://asciiflow.com/" },
     {
       "label": "Dataset de padrões (CSV)",
       "type": "dataset",
@@ -56,351 +52,90 @@
   },
   "content": [
     {
-      "type": "callout",
-      "variant": "info",
-      "title": "Warm-up (pré-aula)",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Laços Aninhados e Padrões Bidimensionais. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
-        },
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
-            },
-            {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 21."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "book-open",
-          "title": "Demonstração ASCII",
-          "content": "Desenhar padrões no quadro usando caracteres para entender coordenadas (15 min)."
-        },
-        {
-          "icon": "gears",
-          "title": "Modelagem de loops duplos",
-          "content": "Planejar relação linha x coluna antes de codificar (20 min)."
+          "icon": "target",
+          "title": "Mapeamento 2D",
+          "content": "Relembrar como problemas tabulares exigem dois índices coordenados."
         },
         {
           "icon": "code",
-          "title": "Laboratório guiado",
-          "content": "Implementar padrões em C com orientação do professor (30 min)."
+          "title": "Laboratório aninhado",
+          "content": "Construir padrões de asteriscos e tabelas usando laços for e while combinados."
         },
         {
           "icon": "users",
-          "title": "Mini-projeto",
-          "content": "Em squads, adaptar padrões para o case integrador (25 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Debrief",
-          "content": "Compartilhar métricas coletadas e próximos passos (15 min)."
-        }
-      ]
-    },
-    {
-      "type": "flightPlan",
-      "title": "Plano de voo (2h00)",
-      "items": [
-        "(15 min) Revisão do laço simples e motivação para aninhar.",
-        "(20 min) Demonstração: tabela de multiplicação 1..10.",
-        "(30 min) Laboratório orientado: padrões com asteriscos e tabulação.",
-        "(25 min) Desafio em grupos: simulação de assentos com regras especiais.",
-        "(20 min) Debate sobre desempenho e legibilidade.",
-        "(10 min) Registro de aprendizados no mural colaborativo.",
-        "(10 min) Orientações sobre o mini-projeto avaliativo."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Complementos em vídeo",
-      "videos": [
-        {
-          "youtubeId": "Q6G-f1v2kCc",
-          "title": "Construindo tabelas com laços aninhados"
-        },
-        {
-          "youtubeId": "1n8QZVq9l0k",
-          "title": "Complexidade de loops duplos"
+          "title": "Depuração coletiva",
+          "content": "Investigar erros comuns apresentando rastreamento linha a linha."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Boas práticas",
-      "content": [
-        {
-          "type": "list",
-          "items": [
-            "Laço externo define contexto (linhas, dias, casos).",
-            "Laço interno cuida de detalhes (colunas, horários, atributos).",
-            "Evite modificar contadores manualmente dentro do laço interno sem necessidade.",
-            "Documente a ordem de execução em comentários quando houver dependências."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Impacto na complexidade",
-      "headers": ["Estrutura", "Complexidade", "Observações"],
-      "rows": [
-        [
-          {
-            "value": "Laço simples"
-          },
-          {
-            "value": "O(n)"
-          },
-          {
-            "value": "Processa elementos lineares."
-          }
-        ],
-        [
-          {
-            "value": "Laço duplo"
-          },
-          {
-            "value": "O(n*m)"
-          },
-          {
-            "value": "Multiplica o esforço do externo pelo interno."
-          }
-        ],
-        [
-          {
-            "value": "Laço triplo"
-          },
-          {
-            "value": "O(n*m*k)"
-          },
-          {
-            "value": "Use apenas quando o problema exigir."
-          }
-        ]
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Aplicações sugeridas",
-      "cards": [
-        {
-          "title": "Tabuada",
-          "content": "Gere tabelas 1..10 com alinhamento formatado."
-        },
-        {
-          "title": "Mapa de calor",
-          "content": "Simule temperaturas por sala x horário e destaque extremos."
-        },
-        {
-          "title": "Reserva de assentos",
-          "content": "Marque ocupações especiais e assentos bloqueados por acessibilidade."
-        }
-      ]
-    },
-    {
-      "type": "code",
-      "language": "c",
-      "title": "Tabela de multiplicação",
-      "code": "for (int linha = 1; linha <= 10; linha++) {\n  for (int coluna = 1; coluna <= 10; coluna++) {\n    printf(\"%4d\", linha * coluna);\n  }\n  printf(\"\\n\");\n}\n"
-    },
-    {
-      "type": "checklist",
-      "title": "Checklist de entrega",
-      "items": [
-        "Estruturei claramente laço externo/interno com nomes representativos.",
-        "Validei limites mínimo/máximo para cada contador.",
-        "Incluí comentários explicando regras especiais do problema."
-      ]
-    },
-    {
-      "type": "md3Flowchart",
-      "title": "Fluxo de loops aninhados",
-      "summary": "Percorre linhas e colunas gerando padrões ASCII.",
-      "nodes": [
-        {
-          "id": "start",
-          "type": "start",
-          "title": "Início"
-        },
-        {
-          "id": "linha",
-          "type": "process",
-          "title": "linha = 0"
-        },
-        {
-          "id": "linha-cond",
-          "type": "decision",
-          "title": "linha < linhas?",
-          "branches": [
-            {
-              "id": "linha-sim",
-              "label": "Sim",
-              "target": "coluna"
-            },
-            {
-              "id": "linha-nao",
-              "label": "Não",
-              "target": "end"
-            }
-          ]
-        },
-        {
-          "id": "coluna",
-          "type": "process",
-          "title": "coluna = 0"
-        },
-        {
-          "id": "coluna-cond",
-          "type": "decision",
-          "title": "coluna < colunas?",
-          "branches": [
-            {
-              "id": "coluna-sim",
-              "label": "Sim",
-              "target": "imprimir"
-            },
-            {
-              "id": "coluna-nao",
-              "label": "Não",
-              "target": "linha-inc"
-            }
-          ]
-        },
-        {
-          "id": "imprimir",
-          "type": "process",
-          "title": "Imprimir caractere"
-        },
-        {
-          "id": "coluna-inc",
-          "type": "process",
-          "title": "coluna++"
-        },
-        {
-          "id": "linha-inc",
-          "type": "process",
-          "title": "linha++"
-        },
-        {
-          "id": "end",
-          "type": "end",
-          "title": "Fim"
-        }
-      ],
-      "connections": [
-        {
-          "from": "start",
-          "to": "linha"
-        },
-        {
-          "from": "linha",
-          "to": "linha-cond"
-        },
-        {
-          "from": "linha-cond",
-          "to": "coluna",
-          "label": "Sim"
-        },
-        {
-          "from": "linha-cond",
-          "to": "end",
-          "label": "Não"
-        },
-        {
-          "from": "coluna",
-          "to": "coluna-cond"
-        },
-        {
-          "from": "coluna-cond",
-          "to": "imprimir",
-          "label": "Sim"
-        },
-        {
-          "from": "coluna-cond",
-          "to": "linha-inc",
-          "label": "Não"
-        },
-        {
-          "from": "imprimir",
-          "to": "coluna-inc"
-        },
-        {
-          "from": "coluna-inc",
-          "to": "coluna-cond"
-        },
-        {
-          "from": "linha-inc",
-          "to": "linha-cond"
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Mini-projeto integrador",
+      "title": "Fundamentos dos laços aninhados",
       "content": [
         {
           "type": "paragraph",
-          "text": "Use o dataset de padrões para escolher um desenho e adaptá-lo ao contexto da triagem. Registre métricas coletadas (tempo, linhas geradas)."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Métricas para acompanhar",
-      "cards": [
-        {
-          "title": "Tempo de execução",
-          "content": "Meça quanto tempo leva para gerar padrões maiores."
-        },
-        {
-          "title": "Contagem de caracteres",
-          "content": "Registre quantidade de caracteres impressos por padrão."
-        },
-        {
-          "title": "Uso de memória",
-          "content": "Observe variação ao armazenar padrões em matrizes."
-        },
-        {
-          "title": "Feedback da dupla",
-          "content": "Anote sugestões recebidas durante o mini-projeto."
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "TED 21 – Padrões aninhados",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Entregue até 23h59: código com dois padrões, captura ASCII e relatório rápido com métricas coletadas."
+          "text": "Cada nível do laço é responsável por uma dimensão da estrutura. A ordem dos laços determina o modo como os dados são percorridos."
         },
         {
           "type": "unorderedList",
           "items": [
+            { "text": "Laço externo: controla linhas, registros ou agrupamentos maiores." },
+            { "text": "Laço interno: percorre colunas, campos ou elementos detalhados." },
             {
-              "text": "Arquivo aula21_padroes.c com funções separadas."
+              "text": "Reinicialize contadores internos ao avançar para a próxima iteração externa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Aninhamento em diferentes linguagens de representação",
+      "description": "Compare pseudocódigo, fluxograma textual e implementação em C para entender o papel de cada nível de laço.",
+      "items": [
+        {
+          "title": "Pseudocódigo",
+          "content": "Dois laços controlam linha e coluna para preencher uma tabela de notas.",
+          "language": "pseudocode",
+          "code": "para linha de 0 até totalLinhas - 1 faça\n  para coluna de 0 até totalColunas - 1 faça\n    leia(nota)\n    matriz[linha][coluna] <- nota\n  fim-para\nfim-para\n"
+        },
+        {
+          "title": "Fluxograma textual",
+          "content": "Representação sequencial do fluxo com decisões para cada índice.",
+          "language": "plaintext",
+          "code": "+---------+\n| Início  |\n+---------+\n     |\nlinha = 0\n     |\n+--------------------+\n| enquanto linha < L |\n+--------------------+\n         |\n    coluna = 0\n         |\n    +--------------------+\n    | enquanto coluna < C |\n    +--------------------+\n             |\n        ler nota\n             |\n  matriz[linha][coluna]\n             |\n        coluna++\n         |\n    linha++\n         |\n+---------+\n|  Fim    |\n+---------+\n"
+        },
+        {
+          "title": "Código C",
+          "content": "Laços for percorrendo linhas e colunas de uma matriz de notas.",
+          "language": "c",
+          "code": "for (int linha = 0; linha < linhas; linha++) {\n  for (int coluna = 0; coluna < colunas; coluna++) {\n    printf(\"%6.2f\", notas[linha][coluna]);\n  }\n  printf(\"\\n\");\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estratégia de depuração",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Ao depurar laços aninhados, acompanhe explicitamente cada índice e registre resultados intermediários."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Monte uma tabela de rastreamento com colunas para linha, coluna e valores processados."
             },
             {
-              "text": "Print do console exibindo padrões selecionados."
+              "text": "Verifique se a condição do laço interno reinicia o índice ao final da iteração externa."
             },
             {
-              "text": "Relatório 'TED21_metricas.pdf' com indicadores do mini-projeto."
+              "text": "Confirme que acumuladores e variáveis temporárias são resetados no nível correto."
             }
           ]
         }
@@ -409,32 +144,49 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Critérios TED 21",
+      "title": "Armadilhas frequentes",
       "content": [
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Loops aninhados corretos e legíveis (35%)."
+              "text": "Esquecer de reinicializar o índice interno gera laços infinitos ou dados corrompidos."
             },
             {
-              "text": "Integração com dataset ou case da triagem (25%)."
+              "text": "Imprimir quebras de linha fora do laço externo desorganiza o formato da tabela."
             },
             {
-              "text": "Métricas registradas e analisadas (25%)."
-            },
+              "text": "Manipular o mesmo contador em mais de um nível quebra a relação entre as dimensões."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Gerando tabela bidimensional",
+      "code": "#include <stdio.h>\n\nint main(void) {\n  const int linhas = 3;\n  const int colunas = 4;\n  int tabela[3][4];\n\n  for (int linha = 0; linha < linhas; linha++) {\n    for (int coluna = 0; coluna < colunas; coluna++) {\n      tabela[linha][coluna] = (linha + 1) * (coluna + 1);\n    }\n  }\n\n  for (int linha = 0; linha < linhas; linha++) {\n    printf(\"Linha %d:\", linha);\n    for (int coluna = 0; coluna < colunas; coluna++) {\n      printf(\" %3d\", tabela[linha][coluna]);\n    }\n    printf(\"\\n\");\n  }\n\n  return 0;\n}\n"
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Desafio integrador",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente um gerador de mapa de calor para notas (0 a 10) utilizando laços aninhados."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Use o laço externo para iterar alunos e o interno para iterar avaliações." },
             {
-              "text": "Entrega no prazo com organização dos arquivos (15%)."
+              "text": "Produza uma visualização textual que facilite a interpretação dos resultados."
             }
           ]
         }
       ]
     }
-  ],
-  "metadata": {
-    "status": "published",
-    "updatedAt": "2025-04-05T12:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório de laços aninhados 2024"]
-  }
+  ]
 }

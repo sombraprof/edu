@@ -1,24 +1,24 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-20",
-  "title": "Aula 20: Dominando o laço do-while",
-  "summary": "Explora o laço do-while para fluxos que exigem execução mínima garantida e menus interativos.",
-  "objective": "Construir algoritmos com do-while assegurando validações e saídas consistentes.",
+  "title": "Estrutura de repetição do-while",
+  "summary": "Apresenta o do-while em C para menus e validações que exigem uma execução inicial garantida.",
+  "description": "A aula destaca quando o do-while simplifica o código, demonstra a construção de menus interativos e orienta sobre validações que precisam rodar pelo menos uma vez.",
   "objectives": [
-    "Identificar cenários em que do-while oferece vantagem sobre while.",
-    "Modelar menus interativos com repetição garantida.",
-    "Registrar testes que validam permanência e saída antecipada."
+    "Identificar problemas que exigem execução mínima antes da validação.",
+    "Implementar menus interativos utilizando a estrutura do-while.",
+    "Comparar vantagens do do-while em relação a while e for em fluxos de confirmação."
   ],
-  "competencies": ["Pensamento computacional", "Qualidade de software", "Documentação técnica"],
+  "competencies": ["05", "12"],
   "skills": [
-    "Projetar condições de permanência claras para do-while.",
-    "Implementar validações internas que previnam loops infinitos.",
-    "Construir relatórios de teste com casos de borda específicos."
+    "Organizar mensagens e leituras obrigatórias dentro do bloco do-while.",
+    "Controlar o fluxo de menu avaliando a condição de repetição ao final.",
+    "Validar opções digitadas repetindo o menu até receber entrada aceitável."
   ],
   "outcomes": [
-    "Entrega menus funcionais com opções de retorno controladas por do-while.",
-    "Documenta cenários de testes cobrindo saída imediata, repetição e erros.",
-    "Integra feedback do professor para reforçar boas práticas de do-while."
+    "Entrega menu funcional que executa ao menos uma ação antes de testar a condição de saída.",
+    "Justifica a escolha do do-while em relatório ou apresentação curta.",
+    "Implementa validação que rejeita entradas inválidas e reapresenta o menu automaticamente."
   ],
   "prerequisites": [
     "Conhecer while e condicionais.",
@@ -64,221 +64,89 @@
   },
   "content": [
     {
-      "type": "callout",
-      "variant": "info",
-      "title": "Warm-up (pré-aula)",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Dominando o laço do-while. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
-        },
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
-            },
-            {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 20."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "book-open",
-          "title": "Contexto",
-          "content": "Menus interativos que devem executar ao menos uma vez para coletar entrada."
+          "icon": "target",
+          "title": "Aplicações imediatas",
+          "content": "Identificar cenários em que a execução inicial é obrigatória (menus, confirmações, validações)."
         },
         {
-          "icon": "gears",
-          "title": "Metodologia",
-          "content": "Demonstração guiada + laboratório incremental com checkpoints de validação."
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Construir um menu completo com do-while incluindo tratamento de erros."
         },
         {
-          "icon": "bullseye",
-          "title": "Resultado",
-          "content": "Menu bancário documentado com prints de testes e checklist preenchido."
-        }
-      ]
-    },
-    {
-      "type": "flightPlan",
-      "title": "Plano de voo (1h50)",
-      "items": [
-        "(10 min) Recap de while e necessidade de execução garantida.",
-        "(20 min) Desmontar a sintaxe do do-while e analisar fluxograma.",
-        "(30 min) Coding dojo: montar menu bancário com feedback do professor.",
-        "(20 min) Laboratório individual com checkpoints de testes.",
-        "(20 min) Registro de testes + compartilhamento no mural.",
-        "(10 min) Orientações finais para a tarefa avaliativa."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Sugestões de vídeo",
-      "videos": [
-        {
-          "youtubeId": "yYj7AF3c1Jc",
-          "title": "Como funciona o do-while em C"
-        },
-        {
-          "youtubeId": "CkGf8w6x6GQ",
-          "title": "Menus interativos com do-while"
+          "icon": "users",
+          "title": "Revisão coletiva",
+          "content": "Compartilhar decisões de fluxo e comparar com versões usando while."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Estrutura do do-while",
+      "title": "Por que usar do-while?",
       "content": [
         {
           "type": "paragraph",
-          "text": "O do-while executa o corpo antes de testar a condição, garantindo ao menos uma passagem pelo bloco."
-        },
-        {
-          "type": "code",
-          "language": "c",
-          "code": "int opcao;\ndo {\n  mostraMenu();\n  scanf(\"%d\", &opcao);\n  trataOpcao(opcao);\n} while (opcao != 0);\n"
-        }
-      ]
-    },
-    {
-      "type": "md3Flowchart",
-      "title": "Fluxo de menu com do-while",
-      "nodes": [
-        {
-          "id": "start",
-          "type": "start",
-          "title": "Início"
-        },
-        {
-          "id": "process-menu",
-          "type": "process",
-          "title": "Exibir menu"
-        },
-        {
-          "id": "input",
-          "type": "process",
-          "title": "Ler opção"
-        },
-        {
-          "id": "decision",
-          "type": "decision",
-          "title": "Opção != 0?",
-          "branches": [
-            {
-              "id": "continua",
-              "label": "Sim",
-              "target": "process-menu"
-            },
-            {
-              "id": "encerra",
-              "label": "Não",
-              "target": "end"
-            }
-          ]
-        },
-        {
-          "id": "end",
-          "type": "end",
-          "title": "Fim"
-        }
-      ],
-      "connections": [
-        {
-          "from": "start",
-          "to": "process-menu"
-        },
-        {
-          "from": "process-menu",
-          "to": "input"
-        },
-        {
-          "from": "input",
-          "to": "decision"
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Valide entrada antes de repetir",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Mesmo com execução garantida, cheque limites e opções inválidas dentro do laço antes de continuar."
+          "text": "O do-while avalia a condição somente após executar o corpo, garantindo pelo menos uma passagem antes de verificar a saída."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Exiba mensagem amigável quando a opção não existir."
+              "text": "Menus e caixas de diálogo precisam exibir opções antes de perguntar novamente."
             },
             {
-              "text": "Garanta que a condição de saída só aceita valores permitidos."
+              "text": "Rotinas de leitura devem armazenar a primeira entrada antes de validar continuidade."
             },
             {
-              "text": "Logue tentativas inválidas na planilha de testes."
+              "text": "Processos com feedback imediato ao usuário se beneficiam da execução inicial garantida."
             }
           ]
         }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Casos para praticar",
-      "cards": [
-        {
-          "title": "Menu bancário",
-          "content": "Saldo, depósito, saque e saída controlados pelo do-while."
-        },
-        {
-          "title": "Painel de configuração",
-          "content": "Alterar idioma, brilho e volume e retornar ao menu."
-        },
-        {
-          "title": "Processador de formulários",
-          "content": "Executa ao menos um lote e pergunta se há mais entradas."
-        }
-      ]
-    },
-    {
-      "type": "checklist",
-      "title": "Checklist de qualidade",
-      "items": [
-        "A condição de saída foi documentada em comentário.",
-        "Todos os caminhos exibem mensagens claras ao usuário.",
-        "Registrei ao menos três casos de teste (saída imediata, repetição, entrada inválida)."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "TED 20 – Menu bancário",
+      "title": "Atenção ao estado inicial",
       "content": [
         {
           "type": "paragraph",
-          "text": "Envie até 23h59: código do menu, checklist de testes preenchido e breve explicação sobre a condição de permanência."
+          "text": "Garanta que as variáveis usadas na condição sejam inicializadas com um valor coerente antes do laço."
         },
         {
           "type": "unorderedList",
           "items": [
+            { "text": "Faça a limpeza do buffer de entrada quando uma leitura falhar." },
             {
-              "text": "Arquivo aula20_menu.c."
+              "text": "Mantenha a lógica de decisão dentro de um switch ou função dedicada para evitar blocos extensos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "language": "c",
+      "title": "Menu interativo com do-while",
+      "code": "#include <stdio.h>\n\nvoid registrar_venda(void) {\n  printf(\"Venda registrada!\\n\");\n}\n\nvoid gerar_relatorio(void) {\n  printf(\"Relatório gerado!\\n\");\n}\n\nint main(void) {\n  int opcao;\n  do {\n    printf(\"\\n=== Menu Principal ===\\n\");\n    printf(\"1 - Registrar venda\\n\");\n    printf(\"2 - Gerar relatório\\n\");\n    printf(\"0 - Sair\\n\");\n    printf(\"Escolha: \");\n\n    if (scanf(\"%d\", &opcao) != 1) {\n      opcao = -1;\n      while (getchar() != '\\n') { }\n      printf(\"Entrada inválida. Tente novamente.\\n\");\n      continue;\n    }\n\n    switch (opcao) {\n      case 1:\n        registrar_venda();\n        break;\n      case 2:\n        gerar_relatorio();\n        break;\n      case 0:\n        printf(\"Encerrando o sistema.\\n\");\n        break;\n      default:\n        printf(\"Opção não reconhecida.\\n\");\n    }\n  } while (opcao != 0);\n\n  return 0;\n}\n"
+    },
+    {
+      "type": "contentBlock",
+      "title": "Boas práticas de validação",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            { "text": "Descarte resíduos do buffer antes de repetir o menu." },
+            {
+              "text": "Centralize a lógica de decisão em funções ou switch para manter o laço enxuto."
             },
             {
-              "text": "Checklist 'TED20_do_while.xlsx' com casos de saída imediata e repetição."
-            },
-            {
-              "text": "Comentário no Moodle descrevendo validações aplicadas."
+              "text": "Atualize mensagens de feedback imediato para orientar o usuário após cada iteração."
             }
           ]
         }
@@ -286,33 +154,21 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "Critérios de avaliação TED 20",
+      "variant": "task",
+      "title": "Prática sugerida",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Adapte o menu para calcular o fatorial solicitado no TED, garantindo repetição até que o usuário peça para sair."
+        },
         {
           "type": "unorderedList",
           "items": [
-            {
-              "text": "Menu executa ao menos uma vez e encerra corretamente (30%)."
-            },
-            {
-              "text": "Validações de entrada e mensagens claras ao usuário (30%)."
-            },
-            {
-              "text": "Checklist de testes completo com evidências (25%)."
-            },
-            {
-              "text": "Relato sobre aprendizados e próximos ajustes (15%)."
-            }
+            { "text": "Inclua opção para exibir histórico das últimas respostas válidas." },
+            { "text": "Documente no relatório quando preferiria while ou for e por quê." }
           ]
         }
       ]
     }
-  ],
-  "metadata": {
-    "status": "published",
-    "updatedAt": "2025-04-05T12:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Playbook interno de menus interativos"]
-  }
+  ]
 }

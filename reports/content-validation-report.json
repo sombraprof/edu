@@ -1,14 +1,382 @@
 {
-  "generatedAt": "2025-10-01T00:40:50.108Z",
-  "status": "passed",
+  "generatedAt": "2025-10-01T09:15:29.597Z",
+  "status": "passed-with-warnings",
   "totals": {
     "courses": 5,
-    "lessons": 117,
-    "lessonsWithIssues": 0,
+    "lessons": 143,
+    "lessonsWithIssues": 23,
     "problems": 0,
-    "warnings": 0
+    "warnings": 47
   },
-  "courses": [],
+  "courses": [
+    {
+      "id": "algi",
+      "lessonsTotal": 40,
+      "lessonsWithIssues": 3,
+      "problems": 0,
+      "warnings": 7,
+      "lessons": [
+        {
+          "file": "src/content/courses/algi/lessons/lesson-19.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Campo \"objective\" precisa ser preenchido com o objetivo pedagógico principal."
+            }
+          ],
+          "lessonId": "lesson-19"
+        },
+        {
+          "file": "src/content/courses/algi/lessons/lesson-20.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Campo \"objective\" precisa ser preenchido com o objetivo pedagógico principal."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-20"
+        },
+        {
+          "file": "src/content/courses/algi/lessons/lesson-21.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Campo \"objective\" precisa ser preenchido com o objetivo pedagógico principal."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-21"
+        }
+      ]
+    },
+    {
+      "id": "ddm",
+      "lessonsTotal": 40,
+      "lessonsWithIssues": 20,
+      "problems": 0,
+      "warnings": 40,
+      "lessons": [
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-15.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-15"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-16.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-16"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-17.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-17"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-18.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-18"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-19.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-19"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-20.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-20"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-21.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-21"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-22.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-22"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-23.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-23"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-24.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-24"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-25.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-25"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-26.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-26"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-27.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-27"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-28.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-28"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-29.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-29"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-30.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-30"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-31.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-31"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-32.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-32"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-33.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-33"
+        },
+        {
+          "file": "src/content/courses/ddm/lessons/lesson-34.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
+            },
+            {
+              "type": "missing-metadata",
+              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
+            }
+          ],
+          "lessonId": "lesson-34"
+        }
+      ]
+    }
+  ],
   "generation": {
     "exercises": [
       {
