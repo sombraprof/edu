@@ -238,24 +238,25 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Workshop de formulação do BSC",
-      "steps": [
+      "content": [
         {
-          "title": "Pré-work",
-          "content": "Consolide SWOT e matriz de capacidades como insumo."
-        },
-        {
-          "title": "Sessão 1",
-          "content": "Definir objetivos por perspectiva com patrocínio executivo."
-        },
-        {
-          "title": "Sessão 2",
-          "content": "Selecionar indicadores e metas realistas."
-        },
-        {
-          "title": "Sessão 3",
-          "content": "Priorizar iniciativas estratégicas e donos dos objetivos."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Pré-work – Consolide SWOT e matriz de capacidades como insumo."
+            },
+            {
+              "text": "Sessão 1 – Definir objetivos por perspectiva com patrocínio executivo."
+            },
+            {
+              "text": "Sessão 2 – Selecionar indicadores e metas realistas."
+            },
+            {
+              "text": "Sessão 3 – Priorizar iniciativas estratégicas e donos dos objetivos."
+            }
+          ]
         }
       ]
     },

@@ -132,120 +132,167 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h50)",
-      "items": [
-        "(10 min) Icebreaker: cole o post-it com a palavra que associa a 'vetor'.",
-        "(20 min) Mini-aula: anatomia de um vetor em C.",
-        "(25 min) Demonstração no projetor: percorrendo o vetor e imprimindo índices.",
-        "(35 min) Oficina prática: cálculo de média/mínimo/máximo usando o CSV.",
-        "(10 min) Compartilhamento de resultados no quadro.",
-        "(10 min) Atividade pós-aula orientada."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "(10 min) Icebreaker",
+          "content": "cole o post-it com a palavra que associa a 'vetor'."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Mini-aula",
+          "content": "anatomia de um vetor em C."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Demonstração no projetor",
+          "content": "percorrendo o vetor e imprimindo índices."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(35 min) Oficina prática",
+          "content": "cálculo de média/mínimo/máximo usando o CSV."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Compartilhamento de resultados no quadro."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Atividade pós-aula orientada."
+        }
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Para revisar depois",
-      "videos": [
+      "content": [
         {
-          "youtubeId": "Q0qkBhe-Z4w",
-          "title": "CS50 Shorts - Arrays"
-        },
-        {
-          "youtubeId": "gQcW5Pg0TBM",
-          "title": "Array basics (Khan Academy)"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 Shorts - Arrays – https://www.youtube.com/watch?v=Q0qkBhe-Z4w"
+            },
+            {
+              "text": "Array basics (Khan Academy) – https://www.youtube.com/watch?v=gQcW5Pg0TBM"
+            }
+          ]
         }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Sintaxe essencial do vetor em C",
-      "headers": ["Elemento", "Exemplo", "Observação"],
-      "rows": [
-        ["Declaração", "int notas[5];", "Cria vetor com 5 inteiros não inicializados."],
-        ["Inicialização", "float medias[3] = {7.2, 8.5, 6.9};", "Valores em ordem definida."],
-        ["Acesso", "notas[i]", "Índices iniciam em 0 e vão até tamanho-1."],
-        [
-          "Tamanho",
-          "sizeof(notas)/sizeof(notas[0])",
-          "Estratégia para calcular o número de posições."
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Elemento: Declaração | Exemplo: int notas[5]; | Observação: Cria vetor com 5 inteiros não inicializados."
+            },
+            {
+              "text": "Elemento: Inicialização | Exemplo: float medias[3] = {7.2, 8.5, 6.9}; | Observação: Valores em ordem definida."
+            },
+            {
+              "text": "Elemento: Acesso | Exemplo: notas[i] | Observação: Índices iniciam em 0 e vão até tamanho-1."
+            },
+            {
+              "text": "Elemento: Tamanho | Exemplo: sizeof(notas)/sizeof(notas[0]) | Observação: Estratégia para calcular o número de posições."
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "md3Flowchart",
+      "type": "contentBlock",
       "title": "Fluxo do cálculo de média, mínimo e máximo",
-      "nodes": [
+      "content": [
         {
-          "id": "start",
-          "type": "start",
-          "label": "Início"
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "Ler vetor de notas – tipo: process"
+            },
+            {
+              "text": "media = 0, min = notas[0], max = notas[0] – tipo: process"
+            },
+            {
+              "text": "Para i = 0 até n-1 – tipo: loop"
+            },
+            {
+              "text": "media += notas[i] – tipo: process"
+            },
+            {
+              "text": "notas[i] < min? – tipo: decision"
+            },
+            {
+              "text": "min = notas[i] – tipo: process"
+            },
+            {
+              "text": "notas[i] > max? – tipo: decision"
+            },
+            {
+              "text": "max = notas[i] – tipo: process"
+            },
+            {
+              "text": "media = media / n – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
         },
         {
-          "id": "read",
-          "type": "process",
-          "label": "Ler vetor de notas"
-        },
-        {
-          "id": "init",
-          "type": "process",
-          "label": "media = 0, min = notas[0], max = notas[0]"
-        },
-        {
-          "id": "loop",
-          "type": "loop",
-          "label": "Para i = 0 até n-1"
-        },
-        {
-          "id": "acc",
-          "type": "process",
-          "label": "media += notas[i]"
-        },
-        {
-          "id": "min",
-          "type": "decision",
-          "label": "notas[i] < min?"
-        },
-        {
-          "id": "updateMin",
-          "type": "process",
-          "label": "min = notas[i]"
-        },
-        {
-          "id": "max",
-          "type": "decision",
-          "label": "notas[i] > max?"
-        },
-        {
-          "id": "updateMax",
-          "type": "process",
-          "label": "max = notas[i]"
-        },
-        {
-          "id": "calc",
-          "type": "process",
-          "label": "media = media / n"
-        },
-        {
-          "id": "end",
-          "type": "end",
-          "label": "Fim"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → read"
+            },
+            {
+              "text": "read → init"
+            },
+            {
+              "text": "init → loop"
+            },
+            {
+              "text": "loop → acc"
+            },
+            {
+              "text": "acc → min"
+            },
+            {
+              "text": "min → updateMin – sim"
+            },
+            {
+              "text": "min → max – não"
+            },
+            {
+              "text": "updateMin → max"
+            },
+            {
+              "text": "max → updateMax – sim"
+            },
+            {
+              "text": "max → loop – não"
+            },
+            {
+              "text": "updateMax → loop"
+            },
+            {
+              "text": "loop → calc – fim"
+            },
+            {
+              "text": "calc → end"
+            }
+          ]
         }
-      ],
-      "edges": [
-        ["start", "read"],
-        ["read", "init"],
-        ["init", "loop"],
-        ["loop", "acc"],
-        ["acc", "min"],
-        ["min", "updateMin", "sim"],
-        ["min", "max", "não"],
-        ["updateMin", "max"],
-        ["max", "updateMax", "sim"],
-        ["max", "loop", "não"],
-        ["updateMax", "loop"],
-        ["loop", "calc", "fim"],
-        ["calc", "end"]
       ]
     },
     {

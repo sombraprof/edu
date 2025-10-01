@@ -124,15 +124,39 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h50)",
-      "items": [
-        "(10 min) Abertura: valor de manter funções pequenas e testáveis.",
-        "(20 min) Revisão demonstrativa: comparar função verbosa vs. refatorada.",
-        "(30 min) Rodada 1 de revisão cruzada com checklist.",
-        "(20 min) Coleta de métricas de cobertura/logs.",
-        "(20 min) Rodada 2 focada em naming e contratos.",
-        "(10 min) Síntese e definição de backlog preventivo."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "(10 min) Abertura",
+          "content": "valor de manter funções pequenas e testáveis."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Revisão demonstrativa",
+          "content": "comparar função verbosa vs. refatorada."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Rodada 1 de revisão cruzada com checklist."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Coleta de métricas de cobertura/logs."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Rodada 2 focada em naming e contratos."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Síntese e definição de backlog preventivo."
+        }
       ]
     },
     {
@@ -150,34 +174,43 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Curadoria de vídeos",
-      "videos": [
+      "content": [
         {
-          "youtubeId": "E8I19uA-wGY",
-          "title": "Como revisar código de maneira efetiva"
-        },
-        {
-          "youtubeId": "s0g4ty29wqo",
-          "title": "Cobertura de testes em C com gcov"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Como revisar código de maneira efetiva – https://www.youtube.com/watch?v=E8I19uA-wGY"
+            },
+            {
+              "text": "Cobertura de testes em C com gcov – https://www.youtube.com/watch?v=s0g4ty29wqo"
+            }
+          ]
         }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Perguntas para revisão",
-      "cards": [
+      "items": [
         {
           "title": "Responsabilidade",
-          "content": "Esta função faz apenas uma coisa?"
+          "content": "Esta função faz apenas uma coisa?",
+          "language": "plaintext",
+          "code": "Esta função faz apenas uma coisa?"
         },
         {
           "title": "Testabilidade",
-          "content": "Há casos negativos cobrindo erros e limites?"
+          "content": "Há casos negativos cobrindo erros e limites?",
+          "language": "plaintext",
+          "code": "Há casos negativos cobrindo erros e limites?"
         },
         {
           "title": "Observabilidade",
-          "content": "Existe log ou retorno que ajude a diagnosticar problemas?"
+          "content": "Existe log ou retorno que ajude a diagnosticar problemas?",
+          "language": "plaintext",
+          "code": "Existe log ou retorno que ajude a diagnosticar problemas?"
         }
       ]
     },

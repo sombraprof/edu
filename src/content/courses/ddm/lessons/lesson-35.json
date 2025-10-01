@@ -54,15 +54,39 @@
   },
   "content": [
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo da aula",
-      "items": [
-        "Contextualização: objetivos do projeto integrador e critérios de avaliação finais.",
-        "Revisão de backlog e priorização com foco em valor mínimo viável.",
-        "Matriz de riscos e definição de ações mitigadoras.",
-        "Planejamento de sprints de acompanhamento (Aulas 36 e 37).",
-        "Checklist de documentação e integração com Moodle.",
-        "Síntese e definição de próximos passos."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Contextualização",
+          "content": "objetivos do projeto integrador e critérios de avaliação finais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Revisão de backlog e priorização com foco em valor mínimo...",
+          "content": "Revisão de backlog e priorização com foco em valor mínimo viável."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Matriz de riscos e definição de ações mitigadoras.",
+          "content": "Matriz de riscos e definição de ações mitigadoras."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Planejamento de sprints de acompanhamento (Aulas 36 e 37).",
+          "content": "Planejamento de sprints de acompanhamento (Aulas 36 e 37)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Checklist de documentação e integração com Moodle.",
+          "content": "Checklist de documentação e integração com Moodle."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Síntese e definição de próximos passos.",
+          "content": "Síntese e definição de próximos passos."
+        }
       ]
     },
     {

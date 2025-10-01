@@ -70,14 +70,34 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (140 min)",
-      "items": [
-        "(10 min) Debrief pós-NP2 e conexão com roadmap do MVP.",
-        "(30 min) Introdução teórica: conceitos de navegação, padrões MD3 e boas práticas.",
-        "(40 min) Setup guiado do React Navigation e criação do Stack principal.",
-        "(40 min) Oficina: Tabs, modais e passagem de parâmetros.",
-        "(20 min) Revisão da TED: definição de fluxo final e testes de deep link."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Debrief pós-NP2 e conexão com roadmap do MVP."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Introdução teórica",
+          "content": "conceitos de navegação, padrões MD3 e boas práticas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "40 min",
+          "content": "Setup guiado do React Navigation e criação do Stack principal."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Oficina",
+          "content": "Tabs, modais e passagem de parâmetros."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Revisão da TED",
+          "content": "definição de fluxo final e testes de deep link."
+        }
       ]
     },
     {
@@ -113,168 +133,73 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Padrões recomendados",
-      "columns": 3,
-      "cards": [
+      "items": [
         {
           "title": "Stack",
-          "subtitle": "Fluxo linear",
-          "tone": "primary",
-          "items": [
-            "Ideal para onboarding e fluxos sequenciais.",
-            "Permite transições customizadas (slide, fade).",
-            "Suporta parâmetros obrigatórios via tipos."
-          ]
+          "content": "Fluxo linear",
+          "language": "plaintext",
+          "code": "Fluxo linear\n- Ideal para onboarding e fluxos sequenciais.\n- Permite transições customizadas (slide, fade).\n- Suporta parâmetros obrigatórios via tipos."
         },
         {
           "title": "Tab",
-          "subtitle": "Seções principais",
-          "tone": "secondary",
-          "items": [
-            "Até cinco itens para manter clareza.",
-            "Ícones alinhados ao design system MD3.",
-            "Uso de badges para notificações."
-          ]
+          "content": "Seções principais",
+          "language": "plaintext",
+          "code": "Seções principais\n- Até cinco itens para manter clareza.\n- Ícones alinhados ao design system MD3.\n- Uso de badges para notificações."
         },
         {
           "title": "Modal",
-          "subtitle": "Ações pontuais",
-          "tone": "neutral",
+          "content": "Ações pontuais",
+          "language": "plaintext",
+          "code": "Ações pontuais\n- Confirmações, formulários curtos e visualizações detalhadas.\n- Fechamento com gesto ou botão explícito.\n- Foco inicial em elementos interativos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roadmap de implementação",
+      "content": [
+        {
+          "type": "orderedList",
           "items": [
-            "Confirmações, formulários curtos e visualizações detalhadas.",
-            "Fechamento com gesto ou botão explícito.",
-            "Foco inicial em elementos interativos."
+            {
+              "text": "1. Planejamento – Mapear telas obrigatórias e desenhar diagrama de navegação."
+            },
+            {
+              "text": "2. Configuração – Instalar dependências, criar `NavigationContainer` e definir Stack raiz."
+            },
+            {
+              "text": "3. Componentização – Extrair cabeçalhos, ícones e estilos compartilhados."
+            },
+            {
+              "text": "4. Testes – Validar navegação via deep link, VoiceOver/TalkBack e fallback offline."
+            }
           ]
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Roadmap de implementação",
-      "steps": [
-        {
-          "title": "1. Planejamento",
-          "content": "Mapear telas obrigatórias e desenhar diagrama de navegação."
-        },
-        {
-          "title": "2. Configuração",
-          "content": "Instalar dependências, criar `NavigationContainer` e definir Stack raiz."
-        },
-        {
-          "title": "3. Componentização",
-          "content": "Extrair cabeçalhos, ícones e estilos compartilhados."
-        },
-        {
-          "title": "4. Testes",
-          "content": "Validar navegação via deep link, VoiceOver/TalkBack e fallback offline."
-        }
-      ]
-    },
-    {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline da TED – Fluxo de navegação",
-      "summary": "Atividade avaliativa que integra a entrega parcial 3 do projeto.",
-      "stages": [
+      "content": [
         {
-          "id": "design",
-          "title": "Design do fluxo",
-          "summary": "Refinar mapa de telas e estados.",
-          "owners": ["Grupo"],
-          "durationHours": 1.5,
-          "activities": [
-            {
-              "id": "wireflow",
-              "label": "Atualizar wireflow",
-              "description": "Registrar fluxo no Figma com estados principais."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "wireflow-arquivo",
-              "label": "Wireflow atualizado",
-              "description": "Link compartilhado no AVA até quarta-feira."
-            }
-          ],
-          "risks": [
-            {
-              "id": "divergencia",
-              "label": "Fluxo divergente",
-              "severity": "medium",
-              "mitigation": "Validar com o professor orientador antes de codificar."
-            }
-          ],
-          "checkpoints": ["Fluxo aprovado"]
+          "type": "paragraph",
+          "text": "Atividade avaliativa que integra a entrega parcial 3 do projeto."
         },
         {
-          "id": "implementacao",
-          "title": "Implementação",
-          "summary": "Codificar rotas e componentes.",
-          "owners": ["Grupo"],
-          "durationHours": 4,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "stack",
-              "label": "Criar Stack principal",
-              "description": "Definir rotas públicas e privadas."
+              "text": "Design do fluxo | Refinar mapa de telas e estados. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Atualizar wireflow | Entregáveis: Wireflow atualizado | Riscos: Fluxo divergente (Validar com o professor orientador antes de codificar.) | Checkpoints: Fluxo aprovado"
             },
             {
-              "id": "tab",
-              "label": "Configurar Tabs",
-              "description": "Aplicar ícones, labels e badges conforme MD3."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "pull-request",
-              "label": "Pull request aberto",
-              "description": "PR com título `feat: navigation flow` enviado até domingo."
-            }
-          ],
-          "risks": [
-            {
-              "id": "conflitos",
-              "label": "Conflitos de merge",
-              "severity": "medium",
-              "mitigation": "Sincronizar branches diariamente e usar feature flags."
-            }
-          ],
-          "checkpoints": ["Rotas principais funcionais"]
-        },
-        {
-          "id": "validacao",
-          "title": "Validação",
-          "summary": "Revisar acessibilidade e deep linking.",
-          "owners": ["Grupo"],
-          "durationHours": 1,
-          "activities": [
-            {
-              "id": "testes",
-              "label": "Rodar testes",
-              "description": "Executar script `npm run lint` e testar deep links."
+              "text": "Implementação | Codificar rotas e componentes. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar Stack principal; Configurar Tabs | Entregáveis: Pull request aberto | Riscos: Conflitos de merge (Sincronizar branches diariamente e usar feature flags.) | Checkpoints: Rotas principais funcionais"
             },
             {
-              "id": "feedback",
-              "label": "Solicitar revisão",
-              "description": "Registrar feedback com colega de outra equipe."
+              "text": "Validação | Revisar acessibilidade e deep linking. | Responsáveis: Grupo | Duração: 1h | Atividades: Rodar testes; Solicitar revisão | Entregáveis: Checklist de acessibilidade | Riscos: Itens não conformes (Usar leitores de tela e ajustes sugeridos na aula.) | Checkpoints: Deep link ok, Checklist aprovado"
             }
-          ],
-          "deliverables": [
-            {
-              "id": "checklist",
-              "label": "Checklist de acessibilidade",
-              "description": "Formulário assinado e anexado ao PR."
-            }
-          ],
-          "risks": [
-            {
-              "id": "acessibilidade",
-              "label": "Itens não conformes",
-              "severity": "high",
-              "mitigation": "Usar leitores de tela e ajustes sugeridos na aula."
-            }
-          ],
-          "checkpoints": ["Deep link ok", "Checklist aprovado"]
+          ]
         }
       ]
     },
@@ -287,8 +212,8 @@
           "text": "O código reforça os padrões de navegação modular discutidos em Navegação com React Navigation usando Expo e React Navigation."
         },
         {
-          "type": "code",
-          "language": "tsx",
+          "type": "codeBlock",
+          "language": "c",
           "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Navegação com React Navigation: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: REACT NAVIGATION (2024)"
         },
         {

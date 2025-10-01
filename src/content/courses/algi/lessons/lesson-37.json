@@ -146,15 +146,39 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h05)",
-      "items": [
-        "(15 min) Estudo de caso: empresas que cresceram segundo IBGE.",
-        "(25 min) Live coding: busca por id com retorno de ponteiro.",
-        "(30 min) Oficina: atualização de faturamento com logs de alterações.",
-        "(25 min) Laboratório: remoção e compactação do vetor com relatório automático.",
-        "(20 min) Testes cruzados entre squads (pair review).",
-        "(10 min) Reflexão escrita sobre integridade e auditoria."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "(15 min) Estudo de caso",
+          "content": "empresas que cresceram segundo IBGE."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Live coding",
+          "content": "busca por id com retorno de ponteiro."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Oficina",
+          "content": "atualização de faturamento com logs de alterações."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Laboratório",
+          "content": "remoção e compactação do vetor com relatório automático."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Testes cruzados entre squads (pair review)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Reflexão escrita sobre integridade e auditoria."
+        }
       ]
     },
     {
@@ -186,40 +210,29 @@
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Padrões de retorno para operações CRUD",
-      "headers": ["Operação", "Retorno sugerido", "Descrição", "Quando aplicar"],
-      "rows": [
-        [
-          "create",
-          "int (novo tamanho)",
-          "Incrementa contador e retorna total de registros.",
-          "Ao inserir no fim do vetor."
-        ],
-        [
-          "read",
-          "int (índice) ou ponteiro",
-          "Localiza registro e permite inspeção.",
-          "Quando busca por id ou prefixo."
-        ],
-        [
-          "update",
-          "bool",
-          "Indica sucesso/falha após validações.",
-          "Atualização de campos sensíveis."
-        ],
-        [
-          "delete",
-          "bool",
-          "Retorna sucesso após compactação.",
-          "Remoção física movendo elementos."
-        ],
-        [
-          "auditLog",
-          "void",
-          "Gera linha de log com contexto da alteração.",
-          "Chamar após operações críticas."
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Operação: create | Retorno sugerido: int (novo tamanho) | Descrição: Incrementa contador e retorna total de registros. | Quando aplicar: Ao inserir no fim do vetor."
+            },
+            {
+              "text": "Operação: read | Retorno sugerido: int (índice) ou ponteiro | Descrição: Localiza registro e permite inspeção. | Quando aplicar: Quando busca por id ou prefixo."
+            },
+            {
+              "text": "Operação: update | Retorno sugerido: bool | Descrição: Indica sucesso/falha após validações. | Quando aplicar: Atualização de campos sensíveis."
+            },
+            {
+              "text": "Operação: delete | Retorno sugerido: bool | Descrição: Retorna sucesso após compactação. | Quando aplicar: Remoção física movendo elementos."
+            },
+            {
+              "text": "Operação: auditLog | Retorno sugerido: void | Descrição: Gera linha de log com contexto da alteração. | Quando aplicar: Chamar após operações críticas."
+            }
+          ]
+        }
       ]
     },
     {

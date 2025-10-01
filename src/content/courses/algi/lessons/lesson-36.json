@@ -166,52 +166,65 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h00)",
-      "items": [
-        "(15 min) Icebreaker com cards de dados reais SEBRAE.",
-        "(20 min) Live coding: carga inicial do vetor com dados fictícios.",
-        "(25 min) Oficina: implementar função de ordenação crescente por faturamento.",
-        "(30 min) Laboratório orientado: integrar ordenação ao menu CRUD.",
-        "(20 min) Relato rápido por squads: métricas derivadas do vetor.",
-        "(10 min) Quiz interativo sobre complexidade e estabilidade de ordenações."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Icebreaker com cards de dados reais SEBRAE."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Live coding",
+          "content": "carga inicial do vetor com dados fictícios."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Oficina",
+          "content": "implementar função de ordenação crescente por faturamento."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Laboratório orientado",
+          "content": "integrar ordenação ao menu CRUD."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Relato rápido por squads",
+          "content": "métricas derivadas do vetor."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Quiz interativo sobre complexidade e estabilidade de ordenações."
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Estratégias de ordenação para vetores de structs",
-      "headers": ["Algoritmo", "Quando usar", "Custo", "Observações"],
-      "rows": [
-        [
-          "Bubble Sort",
-          "Listas pequenas e necessidade de implementação rápida",
-          "O(n^2)",
-          "Fácil de adaptar para ordenação decrescente."
-        ],
-        [
-          "Insertion Sort",
-          "Coleções quase ordenadas",
-          "O(n^2)",
-          "Bom para inserir novos registros mantendo a ordem."
-        ],
-        [
-          "qsort (stdlib)",
-          "Quando o custo de implementação importa",
-          "O(n log n)",
-          "Exige comparador consistente e inclui ponteiros void."
-        ],
-        [
-          "Selection Sort",
-          "Situações de memória crítica",
-          "O(n^2)",
-          "Poucas trocas, útil para dados estáticos."
-        ],
-        [
-          "Counting Sort",
-          "Campos inteiros com domínio pequeno",
-          "O(n + k)",
-          "Requer estrutura auxiliar e limites bem definidos."
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Algoritmo: Bubble Sort | Quando usar: Listas pequenas e necessidade de implementação rápida | Custo: O(n^2) | Observações: Fácil de adaptar para ordenação decrescente."
+            },
+            {
+              "text": "Algoritmo: Insertion Sort | Quando usar: Coleções quase ordenadas | Custo: O(n^2) | Observações: Bom para inserir novos registros mantendo a ordem."
+            },
+            {
+              "text": "Algoritmo: qsort (stdlib) | Quando usar: Quando o custo de implementação importa | Custo: O(n log n) | Observações: Exige comparador consistente e inclui ponteiros void."
+            },
+            {
+              "text": "Algoritmo: Selection Sort | Quando usar: Situações de memória crítica | Custo: O(n^2) | Observações: Poucas trocas, útil para dados estáticos."
+            },
+            {
+              "text": "Algoritmo: Counting Sort | Quando usar: Campos inteiros com domínio pequeno | Custo: O(n + k) | Observações: Requer estrutura auxiliar e limites bem definidos."
+            }
+          ]
+        }
       ]
     },
     {

@@ -103,115 +103,26 @@
       ]
     },
     {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline da integração",
-      "summary": "Etapas para combinar laços e condicionais em um mini-sistema.",
-      "stages": [
+      "content": [
         {
-          "id": "validacao",
-          "title": "Validação do briefing",
-          "summary": "Entender requisitos, entradas e saídas.",
-          "owners": ["Squad"],
-          "durationHours": 1.5,
-          "activities": [
-            {
-              "id": "requisitos",
-              "label": "Ler briefing",
-              "description": "Identificar regras e exceções."
-            },
-            {
-              "id": "risco",
-              "label": "Registrar riscos",
-              "description": "Listar dúvidas e dependências."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "canvas",
-              "label": "Canvas de requisitos"
-            }
-          ],
-          "risks": [
-            {
-              "id": "escopo",
-              "label": "Requisitos ambíguos",
-              "severity": "medium",
-              "mitigation": "Validar com professor."
-            }
-          ],
-          "checkpoints": ["Briefing validado"]
+          "type": "paragraph",
+          "text": "Etapas para combinar laços e condicionais em um mini-sistema."
         },
         {
-          "id": "dojo",
-          "title": "Dojo guiado",
-          "summary": "Implementar esqueleto com apoio do professor.",
-          "owners": ["Squad"],
-          "durationHours": 2,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "setup",
-              "label": "Configurar projeto",
-              "description": "Clonar template e preparar ambiente."
+              "text": "Validação do briefing | Entender requisitos, entradas e saídas. | Responsáveis: Squad | Duração: 1.5h | Atividades: Ler briefing; Registrar riscos | Entregáveis: Canvas de requisitos | Riscos: Requisitos ambíguos (Validar com professor.) | Checkpoints: Briefing validado"
             },
             {
-              "id": "rotinas",
-              "label": "Criar rotinas base",
-              "description": "Menus, validações e loops principais."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "checkpoint",
-              "label": "Commit inicial"
-            }
-          ],
-          "risks": [
-            {
-              "id": "bloqueio",
-              "label": "Divergência de abordagem",
-              "severity": "low",
-              "mitigation": "Seguir padrão definido no dojo."
-            }
-          ],
-          "checkpoints": ["Commit compartilhado"]
-        },
-        {
-          "id": "laboratorio",
-          "title": "Laboratório e relatório",
-          "summary": "Refinar funcionalidades e documentar métricas.",
-          "owners": ["Dupla"],
-          "durationHours": 3,
-          "activities": [
-            {
-              "id": "refino",
-              "label": "Refinar funcionalidades",
-              "description": "Adicionar logs, validações e testes."
+              "text": "Dojo guiado | Implementar esqueleto com apoio do professor. | Responsáveis: Squad | Duração: 2h | Atividades: Configurar projeto; Criar rotinas base | Entregáveis: Commit inicial | Riscos: Divergência de abordagem (Seguir padrão definido no dojo.) | Checkpoints: Commit compartilhado"
             },
             {
-              "id": "documentar",
-              "label": "Escrever relatório",
-              "description": "Preencher métricas e reflexões."
+              "text": "Laboratório e relatório | Refinar funcionalidades e documentar métricas. | Responsáveis: Dupla | Duração: 3h | Atividades: Refinar funcionalidades; Escrever relatório | Entregáveis: Código final; Relatório técnico | Riscos: Atraso na documentação (Reservar 1h exclusiva para o relatório.) | Checkpoints: Logs revisados, Relatório submetido"
             }
-          ],
-          "deliverables": [
-            {
-              "id": "portfolio",
-              "label": "Código final"
-            },
-            {
-              "id": "relatorio",
-              "label": "Relatório técnico"
-            }
-          ],
-          "risks": [
-            {
-              "id": "prazo",
-              "label": "Atraso na documentação",
-              "severity": "high",
-              "mitigation": "Reservar 1h exclusiva para o relatório."
-            }
-          ],
-          "checkpoints": ["Logs revisados", "Relatório submetido"]
+          ]
         }
       ]
     },
@@ -241,30 +152,65 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h00)",
-      "items": [
-        "(15 min) Revisão do ciclo completo de processamento.",
-        "(20 min) Workshop: validar entrada antes do laço.",
-        "(30 min) Coding dojo: processamento de pedidos com regras condicionais.",
-        "(20 min) Laboratório em trios: tratamento de exceções e logs.",
-        "(15 min) Construção do relatório de métricas.",
-        "(10 min) Pausa ativa e dúvidas rápidas.",
-        "(10 min) Socialização das soluções.",
-        "(10 min) Briefing da tarefa avaliativa."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Revisão do ciclo completo de processamento."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Workshop",
+          "content": "validar entrada antes do laço."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Coding dojo",
+          "content": "processamento de pedidos com regras condicionais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Laboratório em trios",
+          "content": "tratamento de exceções e logs."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Construção do relatório de métricas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Pausa ativa e dúvidas rápidas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Socialização das soluções."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Briefing da tarefa avaliativa."
+        }
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Referências em vídeo",
-      "videos": [
+      "content": [
         {
-          "youtubeId": "l1dwYQz9g7E",
-          "title": "Pipelines de processamento com C"
-        },
-        {
-          "youtubeId": "vCsjG8xqQng",
-          "title": "Validação de dados em laços"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Pipelines de processamento com C – https://www.youtube.com/watch?v=l1dwYQz9g7E"
+            },
+            {
+              "text": "Validação de dados em laços – https://www.youtube.com/watch?v=vCsjG8xqQng"
+            }
+          ]
         }
       ]
     },
@@ -286,28 +232,39 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Regras condicionais prioritárias",
-      "cards": [
+      "items": [
         {
           "title": "Casos críticos",
-          "content": "Tratam prioridade absoluta (ex.: estoque zerado → alerta)."
+          "content": "Tratam prioridade absoluta (ex.: estoque zerado → alerta).",
+          "language": "plaintext",
+          "code": "Tratam prioridade absoluta (ex.: estoque zerado → alerta)."
         },
         {
           "title": "Casos prioritários",
-          "content": "Aplicam descontos, filas preferenciais, mensagens personalizadas."
+          "content": "Aplicam descontos, filas preferenciais, mensagens personalizadas.",
+          "language": "plaintext",
+          "code": "Aplicam descontos, filas preferenciais, mensagens personalizadas."
         },
         {
           "title": "Casos padrão",
-          "content": "Processamento nominal com logs básicos."
+          "content": "Processamento nominal com logs básicos.",
+          "language": "plaintext",
+          "code": "Processamento nominal com logs básicos."
         }
       ]
     },
     {
-      "type": "code",
-      "language": "c",
+      "type": "contentBlock",
       "title": "Integração completa",
-      "code": "int totalPedidos = 0, atrasados = 0;\nint quantidade;\nprintf(\"Quantos pedidos serão processados? \");\nscanf(\"%d\", &quantidade);\nif (quantidade <= 0) {\n  printf(\"Nada a processar.\\n\");\n  return 0;\n}\nfor (int i = 0; i < quantidade; i++) {\n  Pedido pedido = lerPedido();\n  if (!pedido.valido) {\n    printf(\"Pedido %d inválido.\\n\", i + 1);\n    continue;\n  }\n  if (pedido.prioridade == ALTA) {\n    trataPrioritario(pedido);\n  } else if (pedido.atrasado) {\n    atrasados++;\n    trataAtrasado(pedido);\n  } else {\n    trataNormal(pedido);\n  }\n  totalPedidos++;\n}\nprintf(\"Processados: %d | Atrasados: %d\\n\", totalPedidos, atrasados);\n"
+      "content": [
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "int totalPedidos = 0, atrasados = 0;\nint quantidade;\nprintf(\"Quantos pedidos serão processados? \");\nscanf(\"%d\", &quantidade);\nif (quantidade <= 0) {\n  printf(\"Nada a processar.\\n\");\n  return 0;\n}\nfor (int i = 0; i < quantidade; i++) {\n  Pedido pedido = lerPedido();\n  if (!pedido.valido) {\n    printf(\"Pedido %d inválido.\\n\", i + 1);\n    continue;\n  }\n  if (pedido.prioridade == ALTA) {\n    trataPrioritario(pedido);\n  } else if (pedido.atrasado) {\n    atrasados++;\n    trataAtrasado(pedido);\n  } else {\n    trataNormal(pedido);\n  }\n  totalPedidos++;\n}\nprintf(\"Processados: %d | Atrasados: %d\\n\", totalPedidos, atrasados);\n"
+        }
+      ]
     },
     {
       "type": "checklist",
@@ -319,24 +276,32 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Checklist de logs",
-      "cards": [
+      "items": [
         {
           "title": "Entradas",
-          "content": "Registre valores recebidos e validações aplicadas."
+          "content": "Registre valores recebidos e validações aplicadas.",
+          "language": "plaintext",
+          "code": "Registre valores recebidos e validações aplicadas."
         },
         {
           "title": "Decisões",
-          "content": "Anote quando condicionais direcionam para caminhos distintos."
+          "content": "Anote quando condicionais direcionam para caminhos distintos.",
+          "language": "plaintext",
+          "code": "Anote quando condicionais direcionam para caminhos distintos."
         },
         {
           "title": "Iterações",
-          "content": "Logue quantas vezes cada laço executou."
+          "content": "Logue quantas vezes cada laço executou.",
+          "language": "plaintext",
+          "code": "Logue quantas vezes cada laço executou."
         },
         {
           "title": "Erros",
-          "content": "Documente exceções e como foram tratadas."
+          "content": "Documente exceções e como foram tratadas.",
+          "language": "plaintext",
+          "code": "Documente exceções e como foram tratadas."
         }
       ]
     },

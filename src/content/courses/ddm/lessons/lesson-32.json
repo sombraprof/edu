@@ -70,14 +70,34 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (150 min)",
-      "items": [
-        "(15 min) Revisão dos fluxos de navegação implementados.",
-        "(35 min) Exposição: camadas de serviço, TanStack Query e estratégias offline-first.",
-        "(40 min) Live coding: hook `useTasks` consumindo endpoint REST protegido.",
-        "(40 min) Oficina: integração no app do grupo com feedback visual MD3.",
-        "(20 min) Alinhamento da TED: testes de resiliência e documentação da API."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Revisão dos fluxos de navegação implementados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(35 min) Exposição",
+          "content": "camadas de serviço, TanStack Query e estratégias offline-first."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Live coding",
+          "content": "hook `useTasks` consumindo endpoint REST protegido."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Oficina",
+          "content": "integração no app do grupo com feedback visual MD3."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Alinhamento da TED",
+          "content": "testes de resiliência e documentação da API."
+        }
       ]
     },
     {
@@ -113,165 +133,73 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Checklist de integração",
-      "columns": 3,
-      "cards": [
+      "items": [
         {
           "title": "Configuração",
-          "tone": "info",
-          "items": [
-            "Instalar Axios/TanStack Query.",
-            "Criar cliente HTTP com interceptors.",
-            "Configurar QueryClientProvider no root."
-          ]
+          "content": "Instalar Axios/TanStack Query.",
+          "language": "plaintext",
+          "code": "- Instalar Axios/TanStack Query.\n- Criar cliente HTTP com interceptors.\n- Configurar QueryClientProvider no root."
         },
         {
           "title": "Implementação",
-          "tone": "primary",
-          "items": [
-            "Hook customizado com tipagem forte.",
-            "Feedback visual para loading/erro usando componentes MD3.",
-            "Uso de `invalidateQueries` após mutações."
-          ]
+          "content": "Hook customizado com tipagem forte.",
+          "language": "plaintext",
+          "code": "- Hook customizado com tipagem forte.\n- Feedback visual para loading/erro usando componentes MD3.\n- Uso de `invalidateQueries` após mutações."
         },
         {
           "title": "Offline",
-          "tone": "secondary",
+          "content": "PersistQueryClientProvider com AsyncStorage.",
+          "language": "plaintext",
+          "code": "- PersistQueryClientProvider com AsyncStorage.\n- Fallback para dados em cache quando offline.\n- Monitoramento de conectividade com `expo-network`."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de dados",
+      "content": [
+        {
+          "type": "orderedList",
           "items": [
-            "PersistQueryClientProvider com AsyncStorage.",
-            "Fallback para dados em cache quando offline.",
-            "Monitoramento de conectividade com `expo-network`."
+            {
+              "text": "Requisição – Cliente HTTP envia request com headers configurados (token, idioma)."
+            },
+            {
+              "text": "Resposta – Hook recebe dados, processa transformações e atualiza cache."
+            },
+            {
+              "text": "Sincronização – Dados persistidos localmente e atualizados quando houver conectividade."
+            },
+            {
+              "text": "Monitoramento – Logs e métricas coletados via Sentry/Expo para análise posterior."
+            }
           ]
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Fluxo de dados",
-      "steps": [
-        {
-          "title": "Requisição",
-          "content": "Cliente HTTP envia request com headers configurados (token, idioma)."
-        },
-        {
-          "title": "Resposta",
-          "content": "Hook recebe dados, processa transformações e atualiza cache."
-        },
-        {
-          "title": "Sincronização",
-          "content": "Dados persistidos localmente e atualizados quando houver conectividade."
-        },
-        {
-          "title": "Monitoramento",
-          "content": "Logs e métricas coletados via Sentry/Expo para análise posterior."
-        }
-      ]
-    },
-    {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline da TED – Integração de API",
-      "summary": "Entrega obrigatória que valida a competência de integração remota.",
-      "stages": [
+      "content": [
         {
-          "id": "briefing",
-          "title": "Briefing com o backend",
-          "summary": "Entender contratos e limites.",
-          "owners": ["Grupo"],
-          "durationHours": 1,
-          "activities": [
-            {
-              "id": "reuniao",
-              "label": "Reunião com squad backend",
-              "description": "Alinhar endpoints, autenticação e limites de uso."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "notas",
-              "label": "Notas compartilhadas",
-              "description": "Documento com endpoints, payloads e SLA."
-            }
-          ],
-          "risks": [
-            {
-              "id": "mudanca",
-              "label": "Mudança de contrato",
-              "severity": "medium",
-              "mitigation": "Registrar versão e acompanhar change log do backend."
-            }
-          ],
-          "checkpoints": ["Contratos confirmados"]
+          "type": "paragraph",
+          "text": "Entrega obrigatória que valida a competência de integração remota."
         },
         {
-          "id": "desenvolvimento",
-          "title": "Desenvolvimento",
-          "summary": "Codificar hooks, componentes e estados.",
-          "owners": ["Grupo"],
-          "durationHours": 4,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "hook",
-              "label": "Criar hook",
-              "description": "Implementar `useTasks`/`useUsers` com caching e retries."
+              "text": "Briefing com o backend | Entender contratos e limites. | Responsáveis: Grupo | Duração: 1h | Atividades: Reunião com squad backend | Entregáveis: Notas compartilhadas | Riscos: Mudança de contrato (Registrar versão e acompanhar change log do backend.) | Checkpoints: Contratos confirmados"
             },
             {
-              "id": "ui",
-              "label": "Atualizar UI",
-              "description": "Renderizar estados loading/empty/error com componentes MD3."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "branch",
-              "label": "Branch `feature/api-integration`",
-              "description": "Código versionado com testes básicos."
-            }
-          ],
-          "risks": [
-            {
-              "id": "erros-api",
-              "label": "Instabilidade da API",
-              "severity": "high",
-              "mitigation": "Configurar retries exponenciais e mocks locais."
-            }
-          ],
-          "checkpoints": ["Hook funcional", "UI atualizada"]
-        },
-        {
-          "id": "qualidade",
-          "title": "Qualidade",
-          "summary": "Testes e documentação.",
-          "owners": ["Grupo"],
-          "durationHours": 1.5,
-          "activities": [
-            {
-              "id": "testes",
-              "label": "Rodar testes",
-              "description": "Executar `npm run test`/`npm run lint` e simular offline."
+              "text": "Desenvolvimento | Codificar hooks, componentes e estados. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar hook; Atualizar UI | Entregáveis: Branch `feature/api-integration` | Riscos: Instabilidade da API (Configurar retries exponenciais e mocks locais.) | Checkpoints: Hook funcional, UI atualizada"
             },
             {
-              "id": "documentar",
-              "label": "Atualizar docs",
-              "description": "Adicionar README com instruções e limites da API."
+              "text": "Qualidade | Testes e documentação. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Rodar testes; Atualizar docs | Entregáveis: Relatório de integração | Riscos: Atraso na documentação (Designar responsável específico para documentação desde o início.) | Checkpoints: Testes rodados, Relatório anexado"
             }
-          ],
-          "deliverables": [
-            {
-              "id": "relatorio",
-              "label": "Relatório de integração",
-              "description": "Checklist preenchido e arquivo PDF submetido até domingo."
-            }
-          ],
-          "risks": [
-            {
-              "id": "prazo-curto",
-              "label": "Atraso na documentação",
-              "severity": "medium",
-              "mitigation": "Designar responsável específico para documentação desde o início."
-            }
-          ],
-          "checkpoints": ["Testes rodados", "Relatório anexado"]
+          ]
         }
       ]
     },
@@ -284,8 +212,8 @@
           "text": "O código reforça os padrões de navegação modular discutidos em Consumo de APIs e Estado no React Native usando Expo e React Navigation."
         },
         {
-          "type": "code",
-          "language": "tsx",
+          "type": "codeBlock",
+          "language": "c",
           "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Consumo de APIs e Estado no React Native: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: TANSTACK (2024)"
         },
         {

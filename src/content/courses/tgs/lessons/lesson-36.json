@@ -35,185 +35,155 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Macro tendências 2025-2028",
-      "cards": [
+      "items": [
         {
           "title": "Plataformas de dados confiáveis",
-          "content": "Zero trust, governança automatizada e mesh de dados."
+          "content": "Zero trust, governança automatizada e mesh de dados.",
+          "language": "plaintext",
+          "code": "Zero trust, governança automatizada e mesh de dados."
         },
         {
           "title": "IA generativa aplicada",
-          "content": "Automação de decisões, copilotos e interfaces conversacionais."
+          "content": "Automação de decisões, copilotos e interfaces conversacionais.",
+          "language": "plaintext",
+          "code": "Automação de decisões, copilotos e interfaces conversacionais."
         },
         {
           "title": "Experiências imersivas",
-          "content": "Metaverso corporativo, realidade aumentada em operações."
+          "content": "Metaverso corporativo, realidade aumentada em operações.",
+          "language": "plaintext",
+          "code": "Metaverso corporativo, realidade aumentada em operações."
         },
         {
           "title": "Sustentabilidade digital",
-          "content": "Green IT, medição de carbono e circularidade de hardware."
+          "content": "Green IT, medição de carbono e circularidade de hardware.",
+          "language": "plaintext",
+          "code": "Green IT, medição de carbono e circularidade de hardware."
         }
       ]
     },
     {
-      "type": "md3Flowchart",
+      "type": "contentBlock",
       "title": "Fluxo de avaliação de tendência",
-      "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "scan", "type": "process", "label": "Consolidar sinais e drivers" },
-        { "id": "fit", "type": "decision", "label": "Aderência ao PESI?" },
-        { "id": "priorizar", "type": "process", "label": "Classificar impacto × esforço" },
-        { "id": "risco", "type": "decision", "label": "Risco crítico identificado?" },
-        { "id": "mitigar", "type": "process", "label": "Definir salvaguardas e owners" },
-        { "id": "pipeline", "type": "process", "label": "Inserir na esteira de experimentos" },
-        { "id": "forum", "type": "process", "label": "Apresentar ao comitê" },
-        { "id": "end", "type": "end", "label": "Decisão" }
-      ],
-      "edges": [
-        ["start", "scan"],
-        ["scan", "fit"],
-        ["fit", "priorizar", "sim"],
-        ["fit", "end", "não"],
-        ["priorizar", "risco"],
-        ["risco", "mitigar", "sim"],
-        ["risco", "pipeline", "não"],
-        ["mitigar", "pipeline"],
-        ["pipeline", "forum"],
-        ["forum", "end"]
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "Consolidar sinais e drivers – tipo: process"
+            },
+            {
+              "text": "Aderência ao PESI? – tipo: decision"
+            },
+            {
+              "text": "Classificar impacto × esforço – tipo: process"
+            },
+            {
+              "text": "Risco crítico identificado? – tipo: decision"
+            },
+            {
+              "text": "Definir salvaguardas e owners – tipo: process"
+            },
+            {
+              "text": "Inserir na esteira de experimentos – tipo: process"
+            },
+            {
+              "text": "Apresentar ao comitê – tipo: process"
+            },
+            {
+              "text": "Decisão – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → scan"
+            },
+            {
+              "text": "scan → fit"
+            },
+            {
+              "text": "fit → priorizar – sim"
+            },
+            {
+              "text": "fit → end – não"
+            },
+            {
+              "text": "priorizar → risco"
+            },
+            {
+              "text": "risco → mitigar – sim"
+            },
+            {
+              "text": "risco → pipeline – não"
+            },
+            {
+              "text": "mitigar → pipeline"
+            },
+            {
+              "text": "pipeline → forum"
+            },
+            {
+              "text": "forum → end"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Radar tecnológico",
-      "headers": ["Tendência", "Horizonte", "Oportunidades", "Riscos"],
-      "rows": [
-        [
-          "IA generativa",
-          "0-18 meses",
-          "Automação de atendimento, suporte a desenvolvedores",
-          "Viés algorítmico, segurança de dados"
-        ],
-        [
-          "Digital twin de operações",
-          "18-36 meses",
-          "Otimização de ativos físicos, simulação",
-          "Investimento alto, integração complexa"
-        ],
-        [
-          "Realidade aumentada",
-          "18-36 meses",
-          "Treinamento imersivo, manutenção remota",
-          "Adoção cultural, devices"
-        ],
-        [
-          "Computação quântica",
-          "36-60 meses",
-          "Criptografia pós-quântica, novas capacidades analíticas",
-          "Imaturidade tecnológica, custos"
-        ],
-        [
-          "Green cloud",
-          "0-24 meses",
-          "Redução de carbono, compliance ESG",
-          "Necessidade de métricas confiáveis"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Tendência: IA generativa | Horizonte: 0-18 meses | Oportunidades: Automação de atendimento, suporte a desenvolvedores | Riscos: Viés algorítmico, segurança de dados"
+            },
+            {
+              "text": "Tendência: Digital twin de operações | Horizonte: 18-36 meses | Oportunidades: Otimização de ativos físicos, simulação | Riscos: Investimento alto, integração complexa"
+            },
+            {
+              "text": "Tendência: Realidade aumentada | Horizonte: 18-36 meses | Oportunidades: Treinamento imersivo, manutenção remota | Riscos: Adoção cultural, devices"
+            },
+            {
+              "text": "Tendência: Computação quântica | Horizonte: 36-60 meses | Oportunidades: Criptografia pós-quântica, novas capacidades analíticas | Riscos: Imaturidade tecnológica, custos"
+            },
+            {
+              "text": "Tendência: Green cloud | Horizonte: 0-24 meses | Oportunidades: Redução de carbono, compliance ESG | Riscos: Necessidade de métricas confiáveis"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline de experimentação de tendências",
-      "summary": "Sequência para transformar sinais em iniciativas priorizadas.",
-      "stages": [
+      "content": [
         {
-          "id": "scouting",
-          "title": "Scouting",
-          "summary": "Monitorar relatórios, startups e benchmarks.",
-          "owners": ["Analista de inovação"],
-          "durationHours": 8,
-          "activities": [
-            {
-              "id": "scan",
-              "label": "Scan mensal",
-              "description": "Consolidar sinais e atualizar backlog."
-            },
-            {
-              "id": "catalog",
-              "label": "Catalogar sinais",
-              "description": "Registrar em planilha oficial."
-            }
-          ],
-          "deliverables": [{ "id": "catalogo", "label": "Catálogo de sinais priorizados" }],
-          "risks": [
-            {
-              "id": "overload",
-              "label": "Excesso de fontes",
-              "severity": "medium",
-              "mitigation": "Definir curadoria trimestral."
-            }
-          ],
-          "checkpoints": ["Painel de sinais atualizado"]
+          "type": "paragraph",
+          "text": "Sequência para transformar sinais em iniciativas priorizadas."
         },
         {
-          "id": "experiment",
-          "title": "Experimentação",
-          "summary": "Testar hipótese com prova de conceito controlada.",
-          "owners": ["Product manager", "Tech lead"],
-          "durationHours": 24,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "poc",
-              "label": "Prova de conceito",
-              "description": "Criar script automatizado ou mock."
+              "text": "Scouting | Monitorar relatórios, startups e benchmarks. | Responsáveis: Analista de inovação | Duração: 8h | Atividades: Scan mensal; Catalogar sinais | Entregáveis: Catálogo de sinais priorizados | Riscos: Excesso de fontes (Definir curadoria trimestral.) | Checkpoints: Painel de sinais atualizado"
             },
             {
-              "id": "test-plan",
-              "label": "Plano de testes",
-              "description": "Executar casos e registrar logs."
-            }
-          ],
-          "deliverables": [
-            { "id": "script", "label": "Script automatizado" },
-            { "id": "relatorio", "label": "Relatório de testes" }
-          ],
-          "risks": [
-            {
-              "id": "dados",
-              "label": "Exposição de dados",
-              "severity": "high",
-              "mitigation": "Aplicar mascaramento e controles de auditoria."
-            }
-          ],
-          "checkpoints": ["Critérios de sucesso mensurados"]
-        },
-        {
-          "id": "decision",
-          "title": "Decisão",
-          "summary": "Apresentar resultado ao comitê e atualizar roadmap.",
-          "owners": ["Comitê de inovação"],
-          "durationHours": 6,
-          "activities": [
-            {
-              "id": "forum",
-              "label": "Fórum executivo",
-              "description": "Avaliar risco, valor e dependências."
+              "text": "Experimentação | Testar hipótese com prova de conceito controlada. | Responsáveis: Product manager, Tech lead | Duração: 24h | Atividades: Prova de conceito; Plano de testes | Entregáveis: Script automatizado; Relatório de testes | Riscos: Exposição de dados (Aplicar mascaramento e controles de auditoria.) | Checkpoints: Critérios de sucesso mensurados"
             },
             {
-              "id": "roadmap",
-              "label": "Atualizar roadmap",
-              "description": "Incluir iniciativa e salvaguardas."
+              "text": "Decisão | Apresentar resultado ao comitê e atualizar roadmap. | Responsáveis: Comitê de inovação | Duração: 6h | Atividades: Fórum executivo; Atualizar roadmap | Entregáveis: Ata com deliberação | Riscos: Falta de patrocínio (Engajar sponsors nas etapas anteriores.) | Checkpoints: Roadmap atualizado"
             }
-          ],
-          "deliverables": [{ "id": "ata", "label": "Ata com deliberação" }],
-          "risks": [
-            {
-              "id": "alinhamento",
-              "label": "Falta de patrocínio",
-              "severity": "medium",
-              "mitigation": "Engajar sponsors nas etapas anteriores."
-            }
-          ],
-          "checkpoints": ["Roadmap atualizado"]
+          ]
         }
       ]
     },
@@ -275,24 +245,25 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Trilha de maturidade digital",
-      "steps": [
+      "content": [
         {
-          "title": "Fase 1",
-          "content": "Explorar tendências com pilotos controlados e métricas claras."
-        },
-        {
-          "title": "Fase 2",
-          "content": "Escalar soluções com arquitetura modular e governança."
-        },
-        {
-          "title": "Fase 3",
-          "content": "Integrar novas capacidades ao core e às jornadas do cliente."
-        },
-        {
-          "title": "Fase 4",
-          "content": "Realizar revisão estratégica para novas ondas de inovação."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Fase 1 – Explorar tendências com pilotos controlados e métricas claras."
+            },
+            {
+              "text": "Fase 2 – Escalar soluções com arquitetura modular e governança."
+            },
+            {
+              "text": "Fase 3 – Integrar novas capacidades ao core e às jornadas do cliente."
+            },
+            {
+              "text": "Fase 4 – Realizar revisão estratégica para novas ondas de inovação."
+            }
+          ]
         }
       ]
     },
@@ -324,9 +295,15 @@
         {
           "type": "unorderedList",
           "items": [
-            { "text": "Script automatizado (YAML/JSON/notebook) com critérios de classificação." },
-            { "text": "Relatório de testes contendo métricas de impacto, esforço e riscos." },
-            { "text": "Log de auditoria consolidando acessos e salvaguardas." }
+            {
+              "text": "Script automatizado (YAML/JSON/notebook) com critérios de classificação."
+            },
+            {
+              "text": "Relatório de testes contendo métricas de impacto, esforço e riscos."
+            },
+            {
+              "text": "Log de auditoria consolidando acessos e salvaguardas."
+            }
           ]
         },
         {

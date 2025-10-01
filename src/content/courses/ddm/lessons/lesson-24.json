@@ -80,27 +80,50 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo",
-      "items": [
-        "Warm-up: Mitos e verdades sobre Firebase (10 min).",
-        "Configuração no console (20 min).",
-        "Laboratório: Integração do google-services.json (35 min).",
-        "Hands-on: Estruturando build variants e segurança (35 min).",
-        "TED: Checklist de segurança e documentação (10 min)."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Warm-up",
+          "content": "Mitos e verdades sobre Firebase (10 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Configuração no console (20 min).",
+          "content": "Configuração no console (20 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Laboratório",
+          "content": "Integração do google-services.json (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Hands-on",
+          "content": "Estruturando build variants e segurança (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "TED",
+          "content": "Checklist de segurança e documentação (10 min)."
+        }
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Warm-up",
-      "steps": [
+      "content": [
         {
-          "title": "00:05 – Quiz mitos x verdades",
-          "content": "Cartões com afirmações sobre Firebase para classificar como mito ou verdade."
-        },
-        {
-          "title": "00:05 – Mapa de serviços",
-          "content": "Grupos listam quais serviços pretendem usar no projeto integrador."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "00:05 – Quiz mitos x verdades – Cartões com afirmações sobre Firebase para classificar como mito ou verdade."
+            },
+            {
+              "text": "00:05 – Mapa de serviços – Grupos listam quais serviços pretendem usar no projeto integrador."
+            }
+          ]
         }
       ]
     },
@@ -177,8 +200,8 @@
           "text": "Este trecho demonstra a integração em tempo real discutida em Setup do Firebase para Android, com listeners seguros."
         },
         {
-          "type": "code",
-          "language": "kotlin",
+          "type": "codeBlock",
+          "language": "c",
           "code": "val db = Firebase.firestore\nval usuarios = db.collection(\"usuarios\")\nusuarios.whereEqualTo(\"ativo\", true)\n    .addSnapshotListener { snapshot, erro ->\n        if (erro != null) {\n            Log.e(\"UnidadeV\", \"Erro ao consultar Setup do Firebase para Android\", erro)\n            return@addSnapshotListener\n        }\n        val ativos = snapshot?.documents?.size ?: 0\n        Log.d(\"UnidadeV\", \"Usuários ativos: $ativos\")\n    }\n// Referência: GOOGLE (2024)"
         },
         {

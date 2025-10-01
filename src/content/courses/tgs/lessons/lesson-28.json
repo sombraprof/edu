@@ -4,53 +4,87 @@
   "objective": "Mensurar a capacidade de aplicar pensamento sistêmico na análise de organizações complexas.",
   "content": [
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano da avaliação",
-      "items": [
-        "Data e duração: Prova NP2 presencial com 110 minutos de duração.",
-        "Foco: Aplicar pensamento sistêmico em estudos de caso envolvendo homeostase, feedback e fronteiras.",
-        "Formato: Questões discursivas e análise de diagramas fornecidos.",
-        "Preparação: Revisar aulas 6 a 10, anotações de laboratório e discussões no fórum.",
-        "Pós-prova: Registrar percepções e dúvidas para a devolutiva coletiva."
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Competências avaliadas",
       "cards": [
         {
-          "title": "Modelagem",
-          "content": "Representar fluxos e loops de feedback destacando variáveis críticas."
+          "icon": "check-circle",
+          "title": "Data e duração",
+          "content": "Prova NP2 presencial com 110 minutos de duração."
         },
         {
-          "title": "Diagnóstico",
-          "content": "Identificar causas raiz e pontos de ruptura em sistemas abertos."
+          "icon": "check-circle",
+          "title": "Foco",
+          "content": "Aplicar pensamento sistêmico em estudos de caso envolvendo homeostase, feedback e fronteiras."
         },
         {
-          "title": "Intervenção",
-          "content": "Propor ações que preservem homeostase ou conduzam à transformação desejada."
+          "icon": "check-circle",
+          "title": "Formato",
+          "content": "Questões discursivas e análise de diagramas fornecidos."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Preparação",
+          "content": "Revisar aulas 6 a 10, anotações de laboratório e discussões no fórum."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Pós-prova",
+          "content": "Registrar percepções e dúvidas para a devolutiva coletiva."
         }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
+      "title": "Competências avaliadas",
+      "items": [
+        {
+          "title": "Modelagem",
+          "content": "Representar fluxos e loops de feedback destacando variáveis críticas.",
+          "language": "plaintext",
+          "code": "Representar fluxos e loops de feedback destacando variáveis críticas."
+        },
+        {
+          "title": "Diagnóstico",
+          "content": "Identificar causas raiz e pontos de ruptura em sistemas abertos.",
+          "language": "plaintext",
+          "code": "Identificar causas raiz e pontos de ruptura em sistemas abertos."
+        },
+        {
+          "title": "Intervenção",
+          "content": "Propor ações que preservem homeostase ou conduzam à transformação desejada.",
+          "language": "plaintext",
+          "code": "Propor ações que preservem homeostase ou conduzam à transformação desejada."
+        }
+      ]
+    },
+    {
+      "type": "representations",
       "title": "Backlog preventivo pré-avaliação",
-      "cards": [
+      "items": [
         {
           "title": "Loops de feedback",
-          "content": "Revisar mapas produzidos, verificar polaridade e indicadores associados."
+          "content": "Revisar mapas produzidos, verificar polaridade e indicadores associados.",
+          "language": "plaintext",
+          "code": "Revisar mapas produzidos, verificar polaridade e indicadores associados."
         },
         {
           "title": "Homeostase",
-          "content": "Listar exemplos e contraexemplos em cada estudo de caso trabalhado."
+          "content": "Listar exemplos e contraexemplos em cada estudo de caso trabalhado.",
+          "language": "plaintext",
+          "code": "Listar exemplos e contraexemplos em cada estudo de caso trabalhado."
         },
         {
           "title": "Fronteiras",
-          "content": "Checar delimitações do sistema, atores e fluxos externos relevantes."
+          "content": "Checar delimitações do sistema, atores e fluxos externos relevantes.",
+          "language": "plaintext",
+          "code": "Checar delimitações do sistema, atores e fluxos externos relevantes."
         },
         {
           "title": "Riscos & mitigação",
-          "content": "Registrar hipóteses de ruptura e contramedidas no quadro colaborativo."
+          "content": "Registrar hipóteses de ruptura e contramedidas no quadro colaborativo.",
+          "language": "plaintext",
+          "code": "Registrar hipóteses de ruptura e contramedidas no quadro colaborativo."
         }
       ]
     },
@@ -82,24 +116,25 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Oficina de revisão (véspera da NP2)",
-      "steps": [
+      "content": [
         {
-          "title": "Bloco 1 — Diagnóstico",
-          "content": "15 min para avaliar rubric score da aula 25-27 e definir lacunas prioritárias."
-        },
-        {
-          "title": "Bloco 2 — Troca entre duplas",
-          "content": "20 min de revisão cruzada utilizando o board de pares para comentar mapas sistêmicos."
-        },
-        {
-          "title": "Bloco 3 — Mini-simulado",
-          "content": "30 min respondendo questão inédita e comparando com gabarito comentado."
-        },
-        {
-          "title": "Bloco 4 — Ações preventivas",
-          "content": "15 min para atualizar backlog preventivo, definir métricas de acompanhamento e próximos passos."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Bloco 1 — Diagnóstico – 15 min para avaliar rubric score da aula 25-27 e definir lacunas prioritárias."
+            },
+            {
+              "text": "Bloco 2 — Troca entre duplas – 20 min de revisão cruzada utilizando o board de pares para comentar mapas sistêmicos."
+            },
+            {
+              "text": "Bloco 3 — Mini-simulado – 30 min respondendo questão inédita e comparando com gabarito comentado."
+            },
+            {
+              "text": "Bloco 4 — Ações preventivas – 15 min para atualizar backlog preventivo, definir métricas de acompanhamento e próximos passos."
+            }
+          ]
         }
       ]
     },

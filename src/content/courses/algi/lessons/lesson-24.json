@@ -121,36 +121,68 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h40)",
-      "items": [
-        "(10 min) Icebreaker e alinhamento de objetivos.",
-        "(30 min) Showcase rápido: squads apresentam solução da triagem.",
-        "(20 min) Mesa de feedback cruzado com painel Start/Stop/Continue.",
-        "(15 min) Consolidação de boas práticas em mural coletivo.",
-        "(15 min) Redação de plano de ação individual.",
-        "(10 min) Compartilhamento voluntário e orientações finais."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Icebreaker e alinhamento de objetivos."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Showcase rápido",
+          "content": "squads apresentam solução da triagem."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Mesa de feedback cruzado com painel Start/Stop/Continue."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Consolidação de boas práticas em mural coletivo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Redação de plano de ação individual."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Compartilhamento voluntário e orientações finais."
+        }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Board 360° de feedback",
-      "cards": [
+      "items": [
         {
           "title": "Start",
-          "content": "Quais práticas iniciar a partir dos insights da triagem."
+          "content": "Quais práticas iniciar a partir dos insights da triagem.",
+          "language": "plaintext",
+          "code": "Quais práticas iniciar a partir dos insights da triagem."
         },
         {
           "title": "Stop",
-          "content": "Atividades que devem ser interrompidas ou revistas."
+          "content": "Atividades que devem ser interrompidas ou revistas.",
+          "language": "plaintext",
+          "code": "Atividades que devem ser interrompidas ou revistas."
         },
         {
           "title": "Continue",
-          "content": "Boas práticas que precisam ser mantidas."
+          "content": "Boas práticas que precisam ser mantidas.",
+          "language": "plaintext",
+          "code": "Boas práticas que precisam ser mantidas."
         },
         {
           "title": "Amplify",
-          "content": "Iniciativas que merecem investimento extra."
+          "content": "Iniciativas que merecem investimento extra.",
+          "language": "plaintext",
+          "code": "Iniciativas que merecem investimento extra."
         }
       ]
     },
@@ -176,34 +208,43 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Inspirações",
-      "videos": [
+      "content": [
         {
-          "youtubeId": "Ud8Hksm_0vQ",
-          "title": "Como conduzir retrospectivas efetivas"
-        },
-        {
-          "youtubeId": "5nVvYw84yKc",
-          "title": "Feedback construtivo para times técnicos"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Como conduzir retrospectivas efetivas – https://www.youtube.com/watch?v=Ud8Hksm_0vQ"
+            },
+            {
+              "text": "Feedback construtivo para times técnicos – https://www.youtube.com/watch?v=5nVvYw84yKc"
+            }
+          ]
         }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Perguntas norteadoras",
-      "cards": [
+      "items": [
         {
           "title": "O que funcionou?",
-          "content": "Identifique práticas que devem continuar."
+          "content": "Identifique práticas que devem continuar.",
+          "language": "plaintext",
+          "code": "Identifique práticas que devem continuar."
         },
         {
           "title": "O que não funcionou?",
-          "content": "Liste obstáculos e gargalos encontrados."
+          "content": "Liste obstáculos e gargalos encontrados.",
+          "language": "plaintext",
+          "code": "Liste obstáculos e gargalos encontrados."
         },
         {
           "title": "O que mudar agora?",
-          "content": "Defina ações concretas para o próximo módulo."
+          "content": "Defina ações concretas para o próximo módulo.",
+          "language": "plaintext",
+          "code": "Defina ações concretas para o próximo módulo."
         }
       ]
     },
@@ -223,24 +264,32 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Compromissos pós-aula",
-      "cards": [
+      "items": [
         {
           "title": "Estudos complementares",
-          "content": "Agende revisão sobre funções antes do próximo módulo."
+          "content": "Agende revisão sobre funções antes do próximo módulo.",
+          "language": "plaintext",
+          "code": "Agende revisão sobre funções antes do próximo módulo."
         },
         {
           "title": "Dupla de responsabilidade",
-          "content": "Combine check-ins quinzenais com um colega."
+          "content": "Combine check-ins quinzenais com um colega.",
+          "language": "plaintext",
+          "code": "Combine check-ins quinzenais com um colega."
         },
         {
           "title": "Aplicação prática",
-          "content": "Selecione um projeto pessoal para aplicar laços e logs."
+          "content": "Selecione um projeto pessoal para aplicar laços e logs.",
+          "language": "plaintext",
+          "code": "Selecione um projeto pessoal para aplicar laços e logs."
         },
         {
           "title": "Monitoria",
-          "content": "Reserve horário na monitoria para dúvidas pendentes."
+          "content": "Reserve horário na monitoria para dúvidas pendentes.",
+          "language": "plaintext",
+          "code": "Reserve horário na monitoria para dúvidas pendentes."
         }
       ]
     },

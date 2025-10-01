@@ -70,14 +70,34 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (150 min)",
-      "items": [
-        "(20 min) Retomada dos critérios da entrega final e análise do cronograma.",
-        "(30 min) Rodada de code review cruzado (duplas trocadas).",
-        "(40 min) Testes guiados: cenários críticos de navegação, API e offline.",
-        "(30 min) Oficina de storytelling e apresentação técnica.",
-        "(30 min) Planejamento do backlog final e definição de responsáveis."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Retomada dos critérios da entrega final e análise do cronograma."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Rodada de code review cruzado (duplas trocadas)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Testes guiados",
+          "content": "cenários críticos de navegação, API e offline."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Oficina de storytelling e apresentação técnica."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Planejamento do backlog final e definição de responsáveis."
+        }
       ]
     },
     {
@@ -113,160 +133,73 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Checklist multidisciplinar",
-      "columns": 3,
-      "cards": [
+      "items": [
         {
           "title": "Experiência",
-          "tone": "primary",
-          "items": [
-            "Fluxos principais sem bloqueios.",
-            "Feedback visual consistente com MD3.",
-            "Acessibilidade validada (TalkBack/VoiceOver)."
-          ]
+          "content": "Fluxos principais sem bloqueios.",
+          "language": "plaintext",
+          "code": "- Fluxos principais sem bloqueios.\n- Feedback visual consistente com MD3.\n- Acessibilidade validada (TalkBack/VoiceOver)."
         },
         {
           "title": "Tecnologia",
-          "tone": "secondary",
-          "items": [
-            "Cobertura de testes mínimos (unitário + integração).",
-            "Integrações com API monitoradas e com logs significativos.",
-            "Uso de variáveis de ambiente seguro."
-          ]
+          "content": "Cobertura de testes mínimos (unitário + integração).",
+          "language": "plaintext",
+          "code": "- Cobertura de testes mínimos (unitário + integração).\n- Integrações com API monitoradas e com logs significativos.\n- Uso de variáveis de ambiente seguro."
         },
         {
           "title": "Gestão",
-          "tone": "neutral",
+          "content": "Backlog priorizado com critérios MoSCoW.",
+          "language": "plaintext",
+          "code": "- Backlog priorizado com critérios MoSCoW.\n- Board atualizado com responsáveis e prazos.\n- Comunicação com stakeholders registrada."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Ciclo da revisão",
+      "content": [
+        {
+          "type": "orderedList",
           "items": [
-            "Backlog priorizado com critérios MoSCoW.",
-            "Board atualizado com responsáveis e prazos.",
-            "Comunicação com stakeholders registrada."
+            {
+              "text": "Diagnóstico – Analisar indicadores (burndown, bugs abertos, cobertura de testes)."
+            },
+            {
+              "text": "Planejamento – Definir prioridades, estimar esforço e distribuir responsáveis."
+            },
+            {
+              "text": "Execução – Implementar correções prioritárias e registrar progresso no board."
+            },
+            {
+              "text": "Follow-up – Revisar ações concluídas e atualizar plano conforme feedback do professor."
+            }
           ]
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Ciclo da revisão",
-      "steps": [
-        {
-          "title": "Diagnóstico",
-          "content": "Analisar indicadores (burndown, bugs abertos, cobertura de testes)."
-        },
-        {
-          "title": "Planejamento",
-          "content": "Definir prioridades, estimar esforço e distribuir responsáveis."
-        },
-        {
-          "title": "Execução",
-          "content": "Implementar correções prioritárias e registrar progresso no board."
-        },
-        {
-          "title": "Follow-up",
-          "content": "Revisar ações concluídas e atualizar plano conforme feedback do professor."
-        }
-      ]
-    },
-    {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline da TED – Plano de melhoria",
-      "summary": "Atividade avaliativa que consolida ações para a entrega final.",
-      "stages": [
+      "content": [
         {
-          "id": "avaliacao",
-          "title": "Avaliação",
-          "summary": "Concluir checklist multidisciplinar.",
-          "owners": ["Grupo"],
-          "durationHours": 2,
-          "activities": [
-            {
-              "id": "checklist",
-              "label": "Preencher checklist",
-              "description": "Marcar status de cada item e anexar evidências."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "documento",
-              "label": "Checklist consolidado",
-              "description": "Arquivo compartilhado no drive do curso."
-            }
-          ],
-          "risks": [
-            {
-              "id": "subjetividade",
-              "label": "Avaliação superficial",
-              "severity": "medium",
-              "mitigation": "Utilizar critérios objetivos e evidências (prints, logs)."
-            }
-          ],
-          "checkpoints": ["Checklist validado"]
+          "type": "paragraph",
+          "text": "Atividade avaliativa que consolida ações para a entrega final."
         },
         {
-          "id": "planejamento",
-          "title": "Planejamento",
-          "summary": "Transformar achados em backlog.",
-          "owners": ["Grupo"],
-          "durationHours": 1.5,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "priorizar",
-              "label": "Priorizar itens",
-              "description": "Aplicar matriz MoSCoW e definir responsáveis."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "board",
-              "label": "Board atualizado",
-              "description": "Kanban/Trello com tarefas, responsáveis e prazos."
-            }
-          ],
-          "risks": [
-            {
-              "id": "overload",
-              "label": "Sobrecarga de tarefas",
-              "severity": "medium",
-              "mitigation": "Balancear carga entre integrantes e negociar escopo."
-            }
-          ],
-          "checkpoints": ["Backlog priorizado"]
-        },
-        {
-          "id": "apresentacao",
-          "title": "Apresentação",
-          "summary": "Preparar storytelling para banca.",
-          "owners": ["Grupo"],
-          "durationHours": 1,
-          "activities": [
-            {
-              "id": "roteiro",
-              "label": "Construir roteiro",
-              "description": "Estruturar discurso com problema, solução, resultados e próximos passos."
+              "text": "Avaliação | Concluir checklist multidisciplinar. | Responsáveis: Grupo | Duração: 2h | Atividades: Preencher checklist | Entregáveis: Checklist consolidado | Riscos: Avaliação superficial (Utilizar critérios objetivos e evidências (prints, logs).) | Checkpoints: Checklist validado"
             },
             {
-              "id": "ensaio",
-              "label": "Ensaiar",
-              "description": "Simular apresentação com tempo cronometrado."
-            }
-          ],
-          "deliverables": [
+              "text": "Planejamento | Transformar achados em backlog. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Priorizar itens | Entregáveis: Board atualizado | Riscos: Sobrecarga de tarefas (Balancear carga entre integrantes e negociar escopo.) | Checkpoints: Backlog priorizado"
+            },
             {
-              "id": "pitch",
-              "label": "Pitch gravado",
-              "description": "Vídeo curto anexado ao mural para feedback."
+              "text": "Apresentação | Preparar storytelling para banca. | Responsáveis: Grupo | Duração: 1h | Atividades: Construir roteiro; Ensaiar | Entregáveis: Pitch gravado | Riscos: Discurso desalinhado (Revisar script com professor antes do envio.) | Checkpoints: Pitch enviado"
             }
-          ],
-          "risks": [
-            {
-              "id": "desalinhado",
-              "label": "Discurso desalinhado",
-              "severity": "low",
-              "mitigation": "Revisar script com professor antes do envio."
-            }
-          ],
-          "checkpoints": ["Pitch enviado"]
+          ]
         }
       ]
     },
@@ -279,8 +212,8 @@
           "text": "O código reforça os padrões de navegação modular discutidos em Revisão Prática Integrada usando Expo e React Navigation."
         },
         {
-          "type": "code",
-          "language": "tsx",
+          "type": "codeBlock",
+          "language": "c",
           "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Revisão Prática Integrada: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: GOOGLE (2024)"
         },
         {

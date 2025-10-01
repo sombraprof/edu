@@ -4,53 +4,56 @@
   "objective": "Estabelecer mecanismos de governança que sustentem o alinhamento contínuo entre SI e estratégia corporativa.",
   "content": [
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Pilares de governança",
-      "cards": [
-        { "title": "Estruturas", "content": "Comitês, fóruns e papéis que conectam negócio e TI." },
+      "items": [
+        {
+          "title": "Estruturas",
+          "content": "Comitês, fóruns e papéis que conectam negócio e TI.",
+          "language": "plaintext",
+          "code": "Comitês, fóruns e papéis que conectam negócio e TI."
+        },
         {
           "title": "Processos",
-          "content": "Ritos de priorização, gestão de demanda e avaliação de benefícios."
+          "content": "Ritos de priorização, gestão de demanda e avaliação de benefícios.",
+          "language": "plaintext",
+          "code": "Ritos de priorização, gestão de demanda e avaliação de benefícios."
         },
         {
           "title": "Pessoas",
-          "content": "Patrocinadores, product owners e gestores de relacionamento."
+          "content": "Patrocinadores, product owners e gestores de relacionamento.",
+          "language": "plaintext",
+          "code": "Patrocinadores, product owners e gestores de relacionamento."
         },
         {
           "title": "Tecnologia",
-          "content": "Plataformas colaborativas, OKRs e dashboards compartilhados."
+          "content": "Plataformas colaborativas, OKRs e dashboards compartilhados.",
+          "language": "plaintext",
+          "code": "Plataformas colaborativas, OKRs e dashboards compartilhados."
         }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Fóruns de decisão",
-      "headers": ["Fórum", "Periodicidade", "Decisões", "Indicadores"],
-      "rows": [
-        [
-          "Conselho Digital",
-          "Mensal",
-          "Direcionadores estratégicos e investimentos",
-          "ROI carteira, risco tecnológico"
-        ],
-        [
-          "Comitê de Portfólio",
-          "Quinzenal",
-          "Priorização e balanceamento da carteira",
-          "Valor entregue, capacidade disponível"
-        ],
-        [
-          "Tribo de Produto",
-          "Semanal",
-          "Status das iniciativas e impedimentos",
-          "Lead time, valor gerado"
-        ],
-        [
-          "Fórum de Operações",
-          "Diário",
-          "Gestão de incidentes e disponibilidade",
-          "SLA, backlog crítico"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Fórum: Conselho Digital | Periodicidade: Mensal | Decisões: Direcionadores estratégicos e investimentos | Indicadores: ROI carteira, risco tecnológico"
+            },
+            {
+              "text": "Fórum: Comitê de Portfólio | Periodicidade: Quinzenal | Decisões: Priorização e balanceamento da carteira | Indicadores: Valor entregue, capacidade disponível"
+            },
+            {
+              "text": "Fórum: Tribo de Produto | Periodicidade: Semanal | Decisões: Status das iniciativas e impedimentos | Indicadores: Lead time, valor gerado"
+            },
+            {
+              "text": "Fórum: Fórum de Operações | Periodicidade: Diário | Decisões: Gestão de incidentes e disponibilidade | Indicadores: SLA, backlog crítico"
+            }
+          ]
+        }
       ]
     },
     {
@@ -111,19 +114,26 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Ritos de relacionamento SI-negócio",
-      "steps": [
+      "content": [
         {
-          "title": "Diariamente",
-          "content": "Dailies operacionais com presença de representantes de negócio."
-        },
-        {
-          "title": "Semanalmente",
-          "content": "Revisão de backlog integrado e indicadores de squads."
-        },
-        { "title": "Mensalmente", "content": "Comitê executivo revisa roadmap e aprova ajustes." },
-        { "title": "Trimestralmente", "content": "Planejamento integrado e recalibração dos OKRs." }
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Diariamente – Dailies operacionais com presença de representantes de negócio."
+            },
+            {
+              "text": "Semanalmente – Revisão de backlog integrado e indicadores de squads."
+            },
+            {
+              "text": "Mensalmente – Comitê executivo revisa roadmap e aprova ajustes."
+            },
+            {
+              "text": "Trimestralmente – Planejamento integrado e recalibração dos OKRs."
+            }
+          ]
+        }
       ]
     },
     {

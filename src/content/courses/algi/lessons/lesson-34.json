@@ -163,159 +163,186 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h00)",
-      "items": [
-        "(10 min) Check-in com quiz sobre matrizes.",
-        "(20 min) Código ao vivo da função transpose.",
-        "(15 min) Exercício individual: soma de matrizes.",
-        "(35 min) Workshop: multiplicação com validação de dimensões.",
-        "(25 min) Estudo de caso: combinar matrizes de indicadores do JSON.",
-        "(15 min) Apresentação rápida dos resultados por squads."
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Operações com matrizes",
-      "headers": ["Operação", "Pré-condição", "Assinatura sugerida", "Observações"],
-      "rows": [
-        [
-          "Transposição",
-          "Matriz m x n",
-          "void transpose(int src[m][n], int dst[n][m])",
-          "Usar matrizes distintas para evitar sobrescrita."
-        ],
-        [
-          "Soma",
-          "Mesmas dimensões",
-          "void add(int A[m][n], int B[m][n], int C[m][n])",
-          "Executar operação elemento a elemento."
-        ],
-        [
-          "Subtração",
-          "Mesmas dimensões",
-          "void subtract(int A[m][n], int B[m][n], int C[m][n])",
-          "Útil para variação entre indicadores."
-        ],
-        [
-          "Multiplicação",
-          "A m x n, B n x p",
-          "void multiply(int A[m][n], int B[n][p], int C[m][p])",
-          "Três loops e acumulador local."
-        ],
-        [
-          "Escalonamento",
-          "Qualquer dimensão",
-          "void scale(float A[m][n], float fator)",
-          "Multiplica cada elemento pelo fator."
-        ]
-      ]
-    },
-    {
-      "type": "md3Flowchart",
-      "title": "Fluxograma da multiplicação de matrizes",
-      "nodes": [
+      "cards": [
         {
-          "id": "start",
-          "type": "start",
-          "label": "Início"
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Check-in com quiz sobre matrizes."
         },
         {
-          "id": "check",
-          "type": "decision",
-          "label": "n == colunasA && n == linhasB?"
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Código ao vivo da função transpose."
         },
         {
-          "id": "error",
-          "type": "process",
-          "label": "Exibir erro de dimensão"
+          "icon": "check-circle",
+          "title": "(15 min) Exercício individual",
+          "content": "soma de matrizes."
         },
         {
-          "id": "initI",
-          "type": "process",
-          "label": "i = 0"
+          "icon": "check-circle",
+          "title": "(35 min) Workshop",
+          "content": "multiplicação com validação de dimensões."
         },
         {
-          "id": "loopI",
-          "type": "loop",
-          "label": "Enquanto i < m"
+          "icon": "check-circle",
+          "title": "(25 min) Estudo de caso",
+          "content": "combinar matrizes de indicadores do JSON."
         },
         {
-          "id": "initJ",
-          "type": "process",
-          "label": "j = 0"
-        },
-        {
-          "id": "loopJ",
-          "type": "loop",
-          "label": "Enquanto j < p"
-        },
-        {
-          "id": "acc",
-          "type": "process",
-          "label": "soma = 0"
-        },
-        {
-          "id": "initK",
-          "type": "process",
-          "label": "k = 0"
-        },
-        {
-          "id": "loopK",
-          "type": "loop",
-          "label": "Enquanto k < n"
-        },
-        {
-          "id": "mul",
-          "type": "process",
-          "label": "soma += A[i][k] * B[k][j]"
-        },
-        {
-          "id": "incK",
-          "type": "process",
-          "label": "k++"
-        },
-        {
-          "id": "assign",
-          "type": "process",
-          "label": "C[i][j] = soma"
-        },
-        {
-          "id": "incJ",
-          "type": "process",
-          "label": "j++"
-        },
-        {
-          "id": "incI",
-          "type": "process",
-          "label": "i++"
-        },
-        {
-          "id": "end",
-          "type": "end",
-          "label": "Fim"
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Apresentação rápida dos resultados por squads."
         }
-      ],
-      "edges": [
-        ["start", "check"],
-        ["check", "error", "não"],
-        ["error", "end"],
-        ["check", "initI", "sim"],
-        ["initI", "loopI"],
-        ["loopI", "initJ"],
-        ["initJ", "loopJ"],
-        ["loopJ", "acc"],
-        ["acc", "initK"],
-        ["initK", "loopK"],
-        ["loopK", "mul"],
-        ["mul", "incK"],
-        ["incK", "loopK"],
-        ["loopK", "assign", "fim"],
-        ["assign", "incJ"],
-        ["incJ", "loopJ"],
-        ["loopJ", "incI", "fim"],
-        ["incI", "loopI"],
-        ["loopI", "end", "fim"]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Operações com matrizes",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Operação: Transposição | Pré-condição: Matriz m x n | Assinatura sugerida: void transpose(int src[m][n], int dst[n][m]) | Observações: Usar matrizes distintas para evitar sobrescrita."
+            },
+            {
+              "text": "Operação: Soma | Pré-condição: Mesmas dimensões | Assinatura sugerida: void add(int A[m][n], int B[m][n], int C[m][n]) | Observações: Executar operação elemento a elemento."
+            },
+            {
+              "text": "Operação: Subtração | Pré-condição: Mesmas dimensões | Assinatura sugerida: void subtract(int A[m][n], int B[m][n], int C[m][n]) | Observações: Útil para variação entre indicadores."
+            },
+            {
+              "text": "Operação: Multiplicação | Pré-condição: A m x n, B n x p | Assinatura sugerida: void multiply(int A[m][n], int B[n][p], int C[m][p]) | Observações: Três loops e acumulador local."
+            },
+            {
+              "text": "Operação: Escalonamento | Pré-condição: Qualquer dimensão | Assinatura sugerida: void scale(float A[m][n], float fator) | Observações: Multiplica cada elemento pelo fator."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxograma da multiplicação de matrizes",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "n == colunasA && n == linhasB? – tipo: decision"
+            },
+            {
+              "text": "Exibir erro de dimensão – tipo: process"
+            },
+            {
+              "text": "i = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto i < m – tipo: loop"
+            },
+            {
+              "text": "j = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto j < p – tipo: loop"
+            },
+            {
+              "text": "soma = 0 – tipo: process"
+            },
+            {
+              "text": "k = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto k < n – tipo: loop"
+            },
+            {
+              "text": "soma += A[i][k] * B[k][j] – tipo: process"
+            },
+            {
+              "text": "k++ – tipo: process"
+            },
+            {
+              "text": "C[i][j] = soma – tipo: process"
+            },
+            {
+              "text": "j++ – tipo: process"
+            },
+            {
+              "text": "i++ – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → check"
+            },
+            {
+              "text": "check → error – não"
+            },
+            {
+              "text": "error → end"
+            },
+            {
+              "text": "check → initI – sim"
+            },
+            {
+              "text": "initI → loopI"
+            },
+            {
+              "text": "loopI → initJ"
+            },
+            {
+              "text": "initJ → loopJ"
+            },
+            {
+              "text": "loopJ → acc"
+            },
+            {
+              "text": "acc → initK"
+            },
+            {
+              "text": "initK → loopK"
+            },
+            {
+              "text": "loopK → mul"
+            },
+            {
+              "text": "mul → incK"
+            },
+            {
+              "text": "incK → loopK"
+            },
+            {
+              "text": "loopK → assign – fim"
+            },
+            {
+              "text": "assign → incJ"
+            },
+            {
+              "text": "incJ → loopJ"
+            },
+            {
+              "text": "loopJ → incI – fim"
+            },
+            {
+              "text": "incI → loopI"
+            },
+            {
+              "text": "loopI → end – fim"
+            }
+          ]
+        }
       ]
     },
     {
@@ -343,16 +370,19 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Referências audiovisuais",
-      "videos": [
+      "content": [
         {
-          "youtubeId": "ykP1t9hYx7A",
-          "title": "CS50 Short - Matrix Multiplication"
-        },
-        {
-          "youtubeId": "zjMuIxRvygQ",
-          "title": "Khan Academy - Matrix multiplication"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 Short - Matrix Multiplication – https://www.youtube.com/watch?v=ykP1t9hYx7A"
+            },
+            {
+              "text": "Khan Academy - Matrix multiplication – https://www.youtube.com/watch?v=zjMuIxRvygQ"
+            }
+          ]
         }
       ]
     },
