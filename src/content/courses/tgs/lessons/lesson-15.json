@@ -33,6 +33,10 @@
           "text": "Cada sistema nasce para resolver uma dor específica do negócio. Quando avaliamos pela ótica sistêmica, enxergamos dependências, integrações e trade-offs que vão além do software isolado."
         },
         {
+          "type": "paragraph",
+          "text": "Laudon e Laudon (2024) lembram que sistemas de informação sustentam níveis estratégicos, táticos e operacionais simultaneamente, o que exige mapear processos ponta a ponta antes de decidir a tecnologia. Turban et al. (2023) reforçam que o valor surge quando dados, pessoas e governança estão alinhados às prioridades do negócio."
+        },
+        {
           "type": "callout",
           "variant": "info",
           "content": [
@@ -40,6 +44,26 @@
               "type": "paragraph",
               "text": "Pergunta norteadora: quais fluxos de informação o sistema precisa orquestrar para gerar valor perceptível?"
             }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Referenciais clássicos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Davenport (2013) destaca que projetos de ERP e SCM só entregam vantagem competitiva quando traduzem métricas críticas em decisões do dia a dia. Hammer (2015) argumenta que iniciativas de BPM precisam redesenhar fluxos, e não apenas automatizar o caos existente. Já Porter e Heppelmann (2015) explicam como sensores IoT e analytics conectam operações físicas a plataformas digitais, abrindo espaço para modelos orientados a serviços."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "ERP consolida dados estruturados para sincronizar áreas de backoffice (Davenport, 2013).",
+            "CRM orquestra interações personalizadas quando integra marketing, vendas e atendimento (Turban et al., 2023).",
+            "SCM depende de colaboração com parceiros externos para reduzir variabilidade da cadeia (Christopher, 2016).",
+            "BPM redesenha processos críticos sob a ótica cliente-valor (Hammer, 2015).",
+            "BI e analytics habilitam ciclos de melhoria contínua orientados por indicadores confiáveis (Laudon & Laudon, 2024)."
           ]
         }
       ]
@@ -82,6 +106,38 @@
       ]
     },
     {
+      "type": "md3Table",
+      "title": "Critérios de seleção segundo a literatura",
+      "headers": ["Autor", "Foco analítico", "Pergunta-chave"],
+      "rows": [
+        [
+          "Laudon & Laudon (2024)",
+          "Alinhamento estratégico e integração",
+          "Como o sistema sustenta a cadeia de valor completa?"
+        ],
+        [
+          "Davenport (2013)",
+          "Governança de dados e métricas",
+          "Quais indicadores ganharão precisão ou rapidez com a implementação?"
+        ],
+        [
+          "Hammer (2015)",
+          "Reengenharia de processos",
+          "O processo foi redesenhado antes da automação?"
+        ],
+        [
+          "Porter & Heppelmann (2015)",
+          "Servitização e IoT",
+          "Que novos serviços ou modelos de negócio surgem com a digitalização?"
+        ],
+        [
+          "Turban et al. (2023)",
+          "Arquitetura tecnológica",
+          "Quais integrações e padrões de dados garantem escalabilidade e segurança?"
+        ]
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Estudo de caso em squads",
       "cards": [
@@ -96,6 +152,33 @@
         {
           "title": "Indústria 4.0",
           "content": "Fábrica que adota sensores IoT e precisa sincronizar produção, manutenção e cadeia logística."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checklist de análise sistêmica",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Processos",
+              "text": "Mapeie fluxos ponta a ponta identificando gargalos e dependências interdepartamentais."
+            },
+            {
+              "title": "Dados",
+              "text": "Classifique fontes, qualidade e requisitos de conformidade (LGPD, SOX)."
+            },
+            {
+              "title": "Tecnologia",
+              "text": "Liste integrações prioritárias (APIs, middleware, ETL) e limitações legadas."
+            },
+            {
+              "title": "Pessoas",
+              "text": "Planeje capacitação, gestão de mudança e ownership de cada módulo."
+            }
+          ]
         }
       ]
     },
@@ -147,6 +230,22 @@
           "text": "Poste no AVA, até às 22h de amanhã, a análise do seu squad com: (1) sistema(s) recomendados, (2) justificativa sistêmica e (3) integrações prioritárias. Inclua uma evidência (print ou link) da ferramenta utilizada na demonstração."
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Prompt para revisitar a aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use o prompt a seguir para solicitar a um assistente de IA sugestões de aprimoramento contínuo da aula:"
+        },
+        {
+          "type": "codeBlock",
+          "language": "text",
+          "text": "Você é um especialista em sistemas de informação empresariais. Analise a aula 'Tipos de Sistemas Empresariais' (ERP, CRM, SCM, BPM, BI) para um curso técnico de TGS. Aprofunde exemplos com base em Davenport (2013), Laudon & Laudon (2024), Turban et al. (2023), Hammer (2015), Porter & Heppelmann (2015) e Christopher (2016). Sugira ajustes no plano de aula, estudos de caso e avaliação, garantindo conexões entre processos, dados, tecnologia e pessoas. Indique também métricas para avaliar aprendizagem e referências complementares atualizadas."
+        }
+      ]
     }
   ],
   "formatVersion": "md3.lesson.v1",
@@ -189,11 +288,30 @@
       "label": "Ficha de estudo de caso",
       "url": "https://example.edu/tgs/modelos/ficha-case",
       "type": "template"
+    },
+    {
+      "label": "Relatório Gartner Magic Quadrant ERP (trecho público)",
+      "url": "https://www.gartner.com/en/documents/3980900",
+      "type": "report"
+    },
+    {
+      "label": "Guia SAP sobre integração SCM",
+      "url": "https://www.sap.com/products/scm.html",
+      "type": "article"
+    },
+    {
+      "label": "Estudo Harvard Business Review sobre servitização",
+      "url": "https://hbr.org/2015/10/how-smart-connected-products-are-transforming-companies",
+      "type": "article"
     }
   ],
   "bibliography": [
     "LAUDON, Kenneth; LAUDON, Jane. Sistemas de Informação Gerenciais. Pearson, 2024.",
-    "TURBAN, Efraim et al. Tecnologia da Informação para Gestão. Bookman, 2023."
+    "TURBAN, Efraim et al. Tecnologia da Informação para Gestão. Bookman, 2023.",
+    "DAVENPORT, Thomas H. Process Innovation: Reengineering Work through Information Technology. Harvard Business School Press, 2013.",
+    "HAMMER, Michael. Faster, Better, Cheaper. Crown Business, 2015.",
+    "PORTER, Michael; HEPPELMANN, James. How Smart, Connected Products Are Transforming Companies. Harvard Business Review, 2015.",
+    "CHRISTOPHER, Martin. Logistics & Supply Chain Management. Pearson, 2016."
   ],
   "assessment": {
     "type": "formative",
