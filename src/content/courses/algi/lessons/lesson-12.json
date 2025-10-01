@@ -9,16 +9,16 @@
     "Combinar operadores lógicos para refinar regras com múltiplos critérios.",
     "Registrar resultados esperados para cada ramo antes de implementar."
   ],
-  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Pensamento crítico"],
+  "competencies": ["02", "05", "11"],
   "skills": [
-    "Escrever cadeias else if com condições mutuamente exclusivas.",
-    "Aplicar && e || para unir verificações dentro do mesmo ramo.",
-    "Validar a cobertura de cenários usando planilhas de teste."
+    "Priorizar condições em cadeias else if para garantir cobertura sem sobreposições.",
+    "Representar regras compostas por meio de árvores de decisão ou mapas lógicos.",
+    "Justificar por escrito o posicionamento de cada condição e suas implicações."
   ],
   "outcomes": [
-    "Entrega um programa que classifica entradas em três ou mais faixas sem ambiguidades.",
-    "Explica a escolha da ordem das condições em documentação curta.",
-    "Constrói tabela de testes que cobre limites inferior e superior de cada faixa."
+    "Entrega algoritmo que trata ao menos cinco faixas exclusivas com mensagens específicas.",
+    "Apresenta diagrama anotado validando que cada entrada é coberta por apenas um ramo.",
+    "Registra texto curto explicando ajustes realizados após testar limites das condições."
   ],
   "prerequisites": ["Revisar if-else e switch-case trabalhados nas aulas 10 e 11."],
   "tags": ["condicionais", "else-if", "regras"],

@@ -9,20 +9,16 @@
     "Reconhecer operadores lógicos e aplicá-los a regras de decisão.",
     "Validar conclusões por meio de tabelas-verdade e simulações."
   ],
-  "competencies": [
-    "Pensamento lógico-analítico",
-    "Modelagem de processos",
-    "Comunicação estruturada"
-  ],
+  "competencies": ["02", "05", "11"],
   "skills": [
-    "Diferenciar operadores lógicos em situações reais.",
-    "Construir tabelas-verdade para expressões simples.",
-    "Registrar algoritmos com decisões condicionais em pseudocódigo."
+    "Classificar operadores lógicos (E, OU, NÃO) conforme o tipo de decisão exigida pelo problema.",
+    "Produzir tabelas-verdade completas que comprovem o comportamento de expressões booleanas.",
+    "Documentar em pseudocódigo um algoritmo que combine condições compostas com justificativas de cada ramo."
   ],
   "outcomes": [
-    "Mapeia um problema cotidiano em passos lógicos identificando decisões críticas.",
-    "Seleciona o operador lógico adequado (E, OU, NÃO) para cada decisão.",
-    "Justifica o resultado de uma expressão lógica usando tabela-verdade."
+    "Apresenta quadro de decomposição destacando decisões, operadores escolhidos e alternativas descartadas.",
+    "Resolve ao menos três expressões booleanas verificando resultados com tabelas-verdade anotadas.",
+    "Publica pseudocódigo revisado em dupla com comentários que explicam o efeito de cada condição lógica."
   ],
   "prerequisites": ["Revisar o plano de ensino e o conceito de algoritmo da Aula 1."],
   "tags": ["logica", "operadores", "tabela-verdade"],

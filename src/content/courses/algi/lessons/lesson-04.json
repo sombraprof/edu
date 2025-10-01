@@ -9,16 +9,16 @@
     "Mapear cada parte do pseudocódigo para a sintaxe equivalente em C.",
     "Implementar um programa simples em C a partir de um algoritmo planejado."
   ],
-  "competencies": ["Raciocínio algorítmico", "Tradução entre linguagens", "Precisão sintática"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Declarar variáveis, ler entradas e produzir saídas em C.",
-    "Utilizar comentários para documentar a lógica implementada.",
-    "Validar o comportamento do programa comparando com o algoritmo original."
+    "Traduzir instruções escritas em Portugol para blocos equivalentes em C garantindo correspondência de variáveis.",
+    "Configurar projeto no compilador, compilar e interpretar mensagens de erro para ajustar o código.",
+    "Documentar evidências de testes iniciais registrando entradas utilizadas e resultados esperados."
   ],
   "outcomes": [
-    "Entrega um programa em C equivalente ao algoritmo em Portugol desenvolvido em aula.",
-    "Identifica diferenças críticas entre operadores e comandos nas duas representações.",
-    "Executa testes simples garantindo que as saídas correspondem às expectativas."
+    "Entrega tabela comparativa destacando trecho em Portugol e versão final em C sem divergências semânticas.",
+    "Compila programa no laboratório sem erros e relata as correções aplicadas para eliminar warnings.",
+    "Anexa registro de execução com ao menos três cenários testados e respectivas saídas."
   ],
   "prerequisites": ["Trazer o pseudocódigo produzido na Aula 3."],
   "tags": ["pseudocodigo", "linguagem-c", "implementacao"],

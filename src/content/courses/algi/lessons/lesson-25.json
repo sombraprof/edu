@@ -9,16 +9,16 @@
     "Escrever protótipos simples com parâmetros e retorno.",
     "Organizar arquivo C com seções de protótipos, main e funções auxiliares."
   ],
-  "competencies": ["Pensamento computacional", "Design de software", "Depuração"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Declarar e chamar funções com e sem retorno.",
-    "Documentar o propósito de cada função em comentários breves.",
-    "Configurar projeto com separação de protótipos e implementação."
+    "Identificar oportunidades de modularização em programas sequenciais.",
+    "Desenhar protótipos de funções definindo assinaturas, parâmetros e retorno.",
+    "Registrar pré e pós-condições que orientem o uso correto de cada função."
   ],
   "outcomes": [
-    "Entrega um programa que utiliza ao menos três funções bem nomeadas.",
-    "Publica comentário explicando responsabilidade de cada função.",
-    "Anexa registro de testes básicos executados nas funções criadas."
+    "Entrega roteiro que aponta blocos candidatos à extração em funções.",
+    "Disponibiliza protótipo documentado em arquivo header ou anotações estruturadas.",
+    "Apresenta quadro de pré/pós-condições validado com exemplos práticos."
   ],
   "prerequisites": [
     "Rever laços e condicionais (aulas 19-24).",

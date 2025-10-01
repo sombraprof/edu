@@ -9,16 +9,16 @@
     "Aplicar operações aritméticas encadeadas preservando a ordem correta de execução.",
     "Validar dados lidos com scanf assegurando armazenamento em variáveis adequadas."
   ],
-  "competencies": ["05", "11"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Encadear leituras com scanf usando especificadores e endereços corretos.",
-    "Organizar cálculos intermediários em variáveis com nomes significativos.",
-    "Formatar saídas com printf destacando valores intermediários relevantes."
+    "Encadear leituras com scanf garantindo o uso correto de endereços e especificadores.",
+    "Organizar variáveis intermediárias para cálculos encadeados mantendo nomes significativos.",
+    "Formatar saídas com printf destacando resultados, unidades e mensagens interpretáveis."
   ],
   "outcomes": [
-    "Entrega programa funcional que lê ao menos três valores e gera recibo formatado.",
-    "Explica passo a passo como cada variável sustenta o fluxo entrada-processamento-saída.",
-    "Identifica efeitos da ordem de operações ao testar dados extremos ou inválidos."
+    "Entrega programa que registra ao menos três leituras, cálculos associados e recibo formatado.",
+    "Documenta tabela relacionando cada variável a seu papel no fluxo entrada → processamento → saída.",
+    "Apresenta vídeo curto ou relatório textual explicando como validar dados extremos e ajustar mensagens."
   ],
   "prerequisites": ["Reforçar leitura e declaração de variáveis vistas nas aulas 5 e 6."],
   "tags": ["sequencial", "scanf", "printf"],

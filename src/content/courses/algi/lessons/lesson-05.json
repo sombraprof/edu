@@ -9,16 +9,16 @@
     "Relacionar símbolos padronizados a operações de entrada, processamento e decisão.",
     "Interpretar fluxos produzidos por colegas para validar raciocínios."
   ],
-  "competencies": ["02", "12"],
+  "competencies": ["02", "11", "12"],
   "skills": [
-    "Selecionar símbolos de fluxo compatíveis com o propósito de cada etapa do algoritmo.",
-    "Organizar setas e conectores garantindo leitura sequencial coerente.",
-    "Explicar oralmente como o fluxograma traduz o algoritmo descrito em texto."
+    "Selecionar símbolos de fluxo adequados para início, decisões, processamento e término.",
+    "Alinhar fluxogramas ao pseudocódigo correspondente destacando equivalências entre blocos.",
+    "Conduzir revisão em dupla verificando legibilidade, setas e descrições dos caminhos alternativos."
   ],
   "outcomes": [
-    "Entrega fluxograma com início, decisões e término claramente identificados.",
-    "Justifica a escolha de caminhos alternativos ao revisar fluxos de colegas.",
-    "Identifica inconsistências ou ciclos incorretos ao analisar um diagrama proposto."
+    "Produz fluxograma completo com legenda de símbolos e validação feita pelo colega.",
+    "Apresenta checklist assinado confirmando correspondência entre fluxograma e algoritmo textual.",
+    "Registra ajustes realizados após a revisão cruzada em comentário ou nota compartilhada."
   ],
   "prerequisites": ["Trazer o algoritmo/pseudocódigo desenvolvido na Aula 4."],
   "tags": ["fluxograma", "visualizacao", "processos"],

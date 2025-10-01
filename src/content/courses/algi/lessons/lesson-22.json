@@ -9,16 +9,16 @@
     "Implementar validações de entrada antes de iniciar ciclos.",
     "Gerar relatórios consolidados ao final do processamento."
   ],
-  "competencies": ["Arquitetura de algoritmos", "Qualidade de software", "Comunicação técnica"],
+  "competencies": ["02", "05", "08"],
   "skills": [
-    "Aplicar condicionais múltiplas dentro de laços sem perder legibilidade.",
-    "Prevenir estados inconsistentes ao combinar fluxos.",
-    "Registrar métricas e mensagens significativas para o usuário."
+    "Combinar condicionais e laços para construir fluxos completos de processamento.",
+    "Monitorar estados intermediários usando logs ou tabelas de acompanhamento.",
+    "Comparar soluções alternativas avaliando clareza e esforço de manutenção."
   ],
   "outcomes": [
-    "Entrega algoritmos que integram validação, processamento e resumo final.",
-    "Apresenta relatório com métricas coletadas durante a execução.",
-    "Argumenta sobre as escolhas de estrutura e suas vantagens."
+    "Entrega protótipo que integra decisões e repetições com resultados consistentes.",
+    "Apresenta tabela de estados registrando variáveis críticas ao longo da execução.",
+    "Disponibiliza análise escrita justificando a arquitetura final escolhida."
   ],
   "prerequisites": ["Dominar for/while/do-while.", "Conhecer if/else if/else e switch."],
   "tags": ["loops", "condicionais", "integracao"],

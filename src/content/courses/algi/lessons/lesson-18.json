@@ -9,16 +9,16 @@
     "Comparar equivalências entre for e while em exemplos reais.",
     "Aplicar for em tabelas e cálculos acumulativos com validação de limites."
   ],
-  "competencies": ["Pensamento computacional", "Organização algorítmica", "Raciocínio matemático"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Selecionar variáveis de controle adequadas.",
-    "Garantir que a condição torne-se falsa em tempo finito.",
-    "Documentar testes que validem limites inferior e superior."
+    "Configurar laços for detalhando inicialização, condição e atualização.",
+    "Comparar abordagens for e while justificando escolha em função do problema.",
+    "Produzir documentação curta com exemplos de uso e testes realizados."
   ],
   "outcomes": [
-    "Produz algoritmos que percorrem vetores e faixas numéricas usando for.",
-    "Justifica quando converter um while em for melhora a legibilidade.",
-    "Entrega exercícios com evidências de testes e análise de complexidade básica."
+    "Apresenta programa funcional com pelo menos dois laços for em cenários distintos.",
+    "Disponibiliza relatório comparativo entre soluções for e while destacando métricas coletadas.",
+    "Entrega registro de testes indicando entradas, saídas e observações para melhorias futuras."
   ],
   "prerequisites": ["Conhecer laços while e operadores aritméticos."],
   "tags": ["loops", "for", "repeticao"],

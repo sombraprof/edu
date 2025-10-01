@@ -9,20 +9,16 @@
     "Selecionar tipos primitivos apropriados para cada informação.",
     "Implementar exemplos simples de leitura, processamento e exibição com validação."
   ],
-  "competencies": [
-    "Fundamentos de programação",
-    "Gestão de dados em memória",
-    "Precisão matemática"
-  ],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Declarar variáveis e constantes com tipos corretos.",
-    "Converter entradas textuais em valores numéricos.",
-    "Formatar saídas usando especificadores printf/scanf."
+    "Declarar variáveis, constantes e tipos coerentes com os dados fornecidos pelo problema.",
+    "Validar leituras e escritas utilizando scanf e printf com especificadores compatíveis.",
+    "Registrar tabela de testes contendo valores válidos, inválidos e limites para cada variável."
   ],
   "outcomes": [
-    "Produz um programa que captura dados do usuário e exibe cálculos básicos.",
-    "Justifica a escolha de tipos e identifica limites de cada representação.",
-    "Documenta constantes utilizadas no código."
+    "Entrega código comentado que evidencia a escolha de tipos e o uso de constantes nominais.",
+    "Demonstra execução correta do programa para dados válidos e sinaliza tratamento de entradas incorretas.",
+    "Compartilha planilha ou quadro de testes com resultados observados e ajustes aplicados."
   ],
   "prerequisites": ["Revisar o template em C da Aula 4 e o fluxograma selecionado na Aula 5."],
   "tags": ["variaveis", "tipos", "constantes"],

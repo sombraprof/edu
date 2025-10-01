@@ -170,20 +170,16 @@
     "Combinar laços de repetição com contadores e acumuladores.",
     "Modularizar soluções com funções reutilizáveis e parâmetros bem definidos."
   ],
-  "competencies": [
-    "Raciocínio lógico aplicado",
-    "Construção de algoritmos estruturados",
-    "Modularização e reutilização de código"
-  ],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Traduzir requisitos de problemas em fluxos condicionais claros.",
-    "Projetar loops eficientes com validação de entrada.",
-    "Especificar funções com assinaturas e retornos adequados."
+    "Gerenciar tempo de avaliação aplicando estratégias para problemas longos.",
+    "Resolver questões integrando condicionais, laços e modularização.",
+    "Documentar raciocínio das respostas justificando escolhas algorítmicas."
   ],
   "outcomes": [
-    "Resolve problemas avaliativos que combinam estruturas condicionais e laços.",
-    "Demonstra domínio da comunicação de algoritmos em pseudocódigo ou fluxograma.",
-    "Entrega soluções funcionais que respeitam critérios de modularização."
+    "Entrega avaliação NP2 completa dentro do tempo estipulado.",
+    "Registra checagem final garantindo que cada programa atende aos requisitos informados.",
+    "Anota lições aprendidas e tópicos para estudo complementar após a prova."
   ],
   "prerequisites": [
     "Estruturas condicionais com if/else.",

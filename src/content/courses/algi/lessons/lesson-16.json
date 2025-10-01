@@ -9,16 +9,16 @@
     "Desenhar fluxogramas que reflitam decisões exclusivas e caminhos alternativos.",
     "Implementar e testar o pseudocódigo/documentação das decisões escritas."
   ],
-  "competencies": ["Pensamento algorítmico", "Documentação técnica", "Autogestão"],
+  "competencies": ["05", "08", "12"],
   "skills": [
-    "Traduzir requisitos em condicionais compostas e encadeadas.",
-    "Registrar evidências de teste que comprovem a cobertura de casos críticos.",
-    "Comunicar decisões técnicas em formato de relatório curto."
+    "Planejar lógica de triagem documentando critérios e mensagens de orientação.",
+    "Executar bateria de testes registrando evidências e capturas de tela ou logs.",
+    "Organizar repositório compartilhado com checklist de entrega e pontos de melhoria colaborativa."
   ],
   "outcomes": [
-    "Entrega fluxograma e pseudocódigo que cobrem todos os cenários descritos.",
-    "Apresenta tabela de testes com resultados esperados e obtidos.",
-    "Publica checklist de evidências com captura de tela/execução do algoritmo."
+    "Submete protótipo funcional com documentação de critérios clínicos e fluxos implementados.",
+    "Anexa planilha de testes com resultados, screenshots e observações para cada cenário.",
+    "Coordena revisão por pares registrando feedback trocado e ajustes planejados."
   ],
   "prerequisites": [
     "Revisar as aulas 12 a 15 e trazer o ambiente configurado (IDE OnlineGDB ou DevC++)."

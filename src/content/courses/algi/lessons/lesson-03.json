@@ -9,16 +9,16 @@
     "Comparar diferentes representações (texto estruturado, fluxogramas, pseudocódigo).",
     "Identificar e corrigir lacunas em algoritmos propostos."
   ],
-  "competencies": ["Pensamento computacional", "Planejamento algorítmico", "Trabalho colaborativo"],
+  "competencies": ["02", "05", "12"],
   "skills": [
-    "Sequenciar instruções minimizando ambiguidades.",
-    "Traduzir algoritmos entre formatos distintos.",
-    "Avaliar algoritmos de colegas e propor melhorias."
+    "Sequenciar instruções em blocos de entrada, processamento e saída mantendo nomes padronizados.",
+    "Comparar versões de algoritmos em dinâmicas colaborativas e apontar lacunas ou redundâncias.",
+    "Reescrever pseudocódigo incorporando feedback registrado em checklist coletivo."
   ],
   "outcomes": [
-    "Produz um algoritmo detalhado para um problema cotidiano.",
-    "Justifica ajustes necessários em um algoritmo inconsistente.",
-    "Gera pseudocódigo alinhado à estrutura construída em grupo."
+    "Entrega algoritmo estruturado com rótulos de blocos e justificativa para a ordem escolhida.",
+    "Registra no mural da turma os pontos fortes e ajustes sugeridos para o algoritmo de outra dupla.",
+    "Disponibiliza versão revisada destacando trechos alterados após a rodada de feedback."
   ],
   "prerequisites": ["Revisar operadores lógicos apresentados na Aula 2."],
   "tags": ["algoritmos", "sequencia", "pseudocodigo"],

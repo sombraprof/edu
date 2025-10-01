@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-01T09:15:29.597Z",
+  "generatedAt": "2025-10-01T13:14:19.328Z",
   "status": "passed-with-warnings",
   "totals": {
     "courses": 5,
@@ -381,17 +381,19 @@
     "exercises": [
       {
         "course": "algi",
-        "total": 6,
-        "withMetadata": 6,
+        "total": 7,
+        "withMetadata": 7,
         "missingMetadata": 0,
         "byGenerator": {
-          "Equipe EDU": 6
+          "Equipe EDU": 6,
+          "LLM-Assistente-Edu": 1
         },
         "byModel": {
-          "manual": 6
+          "manual": 6,
+          "gpt-4o": 1
         },
         "earliestTimestamp": "2025-02-20T12:00:00.000Z",
-        "latestTimestamp": "2025-02-21T12:00:00.000Z",
+        "latestTimestamp": "2025-10-01T09:18:10Z",
         "entries": [
           {
             "id": "lista1",
@@ -433,6 +435,13 @@
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "refatoracao-modular",
+            "generatedBy": "LLM-Assistente-Edu",
+            "model": "gpt-4o",
+            "timestamp": "2025-10-01T09:18:10Z",
             "available": true
           }
         ]

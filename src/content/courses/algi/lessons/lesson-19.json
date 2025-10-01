@@ -9,16 +9,16 @@
     "Refatorar algoritmos simples convertendo entre for e while sem alterar resultados.",
     "Registrar evidências que sustentem a decisão sobre a estrutura de repetição escolhida."
   ],
-  "competencies": ["02", "05"],
+  "competencies": ["02", "05", "08"],
   "skills": [
-    "Analisar invariantes de laço para justificar a seleção entre for e while.",
-    "Reorganizar inicialização, condição e atualização ao transformar um laço.",
-    "Executar testes de limites e comparar métricas de clareza nas versões produzidas."
+    "Avaliar requisitos para decidir entre laços for e while considerando clareza e manutenção.",
+    "Refatorar algoritmos convertendo entre estruturas sem alterar resultado final.",
+    "Medir impactos da refatoração registrando desempenho, legibilidade e riscos."
   ],
   "outcomes": [
-    "Entrega tabela comparativa relacionando requisitos do problema ao laço selecionado.",
-    "Disponibiliza versões em for e while do mesmo algoritmo com saídas idênticas.",
-    "Apresenta registro escrito com riscos, mitigadores e testes aplicados durante a refatoração."
+    "Produz tabela comparativa que relaciona critérios do problema ao laço selecionado.",
+    "Entrega versões equivalentes em for e while confirmando saídas idênticas.",
+    "Anexa relatório com testes de limites, métricas de tempo e análise de riscos mitigados."
   ],
   "prerequisites": [
     "Conhecer laços while e for básicos.",
