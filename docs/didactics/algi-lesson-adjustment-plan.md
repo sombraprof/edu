@@ -111,6 +111,22 @@ A partir da aula 12, as revisões devem destacar planilhas de testes, fluxograma
 4. **Atualizar Moodle** – garantir que links de recursos e TEDs coincidam com o ambiente virtual oficial (descrições, prazos, rubricas).
 5. **Monitorar entregas** – após cada módulo, coletar métricas de participação e resultados das NPs para ajustar materiais e evidências.
 
+## 6. Auditoria de conteúdo (set/2025)
+
+- **Planilha de acompanhamento**: [`docs/didactics/algi-content-audit.csv`](./algi-content-audit.csv) reúne a verificação automática das 40 aulas (bibliografia, capítulos/páginas citados, exemplos aplicados, metodologias e rubricas). Gere-a novamente com `node scripts/didactics/generate-algi-audit.js` sempre que atualizar os arquivos `lesson-XX.json`; a planilha traz uma linha por aula com os campos "OK", "Parcial" ou "Ausente" e, em "Observações", o caminho do arquivo e o ajuste pendente.
+
+### Prioridades por unidade temática
+
+| Unidade temática                                              | Principais lacunas observadas                                                          | Prioridade sugerida |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------------- | ------------------- |
+| Unidade I – Noções básicas de lógica e algoritmos (Aulas 1–3) | 2 aulas sem indicação de capítulos/páginas específicos nas referências.                | Baixa               |
+| Unidade II – Pensamento Algorítmico (Aulas 4–5)               | Falta de autores recomendados em 1 aula.                                               | Baixa               |
+| Unidade III – Modelo Algoritmo em C (Aulas 6–11)              | 6 aulas sem capítulos/páginas definidos e 1 sem autores do plano.                      | Média               |
+| Unidade IV – Estruturas de controle (Aulas 12–24)             | 13 aulas sem capítulos/páginas, 1 sem autores alinhados e 1 TED sem rubrica explícita. | Alta                |
+| Unidade V – Modularização e Funções (Aulas 25–29)             | 5 aulas sem capítulos/páginas e 2 sem autores recomendados.                            | Média               |
+| Unidade VI – Vetores, Matrizes e Structs (Aulas 30–37)        | 5 aulas sem capítulos/páginas e 6 sem autores do plano.                                | Alta                |
+| Encerramento do semestre (Aulas 38–40)                        | 2 aulas sem capítulos/páginas e 2 sem autores recomendados.                            | Média               |
+
 ---
 
 > **Status**: documento inicial. Atualizar conforme as aulas forem revisadas e novas evidências (vídeos, relatórios) forem incorporadas ao repositório.
