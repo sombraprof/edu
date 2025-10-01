@@ -1,0 +1,153 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-21",
+  "title": "Aula 21: Unidade IV – Retrofit com chamadas síncronas",
+  "slug": "retrofit-chamadas-sincronas",
+  "summary": "Ensina a configurar o Retrofit para consumo síncrono de APIs REST, abordando interceptors, parsing de JSON e tratamento de erros.",
+  "objective": "Construir um cliente Retrofit para consumir endpoints REST de forma síncrona, garantindo segurança e previsibilidade no app.",
+  "objectives": [
+    "Configurar dependências e instâncias Retrofit com GsonConverterFactory.",
+    "Implementar serviços com chamadas Call<T> síncronas em threads separadas.",
+    "Aplicar interceptors de log e cabeçalhos dinâmicos.",
+    "Tratar erros de rede, HTTP e parsing de maneira amigável ao usuário."
+  ],
+  "competencies": [
+    "Integração de APIs REST",
+    "Manipulação de threads em Android",
+    "Tratamento de erros de rede"
+  ],
+  "skills": [
+    "Configurar Retrofit e OkHttp com logging interceptor.",
+    "Executar chamadas síncronas em executors ou corrotinas com withContext(Dispatchers.IO).",
+    "Validar responses usando códigos HTTP e corpo de erro.",
+    "Implementar wrappers Result<T> para diferenciar sucesso e falha."
+  ],
+  "outcomes": [
+    "Entrega uma camada de dados Retrofit funcional com chamadas síncronas.",
+    "Registra logs de requisições e respostas respeitando limites de privacidade.",
+    "Exibe mensagens de erro úteis ao usuário final.",
+    "Documenta requisitos de autenticação e limites por requisição."
+  ],
+  "prerequisites": [
+    "Conclusão da Aula 20 com entendimento de contratos REST.",
+    "Conhecimentos de Threads ou corrotinas em Kotlin.",
+    "Projeto Android configurado com ViewModel e LiveData/StateFlow."
+  ],
+  "tags": ["android", "retrofit", "okhttp", "api"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Retrofit Official Docs",
+      "url": "https://square.github.io/retrofit/",
+      "type": "reference"
+    },
+    {
+      "label": "OkHttp Interceptors",
+      "url": "https://square.github.io/okhttp/features/interceptors/",
+      "type": "article"
+    },
+    {
+      "label": "Handling Errors with Retrofit",
+      "url": "https://developer.android.com/training/volley/request-custom",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "LEE, B.; KIM, J. Mastering Retrofit. LeanPub, 2023.",
+    "PHILLIPS, B. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2024.",
+    "SOUZA, A. Redes móveis para desenvolvedores Android. Novatec, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica prática aplicada durante o laboratório, avaliando a implementação do cliente Retrofit e o tratamento de erros."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Warm-up: Quiz relâmpago sobre status HTTP (10 min).",
+        "Setup e dependências Retrofit/OkHttp (15 min).",
+        "Laboratório: Criando interface de serviço e modelos (30 min).",
+        "Hands-on: Executando chamadas síncronas e exibindo resultados (40 min).",
+        "Debate: Estratégias para limites de API e autenticação (15 min).",
+        "TED: Documentar fluxo de tratamento de erros no repositório (10 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up",
+      "steps": [
+        {
+          "title": "00:05 – Quiz com Mentimeter",
+          "content": "Perguntas de múltipla escolha sobre verbos HTTP e códigos 2xx, 4xx, 5xx."
+        },
+        {
+          "title": "00:05 – Análise de cabeçalhos",
+          "content": "Interpretar cabeçalhos de uma requisição real capturada pelo professor."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A turma implementará um cliente Retrofit para obter dados de uma API de filmes. O objetivo é consumir o endpoint /popular de forma síncrona."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Adicionar as dependências Retrofit, Gson converter e OkHttp logging no Gradle.",
+            "Criar data classes MovieResponse e MovieItem com base no contrato JSON entregue.",
+            "Definir interface MovieService com método getPopularMovies(page: Int): Call<MovieResponse>.",
+            "Configurar RetrofitBuilder com baseUrl, converter e interceptor de log condicional (somente em debug).",
+            "Executar a chamada síncrona usando withContext(Dispatchers.IO) e atualizar um MutableLiveData no ViewModel.",
+            "Tratar erros HTTP exibindo mensagens específicas (401, 404, 500) e fallback para cache local quando disponível."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Callout – Limites e custos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Registre o número máximo de requisições por dia da API e implemente no laboratório um interceptor que rejeite chamadas além do limite configurado no app."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Commit no repositório do projeto com README descrevendo a configuração Retrofit, interceptors utilizados e estratégia de tratamento de erros síncronos."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica prática",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Configuração correta do Retrofit (30%).",
+            "Implementação de interceptors e cabeçalhos dinâmicos (25%).",
+            "Tratamento de erros e feedback ao usuário (25%).",
+            "Documentação clara do fluxo (20%)."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-27",
+  "title": "Aula 27: Unidade V – Projeto integrador: backend e sincronização",
+  "slug": "projeto-integrador-backend",
+  "summary": "Consolida o backend do projeto integrador, conectando Retrofit, Firestore e Authentication em um fluxo completo com sincronização e governança de dados.",
+  "objective": "Integrar serviços REST e Firebase em um backend unificado para o projeto integrador, garantindo segurança, limites de uso e rubrica de avaliação final.",
+  "objectives": [
+    "Unificar consumo de APIs externas com persistência no Firestore.",
+    "Sincronizar dados offline/online com políticas de cache e refresh.",
+    "Integrar autenticação às regras de acesso e dados do usuário.",
+    "Preparar documentação e rubrica do projeto integrador backend."
+  ],
+  "competencies": [
+    "Arquitetura completa cliente-backend",
+    "Governança de dados e segurança",
+    "Gestão de projeto e documentação"
+  ],
+  "skills": [
+    "Implementar camadas de repositório unificadas.",
+    "Gerenciar sincronização incremental e conflitos.",
+    "Monitorar métricas de uso e limites de API/Firebase.",
+    "Criar documentação técnica e rubrica de avaliação."
+  ],
+  "outcomes": [
+    "Backend do projeto integrador funcional e seguro.",
+    "Documentação completa (API, Firebase, segurança, limites).",
+    "Rubrica compartilhada com critérios e pesos.",
+    "Plano de monitoramento e manutenção pós-entrega."
+  ],
+  "prerequisites": [
+    "Concluir aulas 20 a 26.",
+    "Projeto integrador definido e implementado parcialmente.",
+    "Equipe organizada com responsabilidades claras."
+  ],
+  "tags": ["android", "projeto", "backend", "firebase"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia de arquitetura limpa Android",
+      "url": "https://developer.android.com/topic/architecture",
+      "type": "reference"
+    },
+    {
+      "label": "Firebase monitoring",
+      "url": "https://firebase.google.com/docs/perf-mon",
+      "type": "article"
+    },
+    {
+      "label": "API Governance Checklist",
+      "url": "https://martinfowler.com/articles/api-governance.html",
+      "type": "article"
+    }
+  ],
+  "bibliography": [
+    "FOWLER, M. Patterns of Enterprise Application Architecture. Addison-Wesley, 2022.",
+    "GOOGLE. Firebase performance monitoring. 2024.",
+    "SANTOS, J. Gestão de projetos ágeis para mobile. Casa do Código, 2023."
+  ],
+  "assessment": {
+    "type": "summative",
+    "description": "Rubrica final do backend do projeto integrador considerando integração, segurança e documentação."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo",
+      "items": [
+        "Warm-up: Revisão cruzada de integrações (15 min).",
+        "Laboratório guiado: Montando o repositório unificado (45 min).",
+        "Sprint time-boxed: Sincronização e testes (50 min).",
+        "Painel: Segurança, limites e monitoramento (25 min).",
+        "Entrega parcial: Rubrica e documentação (15 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up colaborativo",
+      "steps": [
+        {
+          "title": "00:10 – Pair review",
+          "content": "Duplas revisam commits anteriores verificando segurança, limites de API e regras Firebase."
+        },
+        {
+          "title": "00:05 – Mapa de riscos",
+          "content": "Equipe lista riscos de integração e prioriza mitigação para a aula."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O objetivo é concluir o backend do projeto integrador consolidando integrações."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Criar módulo BackendRepository combinando API externa e Firestore.",
+            "Implementar sincronização: refresh remoto em login e cache local com Room/Firestore offline.",
+            "Aplicar transações Firestore para operações críticas protegidas por auth.uid.",
+            "Registrar métricas de uso e falhas com Firebase Performance e Crashlytics.",
+            "Criar dashboard de limites: quantidade de requisições API vs cotas Firebase.",
+            "Documentar fluxos em um Architecture Decision Record (ADR) anexado ao repositório."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "error",
+      "title": "Segurança Firebase obrigatória",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reavalie regras Firestore e Authentication. Todas as leituras e escritas devem validar request.auth.uid e claims personalizadas quando necessário."
+        },
+        {
+          "type": "paragraph",
+          "text": "Configure alertas no Firebase para acessos anômalos e throttling de APIs."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Limites e governança",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Defina limites máximos de chamadas API por usuário e quotas de Firestore. Documente como o app reage ao atingir 80% e 100% do consumo."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica final do projeto integrador",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Integração técnica (30%): Retrofit + Firestore + Auth funcionando.",
+            "Segurança (25%): regras Firebase, proteção de chaves, mitigação de ataques.",
+            "Confiabilidade (20%): testes, monitoramento e tratamento de limites.",
+            "Documentação (15%): ADR, README, diagramas.",
+            "Gestão de equipe (10%): responsabilidades, cronograma e retrospectiva."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entrega do backend integrado em branch principal + documento de entrega contendo ADRs, checklist de segurança e rubrica assinada pela equipe."
+        }
+      ],
+      "variant": "task"
+    }
+  ]
+}

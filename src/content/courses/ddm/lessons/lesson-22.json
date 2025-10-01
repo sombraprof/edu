@@ -1,0 +1,152 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-22",
+  "title": "Aula 22: Unidade IV – Retrofit com corrotinas e Flow",
+  "slug": "retrofit-corrotinas-flow",
+  "summary": "Evolui o consumo de APIs usando Retrofit com suporte a corrotinas e Flow, garantindo chamadas assíncronas eficientes e reativas.",
+  "objective": "Implementar serviços Retrofit com suporte a corrotinas, integrando-os ao fluxo reativo do app com Flow e tratamento estruturado de exceções.",
+  "objectives": [
+    "Configurar Retrofit para retornar tipos suspensos e Flow.",
+    "Integrar corrotinas com ViewModelScope e StateFlow.",
+    "Aplicar operadores Flow para transformar e combinar dados remotos.",
+    "Implementar retry e backoff respeitando limites de API."
+  ],
+  "competencies": [
+    "Programação assíncrona com corrotinas",
+    "Integração reativa de dados",
+    "Boas práticas de consumo de API"
+  ],
+  "skills": [
+    "Criar serviços Retrofit com funções suspensas.",
+    "Utilizar flowOn, map e catch para tratar resultados.",
+    "Configurar retries exponenciais com delay controlado.",
+    "Expor dados remotos via StateFlow ou LiveData para a UI."
+  ],
+  "outcomes": [
+    "Entrega um repositório que consome API com corrotinas e Flow.",
+    "Aplica tratamento de erros com sealed classes e estados de UI.",
+    "Documenta estratégias de retry alinhadas ao limite da API.",
+    "Integra dados remotos ao RecyclerView com updates reativos."
+  ],
+  "prerequisites": [
+    "Concluir a Aula 21 com Retrofit síncrono configurado.",
+    "Conhecer corrotinas, ViewModelScope e Flow básicos.",
+    "Projeto com camada de dados modularizada."
+  ],
+  "tags": ["android", "retrofit", "coroutines", "flow"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guide to coroutines on Android",
+      "url": "https://developer.android.com/kotlin/coroutines",
+      "type": "article"
+    },
+    {
+      "label": "Retrofit Kotlin Coroutines Support",
+      "url": "https://square.github.io/retrofit/KotlinCoroutineCallAdapterFactory/",
+      "type": "reference"
+    },
+    {
+      "label": "Kotlin Flow reference",
+      "url": "https://kotlinlang.org/docs/flow.html",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "NILSON, M. Asynchronous Programming with Kotlin. Manning, 2023.",
+    "GOOGLE. Coroutines best practices on Android. 2024.",
+    "LEMOS, R. Fluxos reativos com Kotlin Flow. Casa do Código, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de integração reativa avaliando o uso adequado de corrotinas, Flow e tratamento de exceções."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo",
+      "items": [
+        "Warm-up: Kahoot sobre conceitos de corrotinas (10 min).",
+        "Refatorando serviço Retrofit para funções suspensas (25 min).",
+        "Laboratório: Expondo Flow no repositório e ViewModel (40 min).",
+        "Debrief: Estratégias de retry e limites de API (15 min).",
+        "TED: Documentar política de retries no projeto integrador (10 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up colaborativo",
+      "steps": [
+        {
+          "title": "00:05 – Quiz corrotinas vs threads",
+          "content": "Equipes respondem perguntas rápidas sobre diferenças entre threads e corrotinas."
+        },
+        {
+          "title": "00:05 – Storyboard de fluxo de dados",
+          "content": "Esboçar no quadro branco como dados fluem da API até a UI usando Flow."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos converter o módulo de filmes para utilizar corrotinas e Flow. O objetivo é substituir chamadas Call<T> por funções suspensas e expor um Flow<Result<List<Movie>>>."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Adicionar dependência de call adapter para corrotinas (se necessário) e habilitar support coroutines.",
+            "Atualizar MovieService com funções suspensas usando Response<MovieResponse>.",
+            "Criar um repositório MovieRepository que retorna Flow<MovieUiState> utilizando flow { emit(...) }.",
+            "Aplicar operadores map e catch para transformar o Response e emitir estados Loading, Success, Error.",
+            "Implementar retryWhen com contagem máxima baseada no limite da API (3 tentativas).",
+            "Testar com viewModelScope.launch e observar StateFlow na UI."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Respeito aos limites da API",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente exponencial backoff iniciando em 1s, dobrando até 8s. Documente em código e no README que, após 3 tentativas, o app sugere ao usuário aguardar para não violar termos de uso."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Pull request com a refatoração para corrotinas e Flow, incluindo testes unitários básicos do repositório e README descrevendo a política de retry."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica de revisão de código",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Uso correto de funções suspensas e Flow (35%).",
+            "Tratamento de erros e retries documentados (30%).",
+            "Cobertura mínima de testes (20%).",
+            "Clareza do PR e aderência ao padrão da equipe (15%)."
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,167 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-25",
+  "title": "Aula 25: Unidade V – Firestore: modelagem e operações",
+  "slug": "firestore-modelagem-operacoes",
+  "summary": "Apresenta o Cloud Firestore, modelando coleções e documentos, e implementando operações CRUD com regras de segurança básicas.",
+  "objective": "Modelar dados no Firestore e implementar operações CRUD seguras e eficientes em um app Android.",
+  "objectives": [
+    "Definir estrutura de coleções, subcoleções e documentos.",
+    "Configurar regras de segurança iniciais e ambientes de teste.",
+    "Implementar CRUD com corrotinas e listeners reativos.",
+    "Monitorar limites de leitura, escrita e armazenamento."
+  ],
+  "competencies": [
+    "Modelagem de dados NoSQL",
+    "Integração com Firestore",
+    "Segurança e governança de dados"
+  ],
+  "skills": [
+    "Criar e atualizar documentos com set() e update().",
+    "Utilizar coleções com filtros, ordenação e paginação.",
+    "Implementar listeners snapshots com Flow ou LiveData.",
+    "Escrever regras básicas de leitura/escrita com condições de autenticação."
+  ],
+  "outcomes": [
+    "Modelo de dados Firestore criado e documentado.",
+    "CRUD funcional integrado ao app Android.",
+    "Regras de segurança alinhadas com os requisitos do projeto.",
+    "Plano para lidar com limites de leitura e custos."
+  ],
+  "prerequisites": [
+    "Setup Firebase concluído.",
+    "Conhecimentos básicos de corrotinas e Flow.",
+    "Projeto integrador definido."
+  ],
+  "tags": ["android", "firebase", "firestore", "nosql"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Firestore data model",
+      "url": "https://firebase.google.com/docs/firestore/data-model",
+      "type": "reference"
+    },
+    {
+      "label": "Firestore security rules",
+      "url": "https://firebase.google.com/docs/firestore/security/get-started",
+      "type": "article"
+    },
+    {
+      "label": "Firestore pricing",
+      "url": "https://firebase.google.com/pricing",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "MORGAN, S. Firestore by Example. O'Reilly, 2023.",
+    "GOOGLE. Firestore documentation. 2024.",
+    "CARVALHO, B. Modelagem NoSQL na prática. Novatec, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica avaliando a modelagem e implementação de CRUD com foco em segurança e limites de uso."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo",
+      "items": [
+        "Warm-up: Storytelling de casos de uso NoSQL (10 min).",
+        "Modelagem de coleções e documentos (25 min).",
+        "Laboratório: CRUD com corrotinas (40 min).",
+        "Workshop: Regras de segurança básicas (30 min).",
+        "TED: Documento de limites e custos (15 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up",
+      "steps": [
+        {
+          "title": "00:05 – Pitch de modelo",
+          "content": "Cada grupo apresenta em 60 segundos o modelo de dados do projeto integrador."
+        },
+        {
+          "title": "00:05 – Debate NoSQL",
+          "content": "Discussão guiada sobre quando usar subcoleções versus campos aninhados."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos implementar o módulo de favoritos do app usando Firestore."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Criar coleção favorites com documentos identificados por userId_movieId.",
+            "Implementar funções suspensas para createFavorite, listFavorites e deleteFavorite.",
+            "Utilizar flow { emitAll(querySnapshot.asFlow()) } para acompanhar atualizações.",
+            "Converter documentos para modelos de UI com mapNotNull.",
+            "Aplicar batch writes para operações múltiplas.",
+            "Escrever testes instrumentados com Firestore emulator."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "error",
+      "title": "Segurança Firebase",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Ative o Firestore emulator para desenvolvimento. Nunca teste em produção com regras abertas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Defina regras: allow read, write: if request.auth != null && request.auth.uid == resource.data.userId."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Limites e custos do Firestore",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Documente no TED a estimativa de leituras por usuário/dia. Planeje caching local para reduzir custos e evitar throttling."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Documento com diagrama de coleções, regras de segurança implementadas e estimativa de custos com base no pricing do Firebase."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica Firestore",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Coerência da modelagem (35%).",
+            "Segurança implementada (30%).",
+            "Eficiência do CRUD e uso de corrotinas (20%).",
+            "Estimativa de custos e limites (15%)."
+          ]
+        }
+      ]
+    }
+  ]
+}

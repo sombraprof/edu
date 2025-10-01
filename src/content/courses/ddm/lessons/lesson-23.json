@@ -1,0 +1,152 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-23",
+  "title": "Aula 23: Unidade IV – RecyclerView com dados remotos",
+  "slug": "recyclerview-dados-remotos",
+  "summary": "Integra dados carregados via Retrofit em uma RecyclerView responsiva, abordando diffing, paginação e estados de carregamento.",
+  "objective": "Construir uma lista dinâmica que consome dados remotos com RecyclerView, aplicando padrões de arquitetura e feedback ao usuário.",
+  "objectives": [
+    "Configurar RecyclerView com ListAdapter e DiffUtil.",
+    "Integrar StateFlow/Livedata com RecyclerView e componentes de UI.",
+    "Implementar paginação manual e indicadores de carregamento.",
+    "Tratar erros exibindo mensagens e ações de retry."
+  ],
+  "competencies": [
+    "Construção de interfaces responsivas",
+    "Integração de dados remotos com UI",
+    "Feedback e estados de carregamento"
+  ],
+  "skills": [
+    "Criar adapters com ViewBinding.",
+    "Aplicar DiffUtil.ItemCallback para atualizar listas de forma eficiente.",
+    "Implementar paginação incremental com triggers de scroll.",
+    "Exibir estados de carregamento, vazio e erro na UI."
+  ],
+  "outcomes": [
+    "Apresenta dados remotos em uma lista performática.",
+    "Mantém sincronizados estados de carregamento e empty state.",
+    "Documenta limites de paginação impostos pela API.",
+    "Publica checklist de UX para feedback ao usuário."
+  ],
+  "prerequisites": [
+    "Concluir aulas sobre Retrofit síncrono e assíncrono.",
+    "Conhecer fundamentos de RecyclerView e ViewBinding.",
+    "Projeto com camada de dados implementada."
+  ],
+  "tags": ["android", "recyclerview", "ui", "api"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "RecyclerView documentation",
+      "url": "https://developer.android.com/guide/topics/ui/layout/recyclerview",
+      "type": "article"
+    },
+    {
+      "label": "Guide to app architecture",
+      "url": "https://developer.android.com/topic/architecture",
+      "type": "reference"
+    },
+    {
+      "label": "Paging basics",
+      "url": "https://developer.android.com/topic/libraries/architecture/paging/v3-overview",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "GRANDE, A. Dominando RecyclerView. Casa do Código, 2022.",
+    "GOOGLE. RecyclerView best practices. 2024.",
+    "MARTINS, P. UX para feedback de carregamento. Novatec, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica observacional avaliando a qualidade da integração da lista, estados e documentação de limites de API."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo",
+      "items": [
+        "Warm-up: Lightning talk sobre listas reativas (10 min).",
+        "Setup do adapter com DiffUtil (20 min).",
+        "Laboratório: Conectando Flow/LiveData à RecyclerView (35 min).",
+        "Hands-on: Paginação e estados de carregamento (35 min).",
+        "TED: Checklist de UX e limites de paginação (10 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up",
+      "steps": [
+        {
+          "title": "00:05 – Show and tell",
+          "content": "Estudantes apresentam apps que usam listas infinitas e discutem UX."
+        },
+        {
+          "title": "00:05 – Quiz de diffing",
+          "content": "Perguntas rápidas sobre como o DiffUtil detecta mudanças e quando usar notifyDataSetChanged."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos exibir a lista de filmes populares obtida na aula anterior. O foco é garantir atualização incremental, loading e empty state."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Criar layout item_movie.xml com ViewBinding e placeholders para imagem, título e avaliação.",
+            "Implementar MovieAdapter estendendo ListAdapter<MovieUiModel, MovieViewHolder> com DiffUtil.",
+            "Conectar a RecyclerView ao adapter e ao StateFlow do ViewModel usando repeatOnLifecycle.",
+            "Exibir barra de progresso e skeleton enquanto o estado for Loading.",
+            "Adicionar listener de scroll para carregar próxima página quando estiver a 5 itens do fim.",
+            "Apresentar mensagem de erro com Snackbar e ação de retry chamando viewModel.retry()."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Limites de paginação da API",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Confirme no contrato da API o tamanho máximo de página (ex.: 20 itens). Configure o app para não solicitar além do total permitido e registre esse limite no README do módulo."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Checklist no formato Markdown contendo critérios de UX (feedback, empty state, retry) e limites de paginação observados."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica do checklist",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Completude dos estados (35%).",
+            "Aderência aos limites da API (25%).",
+            "Qualidade da experiência do usuário (25%).",
+            "Clareza do documento (15%)."
+          ]
+        }
+      ]
+    }
+  ]
+}

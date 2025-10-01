@@ -1,0 +1,156 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-24",
+  "title": "Aula 24: Unidade V – Setup do Firebase para Android",
+  "slug": "setup-firebase-android",
+  "summary": "Guia a preparação do projeto Android para usar Firebase, incluindo configuração do console, integração com Gradle e boas práticas de segurança.",
+  "objective": "Configurar o projeto Android para consumir serviços Firebase com segurança, preparando ambientes e chaves corretamente.",
+  "objectives": [
+    "Criar projeto no Firebase Console e registrar app Android.",
+    "Integrar o arquivo google-services.json com Gradle.",
+    "Configurar módulos necessários (Analytics, Firestore, Auth) de forma incremental.",
+    "Definir ambientes e variáveis seguras para chaves e IDs sensíveis."
+  ],
+  "competencies": [
+    "Configuração de serviços backend",
+    "Gestão de credenciais e ambientes",
+    "Boas práticas de segurança mobile"
+  ],
+  "skills": [
+    "Registrar app Android no Firebase Console.",
+    "Aplicar plugin google-services e dependências no Gradle.",
+    "Organizar flavors ou build variants para separar ambientes.",
+    "Configurar Remote Config e Crashlytics opcionalmente."
+  ],
+  "outcomes": [
+    "Projeto Android conectado ao Firebase com módulos essenciais.",
+    "Checklist de segurança preenchido para uso de chaves.",
+    "Ambientes dev e prod separados com chaves distintas.",
+    "Documentação atualizada sobre setup e permissões."
+  ],
+  "prerequisites": [
+    "Projeto Android funcional com Gradle atualizado.",
+    "Conta no Firebase com permissões administrativas.",
+    "Conhecimento básico de gerenciamento de dependências."
+  ],
+  "tags": ["android", "firebase", "setup", "seguranca"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Firebase Android Setup",
+      "url": "https://firebase.google.com/docs/android/setup",
+      "type": "reference"
+    },
+    {
+      "label": "Add Firebase to your Android project",
+      "url": "https://developer.android.com/studio/write/firebase",
+      "type": "article"
+    },
+    {
+      "label": "Security checklist",
+      "url": "https://firebase.google.com/support/guides/security-checklist",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "GOOGLE. Firebase Documentation. 2024.",
+    "PEREIRA, L. Firebase para Android. Novatec, 2023.",
+    "PONTES, C. Segurança em apps mobile. Casa do Código, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist validando setup, segurança das chaves e documentação dos ambientes."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo",
+      "items": [
+        "Warm-up: Mitos e verdades sobre Firebase (10 min).",
+        "Configuração no console (20 min).",
+        "Laboratório: Integração do google-services.json (35 min).",
+        "Hands-on: Estruturando build variants e segurança (35 min).",
+        "TED: Checklist de segurança e documentação (10 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up",
+      "steps": [
+        {
+          "title": "00:05 – Quiz mitos x verdades",
+          "content": "Cartões com afirmações sobre Firebase para classificar como mito ou verdade."
+        },
+        {
+          "title": "00:05 – Mapa de serviços",
+          "content": "Grupos listam quais serviços pretendem usar no projeto integrador."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos registrar o app no Firebase e configurar ambientes seguros."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Criar projeto Firebase e habilitar Firestore e Authentication.",
+            "Registrar o aplicativo Android informando packageName único.",
+            "Baixar google-services.json e adicionar à pasta app/.",
+            "Aplicar o plugin com.google.gms.google-services no build.gradle (app).",
+            "Adicionar dependências Firebase BOM e módulos necessários.",
+            "Configurar productFlavors dev e prod com applicationIdSuffix e arquivos google-services dedicados."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "error",
+      "title": "Segurança em destaque",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Nunca versionar google-services.json com credenciais reais em repositórios públicos. Configure .gitignore específico e use secrets no CI."
+        },
+        {
+          "type": "paragraph",
+          "text": "Habilite autenticação multifator para administradores no console Firebase antes de publicar o app."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Documento compartilhado com checklist de setup, indicando status de cada etapa (console, google-services, flavors, segurança) e evidências (capturas)."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica de segurança Firebase",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Configuração correta do console e serviços (30%).",
+            "Gestão de credenciais e .gitignore (30%).",
+            "Documentação das variantes e ambientes (25%).",
+            "Políticas de acesso administrativo (15%)."
+          ]
+        }
+      ]
+    }
+  ]
+}
