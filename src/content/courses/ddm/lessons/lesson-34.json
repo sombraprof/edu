@@ -70,14 +70,34 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (180 min)",
-      "items": [
-        "(20 min) Visão geral do ecossistema Firebase e requisitos de segurança.",
-        "(40 min) Configuração guiada: criação de projeto, app web e variáveis ambiente.",
-        "(50 min) Implementação: Authentication com email/senha e providers sociais.",
-        "(50 min) Firestore em ação: coleções, listeners e sincronização offline.",
-        "(20 min) Consolidação: checklist de segurança, testes e planejamento da TED."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Visão geral do ecossistema Firebase e requisitos de segurança."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Configuração guiada",
+          "content": "criação de projeto, app web e variáveis ambiente."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(50 min) Implementação",
+          "content": "Authentication com email/senha e providers sociais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(50 min) Firestore em ação",
+          "content": "coleções, listeners e sincronização offline."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Consolidação",
+          "content": "checklist de segurança, testes e planejamento da TED."
+        }
       ]
     },
     {
@@ -113,170 +133,73 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Checklist de integração cloud",
-      "columns": 3,
-      "cards": [
+      "items": [
         {
           "title": "Setup",
-          "tone": "info",
-          "items": [
-            "Projeto Firebase criado com usuários registrados.",
-            "Credenciais armazenadas em `.env` e `app.config.ts`.",
-            "SDKs instalados e configurados no Expo."
-          ]
+          "content": "Projeto Firebase criado com usuários registrados.",
+          "language": "plaintext",
+          "code": "- Projeto Firebase criado com usuários registrados.\n- Credenciais armazenadas em `.env` e `app.config.ts`.\n- SDKs instalados e configurados no Expo."
         },
         {
           "title": "Autenticação",
-          "tone": "primary",
-          "items": [
-            "Fluxo de login/cadastro com feedback MD3.",
-            "Reset de senha e verificação de email opcional.",
-            "Proteção de rotas autenticadas no React Navigation."
-          ]
+          "content": "Fluxo de login/cadastro com feedback MD3.",
+          "language": "plaintext",
+          "code": "- Fluxo de login/cadastro com feedback MD3.\n- Reset de senha e verificação de email opcional.\n- Proteção de rotas autenticadas no React Navigation."
         },
         {
           "title": "Firestore",
-          "tone": "secondary",
+          "content": "Coleções com índices e regras baseadas em usuário.",
+          "language": "plaintext",
+          "code": "- Coleções com índices e regras baseadas em usuário.\n- Sync offline habilitado com `enableIndexedDbPersistence`.\n- Listeners removidos corretamente para evitar vazamentos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de dados com Firebase",
+      "content": [
+        {
+          "type": "orderedList",
           "items": [
-            "Coleções com índices e regras baseadas em usuário.",
-            "Sync offline habilitado com `enableIndexedDbPersistence`.",
-            "Listeners removidos corretamente para evitar vazamentos."
+            {
+              "text": "Autenticar – Usuário envia credenciais, Firebase Auth valida e retorna token."
+            },
+            {
+              "text": "Autorizar – Aplicativo injeta token em cabeçalhos e aplica regras de segurança."
+            },
+            {
+              "text": "Sincronizar – Listeners atualizam UI em tempo real e persistem dados offline."
+            },
+            {
+              "text": "Monitorar – Logar atividades com Firebase Analytics/Crashlytics para auditoria."
+            }
           ]
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Fluxo de dados com Firebase",
-      "steps": [
-        {
-          "title": "Autenticar",
-          "content": "Usuário envia credenciais, Firebase Auth valida e retorna token."
-        },
-        {
-          "title": "Autorizar",
-          "content": "Aplicativo injeta token em cabeçalhos e aplica regras de segurança."
-        },
-        {
-          "title": "Sincronizar",
-          "content": "Listeners atualizam UI em tempo real e persistem dados offline."
-        },
-        {
-          "title": "Monitorar",
-          "content": "Logar atividades com Firebase Analytics/Crashlytics para auditoria."
-        }
-      ]
-    },
-    {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline da TED – Integração Firebase",
-      "summary": "Atividade avaliativa que valida segurança e sincronização em nuvem.",
-      "stages": [
+      "content": [
         {
-          "id": "configuracao",
-          "title": "Configuração",
-          "summary": "Preparar projeto e chaves.",
-          "owners": ["Grupo"],
-          "durationHours": 2,
-          "activities": [
-            {
-              "id": "console",
-              "label": "Configurar console",
-              "description": "Criar projeto Firebase, app web e ativar Authentication/Firestore."
-            },
-            {
-              "id": "variaveis",
-              "label": "Gerenciar chaves",
-              "description": "Adicionar variáveis em `.env` e configurar `app.config.ts`."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "credenciais",
-              "label": "Credenciais seguras",
-              "description": "Arquivo `.env` armazenado com segurança e compartilhado via cofre institucional."
-            }
-          ],
-          "risks": [
-            {
-              "id": "vazamento",
-              "label": "Vazamento de chaves",
-              "severity": "high",
-              "mitigation": "Usar gitignore, secrets do GitHub e revisão dupla antes de commits."
-            }
-          ],
-          "checkpoints": ["Projeto criado", "Chaves seguras"]
+          "type": "paragraph",
+          "text": "Atividade avaliativa que valida segurança e sincronização em nuvem."
         },
         {
-          "id": "implementacao",
-          "title": "Implementação",
-          "summary": "Desenvolver fluxo de autenticação e persistência.",
-          "owners": ["Grupo"],
-          "durationHours": 4,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "auth",
-              "label": "Implementar Auth",
-              "description": "Cadastrar/login usuário, tratar erros e proteger rotas."
+              "text": "Configuração | Preparar projeto e chaves. | Responsáveis: Grupo | Duração: 2h | Atividades: Configurar console; Gerenciar chaves | Entregáveis: Credenciais seguras | Riscos: Vazamento de chaves (Usar gitignore, secrets do GitHub e revisão dupla antes de commits.) | Checkpoints: Projeto criado, Chaves seguras"
             },
             {
-              "id": "crud",
-              "label": "CRUD Firestore",
-              "description": "Criar/atualizar documentos com listeners em tempo real."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "branch",
-              "label": "Branch `feature/firebase`",
-              "description": "Push com código funcional e testes básicos."
-            }
-          ],
-          "risks": [
-            {
-              "id": "quota",
-              "label": "Limite de quota",
-              "severity": "medium",
-              "mitigation": "Configurar regras para evitar escritas excessivas e usar mocks em testes."
-            }
-          ],
-          "checkpoints": ["Auth funcionando", "Firestore sincronizando"]
-        },
-        {
-          "id": "validacao",
-          "title": "Validação",
-          "summary": "Testes, segurança e documentação.",
-          "owners": ["Grupo"],
-          "durationHours": 1.5,
-          "activities": [
-            {
-              "id": "regras",
-              "label": "Testar regras",
-              "description": "Usar Firebase Emulator Suite para validar permissões."
+              "text": "Implementação | Desenvolver fluxo de autenticação e persistência. | Responsáveis: Grupo | Duração: 4h | Atividades: Implementar Auth; CRUD Firestore | Entregáveis: Branch `feature/firebase` | Riscos: Limite de quota (Configurar regras para evitar escritas excessivas e usar mocks em testes.) | Checkpoints: Auth funcionando, Firestore sincronizando"
             },
             {
-              "id": "video",
-              "label": "Gravar walkthrough",
-              "description": "Vídeo curto demonstrando fluxo de login e sincronização."
+              "text": "Validação | Testes, segurança e documentação. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Testar regras; Gravar walkthrough | Entregáveis: Checklist de segurança | Riscos: Regras permissivas (Revisão cruzada e uso de simulador antes de publicar.) | Checkpoints: Regras aprovadas, Vídeo enviado"
             }
-          ],
-          "deliverables": [
-            {
-              "id": "checklist",
-              "label": "Checklist de segurança",
-              "description": "Documento anexado no AVA com resultados dos testes."
-            }
-          ],
-          "risks": [
-            {
-              "id": "falha-seguranca",
-              "label": "Regras permissivas",
-              "severity": "high",
-              "mitigation": "Revisão cruzada e uso de simulador antes de publicar."
-            }
-          ],
-          "checkpoints": ["Regras aprovadas", "Vídeo enviado"]
+          ]
         }
       ]
     },
@@ -289,8 +212,8 @@
           "text": "O código reforça os padrões de navegação modular discutidos em Oficina React Native + Firebase usando Expo e React Navigation."
         },
         {
-          "type": "code",
-          "language": "tsx",
+          "type": "codeBlock",
+          "language": "c",
           "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Oficina React Native + Firebase: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: FIREBASE (2024)"
         },
         {

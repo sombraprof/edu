@@ -176,15 +176,39 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h10)",
-      "items": [
-        "(10 min) Icebreaker com quiz flash e revisão das regras nos slides.",
-        "(45 min) Rodadas principais: squads escolhem casas, respondem e registram tentativas na planilha.",
-        "(15 min) Painel do ranking: atualização coletiva e registro dos badges conquistados.",
-        "(20 min) Desafio relâmpago com perguntas de alta complexidade e possibilidade de aposta.",
-        "(25 min) Círculo de feedback 360° mediado por roteiro de perguntas.",
-        "(15 min) Construção do mural digital com insights e anúncio dos destaques."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Icebreaker com quiz flash e revisão das regras nos slides."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(45 min) Rodadas principais",
+          "content": "squads escolhem casas, respondem e registram tentativas na planilha."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(15 min) Painel do ranking",
+          "content": "atualização coletiva e registro dos badges conquistados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Desafio relâmpago com perguntas de alta complexidade e possibilidade de aposta."
+        },
+        {
+          "icon": "check-circle",
+          "title": "25 min",
+          "content": "Círculo de feedback 360° mediado por roteiro de perguntas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Construção do mural digital com insights e anúncio dos destaques."
+        }
       ]
     },
     {
@@ -241,40 +265,29 @@
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Categorias e exemplos de perguntas",
-      "headers": ["Categoria", "Exemplo", "Resolução esperada", "Pontuação"],
-      "rows": [
-        [
-          "Structs",
-          "Identificar erro em typedef e sugerir correção.",
-          "Mostrar typedef completo e motivo da falha.",
-          "200"
-        ],
-        [
-          "Vetores",
-          "Reordenar vetor de registros após remoção.",
-          "Apresentar código com deslocamento correto.",
-          "300"
-        ],
-        [
-          "CRUD",
-          "Escolher retorno adequado para função delete.",
-          "Explicar bool e mensagens ao usuário.",
-          "100"
-        ],
-        [
-          "Controle",
-          "Converter laço while em for mantendo lógica.",
-          "Código equivalente com justificativa.",
-          "400"
-        ],
-        [
-          "Desafios",
-          "Aplicar busca por prefixo em lista ordenada.",
-          "Implementar varredura até mismatch.",
-          "500"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Categoria: Structs | Exemplo: Identificar erro em typedef e sugerir correção. | Resolução esperada: Mostrar typedef completo e motivo da falha. | Pontuação: 200"
+            },
+            {
+              "text": "Categoria: Vetores | Exemplo: Reordenar vetor de registros após remoção. | Resolução esperada: Apresentar código com deslocamento correto. | Pontuação: 300"
+            },
+            {
+              "text": "Categoria: CRUD | Exemplo: Escolher retorno adequado para função delete. | Resolução esperada: Explicar bool e mensagens ao usuário. | Pontuação: 100"
+            },
+            {
+              "text": "Categoria: Controle | Exemplo: Converter laço while em for mantendo lógica. | Resolução esperada: Código equivalente com justificativa. | Pontuação: 400"
+            },
+            {
+              "text": "Categoria: Desafios | Exemplo: Aplicar busca por prefixo em lista ordenada. | Resolução esperada: Implementar varredura até mismatch. | Pontuação: 500"
+            }
+          ]
+        }
       ]
     },
     {

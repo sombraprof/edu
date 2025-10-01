@@ -35,178 +35,149 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Elementos do foresight",
-      "cards": [
+      "items": [
         {
           "title": "Sinais fracos",
-          "content": "Indícios emergentes que sugerem mudanças futuras."
+          "content": "Indícios emergentes que sugerem mudanças futuras.",
+          "language": "plaintext",
+          "code": "Indícios emergentes que sugerem mudanças futuras."
         },
         {
           "title": "Forças motrizes",
-          "content": "Tendências macroeconômicas, tecnológicas e sociais."
+          "content": "Tendências macroeconômicas, tecnológicas e sociais.",
+          "language": "plaintext",
+          "code": "Tendências macroeconômicas, tecnológicas e sociais."
         },
         {
           "title": "Incertezas críticas",
-          "content": "Variáveis de alto impacto e difícil previsão."
+          "content": "Variáveis de alto impacto e difícil previsão.",
+          "language": "plaintext",
+          "code": "Variáveis de alto impacto e difícil previsão."
         },
         {
           "title": "Narrativas",
-          "content": "Histórias que conectam eventos e guiam decisões estratégicas."
+          "content": "Histórias que conectam eventos e guiam decisões estratégicas.",
+          "language": "plaintext",
+          "code": "Histórias que conectam eventos e guiam decisões estratégicas."
         }
       ]
     },
     {
-      "type": "md3Flowchart",
+      "type": "contentBlock",
       "title": "Fluxo de construção de cenários",
-      "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "dados", "type": "process", "label": "Coletar sinais e dados" },
-        { "id": "drivers", "type": "process", "label": "Identificar forças motrizes" },
-        { "id": "incertezas", "type": "decision", "label": "Incerteza crítica?" },
-        { "id": "matriz", "type": "process", "label": "Montar matriz 2×2" },
-        { "id": "narrativa", "type": "process", "label": "Criar narrativa e storyline" },
-        { "id": "implicacoes", "type": "process", "label": "Derivar implicações para SI" },
-        { "id": "sinais", "type": "process", "label": "Definir sinais de alerta" },
-        { "id": "end", "type": "end", "label": "Cenário pronto" }
-      ],
-      "edges": [
-        ["start", "dados"],
-        ["dados", "drivers"],
-        ["drivers", "incertezas"],
-        ["incertezas", "matriz", "sim"],
-        ["incertezas", "drivers", "não"],
-        ["matriz", "narrativa"],
-        ["narrativa", "implicacoes"],
-        ["implicacoes", "sinais"],
-        ["sinais", "end"]
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "Coletar sinais e dados – tipo: process"
+            },
+            {
+              "text": "Identificar forças motrizes – tipo: process"
+            },
+            {
+              "text": "Incerteza crítica? – tipo: decision"
+            },
+            {
+              "text": "Montar matriz 2×2 – tipo: process"
+            },
+            {
+              "text": "Criar narrativa e storyline – tipo: process"
+            },
+            {
+              "text": "Derivar implicações para SI – tipo: process"
+            },
+            {
+              "text": "Definir sinais de alerta – tipo: process"
+            },
+            {
+              "text": "Cenário pronto – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → dados"
+            },
+            {
+              "text": "dados → drivers"
+            },
+            {
+              "text": "drivers → incertezas"
+            },
+            {
+              "text": "incertezas → matriz – sim"
+            },
+            {
+              "text": "incertezas → drivers – não"
+            },
+            {
+              "text": "matriz → narrativa"
+            },
+            {
+              "text": "narrativa → implicacoes"
+            },
+            {
+              "text": "implicacoes → sinais"
+            },
+            {
+              "text": "sinais → end"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Matriz 2x2 de cenários",
-      "headers": ["Cenário", "Descrição", "Implicações para SI", "Alertas precoces"],
-      "rows": [
-        [
-          "Regulado & Estável",
-          "Mercado com regulação forte e baixa disrupção",
-          "Foco em compliance e eficiência",
-          "Novas normas, auditorias frequentes"
-        ],
-        [
-          "Regulado & Disruptivo",
-          "Regulação rígida e mudanças tecnológicas rápidas",
-          "Necessidade de inovação segura",
-          "Sandbox regulatórios, startups licenciadas"
-        ],
-        [
-          "Livre & Estável",
-          "Ambiente competitivo com poucas barreiras",
-          "Escala de produtos digitais",
-          "Entrada de players globais"
-        ],
-        [
-          "Livre & Disruptivo",
-          "Mercado aberto e alta velocidade de inovação",
-          "Portfólio flexível e parcerias",
-          "Investimentos massivos em IA e dados"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cenário: Regulado & Estável | Descrição: Mercado com regulação forte e baixa disrupção | Implicações para SI: Foco em compliance e eficiência | Alertas precoces: Novas normas, auditorias frequentes"
+            },
+            {
+              "text": "Cenário: Regulado & Disruptivo | Descrição: Regulação rígida e mudanças tecnológicas rápidas | Implicações para SI: Necessidade de inovação segura | Alertas precoces: Sandbox regulatórios, startups licenciadas"
+            },
+            {
+              "text": "Cenário: Livre & Estável | Descrição: Ambiente competitivo com poucas barreiras | Implicações para SI: Escala de produtos digitais | Alertas precoces: Entrada de players globais"
+            },
+            {
+              "text": "Cenário: Livre & Disruptivo | Descrição: Mercado aberto e alta velocidade de inovação | Implicações para SI: Portfólio flexível e parcerias | Alertas precoces: Investimentos massivos em IA e dados"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline de respostas a cenários",
-      "summary": "Fluxo para monitorar gatilhos e acionar planos adaptativos.",
-      "stages": [
+      "content": [
         {
-          "id": "monitor",
-          "title": "Monitorar",
-          "summary": "Coletar sinais de alerta e validar hipóteses.",
-          "owners": ["PMO", "Analista de riscos"],
-          "durationHours": 6,
-          "activities": [
-            {
-              "id": "dash",
-              "label": "Dashboard de sinais",
-              "description": "Atualizar indicadores críticos semanalmente."
-            },
-            {
-              "id": "auditar",
-              "label": "Auditar logs",
-              "description": "Revisar logs de auditoria de eventos-chave."
-            }
-          ],
-          "deliverables": [{ "id": "log", "label": "Log consolidado de gatilhos" }],
-          "risks": [
-            {
-              "id": "latencia",
-              "label": "Latência de dados",
-              "severity": "medium",
-              "mitigation": "Automatizar ingestão e alertas."
-            }
-          ],
-          "checkpoints": ["Sinais atualizados no painel"]
+          "type": "paragraph",
+          "text": "Fluxo para monitorar gatilhos e acionar planos adaptativos."
         },
         {
-          "id": "responder",
-          "title": "Responder",
-          "summary": "Executar scripts e planos de mitigação.",
-          "owners": ["Squad de contingência"],
-          "durationHours": 16,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "script",
-              "label": "Rodar scripts",
-              "description": "Acionar playbooks automatizados."
+              "text": "Monitorar | Coletar sinais de alerta e validar hipóteses. | Responsáveis: PMO, Analista de riscos | Duração: 6h | Atividades: Dashboard de sinais; Auditar logs | Entregáveis: Log consolidado de gatilhos | Riscos: Latência de dados (Automatizar ingestão e alertas.) | Checkpoints: Sinais atualizados no painel"
             },
             {
-              "id": "testes",
-              "label": "Testar mudanças",
-              "description": "Validar resultados e registrar relatório."
-            }
-          ],
-          "deliverables": [
-            { "id": "script-out", "label": "Scripts executados" },
-            { "id": "relatorio", "label": "Relatório de testes" }
-          ],
-          "risks": [
-            {
-              "id": "falha",
-              "label": "Falha em rollback",
-              "severity": "high",
-              "mitigation": "Definir plano B e monitoramento contínuo."
-            }
-          ],
-          "checkpoints": ["Testes aprovados"]
-        },
-        {
-          "id": "replanejar",
-          "title": "Replanejar",
-          "summary": "Atualizar roadmap e comunicar stakeholders.",
-          "owners": ["Comitê de estratégia", "Product manager"],
-          "durationHours": 8,
-          "activities": [
-            {
-              "id": "portfolio",
-              "label": "Repriorizar portfólio",
-              "description": "Ajustar iniciativas conforme cenário."
+              "text": "Responder | Executar scripts e planos de mitigação. | Responsáveis: Squad de contingência | Duração: 16h | Atividades: Rodar scripts; Testar mudanças | Entregáveis: Scripts executados; Relatório de testes | Riscos: Falha em rollback (Definir plano B e monitoramento contínuo.) | Checkpoints: Testes aprovados"
             },
             {
-              "id": "comunicacao",
-              "label": "Comunicar mudanças",
-              "description": "Registrar ata e avisos."
+              "text": "Replanejar | Atualizar roadmap e comunicar stakeholders. | Responsáveis: Comitê de estratégia, Product manager | Duração: 8h | Atividades: Repriorizar portfólio; Comunicar mudanças | Entregáveis: Roadmap revisado | Riscos: Falta de adesão (Envolver sponsors em simulações.) | Checkpoints: Roadmap publicado"
             }
-          ],
-          "deliverables": [{ "id": "roadmap", "label": "Roadmap revisado" }],
-          "risks": [
-            {
-              "id": "alinhamento",
-              "label": "Falta de adesão",
-              "severity": "medium",
-              "mitigation": "Envolver sponsors em simulações."
-            }
-          ],
-          "checkpoints": ["Roadmap publicado"]
+          ]
         }
       ]
     },
@@ -268,13 +239,26 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Sequência de construção de cenários",
-      "steps": [
-        { "title": "Etapa 1", "content": "Coleta sinais e tendências com especialistas." },
-        { "title": "Etapa 2", "content": "Define forças motrizes e incertezas críticas." },
-        { "title": "Etapa 3", "content": "Constrói matrizes de cenários e narrativas." },
-        { "title": "Etapa 4", "content": "Extrai implicações para portfólio e riscos." }
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Etapa 1 – Coleta sinais e tendências com especialistas."
+            },
+            {
+              "text": "Etapa 2 – Define forças motrizes e incertezas críticas."
+            },
+            {
+              "text": "Etapa 3 – Constrói matrizes de cenários e narrativas."
+            },
+            {
+              "text": "Etapa 4 – Extrai implicações para portfólio e riscos."
+            }
+          ]
+        }
       ]
     },
     {
@@ -305,9 +289,15 @@
         {
           "type": "unorderedList",
           "items": [
-            { "text": "Script de simulação com parametrizações dos cenários." },
-            { "text": "Relatório de testes validando respostas e riscos residuais." },
-            { "text": "Log de auditoria com gatilhos e decisões tomadas." }
+            {
+              "text": "Script de simulação com parametrizações dos cenários."
+            },
+            {
+              "text": "Relatório de testes validando respostas e riscos residuais."
+            },
+            {
+              "text": "Log de auditoria com gatilhos e decisões tomadas."
+            }
           ]
         },
         {

@@ -54,15 +54,39 @@
   },
   "content": [
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo da aula",
-      "items": [
-        "Kick-off: alinhamento das regras da banca e critérios NP3.",
-        "Construção colaborativa do roteiro (Pitch Canvas).",
-        "Mentorias sobre slides, demo e materiais de apoio.",
-        "Ensaio cronometrado com registro em vídeo.",
-        "Feedback 360° (colegas, docentes, mentores).",
-        "Checklist final de documentação e submissão Moodle."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Kick-off",
+          "content": "alinhamento das regras da banca e critérios NP3."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Construção colaborativa do roteiro (Pitch Canvas).",
+          "content": "Construção colaborativa do roteiro (Pitch Canvas)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Mentorias sobre slides, demo e materiais de apoio.",
+          "content": "Mentorias sobre slides, demo e materiais de apoio."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Ensaio cronometrado com registro em vídeo.",
+          "content": "Ensaio cronometrado com registro em vídeo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Feedback 360° (colegas, docentes, mentores).",
+          "content": "Feedback 360° (colegas, docentes, mentores)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Checklist final de documentação e submissão Moodle.",
+          "content": "Checklist final de documentação e submissão Moodle."
+        }
       ]
     },
     {

@@ -4,33 +4,56 @@
   "objective": "Conectar roadmap estratégico à gestão de mudança e comunicação executiva do PESI.",
   "content": [
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Alavancas de mudança",
-      "cards": [
+      "items": [
         {
           "title": "Patrocínio visível",
-          "content": "Executivos comunicam visão e desbloqueiam recursos."
+          "content": "Executivos comunicam visão e desbloqueiam recursos.",
+          "language": "plaintext",
+          "code": "Executivos comunicam visão e desbloqueiam recursos."
         },
         {
           "title": "Gestão de impactos",
-          "content": "Mapeamento de processos, personas e riscos de adoção."
+          "content": "Mapeamento de processos, personas e riscos de adoção.",
+          "language": "plaintext",
+          "code": "Mapeamento de processos, personas e riscos de adoção."
         },
-        { "title": "Capacitação", "content": "Trilhas de aprendizagem e suporte contínuo." },
+        {
+          "title": "Capacitação",
+          "content": "Trilhas de aprendizagem e suporte contínuo.",
+          "language": "plaintext",
+          "code": "Trilhas de aprendizagem e suporte contínuo."
+        },
         {
           "title": "Comunicação segmentada",
-          "content": "Mensagens personalizadas por stakeholder."
+          "content": "Mensagens personalizadas por stakeholder.",
+          "language": "plaintext",
+          "code": "Mensagens personalizadas por stakeholder."
         }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Plano de comunicação",
-      "headers": ["Stakeholder", "Mensagem-chave", "Canal", "Frequência"],
-      "rows": [
-        ["Conselho", "Status do roadmap e resultados", "Relatório executivo", "Mensal"],
-        ["Gestores", "Impactos operacionais e decisões", "Reuniões de liderança", "Quinzenal"],
-        ["Colaboradores", "Benefícios e suporte", "Intranet, newsletters", "Semanal"],
-        ["Parceiros", "Integrações e mudanças contratuais", "Workshops dedicados", "Trimestral"]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Stakeholder: Conselho | Mensagem-chave: Status do roadmap e resultados | Canal: Relatório executivo | Frequência: Mensal"
+            },
+            {
+              "text": "Stakeholder: Gestores | Mensagem-chave: Impactos operacionais e decisões | Canal: Reuniões de liderança | Frequência: Quinzenal"
+            },
+            {
+              "text": "Stakeholder: Colaboradores | Mensagem-chave: Benefícios e suporte | Canal: Intranet, newsletters | Frequência: Semanal"
+            },
+            {
+              "text": "Stakeholder: Parceiros | Mensagem-chave: Integrações e mudanças contratuais | Canal: Workshops dedicados | Frequência: Trimestral"
+            }
+          ]
+        }
       ]
     },
     {
@@ -91,13 +114,26 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Cronograma da oficina",
-      "steps": [
-        { "title": "Bloco 1", "content": "Atualização do roadmap e dependências críticas." },
-        { "title": "Bloco 2", "content": "Mapeamento de impactos e stakeholders." },
-        { "title": "Bloco 3", "content": "Definição de mensagens e canais por segmento." },
-        { "title": "Bloco 4", "content": "Plano de capacitação e métricas de adoção." }
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Bloco 1 – Atualização do roadmap e dependências críticas."
+            },
+            {
+              "text": "Bloco 2 – Mapeamento de impactos e stakeholders."
+            },
+            {
+              "text": "Bloco 3 – Definição de mensagens e canais por segmento."
+            },
+            {
+              "text": "Bloco 4 – Plano de capacitação e métricas de adoção."
+            }
+          ]
+        }
       ]
     },
     {

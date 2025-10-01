@@ -80,27 +80,50 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo",
-      "items": [
-        "Warm-up: Lightning talk sobre listas reativas (10 min).",
-        "Setup do adapter com DiffUtil (20 min).",
-        "Laboratório: Conectando Flow/LiveData à RecyclerView (35 min).",
-        "Hands-on: Paginação e estados de carregamento (35 min).",
-        "TED: Checklist de UX e limites de paginação (10 min)."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Warm-up",
+          "content": "Lightning talk sobre listas reativas (10 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Setup do adapter com DiffUtil (20 min).",
+          "content": "Setup do adapter com DiffUtil (20 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Laboratório",
+          "content": "Conectando Flow/LiveData à RecyclerView (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Hands-on",
+          "content": "Paginação e estados de carregamento (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "TED",
+          "content": "Checklist de UX e limites de paginação (10 min)."
+        }
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Warm-up",
-      "steps": [
+      "content": [
         {
-          "title": "00:05 – Show and tell",
-          "content": "Estudantes apresentam apps que usam listas infinitas e discutem UX."
-        },
-        {
-          "title": "00:05 – Quiz de diffing",
-          "content": "Perguntas rápidas sobre como o DiffUtil detecta mudanças e quando usar notifyDataSetChanged."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "00:05 – Show and tell – Estudantes apresentam apps que usam listas infinitas e discutem UX."
+            },
+            {
+              "text": "00:05 – Quiz de diffing – Perguntas rápidas sobre como o DiffUtil detecta mudanças e quando usar notifyDataSetChanged."
+            }
+          ]
         }
       ]
     },
@@ -173,8 +196,8 @@
           "text": "O fragmento resume o padrão de cliente Retrofit aplicado às discussões de RecyclerView com dados remotos."
         },
         {
-          "type": "code",
-          "language": "kotlin",
+          "type": "codeBlock",
+          "language": "c",
           "code": "interface ApiService {\n    @GET(\"/posts\")\n    suspend fun listarPosts(): List<PostResponse>\n}\n\nval retrofit = Retrofit.Builder()\n    .baseUrl(\"https://api.exemplo.dev\")\n    .addConverterFactory(MoshiConverterFactory.create())\n    .build()\n\nval service = retrofit.create(ApiService::class.java)\n// Referência: GRANDE, A (2022)"
         },
         {

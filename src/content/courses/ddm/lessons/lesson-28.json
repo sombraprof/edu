@@ -70,14 +70,34 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (120 min)",
-      "items": [
-        "(10 min) Warm-up: recapitulando aprendizados nativos da Unidade V.",
-        "(25 min) Exposição guiada: panorama nativo x híbrido x multiplataforma.",
-        "(30 min) Estudo de caso: benchmark de apps brasileiros e internacionais.",
-        "(35 min) Oficina orientada: construção da matriz de decisão do projeto.",
-        "(20 min) Socialização e feedback cruzado + alinhamento da TED da semana."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "(10 min) Warm-up",
+          "content": "recapitulando aprendizados nativos da Unidade V."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Exposição guiada",
+          "content": "panorama nativo x híbrido x multiplataforma."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Estudo de caso",
+          "content": "benchmark de apps brasileiros e internacionais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(35 min) Oficina orientada",
+          "content": "construção da matriz de decisão do projeto."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Socialização e feedback cruzado + alinhamento da TED da semana."
+        }
       ]
     },
     {
@@ -113,173 +133,73 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Critérios para comparar abordagens",
-      "columns": 3,
-      "cards": [
+      "items": [
         {
           "title": "Experiência do usuário",
-          "subtitle": "Performance e UX",
-          "tone": "primary",
-          "items": [
-            "FPS e fluidez em animações complexas.",
-            "Acesso a APIs nativas e hardware.",
-            "Consistência com guias de plataforma."
-          ]
+          "content": "Performance e UX",
+          "language": "plaintext",
+          "code": "Performance e UX\n- FPS e fluidez em animações complexas.\n- Acesso a APIs nativas e hardware.\n- Consistência com guias de plataforma."
         },
         {
           "title": "Equipes e processos",
-          "subtitle": "Capacitação",
-          "tone": "secondary",
-          "items": [
-            "Stack já dominada pelo time.",
-            "Curva de aprendizado e onboarding.",
-            "Ferramentas de CI/CD disponíveis."
-          ]
+          "content": "Capacitação",
+          "language": "plaintext",
+          "code": "Capacitação\n- Stack já dominada pelo time.\n- Curva de aprendizado e onboarding.\n- Ferramentas de CI/CD disponíveis."
         },
         {
           "title": "Negócio e operação",
-          "subtitle": "Time-to-market",
-          "tone": "info",
+          "content": "Time-to-market",
+          "language": "plaintext",
+          "code": "Time-to-market\n- Custo de manutenção a longo prazo.\n- Roadmap e dispositivos suportados.\n- Compliance com lojas e parceiros."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Linha do tempo de decisão",
+      "content": [
+        {
+          "type": "orderedList",
           "items": [
-            "Custo de manutenção a longo prazo.",
-            "Roadmap e dispositivos suportados.",
-            "Compliance com lojas e parceiros."
+            {
+              "text": "Diagnóstico – Mapeie requisitos funcionais, dispositivos alvo e restrições da organização."
+            },
+            {
+              "text": "Seleção de critérios – Priorize critérios técnicos, de UX e de negócio com o patrocinador."
+            },
+            {
+              "text": "Avaliação de alternativas – Pontue nativo, híbrido e multiplataforma considerando riscos e oportunidades."
+            },
+            {
+              "text": "Recomendação – Documente a abordagem vencedora, indicando planos de mitigação para pontos fracos."
+            }
           ]
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Linha do tempo de decisão",
-      "steps": [
-        {
-          "title": "Diagnóstico",
-          "content": "Mapeie requisitos funcionais, dispositivos alvo e restrições da organização."
-        },
-        {
-          "title": "Seleção de critérios",
-          "content": "Priorize critérios técnicos, de UX e de negócio com o patrocinador."
-        },
-        {
-          "title": "Avaliação de alternativas",
-          "content": "Pontue nativo, híbrido e multiplataforma considerando riscos e oportunidades."
-        },
-        {
-          "title": "Recomendação",
-          "content": "Documente a abordagem vencedora, indicando planos de mitigação para pontos fracos."
-        }
-      ]
-    },
-    {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Pipeline da TED – Matriz de decisão",
-      "summary": "Atividade assíncrona prevista no plano de ensino para consolidar a Unidade VI.",
-      "stages": [
+      "content": [
         {
-          "id": "levantamento",
-          "title": "Levantamento de requisitos",
-          "summary": "Consolidar expectativas do cliente interno.",
-          "owners": ["Grupo"],
-          "durationHours": 2,
-          "activities": [
-            {
-              "id": "briefing",
-              "label": "Revisar briefing do projeto",
-              "description": "Listar objetivos, métricas e restrições de prazo."
-            },
-            {
-              "id": "personas",
-              "label": "Atualizar personas",
-              "description": "Identificar necessidades críticas de UX."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "resumo",
-              "label": "Resumo executivo",
-              "description": "Documento compartilhado no drive da turma."
-            }
-          ],
-          "risks": [
-            {
-              "id": "informacao",
-              "label": "Requisitos incompletos",
-              "severity": "medium",
-              "mitigation": "Solicitar validação com o professor até 24h após a aula."
-            }
-          ],
-          "checkpoints": ["Objetivos claros", "Stakeholders confirmados"]
+          "type": "paragraph",
+          "text": "Atividade assíncrona prevista no plano de ensino para consolidar a Unidade VI."
         },
         {
-          "id": "comparacao",
-          "title": "Comparação das abordagens",
-          "summary": "Pontuar nativo, híbrido e cross-platform.",
-          "owners": ["Grupo"],
-          "durationHours": 3,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "pesquisa",
-              "label": "Coletar benchmarks",
-              "description": "Usar relatórios de mercado e experiências da turma."
+              "text": "Levantamento de requisitos | Consolidar expectativas do cliente interno. | Responsáveis: Grupo | Duração: 2h | Atividades: Revisar briefing do projeto; Atualizar personas | Entregáveis: Resumo executivo | Riscos: Requisitos incompletos (Solicitar validação com o professor até 24h após a aula.) | Checkpoints: Objetivos claros, Stakeholders confirmados"
             },
             {
-              "id": "matriz",
-              "label": "Preencher matriz",
-              "description": "Atribuir pesos e justificativas para cada critério."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "planilha",
-              "label": "Matriz comparativa",
-              "description": "Planilha atualizada no AVA até sexta-feira, 23h59."
-            }
-          ],
-          "risks": [
-            {
-              "id": "viés",
-              "label": "Viés de familiaridade",
-              "severity": "high",
-              "mitigation": "Buscar opinião de pelo menos um colega de outro grupo."
-            }
-          ],
-          "checkpoints": ["Critérios pontuados", "Justificativas registradas"]
-        },
-        {
-          "id": "validacao",
-          "title": "Validação e registro",
-          "summary": "Garantir aderência ao plano de ensino.",
-          "owners": ["Grupo"],
-          "durationHours": 1,
-          "activities": [
-            {
-              "id": "feedback",
-              "label": "Coletar feedback",
-              "description": "Compartilhar a matriz no fórum da disciplina."
+              "text": "Comparação das abordagens | Pontuar nativo, híbrido e cross-platform. | Responsáveis: Grupo | Duração: 3h | Atividades: Coletar benchmarks; Preencher matriz | Entregáveis: Matriz comparativa | Riscos: Viés de familiaridade (Buscar opinião de pelo menos um colega de outro grupo.) | Checkpoints: Critérios pontuados, Justificativas registradas"
             },
             {
-              "id": "ajustes",
-              "label": "Ajustar recomendações",
-              "description": "Atualizar a justificativa conforme orientações recebidas."
+              "text": "Validação e registro | Garantir aderência ao plano de ensino. | Responsáveis: Grupo | Duração: 1h | Atividades: Coletar feedback; Ajustar recomendações | Entregáveis: Postagem no AVA | Riscos: Atraso no feedback (Registrar dúvidas no mural até 48h antes do prazo final.) | Checkpoints: Feedback recebido, TED concluída"
             }
-          ],
-          "deliverables": [
-            {
-              "id": "post",
-              "label": "Postagem no AVA",
-              "description": "Resumo da decisão com evidências anexas."
-            }
-          ],
-          "risks": [
-            {
-              "id": "atraso",
-              "label": "Atraso no feedback",
-              "severity": "low",
-              "mitigation": "Registrar dúvidas no mural até 48h antes do prazo final."
-            }
-          ],
-          "checkpoints": ["Feedback recebido", "TED concluída"]
+          ]
         }
       ]
     },
@@ -292,8 +212,8 @@
           "text": "O código reforça os padrões de navegação modular discutidos em Nativo vs Híbrido: Estratégias de Plataforma usando Expo e React Navigation."
         },
         {
-          "type": "code",
-          "language": "tsx",
+          "type": "codeBlock",
+          "language": "c",
           "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Nativo vs Híbrido: Estratégias de Plataforma: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: THOUGHTWORKS (2024)"
         },
         {

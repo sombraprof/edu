@@ -128,96 +128,144 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h55)",
-      "items": [
-        "(10 min) Warm-up com quiz sobre índices.",
-        "(20 min) Aula expositiva com slides e md3Table de sintaxe.",
-        "(25 min) Demonstração de loops aninhados em C.",
-        "(30 min) Oficina: gerar tabela de presença a partir do CSV.",
-        "(20 min) Revisão de código em duplas.",
-        "(10 min) Orientação da prática pós-aula."
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Sintaxe de matrizes em C",
-      "headers": ["Elemento", "Exemplo", "Descrição"],
-      "rows": [
-        ["Declaração", "int matriz[3][4];", "3 linhas, 4 colunas não inicializadas."],
-        ["Inicialização", "int notas[2][3] = {{7,8,9},{6,5,10}};", "Valores linha a linha."],
-        ["Acesso", "matriz[i][j]", "Primeiro índice = linha, segundo = coluna."],
-        ["Percurso", "for (i) for (j)", "Loops aninhados para percorrer todos os elementos."],
-        ["Constante de coluna", "#define COL 4", "Facilita manutenção de dimensões."]
-      ]
-    },
-    {
-      "type": "md3Flowchart",
-      "title": "Fluxograma de impressão da matriz",
-      "nodes": [
+      "cards": [
         {
-          "id": "start",
-          "type": "start",
-          "label": "Início"
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Warm-up com quiz sobre índices."
         },
         {
-          "id": "initI",
-          "type": "process",
-          "label": "i = 0"
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Aula expositiva com slides e md3Table de sintaxe."
         },
         {
-          "id": "loopI",
-          "type": "loop",
-          "label": "Enquanto i < linhas"
+          "icon": "check-circle",
+          "title": "25 min",
+          "content": "Demonstração de loops aninhados em C."
         },
         {
-          "id": "initJ",
-          "type": "process",
-          "label": "j = 0"
+          "icon": "check-circle",
+          "title": "(30 min) Oficina",
+          "content": "gerar tabela de presença a partir do CSV."
         },
         {
-          "id": "loopJ",
-          "type": "loop",
-          "label": "Enquanto j < colunas"
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Revisão de código em duplas."
         },
         {
-          "id": "print",
-          "type": "process",
-          "label": "Imprimir matriz[i][j]"
-        },
-        {
-          "id": "incJ",
-          "type": "process",
-          "label": "j++"
-        },
-        {
-          "id": "newline",
-          "type": "process",
-          "label": "Imprimir \n"
-        },
-        {
-          "id": "incI",
-          "type": "process",
-          "label": "i++"
-        },
-        {
-          "id": "end",
-          "type": "end",
-          "label": "Fim"
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Orientação da prática pós-aula."
         }
-      ],
-      "edges": [
-        ["start", "initI"],
-        ["initI", "loopI"],
-        ["loopI", "initJ"],
-        ["initJ", "loopJ"],
-        ["loopJ", "print"],
-        ["print", "incJ"],
-        ["incJ", "loopJ"],
-        ["loopJ", "newline", "fim"],
-        ["newline", "incI"],
-        ["incI", "loopI"],
-        ["loopI", "end", "fim"]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Sintaxe de matrizes em C",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Elemento: Declaração | Exemplo: int matriz[3][4]; | Descrição: 3 linhas, 4 colunas não inicializadas."
+            },
+            {
+              "text": "Elemento: Inicialização | Exemplo: int notas[2][3] = {{7,8,9},{6,5,10}}; | Descrição: Valores linha a linha."
+            },
+            {
+              "text": "Elemento: Acesso | Exemplo: matriz[i][j] | Descrição: Primeiro índice = linha, segundo = coluna."
+            },
+            {
+              "text": "Elemento: Percurso | Exemplo: for (i) for (j) | Descrição: Loops aninhados para percorrer todos os elementos."
+            },
+            {
+              "text": "Elemento: Constante de coluna | Exemplo: #define COL 4 | Descrição: Facilita manutenção de dimensões."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxograma de impressão da matriz",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "i = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto i < linhas – tipo: loop"
+            },
+            {
+              "text": "j = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto j < colunas – tipo: loop"
+            },
+            {
+              "text": "Imprimir matriz[i][j] – tipo: process"
+            },
+            {
+              "text": "j++ – tipo: process"
+            },
+            {
+              "text": "Imprimir – tipo: process"
+            },
+            {
+              "text": "i++ – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → initI"
+            },
+            {
+              "text": "initI → loopI"
+            },
+            {
+              "text": "loopI → initJ"
+            },
+            {
+              "text": "initJ → loopJ"
+            },
+            {
+              "text": "loopJ → print"
+            },
+            {
+              "text": "print → incJ"
+            },
+            {
+              "text": "incJ → loopJ"
+            },
+            {
+              "text": "loopJ → newline – fim"
+            },
+            {
+              "text": "newline → incI"
+            },
+            {
+              "text": "incI → loopI"
+            },
+            {
+              "text": "loopI → end – fim"
+            }
+          ]
+        }
       ]
     },
     {
@@ -245,16 +293,19 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Para continuar estudando",
-      "videos": [
+      "content": [
         {
-          "youtubeId": "Q0qkBhe-Z4w",
-          "title": "CS50 2023 - Arrays (trecho de matrizes)"
-        },
-        {
-          "youtubeId": "0oGJTQCy4cQ",
-          "title": "Khan Academy - Introdução a matrizes"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 2023 - Arrays (trecho de matrizes) – https://www.youtube.com/watch?v=Q0qkBhe-Z4w"
+            },
+            {
+              "text": "Khan Academy - Introdução a matrizes – https://www.youtube.com/watch?v=0oGJTQCy4cQ"
+            }
+          ]
         }
       ]
     },

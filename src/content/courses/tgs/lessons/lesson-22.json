@@ -25,61 +25,58 @@
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Domínios de dados mestres",
-      "headers": ["Domínio", "Exemplos", "Riscos de baixa qualidade", "Controles sugeridos"],
-      "rows": [
-        [
-          "Produtos",
-          "SKU, unidade, impostos",
-          "Tributação incorreta, estoque divergente",
-          "Revisão fiscal, validação automática"
-        ],
-        [
-          "Clientes",
-          "CNPJ/CPF, crédito, endereço",
-          "Faturamento rejeitado, inadimplência",
-          "Consulta a bureaus, SLA de atualização"
-        ],
-        [
-          "Fornecedores",
-          "Dados bancários, condições",
-          "Pagamentos indevidos, compras bloqueadas",
-          "Validação bancária, segregação"
-        ],
-        [
-          "Localidades",
-          "Centros, armazéns",
-          "Logística ineficiente, relatórios errados",
-          "Checklist de abertura, auditoria"
-        ],
-        [
-          "Recursos humanos",
-          "Colaboradores, cargos",
-          "Erro em folha, acesso inadequado",
-          "Integração com SSO, dupla aprovação"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Domínio: Produtos | Exemplos: SKU, unidade, impostos | Riscos de baixa qualidade: Tributação incorreta, estoque divergente | Controles sugeridos: Revisão fiscal, validação automática"
+            },
+            {
+              "text": "Domínio: Clientes | Exemplos: CNPJ/CPF, crédito, endereço | Riscos de baixa qualidade: Faturamento rejeitado, inadimplência | Controles sugeridos: Consulta a bureaus, SLA de atualização"
+            },
+            {
+              "text": "Domínio: Fornecedores | Exemplos: Dados bancários, condições | Riscos de baixa qualidade: Pagamentos indevidos, compras bloqueadas | Controles sugeridos: Validação bancária, segregação"
+            },
+            {
+              "text": "Domínio: Localidades | Exemplos: Centros, armazéns | Riscos de baixa qualidade: Logística ineficiente, relatórios errados | Controles sugeridos: Checklist de abertura, auditoria"
+            },
+            {
+              "text": "Domínio: Recursos humanos | Exemplos: Colaboradores, cargos | Riscos de baixa qualidade: Erro em folha, acesso inadequado | Controles sugeridos: Integração com SSO, dupla aprovação"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Papéis na governança",
-      "cards": [
+      "items": [
         {
           "title": "Data owner",
-          "content": "Responsável por políticas, indicadores e aprovação final."
+          "content": "Responsável por políticas, indicadores e aprovação final.",
+          "language": "plaintext",
+          "code": "Responsável por políticas, indicadores e aprovação final."
         },
         {
           "title": "Data steward",
-          "content": "Orquestra cadastros, conduz limpezas e monitora qualidade."
+          "content": "Orquestra cadastros, conduz limpezas e monitora qualidade.",
+          "language": "plaintext",
+          "code": "Orquestra cadastros, conduz limpezas e monitora qualidade."
         },
         {
           "title": "Usuário chave",
-          "content": "Solicita alterações e valida aderência ao processo."
+          "content": "Solicita alterações e valida aderência ao processo.",
+          "language": "plaintext",
+          "code": "Solicita alterações e valida aderência ao processo."
         },
         {
           "title": "TI/Segurança",
-          "content": "Mantém controles de acesso, logs e trilhas de auditoria."
+          "content": "Mantém controles de acesso, logs e trilhas de auditoria.",
+          "language": "plaintext",
+          "code": "Mantém controles de acesso, logs e trilhas de auditoria."
         }
       ]
     },
@@ -183,19 +180,26 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Resposta a incidentes de dados",
-      "steps": [
+      "content": [
         {
-          "title": "Detecção",
-          "content": "Monitor identifica ruptura de qualidade ou violação de acesso."
-        },
-        { "title": "Comunicação", "content": "Data steward notifica stakeholders e abre chamado." },
-        {
-          "title": "Correção",
-          "content": "Equipe executa plano de remediação priorizando processos críticos."
-        },
-        { "title": "Prevenção", "content": "Revisão das políticas e atualização de treinamentos." }
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Detecção – Monitor identifica ruptura de qualidade ou violação de acesso."
+            },
+            {
+              "text": "Comunicação – Data steward notifica stakeholders e abre chamado."
+            },
+            {
+              "text": "Correção – Equipe executa plano de remediação priorizando processos críticos."
+            },
+            {
+              "text": "Prevenção – Revisão das políticas e atualização de treinamentos."
+            }
+          ]
+        }
       ]
     },
     {

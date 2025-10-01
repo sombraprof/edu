@@ -116,20 +116,22 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Cronograma de 3 dias",
-      "steps": [
+      "content": [
         {
-          "title": "Dia 1 – Briefing e modelagem",
-          "content": "Ler briefing, definir responsabilidades e desenhar fluxograma."
-        },
-        {
-          "title": "Dia 2 – Implementação",
-          "content": "Codificar solução, registrar logs e validar com checklist."
-        },
-        {
-          "title": "Dia 3 – Testes e relatório",
-          "content": "Executar testes completos, finalizar relatório e preparar envio."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Dia 1 – Briefing e modelagem – Ler briefing, definir responsabilidades e desenhar fluxograma."
+            },
+            {
+              "text": "Dia 2 – Implementação – Codificar solução, registrar logs e validar com checklist."
+            },
+            {
+              "text": "Dia 3 – Testes e relatório – Executar testes completos, finalizar relatório e preparar envio."
+            }
+          ]
         }
       ]
     },
@@ -155,43 +157,64 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo assíncrono (3 dias)",
-      "items": [
-        "Dia 1 (1h) – Ler briefing, mapear fluxograma, listar dúvidas.",
-        "Dia 2 (1h30) – Codificar solução, gerar CSV e validar casos extremos.",
-        "Dia 3 (30 min) – Revisar testes, preencher relatório e publicar reflexão."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Suportes em vídeo",
-      "videos": [
+      "cards": [
         {
-          "youtubeId": "8kK-cA99SA0",
-          "title": "Triagem com estruturas de controle"
+          "icon": "check-circle",
+          "title": "Dia 1 (1h) – Ler briefing, mapear fluxograma, listar dúvi...",
+          "content": "Dia 1 (1h) – Ler briefing, mapear fluxograma, listar dúvidas."
         },
         {
-          "youtubeId": "2LzgBBrZPdg",
-          "title": "Registrando testes e evidências"
+          "icon": "check-circle",
+          "title": "Dia 2 (1h30) – Codificar solução, gerar CSV e validar cas...",
+          "content": "Dia 2 (1h30) – Codificar solução, gerar CSV e validar casos extremos."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Dia 3 (30 min) – Revisar testes, preencher relatório e pu...",
+          "content": "Dia 3 (30 min) – Revisar testes, preencher relatório e publicar reflexão."
         }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "contentBlock",
+      "title": "Suportes em vídeo",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Triagem com estruturas de controle – https://www.youtube.com/watch?v=8kK-cA99SA0"
+            },
+            {
+              "text": "Registrando testes e evidências – https://www.youtube.com/watch?v=2LzgBBrZPdg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "representations",
       "title": "Checklist de planejamento",
-      "cards": [
+      "items": [
         {
           "title": "Dados críticos",
-          "content": "Definir estruturas para sintomas, sinais vitais e riscos."
+          "content": "Definir estruturas para sintomas, sinais vitais e riscos.",
+          "language": "plaintext",
+          "code": "Definir estruturas para sintomas, sinais vitais e riscos."
         },
         {
           "title": "Regras de decisão",
-          "content": "Priorizar emergências, depois riscos e casos padrão."
+          "content": "Priorizar emergências, depois riscos e casos padrão.",
+          "language": "plaintext",
+          "code": "Priorizar emergências, depois riscos e casos padrão."
         },
         {
           "title": "Saídas",
-          "content": "CSV com nome, classificação e justificativa textual."
+          "content": "CSV com nome, classificação e justificativa textual.",
+          "language": "plaintext",
+          "code": "CSV com nome, classificação e justificativa textual."
         }
       ]
     },
@@ -222,24 +245,32 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Critérios da triagem",
-      "cards": [
+      "items": [
         {
           "title": "Cobertura de casos",
-          "content": "Fluxo trata pacientes críticos, regulares e encerramento."
+          "content": "Fluxo trata pacientes críticos, regulares e encerramento.",
+          "language": "plaintext",
+          "code": "Fluxo trata pacientes críticos, regulares e encerramento."
         },
         {
           "title": "Automação de testes",
-          "content": "Planilha e scripts demonstram execução repetível."
+          "content": "Planilha e scripts demonstram execução repetível.",
+          "language": "plaintext",
+          "code": "Planilha e scripts demonstram execução repetível."
         },
         {
           "title": "Relatório técnico",
-          "content": "Documento resume decisões, métricas e próximos passos."
+          "content": "Documento resume decisões, métricas e próximos passos.",
+          "language": "plaintext",
+          "code": "Documento resume decisões, métricas e próximos passos."
         },
         {
           "title": "Trabalho colaborativo",
-          "content": "Registre contribuições de cada membro no repositório."
+          "content": "Registre contribuições de cada membro no repositório.",
+          "language": "plaintext",
+          "code": "Registre contribuições de cada membro no repositório."
         }
       ]
     },

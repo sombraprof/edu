@@ -50,15 +50,39 @@
   },
   "content": [
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo da aula",
-      "items": [
-        "Daily meeting estendida para alinhamento de prioridades.",
-        "Hands-on: implementação dos itens críticos do sprint.",
-        "Mentorias em pares focadas em integração contínua e testes automatizados.",
-        "Revisão de código orientada por checklist técnico.",
-        "Registro de evidências e atualização do relatório semanal.",
-        "Agendamento de pendências para o Ciclo 2 (Aula 37)."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Daily meeting estendida para alinhamento de prioridades.",
+          "content": "Daily meeting estendida para alinhamento de prioridades."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Hands-on",
+          "content": "implementação dos itens críticos do sprint."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Mentorias em pares focadas em integração contínua e teste...",
+          "content": "Mentorias em pares focadas em integração contínua e testes automatizados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Revisão de código orientada por checklist técnico.",
+          "content": "Revisão de código orientada por checklist técnico."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Registro de evidências e atualização do relatório semanal.",
+          "content": "Registro de evidências e atualização do relatório semanal."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Agendamento de pendências para o Ciclo 2 (Aula 37).",
+          "content": "Agendamento de pendências para o Ciclo 2 (Aula 37)."
+        }
       ]
     },
     {

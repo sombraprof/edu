@@ -4,50 +4,59 @@
   "objective": "Definir métricas e ritos de monitoramento que assegurem a execução do planejamento estratégico de SI.",
   "content": [
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Painéis essenciais",
-      "cards": [
-        { "title": "Valor entregue", "content": "Indicadores de benefícios, adoção e satisfação." },
-        { "title": "Saúde operacional", "content": "SLA, disponibilidade, backlog e incidentes." },
-        { "title": "Capacidade", "content": "Velocidade das equipes, alocação e burn-down." },
-        { "title": "Inovação", "content": "Experimentos, pilotos em andamento e taxa de sucesso." }
+      "items": [
+        {
+          "title": "Valor entregue",
+          "content": "Indicadores de benefícios, adoção e satisfação.",
+          "language": "plaintext",
+          "code": "Indicadores de benefícios, adoção e satisfação."
+        },
+        {
+          "title": "Saúde operacional",
+          "content": "SLA, disponibilidade, backlog e incidentes.",
+          "language": "plaintext",
+          "code": "SLA, disponibilidade, backlog e incidentes."
+        },
+        {
+          "title": "Capacidade",
+          "content": "Velocidade das equipes, alocação e burn-down.",
+          "language": "plaintext",
+          "code": "Velocidade das equipes, alocação e burn-down."
+        },
+        {
+          "title": "Inovação",
+          "content": "Experimentos, pilotos em andamento e taxa de sucesso.",
+          "language": "plaintext",
+          "code": "Experimentos, pilotos em andamento e taxa de sucesso."
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "OKRs exemplo",
-      "headers": ["Objetivo", "Resultado-chave", "Indicador", "Frequência"],
-      "rows": [
-        [
-          "Maximizar valor das soluções digitais",
-          "Aumentar NPS digital de 58 para 70",
-          "NPS",
-          "Mensal"
-        ],
-        [
-          "Maximizar valor das soluções digitais",
-          "Elevar adoção ativa para 80% dos clientes",
-          "% clientes ativos",
-          "Mensal"
-        ],
-        [
-          "Garantir estabilidade crítica",
-          "Reduzir incidentes severos de 12 para 4",
-          "Incidentes críticos",
-          "Semanal"
-        ],
-        [
-          "Acelerar entregas",
-          "Reduzir lead time médio de 16 para 12 dias",
-          "Lead time",
-          "Quinzenal"
-        ],
-        [
-          "Fortalecer inovação",
-          "Executar 8 pilotos com ROI validado",
-          "Pilotos concluídos",
-          "Trimestral"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Objetivo: Maximizar valor das soluções digitais | Resultado-chave: Aumentar NPS digital de 58 para 70 | Indicador: NPS | Frequência: Mensal"
+            },
+            {
+              "text": "Objetivo: Maximizar valor das soluções digitais | Resultado-chave: Elevar adoção ativa para 80% dos clientes | Indicador: % clientes ativos | Frequência: Mensal"
+            },
+            {
+              "text": "Objetivo: Garantir estabilidade crítica | Resultado-chave: Reduzir incidentes severos de 12 para 4 | Indicador: Incidentes críticos | Frequência: Semanal"
+            },
+            {
+              "text": "Objetivo: Acelerar entregas | Resultado-chave: Reduzir lead time médio de 16 para 12 dias | Indicador: Lead time | Frequência: Quinzenal"
+            },
+            {
+              "text": "Objetivo: Fortalecer inovação | Resultado-chave: Executar 8 pilotos com ROI validado | Indicador: Pilotos concluídos | Frequência: Trimestral"
+            }
+          ]
+        }
       ]
     },
     {
@@ -108,16 +117,26 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Ritos de acompanhamento",
-      "steps": [
-        { "title": "Semanal", "content": "Squads atualizam progresso dos resultados-chave." },
-        { "title": "Quinzenal", "content": "Review de portfólio verifica capacidade e riscos." },
+      "content": [
         {
-          "title": "Mensal",
-          "content": "Comitê executivo avalia desvios e aprova ajustes de roadmap."
-        },
-        { "title": "Trimestral", "content": "Replanejamento de OKRs e lições aprendidas." }
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Semanal – Squads atualizam progresso dos resultados-chave."
+            },
+            {
+              "text": "Quinzenal – Review de portfólio verifica capacidade e riscos."
+            },
+            {
+              "text": "Mensal – Comitê executivo avalia desvios e aprova ajustes de roadmap."
+            },
+            {
+              "text": "Trimestral – Replanejamento de OKRs e lições aprendidas."
+            }
+          ]
+        }
       ]
     },
     {

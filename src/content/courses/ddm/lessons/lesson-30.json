@@ -67,14 +67,34 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Cronograma da avaliação (160 min)",
-      "items": [
-        "(15 min) Acolhida, conferência de presença e leitura das instruções.",
-        "(15 min) Organização do ambiente e download dos insumos da prova.",
-        "(90 min) Desenvolvimento prático do desafio React Native/Expo.",
-        "(30 min) Redação do relatório técnico comparativo.",
-        "(10 min) Revisão final, checklist de entrega e submissão no AVA."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Acolhida, conferência de presença e leitura das instruções."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Organização do ambiente e download dos insumos da prova."
+        },
+        {
+          "icon": "check-circle",
+          "title": "90 min",
+          "content": "Desenvolvimento prático do desafio React Native/Expo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Redação do relatório técnico comparativo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Revisão final, checklist de entrega e submissão no AVA."
+        }
       ]
     },
     {
@@ -124,165 +144,70 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Rubrica resumida",
-      "columns": 2,
-      "cards": [
+      "items": [
         {
           "title": "Implementação (60%)",
-          "tone": "primary",
-          "items": [
-            "Consumo correto da API e tratamento de erros.",
-            "Uso adequado de estados, hooks e componentes reutilizáveis.",
-            "Persistência offline funcionando conforme instrução."
-          ]
+          "content": "Consumo correto da API e tratamento de erros.",
+          "language": "plaintext",
+          "code": "- Consumo correto da API e tratamento de erros.\n- Uso adequado de estados, hooks e componentes reutilizáveis.\n- Persistência offline funcionando conforme instrução."
         },
         {
           "title": "Relatório (40%)",
-          "tone": "secondary",
+          "content": "Comparação objetiva entre abordagens nativa e híbrida.",
+          "language": "plaintext",
+          "code": "- Comparação objetiva entre abordagens nativa e híbrida.\n- Justificativas alinhadas ao plano de ensino (critérios de negócio, equipe, arquitetura).\n- Clareza, concisão e referências corretas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checkpoint da prova",
+      "content": [
+        {
+          "type": "orderedList",
           "items": [
-            "Comparação objetiva entre abordagens nativa e híbrida.",
-            "Justificativas alinhadas ao plano de ensino (critérios de negócio, equipe, arquitetura).",
-            "Clareza, concisão e referências corretas."
+            {
+              "text": "T-15 min – Receba as instruções, abra o repositório e confirme credenciais de acesso ao AVA."
+            },
+            {
+              "text": "T+45 min – Estrutura básica do app pronta, componentes principais renderizando dados mockados."
+            },
+            {
+              "text": "T+105 min – Integração com API concluída, testes de erro realizados e prints capturados."
+            },
+            {
+              "text": "T+150 min – Relatório finalizado e revisado, com comparativo claro e anexos de evidência."
+            },
+            {
+              "text": "T+160 min – Entrega enviada no AVA e commit final com tag `np2-2025`."
+            }
           ]
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Checkpoint da prova",
-      "steps": [
-        {
-          "title": "T-15 min",
-          "content": "Receba as instruções, abra o repositório e confirme credenciais de acesso ao AVA."
-        },
-        {
-          "title": "T+45 min",
-          "content": "Estrutura básica do app pronta, componentes principais renderizando dados mockados."
-        },
-        {
-          "title": "T+105 min",
-          "content": "Integração com API concluída, testes de erro realizados e prints capturados."
-        },
-        {
-          "title": "T+150 min",
-          "content": "Relatório finalizado e revisado, com comparativo claro e anexos de evidência."
-        },
-        {
-          "title": "T+160 min",
-          "content": "Entrega enviada no AVA e commit final com tag `np2-2025`."
-        }
-      ]
-    },
-    {
-      "type": "pipelineCanvas",
+      "type": "contentBlock",
       "title": "Fluxo de submissão NP2",
-      "summary": "Passos obrigatórios para registrar a avaliação conforme o regulamento institucional.",
-      "stages": [
+      "content": [
         {
-          "id": "pre-prova",
-          "title": "Pré-prova",
-          "summary": "Conferir requisitos antes da aplicação.",
-          "owners": ["Aluno"],
-          "durationHours": 0.5,
-          "activities": [
-            {
-              "id": "documentos",
-              "label": "Validar documentos",
-              "description": "Tenha identificação oficial e crachá institucional."
-            },
-            {
-              "id": "ambiente",
-              "label": "Testar ambiente",
-              "description": "Atualize dependências e execute `expo start` com antecedência."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "checklist",
-              "label": "Checklist assinado",
-              "description": "Formulário pré-prova entregue ao fiscal."
-            }
-          ],
-          "risks": [
-            {
-              "id": "ambiente-quebrado",
-              "label": "Ambiente não executa",
-              "severity": "high",
-              "mitigation": "Buscar posto de apoio técnico até 24h antes da avaliação."
-            }
-          ],
-          "checkpoints": ["Documentos ok", "Ambiente validado"]
+          "type": "paragraph",
+          "text": "Passos obrigatórios para registrar a avaliação conforme o regulamento institucional."
         },
         {
-          "id": "execucao",
-          "title": "Execução",
-          "summary": "Desenvolvimento da prova em sala.",
-          "owners": ["Aluno"],
-          "durationHours": 2.5,
-          "activities": [
+          "type": "unorderedList",
+          "items": [
             {
-              "id": "codar",
-              "label": "Implementar requisitos",
-              "description": "Priorize as histórias obrigatórias antes das extras."
+              "text": "Pré-prova | Conferir requisitos antes da aplicação. | Responsáveis: Aluno | Duração: 0.5h | Atividades: Validar documentos; Testar ambiente | Entregáveis: Checklist assinado | Riscos: Ambiente não executa (Buscar posto de apoio técnico até 24h antes da avaliação.) | Checkpoints: Documentos ok, Ambiente validado"
             },
             {
-              "id": "testar",
-              "label": "Testar funcionalidades",
-              "description": "Registrar evidências (prints/logs) no repositório."
-            }
-          ],
-          "deliverables": [
-            {
-              "id": "tag",
-              "label": "Commit + tag",
-              "description": "Commit final com mensagem `feat: entrega np2` e tag `np2-2025`."
-            }
-          ],
-          "risks": [
-            {
-              "id": "perda-codigo",
-              "label": "Perda de código",
-              "severity": "medium",
-              "mitigation": "Realize commits incrementais a cada 30 minutos."
-            }
-          ],
-          "checkpoints": ["Histórias essenciais concluídas", "Testes executados"]
-        },
-        {
-          "id": "pos-prova",
-          "title": "Pós-prova",
-          "summary": "Finalizar submissão e autoavaliação.",
-          "owners": ["Aluno"],
-          "durationHours": 0.5,
-          "activities": [
-            {
-              "id": "upload",
-              "label": "Enviar no AVA",
-              "description": "Anexar relatório em PDF e link do repositório."
+              "text": "Execução | Desenvolvimento da prova em sala. | Responsáveis: Aluno | Duração: 2.5h | Atividades: Implementar requisitos; Testar funcionalidades | Entregáveis: Commit + tag | Riscos: Perda de código (Realize commits incrementais a cada 30 minutos.) | Checkpoints: Histórias essenciais concluídas, Testes executados"
             },
             {
-              "id": "autoavaliacao",
-              "label": "Preencher autoavaliação",
-              "description": "Responder formulário de reflexão com pontos fortes e melhorias."
+              "text": "Pós-prova | Finalizar submissão e autoavaliação. | Responsáveis: Aluno | Duração: 0.5h | Atividades: Enviar no AVA; Preencher autoavaliação | Entregáveis: Recibo de entrega | Riscos: Não preencher autoavaliação (Agendar lembrete automático no celular ao fim da prova.) | Checkpoints: Upload confirmado, Autoavaliação enviada"
             }
-          ],
-          "deliverables": [
-            {
-              "id": "recibo",
-              "label": "Recibo de entrega",
-              "description": "Salvar comprovante disponibilizado pelo AVA."
-            }
-          ],
-          "risks": [
-            {
-              "id": "esquecimento",
-              "label": "Não preencher autoavaliação",
-              "severity": "low",
-              "mitigation": "Agendar lembrete automático no celular ao fim da prova."
-            }
-          ],
-          "checkpoints": ["Upload confirmado", "Autoavaliação enviada"]
+          ]
         }
       ]
     },
@@ -295,8 +220,8 @@
           "text": "O código reforça os padrões de navegação modular discutidos em Avaliação NP2 (Prova Integrada) usando Expo e React Navigation."
         },
         {
-          "type": "code",
-          "language": "tsx",
+          "type": "codeBlock",
+          "language": "c",
           "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Avaliação NP2 (Prova Integrada): stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: Material compilado da disciplina (Aulas 13-29) (s.d.)"
         },
         {

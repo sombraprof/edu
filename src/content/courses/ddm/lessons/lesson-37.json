@@ -54,15 +54,39 @@
   },
   "content": [
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo da aula",
-      "items": [
-        "Retrospectiva rápida do Ciclo 1 e ajustes incorporados.",
-        "Execução assistida de testes integrados e instrumentados.",
-        "Sessões de UX review com heurísticas e feedback entre pares.",
-        "Construção de métricas e storytelling com dashboards.",
-        "Atualização da documentação e materiais de apresentação.",
-        "Planejamento da Aula 38 (ensaio de pitch e documentação final)."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Retrospectiva rápida do Ciclo 1 e ajustes incorporados.",
+          "content": "Retrospectiva rápida do Ciclo 1 e ajustes incorporados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Execução assistida de testes integrados e instrumentados.",
+          "content": "Execução assistida de testes integrados e instrumentados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Sessões de UX review com heurísticas e feedback entre pares.",
+          "content": "Sessões de UX review com heurísticas e feedback entre pares."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Construção de métricas e storytelling com dashboards.",
+          "content": "Construção de métricas e storytelling com dashboards."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Atualização da documentação e materiais de apresentação.",
+          "content": "Atualização da documentação e materiais de apresentação."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Planejamento da Aula 38 (ensaio de pitch e documentação f...",
+          "content": "Planejamento da Aula 38 (ensaio de pitch e documentação final)."
+        }
       ]
     },
     {

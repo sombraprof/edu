@@ -25,66 +25,81 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Agenda do sábado letivo",
-      "steps": [
-        { "title": "08h00 — Kick-off", "content": "Briefing do caso, papéis e entregáveis." },
+      "content": [
         {
-          "title": "09h00 — Deep dive",
-          "content": "Análise de documentos de blueprint, matriz de integrações e plano de testes."
-        },
-        {
-          "title": "10h30 — Simulação",
-          "content": "War room com incidentes simulados envolvendo SAP PP, MM e PM."
-        },
-        {
-          "title": "11h30 — Recomendações",
-          "content": "Elaboração de plano de estabilização e lições aprendidas."
-        },
-        {
-          "title": "12h15 — Pitch final",
-          "content": "Apresentação de sínteses para banca avaliadora."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "08h00 — Kick-off – Briefing do caso, papéis e entregáveis."
+            },
+            {
+              "text": "09h00 — Deep dive – Análise de documentos de blueprint, matriz de integrações e plano de testes."
+            },
+            {
+              "text": "10h30 — Simulação – War room com incidentes simulados envolvendo SAP PP, MM e PM."
+            },
+            {
+              "text": "11h30 — Recomendações – Elaboração de plano de estabilização e lições aprendidas."
+            },
+            {
+              "text": "12h15 — Pitch final – Apresentação de sínteses para banca avaliadora."
+            }
+          ]
         }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Artefatos fornecidos",
-      "headers": ["Documento", "Descrição", "Uso durante a imersão"],
-      "rows": [
-        [
-          "Blueprint PP",
-          "Processos de planejamento e execução da produção",
-          "Identificar dependências com manutenção"
-        ],
-        ["Matriz de integrações", "Fluxos entre SAP, MES e sensores IoT", "Mapear pontos de falha"],
-        [
-          "Plano de testes",
-          "Roteiros de cenários críticos",
-          "Distribuir entre squads e avaliar cobertura"
-        ],
-        ["Dashboard de incidentes", "Registros pós-go-live", "Priorizar ações de estabilização"]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Documento: Blueprint PP | Descrição: Processos de planejamento e execução da produção | Uso durante a imersão: Identificar dependências com manutenção"
+            },
+            {
+              "text": "Documento: Matriz de integrações | Descrição: Fluxos entre SAP, MES e sensores IoT | Uso durante a imersão: Mapear pontos de falha"
+            },
+            {
+              "text": "Documento: Plano de testes | Descrição: Roteiros de cenários críticos | Uso durante a imersão: Distribuir entre squads e avaliar cobertura"
+            },
+            {
+              "text": "Documento: Dashboard de incidentes | Descrição: Registros pós-go-live | Uso durante a imersão: Priorizar ações de estabilização"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Desafios para os squads",
-      "cards": [
+      "items": [
         {
           "title": "Squad Produção",
-          "content": "Avaliar sincronização PP ↔ MES e gargalos de ordens."
+          "content": "Avaliar sincronização PP ↔ MES e gargalos de ordens.",
+          "language": "plaintext",
+          "code": "Avaliar sincronização PP ↔ MES e gargalos de ordens."
         },
         {
           "title": "Squad Manutenção",
-          "content": "Analisar integração PM com sensores e estoque de peças."
+          "content": "Analisar integração PM com sensores e estoque de peças.",
+          "language": "plaintext",
+          "code": "Analisar integração PM com sensores e estoque de peças."
         },
         {
           "title": "Squad Qualidade",
-          "content": "Checar rastreabilidade e registros de não conformidade."
+          "content": "Checar rastreabilidade e registros de não conformidade.",
+          "language": "plaintext",
+          "code": "Checar rastreabilidade e registros de não conformidade."
         },
         {
           "title": "Squad Governança",
-          "content": "Definir indicadores e ritos de acompanhamento pós-go-live."
+          "content": "Definir indicadores e ritos de acompanhamento pós-go-live.",
+          "language": "plaintext",
+          "code": "Definir indicadores e ritos de acompanhamento pós-go-live."
         }
       ]
     },

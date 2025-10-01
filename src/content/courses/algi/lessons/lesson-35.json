@@ -129,52 +129,65 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h55)",
-      "items": [
-        "(10 min) Icebreaker com cartões de atributos empresariais.",
-        "(20 min) Live coding: declaração e inicialização de Empresa.",
-        "(15 min) Exercício individual: função para imprimir struct formatada.",
-        "(30 min) Laboratório guiado: operações create/list com vetor local.",
-        "(20 min) Debriefing: decisões de modelagem e validação de dados.",
-        "(20 min) Check-out com quiz interativo (Kahoot) sobre sintaxe de structs."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Icebreaker com cartões de atributos empresariais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Live coding",
+          "content": "declaração e inicialização de Empresa."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(15 min) Exercício individual",
+          "content": "função para imprimir struct formatada."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Laboratório guiado",
+          "content": "operações create/list com vetor local."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Debriefing",
+          "content": "decisões de modelagem e validação de dados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Check-out com quiz interativo (Kahoot) sobre sintaxe de structs."
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Componentes essenciais de um registro",
-      "headers": ["Elemento", "Descrição", "Exemplo", "Boas práticas"],
-      "rows": [
-        [
-          "Campos",
-          "Definem as informações necessárias do domínio.",
-          "int id; char nome[64];",
-          "Escolha tipos apropriados e limites realistas."
-        ],
-        [
-          "Typedef",
-          "Simplifica a declaração de variáveis do registro.",
-          "typedef struct { ... } Empresa;",
-          "Use nomes no singular representando a entidade."
-        ],
-        [
-          "Funções auxiliares",
-          "Centralizam operações comuns sobre o registro.",
-          "void imprimir(const Empresa *e);",
-          "Evite duplicar prints/formatos no código."
-        ],
-        [
-          "Constantes",
-          "Guardam limites e tamanhos máximos.",
-          "#define MAX_EMPRESAS 50",
-          "Documente o motivo do limite em comentários."
-        ],
-        [
-          "Documentação",
-          "Explica finalidade e origem dos campos.",
-          "// Faturamento médio mensal (R$)",
-          "Padronize comentários para revisão coletiva."
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Elemento: Campos | Descrição: Definem as informações necessárias do domínio. | Exemplo: int id; char nome[64]; | Boas práticas: Escolha tipos apropriados e limites realistas."
+            },
+            {
+              "text": "Elemento: Typedef | Descrição: Simplifica a declaração de variáveis do registro. | Exemplo: typedef struct { ... } Empresa; | Boas práticas: Use nomes no singular representando a entidade."
+            },
+            {
+              "text": "Elemento: Funções auxiliares | Descrição: Centralizam operações comuns sobre o registro. | Exemplo: void imprimir(const Empresa *e); | Boas práticas: Evite duplicar prints/formatos no código."
+            },
+            {
+              "text": "Elemento: Constantes | Descrição: Guardam limites e tamanhos máximos. | Exemplo: #define MAX_EMPRESAS 50 | Boas práticas: Documente o motivo do limite em comentários."
+            },
+            {
+              "text": "Elemento: Documentação | Descrição: Explica finalidade e origem dos campos. | Exemplo: // Faturamento médio mensal (R$) | Boas práticas: Padronize comentários para revisão coletiva."
+            }
+          ]
+        }
       ]
     },
     {

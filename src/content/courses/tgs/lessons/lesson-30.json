@@ -4,61 +4,77 @@
   "objective": "Aplicar ferramentas de diagnóstico para mapear forças, fraquezas, oportunidades e ameaças do ambiente de SI.",
   "content": [
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Agenda",
-      "items": [
-        "Revisão de fontes de dados para diagnóstico interno e externo.",
-        "Construção colaborativa da matriz SWOT específica para SI.",
-        "Priorização de riscos e vantagens competitivas."
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Fontes essenciais do diagnóstico",
       "cards": [
         {
-          "title": "Inventário de ativos",
-          "content": "Lista de sistemas, contratos, integrações e custos associados."
+          "icon": "check-circle",
+          "title": "Revisão de fontes de dados para diagnóstico interno e ext...",
+          "content": "Revisão de fontes de dados para diagnóstico interno e externo."
         },
         {
-          "title": "Mapa de processos",
-          "content": "Fluxos ponta a ponta com indicadores de desempenho e gargalos."
+          "icon": "check-circle",
+          "title": "Construção colaborativa da matriz SWOT específica para SI.",
+          "content": "Construção colaborativa da matriz SWOT específica para SI."
         },
         {
-          "title": "Pesquisa com stakeholders",
-          "content": "Entrevistas, workshops e NPS de áreas usuárias para captar expectativas."
-        },
-        {
-          "title": "Análise de tendências",
-          "content": "Relatórios de mercado, concorrentes e benchmarks regulatórios."
+          "icon": "check-circle",
+          "title": "Priorização de riscos e vantagens competitivas.",
+          "content": "Priorização de riscos e vantagens competitivas."
         }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "representations",
+      "title": "Fontes essenciais do diagnóstico",
+      "items": [
+        {
+          "title": "Inventário de ativos",
+          "content": "Lista de sistemas, contratos, integrações e custos associados.",
+          "language": "plaintext",
+          "code": "Lista de sistemas, contratos, integrações e custos associados."
+        },
+        {
+          "title": "Mapa de processos",
+          "content": "Fluxos ponta a ponta com indicadores de desempenho e gargalos.",
+          "language": "plaintext",
+          "code": "Fluxos ponta a ponta com indicadores de desempenho e gargalos."
+        },
+        {
+          "title": "Pesquisa com stakeholders",
+          "content": "Entrevistas, workshops e NPS de áreas usuárias para captar expectativas.",
+          "language": "plaintext",
+          "code": "Entrevistas, workshops e NPS de áreas usuárias para captar expectativas."
+        },
+        {
+          "title": "Análise de tendências",
+          "content": "Relatórios de mercado, concorrentes e benchmarks regulatórios.",
+          "language": "plaintext",
+          "code": "Relatórios de mercado, concorrentes e benchmarks regulatórios."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Matriz SWOT orientada a SI",
-      "headers": ["Quadrante", "Perguntas de apoio", "Exemplos de achados"],
-      "rows": [
-        [
-          "Forças",
-          "Quais capacidades tecnológicas já diferenciam o negócio?",
-          "Time ágil maduro, arquitetura em microserviços, governança de dados consolidada"
-        ],
-        [
-          "Fraquezas",
-          "Onde estão os principais gargalos internos?",
-          "Backlog represado, dependência de fornecedor único, automação limitada"
-        ],
-        [
-          "Oportunidades",
-          "Que movimentos de mercado podem ser acelerados com SI?",
-          "Open finance, parcerias com startups, analytics avançado"
-        ],
-        [
-          "Ameaças",
-          "Que riscos externos podem comprometer resultados?",
-          "Novos entrantes digitais, ataques cibernéticos, mudanças regulatórias"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Quadrante: Forças | Perguntas de apoio: Quais capacidades tecnológicas já diferenciam o negócio? | Exemplos de achados: Time ágil maduro, arquitetura em microserviços, governança de dados consolidada"
+            },
+            {
+              "text": "Quadrante: Fraquezas | Perguntas de apoio: Onde estão os principais gargalos internos? | Exemplos de achados: Backlog represado, dependência de fornecedor único, automação limitada"
+            },
+            {
+              "text": "Quadrante: Oportunidades | Perguntas de apoio: Que movimentos de mercado podem ser acelerados com SI? | Exemplos de achados: Open finance, parcerias com startups, analytics avançado"
+            },
+            {
+              "text": "Quadrante: Ameaças | Perguntas de apoio: Que riscos externos podem comprometer resultados? | Exemplos de achados: Novos entrantes digitais, ataques cibernéticos, mudanças regulatórias"
+            }
+          ]
+        }
       ]
     },
     {
@@ -114,18 +130,25 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Roteiro de diagnóstico em 4 semanas",
-      "steps": [
+      "content": [
         {
-          "title": "Semana 1",
-          "content": "Coleta dados internos: inventários, custos e indicadores."
-        },
-        { "title": "Semana 2", "content": "Realiza entrevistas e jornadas com áreas de negócio." },
-        { "title": "Semana 3", "content": "Analisa tendências, concorrentes e riscos externos." },
-        {
-          "title": "Semana 4",
-          "content": "Consolida SWOT, prioriza achados e prepara workshop de validação."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Semana 1 – Coleta dados internos: inventários, custos e indicadores."
+            },
+            {
+              "text": "Semana 2 – Realiza entrevistas e jornadas com áreas de negócio."
+            },
+            {
+              "text": "Semana 3 – Analisa tendências, concorrentes e riscos externos."
+            },
+            {
+              "text": "Semana 4 – Consolida SWOT, prioriza achados e prepara workshop de validação."
+            }
+          ]
         }
       ]
     },

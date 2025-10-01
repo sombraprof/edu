@@ -166,87 +166,126 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h50)",
-      "items": [
-        "(10 min) Aquecimento com estimativas de busca.",
-        "(20 min) Demonstração da função buscaLinear no dataset.",
-        "(20 min) Refatoração para versão com sentinela.",
-        "(30 min) Laboratório: medir comparações para elementos existentes e ausentes.",
-        "(20 min) Discussão guiada sobre eficiência.",
-        "(10 min) Briefing da atividade pós-aula."
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Comparativo de variantes de busca",
-      "headers": ["Algoritmo", "Pré-condição", "Retorno", "Comparações médias"],
-      "rows": [
-        ["Linear simples", "Vetor não ordenado", "Índice ou -1", "n/2"],
-        [
-          "Linear com sentinela",
-          "Vetor não ordenado com espaço extra",
-          "Índice ou n",
-          "n/2 (menos checagens de limite)"
-        ],
-        ["Busca binária", "Vetor ordenado", "Índice ou -1", "log2 n"]
-      ]
-    },
-    {
-      "type": "md3Flowchart",
-      "title": "Fluxograma da busca linear",
-      "nodes": [
+      "cards": [
         {
-          "id": "start",
-          "type": "start",
-          "label": "Início"
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Aquecimento com estimativas de busca."
         },
         {
-          "id": "init",
-          "type": "process",
-          "label": "i = 0"
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Demonstração da função buscaLinear no dataset."
         },
         {
-          "id": "loop",
-          "type": "loop",
-          "label": "Enquanto i < n"
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Refatoração para versão com sentinela."
         },
         {
-          "id": "decision",
-          "type": "decision",
-          "label": "v[i] == chave?"
+          "icon": "check-circle",
+          "title": "(30 min) Laboratório",
+          "content": "medir comparações para elementos existentes e ausentes."
         },
         {
-          "id": "found",
-          "type": "process",
-          "label": "Retornar i"
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Discussão guiada sobre eficiência."
         },
         {
-          "id": "inc",
-          "type": "process",
-          "label": "i++"
-        },
-        {
-          "id": "notfound",
-          "type": "process",
-          "label": "Retornar -1"
-        },
-        {
-          "id": "end",
-          "type": "end",
-          "label": "Fim"
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Briefing da atividade pós-aula."
         }
-      ],
-      "edges": [
-        ["start", "init"],
-        ["init", "loop"],
-        ["loop", "decision"],
-        ["decision", "found", "sim"],
-        ["decision", "inc", "não"],
-        ["inc", "loop"],
-        ["loop", "notfound", "fim"],
-        ["notfound", "end"],
-        ["found", "end"]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Comparativo de variantes de busca",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Algoritmo: Linear simples | Pré-condição: Vetor não ordenado | Retorno: Índice ou -1 | Comparações médias: n/2"
+            },
+            {
+              "text": "Algoritmo: Linear com sentinela | Pré-condição: Vetor não ordenado com espaço extra | Retorno: Índice ou n | Comparações médias: n/2 (menos checagens de limite)"
+            },
+            {
+              "text": "Algoritmo: Busca binária | Pré-condição: Vetor ordenado | Retorno: Índice ou -1 | Comparações médias: log2 n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxograma da busca linear",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "i = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto i < n – tipo: loop"
+            },
+            {
+              "text": "v[i] == chave? – tipo: decision"
+            },
+            {
+              "text": "Retornar i – tipo: process"
+            },
+            {
+              "text": "i++ – tipo: process"
+            },
+            {
+              "text": "Retornar -1 – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → init"
+            },
+            {
+              "text": "init → loop"
+            },
+            {
+              "text": "loop → decision"
+            },
+            {
+              "text": "decision → found – sim"
+            },
+            {
+              "text": "decision → inc – não"
+            },
+            {
+              "text": "inc → loop"
+            },
+            {
+              "text": "loop → notfound – fim"
+            },
+            {
+              "text": "notfound → end"
+            },
+            {
+              "text": "found → end"
+            }
+          ]
+        }
       ]
     },
     {
@@ -274,16 +313,19 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Recomendações de estudo",
-      "videos": [
+      "content": [
         {
-          "youtubeId": "9YddVVsdG5A",
-          "title": "CS50 Shorts - Linear Search"
-        },
-        {
-          "youtubeId": "qN3b9YzKz7w",
-          "title": "Khan Academy - Linear search walkthrough"
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 Shorts - Linear Search – https://www.youtube.com/watch?v=9YddVVsdG5A"
+            },
+            {
+              "text": "Khan Academy - Linear search walkthrough – https://www.youtube.com/watch?v=qN3b9YzKz7w"
+            }
+          ]
         }
       ]
     },

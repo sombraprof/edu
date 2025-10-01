@@ -25,61 +25,82 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Fases de implantação",
-      "steps": [
+      "content": [
         {
-          "title": "Descoberta",
-          "content": "Alinhamento estratégico, levantamento de processos atuais."
-        },
-        { "title": "Desenho", "content": "To-be, configurações, integrações planejadas." },
-        {
-          "title": "Construção",
-          "content": "Parametrização, desenvolvimentos complementares, testes unitários."
-        },
-        { "title": "Validação", "content": "Testes integrados, migração piloto, treinamento." },
-        { "title": "Cutover", "content": "Plano de virada, estabilização, suporte hiper-care." }
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Descoberta – Alinhamento estratégico, levantamento de processos atuais."
+            },
+            {
+              "text": "Desenho – To-be, configurações, integrações planejadas."
+            },
+            {
+              "text": "Construção – Parametrização, desenvolvimentos complementares, testes unitários."
+            },
+            {
+              "text": "Validação – Testes integrados, migração piloto, treinamento."
+            },
+            {
+              "text": "Cutover – Plano de virada, estabilização, suporte hiper-care."
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Comparativo de abordagens",
-      "headers": ["Abordagem", "Vantagens", "Riscos", "Quando usar"],
-      "rows": [
-        [
-          "Big bang",
-          "Transição única, simplifica interfaces temporárias",
-          "Maior impacto caso ocorra falha",
-          "Organizações com alta disciplina e forte patrocínio"
-        ],
-        [
-          "Ondas",
-          "Permite aprendizado incremental",
-          "Integrações temporárias e custo prolongado",
-          "Empresas multinegócio ou com alta complexidade"
-        ],
-        [
-          "Greenfield",
-          "Revisão completa de processos",
-          "Esforço elevado de gestão da mudança",
-          "Cenários com legado obsoleto"
-        ],
-        [
-          "Brownfield",
-          "Aproveita configurações existentes",
-          "Risco de carregar problemas antigos",
-          "Quando há boa aderência ao template global"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Abordagem: Big bang | Vantagens: Transição única, simplifica interfaces temporárias | Riscos: Maior impacto caso ocorra falha | Quando usar: Organizações com alta disciplina e forte patrocínio"
+            },
+            {
+              "text": "Abordagem: Ondas | Vantagens: Permite aprendizado incremental | Riscos: Integrações temporárias e custo prolongado | Quando usar: Empresas multinegócio ou com alta complexidade"
+            },
+            {
+              "text": "Abordagem: Greenfield | Vantagens: Revisão completa de processos | Riscos: Esforço elevado de gestão da mudança | Quando usar: Cenários com legado obsoleto"
+            },
+            {
+              "text": "Abordagem: Brownfield | Vantagens: Aproveita configurações existentes | Riscos: Risco de carregar problemas antigos | Quando usar: Quando há boa aderência ao template global"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Riscos prioritários",
-      "cards": [
-        { "title": "Dados", "content": "Migração incompleta pode interromper faturamento." },
-        { "title": "Processos", "content": "Workflows não testados geram filas e retrabalho." },
-        { "title": "Pessoas", "content": "Usuários resistentes atrasam adoção." },
-        { "title": "Tecnologia", "content": "Infraestrutura insuficiente afeta performance." }
+      "items": [
+        {
+          "title": "Dados",
+          "content": "Migração incompleta pode interromper faturamento.",
+          "language": "plaintext",
+          "code": "Migração incompleta pode interromper faturamento."
+        },
+        {
+          "title": "Processos",
+          "content": "Workflows não testados geram filas e retrabalho.",
+          "language": "plaintext",
+          "code": "Workflows não testados geram filas e retrabalho."
+        },
+        {
+          "title": "Pessoas",
+          "content": "Usuários resistentes atrasam adoção.",
+          "language": "plaintext",
+          "code": "Usuários resistentes atrasam adoção."
+        },
+        {
+          "title": "Tecnologia",
+          "content": "Infraestrutura insuficiente afeta performance.",
+          "language": "plaintext",
+          "code": "Infraestrutura insuficiente afeta performance."
+        }
       ]
     },
     {

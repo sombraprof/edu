@@ -4,42 +4,59 @@
   "objective": "Avaliar capacidades internas de SI para orientar decisões do portfólio estratégico.",
   "content": [
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Dimensões da capacidade digital",
-      "cards": [
+      "items": [
         {
           "title": "Arquitetura",
-          "content": "Sistemas, integrações, dados e padrões que sustentam entregas."
+          "content": "Sistemas, integrações, dados e padrões que sustentam entregas.",
+          "language": "plaintext",
+          "code": "Sistemas, integrações, dados e padrões que sustentam entregas."
         },
         {
           "title": "Talentos",
-          "content": "Competências técnicas, soft skills e estruturas de squads."
+          "content": "Competências técnicas, soft skills e estruturas de squads.",
+          "language": "plaintext",
+          "code": "Competências técnicas, soft skills e estruturas de squads."
         },
         {
           "title": "Processos",
-          "content": "Ritos, governança de mudanças e automação de fluxos."
+          "content": "Ritos, governança de mudanças e automação de fluxos.",
+          "language": "plaintext",
+          "code": "Ritos, governança de mudanças e automação de fluxos."
         },
         {
           "title": "Cultura",
-          "content": "Abertura à experimentação, colaboração e aprendizado contínuo."
+          "content": "Abertura à experimentação, colaboração e aprendizado contínuo.",
+          "language": "plaintext",
+          "code": "Abertura à experimentação, colaboração e aprendizado contínuo."
         }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Matriz de criticidade dos processos",
-      "headers": ["Processo", "Impacto no negócio", "Saúde atual", "Observações"],
-      "rows": [
-        ["Onboarding de clientes", "Alta", "Baixa", "Integrações manuais geram atrasos de 48h"],
-        ["Fechamento financeiro", "Alta", "Média", "Dependência de planilhas fora do ERP"],
-        ["Gestão de estoque", "Média", "Alta", "Automação consolidada com IoT e WMS"],
-        [
-          "Suporte ao cliente",
-          "Alta",
-          "Baixa",
-          "Falta visão 360° e base de conhecimento unificada"
-        ],
-        ["Gestão de campanhas", "Média", "Média", "Ferramentas diversas sem governança comum"]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Processo: Onboarding de clientes | Impacto no negócio: Alta | Saúde atual: Baixa | Observações: Integrações manuais geram atrasos de 48h"
+            },
+            {
+              "text": "Processo: Fechamento financeiro | Impacto no negócio: Alta | Saúde atual: Média | Observações: Dependência de planilhas fora do ERP"
+            },
+            {
+              "text": "Processo: Gestão de estoque | Impacto no negócio: Média | Saúde atual: Alta | Observações: Automação consolidada com IoT e WMS"
+            },
+            {
+              "text": "Processo: Suporte ao cliente | Impacto no negócio: Alta | Saúde atual: Baixa | Observações: Falta visão 360° e base de conhecimento unificada"
+            },
+            {
+              "text": "Processo: Gestão de campanhas | Impacto no negócio: Média | Saúde atual: Média | Observações: Ferramentas diversas sem governança comum"
+            }
+          ]
+        }
       ]
     },
     {
@@ -100,21 +117,25 @@
       ]
     },
     {
-      "type": "timeline",
+      "type": "contentBlock",
       "title": "Sprint de imersão nas capacidades",
-      "steps": [
+      "content": [
         {
-          "title": "Dia 1",
-          "content": "Workshop com líderes de negócio para mapear processos críticos."
-        },
-        {
-          "title": "Dia 2",
-          "content": "Avaliação técnica de sistemas e integrações prioritárias."
-        },
-        { "title": "Dia 3", "content": "Análise de competências e dimensionamento de equipes." },
-        {
-          "title": "Dia 4",
-          "content": "Consolidação dos gaps e oportunidades em relatório executivo."
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Dia 1 – Workshop com líderes de negócio para mapear processos críticos."
+            },
+            {
+              "text": "Dia 2 – Avaliação técnica de sistemas e integrações prioritárias."
+            },
+            {
+              "text": "Dia 3 – Análise de competências e dimensionamento de equipes."
+            },
+            {
+              "text": "Dia 4 – Consolidação dos gaps e oportunidades em relatório executivo."
+            }
+          ]
         }
       ]
     },
