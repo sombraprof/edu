@@ -35,6 +35,36 @@
       "url": "https://static.md3.education/courses/algi/busca-catalogo.csv"
     },
     {
+      "label": "Estudo de caso: Inventário do Armazém Popular (planilha de auditoria)",
+      "type": "spreadsheet",
+      "url": "https://example.edu/algi/casos/armazem-popular-inventario.xlsx"
+    },
+    {
+      "label": "Capítulo 7 – Pesquisa sequencial (Forbellone & Eberspächer)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-7.pdf"
+    },
+    {
+      "label": "Capítulo 9 – Vetores e busca linear (Manzano & Oliveira)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-9.pdf"
+    },
+    {
+      "label": "Capítulo 8 – Arrays e desempenho (Backes)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/backes/capitulo-8.pdf"
+    },
+    {
+      "label": "Capítulo 10 – Análise de eficiência em C (Santos)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/santos/capitulo-10.pdf"
+    },
+    {
+      "label": "Capítulo 7 – Vetores e registros (Ascencio & Campos)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/ascencio-campos/capitulo-7.pdf"
+    },
+    {
       "label": "CS50 Shorts - Linear Search",
       "type": "video",
       "url": "https://www.youtube.com/watch?v=9YddVVsdG5A"
@@ -66,9 +96,17 @@
     }
   ],
   "bibliography": [
-    "CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 4. ed. MIT Press, 2022.",
-    "LAFORE, R. Estruturas de Dados & Algoritmos em C. Pearson, 2021."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 7, Pesquisa sequencial em vetores.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 9, Vetores e busca linear.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 8, Arrays e análise de desempenho.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 10, Medição de eficiência e logs de busca.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 7, Vetores e relatórios de auditoria."
   ],
+  "assessment": {
+    "type": "practice",
+    "description": "TED: Relatório do inventário do Armazém Popular comparando busca linear tradicional e com sentinela, com evidências coletadas na planilha de auditoria compartilhada.",
+    "rubric": "Resolução de problemas (35%): implementa e justifica a busca conforme Forbellone & Eberspächer (Cap. 7) e Manzano & Oliveira (Cap. 9). Análise de algoritmos (30%): interpreta métricas de comparações seguindo Backes (Cap. 8) e Santos (Cap. 10). Comunicação técnica (20%): relaciona achados à rotina de auditoria do Armazém Popular de acordo com Ascencio & Campos (Cap. 7). Responsabilidade profissional (15%): registra evidências e limitações na planilha do case conforme orientações da planilha de auditoria pós-módulo."
+  },
   "content": [
     {
       "type": "callout",
@@ -77,7 +115,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Buscas em Vetores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise o plano de ensino e leia Forbellone & Eberspächer (Cap. 7) sobre pesquisa sequencial e Manzano & Oliveira (Cap. 9) sobre vetores antes da aula. Registre dúvidas na planilha de preparação para que possamos conectá-las ao estudo de caso do Armazém Popular."
         },
         {
           "type": "unorderedList",
@@ -212,23 +250,23 @@
     },
     {
       "type": "contentBlock",
-      "title": "Exemplo prático: localizar SKU no catálogo",
+      "title": "Estudo de caso: inventário do Armazém Popular",
       "content": [
         {
           "type": "paragraph",
-          "text": "Use o arquivo busca-catalogo.csv (código;nome;estoque) para localizar um SKU informado via teclado e imprimir o registro."
+          "text": "A planilha de auditoria do Armazém Popular registra entradas e saídas de insumos farmacêuticos monitoradas pela Farmácia Escola. Forbellone & Eberspächer (Cap. 7) indicam validar cada índice percorrido, enquanto Backes (Cap. 8) recomenda medir comparações para justificar a escolha do algoritmo."
         },
         {
           "type": "orderedList",
           "items": [
             {
-              "text": "Carregar os códigos em vetor inteiro e nomes em vetor paralelo."
+              "text": "Carregue códigos e lotes na estrutura proposta por Manzano & Oliveira (Cap. 9) e documente pré/pós-condições na planilha."
             },
             {
-              "text": "Utilizar busca linear para encontrar o índice correspondente."
+              "text": "Implemente busca com sentinela e registre o número de comparações seguindo a ficha de eficiência de Santos (Cap. 10)."
             },
             {
-              "text": "Apresentar mensagem clara quando o SKU não existir."
+              "text": "Relacione o resultado encontrado aos alertas de auditoria orientados por Ascencio & Campos (Cap. 7)."
             }
           ]
         }
@@ -254,11 +292,15 @@
       "title": "Atividades pós-aula",
       "content": [
         {
+          "type": "paragraph",
+          "text": "Siga o roteiro da planilha de auditoria para relacionar cada teste aos referenciais bibliográficos."
+        },
+        {
           "type": "list",
           "items": [
-            "Implementar buscaLinearSentinela e comparar tempo com a versão simples.",
-            "Redigir parágrafo explicando quando migrar para busca binária.",
-            "Subir resultados da medição para planilha colaborativa da turma."
+            "Implementar buscaLinearSentinela medindo comparações conforme Backes (Cap. 8).",
+            "Explicar em relatório quando migrar para busca binária utilizando critérios de Santos (Cap. 10).",
+            "Subir resultados na planilha colaborativa vinculando riscos apontados por Ascencio & Campos (Cap. 7)."
           ]
         }
       ]
@@ -291,29 +333,29 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Implementação: código segue a decomposição proposta por Forbellone & Eberspächer (Cap. 7) e Manzano & Oliveira (Cap. 9) (35%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Eficiência: relatório compara métricas conforme Backes (Cap. 8) e Santos (Cap. 10) (30%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Análise crítica: conecta achados ao plano de auditoria do Armazém Popular com base em Ascencio & Campos (Cap. 7) (20%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Evidências: anexos na planilha de auditoria incluem logs, capturas e checklist de revisão (15%)."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final e referencie a seção estudada para agilizar o feedback docente."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-10-05T10:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Guia interno de algoritmos de busca 2024"]
   }

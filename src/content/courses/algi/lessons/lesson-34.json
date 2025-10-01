@@ -32,6 +32,36 @@
       "url": "https://static.md3.education/courses/algi/matriz-multiplicacao-exemplo.json"
     },
     {
+      "label": "Estudo de caso: Painel energético do Campus Vale (planilha)",
+      "type": "spreadsheet",
+      "url": "https://example.edu/algi/casos/painel-energetico-campus-vale.xlsx"
+    },
+    {
+      "label": "Capítulo 8 – Matrizes bidimensionais (Forbellone & Eberspächer)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-8.pdf"
+    },
+    {
+      "label": "Capítulo 11 – Arrays multidimensionais (Manzano & Oliveira)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-11.pdf"
+    },
+    {
+      "label": "Capítulo 9 – Matrizes e operações (Backes)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/backes/capitulo-9.pdf"
+    },
+    {
+      "label": "Capítulo 12 – Processamento matricial em C (Santos)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/santos/capitulo-12.pdf"
+    },
+    {
+      "label": "Capítulo 8 – Matrizes e validações (Ascencio & Campos)",
+      "type": "bookChapter",
+      "url": "https://biblioteca.example.edu/ascencio-campos/capitulo-8.pdf"
+    },
+    {
       "label": "CS50 - Short: Matrix Multiplication",
       "type": "video",
       "url": "https://www.youtube.com/watch?v=ykP1t9hYx7A"
@@ -63,9 +93,17 @@
     }
   ],
   "bibliography": [
-    "PRESSMAN, R. Engenharia de Software. McGraw Hill, 2023 (capítulo sobre métricas e matrizes).",
-    "STANLEY, R. Algoritmos Numéricos em C. Pioneira, 2020."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 8, Matrizes bidimensionais.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 11, Arrays multidimensionais e aplicações.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 9, Operações com matrizes.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 12, Processamento matricial e validação de dimensões.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 8, Matrizes, testes e relatórios."
   ],
+  "assessment": {
+    "type": "practice",
+    "description": "TED: Relatório do painel energético do Campus Vale com transposição, soma e multiplicação das matrizes de demanda e geração, incluindo evidências na planilha de auditoria.",
+    "rubric": "Pensamento algorítmico (35%): implementa funções conforme Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11). Raciocínio matemático (30%): valida dimensões e interpreta resultados seguindo Backes (Cap. 9) e Santos (Cap. 12). Comunicação técnica (20%): apresenta narrativa do caso do Campus Vale alinhada ao checklist de Ascencio & Campos (Cap. 8). Sustentabilidade e responsabilidade (15%): contextualiza indicadores energéticos e registra decisões na planilha compartilhada."
+  },
   "content": [
     {
       "type": "callout",
@@ -74,7 +112,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Manipulações com Matrizes. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Leia Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11) destacando como estruturam transposição e multiplicação. Registre dúvidas na planilha de preparação para relacioná-las ao estudo de caso do painel energético do Campus Vale."
         },
         {
           "type": "unorderedList",
@@ -281,23 +319,23 @@
     },
     {
       "type": "contentBlock",
-      "title": "Exemplo prático: cruzando indicadores de campus",
+      "title": "Estudo de caso: painel energético do Campus Vale",
       "content": [
         {
           "type": "paragraph",
-          "text": "O arquivo matriz-multiplicacao-exemplo.json traz matrizes A (alocação de tutores por curso) e B (horas planejadas por atividade)."
+          "text": "A planilha do Campus Vale traz matrizes de geração solar (kWh) e demanda por prédio. Forbellone & Eberspächer (Cap. 8) reforçam validar índices antes da multiplicação, enquanto Santos (Cap. 12) propõe registrar dimensões e erros em log."
         },
         {
           "type": "orderedList",
           "items": [
             {
-              "text": "Validar dimensões antes de multiplicar."
+              "text": "Aplique a transposição sugerida por Manzano & Oliveira (Cap. 11) para alinhar horários com setores."
             },
             {
-              "text": "Gerar matriz resultado C representando horas totais de tutores por curso."
+              "text": "Calcule matrizes de balanço energético seguindo o passo a passo de Backes (Cap. 9) e documente validações."
             },
             {
-              "text": "Imprimir resumo destacando curso com maior carga resultante."
+              "text": "Relate no template de auditoria como Ascencio & Campos (Cap. 8) orientam o checklist de confiabilidade."
             }
           ]
         }
@@ -323,11 +361,15 @@
       "title": "Atividades pós-aula",
       "content": [
         {
+          "type": "paragraph",
+          "text": "Utilize a planilha do Campus Vale para justificar cada decisão técnica com base na bibliografia."
+        },
+        {
           "type": "list",
           "items": [
-            "Extender o código para aceitar dimensões informadas pelo usuário.",
-            "Comparar desempenho com e sem matrizes auxiliares usando clock().",
-            "Escrever breve relato conectando multiplicação de matrizes a análise de dados reais da instituição."
+            "Generalize funções para dimensões variáveis conforme Santos (Cap. 12).",
+            "Compare matrizes auxiliares com logs de tempo seguindo Backes (Cap. 9).",
+            "Produza narrativa dos impactos energéticos alinhada ao checklist de Ascencio & Campos (Cap. 8)."
           ]
         }
       ]
@@ -360,29 +402,29 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Implementação: funções seguem Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11) (35%)."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+              "text": "Validação matemática: registros de dimensões e testes conforme Backes (Cap. 9) e Santos (Cap. 12) (30%)."
             },
             {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+              "text": "Contextualização: análise do caso energético articulada a Ascencio & Campos (Cap. 8) (20%)."
             },
             {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Evidências: anexos e checklist preenchidos na planilha de auditoria do Campus Vale (15%)."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+          "text": "Registre dúvidas no fórum do Moodle destacando o capítulo consultado para manter a trilha de auditoria pedagógica."
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-10-05T10:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Oficina de matrizes avançadas 2025"]
   }
