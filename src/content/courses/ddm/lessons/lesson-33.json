@@ -1,0 +1,258 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-33",
+  "title": "Aula 33: Unidade VI – Revisão Prática Integrada",
+  "slug": "revisao-pratica-integrada",
+  "summary": "Consolida aprendizados com uma clínica de revisão integrando Android nativo, React Native e backend, preparando para a entrega final.",
+  "objective": "Revisar de forma orientada os componentes críticos do projeto integrador, identificando gaps técnicos e planejando ajustes finais.",
+  "objectives": [
+    "Avaliar o estado atual do MVP com checklist multidisciplinar.",
+    "Planejar correções priorizando riscos de usabilidade, performance e integração.",
+    "Simular apresentação técnica destacando decisões de arquitetura."
+  ],
+  "competencies": [
+    "Gestão de projetos mobile",
+    "Integração contínua e controle de qualidade",
+    "Comunicação técnica e storytelling"
+  ],
+  "skills": [
+    "Realizar code review cruzado entre equipes.",
+    "Aplicar testes exploratórios e automatizados no app Expo.",
+    "Apresentar plano de melhoria utilizando métricas e feedbacks coletados."
+  ],
+  "outcomes": [
+    "Checklist de revisão concluído com ações priorizadas.",
+    "Backlog de ajustes alinhado com o professor orientador.",
+    "Pitch técnico ensaiado com foco em entregáveis avaliativos."
+  ],
+  "prerequisites": [
+    "Integração com API entregue (Aula 32).",
+    "Repositório atualizado com navegação e persistência."
+  ],
+  "tags": ["revisao", "projeto", "qualidade"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Mobile Testing Checklist",
+      "url": "https://developer.android.com/training/testing",
+      "type": "guide"
+    },
+    {
+      "label": "Expo – Debugging",
+      "url": "https://docs.expo.dev/debugging/",
+      "type": "documentation"
+    }
+  ],
+  "bibliography": [
+    "GOOGLE. Testing documentation. 2024.",
+    "BROWN, L. Mobile Project Management. O'Reilly, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Registro de revisão integrado publicado no mural da disciplina, com plano de ação validado."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (150 min)",
+      "items": [
+        "(20 min) Retomada dos critérios da entrega final e análise do cronograma.",
+        "(30 min) Rodada de code review cruzado (duplas trocadas).",
+        "(40 min) Testes guiados: cenários críticos de navegação, API e offline.",
+        "(30 min) Oficina de storytelling e apresentação técnica.",
+        "(30 min) Planejamento do backlog final e definição de responsáveis."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Conexão com avaliação final",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta revisão faz parte do acompanhamento previsto no plano de ensino para garantir qualidade na entrega final. O registro do plano de ação será utilizado como evidência no cálculo da nota de participação técnica."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Estações da revisão",
+      "cards": [
+        {
+          "icon": "code",
+          "title": "Code review",
+          "content": "Analisar PRs recentes utilizando checklist de padrões MD3, performance e segurança."
+        },
+        {
+          "icon": "monitor",
+          "title": "Testes",
+          "content": "Executar testes instrumentados/automáticos e registrar bugs críticos no board."
+        },
+        {
+          "icon": "graduation-cap",
+          "title": "Pitch",
+          "content": "Simular defesa do projeto com foco em métricas e storytelling."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist multidisciplinar",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Experiência",
+          "tone": "primary",
+          "items": [
+            "Fluxos principais sem bloqueios.",
+            "Feedback visual consistente com MD3.",
+            "Acessibilidade validada (TalkBack/VoiceOver)."
+          ]
+        },
+        {
+          "title": "Tecnologia",
+          "tone": "secondary",
+          "items": [
+            "Cobertura de testes mínimos (unitário + integração).",
+            "Integrações com API monitoradas e com logs significativos.",
+            "Uso de variáveis de ambiente seguro."
+          ]
+        },
+        {
+          "title": "Gestão",
+          "tone": "neutral",
+          "items": [
+            "Backlog priorizado com critérios MoSCoW.",
+            "Board atualizado com responsáveis e prazos.",
+            "Comunicação com stakeholders registrada."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Ciclo da revisão",
+      "steps": [
+        {
+          "title": "Diagnóstico",
+          "content": "Analisar indicadores (burndown, bugs abertos, cobertura de testes)."
+        },
+        {
+          "title": "Planejamento",
+          "content": "Definir prioridades, estimar esforço e distribuir responsáveis."
+        },
+        {
+          "title": "Execução",
+          "content": "Implementar correções prioritárias e registrar progresso no board."
+        },
+        {
+          "title": "Follow-up",
+          "content": "Revisar ações concluídas e atualizar plano conforme feedback do professor."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da TED – Plano de melhoria",
+      "summary": "Atividade avaliativa que consolida ações para a entrega final.",
+      "stages": [
+        {
+          "id": "avaliacao",
+          "title": "Avaliação",
+          "summary": "Concluir checklist multidisciplinar.",
+          "owners": ["Grupo"],
+          "durationHours": 2,
+          "activities": [
+            {
+              "id": "checklist",
+              "label": "Preencher checklist",
+              "description": "Marcar status de cada item e anexar evidências."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "documento",
+              "label": "Checklist consolidado",
+              "description": "Arquivo compartilhado no drive do curso."
+            }
+          ],
+          "risks": [
+            {
+              "id": "subjetividade",
+              "label": "Avaliação superficial",
+              "severity": "medium",
+              "mitigation": "Utilizar critérios objetivos e evidências (prints, logs)."
+            }
+          ],
+          "checkpoints": ["Checklist validado"]
+        },
+        {
+          "id": "planejamento",
+          "title": "Planejamento",
+          "summary": "Transformar achados em backlog.",
+          "owners": ["Grupo"],
+          "durationHours": 1.5,
+          "activities": [
+            {
+              "id": "priorizar",
+              "label": "Priorizar itens",
+              "description": "Aplicar matriz MoSCoW e definir responsáveis."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "board",
+              "label": "Board atualizado",
+              "description": "Kanban/Trello com tarefas, responsáveis e prazos."
+            }
+          ],
+          "risks": [
+            {
+              "id": "overload",
+              "label": "Sobrecarga de tarefas",
+              "severity": "medium",
+              "mitigation": "Balancear carga entre integrantes e negociar escopo."
+            }
+          ],
+          "checkpoints": ["Backlog priorizado"]
+        },
+        {
+          "id": "apresentacao",
+          "title": "Apresentação",
+          "summary": "Preparar storytelling para banca.",
+          "owners": ["Grupo"],
+          "durationHours": 1,
+          "activities": [
+            {
+              "id": "roteiro",
+              "label": "Construir roteiro",
+              "description": "Estruturar discurso com problema, solução, resultados e próximos passos."
+            },
+            {
+              "id": "ensaio",
+              "label": "Ensaiar",
+              "description": "Simular apresentação com tempo cronometrado."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "pitch",
+              "label": "Pitch gravado",
+              "description": "Vídeo curto anexado ao mural para feedback."
+            }
+          ],
+          "risks": [
+            {
+              "id": "desalinhado",
+              "label": "Discurso desalinhado",
+              "severity": "low",
+              "mitigation": "Revisar script com professor antes do envio."
+            }
+          ],
+          "checkpoints": ["Pitch enviado"]
+        }
+      ]
+    }
+  ]
+}

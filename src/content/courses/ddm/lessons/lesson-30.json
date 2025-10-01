@@ -1,0 +1,272 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-30",
+  "title": "Aula 30: Unidade VI – Avaliação NP2 (Prova Integrada)",
+  "slug": "avaliacao-np2",
+  "summary": "Realiza a avaliação NP2 prevista no plano de ensino, com prova prática e análise crítica envolvendo Android nativo e React Native.",
+  "objective": "Verificar o domínio das competências desenvolvidas nas Unidades III a VI, aplicando conceitos de persistência, APIs e multiplataforma em cenários reais.",
+  "objectives": [
+    "Aplicar fundamentos de arquitetura mobile em um estudo de caso.",
+    "Construir uma funcionalidade prática em React Native/Expo seguindo requisitos dados.",
+    "Justificar decisões técnicas comparando abordagens nativas e híbridas."
+  ],
+  "competencies": [
+    "Desenvolvimento full-stack mobile",
+    "Integração de dados locais e remotos",
+    "Tomada de decisão orientada a requisitos"
+  ],
+  "skills": [
+    "Implementar fluxos de tela e estados em React Native.",
+    "Persistir e sincronizar dados utilizando APIs REST e cache local.",
+    "Comunicar as escolhas técnicas em relatório estruturado."
+  ],
+  "outcomes": [
+    "Entrega a prova NP2 com código funcional e relatório justificativo.",
+    "Segue critérios de usabilidade e arquitetura solicitados na instrução da prova.",
+    "Demonstra domínio sobre conceitos avaliados no semestre.",
+    "Reflete sobre pontos fortes e planos de melhoria pós-prova."
+  ],
+  "prerequisites": [
+    "Concluir as TEDs das aulas 27 a 29.",
+    "Possuir o ambiente Expo configurado e validado."
+  ],
+  "tags": ["avaliacao", "np2", "react-native"],
+  "duration": 160,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Instruções oficiais da NP2",
+      "url": "https://ava.faculdade.br/ddm/np2-2025.pdf",
+      "type": "handout"
+    }
+  ],
+  "bibliography": [
+    "Material compilado da disciplina (Aulas 13-29).",
+    "GOOGLE. Android Developers Guides. 2024.",
+    "REACT NATIVE. Documentation. 2024."
+  ],
+  "assessment": {
+    "type": "summative",
+    "description": "NP2 com peso 2: prova prática (60%) + relatório argumentativo (40%) conforme regulamento institucional."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Cronograma da avaliação (160 min)",
+      "items": [
+        "(15 min) Acolhida, conferência de presença e leitura das instruções.",
+        "(15 min) Organização do ambiente e download dos insumos da prova.",
+        "(90 min) Desenvolvimento prático do desafio React Native/Expo.",
+        "(30 min) Redação do relatório técnico comparativo.",
+        "(10 min) Revisão final, checklist de entrega e submissão no AVA."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Regras essenciais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A NP2 é individual e presencial. É proibido compartilhar código, telas ou arquivos durante a aplicação. O uso de materiais de consulta impressos ou digitais está limitado ao acervo disponibilizado previamente no AVA."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            { "text": "Entrega fora do AVA ou após o horário limite implica nota 0." },
+            {
+              "text": "A prova exige commit final assinado digitalmente no repositório individual."
+            },
+            {
+              "text": "Dúvidas devem ser direcionadas ao professor aplicador, sem consulta a colegas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Estrutura da prova",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Parte 1 – Implementação",
+          "content": "Criar tela de listagem e detalhe consumindo endpoint REST fornecido, com cache local e estado offline."
+        },
+        {
+          "icon": "book-open",
+          "title": "Parte 2 – Relatório",
+          "content": "Produzir relatório (máx. 1 página) comparando solução React Native com alternativa nativa."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Critérios",
+          "content": "Funcionalidade, arquitetura, qualidade de código, justificativa técnica e experiência do usuário."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Rubrica resumida",
+      "columns": 2,
+      "cards": [
+        {
+          "title": "Implementação (60%)",
+          "tone": "primary",
+          "items": [
+            "Consumo correto da API e tratamento de erros.",
+            "Uso adequado de estados, hooks e componentes reutilizáveis.",
+            "Persistência offline funcionando conforme instrução."
+          ]
+        },
+        {
+          "title": "Relatório (40%)",
+          "tone": "secondary",
+          "items": [
+            "Comparação objetiva entre abordagens nativa e híbrida.",
+            "Justificativas alinhadas ao plano de ensino (critérios de negócio, equipe, arquitetura).",
+            "Clareza, concisão e referências corretas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Checkpoint da prova",
+      "steps": [
+        {
+          "title": "T-15 min",
+          "content": "Receba as instruções, abra o repositório e confirme credenciais de acesso ao AVA."
+        },
+        {
+          "title": "T+45 min",
+          "content": "Estrutura básica do app pronta, componentes principais renderizando dados mockados."
+        },
+        {
+          "title": "T+105 min",
+          "content": "Integração com API concluída, testes de erro realizados e prints capturados."
+        },
+        {
+          "title": "T+150 min",
+          "content": "Relatório finalizado e revisado, com comparativo claro e anexos de evidência."
+        },
+        {
+          "title": "T+160 min",
+          "content": "Entrega enviada no AVA e commit final com tag `np2-2025`."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Fluxo de submissão NP2",
+      "summary": "Passos obrigatórios para registrar a avaliação conforme o regulamento institucional.",
+      "stages": [
+        {
+          "id": "pre-prova",
+          "title": "Pré-prova",
+          "summary": "Conferir requisitos antes da aplicação.",
+          "owners": ["Aluno"],
+          "durationHours": 0.5,
+          "activities": [
+            {
+              "id": "documentos",
+              "label": "Validar documentos",
+              "description": "Tenha identificação oficial e crachá institucional."
+            },
+            {
+              "id": "ambiente",
+              "label": "Testar ambiente",
+              "description": "Atualize dependências e execute `expo start` com antecedência."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "checklist",
+              "label": "Checklist assinado",
+              "description": "Formulário pré-prova entregue ao fiscal."
+            }
+          ],
+          "risks": [
+            {
+              "id": "ambiente-quebrado",
+              "label": "Ambiente não executa",
+              "severity": "high",
+              "mitigation": "Buscar posto de apoio técnico até 24h antes da avaliação."
+            }
+          ],
+          "checkpoints": ["Documentos ok", "Ambiente validado"]
+        },
+        {
+          "id": "execucao",
+          "title": "Execução",
+          "summary": "Desenvolvimento da prova em sala.",
+          "owners": ["Aluno"],
+          "durationHours": 2.5,
+          "activities": [
+            {
+              "id": "codar",
+              "label": "Implementar requisitos",
+              "description": "Priorize as histórias obrigatórias antes das extras."
+            },
+            {
+              "id": "testar",
+              "label": "Testar funcionalidades",
+              "description": "Registrar evidências (prints/logs) no repositório."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "tag",
+              "label": "Commit + tag",
+              "description": "Commit final com mensagem `feat: entrega np2` e tag `np2-2025`."
+            }
+          ],
+          "risks": [
+            {
+              "id": "perda-codigo",
+              "label": "Perda de código",
+              "severity": "medium",
+              "mitigation": "Realize commits incrementais a cada 30 minutos."
+            }
+          ],
+          "checkpoints": ["Histórias essenciais concluídas", "Testes executados"]
+        },
+        {
+          "id": "pos-prova",
+          "title": "Pós-prova",
+          "summary": "Finalizar submissão e autoavaliação.",
+          "owners": ["Aluno"],
+          "durationHours": 0.5,
+          "activities": [
+            {
+              "id": "upload",
+              "label": "Enviar no AVA",
+              "description": "Anexar relatório em PDF e link do repositório."
+            },
+            {
+              "id": "autoavaliacao",
+              "label": "Preencher autoavaliação",
+              "description": "Responder formulário de reflexão com pontos fortes e melhorias."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "recibo",
+              "label": "Recibo de entrega",
+              "description": "Salvar comprovante disponibilizado pelo AVA."
+            }
+          ],
+          "risks": [
+            {
+              "id": "esquecimento",
+              "label": "Não preencher autoavaliação",
+              "severity": "low",
+              "mitigation": "Agendar lembrete automático no celular ao fim da prova."
+            }
+          ],
+          "checkpoints": ["Upload confirmado", "Autoavaliação enviada"]
+        }
+      ]
+    }
+  ]
+}

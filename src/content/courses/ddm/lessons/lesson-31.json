@@ -1,0 +1,266 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-31",
+  "title": "Aula 31: Unidade VI – Navegação com React Navigation",
+  "slug": "navegacao-react-navigation",
+  "summary": "Implementa navegação empilhada, tabulada e modal com React Navigation, conectando rotas ao design system MD3.",
+  "objective": "Criar fluxos completos de navegação no app Expo da turma, respeitando padrões de acessibilidade e roteamento definidos no plano de ensino.",
+  "objectives": [
+    "Configurar o React Navigation com Expo e suas dependências nativas.",
+    "Implementar rotas Stack, Tab e Drawer conforme o protótipo do projeto integrador.",
+    "Adicionar padrões de navegação acessíveis, animações e deep linking básico."
+  ],
+  "competencies": [
+    "Modelagem de fluxos de navegação",
+    "Aplicação de design system em múltiplas telas",
+    "Integração de roteamento com estratégias de estado"
+  ],
+  "skills": [
+    "Utilizar `@react-navigation/native` e navegadores auxiliares.",
+    "Criar navegações empilhadas e tabuladas com TypeScript.",
+    "Configurar cabeçalhos, parâmetros e deep links."
+  ],
+  "outcomes": [
+    "Aplicativo Expo com estrutura de navegação concluída.",
+    "Rotas testadas com deep link e navegação acessível.",
+    "Documentação da arquitetura de rotas anexada ao repositório."
+  ],
+  "prerequisites": [
+    "Projeto Expo configurado (Aula 29).",
+    "Componentização básica do app (Aulas anteriores)."
+  ],
+  "tags": ["react-native", "react-navigation", "navegacao"],
+  "duration": 140,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "React Navigation – Fundamentals",
+      "url": "https://reactnavigation.org/docs/getting-started",
+      "type": "documentation"
+    },
+    {
+      "label": "MD3 Navigation Guidelines",
+      "url": "https://m3.material.io/foundations/navigation/overview",
+      "type": "guideline"
+    }
+  ],
+  "bibliography": [
+    "REACT NAVIGATION. Docs. 2024.",
+    "MATERIAL DESIGN. Navigation Principles. 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Pull request com navegação Stack + Tab implementada e checklist de acessibilidade preenchido."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (140 min)",
+      "items": [
+        "(10 min) Debrief pós-NP2 e conexão com roadmap do MVP.",
+        "(30 min) Introdução teórica: conceitos de navegação, padrões MD3 e boas práticas.",
+        "(40 min) Setup guiado do React Navigation e criação do Stack principal.",
+        "(40 min) Oficina: Tabs, modais e passagem de parâmetros.",
+        "(20 min) Revisão da TED: definição de fluxo final e testes de deep link."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Alinhamento com o plano de ensino",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Conforme o plano, esta aula alimenta a entrega parcial 3 do projeto integrador, que exige navegação funcional entre as seções do app. Garanta que o fluxo definido aqui seja o mesmo utilizado na entrega avaliativa."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Componentes principais",
+      "cards": [
+        {
+          "icon": "gears",
+          "title": "Arquitetura",
+          "content": "Estrutura de rotas com Stack Navigator encapsulando Tabs e modais contextuais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Acessibilidade",
+          "content": "Uso de `accessibilityLabel`, foco automático e suporte a gestures inclusivos."
+        },
+        {
+          "icon": "code",
+          "title": "Deep linking",
+          "content": "Configuração de esquema `ddmapp://` e rotas compartilháveis para QA."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Padrões recomendados",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Stack",
+          "subtitle": "Fluxo linear",
+          "tone": "primary",
+          "items": [
+            "Ideal para onboarding e fluxos sequenciais.",
+            "Permite transições customizadas (slide, fade).",
+            "Suporta parâmetros obrigatórios via tipos."
+          ]
+        },
+        {
+          "title": "Tab",
+          "subtitle": "Seções principais",
+          "tone": "secondary",
+          "items": [
+            "Até cinco itens para manter clareza.",
+            "Ícones alinhados ao design system MD3.",
+            "Uso de badges para notificações."
+          ]
+        },
+        {
+          "title": "Modal",
+          "subtitle": "Ações pontuais",
+          "tone": "neutral",
+          "items": [
+            "Confirmações, formulários curtos e visualizações detalhadas.",
+            "Fechamento com gesto ou botão explícito.",
+            "Foco inicial em elementos interativos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Roadmap de implementação",
+      "steps": [
+        {
+          "title": "1. Planejamento",
+          "content": "Mapear telas obrigatórias e desenhar diagrama de navegação."
+        },
+        {
+          "title": "2. Configuração",
+          "content": "Instalar dependências, criar `NavigationContainer` e definir Stack raiz."
+        },
+        {
+          "title": "3. Componentização",
+          "content": "Extrair cabeçalhos, ícones e estilos compartilhados."
+        },
+        {
+          "title": "4. Testes",
+          "content": "Validar navegação via deep link, VoiceOver/TalkBack e fallback offline."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da TED – Fluxo de navegação",
+      "summary": "Atividade avaliativa que integra a entrega parcial 3 do projeto.",
+      "stages": [
+        {
+          "id": "design",
+          "title": "Design do fluxo",
+          "summary": "Refinar mapa de telas e estados.",
+          "owners": ["Grupo"],
+          "durationHours": 1.5,
+          "activities": [
+            {
+              "id": "wireflow",
+              "label": "Atualizar wireflow",
+              "description": "Registrar fluxo no Figma com estados principais."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "wireflow-arquivo",
+              "label": "Wireflow atualizado",
+              "description": "Link compartilhado no AVA até quarta-feira."
+            }
+          ],
+          "risks": [
+            {
+              "id": "divergencia",
+              "label": "Fluxo divergente",
+              "severity": "medium",
+              "mitigation": "Validar com o professor orientador antes de codificar."
+            }
+          ],
+          "checkpoints": ["Fluxo aprovado"]
+        },
+        {
+          "id": "implementacao",
+          "title": "Implementação",
+          "summary": "Codificar rotas e componentes.",
+          "owners": ["Grupo"],
+          "durationHours": 4,
+          "activities": [
+            {
+              "id": "stack",
+              "label": "Criar Stack principal",
+              "description": "Definir rotas públicas e privadas."
+            },
+            {
+              "id": "tab",
+              "label": "Configurar Tabs",
+              "description": "Aplicar ícones, labels e badges conforme MD3."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "pull-request",
+              "label": "Pull request aberto",
+              "description": "PR com título `feat: navigation flow` enviado até domingo."
+            }
+          ],
+          "risks": [
+            {
+              "id": "conflitos",
+              "label": "Conflitos de merge",
+              "severity": "medium",
+              "mitigation": "Sincronizar branches diariamente e usar feature flags."
+            }
+          ],
+          "checkpoints": ["Rotas principais funcionais"]
+        },
+        {
+          "id": "validacao",
+          "title": "Validação",
+          "summary": "Revisar acessibilidade e deep linking.",
+          "owners": ["Grupo"],
+          "durationHours": 1,
+          "activities": [
+            {
+              "id": "testes",
+              "label": "Rodar testes",
+              "description": "Executar script `npm run lint` e testar deep links."
+            },
+            {
+              "id": "feedback",
+              "label": "Solicitar revisão",
+              "description": "Registrar feedback com colega de outra equipe."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "checklist",
+              "label": "Checklist de acessibilidade",
+              "description": "Formulário assinado e anexado ao PR."
+            }
+          ],
+          "risks": [
+            {
+              "id": "acessibilidade",
+              "label": "Itens não conformes",
+              "severity": "high",
+              "mitigation": "Usar leitores de tela e ajustes sugeridos na aula."
+            }
+          ],
+          "checkpoints": ["Deep link ok", "Checklist aprovado"]
+        }
+      ]
+    }
+  ]
+}
