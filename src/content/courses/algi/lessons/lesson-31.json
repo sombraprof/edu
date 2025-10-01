@@ -70,9 +70,9 @@
       "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-9.pdf"
     },
     {
-      "label": "Estudo de caso: Painel de energia renovável (dataset + guia)",
-      "type": "caseStudy",
-      "url": "https://example.edu/algi/casos/vetores-energia.zip"
+      "label": "Dataset: Geração solar diária (Plotly)",
+      "type": "dataset",
+      "url": "https://raw.githubusercontent.com/plotly/datasets/master/solar.csv"
     }
   ],
   "bibliography": [

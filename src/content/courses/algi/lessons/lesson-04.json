@@ -26,14 +26,9 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Computador com compilador C (GCC ou clang)",
-      "type": "equipment",
-      "url": "https://example.edu/labs/c-environment"
-    },
-    {
-      "label": "Template de projeto inicial (VS Code)",
-      "type": "repository",
-      "url": "https://example.edu/algi/c-template"
+      "label": "Guia: Configurando C/C++ no VS Code (Microsoft)",
+      "type": "documentation",
+      "url": "https://code.visualstudio.com/docs/cpp/config-linux"
     },
     {
       "label": "OnlineGDB - Projeto C pré-configurado",

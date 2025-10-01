@@ -32,9 +32,9 @@
       "url": "https://static.md3.education/courses/algi/matriz-multiplicacao-exemplo.json"
     },
     {
-      "label": "Estudo de caso: Painel energético do Campus Vale (planilha)",
-      "type": "spreadsheet",
-      "url": "https://example.edu/algi/casos/painel-energetico-campus-vale.xlsx"
+      "label": "Dataset: OWID Energy Data",
+      "type": "dataset",
+      "url": "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv"
     },
     {
       "label": "Capítulo 8 – Matrizes bidimensionais (Forbellone & Eberspächer)",

@@ -3,6 +3,7 @@
   "id": "lesson-20",
   "title": "Estrutura de repetição do-while",
   "summary": "Apresenta o do-while em C para menus e validações que exigem uma execução inicial garantida.",
+  "objective": "Implementar menus que exigem execução inicial obrigatória usando do-while e validar todas as opções com feedback imediato.",
   "description": "A aula destaca quando o do-while simplifica o código, demonstra a construção de menus interativos e orienta sobre validações que precisam rodar pelo menos uma vez.",
   "objectives": [
     "Identificar problemas que exigem execução mínima antes da validação.",
@@ -27,11 +28,17 @@
   "tags": ["loops", "do-while", "menus"],
   "duration": 110,
   "modality": "in-person",
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-10-01T00:00:00.000Z",
+    "owners": ["Equipe Algoritmos I"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1"]
+  },
   "resources": [
     {
-      "label": "Playbook do menu bancário",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/menu-bancario-do-while.pdf"
+      "label": "Tutorial: Construindo menus com do-while (GeeksforGeeks)",
+      "type": "article",
+      "url": "https://www.geeksforgeeks.org/c-program-for-menu-driven-program-using-do-while-loop/"
     },
     {
       "label": "Checklist de testes do-while",
@@ -47,11 +54,6 @@
       "label": "Projeto OnlineGDB – Menu bancário",
       "type": "tool",
       "url": "https://onlinegdb.com/H1MenuDoWhile"
-    },
-    {
-      "label": "Template de relatório de menu",
-      "type": "document",
-      "url": "https://example.edu/algi/templates/relatorio-menu.docx"
     }
   ],
   "bibliography": [
