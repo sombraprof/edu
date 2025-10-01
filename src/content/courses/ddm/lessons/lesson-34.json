@@ -1,0 +1,268 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-34",
+  "title": "Aula 34: Unidade VI – Oficina React Native + Firebase",
+  "slug": "oficina-react-native-firebase",
+  "summary": "Integra o app Expo com Firebase (Authentication e Firestore), abordando segurança, regras e sincronização em tempo real.",
+  "objective": "Implementar autenticação e persistência em nuvem com Firebase, garantindo segurança e escalabilidade para o MVP da turma.",
+  "objectives": [
+    "Configurar projeto Firebase com Authentication e Firestore.",
+    "Integrar SDK do Firebase ao projeto Expo com módulos compatíveis.",
+    "Implementar fluxo de login, cadastro e sincronização de dados em tempo real."
+  ],
+  "competencies": [
+    "Integração de serviços cloud",
+    "Segurança e governança de dados",
+    "Arquitetura reativa em tempo real"
+  ],
+  "skills": [
+    "Configurar Firebase no Expo com `expo-firebase`/`react-native-firebase`.",
+    "Criar regras de segurança e índices para Firestore.",
+    "Sincronizar dados entre cliente e nuvem com listeners ao vivo."
+  ],
+  "outcomes": [
+    "App com fluxo de autenticação funcional e protegido.",
+    "Coleções Firestore configuradas com regras compatíveis.",
+    "Documento de arquitetura cloud anexado ao repositório."
+  ],
+  "prerequisites": [
+    "Integração de API local concluída (Aula 32).",
+    "Conta Firebase institucional ativa."
+  ],
+  "tags": ["react-native", "firebase", "cloud"],
+  "duration": 180,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Firebase for Expo",
+      "url": "https://docs.expo.dev/guides/using-firebase/",
+      "type": "documentation"
+    },
+    {
+      "label": "Firestore Security Rules",
+      "url": "https://firebase.google.com/docs/firestore/security/get-started",
+      "type": "documentation"
+    }
+  ],
+  "bibliography": [
+    "FIREBASE. Documentation. Google, 2024.",
+    "RODRIGUES, M. Serverless Mobile Apps. Packt, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega da oficina: fluxo de autenticação e coleção Firestore funcional registrados em vídeo curto + checklist de segurança."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (180 min)",
+      "items": [
+        "(20 min) Visão geral do ecossistema Firebase e requisitos de segurança.",
+        "(40 min) Configuração guiada: criação de projeto, app web e variáveis ambiente.",
+        "(50 min) Implementação: Authentication com email/senha e providers sociais.",
+        "(50 min) Firestore em ação: coleções, listeners e sincronização offline.",
+        "(20 min) Consolidação: checklist de segurança, testes e planejamento da TED."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Atenção à segurança",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O plano de ensino exige que qualquer integração cloud cumpra requisitos de LGPD e segurança. Revise as regras do Firestore e evite publicar chaves sensíveis no repositório."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Etapas da oficina",
+      "cards": [
+        {
+          "icon": "users",
+          "title": "Autenticação",
+          "content": "Implementar login/cadastro com validação e tratamento de erros."
+        },
+        {
+          "icon": "database",
+          "title": "Persistência",
+          "content": "Criar coleções Firestore e sincronizar dados em tempo real."
+        },
+        {
+          "icon": "settings",
+          "title": "Segurança",
+          "content": "Escrever regras, configurar índices e validar acesso conforme papéis."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist de integração cloud",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Setup",
+          "tone": "info",
+          "items": [
+            "Projeto Firebase criado com usuários registrados.",
+            "Credenciais armazenadas em `.env` e `app.config.ts`.",
+            "SDKs instalados e configurados no Expo."
+          ]
+        },
+        {
+          "title": "Autenticação",
+          "tone": "primary",
+          "items": [
+            "Fluxo de login/cadastro com feedback MD3.",
+            "Reset de senha e verificação de email opcional.",
+            "Proteção de rotas autenticadas no React Navigation."
+          ]
+        },
+        {
+          "title": "Firestore",
+          "tone": "secondary",
+          "items": [
+            "Coleções com índices e regras baseadas em usuário.",
+            "Sync offline habilitado com `enableIndexedDbPersistence`.",
+            "Listeners removidos corretamente para evitar vazamentos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Fluxo de dados com Firebase",
+      "steps": [
+        {
+          "title": "Autenticar",
+          "content": "Usuário envia credenciais, Firebase Auth valida e retorna token."
+        },
+        {
+          "title": "Autorizar",
+          "content": "Aplicativo injeta token em cabeçalhos e aplica regras de segurança."
+        },
+        {
+          "title": "Sincronizar",
+          "content": "Listeners atualizam UI em tempo real e persistem dados offline."
+        },
+        {
+          "title": "Monitorar",
+          "content": "Logar atividades com Firebase Analytics/Crashlytics para auditoria."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da TED – Integração Firebase",
+      "summary": "Atividade avaliativa que valida segurança e sincronização em nuvem.",
+      "stages": [
+        {
+          "id": "configuracao",
+          "title": "Configuração",
+          "summary": "Preparar projeto e chaves.",
+          "owners": ["Grupo"],
+          "durationHours": 2,
+          "activities": [
+            {
+              "id": "console",
+              "label": "Configurar console",
+              "description": "Criar projeto Firebase, app web e ativar Authentication/Firestore."
+            },
+            {
+              "id": "variaveis",
+              "label": "Gerenciar chaves",
+              "description": "Adicionar variáveis em `.env` e configurar `app.config.ts`."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "credenciais",
+              "label": "Credenciais seguras",
+              "description": "Arquivo `.env` armazenado com segurança e compartilhado via cofre institucional."
+            }
+          ],
+          "risks": [
+            {
+              "id": "vazamento",
+              "label": "Vazamento de chaves",
+              "severity": "high",
+              "mitigation": "Usar gitignore, secrets do GitHub e revisão dupla antes de commits."
+            }
+          ],
+          "checkpoints": ["Projeto criado", "Chaves seguras"]
+        },
+        {
+          "id": "implementacao",
+          "title": "Implementação",
+          "summary": "Desenvolver fluxo de autenticação e persistência.",
+          "owners": ["Grupo"],
+          "durationHours": 4,
+          "activities": [
+            {
+              "id": "auth",
+              "label": "Implementar Auth",
+              "description": "Cadastrar/login usuário, tratar erros e proteger rotas."
+            },
+            {
+              "id": "crud",
+              "label": "CRUD Firestore",
+              "description": "Criar/atualizar documentos com listeners em tempo real."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "branch",
+              "label": "Branch `feature/firebase`",
+              "description": "Push com código funcional e testes básicos."
+            }
+          ],
+          "risks": [
+            {
+              "id": "quota",
+              "label": "Limite de quota",
+              "severity": "medium",
+              "mitigation": "Configurar regras para evitar escritas excessivas e usar mocks em testes."
+            }
+          ],
+          "checkpoints": ["Auth funcionando", "Firestore sincronizando"]
+        },
+        {
+          "id": "validacao",
+          "title": "Validação",
+          "summary": "Testes, segurança e documentação.",
+          "owners": ["Grupo"],
+          "durationHours": 1.5,
+          "activities": [
+            {
+              "id": "regras",
+              "label": "Testar regras",
+              "description": "Usar Firebase Emulator Suite para validar permissões."
+            },
+            {
+              "id": "video",
+              "label": "Gravar walkthrough",
+              "description": "Vídeo curto demonstrando fluxo de login e sincronização."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "checklist",
+              "label": "Checklist de segurança",
+              "description": "Documento anexado no AVA com resultados dos testes."
+            }
+          ],
+          "risks": [
+            {
+              "id": "falha-seguranca",
+              "label": "Regras permissivas",
+              "severity": "high",
+              "mitigation": "Revisão cruzada e uso de simulador antes de publicar."
+            }
+          ],
+          "checkpoints": ["Regras aprovadas", "Vídeo enviado"]
+        }
+      ]
+    }
+  ]
+}

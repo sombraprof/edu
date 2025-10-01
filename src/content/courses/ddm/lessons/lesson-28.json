@@ -1,0 +1,271 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-28",
+  "title": "Aula 28: Unidade VI – Nativo vs Híbrido: Estratégias de Plataforma",
+  "slug": "nativo-vs-hibrido-estrategias",
+  "summary": "Compara abordagens nativas e híbridas, mapeando critérios técnicos, de produto e de equipe para orientar escolhas informadas em projetos móveis.",
+  "objective": "Avaliar criticamente alternativas nativas e híbridas, escolhendo a abordagem mais adequada para cenários reais de produto.",
+  "objectives": [
+    "Listar os principais diferenciais de apps nativos, híbridos e cross-platform.",
+    "Analisar impactos de manutenção, performance e experiência em cada abordagem.",
+    "Construir uma matriz de decisão alinhada às metas do produto e restrições da equipe."
+  ],
+  "competencies": [
+    "Avaliação de trade-offs tecnológicos",
+    "Planejamento de produtos móveis",
+    "Comunicação técnica baseada em evidências"
+  ],
+  "skills": [
+    "Conduzir análises comparativas de plataformas móveis.",
+    "Traduzir requisitos de negócio em critérios técnicos.",
+    "Apresentar recomendações sustentadas por dados e métricas."
+  ],
+  "outcomes": [
+    "Mapeia vantagens e limitações de abordagens nativas e híbridas.",
+    "Defende uma estratégia de plataforma alinhada ao roadmap do produto.",
+    "Entrega uma matriz de decisão reutilizável pela equipe."
+  ],
+  "prerequisites": [
+    "Conceitos de arquitetura mobile e ciclo de vida de apps.",
+    "Experiência prévia com desenvolvimento Android nativo."
+  ],
+  "tags": ["estrategia", "mobile", "react-native"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Choosing a mobile app framework",
+      "url": "https://developer.android.com/guide/platform/app-architecture",
+      "type": "article"
+    },
+    {
+      "label": "Flutter vs React Native vs Kotlin Multiplatform (Thoughtworks Radar)",
+      "url": "https://www.thoughtworks.com/radar/techniques",
+      "type": "report"
+    }
+  ],
+  "bibliography": [
+    "THOUGHTWORKS. Technology Radar, Vol. 29, 2024.",
+    "ALBERTS, J. Mobile Strategy Essentials. O'Reilly, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Matriz comparativa justificando a abordagem recomendada para o projeto integrador (registrada na planilha de acompanhamento da disciplina)."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (120 min)",
+      "items": [
+        "(10 min) Warm-up: recapitulando aprendizados nativos da Unidade V.",
+        "(25 min) Exposição guiada: panorama nativo x híbrido x multiplataforma.",
+        "(30 min) Estudo de caso: benchmark de apps brasileiros e internacionais.",
+        "(35 min) Oficina orientada: construção da matriz de decisão do projeto.",
+        "(20 min) Socialização e feedback cruzado + alinhamento da TED da semana."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Conexão com o plano de ensino",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta aula dá início à Unidade VI (Desenvolvimento Multiplataforma). A entrega assíncrona (TED) prevista no plano de ensino exige que cada grupo justifique a arquitetura escolhida para o MVP. Use os critérios apresentados aqui para embasar essa decisão."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Mapa da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Competência",
+          "content": "Selecionar a estratégia de plataforma mais aderente ao problema de negócio."
+        },
+        {
+          "icon": "users",
+          "title": "Metodologia",
+          "content": "Aula dialogada + estudo de caso colaborativo + discussão orientada."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Evidência",
+          "content": "Matriz de decisão preenchida e comentada no mural da disciplina."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Critérios para comparar abordagens",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Experiência do usuário",
+          "subtitle": "Performance e UX",
+          "tone": "primary",
+          "items": [
+            "FPS e fluidez em animações complexas.",
+            "Acesso a APIs nativas e hardware.",
+            "Consistência com guias de plataforma."
+          ]
+        },
+        {
+          "title": "Equipes e processos",
+          "subtitle": "Capacitação",
+          "tone": "secondary",
+          "items": [
+            "Stack já dominada pelo time.",
+            "Curva de aprendizado e onboarding.",
+            "Ferramentas de CI/CD disponíveis."
+          ]
+        },
+        {
+          "title": "Negócio e operação",
+          "subtitle": "Time-to-market",
+          "tone": "info",
+          "items": [
+            "Custo de manutenção a longo prazo.",
+            "Roadmap e dispositivos suportados.",
+            "Compliance com lojas e parceiros."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Linha do tempo de decisão",
+      "steps": [
+        {
+          "title": "Diagnóstico",
+          "content": "Mapeie requisitos funcionais, dispositivos alvo e restrições da organização."
+        },
+        {
+          "title": "Seleção de critérios",
+          "content": "Priorize critérios técnicos, de UX e de negócio com o patrocinador."
+        },
+        {
+          "title": "Avaliação de alternativas",
+          "content": "Pontue nativo, híbrido e multiplataforma considerando riscos e oportunidades."
+        },
+        {
+          "title": "Recomendação",
+          "content": "Documente a abordagem vencedora, indicando planos de mitigação para pontos fracos."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da TED – Matriz de decisão",
+      "summary": "Atividade assíncrona prevista no plano de ensino para consolidar a Unidade VI.",
+      "stages": [
+        {
+          "id": "levantamento",
+          "title": "Levantamento de requisitos",
+          "summary": "Consolidar expectativas do cliente interno.",
+          "owners": ["Grupo"],
+          "durationHours": 2,
+          "activities": [
+            {
+              "id": "briefing",
+              "label": "Revisar briefing do projeto",
+              "description": "Listar objetivos, métricas e restrições de prazo."
+            },
+            {
+              "id": "personas",
+              "label": "Atualizar personas",
+              "description": "Identificar necessidades críticas de UX."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "resumo",
+              "label": "Resumo executivo",
+              "description": "Documento compartilhado no drive da turma."
+            }
+          ],
+          "risks": [
+            {
+              "id": "informacao",
+              "label": "Requisitos incompletos",
+              "severity": "medium",
+              "mitigation": "Solicitar validação com o professor até 24h após a aula."
+            }
+          ],
+          "checkpoints": ["Objetivos claros", "Stakeholders confirmados"]
+        },
+        {
+          "id": "comparacao",
+          "title": "Comparação das abordagens",
+          "summary": "Pontuar nativo, híbrido e cross-platform.",
+          "owners": ["Grupo"],
+          "durationHours": 3,
+          "activities": [
+            {
+              "id": "pesquisa",
+              "label": "Coletar benchmarks",
+              "description": "Usar relatórios de mercado e experiências da turma."
+            },
+            {
+              "id": "matriz",
+              "label": "Preencher matriz",
+              "description": "Atribuir pesos e justificativas para cada critério."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "planilha",
+              "label": "Matriz comparativa",
+              "description": "Planilha atualizada no AVA até sexta-feira, 23h59."
+            }
+          ],
+          "risks": [
+            {
+              "id": "viés",
+              "label": "Viés de familiaridade",
+              "severity": "high",
+              "mitigation": "Buscar opinião de pelo menos um colega de outro grupo."
+            }
+          ],
+          "checkpoints": ["Critérios pontuados", "Justificativas registradas"]
+        },
+        {
+          "id": "validacao",
+          "title": "Validação e registro",
+          "summary": "Garantir aderência ao plano de ensino.",
+          "owners": ["Grupo"],
+          "durationHours": 1,
+          "activities": [
+            {
+              "id": "feedback",
+              "label": "Coletar feedback",
+              "description": "Compartilhar a matriz no fórum da disciplina."
+            },
+            {
+              "id": "ajustes",
+              "label": "Ajustar recomendações",
+              "description": "Atualizar a justificativa conforme orientações recebidas."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "post",
+              "label": "Postagem no AVA",
+              "description": "Resumo da decisão com evidências anexas."
+            }
+          ],
+          "risks": [
+            {
+              "id": "atraso",
+              "label": "Atraso no feedback",
+              "severity": "low",
+              "mitigation": "Registrar dúvidas no mural até 48h antes do prazo final."
+            }
+          ],
+          "checkpoints": ["Feedback recebido", "TED concluída"]
+        }
+      ]
+    }
+  ]
+}

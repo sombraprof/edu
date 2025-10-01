@@ -157,6 +157,83 @@
       "formatVersion": "md3.lesson.v1"
     },
     {
+      "id": "lesson-28",
+      "title": "Aula 28: Unidade VI – Nativo vs Híbrido: Estratégias de Plataforma",
+      "file": "lesson-28.json",
+      "available": true,
+      "description": "Compara abordagens nativas, híbridas e multiplataforma para orientar decisões estratégicas do projeto integrador.",
+      "summary": "Analisa critérios técnicos, de equipe e de negócio para selecionar a abordagem móvel mais adequada, culminando em matriz de decisão alinhada ao plano de ensino.",
+      "tags": ["estrategia", "mobile", "react-native"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-29",
+      "title": "Aula 29: Unidade VI – Setup Expo e Fundamentos do React Native",
+      "file": "lesson-29.json",
+      "available": true,
+      "description": "Configura o ambiente Expo/React Native e orienta a criação da primeira tela do MVP.",
+      "summary": "Prepara o ambiente Expo, estrutura o projeto inicial e orienta o checklist obrigatório de setup previsto no plano de ensino.",
+      "tags": ["react-native", "expo", "setup"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-30",
+      "title": "Aula 30: Unidade VI – Avaliação NP2 (Prova Integrada)",
+      "file": "lesson-30.json",
+      "available": true,
+      "description": "Aplica a avaliação NP2 integrando implementação prática em React Native e relatório comparativo nativo x híbrido.",
+      "summary": "Realiza a prova NP2 com desafio prático e relatório técnico, aferindo competências das Unidades III a VI.",
+      "tags": ["avaliacao", "np2", "react-native"],
+      "duration": 160,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-31",
+      "title": "Aula 31: Unidade VI – Navegação com React Navigation",
+      "file": "lesson-31.json",
+      "available": true,
+      "description": "Implementa fluxo de navegação completo no app Expo com React Navigation e padrões MD3.",
+      "summary": "Constrói rotas Stack, Tab e modais, configurando deep linking e acessibilidade para a entrega parcial do projeto.",
+      "tags": ["react-native", "react-navigation", "navegacao"],
+      "duration": 140,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-32",
+      "title": "Aula 32: Unidade VI – Consumo de APIs e Estado no React Native",
+      "file": "lesson-32.json",
+      "available": true,
+      "description": "Ensina a consumir APIs REST no app Expo com React Query, tratando estados assíncronos e caching offline.",
+      "summary": "Integra endpoints remotos ao app, aplicando TanStack Query, AsyncStorage e boas práticas de resiliência.",
+      "tags": ["react-native", "api", "react-query"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-33",
+      "title": "Aula 33: Unidade VI – Revisão Prática Integrada",
+      "file": "lesson-33.json",
+      "available": true,
+      "description": "Realiza clínica de revisão do projeto integrador, consolidando ajustes e plano de apresentação.",
+      "summary": "Orienta revisão cruzada de código, testes e storytelling para preparar a entrega final da disciplina.",
+      "tags": ["revisao", "projeto", "qualidade"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-34",
+      "title": "Aula 34: Unidade VI – Oficina React Native + Firebase",
+      "file": "lesson-34.json",
+      "available": true,
+      "description": "Integra o app Expo com Firebase Authentication e Firestore, enfatizando segurança e sincronização em tempo real.",
+      "summary": "Implementa autenticação, persistência cloud e regras de segurança no Firebase como base para o MVP final.",
+      "tags": ["react-native", "firebase", "cloud"],
+      "duration": 180,
+      "formatVersion": "md3.lesson.v1"
+    },
+      {
       "id": "lesson-35",
       "title": "Aula 35: Projeto Integrador – Planejamento Final",
       "file": "lesson-35.json",

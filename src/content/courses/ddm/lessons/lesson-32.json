@@ -1,0 +1,263 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-32",
+  "title": "Aula 32: Unidade VI – Consumo de APIs e Estado no React Native",
+  "slug": "consumo-api-react-native",
+  "summary": "Implementa consumo de APIs REST com React Query/Axios, trata estados de carregamento/erro e sincroniza dados com armazenamento local.",
+  "objective": "Capacitar os estudantes a integrar APIs externas ao app Expo, garantindo resiliência, caching e experiência consistente offline-first.",
+  "objectives": [
+    "Configurar cliente HTTP e camadas de serviço alinhadas ao projeto.",
+    "Implementar hooks para requisições e gerenciamento de estados com React Query.",
+    "Sincronizar dados com AsyncStorage garantindo suporte offline básico."
+  ],
+  "competencies": [
+    "Integração com APIs REST",
+    "Gerenciamento de estado assíncrono",
+    "Arquitetura limpa em projetos React Native"
+  ],
+  "skills": [
+    "Criar hooks de dados reutilizáveis.",
+    "Tratar estados loading, error e success com feedback visual MD3.",
+    "Persistir cache em AsyncStorage e invalidar dados conforme regras."
+  ],
+  "outcomes": [
+    "App com tela que consome API real e apresenta dados com fallback offline.",
+    "Logs estruturados de erros e estratégias de retry implementadas.",
+    "Documento de integração descrevendo endpoints e fluxos de sincronização."
+  ],
+  "prerequisites": [
+    "Navegação implementada (Aula 31).",
+    "Conhecimentos de fetch/async-await e promessas."
+  ],
+  "tags": ["react-native", "api", "react-query"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "TanStack Query for React Native",
+      "url": "https://tanstack.com/query/latest/docs/react-native/overview",
+      "type": "documentation"
+    },
+    {
+      "label": "AsyncStorage Guide",
+      "url": "https://react-native-async-storage.github.io/async-storage/docs/usage",
+      "type": "documentation"
+    }
+  ],
+  "bibliography": [
+    "TANSTACK. Query Documentation. 2024.",
+    "NADER, A. React Native in Action. Manning, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega incremental do projeto com integração de API e cache offline validados via checklist no AVA."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (150 min)",
+      "items": [
+        "(15 min) Revisão dos fluxos de navegação implementados.",
+        "(35 min) Exposição: camadas de serviço, TanStack Query e estratégias offline-first.",
+        "(40 min) Live coding: hook `useTasks` consumindo endpoint REST protegido.",
+        "(40 min) Oficina: integração no app do grupo com feedback visual MD3.",
+        "(20 min) Alinhamento da TED: testes de resiliência e documentação da API."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Entregável alinhado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta aula alimenta a atividade avaliativa da semana, na qual cada grupo precisa demonstrar consumo de pelo menos um endpoint real do backend institucional (ou mock autorizado) e relatar estratégias de caching."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Pilares do encontro",
+      "cards": [
+        {
+          "icon": "database",
+          "title": "Camada de dados",
+          "content": "Serviços HTTP, adaptadores e modelos tipados compartilhados."
+        },
+        {
+          "icon": "gears",
+          "title": "Estado assíncrono",
+          "content": "TanStack Query para sincronização, cache e retries automáticos."
+        },
+        {
+          "icon": "monitor",
+          "title": "Experiência offline",
+          "content": "Persistência em AsyncStorage, placeholders e indicadores MD3."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist de integração",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Configuração",
+          "tone": "info",
+          "items": [
+            "Instalar Axios/TanStack Query.",
+            "Criar cliente HTTP com interceptors.",
+            "Configurar QueryClientProvider no root."
+          ]
+        },
+        {
+          "title": "Implementação",
+          "tone": "primary",
+          "items": [
+            "Hook customizado com tipagem forte.",
+            "Feedback visual para loading/erro usando componentes MD3.",
+            "Uso de `invalidateQueries` após mutações."
+          ]
+        },
+        {
+          "title": "Offline",
+          "tone": "secondary",
+          "items": [
+            "PersistQueryClientProvider com AsyncStorage.",
+            "Fallback para dados em cache quando offline.",
+            "Monitoramento de conectividade com `expo-network`."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Fluxo de dados",
+      "steps": [
+        {
+          "title": "Requisição",
+          "content": "Cliente HTTP envia request com headers configurados (token, idioma)."
+        },
+        {
+          "title": "Resposta",
+          "content": "Hook recebe dados, processa transformações e atualiza cache."
+        },
+        {
+          "title": "Sincronização",
+          "content": "Dados persistidos localmente e atualizados quando houver conectividade."
+        },
+        {
+          "title": "Monitoramento",
+          "content": "Logs e métricas coletados via Sentry/Expo para análise posterior."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da TED – Integração de API",
+      "summary": "Entrega obrigatória que valida a competência de integração remota.",
+      "stages": [
+        {
+          "id": "briefing",
+          "title": "Briefing com o backend",
+          "summary": "Entender contratos e limites.",
+          "owners": ["Grupo"],
+          "durationHours": 1,
+          "activities": [
+            {
+              "id": "reuniao",
+              "label": "Reunião com squad backend",
+              "description": "Alinhar endpoints, autenticação e limites de uso."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "notas",
+              "label": "Notas compartilhadas",
+              "description": "Documento com endpoints, payloads e SLA."
+            }
+          ],
+          "risks": [
+            {
+              "id": "mudanca",
+              "label": "Mudança de contrato",
+              "severity": "medium",
+              "mitigation": "Registrar versão e acompanhar change log do backend."
+            }
+          ],
+          "checkpoints": ["Contratos confirmados"]
+        },
+        {
+          "id": "desenvolvimento",
+          "title": "Desenvolvimento",
+          "summary": "Codificar hooks, componentes e estados.",
+          "owners": ["Grupo"],
+          "durationHours": 4,
+          "activities": [
+            {
+              "id": "hook",
+              "label": "Criar hook",
+              "description": "Implementar `useTasks`/`useUsers` com caching e retries."
+            },
+            {
+              "id": "ui",
+              "label": "Atualizar UI",
+              "description": "Renderizar estados loading/empty/error com componentes MD3."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "branch",
+              "label": "Branch `feature/api-integration`",
+              "description": "Código versionado com testes básicos."
+            }
+          ],
+          "risks": [
+            {
+              "id": "erros-api",
+              "label": "Instabilidade da API",
+              "severity": "high",
+              "mitigation": "Configurar retries exponenciais e mocks locais."
+            }
+          ],
+          "checkpoints": ["Hook funcional", "UI atualizada"]
+        },
+        {
+          "id": "qualidade",
+          "title": "Qualidade",
+          "summary": "Testes e documentação.",
+          "owners": ["Grupo"],
+          "durationHours": 1.5,
+          "activities": [
+            {
+              "id": "testes",
+              "label": "Rodar testes",
+              "description": "Executar `npm run test`/`npm run lint` e simular offline."
+            },
+            {
+              "id": "documentar",
+              "label": "Atualizar docs",
+              "description": "Adicionar README com instruções e limites da API."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "relatorio",
+              "label": "Relatório de integração",
+              "description": "Checklist preenchido e arquivo PDF submetido até domingo."
+            }
+          ],
+          "risks": [
+            {
+              "id": "prazo-curto",
+              "label": "Atraso na documentação",
+              "severity": "medium",
+              "mitigation": "Designar responsável específico para documentação desde o início."
+            }
+          ],
+          "checkpoints": ["Testes rodados", "Relatório anexado"]
+        }
+      ]
+    }
+  ]
+}
