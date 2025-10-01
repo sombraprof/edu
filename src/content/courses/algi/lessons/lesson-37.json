@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-37",
-  "title": "Aula 37: Busca e Atualização em Vetores de Structs",
+  "title": "Busca e Atualização em Vetores de Structs",
   "summary": "Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria.",
   "description": "Aprofunda operações de busca, atualização e remoção em vetores de structs com foco em integridade.",
   "objective": "Desenvolver habilidades para localizar, atualizar e remover registros em vetores de structs, garantindo integridade dos dados.",
@@ -10,7 +10,7 @@
     "Atualizar campos selecionados mantendo histórico mínimo.",
     "Realizar remoção lógica e física comparando abordagens."
   ],
-  "competencies": ["05", "08", "12"],
+  "competencies": ["05", "12"],
   "skills": [
     "Implementar buscas flexíveis em vetores de structs utilizando filtros variados.",
     "Aplicar auditoria registrando histórico de alterações e validações.",

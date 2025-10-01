@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-31",
-  "title": "Aula 31: Operações e Transformações com Vetores",
+  "title": "Operações e Transformações com Vetores",
   "summary": "Explora padrões de somatório, normalização e geração de tabelas a partir de vetores, consolidando o domínio de loops e acumuladores.",
   "description": "Explora operações de somatório, normalização e geração de tabelas de frequência com vetores.",
   "objective": "Aplicar percursos sobre vetores para executar operações agregadas e construir tabelas de frequência ou rankings simples.",
@@ -10,7 +10,7 @@
     "Construir tabelas de frequência a partir de dados numéricos.",
     "Interpretar impactos de operações em tempo e memória."
   ],
-  "competencies": ["05", "08", "11"],
+  "competencies": ["05", "08"],
   "skills": [
     "Projetar transformações sobre vetores utilizando acumuladores e normalizações.",
     "Validar resultados comparando totais, médias e discrepâncias detectadas.",

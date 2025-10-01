@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-22",
-  "title": "Aula 22: Integrando Laços e Condicionais",
+  "title": "Integrando Laços e Condicionais",
   "summary": "Integra estruturas de repetição com decisões complexas para tratar fluxos completos de processamento.",
   "description": "Integra validação, processamento iterativo e relatórios usando laços combinados com condicionais.",
   "objective": "Construir rotinas robustas que combinem laços e condicionais com validação e relatórios de execução.",
@@ -10,7 +10,7 @@
     "Implementar validações de entrada antes de iniciar ciclos.",
     "Gerar relatórios consolidados ao final do processamento."
   ],
-  "competencies": ["02", "05", "08"],
+  "competencies": ["02", "05"],
   "skills": [
     "Combinar condicionais e laços para construir fluxos completos de processamento.",
     "Monitorar estados intermediários usando logs ou tabelas de acompanhamento.",
