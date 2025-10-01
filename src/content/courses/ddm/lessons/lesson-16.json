@@ -1,0 +1,178 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-16",
+  "title": "Aula 16: Unidade III – Estruturando o RoomDatabase e Migrações",
+  "slug": "roomdatabase-e-migracoes",
+  "summary": "Aprofunda a construção da classe RoomDatabase, configuração de provedores, migrações e testes instrumentados para garantir persistência local confiável.",
+  "objective": "Construir uma base Room robusta com provedores de dependência, migrações controladas e verificações automatizadas.",
+  "objectives": [
+    "Configurar a classe RoomDatabase com padrão singleton seguro.",
+    "Criar migrações básicas entre versões do banco.",
+    "Integrar o Room com corrotinas e Flow para leitura reativa.",
+    "Validar a persistência com testes instrumentados simples."
+  ],
+  "competencies": [
+    "Arquitetura de dados em Android",
+    "Boas práticas de persistência local",
+    "Garantia de qualidade em banco de dados mobile"
+  ],
+  "skills": [
+    "Implementar RoomDatabase com instância compartilhada.",
+    "Escrever classes Migration controlando alterações de schema.",
+    "Configurar testes instrumentados para operações de banco.",
+    "Utilizar Flow/LiveData para observar mudanças nos dados."
+  ],
+  "outcomes": [
+    "Entende o ciclo de vida da base Room dentro do aplicativo.",
+    "Entrega uma migração funcional entre versões 1 e 2 do schema.",
+    "Documenta o setup do banco e publica evidências no Moodle."
+  ],
+  "prerequisites": [
+    "Aula 14 – Introdução ao Room: Entities e DAO.",
+    "Familiaridade com corrotinas em Kotlin."
+  ],
+  "tags": ["android", "room", "migracoes", "persistencia"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Room database reference",
+      "url": "https://developer.android.com/reference/androidx/room/RoomDatabase",
+      "type": "reference"
+    },
+    {
+      "label": "Guide to Room migrations",
+      "url": "https://developer.android.com/training/data-storage/room/migrating-db-versions",
+      "type": "article"
+    },
+    {
+      "label": "Testing Room databases",
+      "url": "https://developer.android.com/training/data-storage/room/testing-db",
+      "type": "article"
+    }
+  ],
+  "bibliography": [
+    "ANDROID DEVELOPERS. Migrate Room databases. 2024.",
+    "FARQUHAR, I. et al. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2023.",
+    "GOYAL, M. Android Room Database. Apress, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Revisão por pares do módulo RoomDatabase com checklist de migrações e testes automatizados."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Recapitular componentes Room: Entity, DAO e Database.",
+        "Desenhar o ciclo de inicialização da RoomDatabase.",
+        "Configurar instância singleton com Room.databaseBuilder().",
+        "Criar MIGRATION_1_2 adicionando nova coluna.",
+        "Projeto prático: preparar módulo de persistência reutilizável.",
+        "Testes instrumentados: validar inserção/leitura.",
+        "TED e avisos Moodle para consolidação."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Construindo a classe RoomDatabase",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mostramos o padrão recomendado para expor a instância da base usando o contexto de aplicação e evitando vazamentos."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Database(entities = [Produto::class], version = 2, exportSchema = true)\nabstract class AppDatabase : RoomDatabase() {\n    abstract fun produtoDao(): ProdutoDao\n\n    companion object {\n        @Volatile\n        private var INSTANCE: AppDatabase? = null\n\n        fun getInstance(context: Context): AppDatabase {\n            return INSTANCE ?: synchronized(this) {\n                val instance = Room.databaseBuilder(\n                    context.applicationContext,\n                    AppDatabase::class.java,\n                    \"catalogo.db\"\n                )\n                    .addMigrations(MIGRATION_1_2)\n                    .fallbackToDestructiveMigrationOnDowngrade()\n                    .build()\n                INSTANCE = instance\n                instance\n            }\n        }\n    }\n}"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Boas práticas",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Prefira applicationContext para evitar leaks.",
+                "Documente as versões do schema no README do projeto.",
+                "ExportSchema=true facilita auditorias e diffs de migração."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Projeto prático: módulo de persistência reutilizável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em trios, refatoramos o app catálogo criando um pacote data com AppDatabase, DAOs e providers de dependência (Hilt/Koin opcional)."
+        },
+        {
+          "type": "subBlock",
+          "title": "Entregáveis da aula",
+          "items": [
+            "Classe AppDatabase configurada.",
+            "Arquivo de provider (object ou módulo DI) retornando o DAO.",
+            "Teste instrumentado que insere e recupera um Produto.",
+            "Documento explicando as migrações registradas até o momento."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Migrações em prática",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Criamos uma nova coluna \"favorito\" na tabela Produto para ilustrar migrações incrementais."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "val MIGRATION_1_2 = object : Migration(1, 2) {\n    override fun migrate(database: SupportSQLiteDatabase) {\n        database.execSQL(\n            \"ALTER TABLE produto ADD COLUMN favorito INTEGER NOT NULL DEFAULT 0\"\n        )\n    }\n}"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED 16 – Documentação técnica da base de dados",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escreva um documento de 1 página descrevendo o fluxo de inicialização do RoomDatabase e as migrações criadas. Inclua captura do teste instrumentado rodando com sucesso."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Detalhar responsabilidades de cada classe do pacote data.",
+            "Explicar como o app garante instância única.",
+            "Registrar próximos passos para migrações 2_3 e 3_4."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Avisos Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Submeta o PDF da documentação, o script SQL da migração e o relatório de testes em Moodle > Unidade III > Aula 16 até 23h59 de amanhã."
+        },
+        {
+          "type": "paragraph",
+          "text": "Atualize o repositório no Moodle Classroom com a branch \"feature/roomdatabase\" antes da aula 17."
+        }
+      ]
+    }
+  ]
+}

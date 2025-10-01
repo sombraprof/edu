@@ -1,0 +1,154 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-17",
+  "title": "Aula 17: Unidade III – CRUD com Room (Parte 1)",
+  "slug": "crud-room-parte-1",
+  "summary": "Implementa operações de criação e leitura com Room, conectando formulários Kotlin/Android à camada de persistência local com corrotinas.",
+  "objective": "Construir o fluxo de cadastro e listagem de dados persistidos com Room, garantindo validação e feedback ao usuário.",
+  "objectives": [
+    "Criar formulários para inserir registros usando DAO e corrotinas.",
+    "Listar dados persistidos com Flow/LiveData e RecyclerView.",
+    "Aplicar validações básicas antes da persistência.",
+    "Organizar a camada de repositório para desacoplamento da UI."
+  ],
+  "competencies": [
+    "Desenvolvimento full-stack mobile",
+    "Persistência local reativa",
+    "Boas práticas de UX com dados persistidos"
+  ],
+  "skills": [
+    "Conectar DAO a corrotinas e Flow.",
+    "Implementar repositórios intermediários.",
+    "Construir listas reativas com DiffUtil.",
+    "Validar entradas de formulário antes de salvar."
+  ],
+  "outcomes": [
+    "Entrega formulário funcional que salva dados no Room.",
+    "Lista registros em RecyclerView observando o banco.",
+    "Publica gravação da funcionalidade e checklist no Moodle."
+  ],
+  "prerequisites": ["Aula 16 – Estruturando o RoomDatabase.", "Domínio de RecyclerView básico."],
+  "tags": ["android", "room", "crud", "persistencia"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Room with a view codelab",
+      "url": "https://developer.android.com/codelabs/android-room-with-a-view-kotlin",
+      "type": "codelab"
+    },
+    {
+      "label": "RecyclerView documentation",
+      "url": "https://developer.android.com/guide/topics/ui/layout/recyclerview",
+      "type": "reference"
+    },
+    {
+      "label": "Kotlin coroutines on Android",
+      "url": "https://developer.android.com/kotlin/coroutines",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "ANDROID DEVELOPERS. Room with a View. 2024.",
+    "GOYAL, M. Android Room Database. Apress, 2023.",
+    "MEDNICK, R. Kotlin Coroutines by Tutorials. raywenderlich, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de funcionalidades CRUD (Create + Read) validado por vídeo demonstrativo entregue no Moodle."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Revisar arquitetura: UI → ViewModel/Repository → DAO.",
+        "Configurar corrotinas no módulo data.",
+        "Implementar inserção com suspend fun insert().",
+        "Construir listagem reativa com Flow.asLiveData().",
+        "Projeto prático: tela de cadastro + lista.",
+        "Checklist TED e avisos Moodle."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de criação: do formulário ao DAO",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mostramos como validar campos, construir o objeto e chamar o DAO usando corrotinas no escopo do ViewModel."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "class ProdutoViewModel(private val repository: ProdutoRepository) : ViewModel() {\n    private val _estadoFormulario = MutableLiveData<FormState>()\n    val estadoFormulario: LiveData<FormState> = _estadoFormulario\n\n    fun salvar(nome: String, preco: String) {\n        if (nome.isBlank() || preco.isBlank()) {\n            _estadoFormulario.value = FormState.Erro(\"Preencha todos os campos\")\n            return\n        }\n        viewModelScope.launch {\n            repository.inserir(Produto(nome = nome, preco = preco.toBigDecimal()))\n            _estadoFormulario.postValue(FormState.Sucesso)\n        }\n    }\n}"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Validação incremental",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Aplique máscaras ou conversões seguras para evitar NumberFormatException ao transformar strings em números."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Projeto prático: tela de cadastro e lista reativa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas, evolua o app catálogo com uma Activity/Fragment de cadastro e outra de listagem, ambas conectadas ao mesmo ViewModel."
+        },
+        {
+          "type": "subBlock",
+          "title": "Entregáveis",
+          "items": [
+            "Formulário com validações visuais (TextInputLayout ou equivalente).",
+            "ViewModel chamando repository.inserir().",
+            "RecyclerView consumindo Flow<List<Produto>> convertido em LiveData.",
+            "Indicador de carregamento enquanto a inserção ocorre."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED 17 – Vídeo demonstrativo Create + Read",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Grave um vídeo curto (3–5 minutos) demonstrando cadastro e listagem funcionando, destacando logs e validações."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Exibir o formulário preenchendo dados variados.",
+            "Mostrar o RecyclerView atualizando automaticamente.",
+            "Explicar como o repository interage com o DAO."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Avisos Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie o vídeo e o checklist Create + Read no Moodle > Unidade III > Aula 17 até 23h59 do dia seguinte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Atualize o repositório com tag `v0.3-crud` e registre no campo de entrega."
+        }
+      ]
+    }
+  ]
+}

@@ -157,6 +157,61 @@
       "formatVersion": "md3.lesson.v1"
     },
     {
+      "id": "lesson-15",
+      "title": "Aula 15: Unidade III – Revisão para NP1 e Checklist de Persistência",
+      "file": "lesson-15.json",
+      "available": true,
+      "description": "Consolida conceitos de persistência local e orienta a preparação para a avaliação NP1 com foco em Room e SharedPreferences.",
+      "summary": "Revisa estratégias de persistência, organiza o checklist da NP1 e direciona o trabalho avaliativo com base no app catálogo persistido.",
+      "tags": ["android", "room", "shared-preferences", "avaliacao"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-16",
+      "title": "Aula 16: Unidade III – Estruturando o RoomDatabase e Migrações",
+      "file": "lesson-16.json",
+      "available": true,
+      "description": "Aprofunda a implementação da classe RoomDatabase, padrões de instância e migrações para evolução segura do schema.",
+      "summary": "Detalha como configurar RoomDatabase, criar migrações e validar persistência com testes instrumentados, preparando a base para um CRUD completo.",
+      "tags": ["android", "room", "migracoes", "persistencia"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-17",
+      "title": "Aula 17: Unidade III – CRUD com Room (Parte 1)",
+      "file": "lesson-17.json",
+      "available": true,
+      "description": "Implementa operações de criação e leitura usando Room, conectando formulários Kotlin e listagens reativas à base local.",
+      "summary": "Constrói o fluxo Create + Read com Room, validando entradas e exibindo dados persistidos em RecyclerView com Flow/LiveData.",
+      "tags": ["android", "room", "crud", "persistencia"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-18",
+      "title": "Aula 18: Unidade III – CRUD com Room (Parte 2)",
+      "file": "lesson-18.json",
+      "available": true,
+      "description": "Completa o CRUD com operações de atualização e exclusão no Room, enfatizando feedbacks visuais e consistência de dados.",
+      "summary": "Finaliza o ciclo CRUD no Room com fluxos de edição e remoção, garantindo UX consistente e testes de manutenção de dados.",
+      "tags": ["android", "room", "crud", "persistencia"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-19",
+      "title": "Aula 19: Unidade III – ViewModel e LiveData para Persistência Local",
+      "file": "lesson-19.json",
+      "available": true,
+      "description": "Introduz ViewModel e LiveData como camada intermediária entre Room e a UI, garantindo reatividade e sobrevivência a mudanças de configuração.",
+      "summary": "Integra Room com ViewModel e LiveData, conectando dados persistidos à interface com observadores reativos e boas práticas de ciclo de vida.",
+      "tags": ["android", "viewmodel", "livedata", "persistencia"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+      {
       "id": "lesson-20",
       "title": "Aula 20: Unidade IV – Fundamentos de APIs REST e JSON",
       "file": "lesson-20.json",
