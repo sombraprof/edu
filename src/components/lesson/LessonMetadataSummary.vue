@@ -5,6 +5,11 @@
     </header>
 
     <div class="lesson-metadata-summary__grid">
+      <div v-if="generalObjective" class="lesson-metadata-summary__section">
+        <h4 class="lesson-metadata-summary__section-title">Objetivo geral</h4>
+        <p class="lesson-metadata-summary__text">{{ generalObjective }}</p>
+      </div>
+
       <div
         v-for="section in listSections"
         :key="section.id"
@@ -83,6 +88,7 @@ export interface LessonMetadataAssessment {
 }
 
 export interface LessonMetadataSummaryProps {
+  generalObjective?: string;
   objectives?: string[];
   competencies?: string[];
   skills?: string[];
@@ -99,6 +105,15 @@ interface MetadataSection {
   title: string;
   items: string[];
 }
+
+const generalObjective = computed(() => {
+  if (typeof props.generalObjective !== 'string') {
+    return '';
+  }
+
+  const value = props.generalObjective.trim();
+  return value.length > 0 ? value : '';
+});
 
 const listSections = computed<MetadataSection[]>(() => {
   const sections: MetadataSection[] = [];
@@ -186,7 +201,11 @@ const sanitizedAssessmentHtml = computed(() => {
 });
 
 const hasAnyContent = computed(
-  () => listSections.value.length > 0 || resources.value.length > 0 || Boolean(assessment.value)
+  () =>
+    Boolean(generalObjective.value) ||
+    listSections.value.length > 0 ||
+    resources.value.length > 0 ||
+    Boolean(assessment.value)
 );
 </script>
 
@@ -234,6 +253,13 @@ const hasAnyContent = computed(
 }
 
 .lesson-metadata-summary__list-item {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: var(--md-sys-typescale-body-medium-size, 0.9375rem);
+  line-height: 1.6;
+}
+
+.lesson-metadata-summary__text {
+  margin: 0;
   color: var(--md-sys-color-on-surface-variant);
   font-size: var(--md-sys-typescale-body-medium-size, 0.9375rem);
   line-height: 1.6;

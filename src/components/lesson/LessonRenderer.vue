@@ -50,6 +50,12 @@ const metadataSummary = computed<LessonMetadataSummaryProps | null>(() => {
   const summary: LessonMetadataSummaryProps = {};
   let hasSummary = false;
 
+  const generalObjective = toOptionalString(props.data?.objective);
+  if (generalObjective) {
+    summary.generalObjective = generalObjective;
+    hasSummary = true;
+  }
+
   const objectives = toStringArray(props.data?.objectives);
   if (objectives.length) {
     summary.objectives = objectives;
