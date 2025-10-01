@@ -1,0 +1,156 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-36",
+  "title": "Aula 36: Projeto Integrador – Ciclo de Desenvolvimento 1",
+  "slug": "projeto-integrador-ciclo-desenvolvimento-1",
+  "summary": "Conduz o primeiro ciclo acompanhando o desenvolvimento do projeto integrador com foco em incrementos priorizados, integração contínua e feedback rápido.",
+  "objective": "Garantir a entrega de incrementos funcionais planejados, validando qualidade técnica e alinhamento ao plano final.",
+  "objectives": [
+    "Sincronizar o andamento das tarefas com o backlog consolidado.",
+    "Validar a qualidade do código e das integrações por meio de revisões rápidas.",
+    "Registrar evidências de progresso em relatórios semanais e no Moodle."
+  ],
+  "competencies": ["Desenvolvimento colaborativo", "Integração contínua", "Gestão de configuração"],
+  "skills": [
+    "Conduzir daily meetings objetivas com apontamentos de bloqueios.",
+    "Aplicar code review guiado por checklist técnico.",
+    "Registrar demonstrações parciais em vídeo ou capturas de tela com narração técnica."
+  ],
+  "outcomes": [
+    "Entrega um incremento funcional integrado ao repositório principal.",
+    "Mantém documentação e quadro de tarefas atualizados com status real.",
+    "Evidencia testes realizados e pendências para o próximo ciclo."
+  ],
+  "prerequisites": [
+    "Plano final aprovado na Aula 35.",
+    "Ambiente de integração contínua configurado (GitHub Actions ou similar)."
+  ],
+  "tags": ["projeto-integrador", "desenvolvimento", "ciclo-1"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "GitHub Actions – Getting started",
+      "url": "https://docs.github.com/actions/learn-github-actions/understanding-github-actions",
+      "type": "article"
+    },
+    {
+      "label": "Checklist de Code Review do Android Jetpack",
+      "url": "https://developer.android.com/topic/libraries/architecture/guide#code-reviews",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "MARTIN, R. C. Código Limpo. 2. ed. Alta Books, 2022.",
+    "GOOGLE. Android Developers – Guia de Testes. 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica de acompanhamento para avaliar a qualidade do incremento entregue no Ciclo 1 e orientar ajustes imediatos."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Daily meeting estendida para alinhamento de prioridades.",
+        "Hands-on: implementação dos itens críticos do sprint.",
+        "Mentorias em pares focadas em integração contínua e testes automatizados.",
+        "Revisão de código orientada por checklist técnico.",
+        "Registro de evidências e atualização do relatório semanal.",
+        "Agendamento de pendências para o Ciclo 2 (Aula 37)."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica de Incremento (Ciclo 1)",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Critério", "Excelente (A)", "Adequado (B)", "Insuficiente (C)"],
+          "rows": [
+            [
+              "Funcionalidade",
+              "Incremento entrega valor completo, alinhado aos critérios de aceite, sem bugs críticos.",
+              "Funcionalidade implementada com pequenos ajustes pendentes ou bugs de baixa prioridade.",
+              "Entregável parcial, sem atender critérios essenciais ou com falhas graves."
+            ],
+            [
+              "Qualidade técnica",
+              "Código padronizado, com testes automatizados executados e integração contínua verde.",
+              "Código funcional com pequenos desvios de padrão ou cobertura de testes parcial.",
+              "Código sem revisão, sem testes ou quebrando o pipeline de CI."
+            ],
+            [
+              "Documentação",
+              "Readme e wiki atualizados com instruções do incremento e evidências de teste.",
+              "Documentação atualizada parcialmente, sem evidências completas.",
+              "Sem atualização de documentação ou instruções de execução."
+            ],
+            [
+              "Comunicação",
+              "Daily report enviado em até 2 horas após a aula com status, bloqueios e próximos passos.",
+              "Daily report entregue com atraso ou sem detalhar bloqueios.",
+              "Ausência de report ou informações incompletas."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Checklist de Entrega do Ciclo 1",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Pull request aprovado e mergeado na branch principal.",
+            "Pipeline de CI executado com sucesso e artefato disponível.",
+            "Registro de testes (logs, prints ou vídeos) anexado ao relatório.",
+            "Atualização do quadro Kanban com cartões movidos para \"Concluído\".",
+            "Daily report postado no fórum do Moodle."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Orientações de Documentação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilizem o arquivo RELEASE_NOTES.md para listar incrementos entregues e impactos em módulos. Atualizem a Wiki com instruções de configuração para QA e anexem links das pipelines executadas."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Adicionar seção \"Incremento Ciclo 1\" no README principal.",
+            "Registrar evidências de testes instrumentados no diretório docs/testes.",
+            "Arquivar gravações de demonstração no drive compartilhado e vincular na Wiki."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Aviso Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assunto: Relatório do Ciclo 1 disponível. Texto sugerido: \"Postem no fórum 'Projeto Integrador – Ciclo 1' o link para o relatório semanal, destacando o incremento integrado e eventuais bloqueios que exigem suporte docente. Prazo: até amanhã às 12h.\""
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2024-09-22T00:00:00.000Z",
+    "owners": ["Equipe DDM"],
+    "sources": ["Guia de Mentoria Ágil", "Relatórios de acompanhamento 2023"]
+  }
+}
