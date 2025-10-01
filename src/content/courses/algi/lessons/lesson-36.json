@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-36",
-  "title": "Aula 36: Vetores de Structs",
+  "title": "Vetores de Structs",
   "summary": "Constrói coleções de registros com structs em vetor e prepara o terreno para operações CRUD completas.",
   "description": "Organiza coleções de registros com structs em vetor, adicionando ordenação e relatórios.",
   "objective": "Estruturar vetores de structs para representar catálogos de dados e aplicar operações coletivas de ordenação e agregação.",
@@ -10,7 +10,7 @@
     "Aplicar ordenação simples para organizar a coleção.",
     "Documentar o estado da coleção com relatórios resumidos."
   ],
-  "competencies": ["05", "08", "12"],
+  "competencies": ["05", "12"],
   "skills": [
     "Organizar vetores de structs definindo estratégias de inserção e busca.",
     "Garantir consistência dos dados ao realizar atualizações em lote.",

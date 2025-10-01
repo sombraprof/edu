@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-35",
-  "title": "Aula 35: Introdução a Structs (Registros)",
+  "title": "Introdução a Structs (Registros)",
   "summary": "Apresenta structs em C como registros compostos e conduz um CRUD básico em memória para consolidar o modelo de dados.",
   "description": "Apresenta structs em C como registros compostos e organiza um CRUD inicial para consolidar o modelo de dados.",
   "objective": "Compreender a declaração, instância e manipulação inicial de structs em C, preparando-se para coleções de registros.",
@@ -10,7 +10,7 @@
     "Inicializar e acessar membros por ponto e ponteiros.",
     "Construir um mini-CRUD em memória com ênfase em criação e leitura."
   ],
-  "competencies": ["05", "08", "11"],
+  "competencies": ["05", "11"],
   "skills": [
     "Definir structs representando registros compostos com campos coerentes.",
     "Implementar operações CRUD em memória validando entrada e saída de dados.",

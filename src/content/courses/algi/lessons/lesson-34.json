@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-34",
-  "title": "Aula 34: Manipulações com Matrizes",
+  "title": "Manipulações com Matrizes",
   "summary": "Aprofunda o trabalho com matrizes 2D realizando transposição, somas e multiplicação para resolver problemas de relatórios e transformações.",
   "description": "Aprofunda manipulações matriciais com transposição, somas e multiplicação aplicada a indicadores.",
   "objective": "Aplicar operações clássicas de matrizes para gerar indicadores combinados e preparar o terreno para algoritmos de processamento de imagens e dados.",
@@ -10,7 +10,7 @@
     "Executar multiplicação matricial com três loops.",
     "Validar dimensões e tratar entradas inválidas."
   ],
-  "competencies": ["05", "08", "11"],
+  "competencies": ["05", "08"],
   "skills": [
     "Implementar transposição, somas e multiplicação de matrizes controlando dimensões.",
     "Testar compatibilidade entre matrizes antes de executar operações.",

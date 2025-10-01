@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-30",
-  "title": "Aula 30: Introdução a Vetores",
+  "title": "Introdução a Vetores",
   "summary": "Apresenta o conceito de vetores (arrays) em C, destacando sua utilidade na organização de dados homogêneos e no cálculo de estatísticas básicas.",
   "description": "Apresenta vetores como coleções homogêneas, destacando sintaxe em C e cálculo de estatísticas básicas.",
   "objective": "Reconhecer vetores como estruturas de dados fundamentais, compreender sua sintaxe em C e aplicar percursos lineares para obter estatísticas simples.",
@@ -10,7 +10,7 @@
     "Percorrer vetores com loops for para calcular média, mínimo e máximo.",
     "Relacionar vetores a cenários reais de armazenamento sequencial de dados."
   ],
-  "competencies": ["05", "08", "11"],
+  "competencies": ["05", "11"],
   "skills": [
     "Declarar vetores dimensionando corretamente e inicializando com dados de teste.",
     "Implementar percursos que calculem estatísticas básicas validando limites de índice.",

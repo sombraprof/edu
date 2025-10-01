@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-33",
-  "title": "Aula 33: Matrizes 2D e Geração de Tabelas",
+  "title": "Matrizes 2D e Geração de Tabelas",
   "summary": "Apresenta matrizes bidimensionais em C para organizar dados tabulares e gerar relatórios estruturados.",
   "description": "Introduz matrizes 2D, loops aninhados e geração de tabelas formatadas com dados de presença.",
   "objective": "Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar tabelas formatadas.",
@@ -10,7 +10,7 @@
     "Percorrer linhas e colunas utilizando loops aninhados.",
     "Gerar tabelas formatadas a partir de matrizes."
   ],
-  "competencies": ["05", "08", "11"],
+  "competencies": ["05", "11"],
   "skills": [
     "Mapear dados tabulares para estruturas de matrizes em C.",
     "Construir laços aninhados que preencham e apresentem tabelas formatadas.",
