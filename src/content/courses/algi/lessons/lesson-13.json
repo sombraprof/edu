@@ -5,20 +5,20 @@
   "summary": "Combina operadores lógicos e cadeias else if para tratar cenários complexos sem deixar lacunas ou sobreposições.",
   "objective": "Aplicar &&, || e ! em cadeias de decisão planejadas que cobrem todas as regras do problema.",
   "objectives": [
-    "Planejar expressões booleanas que representem faixas e combinações de critérios.",
-    "Encadear if, else if e else garantindo que apenas um ramo execute por vez.",
-    "Registrar testes que validem limites, exceções e casos negativos antes da implementação."
+    "Compor expressões lógicas combinando operadores relacionais e lógicos.",
+    "Planejar cadeias else if para atender múltiplos cenários de decisão.",
+    "Avaliar a legibilidade de condições compostas em algoritmos em C."
   ],
-  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Pensamento crítico"],
+  "competencies": ["05", "12"],
   "skills": [
-    "Combinar operadores relacionais e lógicos em expressões equivalentes.",
-    "Selecionar a ordem correta das condições em cadeias else if.",
-    "Interpretar tabelas verdade para depurar decisões compostas."
+    "Traduzir regras verbais em expressões booleanas completas.",
+    "Estruturar decisões encadeadas evitando sobreposições ou lacunas de casos.",
+    "Representar árvores de decisão simples em fluxogramas comentados."
   ],
   "outcomes": [
-    "Entrega um programa que valida múltiplos critérios sem aceitar entradas inválidas.",
-    "Justifica a ordem das condições e documenta os intervalos cobertos.",
-    "Apresenta planilha de testes com limites mínimo, máximo e casos excepcionais."
+    "Entrega programa que classifica dados com base em ao menos três faixas exclusivas.",
+    "Justifica a ordem das condições e seus efeitos ao depurar casos limítrofes.",
+    "Identifica oportunidades de simplificação usando operadores lógicos de curto-circuito."
   ],
   "prerequisites": ["Revisar if/else, switch-case e cadeias else if das aulas 10-12."],
   "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
