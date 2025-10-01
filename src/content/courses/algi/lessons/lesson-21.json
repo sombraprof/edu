@@ -30,7 +30,11 @@
       "type": "worksheet",
       "url": "https://example.edu/algi/labs/padroes-ascii.pdf"
     },
-    { "label": "Editor ASCII online", "type": "tool", "url": "https://asciiflow.com/" },
+    {
+      "label": "Editor ASCII online",
+      "type": "tool",
+      "url": "https://asciiflow.com/"
+    },
     {
       "label": "Dataset de padrões (CSV)",
       "type": "dataset",
@@ -83,8 +87,12 @@
         {
           "type": "unorderedList",
           "items": [
-            { "text": "Laço externo: controla linhas, registros ou agrupamentos maiores." },
-            { "text": "Laço interno: percorre colunas, campos ou elementos detalhados." },
+            {
+              "text": "Laço externo: controla linhas, registros ou agrupamentos maiores."
+            },
+            {
+              "text": "Laço interno: percorre colunas, campos ou elementos detalhados."
+            },
             {
               "text": "Reinicialize contadores internos ao avançar para a próxima iteração externa."
             }
@@ -147,7 +155,7 @@
       "title": "Armadilhas frequentes",
       "content": [
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Esquecer de reinicializar o índice interno gera laços infinitos ou dados corrompidos."
@@ -178,9 +186,11 @@
           "text": "Implemente um gerador de mapa de calor para notas (0 a 10) utilizando laços aninhados."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
-            { "text": "Use o laço externo para iterar alunos e o interno para iterar avaliações." },
+            {
+              "text": "Use o laço externo para iterar alunos e o interno para iterar avaliações."
+            },
             {
               "text": "Produza uma visualização textual que facilite a interpretação dos resultados."
             }

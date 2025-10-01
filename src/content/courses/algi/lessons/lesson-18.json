@@ -79,7 +79,7 @@
           "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Estrutura de Repetição for. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
@@ -182,7 +182,7 @@
           "text": "Backes (Cap. 5) recomenda testar saltos de 2, decrementos e atualizações múltiplas na mesma expressão; registre os resultados na planilha e compare-os com os limites estabelecidos por Santos (Cap. 7) para evitar extrapolar a capacidade produtiva."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Documente na planilha os valores percorridos em cada variação."
@@ -207,7 +207,7 @@
           "text": "Utilize a planilha fornecida para monitorar a produção diária de cápsulas manipuladas. Aplique laços for para calcular médias por turno, apontar desvios e gerar alertas automáticos conforme o protocolo descrito por Ascencio & Campos (Cap. 6)."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Inicialize contadores separados por turno seguindo o quadro sugerido por Forbellone & Eberspächer (Cap. 4)."
@@ -377,7 +377,7 @@
           "text": "Submeta até 23h59: código em C gerando tabuadas configuráveis para o caso da Farmácia Escola, captura do console e planilha com cenários testados seguindo o checklist de Ascencio & Campos (Cap. 6)."
         },
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Arquivo aula18_tabuada.c organizado conforme as recomendações de Forbellone & Eberspächer (Cap. 4)."
@@ -402,7 +402,7 @@
       "title": "Critérios de avaliação TED 18",
       "content": [
         {
-          "type": "unorderedList",
+          "type": "list",
           "items": [
             {
               "text": "Pensamento computacional (40%): uso correto do for com inicialização, condição e atualização claros conforme Forbellone & Eberspächer (Cap. 4)."
