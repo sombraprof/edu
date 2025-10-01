@@ -1,24 +1,24 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-19",
-  "title": "Aula 19: For versus While na Prática",
-  "summary": "Compara laços for e while em cenários reais, avaliando legibilidade, controle e riscos de cada abordagem.",
-  "objective": "Decidir conscientemente entre for e while ao implementar repetições controladas por contador ou condição dinâmica.",
+  "title": "Comparação entre for e while",
+  "summary": "Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados.",
+  "description": "A aula conduz a análise de problemas que podem ser resolvidos com for ou while, destacando critérios de escolha, refatoração cruzada e registro de evidências de teste.",
   "objectives": [
-    "Identificar critérios de escolha entre laços for e while.",
-    "Refatorar algoritmos para alternar entre estruturas mantendo a corretude.",
-    "Mensurar impacto na legibilidade e testes ao trocar o tipo de laço."
+    "Distinguir cenários ideais para laços controlados por contador e por condição.",
+    "Refatorar algoritmos simples convertendo entre for e while sem alterar resultados.",
+    "Registrar evidências que sustentem a decisão sobre a estrutura de repetição escolhida."
   ],
-  "competencies": ["Pensamento computacional", "Análise crítica de código", "Comunicação técnica"],
+  "competencies": ["02", "05"],
   "skills": [
-    "Comparar estruturas de repetição com base no contexto do problema.",
-    "Registrar testes de limite para cada variação do algoritmo.",
-    "Documentar trade-offs de manutenção entre abordagens equivalentes."
+    "Analisar invariantes de laço para justificar a seleção entre for e while.",
+    "Reorganizar inicialização, condição e atualização ao transformar um laço.",
+    "Executar testes de limites e comparar métricas de clareza nas versões produzidas."
   ],
   "outcomes": [
-    "Entrega quadros comparativos justificando a escolha da estrutura de repetição.",
-    "Mantém versões for e while com comportamentos idênticos e testes validados.",
-    "Apresenta em sala argumentos que ligam clareza de código a requisitos funcionais."
+    "Entrega tabela comparativa relacionando requisitos do problema ao laço selecionado.",
+    "Disponibiliza versões em for e while do mesmo algoritmo com saídas idênticas.",
+    "Apresenta registro escrito com riscos, mitigadores e testes aplicados durante a refatoração."
   ],
   "prerequisites": [
     "Conhecer laços while e for básicos.",
@@ -59,316 +59,132 @@
   },
   "content": [
     {
-      "type": "callout",
-      "variant": "info",
-      "title": "Warm-up (pré-aula)",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a For versus While na Prática. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
-        },
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
-            },
-            {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 19."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "book-open",
-          "title": "Provocação",
-          "content": "Revisar dois trechos equivalentes e listar diferenças percebidas (10 min)."
-        },
-        {
           "icon": "target",
-          "title": "Debate orientado",
-          "content": "Discutir critérios de escolha com argumentos baseados em clareza, testes e manutenção (25 min)."
+          "title": "Critérios de escolha",
+          "content": "Investigar quando um laço controlado por contador é mais claro do que um laço por sentinela."
         },
         {
           "icon": "code",
-          "title": "Refatoração cruzada",
-          "content": "Converter for → while e vice-versa garantindo comportamento idêntico (30 min)."
+          "title": "Refatoração guiada",
+          "content": "Converter um exemplo base escrito com for para while e o inverso, preservando invariantes."
         },
         {
           "icon": "users",
-          "title": "Feedback em mural",
-          "content": "Registrar decisões no quadro colaborativo e comentar soluções de outras duplas (20 min)."
-        },
-        {
-          "icon": "tasks",
-          "title": "Exit-ticket",
-          "content": "Escrever justificativa individual no AVA e anexar testes (20 min)."
-        }
-      ]
-    },
-    {
-      "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
-      "items": [
-        "(15 min) Aquecimento: identificar elementos em comum entre for e while.",
-        "(25 min) Análise orientada de código com refatoração live coding.",
-        "(30 min) Laboratório em duplas: trocar while por for (e vice-versa) mantendo testes.",
-        "(20 min) Debate estruturado: critérios de escolha e armadilhas.",
-        "(15 min) Construção do quadro comparativo no mural digital.",
-        "(10 min) Exit-ticket individual no AVA."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Recomendações de vídeo",
-      "videos": [
-        {
-          "youtubeId": "dQw4w9WgXcQ",
-          "title": "For vs While: quando usar cada um?"
-        },
-        {
-          "youtubeId": "J3kPPrO0KJA",
-          "title": "Debugando loops: checklist rápido"
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Quadro de refatoração cruzada",
-      "cards": [
-        {
-          "title": "Coluna A – Código original",
-          "content": "Cole trechos em for e anote o propósito do laço."
-        },
-        {
-          "title": "Coluna B – Versão alternativa",
-          "content": "Reescreva com while mantendo comportamento e indique mudanças."
-        },
-        {
-          "title": "Coluna C – Evidências",
-          "content": "Registre testes executados, diferenças percebidas e riscos."
+          "title": "Debate rápido",
+          "content": "Compartilhar evidências de testes e riscos percebidos em cada estrutura."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Critérios de decisão",
+      "title": "Perguntas para decidir entre for e while",
       "content": [
         {
           "type": "paragraph",
-          "text": "Um bom critério para escolher entre for e while é perguntar se o número de iterações pode ser determinado antes da execução."
-        },
-        {
-          "type": "list",
-          "ordered": false,
-          "items": [
-            "Quantidade conhecida ou intervalo definido → prefira for.",
-            "Repetição até uma condição externa mudar → prefira while.",
-            "Legibilidade > preferências pessoais: documente o motivo da escolha."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Matriz de decisão for x while",
-      "headers": ["Critério", "for", "while", "Observações"],
-      "rows": [
-        [
-          {
-            "value": "Quantidade de iterações"
-          },
-          {
-            "value": "Conhecida ou facilmente derivada"
-          },
-          {
-            "value": "Desconhecida ou dependente de condição externa"
-          },
-          {
-            "value": "Escolha baseada na previsibilidade do laço."
-          }
-        ],
-        [
-          {
-            "value": "Legibilidade"
-          },
-          {
-            "value": "Boa para contadores simples"
-          },
-          {
-            "value": "Melhor quando condição precisa ficar em destaque"
-          },
-          {
-            "value": "Considere a equipe e o padrão adotado."
-          }
-        ],
-        [
-          {
-            "value": "Risco"
-          },
-          {
-            "value": "Esquecer atualização gera loop infinito"
-          },
-          {
-            "value": "Esquecer leitura antes da condição pode travar o fluxo"
-          },
-          {
-            "value": "Ambos exigem checklist de testes."
-          }
-        ]
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Justificativa obrigatória no AVA",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "No exit-ticket descreva por que escolheu cada laço, citando critérios da matriz e evidências de teste."
+          "text": "A escolha do laço começa pela compreensão do fluxo e das condições que encerram a repetição."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Informe cenários onde a versão alternativa seria inferior."
+              "text": "O número de iterações é conhecido de antemão? Utilize for para deixar o contador explícito."
             },
             {
-              "text": "Relacione impacto na manutenção e leitura por terceiros."
+              "text": "A parada depende de um valor calculado ou informado em tempo de execução? Prefira while para destacar a guarda."
             },
             {
-              "text": "Anexe link ou imagem da planilha de comparação."
+              "text": "Existe risco de esquecer a atualização ou leitura dentro do bloco? Anote invariantes e valide com testes de mesa."
             }
           ]
         }
       ]
     },
     {
-      "type": "md3Table",
-      "title": "Mapa de equivalências",
-      "headers": ["Aspecto", "for", "while"],
-      "rows": [
-        [
-          {
-            "value": "Inicialização"
-          },
-          {
-            "value": "Na própria declaração"
-          },
-          {
-            "value": "Antes do laço"
-          }
-        ],
-        [
-          {
-            "value": "Atualização"
-          },
-          {
-            "value": "Após cada iteração (3º campo)"
-          },
-          {
-            "value": "Dentro do corpo"
-          }
-        ],
-        [
-          {
-            "value": "Uso ideal"
-          },
-          {
-            "value": "Percorrer coleções, contagens"
-          },
-          {
-            "value": "Leituras sentinela, loops condicionais"
-          }
-        ]
+      "type": "contentBlock",
+      "title": "Passos para refatorar entre for e while",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Liste entradas, saídas, variáveis de controle e condição de parada do algoritmo original."
+            },
+            {
+              "text": "Reescreva a inicialização, a condição e a atualização adequando-as à estrutura alvo."
+            },
+            {
+              "text": "Verifique se a atualização do contador ou da sentinela ocorre no ponto correto do bloco."
+            },
+            {
+              "text": "Execute testes com casos mínimos, limites e valores excepcionais comparando as duas versões."
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Estudos de caso para discussão",
-      "cards": [
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Documente a intenção do laço",
+      "content": [
         {
-          "title": "Processar notas de alunos",
-          "content": "Número de alunos conhecido → for com índice e relatório tabular."
+          "type": "paragraph",
+          "text": "Comentários curtos ou nomes descritivos ajudam a equipe a compreender por que determinado laço foi escolhido."
         },
         {
-          "title": "Leitura até digitar 'sair'",
-          "content": "Valor sentinela desconhecido → while com validação de entrada."
-        },
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Registre no cabeçalho quais variáveis são invariantes durante a repetição."
+            },
+            {
+              "text": "Explique quando o laço deve parar e qual estado deve ser preservado ao final."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checklist de equivalência",
+      "content": [
         {
-          "title": "Cálculo de parcelas",
-          "content": "Iterações dependem de negociação → avalie se while traz flexibilidade."
+          "type": "unorderedList",
+          "items": [
+            { "text": "A sequência de valores processados é idêntica nas duas versões?" },
+            { "text": "O contador ou sentinela é inicializado com o mesmo valor de referência?" },
+            { "text": "Os efeitos colaterais dentro do laço permanecem na mesma ordem?" },
+            { "text": "Os casos de parada antecipada continuam garantidos?" }
+          ]
         }
       ]
     },
     {
       "type": "code",
       "language": "c",
-      "title": "For e while equivalentes",
-      "code": "int limite = 10;\nfor (int i = 0; i < limite; i++) {\n  printf(\"For: %d\\n\", i);\n}\nint j = 0;\nwhile (j < limite) {\n  printf(\"While: %d\\n\", j);\n  j++;\n}\n"
-    },
-    {
-      "type": "checklist",
-      "title": "Checklist pós-aula",
-      "items": [
-        "Atualizei meu quadro comparativo com pelo menos dois exemplos reais.",
-        "Executei testes limites (0, 1, n) nas duas versões do algoritmo.",
-        "Anotei dúvidas específicas para discutir na monitoria."
-      ]
+      "title": "Comparando contador e sentinela",
+      "code": "int soma_por_contador(const int *valores, int quantidade) {\n  int acumulador = 0;\n  for (int indice = 0; indice < quantidade; indice++) {\n    acumulador += valores[indice];\n  }\n  return acumulador;\n}\n\nint soma_por_sentinela(void) {\n  int entrada;\n  int acumulador = 0;\n  while (scanf(\"%d\", &entrada) == 1 && entrada != -1) {\n    acumulador += entrada;\n  }\n  return acumulador;\n}\n"
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "Exit-ticket Aula 19",
+      "variant": "task",
+      "title": "Atividade em dupla",
       "content": [
         {
           "type": "paragraph",
-          "text": "Preencha o formulário no AVA até 23h59 anexando a planilha comparativa e os códigos refatorados."
+          "text": "Escolha um exercício da Unidade III e produza versões equivalentes usando for e while."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Envie links do repositório ou arquivos .c com as duas versões."
+              "text": "Registre na planilha da turma o problema escolhido e o critério de escolha de cada laço."
             },
-            {
-              "text": "Anexe planilha 'Comparativo_for_while.xlsx' com critérios preenchidos."
-            },
-            {
-              "text": "Responda às perguntas sobre clareza, testes e manutenção."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Critérios de avaliação do exit-ticket",
-      "content": [
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Entrega completa com códigos e planilha anexados (30%)."
-            },
-            {
-              "text": "Análise crítica coerente com a matriz de decisão (40%)."
-            },
-            {
-              "text": "Evidências de testes e riscos documentados (20%)."
-            },
-            {
-              "text": "Comunicação clara e objetiva (10%)."
-            }
+            { "text": "Anexe no AVA os casos de teste que comprovam a equivalência das saídas." }
           ]
         }
       ]
