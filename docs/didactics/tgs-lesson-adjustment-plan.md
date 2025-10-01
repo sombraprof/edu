@@ -70,14 +70,70 @@ Este plano organiza os ajustes necessários nas aulas de **Teoria Geral de Siste
 
 ## 4. Recursos recomendados por categoria
 
-- [ ] Atualizar tabela com vídeos, ferramentas, guias e materiais de avaliação específicos de TGS, incluindo referências sobre sistemas abertos, ERP, planejamento estratégico e governança.
-- [ ] Verificar acessibilidade dos links e organizar evidências em repositórios compartilhados.
+### 4.1 Vídeos e playlists
+
+| Foco principal                               | Aulas sugeridas | Recurso (fonte)                                                       | Objetivo pedagógico                                                                  |
+| -------------------------------------------- | --------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Introdução a sistemas e pensamento sistêmico | 1–4             | Vídeo **"O que é sistema?"** (Cengage)                                | Contextualizar conceitos de sistema aberto/fechado com linguagem acessível.          |
+| Logística como sistema sociotécnico          | 3–4             | Reportagem Estadão sobre logística integrada                          | Exemplificar interdependência entre tecnologia, processos e stakeholders.            |
+| Processos e fluxos organizacionais           | 5–8             | Vídeo **Sebrae** sobre gestão de processos                            | Apoiar revisão de fluxos e homeostase em organizações reais.                         |
+| Transformação digital varejista              | 5–12            | Case Magazine Luiza (YouTube)                                         | Demonstrar adaptação sistêmica a mudanças do mercado e integração omnichannel.       |
+| Business Intelligence e tomada de decisão    | 9–12            | Webinar TOTVS sobre BI + dashboards públicos Power BI                 | Relacionar níveis decisórios e indicadores com exemplos de dashboards reais.         |
+| Integração ERP/CRM/SCM                       | 14–18           | Vídeo **Salesforce Brasil** "Integração ERP + CRM"                    | Visualizar laços de feedback entre frentes comerciais, operacionais e de suporte.    |
+| Implantação de ERP no contexto brasileiro    | 19–27           | Entrevista **TOTVS Labs** / Podcast MIT Sloan Review Brasil sobre ERP | Trazer práticas nacionais de governança, dados mestres e mudança organizacional.     |
+| Governança de TI e métricas                  | 29–32           | Canal **ITGI Brasil** (playlist COBIT/ITIL)                           | Sustentar discussões sobre papéis, responsabilidades e indicadores de governança.    |
+| Balanced Scorecard aplicado                  | 33–35           | Vídeo **Fundação Dom Cabral** sobre BSC                               | Conectar estratégia, indicadores e mapa estratégico a sistemas organizacionais.      |
+| Tendências digitais e observabilidade        | 36–39           | Vídeo **Google Cloud** sobre transformação digital                    | Discutir IA, RPA e cloud sob a ótica de monitoramento sistêmico e inovação contínua. |
+
+### 4.2 Ferramentas e ambientes de apoio
+
+- **diagrams.net** e **Miro** – construção colaborativa de diagramas de laços de feedback, mapas de stakeholders e fluxos.
+- **Power BI** (dashboards públicos) – análise guiada de indicadores nas unidades III e V, reforçando leitura de métricas sistêmicas.
+- **SystemMapper** (componente MD3) – documentação de loops de feedback e dependências entre subsistemas diretamente nos `lesson-XX.json`.
+- **Google Forms** ou bloco `quiz` MD3 – avaliações remotas rápidas (ex.: aula 24) com feedback automático.
+- **Planilha de auditoria compartilhada** (Google Sheets/Notion) – registro do status de cada aula, links de recursos e pendências pedagógicas.
+
+### 4.3 Guias e referências escritas
+
+- **Guia de estudos Stair et al. (2021)** – capítulos 1, 3, 7 e 12 com páginas indicadas nos `resources` para revisão antes das provas.
+- **Relatórios Gartner/FGVcia sobre transformação digital** – base para análises de tendências e discussão de impacto sistêmico nas aulas 36–39.
+- **Template de relatório extensionista** – suplemento para orientar produtos de extensão (metodologia, impacto, checklist de entrega).
+- **Checklist de implantação ERP/CRM/SCM** – tabela MD3 com critérios de dados, treinamento, governança e indicadores de sucesso.
+- **Mapa Estratégico/Balanced Scorecard** – guia visual com objetivos, indicadores, metas e iniciativas para as aulas 33–35.
+
+### 4.4 Avaliação e TEDs
+
+- **Rubricas compactas em `callout.info`** – três níveis (Excelente, Adequado, Revisar) com foco em análise sistêmica, uso de evidências e clareza na comunicação.
+- **TED inicial (aulas 1–4)** – mapa de sistema/diagramas IPO com entrega no Moodle; incluir objetivos, tempo estimado (45 min) e critério de integração com stakeholders.
+- **TED de estudos de caso (aulas 14–18)** – análise comparativa de ERP/CRM/SCM com tabela de critérios (dados, processos, pessoas, tecnologia).
+- **TED observabilidade (aulas 24–31)** – interpretação de dashboards, identificação de alertas e proposição de ajustes; usar `md3Table` para critérios de acurácia, justificativa e plano de ação.
+- **Avaliações somativas (NP1/NP3)** – guias de estudo alinhados às referências bibliográficas, prazos e links do Moodle registrados em `assessment` e `callout.warning`.
 
 ## 5. Próximos passos operacionais
 
-- [ ] Auditar cada `lesson-XX.json`, ajustar `metadata.updatedAt`/`owners` e registrar alterações relevantes.
-- [ ] Rodar validações (`npm run validate:content`) e alinhar cronograma de atualização com os stakeholders.
-- [ ] Documentar decisões e pendências em `docs/governance/` ou no canal oficial de acompanhamento.
+1. **Auditoria estruturada dos `lesson-XX.json`**
+   - Percorrer cada arquivo em `src/content/courses/tgs/lessons/` verificando campos obrigatórios (`summary`, `objectives`, `resources`, `assessment`, etc.).
+   - Atualizar `metadata.updatedAt` e `metadata.owners` conforme responsável pela revisão e registrar evidências (links dos vídeos, rubricas, anexos) na planilha compartilhada.
+   - Validar se os recursos indicados na Seção 4 estão vinculados às aulas corretas e se os TEDs possuem critérios explícitos.
+2. **Validações automatizadas**
+   - Executar `npm run validate:content` para garantir conformidade com os schemas MD3 e corrigir eventuais inconsistências sinalizadas.
+   - Após ajustes, rodar `npm run report:observability` para consolidar indicadores de cobertura (vídeos por aula, rubricas, extras ativos) e armazenar o relatório em `reports/`.
+3. **Atualização de governança e Moodle**
+   - Registrar decisões, pendências e entregas em `docs/governance/` (ata semanal, roadmap, calendário) com links para PRs e commits relevantes.
+   - Atualizar o AVA/Moodle com novos links de TED, instruções de entrega e rubricas; garantir correspondência com os `callouts` e campos `assessment` dos JSON.
+   - Comunicar docentes e monitoria sobre mudanças via canal oficial, anexando o relatório de observabilidade e checklist de revisão.
+
+## 6. Indicadores de acompanhamento e rotinas de revisão
+
+| Indicador                             | Meta                       | Fonte                                     | Frequência de revisão                                       |
+| ------------------------------------- | -------------------------- | ----------------------------------------- | ----------------------------------------------------------- |
+| Aulas com vídeo referenciado          | 100% das aulas de conteúdo | `resources` + relatório de auditoria      | Revisão quinzenal com validação via `report:observability`. |
+| Aulas com exemplo aplicado            | 100%                       | Checklist da planilha                     | Revisão quinzenal conjunta (pedagogia + conteudistas).      |
+| TEDs com critérios claros             | 95%                        | Blocos `callout`/`md3Table` + Moodle      | Checagem a cada sprint (mensal) e após feedback docente.    |
+| Exercícios extras ativos              | ≥4                         | `exercises.json` + `report:observability` | Auditoria mensal com registro em ata de governança.         |
+| Referências bibliográficas explícitas | ≥2 por unidade             | Revisão manual + relatório de auditoria   | Revisão bimestral alinhada às sessões com a coordenação.    |
+
+> **Rotina de revisão periódica**: apresentar os indicadores no comitê quinzenal de conteúdo, anexando os relatórios dos scripts (`validate:content`, `report:observability`) e a planilha de auditoria. Pendências alimentam o backlog de ajustes, disparando atualizações em governança e no Moodle.
 
 ---
 
