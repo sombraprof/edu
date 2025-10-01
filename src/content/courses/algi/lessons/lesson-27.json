@@ -9,16 +9,16 @@
     "Criar e incluir arquivos header com protótipos organizados.",
     "Automatizar compilação modular usando make ou scripts equivalentes."
   ],
-  "competencies": ["Arquitetura de software", "Colaboração", "Gestão de projetos"],
+  "competencies": ["05", "08", "12"],
   "skills": [
-    "Gerar headers (`.h`) e fontes (`.c`) separados.",
-    "Controlar escopo com `static` e funções públicas.",
-    "Montar Makefile ou script npm para compilar módulos incrementalmente."
+    "Estruturar projeto modular com separação entre arquivos fonte e cabeçalhos.",
+    "Configurar fluxo de compilação incremental verificando dependências.",
+    "Orquestrar revisão cruzada garantindo que cada módulo siga padrões definidos."
   ],
   "outcomes": [
-    "Entrega blueprint modular com responsabilidades definidas.",
-    "Apresenta execução bem sucedida com build modular.",
-    "Disponibiliza relatório curto de integração contínua local."
+    "Entrega projeto com múltiplos arquivos e build script funcionando.",
+    "Documenta pipeline de compilação destacando passos e ferramentas utilizadas.",
+    "Registra atas de revisão compartilhadas com responsáveis por cada módulo."
   ],
   "prerequisites": [
     "Aulas 25 e 26 concluídas.",

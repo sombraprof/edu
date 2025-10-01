@@ -9,16 +9,16 @@
     "Construir tabelas de frequência a partir de dados numéricos.",
     "Interpretar impactos de operações em tempo e memória."
   ],
-  "competencies": ["Pensamento crítico", "Análise de dados"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Separar operações em funções reutilizáveis.",
-    "Utilizar acumuladores e contadores com clareza semântica.",
-    "Documentar resultados em tabelas alinhadas ao padrão MD3."
+    "Projetar transformações sobre vetores utilizando acumuladores e normalizações.",
+    "Validar resultados comparando totais, médias e discrepâncias detectadas.",
+    "Registrar experimentos realizados descrevendo parâmetros e impactos observados."
   ],
   "outcomes": [
-    "Entrega funções em C para somatório, média móvel e normalização de vetores.",
-    "Gera tabela de frequência com contagem e percentual.",
-    "Avalia custo de copiar vetores versus trabalhar in-place."
+    "Disponibiliza script que gera tabela derivada do vetor original com indicadores calculados.",
+    "Entrega planilha de verificação comprovando consistência dos resultados obtidos.",
+    "Documenta relatório curto explicando como ajustes no algoritmo afetaram os indicadores."
   ],
   "prerequisites": [
     "Compreensão de vetores e loops (Aula 30).",

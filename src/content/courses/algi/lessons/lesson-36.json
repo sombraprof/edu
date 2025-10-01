@@ -9,16 +9,16 @@
     "Aplicar ordenação simples para organizar a coleção.",
     "Documentar o estado da coleção com relatórios resumidos."
   ],
-  "competencies": ["Pensamento algorítmico", "Organização da informação"],
+  "competencies": ["05", "08", "12"],
   "skills": [
-    "Gerenciar contagem de elementos ativos em vetores de structs.",
-    "Reutilizar funções de comparação para ordenar registros.",
-    "Gerar estatísticas básicas a partir de coleções."
+    "Organizar vetores de structs definindo estratégias de inserção e busca.",
+    "Garantir consistência dos dados ao realizar atualizações em lote.",
+    "Conduzir revisão em pares verificando aderência a padrões de dados da turma."
   ],
   "outcomes": [
-    "Produz vetor de Empresas carregado com dados iniciais.",
-    "Integra funções de ordenação com o menu CRUD do laboratório.",
-    "Entrega relatório com ranking por faturamento e categoria."
+    "Entrega repositório em memória com operações de listagem e inserção validadas.",
+    "Registra testes que comprovam manutenção da integridade após múltiplas atualizações.",
+    "Documenta feedback trocado com o par e ajustes implementados na estrutura de dados."
   ],
   "prerequisites": [
     "Domínio da declaração e uso de structs (Aula 35).",

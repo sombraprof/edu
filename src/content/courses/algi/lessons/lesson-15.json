@@ -9,16 +9,16 @@
     "Corrigir coletivamente os erros mais frequentes identificados nas questões.",
     "Consolidar boas práticas para escrever cadeias condicionais claras e testáveis."
   ],
-  "competencies": ["Pensamento crítico", "Raciocínio algorítmico", "Comunicação técnica"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Diagnosticar falhas lógicas em decisões compostas.",
-    "Reescrever código C aplicando boas práticas de clareza e indentação.",
-    "Planejar testes que previnam regressões após ajustes."
+    "Analisar devolutivas da NP1 identificando padrões de erro por tema.",
+    "Refatorar respostas e códigos corrigindo falhas lógicas e de comunicação.",
+    "Explicar planos de melhoria em apresentação breve para a turma."
   ],
   "outcomes": [
-    "Entrega guia pessoal de correção com os pontos de melhoria e ações de estudo.",
-    "Reimplementa ao menos uma questão da prova corrigindo erros identificados.",
-    "Documenta novos casos de teste que garantam cobertura dos cenários críticos."
+    "Entrega planilha com classificação dos erros cometidos e prioridade de revisão.",
+    "Disponibiliza versão corrigida dos exercícios com comentários sobre ajustes implementados.",
+    "Realiza pitch de até cinco minutos destacando aprendizados e próximos passos de estudo."
   ],
   "prerequisites": ["Trazer a prova NP1 corrigida e os rascunhos utilizados na avaliação."],
   "tags": ["condicionais", "revisao", "avaliacao"],

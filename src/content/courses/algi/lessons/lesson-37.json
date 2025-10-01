@@ -9,16 +9,16 @@
     "Atualizar campos selecionados mantendo histórico mínimo.",
     "Realizar remoção lógica e física comparando abordagens."
   ],
-  "competencies": ["Pensamento crítico", "Confiabilidade de software"],
+  "competencies": ["05", "08", "12"],
   "skills": [
-    "Projetar funções de busca reutilizáveis.",
-    "Definir protocolos de atualização com validação.",
-    "Gerenciar remoção com deslocamento de elementos e logs."
+    "Implementar buscas flexíveis em vetores de structs utilizando filtros variados.",
+    "Aplicar auditoria registrando histórico de alterações e validações.",
+    "Facilitar revisão coletiva alinhando critérios de atualização e rollback."
   ],
   "outcomes": [
-    "Entrega funções searchById e searchByPrefix documentadas.",
-    "Atualiza registros com validação de domínios e feedback ao usuário.",
-    "Implementa remoção com compactação e ajuste do contador de elementos ativos."
+    "Disponibiliza módulo que localiza e atualiza registros com base em múltiplos campos.",
+    "Entrega log de auditoria descrevendo cada alteração realizada e testes associados.",
+    "Coordena reunião de alinhamento documentando decisões sobre políticas de atualização."
   ],
   "prerequisites": [
     "Vetores de structs com ordenação básica (Aula 36).",

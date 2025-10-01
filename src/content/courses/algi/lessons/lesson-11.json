@@ -9,16 +9,16 @@
     "Configurar cases, break e default para controlar exatamente quais blocos executam.",
     "Documentar menus e mapas de opções para orientar o usuário."
   ],
-  "competencies": ["Raciocínio algorítmico", "Pensamento computacional", "Comunicação técnica"],
+  "competencies": ["02", "05", "11"],
   "skills": [
-    "Mapear valores discretos para blocos específicos de lógica.",
-    "Agrupar múltiplos cases que compartilham o mesmo comportamento.",
-    "Descrever o efeito de omitir break (fall-through) e quando isso é desejável."
+    "Mapear cenários que justificam uso de switch-case em vez de cadeias de if.",
+    "Implementar seleção múltipla com rótulos, blocos bem indentados e cláusula default coerente.",
+    "Documentar tabela relacionando opções do menu a ações realizadas pelo programa."
   ],
   "outcomes": [
-    "Entrega um menu funcional com feedback para opções válidas e inválidas.",
-    "Justifica em documentação curta a escolha entre if-else e switch-case.",
-    "Apresenta casos de teste cobrindo todos os rótulos definidos no programa."
+    "Apresenta fluxograma ou mapa de decisão que evidencia agrupamentos tratados pelo switch-case.",
+    "Entrega código funcional com pelo menos quatro casos, incluindo default explicativo.",
+    "Disponibiliza tabela de apoio distribuída à turma listando comandos de cada opção implementada."
   ],
   "prerequisites": ["Revisar if-else e testes de condição apresentados na Aula 10."],
   "tags": ["condicionais", "switch-case", "controle-de-fluxo"],

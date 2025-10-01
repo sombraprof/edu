@@ -9,16 +9,16 @@
     "Aplicar precedência e agrupamento para evitar ambiguidades em expressões.",
     "Interpretar resultados lógicos para alimentar decisões e fluxos de controle."
   ],
-  "competencies": ["Raciocínio lógico", "Pensamento computacional", "Programação estruturada"],
+  "competencies": ["02", "05", "08"],
   "skills": [
-    "Selecionar operadores adequados para cálculos matemáticos e comparações.",
-    "Reescrever expressões utilizando parênteses para tornar a intenção explícita.",
-    "Avaliar o resultado de operações booleanas para controlar o fluxo do programa."
+    "Organizar expressões utilizando precedência e parênteses para garantir clareza lógica.",
+    "Simular avaliações de expressões passo a passo verificando efeitos de operadores relacionais e lógicos.",
+    "Criar casos de teste que comprovem limites e exceções dos cálculos implementados."
   ],
   "outcomes": [
-    "Produz um programa que combina operadores aritméticos, relacionais e lógicos para resolver um caso realista.",
-    "Explica oralmente como a precedência impacta o resultado de expressões compostas.",
-    "Elabora uma tabela-verdade simples para validar condições críticas do algoritmo."
+    "Entrega quadro com expressões reescritas e justificativas para o posicionamento de parênteses.",
+    "Apresenta tabela de rastreamento com valores intermediários e resultado final de cada expressão.",
+    "Disponibiliza conjunto de testes documentados cobrindo entradas típicas, limites e valores inválidos."
   ],
   "prerequisites": ["Revisar variáveis, tipos e leitura com scanf trabalhados na Aula 6."],
   "tags": ["operadores", "expressoes", "linguagem-c"],

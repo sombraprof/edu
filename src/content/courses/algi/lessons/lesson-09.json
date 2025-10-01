@@ -9,16 +9,16 @@
     "Implementar programas sequenciais com validações simples e formatação clara.",
     "Comparar diferentes problemas para reconhecer padrões reutilizáveis."
   ],
-  "competencies": ["Resolução de problemas", "Comunicação técnica", "Raciocínio algorítmico"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Transformar descrições textuais em algoritmos sequenciais.",
-    "Aplicar operadores e funções básicas de forma consistente.",
-    "Registrar resultados e interpretações para o usuário final."
+    "Modelar problemas sequenciais identificando dados de entrada, fórmulas e mensagens de saída.",
+    "Implementar algoritmos encadeados em C validando cálculos com amostras reais.",
+    "Comunicar resultados em formato de relatório destacando interpretações relevantes."
   ],
   "outcomes": [
-    "Entrega programas funcionais para salário líquido, IMC e desconto cumulativo.",
-    "Apresenta oralmente o raciocínio de cada etapa do fluxo sequencial.",
-    "Documenta próximos passos e testes realizados no laboratório."
+    "Entrega solução funcional para estudo de caso proposto com comentários que justificam cada etapa.",
+    "Compartilha registro de testes comparando resultados esperados e obtidos para diferentes cenários.",
+    "Publica síntese escrita que explica impactos dos números calculados para o contexto do problema."
   ],
   "prerequisites": ["Revisar operadores, scanf e printf consolidados nas aulas 6, 7 e 8."],
   "tags": ["sequencial", "problemas", "pratica"],

@@ -9,16 +9,16 @@
     "Inicializar e acessar membros por ponto e ponteiros.",
     "Construir um mini-CRUD em memória com ênfase em criação e leitura."
   ],
-  "competencies": ["Pensamento algorítmico", "Modelagem de dados"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Mapear requisitos simples para campos de registros.",
-    "Encapsular operações básicas em funções.",
-    "Documentar structs com comentários significativos."
+    "Definir structs representando registros compostos com campos coerentes.",
+    "Implementar operações CRUD em memória validando entrada e saída de dados.",
+    "Registrar casos de teste que comprovem a integridade do fluxo de operações."
   ],
   "outcomes": [
-    "Define struct Empresa alinhada ao laboratório do semestre.",
-    "Implementa funções create e list utilizando vetor fixo.",
-    "Entrega relatório curto descrevendo decisões de modelagem."
+    "Entrega módulo com definição de struct e funções para criar, ler, atualizar e remover registros.",
+    "Anexa log de testes cobrindo operações bem-sucedidas e tratamento de erros.",
+    "Apresenta documentação resumida orientando como utilizar o CRUD implementado."
   ],
   "prerequisites": [
     "Conhecimento de vetores simples (Aula 30).",

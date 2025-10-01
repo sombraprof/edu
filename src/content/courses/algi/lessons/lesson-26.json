@@ -9,16 +9,16 @@
     "Projetar funções que retornam códigos de erro ou resultados numéricos.",
     "Documentar contratos (pré e pós-condições) para cada função criada."
   ],
-  "competencies": ["Pensamento analítico", "Qualidade de software", "Comunicação técnica"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Definir parâmetros de entrada com tipos corretos.",
-    "Utilizar ponteiros para atualizar valores fora do escopo local.",
-    "Descrever pré-condições e efeitos colaterais de cada função."
+    "Implementar funções com parâmetros por valor e por referência conforme necessidade.",
+    "Construir casos de teste que validem contratos de entrada e saída.",
+    "Documentar brevemente cada função explicando propósito e efeitos colaterais."
   ],
   "outcomes": [
-    "Entrega laboratório com funções parametrizadas e testes associados.",
-    "Justifica escolha por valor ou referência em relatório curto.",
-    "Adapta suíte de testes fornecida cobrindo cenários limite."
+    "Entrega código com funções parametrizadas e comentários sobre uso de ponteiros.",
+    "Anexa suíte de testes cobrindo cenários positivos, negativos e limites.",
+    "Registra documentação resumida disponível para colegas reutilizarem as funções."
   ],
   "prerequisites": [
     "Aula 25 concluída com atividades de modularização.",

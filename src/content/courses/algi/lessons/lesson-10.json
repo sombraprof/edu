@@ -9,16 +9,16 @@
     "Escrever e testar expressões booleanas que alimentam estruturas if e if-else.",
     "Documentar cada caminho da decisão para garantir clareza e manutenção futura."
   ],
-  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Comunicação técnica"],
+  "competencies": ["02", "05", "11"],
   "skills": [
-    "Traduzir regras de negócio em comparações booleanas usando operadores relacionais e lógicos.",
-    "Selecionar entre blocos if simples ou if-else para representar decisões exclusivas.",
-    "Validar resultados com casos de teste positivos e negativos, registrando saídas esperadas."
+    "Identificar pontos de decisão que exigem uso de estruturas if e else.",
+    "Codificar blocos condicionais com mensagens claras para cada caminho.",
+    "Explicar verbalmente ou por escrito o fluxo completo do algoritmo destacando estados finais."
   ],
   "outcomes": [
-    "Implementa um programa que decide entre caminhos mutuamente exclusivos com base em entradas do usuário.",
-    "Explica o raciocínio por trás de cada condição e o efeito de alterá-la.",
-    "Entrega relatório curto com casos de teste cobrindo ambos os ramos da decisão."
+    "Apresenta diagrama ou tabela que mapeia condições para ações correspondentes.",
+    "Entrega código revisado que trata casos verdadeiro e falso com mensagens específicas.",
+    "Realiza apresentação curta explicando como o programa responde a pelo menos três entradas diferentes."
   ],
   "prerequisites": [
     "Revisar operadores aritméticos, relacionais e o fluxo sequencial abordados nas aulas 7 a 9."

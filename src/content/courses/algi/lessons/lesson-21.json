@@ -9,16 +9,16 @@
     "Implementar algoritmos com laços aninhados simples para tabulações e padrões visuais.",
     "Analisar o custo computacional e a ordem de execução em aninhamentos."
   ],
-  "competencies": ["05", "12"],
+  "competencies": ["05", "08", "12"],
   "skills": [
-    "Definir limites e variáveis de controle para cada nível de laço.",
-    "Manipular tabelas e matrizes garantindo atualização correta das posições.",
-    "Explicar a ordem de execução usando diagramas ou tabelas de rastreamento."
+    "Planejar laços aninhados definindo variáveis de controle e limites para cada nível.",
+    "Executar testes que comprovem preenchimento correto de estruturas bidimensionais.",
+    "Coordenar revisão entre pares utilizando tabelas de rastreamento para localizar gargalos."
   ],
   "outcomes": [
-    "Entrega solução integradora que utiliza laços aninhados para gerar uma estrutura 2D coerente.",
-    "Apresenta representação visual alinhada ao algoritmo implementado.",
-    "Identifica gargalos ou repetições desnecessárias durante a depuração conjunta."
+    "Entrega solução que gera tabela 2D coerente com as regras fornecidas.",
+    "Anexa matriz de testes validando comportamentos com dados típicos e extremos.",
+    "Registra feedback recebido na revisão colaborativa e ajustes aplicados no código."
   ],
   "prerequisites": ["Dominar laços simples (for, while).", "Conhecer condicionais básicas."],
   "tags": ["loops", "aninhamento", "padroes"],

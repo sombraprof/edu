@@ -9,16 +9,16 @@
     "Planejar cadeias else if para atender múltiplos cenários de decisão.",
     "Avaliar a legibilidade de condições compostas em algoritmos em C."
   ],
-  "competencies": ["05", "12"],
+  "competencies": ["02", "05", "08"],
   "skills": [
-    "Traduzir regras verbais em expressões booleanas completas.",
-    "Estruturar decisões encadeadas evitando sobreposições ou lacunas de casos.",
-    "Representar árvores de decisão simples em fluxogramas comentados."
+    "Traduzir requisitos complexos em expressões booleanas utilizando operadores compostos.",
+    "Executar testes de mesa para detectar lacunas ou sobreposições em cadeias de decisão.",
+    "Refatorar condições com curto-circuito visando clareza e desempenho."
   ],
   "outcomes": [
-    "Entrega programa que classifica dados com base em ao menos três faixas exclusivas.",
-    "Justifica a ordem das condições e seus efeitos ao depurar casos limítrofes.",
-    "Identifica oportunidades de simplificação usando operadores lógicos de curto-circuito."
+    "Disponibiliza conjunto de casos de teste que evidenciam cobertura completa do problema.",
+    "Entrega código revisado com operadores lógicos apropriados e comentários sobre riscos mitigados.",
+    "Apresenta relatório comparando a versão inicial e a refatorada, destacando ganhos observados."
   ],
   "prerequisites": ["Revisar if/else, switch-case e cadeias else if das aulas 10-12."],
   "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],

@@ -9,16 +9,16 @@
     "Percorrer linhas e colunas utilizando loops aninhados.",
     "Gerar tabelas formatadas a partir de matrizes."
   ],
-  "competencies": ["Modelagem de dados", "Comunicação técnica"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Planejar percursos linha-coluna com controle de índices.",
-    "Aplicar formatação alinhada com printf para dados tabulares.",
-    "Interpretar matrizes como coleções de vetores."
+    "Mapear dados tabulares para estruturas de matrizes em C.",
+    "Construir laços aninhados que preencham e apresentem tabelas formatadas.",
+    "Explicar resultados obtidos conectando-os ao problema de negócio proposto."
   ],
   "outcomes": [
-    "Implementa programa que imprime tabela de presença a partir de matriz 2D.",
-    "Desenha fluxograma MD3 com loops aninhados.",
-    "Documenta estratégias de testes para percorrer matrizes."
+    "Entrega programa que gera matriz 2D com cabeçalhos e alinhamento adequado.",
+    "Registra checklist de validação garantindo preenchimento correto por linha e coluna.",
+    "Realiza apresentação breve relacionando a tabela gerada com decisões possíveis no cenário estudado."
   ],
   "prerequisites": [
     "Domínio de vetores e loops (Aulas 30-31).",

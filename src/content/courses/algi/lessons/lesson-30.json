@@ -9,16 +9,16 @@
     "Percorrer vetores com loops for para calcular média, mínimo e máximo.",
     "Relacionar vetores a cenários reais de armazenamento sequencial de dados."
   ],
-  "competencies": ["Pensamento computacional", "Modelagem de dados"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Planejar a leitura e escrita em posições específicas de um vetor.",
-    "Utilizar variáveis auxiliares para estatísticas acumuladas.",
-    "Interpretar diagramas e tabelas que representam vetores."
+    "Declarar vetores dimensionando corretamente e inicializando com dados de teste.",
+    "Implementar percursos que calculem estatísticas básicas validando limites de índice.",
+    "Comunicar resultados obtidos destacando interpretações para o contexto analisado."
   ],
   "outcomes": [
-    "Implementa um programa que calcula média, valor mínimo e máximo de um vetor de notas.",
-    "Documenta o percurso sequencial em um fluxograma MD3.",
-    "Seleciona estruturas adequadas para armazenar registros homogêneos."
+    "Entrega código que lê dados em vetor, calcula métricas e apresenta relatório formatado.",
+    "Apresenta tabela de testes comprovando acesso seguro aos elementos do vetor.",
+    "Publica síntese que explica decisões tomadas e resultados alcançados com os dados coletados."
   ],
   "prerequisites": [
     "Domínio de loops for (Aulas 18-19).",

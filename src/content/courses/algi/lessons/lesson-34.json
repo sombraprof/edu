@@ -9,16 +9,16 @@
     "Executar multiplicação matricial com três loops.",
     "Validar dimensões e tratar entradas inválidas."
   ],
-  "competencies": ["Pensamento algorítmico", "Raciocínio matemático"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Estruturar loops aninhados para combinações linha x coluna.",
-    "Utilizar matrizes auxiliares sem desperdício de memória.",
-    "Comunicar resultados em formato tabular e visual."
+    "Implementar transposição, somas e multiplicação de matrizes controlando dimensões.",
+    "Testar compatibilidade entre matrizes antes de executar operações.",
+    "Comparar desempenho e precisão das operações realizadas em cenários distintos."
   ],
   "outcomes": [
-    "Entrega funções transpose e multiply com testes básicos.",
-    "Gera relatório combinando duas matrizes de indicadores.",
-    "Interpreta resultados da multiplicação no contexto de distribuição de recursos."
+    "Disponibiliza funções que executam operações matriciais retornando resultados corretos.",
+    "Entrega conjunto de testes automatizados ou planilhas que validam dimensões e saídas.",
+    "Documenta análise descrevendo tempo de execução e limitações observadas."
   ],
   "prerequisites": ["Compreensão de matrizes 2D (Aula 33).", "Conforto com loops for aninhados."],
   "tags": ["matrizes", "arrays", "multiplicacao"],

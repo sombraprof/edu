@@ -9,16 +9,16 @@
     "Instrumentar funções com logs e medições simples.",
     "Planejar manutenção preventiva em projetos com funções reutilizáveis."
   ],
-  "competencies": ["Qualidade de software", "Trabalho em equipe", "Aprendizagem contínua"],
+  "competencies": ["05", "08", "12"],
   "skills": [
-    "Conduzir revisão de código guiada por rubrica.",
-    "Utilizar ferramentas de cobertura para medir testes.",
-    "Criar plano de manutenção destacando riscos e prioridades."
+    "Aplicar padrões de escrita e nomenclatura que favoreçam manutenção.",
+    "Executar checklist de revisão identificando dívidas técnicas e riscos.",
+    "Planejar ações de melhoria contínua distribuindo tarefas entre os membros da equipe."
   ],
   "outcomes": [
-    "Entrega relatório de revisão cruzada com checklist aplicado.",
-    "Apresenta métricas de cobertura ou logs coletados.",
-    "Define backlog de melhorias preventivas para o projeto modular."
+    "Apresenta relatório de revisão com itens conformes e não conformes registrados.",
+    "Entrega código atualizado com correções priorizadas durante a sessão de pair review.",
+    "Compartilha plano de manutenção com responsáveis, prazos e métricas de acompanhamento."
   ],
   "prerequisites": [
     "Completar projeto modular da aula 27.",

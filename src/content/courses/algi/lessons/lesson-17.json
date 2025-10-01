@@ -9,16 +9,16 @@
     "Traduzir fluxogramas com laço enquanto em pseudocódigo/C.",
     "Planejar testes que cubram entradas válidas, inválidas e sentinelas."
   ],
-  "competencies": ["Pensamento algorítmico", "Raciocínio lógico", "Validação de dados"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Definir condições de continuidade e de saída para laços.",
-    "Implementar loops com contadores e acumuladores.",
-    "Registrar evidências de teste usando sentinelas e limites."
+    "Definir invariantes e condições de parada adequadas para laços while.",
+    "Implementar sentinelas e validação de entrada garantindo que o loop encerre corretamente.",
+    "Documentar rastreamento de variáveis a cada iteração para explicar o comportamento do algoritmo."
   ],
   "outcomes": [
-    "Explica a diferença entre while e do-while com exemplos práticos.",
-    "Escreve algoritmo que lê dados até receber sentinela válido.",
-    "Entrega tabela de testes cobrindo casos de encerramento e erros."
+    "Entrega código com while e sentinela documentados, acompanhado de comentários sobre invariantes.",
+    "Demonstra execução controlada com dados válidos e inválidos registrando comportamento esperado.",
+    "Produz tabela de rastreamento que evidencia atualização de variáveis a cada ciclo."
   ],
   "prerequisites": ["Domínio de condicionais compostas e operadores lógicos."],
   "tags": ["loops", "while", "repeticao"],
