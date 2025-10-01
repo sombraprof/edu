@@ -1,0 +1,153 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-20",
+  "title": "Aula 20: Unidade IV – Fundamentos de APIs REST e JSON",
+  "slug": "fundamentos-apis-rest-json",
+  "summary": "Introduz os princípios de APIs REST, troca de dados em JSON e práticas para consumir serviços web com segurança e eficiência.",
+  "objective": "Compreender a arquitetura REST, interpretar respostas JSON e preparar o app Android para integrar serviços externos.",
+  "objectives": [
+    "Identificar os elementos que compõem uma API RESTful.",
+    "Interpretar contratos JSON e mapear respostas para modelos Kotlin.",
+    "Configurar ferramentas de inspeção e testes de endpoints.",
+    "Planejar limites de consumo e estratégias de paginação para o app."
+  ],
+  "competencies": [
+    "Arquitetura REST",
+    "Modelagem de dados JSON",
+    "Design de integrações cliente-servidor"
+  ],
+  "skills": [
+    "Consumir e testar endpoints com ferramentas como Postman ou HTTPie.",
+    "Mapear respostas JSON para data classes Kotlin.",
+    "Ler e interpretar documentação de APIs públicas.",
+    "Calcular limites de requisições e estratégias de cache.",
+    "Analisar códigos de status HTTP e tratamentos de erro."
+  ],
+  "outcomes": [
+    "Explica a estrutura de uma API RESTful e os verbos HTTP mais comuns.",
+    "Analisa contratos JSON identificando campos obrigatórios e opcionais.",
+    "Define limites de consumo e estratégias de fallback para o app.",
+    "Prepara o projeto para receber dados remotos com modelos coerentes."
+  ],
+  "prerequisites": [
+    "Conhecimento intermediário de Kotlin e corrotinas.",
+    "Experiência prévia com projetos Android utilizando ViewModel e LiveData/StateFlow.",
+    "Fundamentos de redes e HTTP apresentados em aulas anteriores."
+  ],
+  "tags": ["android", "rest", "json", "api"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "RESTful web services: guia oficial",
+      "url": "https://restfulapi.net/",
+      "type": "article"
+    },
+    {
+      "label": "JSON Schema",
+      "url": "https://json-schema.org/learn/getting-started-step-by-step.html",
+      "type": "reference"
+    },
+    {
+      "label": "HTTP Status Codes",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "FIELDING, R. Architectural Styles and the Design of Network-based Software Architectures. UC Irvine, 2000.",
+    "MAHEMOFF, M. REST API Design Rulebook. O'Reilly Media, 2010.",
+    "GONCALVES, F. Consumo de APIs REST com Kotlin. Casa do Código, 2024."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Checklist formativo para avaliar entendimento sobre contratos REST e planejamento de consumo seguro."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Warm-up: Destrinchar uma chamada HTTP real (15 min).",
+        "Teoria: REST, recursos e versionamento (20 min).",
+        "Laboratório: Explorando APIs públicas com Postman e HTTPie (35 min).",
+        "Mini workshop: Modelagem de respostas JSON em Kotlin (25 min).",
+        "Debrief: Estratégias para lidar com limites de API (10 min).",
+        "TED: Registrar contrato e limites de uma API escolhida (5 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up guiado",
+      "steps": [
+        {
+          "title": "00:10 – Mapa mental dos verbos HTTP",
+          "content": "Em duplas, listar verbos e associar operações do cotidiano. Compartilhar no quadro."
+        },
+        {
+          "title": "00:05 – Inspeção de payload",
+          "content": "Receber uma resposta JSON impressa e destacar chaves conhecidas, campos desconhecidos e dúvidas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O laboratório desta aula utiliza uma API pública de clima. O objetivo é entender o contrato e preparar a modelagem no Android."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Criar uma workspace no Postman com a coleção da API (fornecida pelo professor).",
+            "Testar os endpoints de listagem e detalhe, anotando parâmetros obrigatórios.",
+            "Exportar a resposta JSON e montar uma proposta de data class Kotlin usando https://json2kotlin.com/.",
+            "Mapear campos opcionais e definir valores padrão ou nuláveis.",
+            "Planejar uma estratégia de paginação considerando query params page e limit."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Limites de API em foco",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Identifique o número máximo de requisições por minuto e defina, em sala, ações de retry exponencial. Para o projeto integrador, registre essa política no README."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entrega no Classroom: documento com o contrato resumido da API escolhida para o projeto integrador, incluindo endpoints principais, parâmetros obrigatórios, limites de rate limit e formato de autenticação."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica do entregável",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Completeness (40%): todos os endpoints e parâmetros críticos identificados.",
+            "Precisão (30%): códigos de status e formatos JSON documentados corretamente.",
+            "Mitigação de limites (20%): estratégia clara para lidar com rate limit.",
+            "Clareza (10%): documento legível e organizado."
+          ]
+        }
+      ]
+    }
+  ]
+}

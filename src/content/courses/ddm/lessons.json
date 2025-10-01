@@ -157,6 +157,94 @@
       "formatVersion": "md3.lesson.v1"
     },
     {
+      "id": "lesson-20",
+      "title": "Aula 20: Unidade IV – Fundamentos de APIs REST e JSON",
+      "file": "lesson-20.json",
+      "available": true,
+      "description": "Introduz arquitetura REST, contratos JSON e estratégias para lidar com limites de consumo antes de integrar no app.",
+      "summary": "Princípios de APIs REST, análise de respostas JSON, planejamento de consumo e mitigação de rate limits.",
+      "tags": ["android", "rest", "json", "api"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-21",
+      "title": "Aula 21: Unidade IV – Retrofit com chamadas síncronas",
+      "file": "lesson-21.json",
+      "available": true,
+      "description": "Configura Retrofit e OkHttp para chamadas síncronas com interceptors, autenticação e tratamento robusto de erros.",
+      "summary": "Setup do Retrofit síncrono, interceptors, cabeçalhos dinâmicos e estratégias de tratamento de falhas e limites.",
+      "tags": ["android", "retrofit", "okhttp", "api"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-22",
+      "title": "Aula 22: Unidade IV – Retrofit com corrotinas e Flow",
+      "file": "lesson-22.json",
+      "available": true,
+      "description": "Migra o consumo de APIs para corrotinas e Flow, adicionando tratamento reativo e retries alinhados aos limites.",
+      "summary": "Refatoração do Retrofit para funções suspensas, exposição com Flow e políticas de retry com backoff controlado.",
+      "tags": ["android", "retrofit", "coroutines", "flow"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-23",
+      "title": "Aula 23: Unidade IV – RecyclerView com dados remotos",
+      "file": "lesson-23.json",
+      "available": true,
+      "description": "Integra dados remotos ao RecyclerView com DiffUtil, paginação manual e feedback de estados.",
+      "summary": "Lista remota performática com DiffUtil, indicadores de loading, empty e retry respeitando limites da API.",
+      "tags": ["android", "recyclerview", "ui", "api"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-24",
+      "title": "Aula 24: Unidade V – Setup do Firebase para Android",
+      "file": "lesson-24.json",
+      "available": true,
+      "description": "Prepara o projeto Android para usar Firebase, configurando console, google-services e ambientes seguros.",
+      "summary": "Configuração do Firebase, gestão de credenciais, build variants e checklist de segurança inicial.",
+      "tags": ["android", "firebase", "setup", "seguranca"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-25",
+      "title": "Aula 25: Unidade V – Firestore: modelagem e operações",
+      "file": "lesson-25.json",
+      "available": true,
+      "description": "Modela dados no Firestore e implementa CRUD seguro com estimativa de limites e custos.",
+      "summary": "Coleções Firestore, regras de segurança, listeners reativos e planejamento de limites de leitura e escrita.",
+      "tags": ["android", "firebase", "firestore", "nosql"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-26",
+      "title": "Aula 26: Unidade V – Firebase Authentication",
+      "file": "lesson-26.json",
+      "available": true,
+      "description": "Implementa fluxos de autenticação com Firebase, segurança reforçada e integração com Firestore.",
+      "summary": "Login, cadastro e provedores do Firebase Auth com mitigação de riscos, quotas e UX orientada à segurança.",
+      "tags": ["android", "firebase", "authentication", "seguranca"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-27",
+      "title": "Aula 27: Unidade V – Projeto integrador: backend e sincronização",
+      "file": "lesson-27.json",
+      "available": true,
+      "description": "Consolida Retrofit, Firestore e Authentication no backend do projeto integrador com foco em limites e governança.",
+      "summary": "Backend integrado do projeto, sincronização online/offline, segurança Firebase e rubrica final de avaliação.",
+      "tags": ["android", "projeto", "backend", "firebase"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
       "id": "lesson-28",
       "title": "Aula 28: Unidade VI – Nativo vs Híbrido: Estratégias de Plataforma",
       "file": "lesson-28.json",
