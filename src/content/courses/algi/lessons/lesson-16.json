@@ -28,14 +28,14 @@
   "modality": "async",
   "resources": [
     {
-      "label": "Pacote de casos clínicos (ZIP)",
-      "type": "dataset",
-      "url": "https://example.edu/algi/datasets/condicionais-clinica.zip"
+      "label": "Manual de Classificação de Risco (Ministério da Saúde)",
+      "type": "handout",
+      "url": "https://www.saude.df.gov.br/wp-conteudo/uploads/2018/03/Manual-Classificacao-Risco.pdf"
     },
     {
-      "label": "Fluxograma de referência",
+      "label": "Fluxograma Manchester para acolhimento",
       "type": "handout",
-      "url": "https://example.edu/algi/guias/fluxograma-triagem.pdf"
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/protocolo_manchester_classificacao_risco.pdf"
     },
     {
       "label": "Planilha de checklist de testes",
@@ -48,9 +48,9 @@
       "url": "https://forms.gle/DuvidasAula16"
     },
     {
-      "label": "Template de relatório assíncrono",
+      "label": "Modelo de relatório técnico (SAPS/MS)",
       "type": "document",
-      "url": "https://example.edu/algi/templates/relatorio-assincrono.docx"
+      "url": "https://www.gov.br/saude/pt-br/composicao/saps/atencao-primaria/publicacoes/formularios/modelo-de-relatorio-tecnico.pdf"
     },
     {
       "label": "Repositório modelo Git",

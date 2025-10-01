@@ -3,6 +3,7 @@
   "id": "lesson-19",
   "title": "Comparação entre for e while",
   "summary": "Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados.",
+  "objective": "Decidir com segurança entre for e while e justificar a refatoração escolhida para cada problema.",
   "description": "A aula conduz a análise de problemas que podem ser resolvidos com for ou while, destacando critérios de escolha, refatoração cruzada e registro de evidências de teste.",
   "objectives": [
     "Distinguir cenários ideais para laços controlados por contador e por condição.",
@@ -29,9 +30,9 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia comparativo for x while",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/for-vs-while.pdf"
+      "label": "Artigo comparativo: for vs while (GeeksforGeeks)",
+      "type": "article",
+      "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop/"
     },
     {
       "label": "Planilha de refatoração",

@@ -29,19 +29,19 @@
   "modality": "async",
   "resources": [
     {
-      "label": "Briefing da triagem (PDF)",
+      "label": "Manual de Classificação de Risco da Secretaria de Saúde do DF",
       "type": "handout",
-      "url": "https://example.edu/algi/briefings/triagem-async.pdf"
+      "url": "https://www.saude.df.gov.br/wp-conteudo/uploads/2018/03/Manual-Classificacao-Risco.pdf"
     },
     {
-      "label": "Dataset de pacientes (CSV)",
+      "label": "Dataset: Hospital Emergency Room Triage",
       "type": "dataset",
-      "url": "https://example.edu/algi/datasets/pacientes-triagem.csv"
+      "url": "https://www.kaggle.com/datasets/biancaferreira/triage-emergency-room"
     },
     {
-      "label": "Modelo de relatório de triagem",
+      "label": "Modelo de relatório técnico para saúde (SUS)",
       "type": "document",
-      "url": "https://example.edu/algi/templates/relatorio-triagem.docx"
+      "url": "https://www.gov.br/saude/pt-br/composicao/saps/atencao-primaria/publicacoes/formularios/modelo-de-relatorio-tecnico.pdf"
     },
     {
       "label": "Planilha de acompanhamento (Google Sheets)",

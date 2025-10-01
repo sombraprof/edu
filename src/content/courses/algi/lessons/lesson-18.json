@@ -26,9 +26,9 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Slides comparativos for x while",
-      "type": "presentation",
-      "url": "https://example.edu/algi/slides/for-vs-while.pdf"
+      "label": "Artigo: Diferenças entre os laços for e while em C",
+      "type": "article",
+      "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop-in-c/"
     },
     {
       "label": "Planilha de contagem incremental",
@@ -51,9 +51,9 @@
       "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-4.pdf"
     },
     {
-      "label": "Estudo de caso: Controle de lotes na Farmácia Escola (planilha de auditoria)",
+      "label": "Planilha de controle de estoque (Sebrae SC)",
       "type": "spreadsheet",
-      "url": "https://example.edu/algi/casos/controle-lotes-for.xlsx"
+      "url": "https://www.sebrae-sc.com.br/arquivos_site/download/planilha-controle-estoque.xlsx"
     }
   ],
   "bibliography": [

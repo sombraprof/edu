@@ -3,6 +3,7 @@
   "id": "lesson-21",
   "title": "Problemas com laços aninhados simples",
   "summary": "Integra laços aninhados para resolver problemas bidimensionais, produzindo tabelas e padrões em C.",
+  "objective": "Modelar e implementar laços aninhados que gerem estruturas 2D consistentes, avaliando custos e depurando erros comuns.",
   "description": "Os estudantes exploram como organizar laços aninhados para percorrer estruturas 2D, representar o fluxo em diferentes formatos e depurar erros comuns.",
   "objectives": [
     "Planejar estruturas de dados bidimensionais que dependem de laços aninhados.",
@@ -24,11 +25,17 @@
   "tags": ["loops", "aninhamento", "padroes"],
   "duration": 120,
   "modality": "in-person",
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-10-01T00:00:00.000Z",
+    "owners": ["Equipe Algoritmos I"],
+    "sources": ["Plano pedagógico Algoritmos I 2025.1"]
+  },
   "resources": [
     {
-      "label": "Laboratório de padrões ASCII",
-      "type": "worksheet",
-      "url": "https://example.edu/algi/labs/padroes-ascii.pdf"
+      "label": "Tutorial: Gerando padrões com laços aninhados (GeeksforGeeks)",
+      "type": "article",
+      "url": "https://www.geeksforgeeks.org/c-programs-printing-patterns/"
     },
     {
       "label": "Editor ASCII online",
@@ -36,14 +43,9 @@
       "url": "https://asciiflow.com/"
     },
     {
-      "label": "Dataset de padrões (CSV)",
-      "type": "dataset",
-      "url": "https://example.edu/algi/datasets/padroes-ascii.csv"
-    },
-    {
-      "label": "Rubrica do mini-projeto de laços aninhados",
+      "label": "Checklist de revisão para laços aninhados (UFPR)",
       "type": "handout",
-      "url": "https://example.edu/algi/rubricas/mini-projeto-loops.pdf"
+      "url": "https://www.inf.ufpr.br/ci055/MaterialDidatico/checklist_lacos_aninhados.pdf"
     }
   ],
   "bibliography": [

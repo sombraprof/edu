@@ -31,9 +31,9 @@
       "url": "https://code.visualstudio.com/docs/cpp/config-msvc"
     },
     {
-      "label": "Tabela de especificadores printf/scanf",
-      "type": "handout",
-      "url": "https://example.edu/algi/especificadores-c.pdf"
+      "label": "Referência: Format specifiers em C (Programiz)",
+      "type": "article",
+      "url": "https://www.programiz.com/c-programming/format-specifiers"
     },
     {
       "label": "OnlineGDB - Projeto C pré-configurado",
@@ -250,7 +250,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Salve o resumo oficial com sintaxe de tipos, operadores e formatação para tirar dúvidas durante o laboratório: https://example.edu/algi/guias/c-cheatsheet.pdf"
+          "text": "Salve a referência da GNU libc com sintaxe de formatação e exemplos para consulta durante o laboratório: https://www.gnu.org/software/libc/manual/html_node/Formatted-Output-Functions.html"
         },
         {
           "type": "unorderedList",
