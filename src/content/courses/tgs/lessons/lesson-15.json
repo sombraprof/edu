@@ -138,20 +138,34 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Como conduzir o estudo de caso em squads",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Divida a turma em squads de 4 a 6 pessoas. Cada grupo escolhe (ou recebe) um dos cenários abaixo e aplica o checklist de análise sistêmica para mapear processos, dados, tecnologia e pessoas. Oriente-os a registrar decisões em uma matriz com três colunas: dor identificada, solução proposta e evidências coletadas na demonstração guiada."
+        },
+        {
+          "type": "paragraph",
+          "text": "Reserve 5 minutos iniciais para leitura do contexto, 20 minutos para a análise colaborativa e 5 minutos finais para preparar um pitch de 2 minutos. Durante o trabalho em grupo, circule com perguntas norteadoras como: 'Quais integrações são mandatórias?', 'Que riscos surgem se o módulo X falhar?' e 'Como a equipe medirá sucesso pós-implantação?'."
+        }
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Estudo de caso em squads",
       "cards": [
         {
           "title": "Retail Mix",
-          "content": "Rede varejista com gargalos de estoque e visão fragmentada de clientes. Qual combinação de sistemas atende melhor?"
+          "content": "Contexto: rede varejista multicanal com ruptura de estoque em lojas físicas e visão fragmentada do cliente.\nAtividades do squad:\n1. Mapear o fluxo pedido-entrega e identificar onde ocorrem os gargalos.\n2. Sugerir uma combinação de ERP, SCM e CRM que integre inventário, e-commerce e atendimento.\n3. Definir indicadores (OTIF, NPS, giro) e dados mestres necessários.\nSaída esperada: quadro-resumo com módulos priorizados, integrações essenciais e plano de mudança para equipes de loja."
         },
         {
           "title": "HealthConnect",
-          "content": "Clínica que precisa integrar prontuários, agenda médica e faturamento, mantendo compliance LGPD."
+          "content": "Contexto: clínica especializada com prontuários isolados por setor, retrabalho de faturamento e exigências rígidas de compliance LGPD.\nAtividades do squad:\n1. Desenhar o fluxo paciente (agendamento -> consulta -> faturamento -> pós-atendimento).\n2. Selecionar sistemas (prontuário eletrônico, ERP/financeiro, CRM de relacionamento) e apontar integrações HL7/FHIR.\n3. Identificar controles de consentimento, anonimização e trilhas de auditoria.\nSaída esperada: matriz de responsabilidades mostrando donos do processo, riscos mitigados e requisitos de treinamento."
         },
         {
           "title": "Indústria 4.0",
-          "content": "Fábrica que adota sensores IoT e precisa sincronizar produção, manutenção e cadeia logística."
+          "content": "Contexto: fábrica de componentes que instalou sensores IoT e quer sincronizar produção, manutenção preditiva e logística outbound.\nAtividades do squad:\n1. Mapear o fluxo ordem de produção -> chão de fábrica -> expedição -> distribuidores.\n2. Avaliar como MES/SCADA, ERP e plataforma de analytics se conectam via APIs ou middleware.\n3. Planejar governança de dados para séries temporais e alertas em tempo real.\nSaída esperada: roadmap em três ondas (curto, médio e longo prazo) com integrações priorizadas e requisitos de capacitação de operadores."
         }
       ]
     },
@@ -164,19 +178,19 @@
           "items": [
             {
               "title": "Processos",
-              "text": "Mapeie fluxos ponta a ponta identificando gargalos e dependências interdepartamentais."
+              "text": "Desenhe o fluxo ponta a ponta em um canvas (ex.: SIPOC), marque gargalos, reprocessos e dependências entre áreas. Verifique se há políticas ou SLAs que condicionam a escolha do sistema."
             },
             {
               "title": "Dados",
-              "text": "Classifique fontes, qualidade e requisitos de conformidade (LGPD, SOX)."
+              "text": "Liste fontes internas e externas, classifique a qualidade (exatidão, atualidade, completude) e registre obrigações de conformidade como LGPD, SOX e requisitos regulatórios setoriais."
             },
             {
               "title": "Tecnologia",
-              "text": "Liste integrações prioritárias (APIs, middleware, ETL) e limitações legadas."
+              "text": "Mapeie integrações prioritárias (APIs, middleware, ETL), dependências com legados e limitações de infraestrutura. Aponte padrões (REST, SOAP, eventos) que precisarão ser suportados."
             },
             {
               "title": "Pessoas",
-              "text": "Planeje capacitação, gestão de mudança e ownership de cada módulo."
+              "text": "Identifique papéis-chave, competências que precisarão ser desenvolvidas e plano de gestão da mudança. Determine ownership de cada módulo e canais de suporte."
             }
           ]
         }
@@ -191,15 +205,15 @@
           "items": [
             {
               "title": "Critérios de aderência",
-              "text": "Quais dimensões (processos, pessoas, dados, tecnologia) pesaram na escolha do sistema?"
+              "text": "Quais dimensões (processos, pessoas, dados, tecnologia) pesaram na escolha do sistema? Peça que os squads apresentem evidências coletadas no catálogo e no checklist."
             },
             {
               "title": "Riscos sistêmicos",
-              "text": "Que efeitos colaterais podem emergir em outros subsistemas da organização?"
+              "text": "Que efeitos colaterais podem emergir em outros subsistemas da organização? Explore cenários de falha e pergunte quem seria impactado em upstream e downstream."
             },
             {
               "title": "Governança",
-              "text": "Como garantir atualização, suporte e evolução contínua do sistema selecionado?"
+              "text": "Como garantir atualização, suporte e evolução contínua do sistema selecionado? Discuta papéis de TI e das áreas de negócio, backlog de melhorias e políticas de revisão periódica."
             }
           ]
         }
@@ -212,11 +226,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "A turma acompanha, em tempo real, a navegação por um catálogo de soluções SaaS. Observe como filtros por segmento, porte e integrações ajudam a estreitar opções."
+          "text": "A turma acompanha, em tempo real, a navegação pelo Catálogo Gartner de aplicações empresariais (https://example.edu/tgs/recursos/catalogo-sistemas) ou outro marketplace institucional autorizado. Mostre como aplicar filtros por segmento, porte, módulos disponíveis e integrações certificadas."
         },
         {
           "type": "paragraph",
-          "text": "Anote integrações essenciais e requisitos técnicos que surgirem durante a demonstração para alimentar o estudo de caso."
+          "text": "Projete a planilha-modelo de captura de requisitos (Ficha de estudo de caso) e vá preenchendo ao vivo: integrações essenciais, requisitos técnicos, modelos de licenciamento e SLAs. Faça pausas para que as squads registrem observações que alimentarão o estudo de caso."
         }
       ]
     },
@@ -227,7 +241,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Poste no AVA, até às 22h de amanhã, a análise do seu squad com: (1) sistema(s) recomendados, (2) justificativa sistêmica e (3) integrações prioritárias. Inclua uma evidência (print ou link) da ferramenta utilizada na demonstração."
+          "text": "Poste no AVA a análise do seu squad contendo: (1) sistemas recomendados e módulos escolhidos, (2) justificativa sistêmica ancorada nas quatro dimensões do checklist, (3) integrações prioritárias e riscos associados, e (4) evidência (print ou link) da ferramenta explorada na demonstração guiada."
         }
       ]
     },
@@ -238,7 +252,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Use o prompt a seguir para solicitar a um assistente de IA sugestões de aprimoramento contínuo da aula:"
+          "text": "Use o prompt a seguir para solicitar a um assistente de IA sugestões de aprimoramento contínuo da aula. Oriente o professor a colar o texto completo na ferramenta escolhida (ChatGPT, Gemini, Copilot etc.) após a aula, salvando os insights em um documento compartilhado com a coordenação."
         },
         {
           "type": "codeBlock",
