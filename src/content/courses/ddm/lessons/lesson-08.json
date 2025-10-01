@@ -52,6 +52,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade II",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=FrteWKKVyzI",
+          "title": "Lifecycle-aware components",
+          "caption": "Sessão oficial do Android Developers sobre ciclos de vida. Créditos: Android Developers (Google, 2020)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc8j2B95zGMb8Qbb8VG-Snys",
+          "title": "Android Developer Fundamentals",
+          "caption": "Playlist institucional com foco em intents, navegação e ciclo de vida. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da aula (1h 45min)",
       "items": [
@@ -112,7 +128,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "private const val KEY_MESSAGE = \"message\"\n\noverride fun onSaveInstanceState(outState: Bundle) {\n  super.onSaveInstanceState(outState)\n  outState.putString(KEY_MESSAGE, binding.messageInput.text.toString())\n}\n\noverride fun onRestoreInstanceState(savedInstanceState: Bundle) {\n  super.onRestoreInstanceState(savedInstanceState)\n  binding.messageInput.setText(savedInstanceState.getString(KEY_MESSAGE))\n}"
+          "code": "private const val KEY_MESSAGE = \"message\"\n\noverride fun onSaveInstanceState(outState: Bundle) {\n  super.onSaveInstanceState(outState)\n  outState.putString(KEY_MESSAGE, binding.messageInput.text.toString())\n}\n\noverride fun onRestoreInstanceState(savedInstanceState: Bundle) {\n  super.onRestoreInstanceState(savedInstanceState)\n  binding.messageInput.setText(savedInstanceState.getString(KEY_MESSAGE))\n}\n\n// Referência: GOOGLE (2024)"
         },
         {
           "type": "callout",
@@ -138,7 +154,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "class GreetingViewModel(\n  private val state: SavedStateHandle\n) : ViewModel() {\n\n  var name: String\n    get() = state.get<String>(\"name\").orEmpty()\n    set(value) {\n      state[\"name\"] = value\n    }\n\n  val greeting: StateFlow<String> = state\n    .getStateFlow(\"greeting\", \"Olá, visitante!\")\n}"
+          "code": "class GreetingViewModel(\n  private val state: SavedStateHandle\n) : ViewModel() {\n\n  var name: String\n    get() = state.get<String>(\"name\").orEmpty()\n    set(value) {\n      state[\"name\"] = value\n    }\n\n  val greeting: StateFlow<String> = state\n    .getStateFlow(\"greeting\", \"Olá, visitante!\")\n}\n\n// Referência: GOOGLE (2024)"
         },
         {
           "type": "orderedList",
@@ -237,6 +253,61 @@
       "references": [
         "GOOGLE. Handle configuration changes. 2024.",
         "DÍAZ, José. Kotlin for Android Developers. Leanpub, 2023. Cap. 6."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize o snippet como referência rápida para tratar o ciclo de vida e a navegação abordados em Salvando Estado com Bundle."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "override fun onStart() {\n    super.onStart()\n    android.util.Log.d(\"UnidadeII\", \"Salvando Estado com Bundle: tela ativa\")\n}\n\nval intent = Intent(this, DetalhesActivity::class.java).apply {\n    putExtra(\"EXTRA_STATUS\", \"Salvando Estado com Bundle\")\n}\nstartActivity(intent)\n// Referência: GOOGLE (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "A anotação final reforça a ligação direta com GOOGLE (2024), garantindo alinhamento metodológico."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "GOOGLE. ViewModel overview. Android Developers, 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise os fundamentos de Salvando Estado com Bundle observando como o estado é preservado entre atividades."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: GOOGLE. ViewModel overview. Android Developers, 2024.",
+            "Conecte com o estudo: SAGAH. Desenvolvimento para Dispositivos Móveis. Cap. 5 – Persistência de Estado, 2019."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Mapeie um fluxo multi-activity do seu projeto e valide se os estados críticos estão protegidos."
+        },
+        {
+          "type": "blockquote",
+          "text": "SAGAH. Desenvolvimento para Dispositivos Móveis. Cap. 5 – Persistência de Estado, 2019."
+        }
       ]
     }
   ],

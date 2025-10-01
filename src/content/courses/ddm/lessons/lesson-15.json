@@ -61,6 +61,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade III",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
+          "title": "Room: arquitetando persistência local",
+          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
+          "title": "Android Jetpack Architecture Components",
+          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da aula",
       "items": [
@@ -165,6 +181,61 @@
         {
           "type": "paragraph",
           "text": "Participe do fórum \"Dúvidas NP1 – Persistência\" com pelo menos uma pergunta ou contribuição até dois dias antes da prova."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de Revisão para NP1 e Checklist de Persistência."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ANDROID DEVELOPERS. Save data in a local database using Room. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reforce os conceitos de Revisão para NP1 e Checklist de Persistência relacionando SharedPreferences, Room e estratégias de migração."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: ANDROID DEVELOPERS. Save data in a local database using Room. 2024.",
+            "Conecte com o estudo: GOYAL, M. Android Room Database. Apress, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+        },
+        {
+          "type": "blockquote",
+          "text": "GOYAL, M. Android Room Database. Apress, 2023."
         }
       ]
     }

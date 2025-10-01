@@ -54,6 +54,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo (120 min)",
       "items": [
@@ -264,6 +280,61 @@
             }
           ],
           "checkpoints": ["Feedback recebido", "TED concluída"]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Nativo vs Híbrido: Estratégias de Plataforma usando Expo e React Navigation."
+        },
+        {
+          "type": "code",
+          "language": "tsx",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Nativo vs Híbrido: Estratégias de Plataforma: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: THOUGHTWORKS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de THOUGHTWORKS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "THOUGHTWORKS. Technology Radar, Vol. 29, 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Nativo vs Híbrido: Estratégias de Plataforma relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: THOUGHTWORKS. Technology Radar, Vol. 29, 2024.",
+            "Conecte com o estudo: ALBERTS, J. Mobile Strategy Essentials. O'Reilly, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "ALBERTS, J. Mobile Strategy Essentials. O'Reilly, 2023."
         }
       ]
     }

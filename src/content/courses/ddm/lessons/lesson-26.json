@@ -64,6 +64,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade V",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=fgdpvwEWJ9M",
+          "title": "Get to know Cloud Firestore",
+          "caption": "Sessão oficial apresentando recursos do Cloud Firestore. Créditos: Firebase (Google, 2020)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX",
+          "title": "Firebase for Android",
+          "caption": "Playlist institucional cobrindo autenticação, Firestore e regras de segurança. Créditos: Firebase (Google, 2024)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo",
       "items": [
@@ -160,6 +176,61 @@
             "Experiência do usuário (20%).",
             "Documentação de riscos (15%)."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Este trecho demonstra a integração em tempo real discutida em Firebase Authentication, com listeners seguros."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "val db = Firebase.firestore\nval usuarios = db.collection(\"usuarios\")\nusuarios.whereEqualTo(\"ativo\", true)\n    .addSnapshotListener { snapshot, erro ->\n        if (erro != null) {\n            Log.e(\"UnidadeV\", \"Erro ao consultar Firebase Authentication\", erro)\n            return@addSnapshotListener\n        }\n        val ativos = snapshot?.documents?.size ?: 0\n        Log.d(\"UnidadeV\", \"Usuários ativos: $ativos\")\n    }\n// Referência: GOOGLE (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Garanta que os logs e regras sigam as orientações de GOOGLE (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "GOOGLE. Firebase Authentication Documentation. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise Firebase Authentication conectando os artefatos do projeto às boas práticas de segurança do Firebase."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: GOOGLE. Firebase Authentication Documentation. 2024.",
+            "Conecte com o estudo: SILVA, D. Segurança em autenticação mobile. Novatec, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Modele um cenário de sincronização offline e valide como o Firestore responde às perdas de conexão."
+        },
+        {
+          "type": "blockquote",
+          "text": "SILVA, D. Segurança em autenticação mobile. Novatec, 2023."
         }
       ]
     }

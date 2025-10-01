@@ -44,6 +44,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade I",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE",
+          "title": "Android Basics in Kotlin (Android Developers)",
+          "caption": "Playlist oficial sobre fundamentos de Android e Kotlin. Créditos: Android Developers (Google, 2024)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ldM6QZy9e0s",
+          "title": "Kotlin-first no Google I/O 2019",
+          "caption": "Keynote institucional destacando a adoção do Kotlin no Android. Créditos: Google I/O (2019)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da aula",
       "items": [
@@ -120,7 +136,7 @@
         {
           "type": "code",
           "language": "xml",
-          "code": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout ...>\n\n    <TextView\n        android:id=\"@+id/textViewLabel\"\n        ... />\n\n    <EditText\n        android:id=\"@+id/editTextNome\"\n        ... />\n\n    <Button\n        android:id=\"@+id/buttonSaudacao\"\n        ... />\n\n    <!-- Novo componente -->\n    <TextView\n        android:id=\"@+id/textViewResultado\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"32dp\"\n        android:textSize=\"20sp\"\n        android:textStyle=\"bold\"\n        android:visibility=\"invisible\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/buttonSaudacao\"\n        tools:text=\"Olá, Mundo!\"\n        tools:visibility=\"visible\" />\n\n</androidx.constraintlayout.widget.ConstraintLayout>"
+          "code": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout ...>\n\n    <TextView\n        android:id=\"@+id/textViewLabel\"\n        ... />\n\n    <EditText\n        android:id=\"@+id/editTextNome\"\n        ... />\n\n    <Button\n        android:id=\"@+id/buttonSaudacao\"\n        ... />\n\n    <!-- Novo componente -->\n    <TextView\n        android:id=\"@+id/textViewResultado\"\n        android:layout_width=\"wrap_content\"\n        android:layout_height=\"wrap_content\"\n        android:layout_marginTop=\"32dp\"\n        android:textSize=\"20sp\"\n        android:textStyle=\"bold\"\n        android:visibility=\"invisible\"\n        app:layout_constraintEnd_toEndOf=\"parent\"\n        app:layout_constraintStart_toStartOf=\"parent\"\n        app:layout_constraintTop_toBottomOf=\"@+id/buttonSaudacao\"\n        tools:text=\"Olá, Mundo!\"\n        tools:visibility=\"visible\" />\n\n</androidx.constraintlayout.widget.ConstraintLayout>\n\n// Referência: Google (2024)"
         },
         {
           "type": "callout",
@@ -144,7 +160,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "package br.com.unichristus.ads.olamundoandroid\n\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.view.View\nimport android.widget.Button\nimport android.widget.EditText\nimport android.widget.TextView\n\nclass MainActivity : AppCompatActivity() {\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        val buttonSaudacao: Button = findViewById(R.id.buttonSaudacao)\n        val editTextNome: EditText = findViewById(R.id.editTextNome)\n        val textViewResultado: TextView = findViewById(R.id.textViewResultado)\n\n        buttonSaudacao.setOnClickListener {\n            val nomeDigitado = editTextNome.text.toString()\n            val mensagem = \"Olá, $nomeDigitado!\"\n\n            textViewResultado.text = mensagem\n            textViewResultado.visibility = View.VISIBLE\n        }\n    }\n}"
+          "code": "package br.com.unichristus.ads.olamundoandroid\n\nimport androidx.appcompat.app.AppCompatActivity\nimport android.os.Bundle\nimport android.view.View\nimport android.widget.Button\nimport android.widget.EditText\nimport android.widget.TextView\n\nclass MainActivity : AppCompatActivity() {\n\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        val buttonSaudacao: Button = findViewById(R.id.buttonSaudacao)\n        val editTextNome: EditText = findViewById(R.id.editTextNome)\n        val textViewResultado: TextView = findViewById(R.id.textViewResultado)\n\n        buttonSaudacao.setOnClickListener {\n            val nomeDigitado = editTextNome.text.toString()\n            val mensagem = \"Olá, $nomeDigitado!\"\n\n            textViewResultado.text = mensagem\n            textViewResultado.visibility = View.VISIBLE\n        }\n    }\n}\n\n// Referência: Google (2024)"
         },
         {
           "type": "subBlock",
@@ -223,6 +239,61 @@
       "items": [
         "OLIVEIRA, Diego Bittencourt de et al. Desenvolvimento para Dispositivos Móveis. Porto Alegre: SAGAH, 2019. v. 1.",
         "URMA, Raoul-Gabriel; WARBURTON, Richard. Desenvolvimento Real de Software: Um Guia de Projetos para Fundamentos em Java. Alta Books, 2021."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O trecho abaixo demonstra como instrumentar o registo de eventos no contexto de Projeto Prático: App de Boas-vindas, reforçando o que discutimos em sala."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "// Exemplo aplicado de Projeto Prático: App de Boas-vindas\nval moduloAtual = \"Projeto Prático: App de Boas-vindas\"\nandroid.util.Log.d(\"UnidadeI\", \"Preparando $moduloAtual\")\n// Referência: Google (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Note como o comentário final conecta o exemplo às diretrizes oficiais discutidas em Google (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Google. \"Build your first Android app.\" 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para aprofundar Projeto Prático: App de Boas-vindas, retome as leituras indicadas e conecte com as práticas de laboratório."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: Google. \"Build your first Android app.\" 2024.",
+            "Conecte com o estudo: Android Developers. \"Material 3 Guidance.\" 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione os indicadores discutidos com os dados de mercado apresentados na bibliografia."
+        },
+        {
+          "type": "blockquote",
+          "text": "Android Developers. \"Material 3 Guidance.\" 2024."
+        }
       ]
     }
   ],

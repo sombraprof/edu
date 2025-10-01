@@ -64,6 +64,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade IV",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=y3QmE21zBIA",
+          "title": "Networking best practices on Android",
+          "caption": "Sessão do Android Developers sobre consumo de APIs. Créditos: Google I/O (2019)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=BOHK_w09pVA",
+          "title": "Kotlin Coroutines: fundamentos",
+          "caption": "Apresentação oficial sobre corrotinas para operações assíncronas. Créditos: JetBrains (2019)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da aula",
       "items": [
@@ -146,6 +162,61 @@
             "Tratamento de erros e feedback ao usuário (25%).",
             "Documentação clara do fluxo (20%)."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O fragmento resume o padrão de cliente Retrofit aplicado às discussões de Retrofit com chamadas síncronas."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "interface ApiService {\n    @GET(\"/posts\")\n    suspend fun listarPosts(): List<PostResponse>\n}\n\nval retrofit = Retrofit.Builder()\n    .baseUrl(\"https://api.exemplo.dev\")\n    .addConverterFactory(MoshiConverterFactory.create())\n    .build()\n\nval service = retrofit.create(ApiService::class.java)\n// Referência: LEE, B (2023)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mantenha a configuração alinhada ao que LEE, B (2023) descreve para serialização e segurança."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "LEE, B.; KIM, J. Mastering Retrofit. LeanPub, 2023."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Retome o fluxo de consumo de APIs de Retrofit com chamadas síncronas, considerando políticas de tratamento de erros."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: LEE, B.; KIM, J. Mastering Retrofit. LeanPub, 2023.",
+            "Conecte com o estudo: PHILLIPS, B. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Documente como o endpoint crítico do seu projeto lida com latência e falhas de rede."
+        },
+        {
+          "type": "blockquote",
+          "text": "PHILLIPS, B. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2024."
         }
       ]
     }
