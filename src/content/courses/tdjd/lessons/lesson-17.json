@@ -1,0 +1,153 @@
+{
+  "id": "lesson-17",
+  "title": "Aula 17: Design Inclusivo e Acessibilidade em Jogos",
+  "objective": "Reconhecer princípios de design inclusivo e aplicar diretrizes práticas de acessibilidade a jogos/protótipos.",
+  "summary": "Princípios, barreiras e boas práticas de acessibilidade (física, cognitiva, sensorial) com estudo de caso e proposta de melhoria.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "design-inclusivo-e-acessibilidade",
+  "duration": 120,
+  "modality": "in-person",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Princípios de design inclusivo; barreiras de acesso; padrões e diretrizes; análise de casos."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Identificar barreiras e propor melhorias concretas de acessibilidade para jogos/protótipos."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Aula dialogada + estudo de caso + desafio de redesign (design crítico + reflexão)."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Dimensões de acessibilidade",
+      "columns": 3,
+      "items": [
+        {
+          "title": "Física",
+          "subtitle": "Controle e motricidade",
+          "icon": "Gamepad2",
+          "variant": "info",
+          "description": "Remapeamento de botões, modos de uma mão, assistência de mira."
+        },
+        {
+          "title": "Sensorial",
+          "subtitle": "Visão e audição",
+          "icon": "Eye",
+          "variant": "good-practice",
+          "description": "Legendas, contraste, daltônico, feedbacks visuais e táteis."
+        },
+        {
+          "title": "Cognitiva",
+          "subtitle": "Carga e clareza",
+          "icon": "Brain",
+          "variant": "academic",
+          "description": "Linguagem simples, tutorial progressivo, redução de sobrecarga."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Guia prático (Game Accessibility Guidelines)",
+      "headers": ["Aspecto", "Boa prática", "Exemplo no Unity"],
+      "rows": [
+        ["Controles", "Remapeamento e sensibilidade", "Input System com rebinds e deadzones"],
+        ["Feedback", "Modos de legenda/CC", "UI com toggles para CC e tamanho de fonte"],
+        ["Cores", "Modos daltônicos/alto contraste", "Material variants + filtros URP (volumes)"],
+        ["Áudio", "Mixers por canal e limites de volume", "Audio Mixer com parâmetros expostos"],
+        ["Dificuldade", "Assistências e modos graduais", "Scriptables de config e escalonamento"]
+      ]
+    },
+    {
+      "type": "resourceGallery",
+      "title": "Casos e diretrizes",
+      "items": [
+        {
+          "url": "https://www.gameaccessibilityguidelines.com/",
+          "title": "Game Accessibility Guidelines",
+          "caption": "Diretrizes por níveis (básico, intermediário, avançado)."
+        },
+        {
+          "url": "https://ablegamers.org/",
+          "title": "AbleGamers",
+          "caption": "Materiais e advocacy em acessibilidade."
+        },
+        {
+          "url": "https://www.playstation.com/pt-br/accessibility/",
+          "title": "Recursos de acessibilidade (Sony)",
+          "caption": "Configurações e cases de first‑party."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Desafio em sala: proposta de melhoria inclusiva",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escolha uma dimensão (física, sensorial ou cognitiva) e proponha uma melhoria para o seu protótipo. Descreva a alteração, expectativa de impacto e como validar (critério de aceite)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: Justificativa com base em diretrizes",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente a sugestão no protótipo (ou faça um mock funcional) e publique no fórum com evidências (print/vídeo curto) e a diretriz que embasa a decisão."
+        }
+      ]
+    },
+    {
+      "type": "bibliographyBlock",
+      "title": "Bibliografia e referências",
+      "references": [
+        "SALEN, K.; ZIMMERMAN, E. Regras do jogo. Blucher, 2012.",
+        "Game Accessibility Guidelines: https://www.gameaccessibilityguidelines.com/",
+        "AbleGamers: https://ablegamers.org/"
+      ]
+    }
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Proposta de melhoria inclusiva + justificativa baseada em diretrizes."
+  },
+  "resources": [
+    {
+      "label": "Input System — rebinds",
+      "url": "https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/manual/Rebinding.html",
+      "type": "doc"
+    },
+    {
+      "label": "Audio Mixer — canais e parâmetros",
+      "url": "https://docs.unity3d.com/Manual/AudioMixer.html",
+      "type": "doc"
+    }
+  ],
+  "competencies": [
+    "10 - Avaliar a qualidade de software e processos.",
+    "14 - Projetar interfaces e especificar requisitos de software."
+  ],
+  "outcomes": [
+    "Propõe e implementa (ou prototipa) uma melhoria inclusiva no projeto.",
+    "Justifica a decisão com base em diretrizes de acessibilidade."
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-10-02T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2"]
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "id": "lesson-16",
+  "title": "Aula 16: O Framework MDA – Design da Experiência do Jogador",
+  "objective": "Aplicar o framework MDA (Mecânicas, Dinâmicas e Estética) para orientar decisões de design focadas na experiência do jogador.",
+  "summary": "Introdução ao MDA e sua aplicação prática na análise e no projeto de experiências desejadas.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "framework-mda-design-da-experiencia",
+  "duration": 120,
+  "modality": "in-person",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano de Aula: Projeto de Experiência (MDA)",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Objetivo",
+          "content": "Compreender e aplicar MDA na análise e estruturação da experiência do jogador."
+        },
+        {
+          "icon": "graduation-cap",
+          "title": "Conteúdo",
+          "content": "Definições de Mecânicas, Dinâmicas e Estética; análise de casos."
+        },
+        {
+          "icon": "users",
+          "title": "Metodologia",
+          "content": "Aula teórico‑prática com análise crítica + discussão em grupos."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Os 3 pilares do MDA",
+      "columns": 3,
+      "items": [
+        {
+          "title": "Mecânicas (M)",
+          "subtitle": "Regras e sistemas",
+          "icon": "Settings",
+          "variant": "info",
+          "description": "Ações, recursos, atributos, algoritmos (pular, dano, coletáveis)."
+        },
+        {
+          "title": "Dinâmicas (D)",
+          "subtitle": "Comportamento emergente",
+          "icon": "Activity",
+          "variant": "good-practice",
+          "description": "Estratégias e ritmos que emergem da interação (fuga, cooperação, corrida contra o tempo)."
+        },
+        {
+          "title": "Estética (A)",
+          "subtitle": "Experiência emocional",
+          "icon": "Heart",
+          "variant": "academic",
+          "description": "Sensações/emoções pretendidas (desafio, descoberta, narrativa, companheirismo)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Por que MDA importa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "MDA explicita a relação entre regras, comportamento e experiência. Ajuda a equipe a comunicar intenções e validar decisões de design com jogadoras e jogadores desde cedo."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Defina a Estética desejada (evidência observável).",
+            "Garanta Dinâmicas coerentes com essa Estética.",
+            "Implemente Mecânicas que suportem essas Dinâmicas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Mapa MDA de exemplo",
+      "headers": ["Estética", "Dinâmicas desejadas", "Mecânicas de suporte"],
+      "rows": [
+        [
+          "Desafio",
+          "Aprendizado incremental; risco/recompensa",
+          "Curva de dificuldade; hitstun; penalidade por erro"
+        ],
+        [
+          "Descoberta",
+          "Exploração; experimentação",
+          "Sistema de física sistêmica; crafting; segredos"
+        ],
+        [
+          "Companheirismo",
+          "Cooperação; apoio mútuo",
+          "Habilidades complementares; reviver aliado; objetivos compartilhados"
+        ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: Aplicando MDA ao seu jogo",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Escolha do jogo",
+              "text": "Use o protótipo do grupo ou um jogo conhecido."
+            },
+            {
+              "title": "Análise MDA",
+              "text": "Em um parágrafo, relacione 2 mecânicas → 2 dinâmicas → 1 estética pretendida, com exemplo observável."
+            },
+            { "title": "Entrega", "text": "Poste no fórum: ‘MDA de [Nome do Jogo]: …’." }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "bibliography",
+      "title": "Bibliografia essencial",
+      "items": [
+        "HUNICKE, R.; LEBLANC, M.; ZUBEK, R. MDA: A Formal Approach to Game Design and Game Research (2004).",
+        "SALEN, K.; ZIMMERMAN, E. Regras do jogo. Blucher, 2012.",
+        "SCHELL, J. The Art of Game Design. CRC Press, 2020."
+      ]
+    }
+  ],
+  "assessment": { "type": "formative", "description": "Matriz MDA do projeto + discussão." },
+  "resources": [
+    {
+      "label": "Paper MDA (Hunicke et al.)",
+      "url": "https://users.cs.northwestern.edu/~hunicke/MDA.pdf",
+      "type": "paper"
+    },
+    {
+      "label": "Template colaborativo (Miro)",
+      "url": "https://miro.com/templates/mda-framework/",
+      "type": "template"
+    }
+  ],
+  "competencies": [
+    "10 - Avaliar a qualidade de software e processos.",
+    "14 - Projetar interfaces e especificar requisitos de software."
+  ],
+  "outcomes": [
+    "Constrói matriz MDA para o protótipo.",
+    "Relaciona ajustes de mecânicas às dinâmicas e à estética desejada."
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-10-02T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2"]
+  }
+}

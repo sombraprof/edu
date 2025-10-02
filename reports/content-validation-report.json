@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2025-10-02T08:28:29.473Z",
+  "generatedAt": "2025-10-02T12:47:50.524Z",
   "status": "passed-with-warnings",
   "totals": {
     "courses": 5,
-    "lessons": 143,
-    "lessonsWithIssues": 20,
+    "lessons": 145,
+    "lessonsWithIssues": 21,
     "problems": 0,
-    "warnings": 40
+    "warnings": 41
   },
   "courses": [
     {
@@ -315,6 +315,26 @@
             }
           ],
           "lessonId": "lesson-34"
+        }
+      ]
+    },
+    {
+      "id": "tdjd",
+      "lessonsTotal": 17,
+      "lessonsWithIssues": 1,
+      "problems": 0,
+      "warnings": 1,
+      "lessons": [
+        {
+          "file": "src/content/courses/tdjd/lessons/lesson-03.json",
+          "problems": [],
+          "warnings": [
+            {
+              "type": "legacy-block",
+              "message": "Bloco legado em content[9]: \"quiz\" requer refino futuro."
+            }
+          ],
+          "lessonId": "lesson-03"
         }
       ]
     }
