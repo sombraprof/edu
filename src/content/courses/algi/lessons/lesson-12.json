@@ -26,6 +26,11 @@
   "modality": "in-person",
   "resources": [
     {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "Playlist Estruturas Condicionais – Curso em Vídeo",
       "type": "playlist",
       "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dk_nZHmxxf_J0WRAqy5Cz9"
@@ -502,11 +507,220 @@
           "text": "Envios sem planilha ou sem evidência de testes serão devolvidos para reenvio com desconto."
         }
       ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Condições em C (if/else)",
+          "multiple": false,
+          "options": [
+            {
+              "text": "if (x > 0) executa quando x é positivo",
+              "correct": true
+            },
+            {
+              "text": "else if só executa junto com o if",
+              "correct": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "truthTable",
+      "title": "Tabela da verdade (AND/OR)",
+      "headers": ["A", "B", "A && B", "A || B"],
+      "rows": [
+        [
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          }
+        ],
+        [
+          {
+            "value": "F"
+          },
+          {
+            "value": "T"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "T"
+          }
+        ],
+        [
+          {
+            "value": "T"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "T"
+          }
+        ],
+        [
+          {
+            "value": "T"
+          },
+          {
+            "value": "T"
+          },
+          {
+            "value": "T"
+          },
+          {
+            "value": "T"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Entrada → Saída\nnota=7.5 -> Aprovado\nnota=6.9 -> Reprovado",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Ordene condições do caso mais restritivo para o mais amplo.",
+            "Use parênteses para reforçar a intenção em expressões complexas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "if (nota = 7) { /* ... */ } // usa = no lugar de ==",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "if (nota == 7) { /* ... */ } // comparação correta",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\nint main(){\n  float nota;\n  if (scanf(\"%f\", &nota)!=1) return 1;\n  if (nota >= 7.0f) puts(\"Aprovado\"); else puts(\"Reprovado\");\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Escreva uma condição curta com && ou ||.", "O que confundiu hoje?"]
+        }
+      ]
+    },
+    {
+      "type": "glossary",
+      "title": "Glossário",
+      "items": [
+        {
+          "term": "Booleano",
+          "definition": "Verdadeiro/Falso, usado em decisões."
+        },
+        {
+          "term": "Operadores lógicos",
+          "definition": "&&, ||, !"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera casos: nota -> Aprovado/Reprovado\nimport random\nfor n in [6.9, 7.0, 8.5, 4.0]:\n    print(f\"nota={n} -> {'Aprovado' if n>=7 else 'Reprovado'}\")",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-05T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.977Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

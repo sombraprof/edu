@@ -54,6 +54,20 @@ const SUPPORTED_BLOCK_TYPES = [
   'balancedScorecard',
   'component',
   'legacySection',
+  // New MD3 blocks
+  'resourceGallery',
+  'quiz',
+  'multipleChoice',
+  'flashcards',
+  'stepper',
+  'tabs',
+  'glossary',
+  'parsons',
+  'parsonsPuzzle',
+  'scenarioMatrix',
+  'spriteSheet',
+  'crcCards',
+  'apiEndpoints',
 ];
 
 const LEGACY_BLOCK_TYPES = ['dragAndDrop', 'fileTree', 'quiz'];
@@ -70,6 +84,18 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'PipelineCanvas',
   'SystemMapper',
   'BalancedScorecard',
+  // New components
+  'QuizBlock',
+  'Flashcards',
+  'ResourceGallery',
+  'Stepper',
+  'TabsBlock',
+  'Glossary',
+  'ParsonsPuzzle',
+  'ScenarioMatrix',
+  'SpriteSheetViewer',
+  'CRCCards',
+  'ApiEndpoints',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([

@@ -56,9 +56,9 @@ O objetivo destas sessões é revisar, corrigir e preparar os materiais atuais a
 ## 6. Checklist operacional para cada encontro
 
 - [ ] Atualizar relatório `reports/content-validation-report.json` antes da reunião.  
-      _Execute `npm run validate:content` para gerar o arquivo automaticamente._
+       _Execute `npm run validate:content` para gerar o arquivo automaticamente._
 - [ ] Preparar resumo dos blocos legados e pendências em `reports/governance-alert.md`.  
-      _Execute `npm run report:governance` para gerar o alerta consolidado (o comando já executa a validação antes do resumo)._
+       _Execute `npm run report:governance` para gerar o alerta consolidado (o comando já executa a validação antes do resumo)._
 - [ ] Confirmar presença dos participantes obrigatórios com 24h de antecedência.
 - [ ] Registrar decisões na ata compartilhada em até 24h após a sessão.
 - [ ] Atualizar status dos itens no backlog (`docs/material-redesign-plan.md` e issues associadas).

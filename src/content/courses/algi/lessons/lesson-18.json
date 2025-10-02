@@ -48,7 +48,7 @@
     {
       "label": "Capítulo 4 – Estruturas de repetição (Forbellone & Eberspächer)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-4.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Planilha de controle de estoque (Sebrae SC)",
@@ -423,11 +423,123 @@
           "text": "A pontuação compõe a mesma rubrica registrada no campo Assessment desta aula para garantir alinhamento entre competências e entregáveis."
         }
       ]
+    },
+    {
+      "type": "stepper",
+      "title": "for (inicialização; condição; incremento)",
+      "steps": [
+        {
+          "title": "Inicialização",
+          "description": "int i = 0;"
+        },
+        {
+          "title": "Condição",
+          "description": "i < n"
+        },
+        {
+          "title": "Incremento",
+          "description": "i++"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Entrada → Saída\nn=5 -> 1 2 3 4 5",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for (int i=0; i<n; ) { /* sem incremento */ }",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for (int i=0; i<n; i++) { /* ok */ }",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\nint main(){\n  int n; if (scanf(\"%d\", &n)!=1) return 1;\n  for (int i=1;i<=n;i++){ printf(\"%d%s\", i, i==n?\"\n\":\" \"); }\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Qual foi o padrão de incremento que você usou?", "Quando preferir while?"]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera n e sequência esperada 1..n\nfor n in [3,5,7]:\n    print(f\"n={n} -> \", ' '.join(str(i) for i in range(1, n+1)))",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-09-29T14:15:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.983Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": [
       "Plano pedagógico Algoritmos I 2025.1",

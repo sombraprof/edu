@@ -68,7 +68,7 @@
     {
       "label": "Capítulo 9 – Vetores e estatística (Manzano & Oliveira)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-9.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Dataset: Geração solar diária (Plotly)",
@@ -399,11 +399,131 @@
           "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e cite o trecho dos autores utilizado para fundamentar a questão."
         }
       ]
+    },
+    {
+      "type": "stepper",
+      "title": "Operações com vetores",
+      "steps": [
+        {
+          "title": "Somatório",
+          "description": "Percorrer e somar"
+        },
+        {
+          "title": "Média",
+          "description": "Somatório / n"
+        },
+        {
+          "title": "Extremos",
+          "description": "Maior/Menor"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Vetor (soma, média, extremos)\n[10, 20, 30] -> soma=60, média=20, maior=30, menor=10",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int maior = 0; // pode falhar com negativos",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "#include <limits.h>\nint maior = INT_MIN; // robusto",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n#include <limits.h>\nint main(){\n  int n; if (scanf(\"%d\", &n)!=1) return 1;\n  int x, soma=0, maior=INT_MIN, menor=INT_MAX;\n  for (int i=0;i<n;i++){\n    scanf(\"%d\", &x); soma+=x; if (x>maior) maior=x; if (x<menor) menor=x;\n  }\n  printf(\"soma=%d media=%.2f maior=%d menor=%d\n\", soma, (double)soma/n, maior, menor);\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera vetores e soma/media/extremos\narrs = [[10,20,30], [5,2,9], [-1,-5,0,2]]\nfor a in arrs:\n    s=sum(a); m=s/len(a); mx=max(a); mn=min(a)\n    print(f\"{a} -> soma={s}, média={m:.2f}, maior={mx}, menor={mn}\")",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Exercícios propostos",
+      "items": [
+        "Leia N inteiros, calcule soma, média, maior e menor.",
+        "Imprima somente os valores nos índices pares."
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-09-29T14:20:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.001Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": [
       "Plano pedagógico Algoritmos I 2025.2",

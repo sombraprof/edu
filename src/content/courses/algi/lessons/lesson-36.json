@@ -43,27 +43,27 @@
     {
       "label": "Capítulo 12 – Vetores de registros (Forbellone & Eberspächer)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-12.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 13 – Registros e arquivos (Manzano & Oliveira)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-13.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 12 – Structs e ordenação (Backes)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/backes/capitulo-12.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 14 – Manipulação de registros em C (Santos)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/santos/capitulo-14.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 9 – Registros, ordenação e auditoria (Ascencio & Campos)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/ascencio-campos/capitulo-9.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Dataset SEBRAE - Perfil dos Pequenos Negócios",
@@ -308,12 +308,109 @@
           "text": "Registre dúvidas no fórum destacando capítulo e página consultados para fortalecer a trilha de auditoria."
         }
       ]
+    },
+    {
+      "type": "stepper",
+      "title": "Vetor de structs",
+      "steps": [
+        {
+          "title": "Declaração",
+          "description": "Pessoa turma[50];"
+        },
+        {
+          "title": "Preenchimento",
+          "description": "for ... scanf(...)"
+        },
+        {
+          "title": "Consulta",
+          "description": "Buscar por matrícula"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Vetor de produtos (3) -> lista formatada",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-10-05T10:00:00.000Z",
-    "owners": ["Equipe Algoritmos I"],
+    "updatedAt": "2025-10-02T08:28:29.005Z",
+    "owners": ["Equipe Algoritmos I", "Prof. Tiago Sombra"],
     "sources": ["Plano de ensino Algoritmos I 2025.2", "Workshops SEBRAE de Dados 2024"]
   }
 }

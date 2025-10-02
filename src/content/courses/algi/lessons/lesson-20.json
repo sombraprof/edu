@@ -30,11 +30,16 @@
   "modality": "in-person",
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-10-01T00:00:00.000Z",
-    "owners": ["Equipe Algoritmos I"],
+    "updatedAt": "2025-10-02T08:28:28.984Z",
+    "owners": ["Equipe Algoritmos I", "Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1"]
   },
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Tutorial: Construindo menus com do-while (GeeksforGeeks)",
       "type": "article",
@@ -65,6 +70,20 @@
     "description": "Entrega de menu bancário implementado em C com do-while e relatório de testes anexado."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Warm-up (início da aula)",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Escreva em 3 minutos: o que você lembra da aula passada?",
+            "Compartilhe com a dupla."
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -177,6 +196,117 @@
               "text": "Documente no relatório quando preferiria while ou for e por quê."
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "do { ... } while (condição);",
+      "steps": [
+        {
+          "title": "Executa",
+          "description": "Bloco executa ao menos uma vez."
+        },
+        {
+          "title": "Testa",
+          "description": "Condição ao final decide continuar."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregar no AVA até 23h59 do dia seguinte."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Resolver 2 exercícios com laços (um com for e outro com while/do-while).",
+            "Anexar comentários sobre complexidade percebida."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Entrada → Saída (menu repete)\n1 2 0 -> executou duas operações e encerrou",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
         }
       ]
     }

@@ -1,72 +1,14 @@
 {
-  "generatedAt": "2025-10-01T13:49:42.087Z",
+  "generatedAt": "2025-10-02T08:28:29.473Z",
   "status": "passed-with-warnings",
   "totals": {
     "courses": 5,
     "lessons": 143,
-    "lessonsWithIssues": 23,
+    "lessonsWithIssues": 20,
     "problems": 0,
-    "warnings": 47
+    "warnings": 40
   },
   "courses": [
-    {
-      "id": "algi",
-      "lessonsTotal": 40,
-      "lessonsWithIssues": 3,
-      "problems": 0,
-      "warnings": 7,
-      "lessons": [
-        {
-          "file": "src/content/courses/algi/lessons/lesson-19.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "missing-metadata",
-              "message": "Campo \"objective\" precisa ser preenchido com o objetivo pedagógico principal."
-            }
-          ],
-          "lessonId": "lesson-19"
-        },
-        {
-          "file": "src/content/courses/algi/lessons/lesson-20.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "missing-metadata",
-              "message": "Campo \"objective\" precisa ser preenchido com o objetivo pedagógico principal."
-            },
-            {
-              "type": "missing-metadata",
-              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
-            },
-            {
-              "type": "missing-metadata",
-              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
-            }
-          ],
-          "lessonId": "lesson-20"
-        },
-        {
-          "file": "src/content/courses/algi/lessons/lesson-21.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "missing-metadata",
-              "message": "Campo \"objective\" precisa ser preenchido com o objetivo pedagógico principal."
-            },
-            {
-              "type": "missing-metadata",
-              "message": "Preencha metadata.updatedAt com a data ISO da última revisão para rastrear governança."
-            },
-            {
-              "type": "missing-metadata",
-              "message": "Preencha metadata.owners com responsáveis pedagógicos/tecnológicos."
-            }
-          ],
-          "lessonId": "lesson-21"
-        }
-      ]
-    },
     {
       "id": "ddm",
       "lessonsTotal": 40,

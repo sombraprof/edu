@@ -43,27 +43,27 @@
     {
       "label": "Capítulo 7 – Pesquisa sequencial (Forbellone & Eberspächer)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-7.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 9 – Vetores e busca linear (Manzano & Oliveira)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-9.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 8 – Arrays e desempenho (Backes)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/backes/capitulo-8.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 10 – Análise de eficiência em C (Santos)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/santos/capitulo-10.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 7 – Vetores e registros (Ascencio & Campos)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/ascencio-campos/capitulo-7.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "CS50 Shorts - Linear Search",
@@ -394,11 +394,144 @@
           "text": "Registre dúvidas no fórum do Moodle antes do prazo final e referencie a seção estudada para agilizar o feedback docente."
         }
       ]
+    },
+    {
+      "type": "tabs",
+      "title": "Busca linear",
+      "tabs": [
+        {
+          "label": "Pseudocódigo",
+          "content": "<pre>para i de 0 até n-1\n se v[i]==x então retorna i\nretorna -1</pre>"
+        },
+        {
+          "label": "C",
+          "code": "int busca(int*v,int n,int x){for(int i=0;i<n;i++) if(v[i]==x) return i; return -1;}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Busca linear\n[3,5,7], x=5 -> 1\n[3,5,7], x=10 -> -1",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Retorne cedo ao encontrar o elemento para reduzir custo."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int idx; for(int i=0;i<n;i++){ if(v[i]==x) idx=i; } // percorre tudo",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for(int i=0;i<n;i++){ if(v[i]==x) return i; } // retorna cedo",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "int busca(int *v, int n, int x){\n  for (int i=0;i<n;i++){ if (v[i]==x) return i; }\n  return -1;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera vetores e alvos\nimport random\narr = [3,5,7]\nfor x in [3,5,10]:\n    idx = next((i for i,v in enumerate(arr) if v==x), -1)\n    print(f\"{arr}, x={x} -> {idx}\")",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Exercícios propostos",
+      "items": [
+        "Implemente busca linear que retorna índice de x ou -1.",
+        "Conte quantas comparações são feitas para cada busca."
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-10-05T10:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.002Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Guia interno de algoritmos de busca 2024"]
   }

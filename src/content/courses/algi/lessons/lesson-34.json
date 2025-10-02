@@ -40,27 +40,27 @@
     {
       "label": "Capítulo 8 – Matrizes bidimensionais (Forbellone & Eberspächer)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/forbellone-eberspacher/capitulo-8.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 11 – Arrays multidimensionais (Manzano & Oliveira)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/manzano-oliveira/capitulo-11.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 9 – Matrizes e operações (Backes)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/backes/capitulo-9.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 12 – Processamento matricial em C (Santos)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/santos/capitulo-12.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Capítulo 8 – Matrizes e validações (Ascencio & Campos)",
       "type": "bookChapter",
-      "url": "https://biblioteca.example.edu/ascencio-campos/capitulo-8.pdf"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "CS50 - Short: Matrix Multiplication",
@@ -451,11 +451,153 @@
           "text": "Registre dúvidas no fórum do Moodle destacando o capítulo consultado para manter a trilha de auditoria pedagógica."
         }
       ]
+    },
+    {
+      "type": "md3Table",
+      "headers": ["i", "j", "v[i][j]"],
+      "rows": [
+        [
+          {
+            "value": "0"
+          },
+          {
+            "value": "0"
+          },
+          {
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "value": "0"
+          },
+          {
+            "value": "1"
+          },
+          {
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Soma por linha\n[[1,2],[3,4]] -> L1=3, L2=7",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int soma; for(int i=0;i<2;i++){ for(int j=0;j<2;j++){ soma+=m[i][j]; } } // soma não inicializada",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for(int i=0;i<2;i++){ int soma=0; for(int j=0;j<2;j++){ soma+=m[i][j]; } printf(\"L%d=%d\n\", i+1, soma);} ",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\nint main(){\n  int m[2][2];\n  for (int i=0;i<2;i++) for (int j=0;j<2;j++) scanf(\"%d\", &m[i][j]);\n  for (int i=0;i<2;i++){\n    int soma=0; for (int j=0;j<2;j++){ soma+=m[i][j]; }\n    printf(\"L%d=%d\n\", i+1, soma);\n  }\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera 2x2 e soma por linha\nmat = [[1,2],[3,4]]\nfor i,row in enumerate(mat, start=1):\n    print(f\"L{i}={sum(row)}\")",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Exercícios propostos",
+      "items": ["Leia 3x3 e exiba soma de cada linha.", "Encontre o maior elemento da matriz."]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-10-05T10:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.004Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Oficina de matrizes avançadas 2025"]
   }

@@ -25,6 +25,17 @@ import Timeline from '@/components/lesson/Timeline.vue';
 import TruthTable from '@/components/lesson/TruthTable.vue';
 import VideosBlock from '@/components/lesson/VideosBlock.vue';
 import BalancedScorecard from '@/components/lesson/BalancedScorecard.vue';
+import QuizBlock from '@/components/lesson/QuizBlock.vue';
+import Flashcards from '@/components/lesson/Flashcards.vue';
+import ResourceGallery from '@/components/lesson/ResourceGallery.vue';
+import Stepper from '@/components/lesson/Stepper.vue';
+import TabsBlock from '@/components/lesson/TabsBlock.vue';
+import Glossary from '@/components/lesson/Glossary.vue';
+import ParsonsPuzzle from '@/components/lesson/ParsonsPuzzle.vue';
+import ScenarioMatrix from '@/components/lesson/ScenarioMatrix.vue';
+import SpriteSheetViewer from '@/components/lesson/SpriteSheetViewer.vue';
+import CRCCards from '@/components/lesson/CRCCards.vue';
+import ApiEndpoints from '@/components/lesson/ApiEndpoints.vue';
 import type { Component } from 'vue';
 
 export type LessonBlock = Record<string, unknown> & { type: string };
@@ -51,6 +62,17 @@ const customComponentRegistry: Record<string, Component> = {
   PipelineCanvas,
   SystemMapper,
   BalancedScorecard,
+  QuizBlock,
+  Flashcards,
+  ResourceGallery,
+  Stepper,
+  TabsBlock,
+  Glossary,
+  ParsonsPuzzle,
+  ScenarioMatrix,
+  SpriteSheetViewer,
+  CRCCards,
+  ApiEndpoints,
 };
 
 const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
@@ -101,6 +123,19 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   flightPlan: dataBlock(FlightPlan),
   accordion: dataBlock(Accordion),
   representations: dataBlock(Representations),
+  quiz: dataBlock(QuizBlock),
+  multipleChoice: dataBlock(QuizBlock),
+  flashcards: dataBlock(Flashcards),
+  resourceGallery: dataBlock(ResourceGallery),
+  stepper: dataBlock(Stepper),
+  tabs: dataBlock(TabsBlock),
+  glossary: dataBlock(Glossary),
+  parsons: dataBlock(ParsonsPuzzle),
+  parsonsPuzzle: dataBlock(ParsonsPuzzle),
+  scenarioMatrix: dataBlock(ScenarioMatrix),
+  spriteSheet: dataBlock(SpriteSheetViewer),
+  crcCards: dataBlock(CRCCards),
+  apiEndpoints: dataBlock(ApiEndpoints),
   truthTable(block) {
     return {
       component: TruthTable,

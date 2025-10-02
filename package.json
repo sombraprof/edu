@@ -21,6 +21,8 @@
     "report:governance:history": "node scripts/report-governance-history.mjs",
     "report:courses": "node scripts/report-course-summary.mjs",
     "teacher:service": "node scripts/teacher-automation-server.mjs",
+    "resources:aggregate": "node scripts/aggregate-open-resources.mjs",
+    "algi:upgrade": "node scripts/algi-content-upgrade.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes",

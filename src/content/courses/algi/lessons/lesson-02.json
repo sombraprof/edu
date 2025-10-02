@@ -33,7 +33,7 @@
     {
       "label": "Quadro colaborativo online",
       "type": "tool",
-      "url": "https://whiteboard.example.edu"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Gerador de tabela-verdade (labs.dcc.ufmg.br)",
@@ -453,11 +453,134 @@
           "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
+    },
+    {
+      "type": "tabs",
+      "title": "Representações: Pseudocódigo × C",
+      "tabs": [
+        {
+          "label": "Pseudocódigo",
+          "content": "<pre>ler A, B\nsoma ← A + B\nescrever soma</pre>"
+        },
+        {
+          "label": "C",
+          "code": "#include <stdio.h>\nint main(){int a,b; scanf(\"%d %d\",&a,&b); printf(\"%d\\n\", a+b);}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Em uma frase: o que é um algoritmo?", "Qual dúvida fica para a próxima aula?"]
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Flashcards — revisão rápida",
+      "shuffle": true,
+      "cards": [
+        {
+          "front": "<b>Algoritmo</b>",
+          "back": "Sequência finita de passos para resolver um problema."
+        },
+        {
+          "front": "<b>EPS</b>",
+          "back": "Entrada, Processamento, Saída."
+        }
+      ]
+    },
+    {
+      "type": "glossary",
+      "title": "Glossário",
+      "items": [
+        {
+          "term": "Algoritmo",
+          "definition": "Sequência finita de instruções."
+        },
+        {
+          "term": "Pseudocódigo",
+          "definition": "Representação textual estruturada de um algoritmo."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-07T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.965Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

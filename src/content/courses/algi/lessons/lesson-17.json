@@ -26,6 +26,11 @@
   "modality": "in-person",
   "resources": [
     {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "Vídeo: Laços while em C (Curso em Vídeo)",
       "type": "video",
       "url": "https://www.youtube.com/watch?v=HfX5ZtsdS0c"
@@ -371,11 +376,132 @@
           ]
         }
       ]
+    },
+    {
+      "type": "parsons",
+      "title": "While — somatório até zero",
+      "instructions": "Reordene para somar números até digitar 0.",
+      "lines": [
+        "int x = 0;",
+        "scanf(\"%d\", &x);",
+        "while (x != 0) {",
+        "  soma += x;",
+        "  scanf(\"%d\", &x);",
+        "}",
+        "printf(\"%d\", soma);"
+      ],
+      "solution": [
+        "int x = 0;",
+        "scanf(\"%d\", &x);",
+        "while (x != 0) {",
+        "  soma += x;",
+        "  scanf(\"%d\", &x);",
+        "}",
+        "printf(\"%d\", soma);"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Sequência de leituras (termina com 0)\n3 5 0 -> soma=8\n10 -2 2 0 -> soma=10",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Garanta avanço de estado dentro do laço para evitar loops infinitos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "while (x != 0) { /* não altera x */ }",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "while (x != 0) { /* ... */ scanf(\"%d\", &x); }",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera sequências que terminam em 0 e soma esperada\nimport random\nfor _ in range(3):\n    seq = [random.randint(-5, 10) for __ in range(3)] + [0]\n    s = sum(x for x in seq if x!=0)\n    print(*seq, sep=' ', end=' -> ')\n    print(f\"soma={s}\")",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-05T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.981Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Roteiro de laboratório while 2025"]
   }

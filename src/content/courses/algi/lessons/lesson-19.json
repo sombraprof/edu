@@ -30,6 +30,11 @@
   "modality": "in-person",
   "resources": [
     {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "Artigo comparativo: for vs while (GeeksforGeeks)",
       "type": "article",
       "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop/"
@@ -59,6 +64,20 @@
     "description": "Mini-relato escrito justificando a escolha de laço em um caso de uso enviado ao AVA."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Warm-up (início da aula)",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Escreva em 3 minutos: o que você lembra da aula passada?",
+            "Compartilhe com a dupla."
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -199,11 +218,109 @@
           ]
         }
       ]
+    },
+    {
+      "type": "tabs",
+      "title": "for × while",
+      "tabs": [
+        {
+          "label": "for",
+          "code": "for (int i=0;i<n;i++){ /* ... */ }",
+          "language": "c"
+        },
+        {
+          "label": "while",
+          "code": "int i=0; while (i<n){ /* ... */ i++; }",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregar no AVA até 23h59 do dia seguinte."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Resolver 2 exercícios com laços (um com for e outro com while/do-while).",
+            "Anexar comentários sobre complexidade percebida."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# for\nn=3 -> 1 2 3\n# while\nn=3 -> 1 2 3",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-05T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.984Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Relatório de revisão loops for/while 2024"]
   }
