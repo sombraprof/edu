@@ -9,16 +9,16 @@
     "Traduzir fluxogramas com laço enquanto em pseudocódigo/C.",
     "Planejar testes que cubram entradas válidas, inválidas e sentinelas."
   ],
-  "competencies": ["Pensamento algorítmico", "Raciocínio lógico", "Validação de dados"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Definir condições de continuidade e de saída para laços.",
-    "Implementar loops com contadores e acumuladores.",
-    "Registrar evidências de teste usando sentinelas e limites."
+    "Definir invariantes e condições de parada adequadas para laços while.",
+    "Implementar sentinelas e validação de entrada garantindo que o loop encerre corretamente.",
+    "Documentar rastreamento de variáveis a cada iteração para explicar o comportamento do algoritmo."
   ],
   "outcomes": [
-    "Explica a diferença entre while e do-while com exemplos práticos.",
-    "Escreve algoritmo que lê dados até receber sentinela válido.",
-    "Entrega tabela de testes cobrindo casos de encerramento e erros."
+    "Entrega código com while e sentinela documentados, acompanhado de comentários sobre invariantes.",
+    "Demonstra execução controlada com dados válidos e inválidos registrando comportamento esperado.",
+    "Produz tabela de rastreamento que evidencia atualização de variáveis a cada ciclo."
   ],
   "prerequisites": ["Domínio de condicionais compostas e operadores lógicos."],
   "tags": ["loops", "while", "repeticao"],
@@ -26,14 +26,29 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Notebook ou IDE configurada",
-      "url": "https://www.onlinegdb.com/online_c_compiler",
-      "type": "tool"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Worksheet Laços Enquanto",
-      "url": "https://example.edu/algi/worksheets/while.pdf",
-      "type": "handout"
+      "label": "Vídeo: Laços while em C (Curso em Vídeo)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=HfX5ZtsdS0c"
+    },
+    {
+      "label": "Planilha de testes para while",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIWhileTestSuite"
+    },
+    {
+      "label": "Projeto OnlineGDB – Média com sentinela",
+      "type": "tool",
+      "url": "https://onlinegdb.com/H1WhileSentinela"
+    },
+    {
+      "label": "Tutorial: Laços while em C (TutorialsPoint)",
+      "type": "article",
+      "url": "https://www.tutorialspoint.com/cprogramming/c_while_loop.htm"
     }
   ],
   "bibliography": [
@@ -45,6 +60,67 @@
     "description": "Exercício guiado em dupla com entrega de pseudocódigo e tabela de testes ao final da aula."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Estrutura de Repetição while. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 17."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Diagnóstico",
+          "content": "Retomar situações que exigem repetição com verificação antes da execução (10 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Desenho do fluxo",
+          "content": "Converter briefing em fluxograma com sentinela destacado (15 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Implementar média até sentinela usando OnlineGDB (30 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Testes orientados",
+          "content": "Preencher planilha com entradas válidas, inválidas e sentinelas (25 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Retro",
+          "content": "Compartilhar armadilhas encontradas e ajustes realizados (20 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Detalhar entrega com código, planilha e relato das validações (15 min)."
+        }
+      ]
+    },
     {
       "type": "flightPlan",
       "title": "Plano de voo (1h55)",
@@ -72,6 +148,24 @@
             "Validação de entrada até o usuário fornecer dados corretos.",
             "Monitoramento de sensores enquanto a leitura estiver dentro do intervalo."
           ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Erros comuns em while",
+      "cards": [
+        {
+          "title": "Loop infinito",
+          "content": "Condição nunca atualizada ou sentinela não lida corretamente."
+        },
+        {
+          "title": "Sentinela somada",
+          "content": "Somar o valor de saída distorce média e contadores."
+        },
+        {
+          "title": "Validação tardia",
+          "content": "Checar entrada após acumular exige desfazer operações."
         }
       ]
     },
@@ -160,6 +254,27 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Validação de entradas obrigatória",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Rejeite notas fora do intervalo 0-10 antes de acumular."
+            },
+            {
+              "text": "Solicite nova entrada quando usuário digitar valor inválido."
+            },
+            {
+              "text": "Documente na planilha os casos rejeitados e o comportamento esperado."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "code",
       "language": "c",
       "code": "int nota = 0;\nint soma = 0;\nint quantidade = 0;\n\nprintf(\"Digite uma nota ou -1 para encerrar: \");\nscanf(\"%d\", &nota);\nwhile (nota != -1) {\n  soma += nota;\n  quantidade++;\n  printf(\"Digite uma nota ou -1 para encerrar: \");\n  scanf(\"%d\", &nota);\n}\nif (quantidade > 0) {\n  printf(\"Média: %.2f\\n\", (float)soma / quantidade);\n} else {\n  printf(\"Nenhuma nota válida informada\\n\");\n}\n"
@@ -212,11 +327,181 @@
         "Registrou o comportamento esperado quando nenhuma nota válida é informada.",
         "Validou entradas negativas fora do sentinela."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED 17 – Média até sentinela",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie até 23h59 do dia seguinte: código em C, planilha de testes e breve relato explicando a lógica de saída."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Arquivo aula17_media_while.c."
+            },
+            {
+              "text": "Planilha 'TED17_while.xlsx' com casos válidos, inválidos e sentinela."
+            },
+            {
+              "text": "Parágrafo no Moodle descrevendo como evita loops infinitos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 17",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega no prazo com todos os arquivos (20%)."
+            },
+            {
+              "text": "Controle correto do sentinela e validação das entradas (35%)."
+            },
+            {
+              "text": "Planilha de testes completa com resultados conferidos (25%)."
+            },
+            {
+              "text": "Relato claro das decisões tomadas e riscos observados (20%)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "parsons",
+      "title": "While — somatório até zero",
+      "instructions": "Reordene para somar números até digitar 0.",
+      "lines": [
+        "int x = 0;",
+        "scanf(\"%d\", &x);",
+        "while (x != 0) {",
+        "  soma += x;",
+        "  scanf(\"%d\", &x);",
+        "}",
+        "printf(\"%d\", soma);"
+      ],
+      "solution": [
+        "int x = 0;",
+        "scanf(\"%d\", &x);",
+        "while (x != 0) {",
+        "  soma += x;",
+        "  scanf(\"%d\", &x);",
+        "}",
+        "printf(\"%d\", soma);"
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Sequência de leituras (termina com 0)\n3 5 0 -> soma=8\n10 -2 2 0 -> soma=10",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Garanta avanço de estado dentro do laço para evitar loops infinitos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "while (x != 0) { /* não altera x */ }",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "while (x != 0) { /* ... */ scanf(\"%d\", &x); }",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera sequências que terminam em 0 e soma esperada\nimport random\nfor _ in range(3):\n    seq = [random.randint(-5, 10) for __ in range(3)] + [0]\n    s = sum(x for x in seq if x!=0)\n    print(*seq, sep=' ', end=' -> ')\n    print(f\"soma={s}\")",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.981Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Roteiro de laboratório while 2025"]
   }

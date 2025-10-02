@@ -9,16 +9,16 @@
     "Desenhar fluxogramas que reflitam decisões exclusivas e caminhos alternativos.",
     "Implementar e testar o pseudocódigo/documentação das decisões escritas."
   ],
-  "competencies": ["Pensamento algorítmico", "Documentação técnica", "Autogestão"],
+  "competencies": ["05", "08", "12"],
   "skills": [
-    "Traduzir requisitos em condicionais compostas e encadeadas.",
-    "Registrar evidências de teste que comprovem a cobertura de casos críticos.",
-    "Comunicar decisões técnicas em formato de relatório curto."
+    "Planejar lógica de triagem documentando critérios e mensagens de orientação.",
+    "Executar bateria de testes registrando evidências e capturas de tela ou logs.",
+    "Organizar repositório compartilhado com checklist de entrega e pontos de melhoria colaborativa."
   ],
   "outcomes": [
-    "Entrega fluxograma e pseudocódigo que cobrem todos os cenários descritos.",
-    "Apresenta tabela de testes com resultados esperados e obtidos.",
-    "Publica checklist de evidências com captura de tela/execução do algoritmo."
+    "Submete protótipo funcional com documentação de critérios clínicos e fluxos implementados.",
+    "Anexa planilha de testes com resultados, screenshots e observações para cada cenário.",
+    "Coordena revisão por pares registrando feedback trocado e ajustes planejados."
   ],
   "prerequisites": [
     "Revisar as aulas 12 a 15 e trazer o ambiente configurado (IDE OnlineGDB ou DevC++)."
@@ -28,19 +28,39 @@
   "modality": "async",
   "resources": [
     {
-      "label": "Modelo de relatório de evidências",
-      "url": "https://example.edu/algi/modelos/relatorio-condicionais.docx",
-      "type": "template"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Ambiente de desenvolvimento OnlineGDB",
-      "url": "https://www.onlinegdb.com/online_c_compiler",
-      "type": "tool"
+      "label": "Manual de Classificação de Risco (Ministério da Saúde)",
+      "type": "handout",
+      "url": "https://www.saude.df.gov.br/wp-conteudo/uploads/2018/03/Manual-Classificacao-Risco.pdf"
     },
     {
-      "label": "Revisão de operadores lógicos",
-      "url": "https://example.edu/algi/referenciais/operadores-logicos-md3.html",
-      "type": "reading"
+      "label": "Fluxograma Manchester para acolhimento",
+      "type": "handout",
+      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/protocolo_manchester_classificacao_risco.pdf"
+    },
+    {
+      "label": "Planilha de checklist de testes",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistTriagem"
+    },
+    {
+      "label": "Formulário de dúvidas",
+      "type": "form",
+      "url": "https://forms.gle/DuvidasAula16"
+    },
+    {
+      "label": "Modelo de relatório técnico (SAPS/MS)",
+      "type": "document",
+      "url": "https://www.gov.br/saude/pt-br/composicao/saps/atencao-primaria/publicacoes/formularios/modelo-de-relatorio-tecnico.pdf"
+    },
+    {
+      "label": "Repositório modelo Git",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-triage-template"
     }
   ],
   "bibliography": [
@@ -52,6 +72,56 @@
     "description": "Entrega individual com fluxograma, pseudocódigo e planilha de testes enviados no AVA até às 23h59."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Atividade Prática Assíncrona – Condicionais. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 16."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Prazos e formato da entrega",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie todos os arquivos pela tarefa 'Atividade Assíncrona Aula 16' até 23h59 da sexta-feira. Submissões parciais não serão corrigidas."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Arquivos obrigatórios: fluxograma (PDF ou imagem), pseudocódigo (.txt ou .pdf), código C (.c) e relatório sintetizando os testes."
+            },
+            {
+              "text": "Compacte tudo em ALG1_A16_NomeSobrenome.zip antes do envio."
+            },
+            {
+              "text": "Registre dúvidas no formulário até 24h antes do prazo para garantir retorno."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da atividade",
@@ -70,6 +140,149 @@
           "icon": "clock",
           "title": "Gestão do tempo",
           "content": "Reserve 2h: 30 min de análise, 50 min de modelagem, 30 min de testes e 10 min para documentação."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Fluxo da atividade assíncrona",
+      "summary": "Três etapas obrigatórias para concluir a triagem médica digital.",
+      "stages": [
+        {
+          "id": "briefing",
+          "title": "Estudo do briefing",
+          "summary": "Ler o pacote de casos, entender prioridades e registrar dúvidas.",
+          "owners": ["Dupla"],
+          "durationHours": 2,
+          "activities": [
+            {
+              "id": "leitura",
+              "label": "Ler briefing médico",
+              "description": "Destaque fatores críticos e exceções."
+            },
+            {
+              "id": "dúvidas",
+              "label": "Enviar dúvidas",
+              "description": "Utilize o formulário até 24h antes do prazo."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "anotacoes",
+              "label": "Notas compartilhadas",
+              "description": "Resumo no documento de trabalho."
+            }
+          ],
+          "risks": [
+            {
+              "id": "atraso",
+              "label": "Atraso na leitura",
+              "severity": "medium",
+              "mitigation": "Agendar sessão síncrona inicial."
+            }
+          ],
+          "checkpoints": ["Briefing compreendido", "Dúvidas registradas"]
+        },
+        {
+          "id": "modelagem",
+          "title": "Modelagem e pseudocódigo",
+          "summary": "Transformar regras em fluxograma e pseudocódigo anotado.",
+          "owners": ["Dupla"],
+          "durationHours": 3,
+          "activities": [
+            {
+              "id": "fluxograma",
+              "label": "Desenhar fluxograma",
+              "description": "Usar símbolos padrão e indicar saídas."
+            },
+            {
+              "id": "pseudocodigo",
+              "label": "Escrever pseudocódigo",
+              "description": "Comentários explicam cada decisão."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "diagramas",
+              "label": "Fluxograma final",
+              "description": "Exportado em PDF ou PNG."
+            },
+            {
+              "id": "pseudo",
+              "label": "Pseudocódigo anotado"
+            }
+          ],
+          "risks": [
+            {
+              "id": "escopo",
+              "label": "Regras incompletas",
+              "severity": "high",
+              "mitigation": "Validar com checklist de testes antes de codificar."
+            }
+          ],
+          "checkpoints": ["Fluxograma validado", "Pseudocódigo revisado"]
+        },
+        {
+          "id": "implementacao",
+          "title": "Codificação e testes",
+          "summary": "Implementar a solução em C e registrar evidências de teste.",
+          "owners": ["Indivíduo"],
+          "durationHours": 3,
+          "activities": [
+            {
+              "id": "codificar",
+              "label": "Codificar em C",
+              "description": "Reutilizar template do repositório."
+            },
+            {
+              "id": "testar",
+              "label": "Executar testes",
+              "description": "Preencher planilha com resultados e anexar prints."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "codigo",
+              "label": "Arquivo .c",
+              "description": "Compila sem warnings no OnlineGDB."
+            },
+            {
+              "id": "relatorio",
+              "label": "Relatório de testes",
+              "description": "Checklist preenchido e prints anexos."
+            }
+          ],
+          "risks": [
+            {
+              "id": "bugs",
+              "label": "Casos não cobertos",
+              "severity": "medium",
+              "mitigation": "Revisar com colega e rodar testes extras."
+            }
+          ],
+          "checkpoints": ["Código compilado", "Planilha de testes concluída"]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Critérios de avaliação",
+      "cards": [
+        {
+          "title": "Clareza da modelagem",
+          "content": "Fluxograma e pseudocódigo refletem todas as regras e exceções do briefing."
+        },
+        {
+          "title": "Cobertura de testes",
+          "content": "Planilha apresenta cenários críticos, limites e casos inválidos com resultado esperado e obtido."
+        },
+        {
+          "title": "Qualidade do código",
+          "content": "Implementação compila sem warnings e segue boas práticas comentadas na aula."
+        },
+        {
+          "title": "Documentação e reflexão",
+          "content": "Relatório destaca aprendizados, riscos identificados e próximos passos."
         }
       ]
     },
@@ -242,11 +455,161 @@
           "text": "Nome do arquivo: ALG1_A16_NomeSobrenome.zip."
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Entrega Aula 16 – Triagem assíncrona",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Compacte todos os artefatos em ALG1_A16_NomeSobrenome.zip e envie no Moodle até 23h59 da sexta-feira."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Fluxograma exportado (PDF/PNG)."
+            },
+            {
+              "text": "Pseudocódigo comentado (PDF ou TXT)."
+            },
+            {
+              "text": "Código em C (.c) com comentários."
+            },
+            {
+              "text": "Relatório de testes e checklist preenchidos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Rubrica da atividade assíncrona",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega completa e dentro do prazo (20%)."
+            },
+            {
+              "text": "Consistência entre fluxograma, pseudocódigo e código final (35%)."
+            },
+            {
+              "text": "Evidências de testes documentadas com prints ou logs (25%)."
+            },
+            {
+              "text": "Reflexão sobre riscos e próximos passos no relatório (20%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Envios sem checklist ou sem relatório serão considerados incompletos."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregar no AVA até 23h59 do dia seguinte."
+        },
+        {
+          "type": "list",
+          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.980Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing clínico de triagem 2025"]
   }

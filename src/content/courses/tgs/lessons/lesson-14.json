@@ -1,139 +1,164 @@
 {
   "id": "lesson-14",
-  "title": "Aula 28: Avaliação – NP2",
-  "objective": "Mensurar a capacidade de aplicar pensamento sistêmico na análise de organizações complexas.",
+  "title": "Aula 14: Correção e Feedback da NP1",
+  "objective": "Revisar a avaliação NP1, consolidar aprendizados e orientar próximos passos.",
   "content": [
     {
-      "type": "flightPlan",
-      "title": "Plano da avaliação",
-      "items": [
-        "Data e duração: Prova NP2 presencial com 110 minutos de duração.",
-        "Foco: Aplicar pensamento sistêmico em estudos de caso envolvendo homeostase, feedback e fronteiras.",
-        "Formato: Questões discursivas e análise de diagramas fornecidos.",
-        "Preparação: Revisar aulas 6 a 10, anotações de laboratório e discussões no fórum.",
-        "Pós-prova: Registrar percepções e dúvidas para a devolutiva coletiva."
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "CONTEÚDO",
+          "content": "Panorama geral do desempenho na NP1, análise coletiva de itens-chave e planejamento de reforço."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Entender critérios de correção e oportunidades de melhoria.\n- Comparar abordagens adotadas pelas equipes.\n- Definir planos individuais de estudo para a próxima etapa."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Devolutiva dialogada, estudo de caso com respostas-modelo, debate orientado e demonstração de boas práticas de resolução."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Como conduziremos a devolutiva",
+      "steps": [
+        {
+          "title": "Aquecimento",
+          "content": "Apresentação dos indicadores gerais (média, dispersão, questões mais desafiadoras) e combinados para a conversa."
+        },
+        {
+          "title": "Estudo de Caso: Questão 2",
+          "content": "Releitura coletiva do enunciado e comparação entre uma resposta incompleta e outra exemplar, destacando critérios de pontuação."
+        },
+        {
+          "title": "Demonstração guiada",
+          "content": "O docente reconstrói, passo a passo, a estratégia de resolução para um item que gerou maior índice de erro."
+        },
+        {
+          "title": "Debate em duplas",
+          "content": "Duplas discutem decisões adotadas na prova e registram aprendizados em um canvas de melhorias."
+        },
+        {
+          "title": "Planejamento",
+          "content": "Cada estudante elabora um plano de reforço com foco nas competências que precisam ser consolidadas para as próximas avaliações."
+        }
       ]
     },
     {
       "type": "cardGrid",
-      "title": "Competências avaliadas",
+      "title": "Indicadores para observar",
       "cards": [
         {
-          "title": "Modelagem",
-          "content": "Representar fluxos e loops de feedback destacando variáveis críticas."
+          "title": "Acertos conceituais",
+          "content": "Identifique quais conceitos de TGS foram utilizados corretamente e quais precisam de revisão."
         },
         {
-          "title": "Diagnóstico",
-          "content": "Identificar causas raiz e pontos de ruptura em sistemas abertos."
+          "title": "Argumentação",
+          "content": "Avalie se a resposta explicita conexões sistêmicas (entradas, processos, feedbacks) de forma lógica."
         },
         {
-          "title": "Intervenção",
-          "content": "Propor ações que preservem homeostase ou conduzam à transformação desejada."
+          "title": "Gestão do tempo",
+          "content": "Reflita sobre como distribuiu o tempo entre questões e quais estratégias podem otimizar a próxima prova."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Estrutura da prova",
+      "title": "Debate orientado",
       "content": [
         {
-          "type": "orderedList",
-          "items": [
-            {
-              "title": "Questão 1 — Análise de contexto",
-              "text": "Leia o caso apresentado, identifique fronteiras, atores e indicadores de saúde do sistema."
-            },
-            {
-              "title": "Questão 2 — Loop de feedback",
-              "text": "Construa um diagrama apontando loops reforçadores e balanceadores, sugerindo métricas de monitoramento."
-            },
-            {
-              "title": "Questão 3 — Plano de ação",
-              "text": "Descreva intervenções possíveis, justificando impactos esperados a curto e médio prazo."
-            }
-          ]
+          "type": "paragraph",
+          "text": "Forme um círculo rápido com colegas que atingiram resultados distintos. Cada pessoa compartilha uma decisão acertada e um ponto a melhorar na prova."
         },
         {
           "type": "paragraph",
-          "text": "Cada resposta deve combinar conceitos teóricos, exemplos práticos e linguagem clara. Utilize o tempo inicial para planejar a estrutura antes de escrever."
+          "text": "Use perguntas disparadoras: Qual conceito você aplicaria diferente? Como garantir que os exemplos contemplem a visão sistêmica completa?"
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Critérios de correção",
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Checklist rápido pós-NP1",
       "content": [
         {
-          "type": "subBlock",
-          "title": "Rubrica resumida",
+          "type": "list",
+          "ordered": false,
           "items": [
-            "Compreensão sistêmica (40%): capacidade de mapear elementos, interações e contextos.",
-            "Aplicação conceitual (35%): uso adequado de termos como homeostase, entropia, sinergia.",
-            "Clareza e argumentação (15%): estrutura lógica, coesão textual e referências a evidências.",
-            "Inovação (10%): propostas criativas viáveis e alinhadas à realidade apresentada."
+            "Atualizei meus resumos com os pontos sinalizados na correção?",
+            "Organizei dúvidas para levar ao plantão ou fórum?",
+            "Combinei com o grupo como aplicar o feedback no projeto integrador?"
           ]
         }
       ]
     },
     {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Orientações logísticas",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Prova individual, sem consulta. Trazer documento oficial com foto e caneta azul ou preta. Dispositivos devem permanecer desligados."
-        }
+      "type": "checklist",
+      "title": "Plano individual",
+      "items": [
+        "Registrar três prioridades de estudo para as próximas semanas.",
+        "Identificar materiais de apoio disponíveis no AVA.",
+        "Agendar momento de revisão conjunta com colegas."
       ]
     },
     {
       "type": "callout",
-      "variant": "info",
-      "title": "Checklist de preparação",
+      "variant": "task",
+      "title": "TED",
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise mapas produzidos em sala, refaça ao menos um exercício de loops de feedback e organize um resumo dos conceitos-chave."
+          "text": "Publique no AVA, até às 23h59 de hoje, um registro reflexivo com: (1) o principal aprendizado da devolutiva, (2) um compromisso de melhoria e (3) o material que pretende consultar para reforço. Anexe o canvas de melhorias preenchido pela dupla."
         }
       ]
     }
   ],
   "formatVersion": "md3.lesson.v1",
-  "slug": "aula-28-avaliacao-np2",
-  "summary": "Avaliação NP2 voltada à síntese de sistemas abertos, fluxos e homeostase, articulando teoria e estudos de caso.",
+  "slug": "aula-14-correcao-e-feedback-da-np1",
+  "summary": "Realiza a devolutiva estruturada da NP1, promovendo reflexão crítica e planejamento de reforço com base nos critérios de correção.",
   "objectives": [
-    "Analisar fluxos e mecanismos de adaptação em situações propostas.",
-    "Conectar conceitos de homeostase, feedback e transformação organizacional.",
-    "Elaborar respostas com recomendações práticas alinhadas aos conceitos."
+    "Compreender a distribuição de desempenho e os critérios usados na correção da NP1.",
+    "Comparar respostas reais e identificar boas práticas de argumentação sistêmica.",
+    "Planejar ações de reforço alinhadas às competências da disciplina."
   ],
-  "competencies": ["Pensamento sistêmico avançado", "Tomada de decisão", "Comunicação escrita"],
+  "competencies": [
+    "Pensamento sistêmico aplicado",
+    "Autoavaliação acadêmica",
+    "Planejamento de aprendizagem"
+  ],
   "skills": [
-    "Interpretar cenários complexos sob a ótica sistêmica.",
-    "Produzir argumentos alinhados às evidências fornecidas.",
-    "Organizar respostas com clareza e estrutura lógica."
+    "Interpretar feedbacks qualitativos e quantitativos.",
+    "Argumentar com base em evidências coletivas.",
+    "Definir metas de estudo coerentes com lacunas identificadas."
   ],
   "outcomes": [
-    "Entrega respostas coesas para questões situacionais.",
-    "Demonstra domínio da terminologia e dos modelos estudados.",
-    "Propõe intervenções alinhadas à manutenção do equilíbrio organizacional."
+    "Atualiza o portfólio com reflexões sobre a NP1.",
+    "Ajusta estratégias individuais de estudo e participação.",
+    "Integra o feedback ao projeto integrador da turma."
   ],
   "prerequisites": [
-    "Estudo das aulas 6 a 10.",
-    "Revisão do material de homeostase e modelagem sistêmica."
+    "Trazer a prova NP1 corrigida.",
+    "Revisar as anotações pessoais feitas durante a avaliação."
   ],
-  "tags": ["avaliacao", "np2", "pensamento-sistemico"],
+  "tags": ["aula-14-np1"],
   "duration": 110,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia de revisão NP2",
-      "url": "https://example.edu/tgs/guia-np2",
-      "type": "guide"
+      "label": "Relatório analítico da NP1",
+      "url": "https://example.edu/tgs/np1/relatorio",
+      "type": "report"
     },
     {
-      "label": "Checklist de preparação",
-      "url": "https://example.edu/tgs/checklist-np2",
-      "type": "checklist"
+      "label": "Canvas de melhorias",
+      "url": "https://example.edu/tgs/modelos/canvas-melhorias",
+      "type": "template"
     }
   ],
   "bibliography": [
@@ -141,13 +166,13 @@
     "SENGE, P. A Quinta Disciplina. Best Seller, 2020."
   ],
   "assessment": {
-    "type": "summative",
-    "description": "Prova presencial NP2 com estudos de caso e questões discursivas."
+    "type": "formative",
+    "description": "Registro reflexivo e plano de ação publicados no AVA."
   },
   "metadata": {
-    "status": "published",
-    "updatedAt": "2025-02-08T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra"],
+    "status": "draft",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
     "sources": ["Plano de ensino TGS 2025.1"]
   }
 }

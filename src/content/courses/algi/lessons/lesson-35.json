@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-35",
-  "title": "Aula 35: Introdução a Structs (Registros)",
+  "title": "Introdução a Structs (Registros)",
   "summary": "Apresenta structs em C como registros compostos e conduz um CRUD básico em memória para consolidar o modelo de dados.",
+  "description": "Apresenta structs em C como registros compostos e organiza um CRUD inicial para consolidar o modelo de dados.",
   "objective": "Compreender a declaração, instância e manipulação inicial de structs em C, preparando-se para coleções de registros.",
   "objectives": [
     "Declarar structs com campos adequados ao domínio proposto.",
     "Inicializar e acessar membros por ponto e ponteiros.",
     "Construir um mini-CRUD em memória com ênfase em criação e leitura."
   ],
-  "competencies": ["Pensamento algorítmico", "Modelagem de dados"],
+  "competencies": ["05", "11"],
   "skills": [
-    "Mapear requisitos simples para campos de registros.",
-    "Encapsular operações básicas em funções.",
-    "Documentar structs com comentários significativos."
+    "Definir structs representando registros compostos com campos coerentes.",
+    "Implementar operações CRUD em memória validando entrada e saída de dados.",
+    "Registrar casos de teste que comprovem a integridade do fluxo de operações."
   ],
   "outcomes": [
-    "Define struct Empresa alinhada ao laboratório do semestre.",
-    "Implementa funções create e list utilizando vetor fixo.",
-    "Entrega relatório curto descrevendo decisões de modelagem."
+    "Entrega módulo com definição de struct e funções para criar, ler, atualizar e remover registros.",
+    "Anexa log de testes cobrindo operações bem-sucedidas e tratamento de erros.",
+    "Apresenta documentação resumida orientando como utilizar o CRUD implementado."
   ],
   "prerequisites": [
     "Conhecimento de vetores simples (Aula 30).",
@@ -28,6 +29,11 @@
   "duration": 115,
   "modality": "in-person",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Template inicial de struct e impressão",
       "type": "template",
@@ -44,6 +50,26 @@
       "type": "rubric",
       "file": "courses/algi/crud-lab-rubrica.md",
       "url": "https://static.md3.education/courses/algi/crud-lab-rubrica.md"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -51,6 +77,31 @@
     "PRESSMAN, R. Engenharia de Software. McGraw Hill, 2023."
   ],
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Structs (Registros). Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 35."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro detalhado",
@@ -83,52 +134,65 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h55)",
-      "items": [
-        "(10 min) Icebreaker com cartões de atributos empresariais.",
-        "(20 min) Live coding: declaração e inicialização de Empresa.",
-        "(15 min) Exercício individual: função para imprimir struct formatada.",
-        "(30 min) Laboratório guiado: operações create/list com vetor local.",
-        "(20 min) Debriefing: decisões de modelagem e validação de dados.",
-        "(20 min) Check-out com quiz interativo (Kahoot) sobre sintaxe de structs."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Icebreaker com cartões de atributos empresariais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Live coding",
+          "content": "declaração e inicialização de Empresa."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(15 min) Exercício individual",
+          "content": "função para imprimir struct formatada."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Laboratório guiado",
+          "content": "operações create/list com vetor local."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Debriefing",
+          "content": "decisões de modelagem e validação de dados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Check-out com quiz interativo (Kahoot) sobre sintaxe de structs."
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Componentes essenciais de um registro",
-      "headers": ["Elemento", "Descrição", "Exemplo", "Boas práticas"],
-      "rows": [
-        [
-          "Campos",
-          "Definem as informações necessárias do domínio.",
-          "int id; char nome[64];",
-          "Escolha tipos apropriados e limites realistas."
-        ],
-        [
-          "Typedef",
-          "Simplifica a declaração de variáveis do registro.",
-          "typedef struct { ... } Empresa;",
-          "Use nomes no singular representando a entidade."
-        ],
-        [
-          "Funções auxiliares",
-          "Centralizam operações comuns sobre o registro.",
-          "void imprimir(const Empresa *e);",
-          "Evite duplicar prints/formatos no código."
-        ],
-        [
-          "Constantes",
-          "Guardam limites e tamanhos máximos.",
-          "#define MAX_EMPRESAS 50",
-          "Documente o motivo do limite em comentários."
-        ],
-        [
-          "Documentação",
-          "Explica finalidade e origem dos campos.",
-          "// Faturamento médio mensal (R$)",
-          "Padronize comentários para revisão coletiva."
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Elemento: Campos | Descrição: Definem as informações necessárias do domínio. | Exemplo: int id; char nome[64]; | Boas práticas: Escolha tipos apropriados e limites realistas."
+            },
+            {
+              "text": "Elemento: Typedef | Descrição: Simplifica a declaração de variáveis do registro. | Exemplo: typedef struct { ... } Empresa; | Boas práticas: Use nomes no singular representando a entidade."
+            },
+            {
+              "text": "Elemento: Funções auxiliares | Descrição: Centralizam operações comuns sobre o registro. | Exemplo: void imprimir(const Empresa *e); | Boas práticas: Evite duplicar prints/formatos no código."
+            },
+            {
+              "text": "Elemento: Constantes | Descrição: Guardam limites e tamanhos máximos. | Exemplo: #define MAX_EMPRESAS 50 | Boas práticas: Documente o motivo do limite em comentários."
+            },
+            {
+              "text": "Elemento: Documentação | Descrição: Explica finalidade e origem dos campos. | Exemplo: // Faturamento médio mensal (R$) | Boas práticas: Padronize comentários para revisão coletiva."
+            }
+          ]
+        }
       ]
     },
     {
@@ -145,7 +209,9 @@
             {
               "text": "Modelar struct Empresa alinhada aos dados do SEBRAE/IBGE trabalhados no semestre."
             },
-            { "text": "Codificar funções create/list, validando tamanhos e duplicidade de id." },
+            {
+              "text": "Codificar funções create/list, validando tamanhos e duplicidade de id."
+            },
             {
               "text": "Preparar checklist de testes exploratórios baseado na rubrica compartilhada."
             }
@@ -163,12 +229,139 @@
           "text": "Utilize dados de perfil do Microempreendedor Individual disponíveis no portal do SEBRAE para sugerir campos realistas e discutir ética no uso de dados."
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 35' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente aula35_structs.c criando struct Aluno e operações básicas de cadastro e listagem."
+            },
+            {
+              "text": "Anexe formulário preenchido com pelo menos três registros e observações sobre cada campo."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Struct — definição × uso",
+      "tabs": [
+        {
+          "label": "Definição",
+          "code": "typedef struct { char nome[50]; int idade; } Pessoa;",
+          "language": "c"
+        },
+        {
+          "label": "Uso",
+          "code": "Pessoa p; scanf(\"%s %d\", p.nome, &p.idade);",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Struct Pessoa\nEntrada: Ana 20 -> Pessoa{nome=Ana, idade=20}",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-10-01T10:00:00.000Z",
-    "owners": ["Equipe Algoritmos I"],
+    "updatedAt": "2025-10-02T08:28:29.004Z",
+    "owners": ["Equipe Algoritmos I", "Prof. Tiago Sombra"],
     "sources": ["Plano de ensino Algoritmos I 2025.2", "Relatórios SEBRAE 2024"]
   }
 }

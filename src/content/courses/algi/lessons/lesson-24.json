@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-24",
-  "title": "Aula 24: Síntese e Retrospectiva dos Laços",
+  "title": "Síntese e Retrospectiva dos Laços",
   "summary": "Consolida aprendizados das aulas 19-23 com showcase da triagem, retroalimentação e plano de melhoria contínua.",
+  "description": "Sessão híbrida de retrospectiva e síntese dos aprendizados de laços com plano de ação coletivo.",
   "objective": "Refletir sobre o ciclo de laços, compartilhar entregas da triagem e definir próximos passos de estudo.",
   "objectives": [
     "Apresentar resultados da atividade assíncrona de triagem.",
     "Identificar boas práticas e pontos de melhoria nas soluções.",
     "Planejar próximos estudos antes da introdução de funções."
   ],
-  "competencies": ["Comunicação", "Colaboração", "Aprendizagem contínua"],
+  "competencies": ["05", "12"],
   "skills": [
-    "Dar e receber feedback construtivo.",
-    "Documentar aprendizados coletivos em painel compartilhado.",
-    "Transformar feedback em plano de ação individual."
+    "Consolidar métricas e evidências coletadas nas atividades de laços.",
+    "Facilitar retrospectiva identificando conquistas, riscos e melhorias.",
+    "Comunicar plano de continuidade distribuindo responsabilidades entre os times."
   ],
   "outcomes": [
-    "Entrega painel de retroalimentação preenchido em grupo.",
-    "Registra ações de melhoria para próximos projetos.",
-    "Publica síntese pessoal com indicadores de evolução."
+    "Entrega relatório síntese com indicadores de qualidade e aprendizados da unidade.",
+    "Conduz reunião de retrospectiva produzindo ata com itens de ação priorizados.",
+    "Apresenta roadmap compartilhado com responsáveis, prazos e recursos necessários."
   ],
   "prerequisites": [
     "Ter concluído a atividade assíncrona da aula 23.",
@@ -29,15 +30,29 @@
   "modality": "hybrid",
   "resources": [
     {
-      "label": "Painel de retroalimentação",
-      "type": "worksheet",
-      "file": "courses/algi/retro-loop-review.md",
-      "url": "https://static.md3.education/courses/algi/retro-loop-review.md"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Quadro colaborativo (Miro)",
-      "url": "https://miro.com/app/board/uXjVKloopsRetro/",
-      "type": "board"
+      "label": "Painel Start/Stop/Continue (Miro)",
+      "type": "board",
+      "url": "https://miro.com/app/board/uXjVKloopsRetro/"
+    },
+    {
+      "label": "Formulário de reflexão final",
+      "type": "form",
+      "url": "https://forms.gle/ReflexaoFinalLoops"
+    },
+    {
+      "label": "Vídeo inspiração: Boas práticas de laços",
+      "type": "playlist",
+      "url": "https://www.youtube.com/watch?v=HnYEm4hXH7s"
+    },
+    {
+      "label": "Planilha de plano de ação (Sebrae)",
+      "type": "spreadsheet",
+      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/planilha-plano-de-acao.xlsx"
     }
   ],
   "bibliography": [
@@ -50,67 +65,191 @@
   },
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Síntese e Retrospectiva dos Laços. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 24."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Roteiro da sessão",
       "cards": [
         {
           "icon": "monitor",
+          "title": "Boas-vindas",
+          "content": "Alinhar objetivos da retrospectiva e reforçar combinação 360° (10 min)."
+        },
+        {
+          "icon": "book-open",
           "title": "Showcase",
-          "content": "Compartilhar artefatos da triagem em grupos (10 min por grupo)."
+          "content": "Times apresentam artefatos da triagem (20 min)."
         },
         {
           "icon": "users",
-          "title": "Feedback",
-          "content": "Trocar percepções estruturadas usando Start/Stop/Continue."
+          "title": "Feedback cruzado",
+          "content": "Trocar percepções usando Start/Stop/Continue (25 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Painel 360°",
+          "content": "Registrar evidências no board colaborativo (20 min)."
         },
         {
           "icon": "target",
-          "title": "Planejamento",
-          "content": "Definir ações de melhoria antes do módulo de funções."
-        }
-      ]
-    },
-    {
-      "type": "flightPlan",
-      "title": "Plano de voo (1h40)",
-      "items": [
-        "(10 min) Icebreaker e alinhamento de objetivos.",
-        "(30 min) Showcase rápido: squads apresentam solução da triagem.",
-        "(20 min) Mesa de feedback cruzado com painel Start/Stop/Continue.",
-        "(15 min) Consolidação de boas práticas em mural coletivo.",
-        "(15 min) Redação de plano de ação individual.",
-        "(10 min) Compartilhamento voluntário e orientações finais."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Inspirações",
-      "videos": [
-        {
-          "youtubeId": "Ud8Hksm_0vQ",
-          "title": "Como conduzir retrospectivas efetivas"
+          "title": "Plano individual",
+          "content": "Preencher template com compromissos pós-aula (15 min)."
         },
         {
-          "youtubeId": "5nVvYw84yKc",
-          "title": "Feedback construtivo para times técnicos"
+          "icon": "tasks",
+          "title": "Encerramento",
+          "content": "Orientar entrega no Moodle e próximos passos (10 min)."
         }
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Perguntas norteadoras",
+      "type": "lessonPlan",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Icebreaker e alinhamento de objetivos."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Showcase rápido",
+          "content": "squads apresentam solução da triagem."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Mesa de feedback cruzado com painel Start/Stop/Continue."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Consolidação de boas práticas em mural coletivo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Redação de plano de ação individual."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Compartilhamento voluntário e orientações finais."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Board 360° de feedback",
+      "items": [
+        {
+          "title": "Start",
+          "content": "Quais práticas iniciar a partir dos insights da triagem.",
+          "language": "plaintext",
+          "code": "Quais práticas iniciar a partir dos insights da triagem."
+        },
+        {
+          "title": "Stop",
+          "content": "Atividades que devem ser interrompidas ou revistas.",
+          "language": "plaintext",
+          "code": "Atividades que devem ser interrompidas ou revistas."
+        },
+        {
+          "title": "Continue",
+          "content": "Boas práticas que precisam ser mantidas.",
+          "language": "plaintext",
+          "code": "Boas práticas que precisam ser mantidas."
+        },
+        {
+          "title": "Amplify",
+          "content": "Iniciativas que merecem investimento extra.",
+          "language": "plaintext",
+          "code": "Iniciativas que merecem investimento extra."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Evidências necessárias",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Captura do board 360° preenchido pelo grupo."
+            },
+            {
+              "text": "Plano de ação individual assinado."
+            },
+            {
+              "text": "Link para artefatos da triagem (código, dataset, relatório)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Inspirações",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Como conduzir retrospectivas efetivas – https://www.youtube.com/watch?v=Ud8Hksm_0vQ"
+            },
+            {
+              "text": "Feedback construtivo para times técnicos – https://www.youtube.com/watch?v=5nVvYw84yKc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Perguntas norteadoras",
+      "items": [
+        {
           "title": "O que funcionou?",
-          "content": "Identifique práticas que devem continuar."
+          "content": "Identifique práticas que devem continuar.",
+          "language": "plaintext",
+          "code": "Identifique práticas que devem continuar."
         },
         {
           "title": "O que não funcionou?",
-          "content": "Liste obstáculos e gargalos encontrados."
+          "content": "Liste obstáculos e gargalos encontrados.",
+          "language": "plaintext",
+          "code": "Liste obstáculos e gargalos encontrados."
         },
         {
           "title": "O que mudar agora?",
-          "content": "Defina ações concretas para o próximo módulo."
+          "content": "Defina ações concretas para o próximo módulo.",
+          "language": "plaintext",
+          "code": "Defina ações concretas para o próximo módulo."
         }
       ]
     },
@@ -130,6 +269,36 @@
       ]
     },
     {
+      "type": "representations",
+      "title": "Compromissos pós-aula",
+      "items": [
+        {
+          "title": "Estudos complementares",
+          "content": "Agende revisão sobre funções antes do próximo módulo.",
+          "language": "plaintext",
+          "code": "Agende revisão sobre funções antes do próximo módulo."
+        },
+        {
+          "title": "Dupla de responsabilidade",
+          "content": "Combine check-ins quinzenais com um colega.",
+          "language": "plaintext",
+          "code": "Combine check-ins quinzenais com um colega."
+        },
+        {
+          "title": "Aplicação prática",
+          "content": "Selecione um projeto pessoal para aplicar laços e logs.",
+          "language": "plaintext",
+          "code": "Selecione um projeto pessoal para aplicar laços e logs."
+        },
+        {
+          "title": "Monitoria",
+          "content": "Reserve horário na monitoria para dúvidas pendentes.",
+          "language": "plaintext",
+          "code": "Reserve horário na monitoria para dúvidas pendentes."
+        }
+      ]
+    },
+    {
       "type": "checklist",
       "title": "Checklist de encerramento",
       "items": [
@@ -137,11 +306,154 @@
         "Atualizei o painel compartilhado com contribuições do meu grupo.",
         "Agendei estudo complementar sobre funções para a próxima semana."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Entrega Aula 24",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie no Moodle até 23h59: plano de ação individual, evidências do board e síntese pessoal."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Plano de ação (PDF) com metas SMART."
+            },
+            {
+              "text": "Imagem ou link do board 360° com destaques marcados."
+            },
+            {
+              "text": "Parágrafo reflexivo sobre evolução nos laços."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Rubrica Aula 24",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Participação e evidências do feedback 360° (30%)."
+            },
+            {
+              "text": "Plano de ação alinhado às metas pessoais (30%)."
+            },
+            {
+              "text": "Síntese reflexiva consistente e honesta (25%)."
+            },
+            {
+              "text": "Entrega pontual e arquivos organizados (15%)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregar no AVA até 23h59 do dia seguinte."
+        },
+        {
+          "type": "list",
+          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-06T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.989Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia interno de retrospectivas 2024"]
   }

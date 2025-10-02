@@ -1,6 +1,6 @@
 {
   "version": "edu.manifest.v1",
-  "generatedAt": "2025-09-29T01:29:26.419Z",
+  "generatedAt": "2025-10-01T00:39:17.436867Z",
   "entries": [
     {
       "id": "lesson-01",
@@ -8,7 +8,7 @@
       "file": "lesson-01.json",
       "available": true,
       "description": "Apresenta o plano da disciplina, contextualiza o mercado mobile e posiciona o Android no ecossistema atual.",
-      "summary": "Panorama histórico do Android, objetivos da disciplina e expectativas de aprendizagem com foco no mercado mobile.",
+      "summary": "Panorama do ecossistema Android, objetivos da disciplina e expectativas para a jornada mobile ao longo do semestre.",
       "tags": ["android", "fundamentos", "ecossistema"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -19,7 +19,7 @@
       "file": "lesson-02.json",
       "available": true,
       "description": "Guia passo a passo para preparar o Android Studio, emuladores e o primeiro projeto Kotlin.",
-      "summary": "Instalação do Android Studio, configuração do SDK, criação do projeto inicial e ajustes do emulador.",
+      "summary": "Instalação e configuração do Android Studio, SDKs e emuladores para iniciar o desenvolvimento com Kotlin.",
       "tags": ["android-studio", "ambiente", "kotlin"],
       "duration": 110,
       "formatVersion": "md3.lesson.v1"
@@ -30,7 +30,7 @@
       "file": "lesson-03.json",
       "available": true,
       "description": "Explora a anatomia de um aplicativo Android e como as camadas se relacionam.",
-      "summary": "Manifests, resources, activities e ciclo de build explicados a partir de um app base.",
+      "summary": "Mapeamento da anatomia de um app Android: Manifest, resources, Gradle e ciclo de build.",
       "tags": ["estrutura-app", "activity", "android"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -41,7 +41,7 @@
       "file": "lesson-04.json",
       "available": true,
       "description": "Apresenta os principais componentes visuais e padrões de layout no Material Design.",
-      "summary": "Views, ViewGroups, hierarquias de layout e orientações de Material Design aplicadas no Android.",
+      "summary": "Introdução aos componentes visuais do Android e às diretrizes do Material Design 3 para construir interfaces consistentes.",
       "tags": ["ui", "componentes", "material-design"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -52,7 +52,7 @@
       "file": "lesson-05.json",
       "available": true,
       "description": "Mostra como reagir a interações do usuário e monitorar a execução do app com ferramentas nativas.",
-      "summary": "Listeners, callbacks, tratamento de eventos comuns e depuração com Logcat.",
+      "summary": "Manipulação de eventos de interface e uso do Logcat para depuração e análise de comportamento.",
       "tags": ["eventos", "logcat", "depuracao"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
@@ -63,7 +63,7 @@
       "file": "lesson-06.json",
       "available": true,
       "description": "Consolida o conteúdo inicial com um aplicativo completo de onboarding, do layout ao teste.",
-      "summary": "Construção de um app de boas-vindas com navegação básica, estados e refinamentos visuais.",
+      "summary": "Integração dos fundamentos em um app de boas-vindas completo, reforçando navegação, estado e refinamento visual.",
       "tags": ["projeto", "android", "kotlin"],
       "duration": 120,
       "formatVersion": "md3.lesson.v1"
@@ -149,11 +149,297 @@
       "id": "lesson-14",
       "title": "Aula 14: Unidade III – Introdução ao Room: Entities e DAO",
       "file": "lesson-14.json",
-      "available": true,
+      "available": false,
       "description": "Introduz a biblioteca Room como camada moderna sobre SQLite, destacando entities, DAOs e montagem inicial do banco.",
       "summary": "Apresenta o Room como camada de persistência moderna no Android, guiando a modelagem de entidades e a criação de DAO para operações seguras com banco de dados local.",
       "tags": ["android", "room", "persistencia"],
       "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-15",
+      "title": "Aula 15: Unidade III – Revisão para NP1 e Checklist de Persistência",
+      "file": "lesson-15.json",
+      "available": false,
+      "description": "Consolida conceitos de persistência local e orienta a preparação para a avaliação NP1 com foco em Room e SharedPreferences.",
+      "summary": "Revisa estratégias de persistência, organiza o checklist da NP1 e direciona o trabalho avaliativo com base no app catálogo persistido.",
+      "tags": ["android", "room", "shared-preferences", "avaliacao"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-16",
+      "title": "Aula 16: Unidade III – Estruturando o RoomDatabase e Migrações",
+      "file": "lesson-16.json",
+      "available": false,
+      "description": "Aprofunda a implementação da classe RoomDatabase, padrões de instância e migrações para evolução segura do schema.",
+      "summary": "Detalha como configurar RoomDatabase, criar migrações e validar persistência com testes instrumentados, preparando a base para um CRUD completo.",
+      "tags": ["android", "room", "migracoes", "persistencia"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-17",
+      "title": "Aula 17: Unidade III – CRUD com Room (Parte 1)",
+      "file": "lesson-17.json",
+      "available": false,
+      "description": "Implementa operações de criação e leitura usando Room, conectando formulários Kotlin e listagens reativas à base local.",
+      "summary": "Constrói o fluxo Create + Read com Room, validando entradas e exibindo dados persistidos em RecyclerView com Flow/LiveData.",
+      "tags": ["android", "room", "crud", "persistencia"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-18",
+      "title": "Aula 18: Unidade III – CRUD com Room (Parte 2)",
+      "file": "lesson-18.json",
+      "available": false,
+      "description": "Completa o CRUD com operações de atualização e exclusão no Room, enfatizando feedbacks visuais e consistência de dados.",
+      "summary": "Finaliza o ciclo CRUD no Room com fluxos de edição e remoção, garantindo UX consistente e testes de manutenção de dados.",
+      "tags": ["android", "room", "crud", "persistencia"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-19",
+      "title": "Aula 19: Unidade III – ViewModel e LiveData para Persistência Local",
+      "file": "lesson-19.json",
+      "available": false,
+      "description": "Introduz ViewModel e LiveData como camada intermediária entre Room e a UI, garantindo reatividade e sobrevivência a mudanças de configuração.",
+      "summary": "Integra Room com ViewModel e LiveData, conectando dados persistidos à interface com observadores reativos e boas práticas de ciclo de vida.",
+      "tags": ["android", "viewmodel", "livedata", "persistencia"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-20",
+      "title": "Aula 20: Unidade IV – Fundamentos de APIs REST e JSON",
+      "file": "lesson-20.json",
+      "available": false,
+      "description": "Introduz arquitetura REST, contratos JSON e estratégias para lidar com limites de consumo antes de integrar no app.",
+      "summary": "Princípios de APIs REST, análise de respostas JSON, planejamento de consumo e mitigação de rate limits.",
+      "tags": ["android", "rest", "json", "api"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-21",
+      "title": "Aula 21: Unidade IV – Retrofit com chamadas síncronas",
+      "file": "lesson-21.json",
+      "available": false,
+      "description": "Configura Retrofit e OkHttp para chamadas síncronas com interceptors, autenticação e tratamento robusto de erros.",
+      "summary": "Setup do Retrofit síncrono, interceptors, cabeçalhos dinâmicos e estratégias de tratamento de falhas e limites.",
+      "tags": ["android", "retrofit", "okhttp", "api"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-22",
+      "title": "Aula 22: Unidade IV – Retrofit com corrotinas e Flow",
+      "file": "lesson-22.json",
+      "available": false,
+      "description": "Migra o consumo de APIs para corrotinas e Flow, adicionando tratamento reativo e retries alinhados aos limites.",
+      "summary": "Refatoração do Retrofit para funções suspensas, exposição com Flow e políticas de retry com backoff controlado.",
+      "tags": ["android", "retrofit", "coroutines", "flow"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-23",
+      "title": "Aula 23: Unidade IV – RecyclerView com dados remotos",
+      "file": "lesson-23.json",
+      "available": false,
+      "description": "Integra dados remotos ao RecyclerView com DiffUtil, paginação manual e feedback de estados.",
+      "summary": "Lista remota performática com DiffUtil, indicadores de loading, empty e retry respeitando limites da API.",
+      "tags": ["android", "recyclerview", "ui", "api"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-24",
+      "title": "Aula 24: Unidade V – Setup do Firebase para Android",
+      "file": "lesson-24.json",
+      "available": false,
+      "description": "Prepara o projeto Android para usar Firebase, configurando console, google-services e ambientes seguros.",
+      "summary": "Configuração do Firebase, gestão de credenciais, build variants e checklist de segurança inicial.",
+      "tags": ["android", "firebase", "setup", "seguranca"],
+      "duration": 110,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-25",
+      "title": "Aula 25: Unidade V – Firestore: modelagem e operações",
+      "file": "lesson-25.json",
+      "available": false,
+      "description": "Modela dados no Firestore e implementa CRUD seguro com estimativa de limites e custos.",
+      "summary": "Coleções Firestore, regras de segurança, listeners reativos e planejamento de limites de leitura e escrita.",
+      "tags": ["android", "firebase", "firestore", "nosql"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-26",
+      "title": "Aula 26: Unidade V – Firebase Authentication",
+      "file": "lesson-26.json",
+      "available": false,
+      "description": "Implementa fluxos de autenticação com Firebase, segurança reforçada e integração com Firestore.",
+      "summary": "Login, cadastro e provedores do Firebase Auth com mitigação de riscos, quotas e UX orientada à segurança.",
+      "tags": ["android", "firebase", "authentication", "seguranca"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-27",
+      "title": "Aula 27: Unidade V – Projeto integrador: backend e sincronização",
+      "file": "lesson-27.json",
+      "available": false,
+      "description": "Consolida Retrofit, Firestore e Authentication no backend do projeto integrador com foco em limites e governança.",
+      "summary": "Backend integrado do projeto, sincronização online/offline, segurança Firebase e rubrica final de avaliação.",
+      "tags": ["android", "projeto", "backend", "firebase"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-28",
+      "title": "Aula 28: Unidade VI – Nativo vs Híbrido: Estratégias de Plataforma",
+      "file": "lesson-28.json",
+      "available": false,
+      "description": "Compara abordagens nativas, híbridas e multiplataforma para orientar decisões estratégicas do projeto integrador.",
+      "summary": "Analisa critérios técnicos, de equipe e de negócio para selecionar a abordagem móvel mais adequada, culminando em matriz de decisão alinhada ao plano de ensino.",
+      "tags": ["estrategia", "mobile", "react-native"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-29",
+      "title": "Aula 29: Unidade VI – Setup Expo e Fundamentos do React Native",
+      "file": "lesson-29.json",
+      "available": false,
+      "description": "Configura o ambiente Expo/React Native e orienta a criação da primeira tela do MVP.",
+      "summary": "Prepara o ambiente Expo, estrutura o projeto inicial e orienta o checklist obrigatório de setup previsto no plano de ensino.",
+      "tags": ["react-native", "expo", "setup"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-30",
+      "title": "Aula 30: Unidade VI – Avaliação NP2 (Prova Integrada)",
+      "file": "lesson-30.json",
+      "available": false,
+      "description": "Aplica a avaliação NP2 integrando implementação prática em React Native e relatório comparativo nativo x híbrido.",
+      "summary": "Realiza a prova NP2 com desafio prático e relatório técnico, aferindo competências das Unidades III a VI.",
+      "tags": ["avaliacao", "np2", "react-native"],
+      "duration": 160,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-31",
+      "title": "Aula 31: Unidade VI – Navegação com React Navigation",
+      "file": "lesson-31.json",
+      "available": false,
+      "description": "Implementa fluxo de navegação completo no app Expo com React Navigation e padrões MD3.",
+      "summary": "Constrói rotas Stack, Tab e modais, configurando deep linking e acessibilidade para a entrega parcial do projeto.",
+      "tags": ["react-native", "react-navigation", "navegacao"],
+      "duration": 140,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-32",
+      "title": "Aula 32: Unidade VI – Consumo de APIs e Estado no React Native",
+      "file": "lesson-32.json",
+      "available": false,
+      "description": "Ensina a consumir APIs REST no app Expo com React Query, tratando estados assíncronos e caching offline.",
+      "summary": "Integra endpoints remotos ao app, aplicando TanStack Query, AsyncStorage e boas práticas de resiliência.",
+      "tags": ["react-native", "api", "react-query"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-33",
+      "title": "Aula 33: Unidade VI – Revisão Prática Integrada",
+      "file": "lesson-33.json",
+      "available": false,
+      "description": "Realiza clínica de revisão do projeto integrador, consolidando ajustes e plano de apresentação.",
+      "summary": "Orienta revisão cruzada de código, testes e storytelling para preparar a entrega final da disciplina.",
+      "tags": ["revisao", "projeto", "qualidade"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-34",
+      "title": "Aula 34: Unidade VI – Oficina React Native + Firebase",
+      "file": "lesson-34.json",
+      "available": false,
+      "description": "Integra o app Expo com Firebase Authentication e Firestore, enfatizando segurança e sincronização em tempo real.",
+      "summary": "Implementa autenticação, persistência cloud e regras de segurança no Firebase como base para o MVP final.",
+      "tags": ["react-native", "firebase", "cloud"],
+      "duration": 180,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-35",
+      "title": "Aula 35: Projeto Integrador – Planejamento Final",
+      "file": "lesson-35.json",
+      "available": false,
+      "description": "Consolida o plano final do projeto integrador, detalhando escopo, riscos e cronograma até a apresentação.",
+      "summary": "Planejamento detalhado do projeto integrador com priorização, matriz de riscos e integração ao Moodle.",
+      "tags": ["projeto-integrador", "planejamento", "agil"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-36",
+      "title": "Aula 36: Projeto Integrador – Ciclo de Desenvolvimento 1",
+      "file": "lesson-36.json",
+      "available": false,
+      "description": "Acompanha o primeiro ciclo de desenvolvimento com foco em incremento funcional, integração contínua e registros de progresso.",
+      "summary": "Entrega de incremento priorizado, revisão técnica e atualização de relatórios do projeto integrador.",
+      "tags": ["projeto-integrador", "desenvolvimento", "ciclo-1"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-37",
+      "title": "Aula 37: Projeto Integrador – Ciclo de Desenvolvimento 2",
+      "file": "lesson-37.json",
+      "available": false,
+      "description": "Foca no segundo ciclo acompanhado, priorizando testes integrados, refinamentos de UX e preparação de métricas para a banca.",
+      "summary": "Consolidação de estabilidade, usabilidade e indicadores que embasam a apresentação final.",
+      "tags": ["projeto-integrador", "desenvolvimento", "ciclo-2"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-38",
+      "title": "Aula 38: Projeto Integrador – Preparação e Ensaio de Apresentação",
+      "file": "lesson-38.json",
+      "available": false,
+      "description": "Apoia a construção do storytelling, materiais e ensaio geral do pitch final da NP3.",
+      "summary": "Roteiro, materiais e documentação final organizados para a apresentação final do projeto.",
+      "tags": ["projeto-integrador", "apresentacao", "pitch"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-39",
+      "title": "Aula 39: Projeto Integrador – Avaliação NP3",
+      "file": "lesson-39.json",
+      "available": false,
+      "description": "Realiza a banca avaliadora da NP3, aplicando rubrica oficial e registrando feedbacks para cada equipe.",
+      "summary": "Sessão de apresentação oficial com registro de notas, feedbacks e pendências pós-banca.",
+      "tags": ["projeto-integrador", "avaliacao", "np3"],
+      "duration": 180,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-40",
+      "title": "Aula 40: Projeto Integrador – Encerramento e Feedback 360°",
+      "file": "lesson-40.json",
+      "available": false,
+      "description": "Encaminha o encerramento da disciplina com feedbacks consolidados, retrospectiva e planos de desenvolvimento individual.",
+      "summary": "Encerramento da disciplina com lições aprendidas, PDIs e comunicação final aos stakeholders.",
+      "tags": ["projeto-integrador", "encerramento", "feedback"],
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     }
   ]

@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-28",
-  "title": "Aula 28: Boas Práticas e Manutenção de Funções",
+  "title": "Boas Práticas e Manutenção de Funções",
   "summary": "Consolida padrões de escrita, testes e documentação para funções em C, com foco em revisão de código e qualidade contínua.",
+  "description": "Consolida padrões de revisão, métricas e manutenção preventiva para código modular em C.",
   "objective": "Aplicar boas práticas de legibilidade, cobertura de testes e monitoramento de métricas em projetos modulares.",
   "objectives": [
     "Avaliar código usando checklist de boas práticas.",
     "Instrumentar funções com logs e medições simples.",
     "Planejar manutenção preventiva em projetos com funções reutilizáveis."
   ],
-  "competencies": ["Qualidade de software", "Trabalho em equipe", "Aprendizagem contínua"],
+  "competencies": ["02", "08"],
   "skills": [
-    "Conduzir revisão de código guiada por rubrica.",
-    "Utilizar ferramentas de cobertura para medir testes.",
-    "Criar plano de manutenção destacando riscos e prioridades."
+    "Aplicar padrões de escrita e nomenclatura que favoreçam manutenção.",
+    "Executar checklist de revisão identificando dívidas técnicas e riscos.",
+    "Planejar ações de melhoria contínua distribuindo tarefas entre os membros da equipe."
   ],
   "outcomes": [
-    "Entrega relatório de revisão cruzada com checklist aplicado.",
-    "Apresenta métricas de cobertura ou logs coletados.",
-    "Define backlog de melhorias preventivas para o projeto modular."
+    "Apresenta relatório de revisão com itens conformes e não conformes registrados.",
+    "Entrega código atualizado com correções priorizadas durante a sessão de pair review.",
+    "Compartilha plano de manutenção com responsáveis, prazos e métricas de acompanhamento."
   ],
   "prerequisites": [
     "Completar projeto modular da aula 27.",
@@ -28,6 +29,11 @@
   "duration": 110,
   "modality": "hybrid",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Checklist de boas práticas em funções",
       "type": "checklist",
@@ -44,6 +50,26 @@
       "label": "Playlist: Clean Code em C",
       "type": "playlist",
       "url": "https://www.youtube.com/playlist?list=PLbIBj8vQhvm32N8DXJ5Z-zsU5sXJ8h_zu"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -56,6 +82,31 @@
     "description": "Entrega individual de relatório de revisão cruzada com plano de manutenção de curto prazo."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Boas Práticas e Manutenção de Funções. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 28."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Dinâmica da sessão",
@@ -78,49 +129,93 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h50)",
-      "items": [
-        "(10 min) Abertura: valor de manter funções pequenas e testáveis.",
-        "(20 min) Revisão demonstrativa: comparar função verbosa vs. refatorada.",
-        "(30 min) Rodada 1 de revisão cruzada com checklist.",
-        "(20 min) Coleta de métricas de cobertura/logs.",
-        "(20 min) Rodada 2 focada em naming e contratos.",
-        "(10 min) Síntese e definição de backlog preventivo."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "(10 min) Abertura",
+          "content": "valor de manter funções pequenas e testáveis."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Revisão demonstrativa",
+          "content": "comparar função verbosa vs. refatorada."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Rodada 1 de revisão cruzada com checklist."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Coleta de métricas de cobertura/logs."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Rodada 2 focada em naming e contratos."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Síntese e definição de backlog preventivo."
+        }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Indicadores de qualidade",
+      "title": "Critérios para funções saudáveis",
       "content": [
         {
           "type": "list",
           "items": [
-            "Cobertura mínima de 70% para funções críticas.",
-            "Tempo médio de leitura < 2 minutos por função.",
-            "Zero warnings com `-Wall -Wextra -Werror`.",
-            "Checklist completo com justificativas para itens pendentes."
+            "Nomes descrevem claramente o efeito da função e seguem padrão consistente.",
+            "Blocos possuem no máximo 20 linhas e retornos antecipados são documentados.",
+            "Comentários explicam regras de negócio; detalhes técnicos vivem em testes ou documentação."
           ]
         }
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Curadoria de vídeos",
-      "videos": [
-        { "youtubeId": "E8I19uA-wGY", "title": "Como revisar código de maneira efetiva" },
-        { "youtubeId": "s0g4ty29wqo", "title": "Cobertura de testes em C com gcov" }
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Como revisar código de maneira efetiva – https://www.youtube.com/watch?v=E8I19uA-wGY"
+            },
+            {
+              "text": "Cobertura de testes em C com gcov – https://www.youtube.com/watch?v=s0g4ty29wqo"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Perguntas para revisão",
-      "cards": [
-        { "title": "Responsabilidade", "content": "Esta função faz apenas uma coisa?" },
-        { "title": "Testabilidade", "content": "Há casos negativos cobrindo erros e limites?" },
+      "items": [
+        {
+          "title": "Responsabilidade",
+          "content": "Esta função faz apenas uma coisa?",
+          "language": "plaintext",
+          "code": "Esta função faz apenas uma coisa?"
+        },
+        {
+          "title": "Testabilidade",
+          "content": "Há casos negativos cobrindo erros e limites?",
+          "language": "plaintext",
+          "code": "Há casos negativos cobrindo erros e limites?"
+        },
         {
           "title": "Observabilidade",
-          "content": "Existe log ou retorno que ajude a diagnosticar problemas?"
+          "content": "Existe log ou retorno que ajude a diagnosticar problemas?",
+          "language": "plaintext",
+          "code": "Existe log ou retorno que ajude a diagnosticar problemas?"
         }
       ]
     },
@@ -132,11 +227,155 @@
         "Cobertura registrada (print ou arquivo de relatório).",
         "Plano de manutenção submetido ao mural da turma."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 28' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Carregue relatório de revisão por pares destacando métricas calculadas (complexidade, cobertura)."
+            },
+            {
+              "text": "Anexe código anotado com melhorias sugeridas e aplicadas após a revisão."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Decomposição em funções",
+      "steps": [
+        {
+          "title": "Ler dados",
+          "description": "Função input()"
+        },
+        {
+          "title": "Processar",
+          "description": "Função process()"
+        },
+        {
+          "title": "Exibir",
+          "description": "Função output()"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-13T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.994Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia interno de qualidade 2025"]
   }

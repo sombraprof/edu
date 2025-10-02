@@ -1,0 +1,156 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-40",
+  "title": "Aula 40: Projeto Integrador – Encerramento e Feedback 360°",
+  "slug": "projeto-integrador-encerramento-e-feedback",
+  "summary": "Promove o fechamento da disciplina com devolutivas consolidadas, reflexão sobre aprendizados, plano de evolução profissional e atualização de documentação final.",
+  "objective": "Encerrar o ciclo do projeto integrador com feedback estruturado, registro de lições aprendidas e encaminhamento de pendências.",
+  "objectives": [
+    "Compartilhar resultados da NP3 e pontos fortes identificados pela banca.",
+    "Conduzir retrospectiva 360° envolvendo equipe, docentes e parceiros.",
+    "Definir plano de continuidade do produto e desenvolvimento profissional individual."
+  ],
+  "competencies": ["Aprendizagem contínua", "Gestão de carreira", "Colaboração e retroalimentação"],
+  "skills": [
+    "Registrar lições aprendidas em formato estruturado.",
+    "Elaborar planos de desenvolvimento individual (PDI).",
+    "Comunicar agradecimentos e próximos passos aos stakeholders."
+  ],
+  "outcomes": [
+    "Documento de lições aprendidas publicado e compartilhado.",
+    "PDIs individuais alinhados a metas de curto e médio prazo.",
+    "Pendências finais do projeto mapeadas com responsáveis e prazos."
+  ],
+  "prerequisites": [
+    "Conclusão da banca NP3 (Aula 39).",
+    "Disponibilidade das notas e feedbacks oficiais."
+  ],
+  "tags": ["projeto-integrador", "encerramento", "feedback"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Retrospective Prime Directive",
+      "url": "https://retrospectivewiki.org/index.php?title=Prime_Directive",
+      "type": "article"
+    },
+    {
+      "label": "Modelo de Plano de Desenvolvimento Individual (PDI)",
+      "url": "https://www.atlassian.com/team-playbook/plays/individual-growth-plan",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "LENCIONI, P. Os Cinco Desafios das Equipes. Campus, 2015.",
+    "SUTHERLAND, J. Scrum: A Arte de Fazer o Dobro do Trabalho na Metade do Tempo. Leya, 2016."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica de maturidade para avaliar o fechamento do projeto e a qualidade das devolutivas e planos individuais."
+  },
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Boas-vindas e celebração dos resultados.",
+        "Síntese das notas e feedbacks da banca NP3.",
+        "Retrospectiva 360° (Start, Stop, Continue).",
+        "Construção dos PDIs individuais.",
+        "Encaminhamento das pendências e planos de continuidade.",
+        "Avaliação da disciplina e encerramento formal."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica de Encerramento",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Critério", "Excelente (A)", "Adequado (B)", "Insuficiente (C)"],
+          "rows": [
+            [
+              "Reflexão",
+              "Lições aprendidas documentadas com causas, impactos e recomendações futuras.",
+              "Reflexões listadas, mas com análise superficial ou sem responsáveis.",
+              "Ausência de reflexão estruturada ou sem registro compartilhado."
+            ],
+            [
+              "Plano de continuidade",
+              "Pendências categorizadas (técnicas, negócio, operação) com responsáveis e prazos claros.",
+              "Pendências listadas com responsáveis, porém sem prazos definidos.",
+              "Sem plano de continuidade ou responsáveis atribuídos."
+            ],
+            [
+              "PDI individual",
+              "Metas SMART definidas, com indicadores e recursos necessários.",
+              "Metas listadas, porém sem indicadores ou datas.",
+              "PDI incompleto ou inexistente."
+            ],
+            [
+              "Comunicação",
+              "Agradecimentos enviados aos stakeholders e status final registrado no Moodle.",
+              "Comunicado elaborado mas ainda não enviado ou sem confirmação de recebimento.",
+              "Sem comunicação formal aos stakeholders."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Checklist de Encerramento",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Documento de Lições Aprendidas (lessons-learned.md) publicado no repositório.",
+            "PDI individual submetido via formulário Moodle.",
+            "Email de agradecimento enviado aos parceiros e mentores.",
+            "Pendências finais registradas na planilha de acompanhamento.",
+            "Avaliação da disciplina respondida no Moodle."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Orientações de Documentação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organizem o diretório /docs/encerramento contendo lessons-learned.md, pdis/ e comunicados/. Atualizem o README com links diretos para os novos artefatos e adicionem a data de encerramento do projeto."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Registrar no lessons-learned.md as ações Start/Stop/Continue com responsáveis.",
+            "Salvar PDIs individuais nomeados como pdi_nome-sobrenome.pdf.",
+            "Anexar o comunicado final em formato PDF no diretório comunicados/."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Aviso Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assunto: Feedback Final e Avaliação da Disciplina. Texto sugerido: \"Disponibilizamos o formulário 'Feedback Final DDM'. Preencham até sexta-feira às 20h e anexem o PDF do PDI. A ata de encerramento estará no tópico 'Conclusão do Projeto Integrador'.\""
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2024-10-10T00:00:00.000Z",
+    "owners": ["Equipe DDM"],
+    "sources": ["Guia de Retrospectivas DDM", "Plano de Carreira Tech 2024"]
+  }
+}

@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-31",
-  "title": "Aula 31: Operações e Transformações com Vetores",
+  "title": "Operações e Transformações com Vetores",
   "summary": "Explora padrões de somatório, normalização e geração de tabelas a partir de vetores, consolidando o domínio de loops e acumuladores.",
+  "description": "Explora operações de somatório, normalização e geração de tabelas de frequência com vetores.",
   "objective": "Aplicar percursos sobre vetores para executar operações agregadas e construir tabelas de frequência ou rankings simples.",
   "objectives": [
     "Implementar funções para somar, normalizar e copiar vetores.",
     "Construir tabelas de frequência a partir de dados numéricos.",
     "Interpretar impactos de operações em tempo e memória."
   ],
-  "competencies": ["Pensamento crítico", "Análise de dados"],
+  "competencies": ["05", "08"],
   "skills": [
-    "Separar operações em funções reutilizáveis.",
-    "Utilizar acumuladores e contadores com clareza semântica.",
-    "Documentar resultados em tabelas alinhadas ao padrão MD3."
+    "Projetar transformações sobre vetores utilizando acumuladores e normalizações.",
+    "Validar resultados comparando totais, médias e discrepâncias detectadas.",
+    "Registrar experimentos realizados descrevendo parâmetros e impactos observados."
   ],
   "outcomes": [
-    "Entrega funções em C para somatório, média móvel e normalização de vetores.",
-    "Gera tabela de frequência com contagem e percentual.",
-    "Avalia custo de copiar vetores versus trabalhar in-place."
+    "Disponibiliza script que gera tabela derivada do vetor original com indicadores calculados.",
+    "Entrega planilha de verificação comprovando consistência dos resultados obtidos.",
+    "Documenta relatório curto explicando como ajustes no algoritmo afetaram os indicadores."
   ],
   "prerequisites": [
     "Compreensão de vetores e loops (Aula 30).",
@@ -43,13 +44,76 @@
       "label": "Khan Academy - Tabelas de frequência",
       "type": "course",
       "url": "https://pt.khanacademy.org/math/statistics-probability/data-distributions-a1/summarizing-center-distributions/v/constructing-a-frequency-table"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+    },
+    {
+      "label": "Capítulo 9 – Vetores e estatística (Manzano & Oliveira)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Dataset: Geração solar diária (Plotly)",
+      "type": "dataset",
+      "url": "https://raw.githubusercontent.com/plotly/datasets/master/solar.csv"
     }
   ],
   "bibliography": [
-    "MANZANO, J. A. N.; OLIVEIRA, J. L. Algoritmos: Lógica para Desenvolvimento de Programação de Computadores. Elsevier, 2023.",
-    "SZWARCFITER, J. L.; MARKENZON, L. Estruturas de Dados e Seus Algoritmos. LTC, 2022."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 5, Vetores e tabelas.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 9, Estatística aplicada com vetores.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 7, Manipulação de arrays.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 8, Registros de desempenho e validação cruzada.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 7, Vetores e matrizes em estudos de caso."
   ],
+  "assessment": {
+    "type": "project",
+    "description": "Mini-projeto de análise de dados renováveis: aplicar operações de somatório, normalização e geração de ranking sobre o estudo de caso do painel de energia, registrando evidências na planilha compartilhada.",
+    "rubric": "Pensamento crítico (45%): interpreta tendências energéticas ao aplicar o roteiro de tabelas de Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9). Análise de dados (35%): normaliza e compara faixas respeitando as validações de Backes (Cap. 7) e Santos (Cap. 8). Comunicação técnica (20%): documenta resultados e limitações seguindo o formato de estudos de caso de Ascencio & Campos (Cap. 7)."
+  },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Operações e Transformações com Vetores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 31."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Sequência da aula",
@@ -82,47 +146,65 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h55)",
-      "items": [
-        "(10 min) Perguntas diagnósticas sobre Aula 30.",
-        "(20 min) Live coding: funções soma e média.",
-        "(25 min) Mini-projeto: normalizar vendas para percentual.",
-        "(30 min) Geração de tabela de frequência em MD3 Table.",
-        "(20 min) Rodada de revisão por pares.",
-        "(10 min) Atividade pós-aula guiada em sala virtual."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Perguntas diagnósticas sobre Aula 30."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Live coding",
+          "content": "funções soma e média."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Mini-projeto",
+          "content": "normalizar vendas para percentual."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Geração de tabela de frequência em MD3 Table."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Rodada de revisão por pares."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Atividade pós-aula guiada em sala virtual."
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Operações comuns sobre vetores",
-      "headers": ["Operação", "Assinatura sugerida", "Tempo", "Observações"],
-      "rows": [
-        ["Somatório", "int soma(int v[], int n)", "O(n)", "Retorna a soma, não altera o vetor."],
-        [
-          "Cópia",
-          "void copia(int origem[], int destino[], int n)",
-          "O(n)",
-          "Necessário vetor destino previamente alocado."
-        ],
-        [
-          "Normalização",
-          "void normaliza(float v[], int n)",
-          "O(n)",
-          "Divide cada posição pelo somatório total."
-        ],
-        [
-          "Média móvel",
-          "void mediaMovel(float v[], int n, int janela, float saida[])",
-          "O(n)",
-          "Requer vetor auxiliar para resultados."
-        ],
-        [
-          "Busca maior",
-          "int indiceMaior(float v[], int n)",
-          "O(n)",
-          "Retorna índice do maior elemento."
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Operação: Somatório | Assinatura sugerida: int soma(int v[], int n) | Tempo: O(n) | Observações: Retorna a soma, não altera o vetor."
+            },
+            {
+              "text": "Operação: Cópia | Assinatura sugerida: void copia(int origem[], int destino[], int n) | Tempo: O(n) | Observações: Necessário vetor destino previamente alocado."
+            },
+            {
+              "text": "Operação: Normalização | Assinatura sugerida: void normaliza(float v[], int n) | Tempo: O(n) | Observações: Divide cada posição pelo somatório total."
+            },
+            {
+              "text": "Operação: Média móvel | Assinatura sugerida: void mediaMovel(float v[], int n, int janela, float saida[]) | Tempo: O(n) | Observações: Requer vetor auxiliar para resultados."
+            },
+            {
+              "text": "Operação: Busca maior | Assinatura sugerida: int indiceMaior(float v[], int n) | Tempo: O(n) | Observações: Retorna índice do maior elemento."
+            }
+          ]
+        }
       ]
     },
     {
@@ -131,47 +213,129 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "A partir do arquivo vetores-vendas.csv, contabilize quantas vendas caem em cada faixa de valor e apresente porcentagens."
+          "text": "O estudo de caso combina o arquivo vetores-vendas.csv com a planilha do painel de energia renovável. Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9) orientam a decompor o problema em leituras, agregações e apresentação dos percentuais."
         },
         {
           "type": "orderedList",
           "items": [
-            { "text": "Ler 30 valores de vendas diárias em um vetor float." },
-            { "text": "Criar vetor de contadores para faixas: <100, 100-299, 300-599, >=600." },
-            { "text": "Calcular percentual relativo ao total e imprimir tabela formatada." }
+            {
+              "text": "Ler 30 valores de vendas diárias e 30 medições de energia em vetores separados, garantindo alinhamento conforme Backes (Cap. 7)."
+            },
+            {
+              "text": "Criar vetores de contadores para faixas (vendas e energia) e registrar validações cruzadas na planilha, como propõe Santos (Cap. 8)."
+            },
+            {
+              "text": "Calcular percentual relativo ao total e imprimir tabela formatada destacando alertas para faixas críticas, seguindo o modelo de estudos de caso de Ascencio & Campos (Cap. 7)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione na devolutiva quais decisões foram tomadas a partir das leituras, explicando como cada autor embasa a interpretação dos indicadores."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de normalização do vetor",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "total = soma(v) – tipo: process"
+            },
+            {
+              "text": "total == 0? – tipo: decision"
+            },
+            {
+              "text": "Se zero, emitir aviso – tipo: process"
+            },
+            {
+              "text": "Para i = 0 até n-1 – tipo: loop"
+            },
+            {
+              "text": "v[i] = v[i] / total – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → sum"
+            },
+            {
+              "text": "sum → decision"
+            },
+            {
+              "text": "decision → guard – sim"
+            },
+            {
+              "text": "decision → loop – não"
+            },
+            {
+              "text": "guard → end"
+            },
+            {
+              "text": "loop → norm"
+            },
+            {
+              "text": "norm → loop"
+            },
+            {
+              "text": "loop → end – fim"
+            }
           ]
         }
       ]
     },
     {
-      "type": "md3Flowchart",
-      "title": "Fluxo de normalização do vetor",
-      "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "sum", "type": "process", "label": "total = soma(v)" },
-        { "id": "decision", "type": "decision", "label": "total == 0?" },
-        { "id": "guard", "type": "process", "label": "Se zero, emitir aviso" },
-        { "id": "loop", "type": "loop", "label": "Para i = 0 até n-1" },
-        { "id": "norm", "type": "process", "label": "v[i] = v[i] / total" },
-        { "id": "end", "type": "end", "label": "Fim" }
-      ],
-      "edges": [
-        ["start", "sum"],
-        ["sum", "decision"],
-        ["decision", "guard", "sim"],
-        ["decision", "loop", "não"],
-        ["guard", "end"],
-        ["loop", "norm"],
-        ["norm", "loop"],
-        ["loop", "end", "fim"]
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Estudo de caso: Painel de energia renovável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aplique as rotinas em um painel municipal de energia solar. Some e normalize os dados por bairro para priorizar investimentos, como sugerem Manzano & Oliveira (Cap. 9)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Use vetores paralelos para armazenar geração e perdas, técnica destacada por Backes (Cap. 7)."
+            },
+            {
+              "text": "Documente a validação de faixas e discrepâncias com base no protocolo de Santos (Cap. 8)."
+            },
+            {
+              "text": "Justifique as decisões de ranqueamento mencionando as diretrizes de estudos de caso de Ascencio & Campos (Cap. 7)."
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Clipes recomendados",
-      "videos": [
-        { "youtubeId": "N-0At__Wwzg", "title": "CS50 Lab Arrays" },
-        { "youtubeId": "mYVz5ZdGJ0s", "title": "Khan Academy - Frequency tables" }
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 Lab Arrays – https://www.youtube.com/watch?v=N-0At__Wwzg"
+            },
+            {
+              "text": "Khan Academy - Frequency tables – https://www.youtube.com/watch?v=mYVz5ZdGJ0s"
+            }
+          ]
+        }
       ]
     },
     {
@@ -188,12 +352,183 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 31' para anexar o artefato solicitado, relatando o painel de energia e as vendas cruzadas conforme o roteiro de Forbellone & Eberspächer (Cap. 5)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entregue aula31_operacoes_vetores.c com rotinas de soma acumulada, normalização e geração de tabela seguindo Manzano & Oliveira (Cap. 9)."
+            },
+            {
+              "text": "Inclua relatório mostrando tabela antes/depois das operações, análise de consistência e evidências na planilha do estudo de caso, como propõem Backes (Cap. 7) e Santos (Cap. 8)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Pensamento crítico (45%): interpretação das tendências ao aplicar somatórios e rankings inspirados em Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9)."
+            },
+            {
+              "text": "Análise de dados (35%): código atende ao enunciado, normaliza vetores e valida faixas conforme Backes (Cap. 7) e Santos (Cap. 8)."
+            },
+            {
+              "text": "Documentação técnica (20%): relatório e planilha descrevem decisões alinhadas às boas práticas de Ascencio & Campos (Cap. 7)."
+            },
+            {
+              "text": "Integração com competências: explicite na entrega como cada resultado consolida Pensamento crítico e Análise de dados dentro do cenário do painel de energia."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e cite o trecho dos autores utilizado para fundamentar a questão."
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Operações com vetores",
+      "steps": [
+        {
+          "title": "Somatório",
+          "description": "Percorrer e somar"
+        },
+        {
+          "title": "Média",
+          "description": "Somatório / n"
+        },
+        {
+          "title": "Extremos",
+          "description": "Maior/Menor"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Vetor (soma, média, extremos)\n[10, 20, 30] -> soma=60, média=20, maior=30, menor=10",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int maior = 0; // pode falhar com negativos",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "#include <limits.h>\nint maior = INT_MIN; // robusto",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\n#include <limits.h>\nint main(){\n  int n; if (scanf(\"%d\", &n)!=1) return 1;\n  int x, soma=0, maior=INT_MIN, menor=INT_MAX;\n  for (int i=0;i<n;i++){\n    scanf(\"%d\", &x); soma+=x; if (x>maior) maior=x; if (x<menor) menor=x;\n  }\n  printf(\"soma=%d media=%.2f maior=%d menor=%d\n\", soma, (double)soma/n, maior, menor);\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera vetores e soma/media/extremos\narrs = [[10,20,30], [5,2,9], [-1,-5,0,2]]\nfor a in arrs:\n    s=sum(a); m=s/len(a); mx=max(a); mn=min(a)\n    print(f\"{a} -> soma={s}, média={m:.2f}, maior={mx}, menor={mn}\")",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Exercícios propostos",
+      "items": [
+        "Leia N inteiros, calcule soma, média, maior e menor.",
+        "Imprima somente os valores nos índices pares."
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-11T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.001Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Briefing de oficinas Vetores 2025"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.2",
+      "Briefing de oficinas Vetores 2025",
+      "Planilha de auditoria pós-módulo (aba Vetores)"
+    ]
   }
 }

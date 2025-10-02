@@ -1,0 +1,225 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-19",
+  "title": "Aula 19: Unidade III – ViewModel e LiveData para Persistência Local",
+  "slug": "viewmodel-livedata-persistencia",
+  "summary": "Introduz ViewModel e LiveData como ponte entre a camada Room e a interface, reforçando reatividade e ciclo de vida em aplicativos Android.",
+  "objective": "Implementar ViewModel e LiveData integrados à base Room garantindo atualizações reativas e seguras após mudanças de configuração.",
+  "objectives": [
+    "Explicar o papel do ViewModel no ciclo de vida.",
+    "Conectar LiveData/Flow à UI para refletir mudanças do banco.",
+    "Implementar ViewModelFactory para injeção de dependências.",
+    "Criar observadores que atualizam listas e estados vazios."
+  ],
+  "competencies": [
+    "Arquitetura MVVM",
+    "Reatividade em Android",
+    "Manutenção de estado em aplicativos móveis"
+  ],
+  "skills": [
+    "Criar ViewModels que consomem repositórios Room.",
+    "Converter Flow em LiveData ou StateFlow conforme o cenário.",
+    "Gerenciar eventos de UI com LiveData de uso único.",
+    "Documentar o fluxo de dados entre camadas."
+  ],
+  "outcomes": [
+    "Disponibiliza ViewModel integrado ao Room com LiveData.",
+    "Implementa observadores que atualizam UI em tempo real.",
+    "Entrega infográfico explicando o fluxo MVVM no Moodle."
+  ],
+  "prerequisites": ["Aulas 17 e 18 – CRUD com Room."],
+  "tags": ["android", "viewmodel", "livedata", "persistencia"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "ViewModel overview",
+      "url": "https://developer.android.com/topic/libraries/architecture/viewmodel",
+      "type": "article"
+    },
+    {
+      "label": "LiveData guide",
+      "url": "https://developer.android.com/topic/libraries/architecture/livedata",
+      "type": "article"
+    },
+    {
+      "label": "Guide to app architecture",
+      "url": "https://developer.android.com/topic/architecture",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "ANDROID DEVELOPERS. ViewModel overview. 2024.",
+    "GOOGLE. Guide to app architecture. 2024.",
+    "JORDAN, A. MVVM in Android. Packt, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Autoavaliação guiada comparando implementações MVVM com checklist de integração Room + ViewModel."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade III",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
+          "title": "Room: arquitetando persistência local",
+          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
+          "title": "Android Jetpack Architecture Components",
+          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Contextualização: porque ViewModel após persistência.",
+        "Ciclo de vida: Activity/Fragment vs. ViewModel.",
+        "LiveData e Flow: diferenças e complementaridade.",
+        "Projeto prático: ViewModel + LiveData para lista de produtos.",
+        "Eventos de UI (Snackbar/toasts) com SingleLiveEvent.",
+        "TED 19 e avisos Moodle."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "ViewModel na prática",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Construímos um ViewModel que recebe o repositório Room via construtor e mantém estado independente da Activity."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "class CatalogoViewModel(private val repository: ProdutoRepository) : ViewModel() {\n    val produtos: LiveData<List<Produto>> = repository.todos().asLiveData()\n\n    private val _mensagem = MutableLiveData<Event<String>>()\n    val mensagem: LiveData<Event<String>> = _mensagem\n\n    fun remover(produto: Produto) {\n        viewModelScope.launch {\n            repository.remover(produto)\n            _mensagem.postValue(Event(\"Produto removido com sucesso!\"))\n        }\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "ViewModelFactory",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Crie uma factory customizada ou use Hilt/Koin para injetar o repositório. Evite instanciar ViewModel com construtor vazio quando houver dependências."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Projeto prático: MVVM com Room",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em grupos de três, adaptem o app catálogo para usar ViewModel e LiveData, garantindo que a UI sobreviva a rotações sem perder estado."
+        },
+        {
+          "type": "subBlock",
+          "title": "Entregáveis",
+          "items": [
+            "ViewModel com métodos para inserir, listar e remover produtos.",
+            "Fragment/Activity observando LiveData para atualizar RecyclerView.",
+            "SingleLiveEvent ou Channel para mensagens de sucesso/erro.",
+            "Diagrama explicando o fluxo de dados entre camadas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED 19 – Infográfico MVVM Persistência",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza um infográfico (imagem ou PDF) mostrando como dados percorrem Repository → ViewModel → LiveData → UI → Room. Utilize exemplos do projeto."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Destaque pontos de cache e atualização.",
+            "Liste boas práticas para evitar memory leaks.",
+            "Indique como testes podem validar o fluxo."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Avisos Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Submeta o infográfico e o link do branch `mvvm-integration` no Moodle > Unidade III > Aula 19 até 23h59 do dia seguinte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Responda ao questionário \"Check-in MVVM\" disponível no AVA para reforçar conceitos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de ViewModel e LiveData para Persistência Local."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ANDROID DEVELOPERS. ViewModel overview. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reforce os conceitos de ViewModel e LiveData para Persistência Local relacionando SharedPreferences, Room e estratégias de migração."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: ANDROID DEVELOPERS. ViewModel overview. 2024.",
+            "Conecte com o estudo: GOOGLE. Guide to app architecture. 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+        },
+        {
+          "type": "blockquote",
+          "text": "GOOGLE. Guide to app architecture. 2024."
+        }
+      ]
+    }
+  ]
+}

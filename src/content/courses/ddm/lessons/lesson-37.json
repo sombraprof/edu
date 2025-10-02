@@ -1,0 +1,184 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-37",
+  "title": "Aula 37: Projeto Integrador – Ciclo de Desenvolvimento 2",
+  "slug": "projeto-integrador-ciclo-desenvolvimento-2",
+  "summary": "Acompanha o segundo ciclo de desenvolvimento com foco em testes integrados, refinamento de UX e preparação de métricas para a apresentação final.",
+  "objective": "Consolidar o produto com estabilidade e experiência aprimorada, garantindo material de suporte para a apresentação e avaliação final.",
+  "objectives": [
+    "Validar integrações completas entre módulos e serviços externos.",
+    "Revisar a experiência do usuário e aplicar ajustes finais de usabilidade.",
+    "Preparar métricas de uso e resultados para embasar a apresentação."
+  ],
+  "competencies": [
+    "Qualidade de software",
+    "Design centrado no usuário",
+    "Comunicação de resultados"
+  ],
+  "skills": [
+    "Executar testes exploratórios e registrar incidentes.",
+    "Aplicar heurísticas de Nielsen para identificar ajustes de UX.",
+    "Construir painéis com métricas chave e narrativas orientadas a dados."
+  ],
+  "outcomes": [
+    "Produto estável com bugs críticos resolvidos e UX refinada.",
+    "Documentação de testes e insights de usabilidade anexados ao repositório.",
+    "Dashboard ou relatório com métricas que sustentam a narrativa da apresentação final."
+  ],
+  "prerequisites": [
+    "Incremento do Ciclo 1 mergeado na branch principal.",
+    "Feedbacks de usabilidade coletados com usuários-teste internos."
+  ],
+  "tags": ["projeto-integrador", "desenvolvimento", "ciclo-2"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Nielsen Norman Group – 10 heurísticas de usabilidade",
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "type": "article"
+    },
+    {
+      "label": "Firebase Analytics – Guia de métricas para apps",
+      "url": "https://firebase.google.com/docs/analytics",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "KRUG, S. Não me faça pensar. Alta Books, 2014.",
+    "ROZENFELD, H. et al. Gestão de Desenvolvimento de Produtos. Saraiva, 2015."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica de verificação do Ciclo 2, avaliando estabilidade, usabilidade e evidências para a apresentação final."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo da aula",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Retrospectiva rápida do Ciclo 1 e ajustes incorporados.",
+          "content": "Retrospectiva rápida do Ciclo 1 e ajustes incorporados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Execução assistida de testes integrados e instrumentados.",
+          "content": "Execução assistida de testes integrados e instrumentados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Sessões de UX review com heurísticas e feedback entre pares.",
+          "content": "Sessões de UX review com heurísticas e feedback entre pares."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Construção de métricas e storytelling com dashboards.",
+          "content": "Construção de métricas e storytelling com dashboards."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Atualização da documentação e materiais de apresentação.",
+          "content": "Atualização da documentação e materiais de apresentação."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Planejamento da Aula 38 (ensaio de pitch e documentação f...",
+          "content": "Planejamento da Aula 38 (ensaio de pitch e documentação final)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica de Qualidade (Ciclo 2)",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["Critério", "Excelente (A)", "Adequado (B)", "Insuficiente (C)"],
+          "rows": [
+            [
+              "Estabilidade",
+              "Suite de testes (unitários, instrumentados) executada sem falhas e evidências registradas.",
+              "Testes executados parcialmente com pequenos incidentes abertos.",
+              "Sem registros de testes ou falhas críticas pendentes."
+            ],
+            [
+              "Usabilidade",
+              "Heurísticas aplicadas com ações corretivas documentadas e protótipo final atualizado.",
+              "Análise heurística realizada, mas com implementações em andamento.",
+              "Ausência de revisão de UX ou decisões não registradas."
+            ],
+            [
+              "Métricas",
+              "Painel com KPIs definidos, dados coletados e narrativa associada à proposta de valor.",
+              "Métricas listadas sem painel consolidado ou com dados parciais.",
+              "Métricas não definidas ou sem conexão com objetivos do projeto."
+            ],
+            [
+              "Documentação",
+              "Relatório de testes e UX anexado ao Moodle, com links e anexos organizados.",
+              "Relatório entregue mas com anexos dispersos ou sem links funcionais.",
+              "Sem relatório atualizado ou anexos acessíveis."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Checklist de Entrega do Ciclo 2",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Registro de testes no diretório docs/testes com evidências (prints, logs, vídeos).",
+            "Lista de heurísticas aplicadas e respectivas correções implementadas.",
+            "Painel de métricas publicado (Looker Studio, Firebase ou Sheets).",
+            "Atualização do roadmap destacando itens concluídos e pendências mínimas.",
+            "Post no Moodle com resumo do ciclo e anexos organizados."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Orientações de Documentação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Consolidem os aprendizados em um relatório 'Testes & UX' (docs/testes/relatorio-ciclo2.md) incluindo tabela de incidentes, decisões tomadas e impacto nas métricas."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Documentar ambiente, dados de teste e scripts utilizados.",
+            "Gerar seção \"Insights de UX\" com antes/depois e justificativas.",
+            "Atualizar o cronograma no documento principal com status após o Ciclo 2."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Aviso Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assunto: Relatório de Qualidade – Ciclo 2. Texto sugerido: \"Publiquem até as 18h de amanhã o link para o relatório 'Testes & UX', incluindo o dashboard de métricas. Comentem no tópico caso necessitem de mentoria extra antes do ensaio geral.\""
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2024-09-29T00:00:00.000Z",
+    "owners": ["Equipe DDM"],
+    "sources": ["Manual de Qualidade de Software DDM", "Relatórios de UX 2023"]
+  }
+}

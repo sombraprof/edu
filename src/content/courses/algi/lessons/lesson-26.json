@@ -9,16 +9,16 @@
     "Projetar funções que retornam códigos de erro ou resultados numéricos.",
     "Documentar contratos (pré e pós-condições) para cada função criada."
   ],
-  "competencies": ["Pensamento analítico", "Qualidade de software", "Comunicação técnica"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Definir parâmetros de entrada com tipos corretos.",
-    "Utilizar ponteiros para atualizar valores fora do escopo local.",
-    "Descrever pré-condições e efeitos colaterais de cada função."
+    "Implementar funções com parâmetros por valor e por referência conforme necessidade.",
+    "Construir casos de teste que validem contratos de entrada e saída.",
+    "Documentar brevemente cada função explicando propósito e efeitos colaterais."
   ],
   "outcomes": [
-    "Entrega laboratório com funções parametrizadas e testes associados.",
-    "Justifica escolha por valor ou referência em relatório curto.",
-    "Adapta suíte de testes fornecida cobrindo cenários limite."
+    "Entrega código com funções parametrizadas e comentários sobre uso de ponteiros.",
+    "Anexa suíte de testes cobrindo cenários positivos, negativos e limites.",
+    "Registra documentação resumida disponível para colegas reutilizarem as funções."
   ],
   "prerequisites": [
     "Aula 25 concluída com atividades de modularização.",
@@ -28,6 +28,11 @@
   "duration": 115,
   "modality": "hybrid",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Rubrica de modularização",
       "type": "rubric",
@@ -44,6 +49,26 @@
       "label": "Playlist: Ponteiros e parâmetros em C",
       "type": "playlist",
       "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dk_3-mQQ0rzzZF2kp7Y1w_c"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -56,6 +81,31 @@
     "description": "Entrega em dupla com relatório descrevendo contratos de três funções e evidências de testes unitários."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Funções com Parâmetros e Retorno. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 26."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro",
@@ -111,8 +161,14 @@
       "type": "videosBlock",
       "title": "Vídeos de apoio",
       "videos": [
-        { "youtubeId": "SwdNXx2A3YE", "title": "Ponteiros para iniciantes" },
-        { "youtubeId": "2hgYQ1YF5AQ", "title": "Passagem de parâmetros em C na prática" }
+        {
+          "youtubeId": "SwdNXx2A3YE",
+          "title": "Ponteiros para iniciantes"
+        },
+        {
+          "youtubeId": "2hgYQ1YF5AQ",
+          "title": "Passagem de parâmetros em C na prática"
+        }
       ]
     },
     {
@@ -141,11 +197,202 @@
         "Descrevi retorno e códigos de erro.",
         "Cobri casos limite nos testes unitários."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 26' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entregue aula26_parametros.c demonstrando passagem por valor e referência."
+            },
+            {
+              "text": "Inclua relatório curto documentando contratos de cada função e cenários de teste."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Decomposição em funções",
+      "steps": [
+        {
+          "title": "Ler dados",
+          "description": "Função input()"
+        },
+        {
+          "title": "Processar",
+          "description": "Função process()"
+        },
+        {
+          "title": "Exibir",
+          "description": "Função output()"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Funções\ninput: 2 3 -> soma()=5",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Funções pequenas e coesas: uma responsabilidade clara por função.",
+            "Prefira passar dados por parâmetro ao invés de depender de variáveis globais."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int soma(int a,int b){ printf(\"%d\", a+b); } // mistura cálculo e I/O",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int soma(int a,int b){ return a+b; } // devolve resultado",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "int soma(int a, int b){ return a+b; }\n#include <stdio.h>\nint main(){ int a,b; scanf(\"%d %d\", &a,&b); printf(\"%d\n\", soma(a,b)); }",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Flashcards — revisão rápida",
+      "shuffle": true,
+      "cards": [
+        {
+          "front": "<b>Protótipo</b>",
+          "back": "Assinatura da função"
+        },
+        {
+          "front": "<b>Escopo</b>",
+          "back": "Visibilidade da variável"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-11T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.990Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório de parâmetros 2025"]
   }

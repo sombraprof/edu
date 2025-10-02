@@ -1,0 +1,262 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-31",
+  "title": "Aula 31: Unidade VI – Navegação com React Navigation",
+  "slug": "navegacao-react-navigation",
+  "summary": "Implementa navegação empilhada, tabulada e modal com React Navigation, conectando rotas ao design system MD3.",
+  "objective": "Criar fluxos completos de navegação no app Expo da turma, respeitando padrões de acessibilidade e roteamento definidos no plano de ensino.",
+  "objectives": [
+    "Configurar o React Navigation com Expo e suas dependências nativas.",
+    "Implementar rotas Stack, Tab e Drawer conforme o protótipo do projeto integrador.",
+    "Adicionar padrões de navegação acessíveis, animações e deep linking básico."
+  ],
+  "competencies": [
+    "Modelagem de fluxos de navegação",
+    "Aplicação de design system em múltiplas telas",
+    "Integração de roteamento com estratégias de estado"
+  ],
+  "skills": [
+    "Utilizar `@react-navigation/native` e navegadores auxiliares.",
+    "Criar navegações empilhadas e tabuladas com TypeScript.",
+    "Configurar cabeçalhos, parâmetros e deep links."
+  ],
+  "outcomes": [
+    "Aplicativo Expo com estrutura de navegação concluída.",
+    "Rotas testadas com deep link e navegação acessível.",
+    "Documentação da arquitetura de rotas anexada ao repositório."
+  ],
+  "prerequisites": [
+    "Projeto Expo configurado (Aula 29).",
+    "Componentização básica do app (Aulas anteriores)."
+  ],
+  "tags": ["react-native", "react-navigation", "navegacao"],
+  "duration": 140,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "React Navigation – Fundamentals",
+      "url": "https://reactnavigation.org/docs/getting-started",
+      "type": "documentation"
+    },
+    {
+      "label": "MD3 Navigation Guidelines",
+      "url": "https://m3.material.io/foundations/navigation/overview",
+      "type": "guideline"
+    }
+  ],
+  "bibliography": [
+    "REACT NAVIGATION. Docs. 2024.",
+    "MATERIAL DESIGN. Navigation Principles. 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Pull request com navegação Stack + Tab implementada e checklist de acessibilidade preenchido."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo (140 min)",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Debrief pós-NP2 e conexão com roadmap do MVP."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Introdução teórica",
+          "content": "conceitos de navegação, padrões MD3 e boas práticas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "40 min",
+          "content": "Setup guiado do React Navigation e criação do Stack principal."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Oficina",
+          "content": "Tabs, modais e passagem de parâmetros."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Revisão da TED",
+          "content": "definição de fluxo final e testes de deep link."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Alinhamento com o plano de ensino",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Conforme o plano, esta aula alimenta a entrega parcial 3 do projeto integrador, que exige navegação funcional entre as seções do app. Garanta que o fluxo definido aqui seja o mesmo utilizado na entrega avaliativa."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Componentes principais",
+      "cards": [
+        {
+          "icon": "gears",
+          "title": "Arquitetura",
+          "content": "Estrutura de rotas com Stack Navigator encapsulando Tabs e modais contextuais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Acessibilidade",
+          "content": "Uso de `accessibilityLabel`, foco automático e suporte a gestures inclusivos."
+        },
+        {
+          "icon": "code",
+          "title": "Deep linking",
+          "content": "Configuração de esquema `ddmapp://` e rotas compartilháveis para QA."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Padrões recomendados",
+      "items": [
+        {
+          "title": "Stack",
+          "content": "Fluxo linear",
+          "language": "plaintext",
+          "code": "Fluxo linear\n- Ideal para onboarding e fluxos sequenciais.\n- Permite transições customizadas (slide, fade).\n- Suporta parâmetros obrigatórios via tipos."
+        },
+        {
+          "title": "Tab",
+          "content": "Seções principais",
+          "language": "plaintext",
+          "code": "Seções principais\n- Até cinco itens para manter clareza.\n- Ícones alinhados ao design system MD3.\n- Uso de badges para notificações."
+        },
+        {
+          "title": "Modal",
+          "content": "Ações pontuais",
+          "language": "plaintext",
+          "code": "Ações pontuais\n- Confirmações, formulários curtos e visualizações detalhadas.\n- Fechamento com gesto ou botão explícito.\n- Foco inicial em elementos interativos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roadmap de implementação",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "1. Planejamento – Mapear telas obrigatórias e desenhar diagrama de navegação."
+            },
+            {
+              "text": "2. Configuração – Instalar dependências, criar `NavigationContainer` e definir Stack raiz."
+            },
+            {
+              "text": "3. Componentização – Extrair cabeçalhos, ícones e estilos compartilhados."
+            },
+            {
+              "text": "4. Testes – Validar navegação via deep link, VoiceOver/TalkBack e fallback offline."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Pipeline da TED – Fluxo de navegação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Atividade avaliativa que integra a entrega parcial 3 do projeto."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Design do fluxo | Refinar mapa de telas e estados. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Atualizar wireflow | Entregáveis: Wireflow atualizado | Riscos: Fluxo divergente (Validar com o professor orientador antes de codificar.) | Checkpoints: Fluxo aprovado"
+            },
+            {
+              "text": "Implementação | Codificar rotas e componentes. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar Stack principal; Configurar Tabs | Entregáveis: Pull request aberto | Riscos: Conflitos de merge (Sincronizar branches diariamente e usar feature flags.) | Checkpoints: Rotas principais funcionais"
+            },
+            {
+              "text": "Validação | Revisar acessibilidade e deep linking. | Responsáveis: Grupo | Duração: 1h | Atividades: Rodar testes; Solicitar revisão | Entregáveis: Checklist de acessibilidade | Riscos: Itens não conformes (Usar leitores de tela e ajustes sugeridos na aula.) | Checkpoints: Deep link ok, Checklist aprovado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Navegação com React Navigation usando Expo e React Navigation."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Navegação com React Navigation: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: REACT NAVIGATION (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de REACT NAVIGATION (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "REACT NAVIGATION. Docs. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Navegação com React Navigation relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: REACT NAVIGATION. Docs. 2024.",
+            "Conecte com o estudo: MATERIAL DESIGN. Navigation Principles. 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "MATERIAL DESIGN. Navigation Principles. 2024."
+        }
+      ]
+    }
+  ]
+}

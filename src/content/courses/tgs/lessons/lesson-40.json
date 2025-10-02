@@ -1,0 +1,162 @@
+{
+  "id": "lesson-40",
+  "title": "Aula 40: Avaliação Final – NP3",
+  "objective": "Verificar a capacidade de síntese e aplicação dos conceitos sistêmicos em cenários complexos.",
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Visão geral da NP3",
+      "items": [
+        "Momento: Avaliação final integradora com duração de 110 minutos.",
+        "Escopo: Síntese de todos os tópicos abordados: sistemas abertos, níveis, vantagem competitiva e tomada de decisão.",
+        "Formato: Estudo de caso extenso com questões dissertativas e elaboração de plano de intervenção.",
+        "Preparação: Revisar mapas conceituais, relatórios do portfólio e simulados anteriores.",
+        "Entrega: Respostas manuscritas organizadas com introdução, análise e recomendações."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Competências em destaque",
+      "cards": [
+        {
+          "title": "Diagnóstico sistêmico",
+          "content": "Mapear elementos, fronteiras e fluxos críticos do caso apresentado."
+        },
+        {
+          "title": "Leitura estratégica",
+          "content": "Relacionar sistemas de informação às escolhas de posicionamento e vantagem competitiva."
+        },
+        {
+          "title": "Planejamento",
+          "content": "Propor roadmap de melhorias com indicadores, responsáveis e riscos mapeados."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estrutura da prova",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Parte 1 — Leitura crítica",
+              "text": "Identifique os principais desafios do sistema, atores envolvidos e sinais de desequilíbrio."
+            },
+            {
+              "title": "Parte 2 — Análise multiescalar",
+              "text": "Explique como decisões em níveis operacional, tático e estratégico interagem no caso."
+            },
+            {
+              "title": "Parte 3 — Plano de ação",
+              "text": "Detalhe intervenções propostas, indicadores de acompanhamento e possíveis efeitos colaterais."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Reserve tempo para revisar ortografia, coerência e se todas as perguntas foram respondidas integralmente."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica de avaliação",
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "Distribuição de pontos",
+          "items": [
+            "Compreensão integrada (35%): amplitude da análise e conexão entre conceitos.",
+            "Argumentação (30%): uso de evidências, clareza lógica e consistência textual.",
+            "Aplicabilidade (25%): viabilidade e alinhamento das recomendações com o contexto.",
+            "Originalidade (10%): perspectivas inovadoras e críticas construtivas."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Autoavaliação",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Utilize a planilha fornecida para conferir se cada critério foi contemplado antes de entregar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Procedimentos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Chegue com 15 minutos de antecedência, traga documento com foto e mantenha celulares desligados durante toda a prova."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist pré-prova",
+      "items": [
+        "Revisar resumos das unidades e exercícios de loops de feedback.",
+        "Organizar referências rápidas de conceitos-chave (glossário pessoal).",
+        "Preparar perguntas para a sessão de devolutiva pós-avaliação."
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-40-avaliacao-final-np3",
+  "summary": "Avaliação final NP3 integrando todos os conteúdos da disciplina, com foco na aplicação crítica da Teoria Geral dos Sistemas.",
+  "objectives": [
+    "Integrar fundamentos, classificações e modelos em análises completas.",
+    "Avaliar impactos de sistemas de informação nas decisões estratégicas.",
+    "Propor planos de melhoria alinhados ao pensamento sistêmico."
+  ],
+  "competencies": ["Pensamento sistêmico integrado", "Visão estratégica", "Comunicação analítica"],
+  "skills": [
+    "Articular argumentos estruturados em avaliações dissertativas.",
+    "Aplicar conceitos em múltiplos níveis organizacionais.",
+    "Justificar recomendações com base em evidências sistêmicas."
+  ],
+  "outcomes": [
+    "Demonstra domínio abrangente do conteúdo da disciplina.",
+    "Relaciona sistemas de informação à estratégia organizacional.",
+    "Apresenta propostas de intervenção coerentes e fundamentadas."
+  ],
+  "prerequisites": [
+    "Revisão de todas as unidades e materiais extras.",
+    "Realização dos simulados de preparação."
+  ],
+  "tags": ["avaliacao", "np3", "integrador"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia de revisão: Sistemas thinking e avaliação integradora",
+      "url": "https://www.preprints.org/manuscript/202111.0299/v1/download",
+      "type": "guide"
+    },
+    {
+      "label": "Planilha de autoavaliação (checklist NP3)",
+      "url": "https://static.md3.education/courses/tgs/autoavaliacao-np3.md",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "BERTALANFFY, L. Teoria Geral dos Sistemas. Vozes, 2015.",
+    "SENGE, P. A Quinta Disciplina. Best Seller, 2020."
+  ],
+  "assessment": {
+    "type": "summative",
+    "description": "Prova integradora NP3 com estudo de caso extensivo."
+  },
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
+}

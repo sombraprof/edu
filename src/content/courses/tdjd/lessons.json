@@ -147,7 +147,7 @@
     },
     {
       "id": "lesson-14",
-      "title": "Aula 15: Atividade de Análise e Reforço Pós-Avaliação NP1",
+      "title": "Aula 14: Atividade de Análise e Reforço Pós-Avaliação NP1",
       "file": "lesson-14.json",
       "available": true,
       "description": "Revê os resultados da NP1, corrige lacunas conceituais e redesenha o plano de continuidade do protótipo.",
@@ -158,12 +158,34 @@
     },
     {
       "id": "lesson-15",
-      "title": "Aula 16: O Framework MDA - Design da Experiência do Jogador",
+      "title": "Aula 15: O Framework MDA - Design da Experiência do Jogador",
       "file": "lesson-15.json",
       "available": true,
       "description": "Apresenta o framework MDA e orienta a alinhar mecânicas, dinâmicas e estéticas à experiência desejada.",
       "summary": "Explora o framework MDA (Mecânicas, Dinâmicas e Estéticas) para orientar decisões de design focadas na experiência do jogador.",
       "tags": ["mda", "experiencia-do-jogador", "analise"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-16",
+      "title": "Aula 16: O Framework MDA – Design da Experiência do Jogador",
+      "file": "lesson-16.json",
+      "available": false,
+      "description": "Introdução ao MDA (Mecânicas, Dinâmicas e Estética) e aplicação prática.",
+      "summary": "Uso do MDA para alinhar mecânicas e dinâmicas à experiência desejada.",
+      "tags": ["mda", "experiencia-do-jogador", "analise"],
+      "duration": 120,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-17",
+      "title": "Aula 17: Design Inclusivo e Acessibilidade em Jogos",
+      "file": "lesson-17.json",
+      "available": false,
+      "description": "Princípios, barreiras e boas práticas de acessibilidade com desafio de melhoria.",
+      "summary": "Propor melhorias inclusivas com base em diretrizes e casos reais.",
+      "tags": ["acessibilidade", "inclusao", "ux"],
       "duration": 120,
       "formatVersion": "md3.lesson.v1"
     }

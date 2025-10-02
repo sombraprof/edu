@@ -1,7 +1,8 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson-14',
-  title: 'Aula 28: Avaliação – NP2',
+  title: 'Aula 14: Correção e Feedback da NP1',
+  objective: 'Revisar a avaliação NP1, consolidar aprendizados e orientar próximos passos.',
   available: true,
 };
 </script>

@@ -9,16 +9,16 @@
     "Mapear cada parte do pseudocódigo para a sintaxe equivalente em C.",
     "Implementar um programa simples em C a partir de um algoritmo planejado."
   ],
-  "competencies": ["Raciocínio algorítmico", "Tradução entre linguagens", "Precisão sintática"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Declarar variáveis, ler entradas e produzir saídas em C.",
-    "Utilizar comentários para documentar a lógica implementada.",
-    "Validar o comportamento do programa comparando com o algoritmo original."
+    "Traduzir instruções escritas em Portugol para blocos equivalentes em C garantindo correspondência de variáveis.",
+    "Configurar projeto no compilador, compilar e interpretar mensagens de erro para ajustar o código.",
+    "Documentar evidências de testes iniciais registrando entradas utilizadas e resultados esperados."
   ],
   "outcomes": [
-    "Entrega um programa em C equivalente ao algoritmo em Portugol desenvolvido em aula.",
-    "Identifica diferenças críticas entre operadores e comandos nas duas representações.",
-    "Executa testes simples garantindo que as saídas correspondem às expectativas."
+    "Entrega tabela comparativa destacando trecho em Portugol e versão final em C sem divergências semânticas.",
+    "Compila programa no laboratório sem erros e relata as correções aplicadas para eliminar warnings.",
+    "Anexa registro de execução com ao menos três cenários testados e respectivas saídas."
   ],
   "prerequisites": ["Trazer o pseudocódigo produzido na Aula 3."],
   "tags": ["pseudocodigo", "linguagem-c", "implementacao"],
@@ -26,14 +26,39 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Computador com compilador C (GCC ou clang)",
-      "type": "equipment",
-      "url": "https://example.edu/labs/c-environment"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Template de projeto inicial (VS Code)",
+      "label": "Guia: Configurando C/C++ no VS Code (Microsoft)",
+      "type": "documentation",
+      "url": "https://code.visualstudio.com/docs/cpp/config-linux"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
       "type": "repository",
-      "url": "https://example.edu/algi/c-template"
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Vídeo-guia: Convertendo Portugol em C (MD3)",
+      "type": "video",
+      "url": "https://static.md3.education/videos/algi/portugol-para-c.mp4"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -46,6 +71,31 @@
   },
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Do Pseudocódigo ao Primeiro Programa em C. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 04."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo (2h)",
       "items": [
@@ -54,6 +104,21 @@
         "(25 min) Tradução guiada de um algoritmo de soma.",
         "(30 min) Laboratório: implementar variações em dupla (média, desconto, conversões).",
         "(15 min) Testes, depuração e checklist de entrega."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Prepare o ambiente antes de codar",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Clone o template \"VS Code - Template C com CMake\" listado em Recursos e execute a tarefa Run Build Task uma vez para baixar dependências. O projeto já traz o arquivo main.c, configuração de depuração e script de testes rápidos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Prefere navegador? Acesse o vídeo-guia de conversão e deixe-o aberto para consultar as equivalências enquanto transpila o pseudocódigo."
+        }
       ]
     },
     {
@@ -115,6 +180,46 @@
         {
           "type": "paragraph",
           "text": "Observe como cada comando possui equivalente direto, mas exige atenção à sintaxe e aos tipos utilizados."
+        },
+        {
+          "type": "md3Table",
+          "title": "Comparativo MD3: Entrada, Processamento e Saída",
+          "headers": ["Etapa", "Portugol", "C"],
+          "rows": [
+            [
+              {
+                "value": "Entrada"
+              },
+              {
+                "value": "LEIA(num1, num2)"
+              },
+              {
+                "value": "scanf(\"%d\", &num1); scanf(\"%d\", &num2);"
+              }
+            ],
+            [
+              {
+                "value": "Processamento"
+              },
+              {
+                "value": "soma <- num1 + num2"
+              },
+              {
+                "value": "soma = num1 + num2;"
+              }
+            ],
+            [
+              {
+                "value": "Saída"
+              },
+              {
+                "value": "ESCREVA(\"A soma é\", soma)"
+              },
+              {
+                "value": "printf(\"A soma é: %d\\n\", soma);"
+              }
+            ]
+          ]
         }
       ]
     },
@@ -156,17 +261,6 @@
       ]
     },
     {
-      "type": "callout",
-      "variant": "task",
-      "title": "TED da Aula 4",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Carregue no Moodle o código em C com comentários explicando as linhas-chave e um print da execução."
-        }
-      ]
-    },
-    {
       "type": "checklist",
       "title": "Checklist de saída",
       "description": "Garanta antes de sair do laboratório:",
@@ -175,11 +269,135 @@
         "Compilei e testei o programa com valores distintos.",
         "Documentei diferenças relevantes entre Portugol e C."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula: Programa de Soma",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 04' para anexar um pacote contendo código, checklist e evidências."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Implemente no template do VS Code o algoritmo de soma apresentado (entrada de dois inteiros, processamento da soma e saída formatada).",
+            "Valide o comportamento comparando cada etapa com a tabela \"Comparativo MD3\" e registre os testes executados (mínimo três pares de números).",
+            "Faça upload do arquivo .c, do print da execução e de um checklist assinalando Entrada, Processamento e Saída utilizados."
+          ],
+          "ordered": true
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e mencione a etapa (entrada, processamento ou saída) onde está com dificuldade."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Representações: Pseudocódigo × C",
+      "tabs": [
+        {
+          "label": "Pseudocódigo",
+          "content": "<pre>ler A, B\nsoma ← A + B\nescrever soma</pre>"
+        },
+        {
+          "label": "C",
+          "code": "#include <stdio.h>\nint main(){int a,b; scanf(\"%d %d\",&a,&b); printf(\"%d\\n\", a+b);}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.968Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

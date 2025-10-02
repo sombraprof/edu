@@ -7,7 +7,7 @@
       "title": "Lista 1 — Algoritmos básicos",
       "description": "Problemas de entrada, processamento e saída para consolidar a lógica sequencial.",
       "link": "courses/algi/exercises/lista1.html",
-      "available": true,
+      "available": false,
       "file": "lista1.vue",
       "type": "worksheet",
       "durationMinutes": 120,
@@ -22,7 +22,7 @@
       "title": "Lista 2 — Condicionais e operadores",
       "description": "Questões com estruturas de decisão, operadores relacionais e expressões lógicas.",
       "link": "courses/algi/exercises/lista2.html",
-      "available": true,
+      "available": false,
       "file": "lista2.vue",
       "type": "worksheet",
       "durationMinutes": 140,
@@ -37,7 +37,7 @@
       "title": "Lista 3 — Laços e repetição",
       "description": "Laços contados, condicionais e sentinelas com análise de limites e variáveis de controle.",
       "link": "courses/algi/exercises/lista3.html",
-      "available": true,
+      "available": false,
       "file": "lista3.vue",
       "type": "worksheet",
       "durationMinutes": 150,
@@ -52,7 +52,7 @@
       "title": "Lista 4 — Funções e modularização",
       "description": "Problemas que reforçam decomposição em funções, parâmetros e reuso de lógica.",
       "link": "courses/algi/exercises/lista4.html",
-      "available": true,
+      "available": false,
       "file": "lista4.vue",
       "type": "worksheet",
       "durationMinutes": 160,
@@ -67,7 +67,7 @@
       "title": "Lista 5 — Vetores e matrizes",
       "description": "Coleções lineares e bidimensionais com cálculos agregados e leitura estruturada.",
       "link": "courses/algi/exercises/lista5.html",
-      "available": true,
+      "available": false,
       "file": "lista5.vue",
       "type": "worksheet",
       "durationMinutes": 180,
@@ -82,7 +82,7 @@
       "title": "Lista 6 — Registros e structs",
       "description": "Modelagem de dados compostos com operações sobre coleções de registros.",
       "link": "courses/algi/exercises/lista6.html",
-      "available": true,
+      "available": false,
       "file": "lista6.vue",
       "type": "worksheet",
       "durationMinutes": 200,
@@ -90,6 +90,19 @@
         "generatedBy": "Equipe EDU",
         "model": "manual",
         "timestamp": "2025-02-21T12:00:00.000Z"
+      }
+    },
+    {
+      "id": "refatoracao-modular",
+      "title": "Refatoração modular: folha de pagamento",
+      "description": "Refatore um algoritmo sequencial de folha de pagamento separando responsabilidades em cinco funções colaborativas antes da NP2.",
+      "link": "courses/algi/exercises/refatoracao-modular.html",
+      "available": false,
+      "file": "refatoracao-modular.vue",
+      "metadata": {
+        "generatedBy": "LLM-Assistente-Edu",
+        "model": "gpt-4o",
+        "timestamp": "2025-10-01T09:18:10Z"
       }
     }
   ]

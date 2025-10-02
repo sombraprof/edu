@@ -9,16 +9,16 @@
     "Implementar programas sequenciais com validações simples e formatação clara.",
     "Comparar diferentes problemas para reconhecer padrões reutilizáveis."
   ],
-  "competencies": ["Resolução de problemas", "Comunicação técnica", "Raciocínio algorítmico"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Transformar descrições textuais em algoritmos sequenciais.",
-    "Aplicar operadores e funções básicas de forma consistente.",
-    "Registrar resultados e interpretações para o usuário final."
+    "Modelar problemas sequenciais identificando dados de entrada, fórmulas e mensagens de saída.",
+    "Implementar algoritmos encadeados em C validando cálculos com amostras reais.",
+    "Comunicar resultados em formato de relatório destacando interpretações relevantes."
   ],
   "outcomes": [
-    "Entrega programas funcionais para salário líquido, IMC e desconto cumulativo.",
-    "Apresenta oralmente o raciocínio de cada etapa do fluxo sequencial.",
-    "Documenta próximos passos e testes realizados no laboratório."
+    "Entrega solução funcional para estudo de caso proposto com comentários que justificam cada etapa.",
+    "Compartilha registro de testes comparando resultados esperados e obtidos para diferentes cenários.",
+    "Publica síntese escrita que explica impactos dos números calculados para o contexto do problema."
   ],
   "prerequisites": ["Revisar operadores, scanf e printf consolidados nas aulas 6, 7 e 8."],
   "tags": ["sequencial", "problemas", "pratica"],
@@ -26,14 +26,44 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Planilha de estudos de caso (salário, IMC, descontos)",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/casos-sequenciais.pdf"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Repositório de exemplos resolvidos",
+      "label": "Lista de exercícios sequenciais (MC102 - Unicamp)",
+      "type": "handout",
+      "url": "https://www.ic.unicamp.br/~wainer/cursos/1s2013/mc102/lista1.pdf"
+    },
+    {
+      "label": "Planilha de dados de teste compartilhada",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGI_testeSequencial"
+    },
+    {
+      "label": "Repositório: Aulas de lógica de programação (Ermogenes)",
       "type": "repository",
-      "url": "https://example.edu/algi/repos/sequencial-exemplos"
+      "url": "https://github.com/ermogenes/aulas-logica-programacao"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -46,6 +76,31 @@
     "description": "Implementação individual de um problema sequencial inédito com relatório de testes."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Problemas sequenciais aplicados em C. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 09."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -71,13 +126,13 @@
       "type": "flightPlan",
       "title": "Plano de voo (1h55)",
       "items": [
-        "(10 min) Revisão colaborativa do fluxo sequencial.",
-        "(25 min) Estudo de caso: salário líquido com descontos e gratificações.",
-        "(20 min) Estudo de caso: calculadora de IMC com análise textual.",
-        "(20 min) Debate: padrões em comum e validações.",
-        "(30 min) Oficina em duplas: problema escolhido.",
-        "(10 min) Apresentações rápidas e feedback.",
-        "(10 min) TED e registro dos testes."
+        "(10 min) Check-in colaborativo reforçando Entrada → Processamento → Saída.",
+        "(25 min) Estudo de caso 1 — Salário líquido (usa planilha de dados de teste e valida descontos).",
+        "(20 min) Estudo de caso 2 — IMC comentado (interpretação + mensagens ao usuário).",
+        "(15 min) Estudo de caso 3 — Desconto cumulativo (explora encadeamento de cálculos).",
+        "(15 min) Debate guiado: padrões encontrados e ajustes necessários.",
+        "(30 min) Oficina em duplas: escolher caso da planilha e registrar validações.",
+        "(10 min) Apresentações rápidas, checklist e registro da TED."
       ]
     },
     {
@@ -170,15 +225,25 @@
     },
     {
       "type": "contentBlock",
-      "title": "Tarefa (TED)",
+      "title": "Checklists de validação",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Escolha um problema sequencial diferente dos resolvidos em sala, implemente a solução em C e escreva um pequeno relatório (5 linhas) descrevendo entradas, processamento e testes realizados."
+          "type": "subBlock",
+          "title": "Antes de codar",
+          "items": [
+            "Preencher a planilha de dados de teste com entradas típicas, limites e inválidas.",
+            "Definir o formato de saída esperado para cada cenário (valores e mensagens).",
+            "Confirmar quais variáveis precisam de validação extra (negativos, zero, strings vazias)."
+          ]
         },
         {
-          "type": "paragraph",
-          "text": "Envie o código e o relatório no Moodle até domingo 23h59."
+          "type": "subBlock",
+          "title": "Antes de entregar",
+          "items": [
+            "Executar todos os casos registrados na planilha e registrar resultados.",
+            "Capturar evidências (console ou prints) anexando o link da planilha preenchida.",
+            "Revisar comentários e mensagens exibidas para garantir alinhamento com o enunciado."
+          ]
         }
       ]
     },
@@ -205,11 +270,170 @@
         "Explicar o raciocínio do algoritmo para colegas ou avaliadores.",
         "Planejar testes básicos para validar o comportamento esperado."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 09' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente solução inédita em C para um processo sequencial do seu contexto (ex.: cálculo de comissão)."
+            },
+            {
+              "text": "Submeta mini-relatório descrevendo entradas, processamento, testes realizados e aprendizados."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Modelo Entrada → Processamento → Saída",
+      "steps": [
+        {
+          "title": "Entrada",
+          "description": "Ler dados do usuário (scanf) e validar."
+        },
+        {
+          "title": "Processamento",
+          "description": "Aplicar cálculos e regras de negócio."
+        },
+        {
+          "title": "Saída",
+          "description": "Exibir resultados formatados (printf)."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Entrada → Saída\n100 10 -> 90.00\n250 5 -> 237.50",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\nint main(){\n  float preco, desc;\n  if (scanf(\"%f %f\", &preco, &desc)!=2) return 1;\n  float final = preco - (preco*desc/100.0f);\n  printf(\"%.2f\n\", final);\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Qual parte do EPS te gerou mais dúvidas?",
+            "Cite um caso de teste que você usou."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera casos: preco, desconto -> final\nimport random\nfor _ in range(5):\n    p = round(random.uniform(10, 500), 2)\n    d = random.choice([5, 10, 12.5, 20])\n    final = p - (p*d/100.0)\n    print(f\"{p} {d} -> {final:.2f}\")",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.973Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

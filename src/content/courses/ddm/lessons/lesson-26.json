@@ -1,0 +1,238 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-26",
+  "title": "Aula 26: Unidade V – Firebase Authentication",
+  "slug": "firebase-authentication",
+  "summary": "Implementa autenticação com Firebase Authentication utilizando email/senha e provedores externos, abordando segurança, UX e gerenciamento de sessões.",
+  "objective": "Integrar Firebase Authentication ao app garantindo fluxos seguros de login, registro e manutenção de sessão.",
+  "objectives": [
+    "Configurar provedores de autenticação (email/senha, Google).",
+    "Implementar fluxos de cadastro, login e recuperação de senha.",
+    "Gerenciar tokens e sessão no app com listeners de authStateChanges.",
+    "Aplicar regras de segurança integrando com Firestore."
+  ],
+  "competencies": [
+    "Autenticação de usuários",
+    "Segurança em aplicativos mobile",
+    "Integração Firebase"
+  ],
+  "skills": [
+    "Utilizar FirebaseAuth com corrotinas e callbacks.",
+    "Configurar Google Sign-In com SHA-1 e SHA-256.",
+    "Persistir informações básicas do usuário autenticado.",
+    "Proteger rotas e coleções Firestore com base em auth.uid."
+  ],
+  "outcomes": [
+    "Fluxos de login e cadastro funcionais.",
+    "UX consistente com feedbacks e validação.",
+    "Regras de segurança integradas ao Firestore.",
+    "Documento de riscos e mitigação para autenticação."
+  ],
+  "prerequisites": [
+    "Setup do Firebase concluído.",
+    "Modelagem Firestore implementada.",
+    "Conhecimento básico de formulários em Android."
+  ],
+  "tags": ["android", "firebase", "authentication", "seguranca"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Firebase Authentication",
+      "url": "https://firebase.google.com/docs/auth",
+      "type": "reference"
+    },
+    {
+      "label": "Authenticate with Firebase on Android",
+      "url": "https://firebase.google.com/docs/auth/android/start",
+      "type": "article"
+    },
+    {
+      "label": "Google Sign-In for Android",
+      "url": "https://developers.google.com/identity/sign-in/android/start-integrating",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "GOOGLE. Firebase Authentication Documentation. 2024.",
+    "SILVA, D. Segurança em autenticação mobile. Novatec, 2023.",
+    "FERNANDES, M. Autenticação federada em aplicativos. Casa do Código, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica de avaliação do fluxo de autenticação, cobrindo segurança, UX e documentação."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade V",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=fgdpvwEWJ9M",
+          "title": "Get to know Cloud Firestore",
+          "caption": "Sessão oficial apresentando recursos do Cloud Firestore. Créditos: Firebase (Google, 2020)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX",
+          "title": "Firebase for Android",
+          "caption": "Playlist institucional cobrindo autenticação, Firestore e regras de segurança. Créditos: Firebase (Google, 2024)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo",
+      "items": [
+        "Warm-up: Personas e riscos de autenticação (10 min).",
+        "Configuração de provedores e chaves (20 min).",
+        "Laboratório: Fluxos de cadastro/login (40 min).",
+        "Workshop: Recuperação de senha e listeners de sessão (30 min).",
+        "TED: Plano de mitigação de riscos (20 min)."
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Warm-up",
+      "steps": [
+        {
+          "title": "00:05 – Persona hacker",
+          "content": "Grupos criam uma persona mal-intencionada e listam possíveis ataques ao fluxo de login."
+        },
+        {
+          "title": "00:05 – Mapa de jornada do usuário",
+          "content": "Esquematizar passos que o usuário realiza para se autenticar com segurança."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos implementar o login do projeto integrador usando Firebase Authentication."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Habilitar email/senha e Google no console Firebase.",
+            "Configurar SHA-1/SHA-256 no Firebase e app-level build.gradle.",
+            "Implementar UI de cadastro com validações de senha forte.",
+            "Utilizar FirebaseAuth.createUserWithEmailAndPassword e signInWithEmailAndPassword com corrotinas.",
+            "Integrar GoogleSignInClient e FirebaseAuth.signInWithCredential.",
+            "Sincronizar dados do usuário autenticado com Firestore e regras condicionadas a request.auth.uid."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "error",
+      "title": "Segurança Firebase",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Exija verificação de email antes de liberar funcionalidades sensíveis."
+        },
+        {
+          "type": "paragraph",
+          "text": "Implemente reCAPTCHA em fluxos de cadastro público e habilite bloqueio automático após múltiplas tentativas falhas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Limites de autenticação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Monitore quotas de SMS e operações por IP se utilizar phone auth. Documente no TED como evitar bloqueios e custos inesperados."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Plano de mitigação de riscos com matriz (probabilidade x impacto), políticas implementadas e backlog de melhorias de segurança."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica de autenticação",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Fluxos completos e testados (35%).",
+            "Segurança configurada (30%).",
+            "Experiência do usuário (20%).",
+            "Documentação de riscos (15%)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Este trecho demonstra a integração em tempo real discutida em Firebase Authentication, com listeners seguros."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "val db = Firebase.firestore\nval usuarios = db.collection(\"usuarios\")\nusuarios.whereEqualTo(\"ativo\", true)\n    .addSnapshotListener { snapshot, erro ->\n        if (erro != null) {\n            Log.e(\"UnidadeV\", \"Erro ao consultar Firebase Authentication\", erro)\n            return@addSnapshotListener\n        }\n        val ativos = snapshot?.documents?.size ?: 0\n        Log.d(\"UnidadeV\", \"Usuários ativos: $ativos\")\n    }\n// Referência: GOOGLE (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Garanta que os logs e regras sigam as orientações de GOOGLE (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "GOOGLE. Firebase Authentication Documentation. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise Firebase Authentication conectando os artefatos do projeto às boas práticas de segurança do Firebase."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: GOOGLE. Firebase Authentication Documentation. 2024.",
+            "Conecte com o estudo: SILVA, D. Segurança em autenticação mobile. Novatec, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Modele um cenário de sincronização offline e valide como o Firestore responde às perdas de conexão."
+        },
+        {
+          "type": "blockquote",
+          "text": "SILVA, D. Segurança em autenticação mobile. Novatec, 2023."
+        }
+      ]
+    }
+  ]
+}

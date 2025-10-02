@@ -1,0 +1,217 @@
+{
+  "id": "lesson-35",
+  "title": "Aula 35: Indicadores, OKRs e Monitoramento do PESI",
+  "objective": "Definir métricas e ritos de monitoramento que assegurem a execução do planejamento estratégico de SI.",
+  "content": [
+    {
+      "type": "representations",
+      "title": "Painéis essenciais",
+      "items": [
+        {
+          "title": "Valor entregue",
+          "content": "Indicadores de benefícios, adoção e satisfação.",
+          "language": "plaintext",
+          "code": "Indicadores de benefícios, adoção e satisfação."
+        },
+        {
+          "title": "Saúde operacional",
+          "content": "SLA, disponibilidade, backlog e incidentes.",
+          "language": "plaintext",
+          "code": "SLA, disponibilidade, backlog e incidentes."
+        },
+        {
+          "title": "Capacidade",
+          "content": "Velocidade das equipes, alocação e burn-down.",
+          "language": "plaintext",
+          "code": "Velocidade das equipes, alocação e burn-down."
+        },
+        {
+          "title": "Inovação",
+          "content": "Experimentos, pilotos em andamento e taxa de sucesso.",
+          "language": "plaintext",
+          "code": "Experimentos, pilotos em andamento e taxa de sucesso."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "OKRs exemplo",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Objetivo: Maximizar valor das soluções digitais | Resultado-chave: Aumentar NPS digital de 58 para 70 | Indicador: NPS | Frequência: Mensal"
+            },
+            {
+              "text": "Objetivo: Maximizar valor das soluções digitais | Resultado-chave: Elevar adoção ativa para 80% dos clientes | Indicador: % clientes ativos | Frequência: Mensal"
+            },
+            {
+              "text": "Objetivo: Garantir estabilidade crítica | Resultado-chave: Reduzir incidentes severos de 12 para 4 | Indicador: Incidentes críticos | Frequência: Semanal"
+            },
+            {
+              "text": "Objetivo: Acelerar entregas | Resultado-chave: Reduzir lead time médio de 16 para 12 dias | Indicador: Lead time | Frequência: Quinzenal"
+            },
+            {
+              "text": "Objetivo: Fortalecer inovação | Resultado-chave: Executar 8 pilotos com ROI validado | Indicador: Pilotos concluídos | Frequência: Trimestral"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Cadeia de dados para monitoramento",
+      "summary": "Fluxo de dados do registro à decisão executiva.",
+      "factors": [
+        {
+          "id": "coleta",
+          "name": "Coleta",
+          "summary": "Eventos e logs operacionais",
+          "kind": "flow",
+          "indicators": ["latencia_dados"]
+        },
+        {
+          "id": "qualidade",
+          "name": "Qualidade",
+          "summary": "Tratamento, deduplicação e catalogação",
+          "kind": "constraint",
+          "indicators": ["dados_conformes"]
+        },
+        {
+          "id": "visualizacao",
+          "name": "Visualização",
+          "summary": "Dashboards e alertas",
+          "kind": "resource",
+          "indicators": ["dashboards_publicados"]
+        },
+        {
+          "id": "decisao",
+          "name": "Decisão",
+          "summary": "Comitês e OKRs",
+          "kind": "outcome",
+          "indicators": ["acoes_derivadas"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "coleta",
+          "to": "qualidade",
+          "description": "Dados coletados passam por esteiras de validação."
+        },
+        {
+          "from": "qualidade",
+          "to": "visualizacao",
+          "description": "Somente dados conformes alimentam painéis oficiais."
+        },
+        {
+          "from": "visualizacao",
+          "to": "decisao",
+          "description": "Painéis atualizados geram decisões e planos de ação."
+        },
+        {
+          "from": "decisao",
+          "to": "coleta",
+          "description": "Novas decisões ajustam eventos monitorados."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Ritos de acompanhamento",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Semanal – Squads atualizam progresso dos resultados-chave."
+            },
+            {
+              "text": "Quinzenal – Review de portfólio verifica capacidade e riscos."
+            },
+            {
+              "text": "Mensal – Comitê executivo avalia desvios e aprova ajustes de roadmap."
+            },
+            {
+              "text": "Trimestral – Replanejamento de OKRs e lições aprendidas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Medição em destaque",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/okr-ti-case",
+          "title": "OKRs em organização pública",
+          "caption": "Como conectar indicadores de TI a metas de governo digital."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/observabilidade-produto",
+          "title": "Observabilidade orientada a produto",
+          "caption": "Uso de telemetria para decisões estratégicas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 35 — Painel executivo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Desenhe um painel executivo com três indicadores críticos para acompanhar o PESI. Detalhe fonte de dados, periodicidade e responsável pela atualização."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-35-indicadores-okrs-monitoramento",
+  "summary": "Estabelece métricas, OKRs e ritos de monitoramento para garantir execução e aprendizado contínuo do PESI.",
+  "objectives": [
+    "Selecionar indicadores e OKRs coerentes com o mapa estratégico.",
+    "Estruturar cadeia de dados que suporte monitoramento confiável.",
+    "Definir ritos de acompanhamento e responsabilidade pela atualização."
+  ],
+  "competencies": ["Gestão orientada a dados", "OKR e métricas", "Governança de informação"],
+  "outcomes": [
+    "Apresenta painel executivo com indicadores priorizados.",
+    "Descreve cadeia de dados e responsabilidades de monitoramento.",
+    "Integra ritos de acompanhamento à governança definida."
+  ],
+  "prerequisites": [
+    "Roadmap e fóruns aprovados (aulas 33 e 34).",
+    "Acesso às fontes de dados relevantes."
+  ],
+  "tags": ["indicadores", "okr", "monitoramento"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de painel executivo",
+      "url": "https://example.edu/tgs/templates/painel-executivo",
+      "type": "template"
+    },
+    {
+      "label": "Guia de OKRs para TI",
+      "url": "https://example.edu/tgs/guides/okr-ti",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "DOERR, John. Avalie o Que Importa. Companhia das Letras, 2018.",
+    "FORRESTER. Metrics That Matter for CIOs. Forrester, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Painel executivo com indicadores, fontes e responsáveis."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Guia Métricas TI 2024"]
+  }
+}

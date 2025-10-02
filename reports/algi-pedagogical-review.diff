@@ -1,0 +1,3278 @@
+diff --git a/src/content/courses/algi/lessons/lesson-01.json b/src/content/courses/algi/lessons/lesson-01.json
+index 4818f4b..12f69e4 100644
+--- a/src/content/courses/algi/lessons/lesson-01.json
++++ b/src/content/courses/algi/lessons/lesson-01.json
+@@ -10,24 +10,28 @@
+     "Experimentar a construção de algoritmos usando passos claros e estruturados."
+   ],
+   "competencies": [
+-    "Raciocínio lógico aplicado à computação",
+-    "Planejamento de soluções algorítmicas",
+-    "Comunicação de processos passo a passo"
++    "02",
++    "05",
++    "11"
+   ],
+   "skills": [
+-    "Identificar premissas e conclusões em argumentos lógicos.",
+-    "Traduzir situações cotidianas em sequências de passos executáveis.",
+-    "Selecionar representações adequadas (fluxogramas, pseudocódigo) para comunicar algoritmos."
++    "Identificar estruturas lógicas presentes em problemas cotidianos e classificá-las como condição, sequência ou repetição.",
++    "Descrever passo a passo um algoritmo simples utilizando o ciclo entrada → processamento → saída.",
++    "Comunicar expectativas da disciplina, critérios de avaliação e canais de apoio em linguagem objetiva."
+   ],
+   "outcomes": [
+-    "Explica os pilares da disciplina e os critérios de avaliação.",
+-    "Esboça um algoritmo simples a partir de um problema cotidiano.",
+-    "Relaciona os principais formatos de representação algorítmica."
++    "Entrega quadro comparativo mapeando pelo menos três situações reais para estruturas lógicas básicas.",
++    "Produz algoritmo inicial com entradas, processamento e saídas validadas em dupla com o professor.",
++    "Apresenta resumo oral ou escrito explicitando cronograma, instrumentos avaliativos e recursos oferecidos na disciplina."
+   ],
+   "prerequisites": [
+     "Familiaridade básica com o uso de computadores e navegação em ambientes virtuais de aprendizagem."
+   ],
+-  "tags": ["logica", "algoritmos", "planejamento"],
++  "tags": [
++    "logica",
++    "algoritmos",
++    "planejamento"
++  ],
+   "duration": 100,
+   "modality": "in-person",
+   "resources": [
+@@ -348,7 +352,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-02.json b/src/content/courses/algi/lessons/lesson-02.json
+index 592b66b..d96a3be 100644
+--- a/src/content/courses/algi/lessons/lesson-02.json
++++ b/src/content/courses/algi/lessons/lesson-02.json
+@@ -10,22 +10,28 @@
+     "Validar conclusões por meio de tabelas-verdade e simulações."
+   ],
+   "competencies": [
+-    "Pensamento lógico-analítico",
+-    "Modelagem de processos",
+-    "Comunicação estruturada"
++    "02",
++    "05",
++    "11"
+   ],
+   "skills": [
+-    "Diferenciar operadores lógicos em situações reais.",
+-    "Construir tabelas-verdade para expressões simples.",
+-    "Registrar algoritmos com decisões condicionais em pseudocódigo."
++    "Classificar operadores lógicos (E, OU, NÃO) conforme o tipo de decisão exigida pelo problema.",
++    "Produzir tabelas-verdade completas que comprovem o comportamento de expressões booleanas.",
++    "Documentar em pseudocódigo um algoritmo que combine condições compostas com justificativas de cada ramo."
+   ],
+   "outcomes": [
+-    "Mapeia um problema cotidiano em passos lógicos identificando decisões críticas.",
+-    "Seleciona o operador lógico adequado (E, OU, NÃO) para cada decisão.",
+-    "Justifica o resultado de uma expressão lógica usando tabela-verdade."
++    "Apresenta quadro de decomposição destacando decisões, operadores escolhidos e alternativas descartadas.",
++    "Resolve ao menos três expressões booleanas verificando resultados com tabelas-verdade anotadas.",
++    "Publica pseudocódigo revisado em dupla com comentários que explicam o efeito de cada condição lógica."
++  ],
++  "prerequisites": [
++    "Revisar o plano de ensino e o conceito de algoritmo da Aula 1."
++  ],
++  "tags": [
++    "logica",
++    "operadores",
++    "tabela-verdade"
+   ],
+-  "prerequisites": ["Revisar o plano de ensino e o conceito de algoritmo da Aula 1."],
+-  "tags": ["logica", "operadores", "tabela-verdade"],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+@@ -208,7 +214,12 @@
+         {
+           "type": "truthTable",
+           "title": "Tabela-verdade do desconto",
+-          "headers": ["Valor &gt; 200", "Cliente VIP", "Tem cupom", "Concede desconto"],
++          "headers": [
++            "Valor &gt; 200",
++            "Cliente VIP",
++            "Tem cupom",
++            "Concede desconto"
++          ],
+           "rows": [
+             [
+               {
+@@ -462,7 +473,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-03.json b/src/content/courses/algi/lessons/lesson-03.json
+index b503aa6..1bc2cc0 100644
+--- a/src/content/courses/algi/lessons/lesson-03.json
++++ b/src/content/courses/algi/lessons/lesson-03.json
+@@ -9,19 +9,29 @@
+     "Comparar diferentes representações (texto estruturado, fluxogramas, pseudocódigo).",
+     "Identificar e corrigir lacunas em algoritmos propostos."
+   ],
+-  "competencies": ["Pensamento computacional", "Planejamento algorítmico", "Trabalho colaborativo"],
++  "competencies": [
++    "02",
++    "05",
++    "12"
++  ],
+   "skills": [
+-    "Sequenciar instruções minimizando ambiguidades.",
+-    "Traduzir algoritmos entre formatos distintos.",
+-    "Avaliar algoritmos de colegas e propor melhorias."
++    "Sequenciar instruções em blocos de entrada, processamento e saída mantendo nomes padronizados.",
++    "Comparar versões de algoritmos em dinâmicas colaborativas e apontar lacunas ou redundâncias.",
++    "Reescrever pseudocódigo incorporando feedback registrado em checklist coletivo."
+   ],
+   "outcomes": [
+-    "Produz um algoritmo detalhado para um problema cotidiano.",
+-    "Justifica ajustes necessários em um algoritmo inconsistente.",
+-    "Gera pseudocódigo alinhado à estrutura construída em grupo."
++    "Entrega algoritmo estruturado com rótulos de blocos e justificativa para a ordem escolhida.",
++    "Registra no mural da turma os pontos fortes e ajustes sugeridos para o algoritmo de outra dupla.",
++    "Disponibiliza versão revisada destacando trechos alterados após a rodada de feedback."
++  ],
++  "prerequisites": [
++    "Revisar operadores lógicos apresentados na Aula 2."
++  ],
++  "tags": [
++    "algoritmos",
++    "sequencia",
++    "pseudocodigo"
+   ],
+-  "prerequisites": ["Revisar operadores lógicos apresentados na Aula 2."],
+-  "tags": ["algoritmos", "sequencia", "pseudocodigo"],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+@@ -155,7 +165,12 @@
+             {
+               "type": "list",
+               "ordered": true,
+-              "items": ["Pegar a meia.", "Calçar a meia.", "Pegar o sapato.", "Calçar o sapato. ✅"]
++              "items": [
++                "Pegar a meia.",
++                "Calçar a meia.",
++                "Pegar o sapato.",
++                "Calçar o sapato. ✅"
++              ]
+             }
+           ]
+         },
+@@ -293,7 +308,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-04.json b/src/content/courses/algi/lessons/lesson-04.json
+index abf6e4d..0157f82 100644
+--- a/src/content/courses/algi/lessons/lesson-04.json
++++ b/src/content/courses/algi/lessons/lesson-04.json
+@@ -9,19 +9,29 @@
+     "Mapear cada parte do pseudocódigo para a sintaxe equivalente em C.",
+     "Implementar um programa simples em C a partir de um algoritmo planejado."
+   ],
+-  "competencies": ["Raciocínio algorítmico", "Tradução entre linguagens", "Precisão sintática"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Declarar variáveis, ler entradas e produzir saídas em C.",
+-    "Utilizar comentários para documentar a lógica implementada.",
+-    "Validar o comportamento do programa comparando com o algoritmo original."
++    "Traduzir instruções escritas em Portugol para blocos equivalentes em C garantindo correspondência de variáveis.",
++    "Configurar projeto no compilador, compilar e interpretar mensagens de erro para ajustar o código.",
++    "Documentar evidências de testes iniciais registrando entradas utilizadas e resultados esperados."
+   ],
+   "outcomes": [
+-    "Entrega um programa em C equivalente ao algoritmo em Portugol desenvolvido em aula.",
+-    "Identifica diferenças críticas entre operadores e comandos nas duas representações.",
+-    "Executa testes simples garantindo que as saídas correspondem às expectativas."
++    "Entrega tabela comparativa destacando trecho em Portugol e versão final em C sem divergências semânticas.",
++    "Compila programa no laboratório sem erros e relata as correções aplicadas para eliminar warnings.",
++    "Anexa registro de execução com ao menos três cenários testados e respectivas saídas."
++  ],
++  "prerequisites": [
++    "Trazer o pseudocódigo produzido na Aula 3."
++  ],
++  "tags": [
++    "pseudocodigo",
++    "linguagem-c",
++    "implementacao"
+   ],
+-  "prerequisites": ["Trazer o pseudocódigo produzido na Aula 3."],
+-  "tags": ["pseudocodigo", "linguagem-c", "implementacao"],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+@@ -184,7 +194,11 @@
+         {
+           "type": "md3Table",
+           "title": "Comparativo MD3: Entrada, Processamento e Saída",
+-          "headers": ["Etapa", "Portugol", "C"],
++          "headers": [
++            "Etapa",
++            "Portugol",
++            "C"
++          ],
+           "rows": [
+             [
+               {
+@@ -319,7 +333,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-05.json b/src/content/courses/algi/lessons/lesson-05.json
+index 7b029f3..69a1232 100644
+--- a/src/content/courses/algi/lessons/lesson-05.json
++++ b/src/content/courses/algi/lessons/lesson-05.json
+@@ -9,19 +9,29 @@
+     "Relacionar símbolos padronizados a operações de entrada, processamento e decisão.",
+     "Interpretar fluxos produzidos por colegas para validar raciocínios."
+   ],
+-  "competencies": ["02", "12"],
++  "competencies": [
++    "02",
++    "11",
++    "12"
++  ],
+   "skills": [
+-    "Selecionar símbolos de fluxo compatíveis com o propósito de cada etapa do algoritmo.",
+-    "Organizar setas e conectores garantindo leitura sequencial coerente.",
+-    "Explicar oralmente como o fluxograma traduz o algoritmo descrito em texto."
++    "Selecionar símbolos de fluxo adequados para início, decisões, processamento e término.",
++    "Alinhar fluxogramas ao pseudocódigo correspondente destacando equivalências entre blocos.",
++    "Conduzir revisão em dupla verificando legibilidade, setas e descrições dos caminhos alternativos."
+   ],
+   "outcomes": [
+-    "Entrega fluxograma com início, decisões e término claramente identificados.",
+-    "Justifica a escolha de caminhos alternativos ao revisar fluxos de colegas.",
+-    "Identifica inconsistências ou ciclos incorretos ao analisar um diagrama proposto."
++    "Produz fluxograma completo com legenda de símbolos e validação feita pelo colega.",
++    "Apresenta checklist assinado confirmando correspondência entre fluxograma e algoritmo textual.",
++    "Registra ajustes realizados após a revisão cruzada em comentário ou nota compartilhada."
++  ],
++  "prerequisites": [
++    "Trazer o algoritmo/pseudocódigo desenvolvido na Aula 4."
++  ],
++  "tags": [
++    "fluxograma",
++    "visualizacao",
++    "processos"
+   ],
+-  "prerequisites": ["Trazer o algoritmo/pseudocódigo desenvolvido na Aula 4."],
+-  "tags": ["fluxograma", "visualizacao", "processos"],
+   "duration": 100,
+   "modality": "in-person",
+   "resources": [
+@@ -406,7 +416,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-06.json b/src/content/courses/algi/lessons/lesson-06.json
+index 5d3d659..4f9e047 100644
+--- a/src/content/courses/algi/lessons/lesson-06.json
++++ b/src/content/courses/algi/lessons/lesson-06.json
+@@ -10,22 +10,28 @@
+     "Implementar exemplos simples de leitura, processamento e exibição com validação."
+   ],
+   "competencies": [
+-    "Fundamentos de programação",
+-    "Gestão de dados em memória",
+-    "Precisão matemática"
++    "05",
++    "08",
++    "11"
+   ],
+   "skills": [
+-    "Declarar variáveis e constantes com tipos corretos.",
+-    "Converter entradas textuais em valores numéricos.",
+-    "Formatar saídas usando especificadores printf/scanf."
++    "Declarar variáveis, constantes e tipos coerentes com os dados fornecidos pelo problema.",
++    "Validar leituras e escritas utilizando scanf e printf com especificadores compatíveis.",
++    "Registrar tabela de testes contendo valores válidos, inválidos e limites para cada variável."
+   ],
+   "outcomes": [
+-    "Produz um programa que captura dados do usuário e exibe cálculos básicos.",
+-    "Justifica a escolha de tipos e identifica limites de cada representação.",
+-    "Documenta constantes utilizadas no código."
++    "Entrega código comentado que evidencia a escolha de tipos e o uso de constantes nominais.",
++    "Demonstra execução correta do programa para dados válidos e sinaliza tratamento de entradas incorretas.",
++    "Compartilha planilha ou quadro de testes com resultados observados e ajustes aplicados."
++  ],
++  "prerequisites": [
++    "Revisar o template em C da Aula 4 e o fluxograma selecionado na Aula 5."
++  ],
++  "tags": [
++    "variaveis",
++    "tipos",
++    "constantes"
+   ],
+-  "prerequisites": ["Revisar o template em C da Aula 4 e o fluxograma selecionado na Aula 5."],
+-  "tags": ["variaveis", "tipos", "constantes"],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+@@ -130,7 +136,13 @@
+     },
+     {
+       "type": "md3Table",
+-      "headers": ["Tipo", "Intervalo aproximado", "printf", "scanf", "Uso comum"],
++      "headers": [
++        "Tipo",
++        "Intervalo aproximado",
++        "printf",
++        "scanf",
++        "Uso comum"
++      ],
+       "rows": [
+         [
+           {
+@@ -399,7 +411,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-07.json b/src/content/courses/algi/lessons/lesson-07.json
+index c8c52da..9a6b31e 100644
+--- a/src/content/courses/algi/lessons/lesson-07.json
++++ b/src/content/courses/algi/lessons/lesson-07.json
+@@ -9,19 +9,29 @@
+     "Aplicar precedência e agrupamento para evitar ambiguidades em expressões.",
+     "Interpretar resultados lógicos para alimentar decisões e fluxos de controle."
+   ],
+-  "competencies": ["Raciocínio lógico", "Pensamento computacional", "Programação estruturada"],
++  "competencies": [
++    "02",
++    "05",
++    "08"
++  ],
+   "skills": [
+-    "Selecionar operadores adequados para cálculos matemáticos e comparações.",
+-    "Reescrever expressões utilizando parênteses para tornar a intenção explícita.",
+-    "Avaliar o resultado de operações booleanas para controlar o fluxo do programa."
++    "Organizar expressões utilizando precedência e parênteses para garantir clareza lógica.",
++    "Simular avaliações de expressões passo a passo verificando efeitos de operadores relacionais e lógicos.",
++    "Criar casos de teste que comprovem limites e exceções dos cálculos implementados."
+   ],
+   "outcomes": [
+-    "Produz um programa que combina operadores aritméticos, relacionais e lógicos para resolver um caso realista.",
+-    "Explica oralmente como a precedência impacta o resultado de expressões compostas.",
+-    "Elabora uma tabela-verdade simples para validar condições críticas do algoritmo."
++    "Entrega quadro com expressões reescritas e justificativas para o posicionamento de parênteses.",
++    "Apresenta tabela de rastreamento com valores intermediários e resultado final de cada expressão.",
++    "Disponibiliza conjunto de testes documentados cobrindo entradas típicas, limites e valores inválidos."
++  ],
++  "prerequisites": [
++    "Revisar variáveis, tipos e leitura com scanf trabalhados na Aula 6."
++  ],
++  "tags": [
++    "operadores",
++    "expressoes",
++    "linguagem-c"
+   ],
+-  "prerequisites": ["Revisar variáveis, tipos e leitura com scanf trabalhados na Aula 6."],
+-  "tags": ["operadores", "expressoes", "linguagem-c"],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -163,7 +173,11 @@
+     },
+     {
+       "type": "md3Table",
+-      "headers": ["Operador", "Descrição", "Exemplo"],
++      "headers": [
++        "Operador",
++        "Descrição",
++        "Exemplo"
++      ],
+       "rows": [
+         [
+           {
+@@ -234,7 +248,11 @@
+     },
+     {
+       "type": "md3Table",
+-      "headers": ["Operador", "Significado", "Quando usar"],
++      "headers": [
++        "Operador",
++        "Significado",
++        "Quando usar"
++      ],
+       "rows": [
+         [
+           {
+@@ -328,7 +346,13 @@
+     {
+       "type": "truthTable",
+       "title": "Combinações lógicas",
+-      "headers": ["A", "B", "A && B", "A || B", "!A"],
++      "headers": [
++        "A",
++        "B",
++        "A && B",
++        "A || B",
++        "!A"
++      ],
+       "rows": [
+         [
+           {
+@@ -633,7 +657,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-08.json b/src/content/courses/algi/lessons/lesson-08.json
+index de13894..2edd29f 100644
+--- a/src/content/courses/algi/lessons/lesson-08.json
++++ b/src/content/courses/algi/lessons/lesson-08.json
+@@ -9,19 +9,29 @@
+     "Aplicar operações aritméticas encadeadas preservando a ordem correta de execução.",
+     "Validar dados lidos com scanf assegurando armazenamento em variáveis adequadas."
+   ],
+-  "competencies": ["05", "11"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Encadear leituras com scanf usando especificadores e endereços corretos.",
+-    "Organizar cálculos intermediários em variáveis com nomes significativos.",
+-    "Formatar saídas com printf destacando valores intermediários relevantes."
++    "Encadear leituras com scanf garantindo o uso correto de endereços e especificadores.",
++    "Organizar variáveis intermediárias para cálculos encadeados mantendo nomes significativos.",
++    "Formatar saídas com printf destacando resultados, unidades e mensagens interpretáveis."
+   ],
+   "outcomes": [
+-    "Entrega programa funcional que lê ao menos três valores e gera recibo formatado.",
+-    "Explica passo a passo como cada variável sustenta o fluxo entrada-processamento-saída.",
+-    "Identifica efeitos da ordem de operações ao testar dados extremos ou inválidos."
++    "Entrega programa que registra ao menos três leituras, cálculos associados e recibo formatado.",
++    "Documenta tabela relacionando cada variável a seu papel no fluxo entrada → processamento → saída.",
++    "Apresenta vídeo curto ou relatório textual explicando como validar dados extremos e ajustar mensagens."
++  ],
++  "prerequisites": [
++    "Reforçar leitura e declaração de variáveis vistas nas aulas 5 e 6."
++  ],
++  "tags": [
++    "sequencial",
++    "scanf",
++    "printf"
+   ],
+-  "prerequisites": ["Reforçar leitura e declaração de variáveis vistas nas aulas 5 e 6."],
+-  "tags": ["sequencial", "scanf", "printf"],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+@@ -217,7 +227,11 @@
+     },
+     {
+       "type": "md3Table",
+-      "headers": ["Máscara", "Descrição", "Exemplo de saída"],
++      "headers": [
++        "Máscara",
++        "Descrição",
++        "Exemplo de saída"
++      ],
+       "rows": [
+         [
+           {
+@@ -444,7 +458,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-09.json b/src/content/courses/algi/lessons/lesson-09.json
+index 3bd7536..5a112ce 100644
+--- a/src/content/courses/algi/lessons/lesson-09.json
++++ b/src/content/courses/algi/lessons/lesson-09.json
+@@ -9,19 +9,29 @@
+     "Implementar programas sequenciais com validações simples e formatação clara.",
+     "Comparar diferentes problemas para reconhecer padrões reutilizáveis."
+   ],
+-  "competencies": ["Resolução de problemas", "Comunicação técnica", "Raciocínio algorítmico"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Transformar descrições textuais em algoritmos sequenciais.",
+-    "Aplicar operadores e funções básicas de forma consistente.",
+-    "Registrar resultados e interpretações para o usuário final."
++    "Modelar problemas sequenciais identificando dados de entrada, fórmulas e mensagens de saída.",
++    "Implementar algoritmos encadeados em C validando cálculos com amostras reais.",
++    "Comunicar resultados em formato de relatório destacando interpretações relevantes."
+   ],
+   "outcomes": [
+-    "Entrega programas funcionais para salário líquido, IMC e desconto cumulativo.",
+-    "Apresenta oralmente o raciocínio de cada etapa do fluxo sequencial.",
+-    "Documenta próximos passos e testes realizados no laboratório."
++    "Entrega solução funcional para estudo de caso proposto com comentários que justificam cada etapa.",
++    "Compartilha registro de testes comparando resultados esperados e obtidos para diferentes cenários.",
++    "Publica síntese escrita que explica impactos dos números calculados para o contexto do problema."
++  ],
++  "prerequisites": [
++    "Revisar operadores, scanf e printf consolidados nas aulas 6, 7 e 8."
++  ],
++  "tags": [
++    "sequencial",
++    "problemas",
++    "pratica"
+   ],
+-  "prerequisites": ["Revisar operadores, scanf e printf consolidados nas aulas 6, 7 e 8."],
+-  "tags": ["sequencial", "problemas", "pratica"],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -317,7 +327,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-10.json b/src/content/courses/algi/lessons/lesson-10.json
+index 89db0be..3c863d7 100644
+--- a/src/content/courses/algi/lessons/lesson-10.json
++++ b/src/content/courses/algi/lessons/lesson-10.json
+@@ -9,21 +9,29 @@
+     "Escrever e testar expressões booleanas que alimentam estruturas if e if-else.",
+     "Documentar cada caminho da decisão para garantir clareza e manutenção futura."
+   ],
+-  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Comunicação técnica"],
++  "competencies": [
++    "02",
++    "05",
++    "11"
++  ],
+   "skills": [
+-    "Traduzir regras de negócio em comparações booleanas usando operadores relacionais e lógicos.",
+-    "Selecionar entre blocos if simples ou if-else para representar decisões exclusivas.",
+-    "Validar resultados com casos de teste positivos e negativos, registrando saídas esperadas."
++    "Identificar pontos de decisão que exigem uso de estruturas if e else.",
++    "Codificar blocos condicionais com mensagens claras para cada caminho.",
++    "Explicar verbalmente ou por escrito o fluxo completo do algoritmo destacando estados finais."
+   ],
+   "outcomes": [
+-    "Implementa um programa que decide entre caminhos mutuamente exclusivos com base em entradas do usuário.",
+-    "Explica o raciocínio por trás de cada condição e o efeito de alterá-la.",
+-    "Entrega relatório curto com casos de teste cobrindo ambos os ramos da decisão."
++    "Apresenta diagrama ou tabela que mapeia condições para ações correspondentes.",
++    "Entrega código revisado que trata casos verdadeiro e falso com mensagens específicas.",
++    "Realiza apresentação curta explicando como o programa responde a pelo menos três entradas diferentes."
+   ],
+   "prerequisites": [
+     "Revisar operadores aritméticos, relacionais e o fluxo sequencial abordados nas aulas 7 a 9."
+   ],
+-  "tags": ["condicionais", "if-else", "controle-de-fluxo"],
++  "tags": [
++    "condicionais",
++    "if-else",
++    "controle-de-fluxo"
++  ],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -143,7 +151,11 @@
+     {
+       "type": "truthTable",
+       "title": "Exemplo: autorização por idade",
+-      "headers": ["Idade", "idade >= 18", "Ação"],
++      "headers": [
++        "Idade",
++        "idade >= 18",
++        "Ação"
++      ],
+       "rows": [
+         [
+           {
+@@ -199,7 +211,12 @@
+     {
+       "type": "truthTable",
+       "title": "Quando usar if-else ou switch-case",
+-      "headers": ["Cenário", "if-else", "switch-case", "Observação"],
++      "headers": [
++        "Cenário",
++        "if-else",
++        "switch-case",
++        "Observação"
++      ],
+       "rows": [
+         [
+           {
+@@ -499,7 +516,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-11.json b/src/content/courses/algi/lessons/lesson-11.json
+index 134623a..17b95e2 100644
+--- a/src/content/courses/algi/lessons/lesson-11.json
++++ b/src/content/courses/algi/lessons/lesson-11.json
+@@ -9,19 +9,29 @@
+     "Configurar cases, break e default para controlar exatamente quais blocos executam.",
+     "Documentar menus e mapas de opções para orientar o usuário."
+   ],
+-  "competencies": ["Raciocínio algorítmico", "Pensamento computacional", "Comunicação técnica"],
++  "competencies": [
++    "02",
++    "05",
++    "11"
++  ],
+   "skills": [
+-    "Mapear valores discretos para blocos específicos de lógica.",
+-    "Agrupar múltiplos cases que compartilham o mesmo comportamento.",
+-    "Descrever o efeito de omitir break (fall-through) e quando isso é desejável."
++    "Mapear cenários que justificam uso de switch-case em vez de cadeias de if.",
++    "Implementar seleção múltipla com rótulos, blocos bem indentados e cláusula default coerente.",
++    "Documentar tabela relacionando opções do menu a ações realizadas pelo programa."
+   ],
+   "outcomes": [
+-    "Entrega um menu funcional com feedback para opções válidas e inválidas.",
+-    "Justifica em documentação curta a escolha entre if-else e switch-case.",
+-    "Apresenta casos de teste cobrindo todos os rótulos definidos no programa."
++    "Apresenta fluxograma ou mapa de decisão que evidencia agrupamentos tratados pelo switch-case.",
++    "Entrega código funcional com pelo menos quatro casos, incluindo default explicativo.",
++    "Disponibiliza tabela de apoio distribuída à turma listando comandos de cada opção implementada."
++  ],
++  "prerequisites": [
++    "Revisar if-else e testes de condição apresentados na Aula 10."
++  ],
++  "tags": [
++    "condicionais",
++    "switch-case",
++    "controle-de-fluxo"
+   ],
+-  "prerequisites": ["Revisar if-else e testes de condição apresentados na Aula 10."],
+-  "tags": ["condicionais", "switch-case", "controle-de-fluxo"],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+@@ -335,7 +345,11 @@
+     },
+     {
+       "type": "md3Table",
+-      "headers": ["Cenário", "if-else encadeado", "switch-case"],
++      "headers": [
++        "Cenário",
++        "if-else encadeado",
++        "switch-case"
++      ],
+       "rows": [
+         [
+           {
+@@ -482,7 +496,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-12.json b/src/content/courses/algi/lessons/lesson-12.json
+index efc1591..e336f28 100644
+--- a/src/content/courses/algi/lessons/lesson-12.json
++++ b/src/content/courses/algi/lessons/lesson-12.json
+@@ -9,19 +9,29 @@
+     "Combinar operadores lógicos para refinar regras com múltiplos critérios.",
+     "Registrar resultados esperados para cada ramo antes de implementar."
+   ],
+-  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Pensamento crítico"],
++  "competencies": [
++    "02",
++    "05",
++    "11"
++  ],
+   "skills": [
+-    "Escrever cadeias else if com condições mutuamente exclusivas.",
+-    "Aplicar && e || para unir verificações dentro do mesmo ramo.",
+-    "Validar a cobertura de cenários usando planilhas de teste."
++    "Priorizar condições em cadeias else if para garantir cobertura sem sobreposições.",
++    "Representar regras compostas por meio de árvores de decisão ou mapas lógicos.",
++    "Justificar por escrito o posicionamento de cada condição e suas implicações."
+   ],
+   "outcomes": [
+-    "Entrega um programa que classifica entradas em três ou mais faixas sem ambiguidades.",
+-    "Explica a escolha da ordem das condições em documentação curta.",
+-    "Constrói tabela de testes que cobre limites inferior e superior de cada faixa."
++    "Entrega algoritmo que trata ao menos cinco faixas exclusivas com mensagens específicas.",
++    "Apresenta diagrama anotado validando que cada entrada é coberta por apenas um ramo.",
++    "Registra texto curto explicando ajustes realizados após testar limites das condições."
++  ],
++  "prerequisites": [
++    "Revisar if-else e switch-case trabalhados nas aulas 10 e 11."
++  ],
++  "tags": [
++    "condicionais",
++    "else-if",
++    "regras"
+   ],
+-  "prerequisites": ["Revisar if-else e switch-case trabalhados nas aulas 10 e 11."],
+-  "tags": ["condicionais", "else-if", "regras"],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -327,7 +337,11 @@
+     {
+       "type": "md3Table",
+       "title": "Cobertura das faixas",
+-      "headers": ["Condição", "Intervalo tratado", "Saída"],
++      "headers": [
++        "Condição",
++        "Intervalo tratado",
++        "Saída"
++      ],
+       "rows": [
+         [
+           {
+@@ -512,7 +526,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-13.json b/src/content/courses/algi/lessons/lesson-13.json
+index b8b6342..259a7c0 100644
+--- a/src/content/courses/algi/lessons/lesson-13.json
++++ b/src/content/courses/algi/lessons/lesson-13.json
+@@ -9,19 +9,29 @@
+     "Planejar cadeias else if para atender múltiplos cenários de decisão.",
+     "Avaliar a legibilidade de condições compostas em algoritmos em C."
+   ],
+-  "competencies": ["05", "12"],
++  "competencies": [
++    "02",
++    "05",
++    "08"
++  ],
+   "skills": [
+-    "Traduzir regras verbais em expressões booleanas completas.",
+-    "Estruturar decisões encadeadas evitando sobreposições ou lacunas de casos.",
+-    "Representar árvores de decisão simples em fluxogramas comentados."
++    "Traduzir requisitos complexos em expressões booleanas utilizando operadores compostos.",
++    "Executar testes de mesa para detectar lacunas ou sobreposições em cadeias de decisão.",
++    "Refatorar condições com curto-circuito visando clareza e desempenho."
+   ],
+   "outcomes": [
+-    "Entrega programa que classifica dados com base em ao menos três faixas exclusivas.",
+-    "Justifica a ordem das condições e seus efeitos ao depurar casos limítrofes.",
+-    "Identifica oportunidades de simplificação usando operadores lógicos de curto-circuito."
++    "Disponibiliza conjunto de casos de teste que evidenciam cobertura completa do problema.",
++    "Entrega código revisado com operadores lógicos apropriados e comentários sobre riscos mitigados.",
++    "Apresenta relatório comparando a versão inicial e a refatorada, destacando ganhos observados."
++  ],
++  "prerequisites": [
++    "Revisar if/else, switch-case e cadeias else if das aulas 10-12."
++  ],
++  "tags": [
++    "condicionais",
++    "operadores-logicos",
++    "controle-de-fluxo"
+   ],
+-  "prerequisites": ["Revisar if/else, switch-case e cadeias else if das aulas 10-12."],
+-  "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -137,7 +147,13 @@
+     {
+       "type": "truthTable",
+       "title": "Tabela verdade dos operadores",
+-      "headers": ["A", "B", "A && B", "A || B", "!A"],
++      "headers": [
++        "A",
++        "B",
++        "A && B",
++        "A || B",
++        "!A"
++      ],
+       "rows": [
+         [
+           {
+@@ -420,7 +436,11 @@
+     {
+       "type": "md3Table",
+       "title": "Planejamento de testes",
+-      "headers": ["Cenário", "Entradas", "Resultado esperado"],
++      "headers": [
++        "Cenário",
++        "Entradas",
++        "Resultado esperado"
++      ],
+       "rows": [
+         [
+           {
+@@ -577,7 +597,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-14.json b/src/content/courses/algi/lessons/lesson-14.json
+index a8a0688..330555f 100644
+--- a/src/content/courses/algi/lessons/lesson-14.json
++++ b/src/content/courses/algi/lessons/lesson-14.json
+@@ -9,19 +9,29 @@
+     "Identificar lacunas de aprendizagem em lógica booleana e estruturas condicionais.",
+     "Coletar evidências para orientar a devolutiva e os planos de reforço da próxima aula."
+   ],
+-  "competencies": ["Raciocínio algorítmico", "Pensamento computacional", "Comunicação técnica"],
++  "competencies": [
++    "02",
++    "05",
++    "08"
++  ],
+   "skills": [
+-    "Interpretar enunciados e traduzir em algoritmos estruturados.",
+-    "Escrever código C com sintaxe, entrada e saída corretas sem apoio externo.",
+-    "Justificar respostas com clareza quando solicitado."
++    "Organizar tempo e recursos para executar avaliação escrita com foco em lógica e condicionais.",
++    "Aplicar estratégias de revisão rápida para validar respostas antes da entrega.",
++    "Registrar justificativas concisas que evidenciem raciocínio em cada questão."
+   ],
+   "outcomes": [
+-    "Submete avaliação manuscrita contendo algoritmos corretos e bem apresentados.",
+-    "Registra justificativas claras para decisões tomadas durante a prova.",
+-    "Entrega folha de rascunho anexada com eventuais fluxogramas de apoio."
++    "Entrega prova preenchida dentro do tempo previsto com todas as questões respondidas.",
++    "Revisa itens críticos destacando conferência de fluxogramas, tabelas e códigos escritos.",
++    "Anota observações pós-prova apontando pontos fortes e tópicos para revisão."
++  ],
++  "prerequisites": [
++    "Revisar aulas 01-13, incluindo operadores, fluxogramas e cadeias de decisão."
++  ],
++  "tags": [
++    "avaliacao",
++    "np1",
++    "diagnostico"
+   ],
+-  "prerequisites": ["Revisar aulas 01-13, incluindo operadores, fluxogramas e cadeias de decisão."],
+-  "tags": ["avaliacao", "np1", "diagnostico"],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+@@ -190,7 +200,11 @@
+     {
+       "type": "md3Table",
+       "title": "Estrutura da prova",
+-      "headers": ["Questão", "Tema", "Peso"],
++      "headers": [
++        "Questão",
++        "Tema",
++        "Peso"
++      ],
+       "rows": [
+         [
+           {
+@@ -283,7 +297,11 @@
+     {
+       "type": "md3Table",
+       "title": "Critérios de correção",
+-      "headers": ["Critério", "Descrição", "Peso relativo"],
++      "headers": [
++        "Critério",
++        "Descrição",
++        "Peso relativo"
++      ],
+       "rows": [
+         [
+           {
+@@ -395,7 +413,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-15.json b/src/content/courses/algi/lessons/lesson-15.json
+index 1db7c57..201bdca 100644
+--- a/src/content/courses/algi/lessons/lesson-15.json
++++ b/src/content/courses/algi/lessons/lesson-15.json
+@@ -9,19 +9,29 @@
+     "Corrigir coletivamente os erros mais frequentes identificados nas questões.",
+     "Consolidar boas práticas para escrever cadeias condicionais claras e testáveis."
+   ],
+-  "competencies": ["Pensamento crítico", "Raciocínio algorítmico", "Comunicação técnica"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Diagnosticar falhas lógicas em decisões compostas.",
+-    "Reescrever código C aplicando boas práticas de clareza e indentação.",
+-    "Planejar testes que previnam regressões após ajustes."
++    "Analisar devolutivas da NP1 identificando padrões de erro por tema.",
++    "Refatorar respostas e códigos corrigindo falhas lógicas e de comunicação.",
++    "Explicar planos de melhoria em apresentação breve para a turma."
+   ],
+   "outcomes": [
+-    "Entrega guia pessoal de correção com os pontos de melhoria e ações de estudo.",
+-    "Reimplementa ao menos uma questão da prova corrigindo erros identificados.",
+-    "Documenta novos casos de teste que garantam cobertura dos cenários críticos."
++    "Entrega planilha com classificação dos erros cometidos e prioridade de revisão.",
++    "Disponibiliza versão corrigida dos exercícios com comentários sobre ajustes implementados.",
++    "Realiza pitch de até cinco minutos destacando aprendizados e próximos passos de estudo."
++  ],
++  "prerequisites": [
++    "Trazer a prova NP1 corrigida e os rascunhos utilizados na avaliação."
++  ],
++  "tags": [
++    "condicionais",
++    "revisao",
++    "avaliacao"
+   ],
+-  "prerequisites": ["Trazer a prova NP1 corrigida e os rascunhos utilizados na avaliação."],
+-  "tags": ["condicionais", "revisao", "avaliacao"],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -167,7 +177,11 @@
+     {
+       "type": "md3Table",
+       "title": "Panorama da NP1",
+-      "headers": ["Questão", "Média", "Principais erros"],
++      "headers": [
++        "Questão",
++        "Média",
++        "Principais erros"
++      ],
+       "rows": [
+         [
+           {
+@@ -240,7 +254,12 @@
+     {
+       "type": "truthTable",
+       "title": "Diagnóstico das combinações avaliadas",
+-      "headers": ["Estudante", "Condição escrita", "Estado", "Correção sugerida"],
++      "headers": [
++        "Estudante",
++        "Condição escrita",
++        "Estado",
++        "Correção sugerida"
++      ],
+       "rows": [
+         [
+           {
+@@ -449,7 +468,11 @@
+     {
+       "type": "md3Table",
+       "title": "Plano de ação individual",
+-      "headers": ["Ponto crítico", "Evidência na prova", "Ação de estudo"],
++      "headers": [
++        "Ponto crítico",
++        "Evidência na prova",
++        "Ação de estudo"
++      ],
+       "rows": [
+         [
+           {
+@@ -580,7 +603,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-16.json b/src/content/courses/algi/lessons/lesson-16.json
+index 9c67623..b3d6ec5 100644
+--- a/src/content/courses/algi/lessons/lesson-16.json
++++ b/src/content/courses/algi/lessons/lesson-16.json
+@@ -9,21 +9,29 @@
+     "Desenhar fluxogramas que reflitam decisões exclusivas e caminhos alternativos.",
+     "Implementar e testar o pseudocódigo/documentação das decisões escritas."
+   ],
+-  "competencies": ["Pensamento algorítmico", "Documentação técnica", "Autogestão"],
++  "competencies": [
++    "05",
++    "08",
++    "12"
++  ],
+   "skills": [
+-    "Traduzir requisitos em condicionais compostas e encadeadas.",
+-    "Registrar evidências de teste que comprovem a cobertura de casos críticos.",
+-    "Comunicar decisões técnicas em formato de relatório curto."
++    "Planejar lógica de triagem documentando critérios e mensagens de orientação.",
++    "Executar bateria de testes registrando evidências e capturas de tela ou logs.",
++    "Organizar repositório compartilhado com checklist de entrega e pontos de melhoria colaborativa."
+   ],
+   "outcomes": [
+-    "Entrega fluxograma e pseudocódigo que cobrem todos os cenários descritos.",
+-    "Apresenta tabela de testes com resultados esperados e obtidos.",
+-    "Publica checklist de evidências com captura de tela/execução do algoritmo."
++    "Submete protótipo funcional com documentação de critérios clínicos e fluxos implementados.",
++    "Anexa planilha de testes com resultados, screenshots e observações para cada cenário.",
++    "Coordena revisão por pares registrando feedback trocado e ajustes planejados."
+   ],
+   "prerequisites": [
+     "Revisar as aulas 12 a 15 e trazer o ambiente configurado (IDE OnlineGDB ou DevC++)."
+   ],
+-  "tags": ["condicionais", "atividade", "assincrona"],
++  "tags": [
++    "condicionais",
++    "atividade",
++    "assincrona"
++  ],
+   "duration": 120,
+   "modality": "async",
+   "resources": [
+@@ -147,7 +155,9 @@
+           "id": "briefing",
+           "title": "Estudo do briefing",
+           "summary": "Ler o pacote de casos, entender prioridades e registrar dúvidas.",
+-          "owners": ["Dupla"],
++          "owners": [
++            "Dupla"
++          ],
+           "durationHours": 2,
+           "activities": [
+             {
+@@ -176,13 +186,18 @@
+               "mitigation": "Agendar sessão síncrona inicial."
+             }
+           ],
+-          "checkpoints": ["Briefing compreendido", "Dúvidas registradas"]
++          "checkpoints": [
++            "Briefing compreendido",
++            "Dúvidas registradas"
++          ]
+         },
+         {
+           "id": "modelagem",
+           "title": "Modelagem e pseudocódigo",
+           "summary": "Transformar regras em fluxograma e pseudocódigo anotado.",
+-          "owners": ["Dupla"],
++          "owners": [
++            "Dupla"
++          ],
+           "durationHours": 3,
+           "activities": [
+             {
+@@ -215,13 +230,18 @@
+               "mitigation": "Validar com checklist de testes antes de codificar."
+             }
+           ],
+-          "checkpoints": ["Fluxograma validado", "Pseudocódigo revisado"]
++          "checkpoints": [
++            "Fluxograma validado",
++            "Pseudocódigo revisado"
++          ]
+         },
+         {
+           "id": "implementacao",
+           "title": "Codificação e testes",
+           "summary": "Implementar a solução em C e registrar evidências de teste.",
+-          "owners": ["Indivíduo"],
++          "owners": [
++            "Indivíduo"
++          ],
+           "durationHours": 3,
+           "activities": [
+             {
+@@ -255,7 +275,10 @@
+               "mitigation": "Revisar com colega e rodar testes extras."
+             }
+           ],
+-          "checkpoints": ["Código compilado", "Planilha de testes concluída"]
++          "checkpoints": [
++            "Código compilado",
++            "Planilha de testes concluída"
++          ]
+         }
+       ]
+     },
+@@ -416,9 +439,17 @@
+     {
+       "type": "md3Table",
+       "title": "Rubrica de avaliação (20 pontos)",
+-      "headers": ["Critério", "Peso", "Descrição"],
++      "headers": [
++        "Critério",
++        "Peso",
++        "Descrição"
++      ],
+       "rows": [
+-        ["Cobertura de casos", "8", "Decisões contemplam sintomas críticos e exceções."],
++        [
++          "Cobertura de casos",
++          "8",
++          "Decisões contemplam sintomas críticos e exceções."
++        ],
+         [
+           "Clareza do pseudocódigo",
+           "6",
+@@ -511,7 +542,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing clínico de triagem 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Briefing clínico de triagem 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-17.json b/src/content/courses/algi/lessons/lesson-17.json
+index 08617e2..25d7dd3 100644
+--- a/src/content/courses/algi/lessons/lesson-17.json
++++ b/src/content/courses/algi/lessons/lesson-17.json
+@@ -9,19 +9,29 @@
+     "Traduzir fluxogramas com laço enquanto em pseudocódigo/C.",
+     "Planejar testes que cubram entradas válidas, inválidas e sentinelas."
+   ],
+-  "competencies": ["Pensamento algorítmico", "Raciocínio lógico", "Validação de dados"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Definir condições de continuidade e de saída para laços.",
+-    "Implementar loops com contadores e acumuladores.",
+-    "Registrar evidências de teste usando sentinelas e limites."
++    "Definir invariantes e condições de parada adequadas para laços while.",
++    "Implementar sentinelas e validação de entrada garantindo que o loop encerre corretamente.",
++    "Documentar rastreamento de variáveis a cada iteração para explicar o comportamento do algoritmo."
+   ],
+   "outcomes": [
+-    "Explica a diferença entre while e do-while com exemplos práticos.",
+-    "Escreve algoritmo que lê dados até receber sentinela válido.",
+-    "Entrega tabela de testes cobrindo casos de encerramento e erros."
++    "Entrega código com while e sentinela documentados, acompanhado de comentários sobre invariantes.",
++    "Demonstra execução controlada com dados válidos e inválidos registrando comportamento esperado.",
++    "Produz tabela de rastreamento que evidencia atualização de variáveis a cada ciclo."
++  ],
++  "prerequisites": [
++    "Domínio de condicionais compostas e operadores lógicos."
++  ],
++  "tags": [
++    "loops",
++    "while",
++    "repeticao"
+   ],
+-  "prerequisites": ["Domínio de condicionais compostas e operadores lógicos."],
+-  "tags": ["loops", "while", "repeticao"],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -277,7 +287,11 @@
+     {
+       "type": "md3Table",
+       "title": "Comparação de padrões de repetição",
+-      "headers": ["Padrão", "Quando usar", "Exemplo"],
++      "headers": [
++        "Padrão",
++        "Quando usar",
++        "Exemplo"
++      ],
+       "rows": [
+         [
+           {
+@@ -376,7 +390,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Roteiro de laboratório while 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Roteiro de laboratório while 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-18.json b/src/content/courses/algi/lessons/lesson-18.json
+index e118f8e..baf4235 100644
+--- a/src/content/courses/algi/lessons/lesson-18.json
++++ b/src/content/courses/algi/lessons/lesson-18.json
+@@ -9,19 +9,29 @@
+     "Comparar equivalências entre for e while em exemplos reais.",
+     "Aplicar for em tabelas e cálculos acumulativos com validação de limites."
+   ],
+-  "competencies": ["Pensamento computacional", "Organização algorítmica", "Raciocínio matemático"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Selecionar variáveis de controle adequadas.",
+-    "Garantir que a condição torne-se falsa em tempo finito.",
+-    "Documentar testes que validem limites inferior e superior."
++    "Configurar laços for detalhando inicialização, condição e atualização.",
++    "Comparar abordagens for e while justificando escolha em função do problema.",
++    "Produzir documentação curta com exemplos de uso e testes realizados."
+   ],
+   "outcomes": [
+-    "Produz algoritmos que percorrem vetores e faixas numéricas usando for.",
+-    "Justifica quando converter um while em for melhora a legibilidade.",
+-    "Entrega exercícios com evidências de testes e análise de complexidade básica."
++    "Apresenta programa funcional com pelo menos dois laços for em cenários distintos.",
++    "Disponibiliza relatório comparativo entre soluções for e while destacando métricas coletadas.",
++    "Entrega registro de testes indicando entradas, saídas e observações para melhorias futuras."
++  ],
++  "prerequisites": [
++    "Conhecer laços while e operadores aritméticos."
++  ],
++  "tags": [
++    "loops",
++    "for",
++    "repeticao"
+   ],
+-  "prerequisites": ["Conhecer laços while e operadores aritméticos."],
+-  "tags": ["loops", "for", "repeticao"],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -225,7 +235,11 @@
+     {
+       "type": "md3Table",
+       "title": "Comparativo for x while",
+-      "headers": ["Aspecto", "for", "while"],
++      "headers": [
++        "Aspecto",
++        "for",
++        "while"
++      ],
+       "rows": [
+         [
+           {
+@@ -428,7 +442,9 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-09-29T14:15:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
+     "sources": [
+       "Plano pedagógico Algoritmos I 2025.1",
+       "Worksheet loops contados 2025",
+diff --git a/src/content/courses/algi/lessons/lesson-19.json b/src/content/courses/algi/lessons/lesson-19.json
+index d40f48d..9607fd2 100644
+--- a/src/content/courses/algi/lessons/lesson-19.json
++++ b/src/content/courses/algi/lessons/lesson-19.json
+@@ -9,22 +9,30 @@
+     "Refatorar algoritmos simples convertendo entre for e while sem alterar resultados.",
+     "Registrar evidências que sustentem a decisão sobre a estrutura de repetição escolhida."
+   ],
+-  "competencies": ["02", "05"],
++  "competencies": [
++    "02",
++    "05",
++    "08"
++  ],
+   "skills": [
+-    "Analisar invariantes de laço para justificar a seleção entre for e while.",
+-    "Reorganizar inicialização, condição e atualização ao transformar um laço.",
+-    "Executar testes de limites e comparar métricas de clareza nas versões produzidas."
++    "Avaliar requisitos para decidir entre laços for e while considerando clareza e manutenção.",
++    "Refatorar algoritmos convertendo entre estruturas sem alterar resultado final.",
++    "Medir impactos da refatoração registrando desempenho, legibilidade e riscos."
+   ],
+   "outcomes": [
+-    "Entrega tabela comparativa relacionando requisitos do problema ao laço selecionado.",
+-    "Disponibiliza versões em for e while do mesmo algoritmo com saídas idênticas.",
+-    "Apresenta registro escrito com riscos, mitigadores e testes aplicados durante a refatoração."
++    "Produz tabela comparativa que relaciona critérios do problema ao laço selecionado.",
++    "Entrega versões equivalentes em for e while confirmando saídas idênticas.",
++    "Anexa relatório com testes de limites, métricas de tempo e análise de riscos mitigados."
+   ],
+   "prerequisites": [
+     "Conhecer laços while e for básicos.",
+     "Dominar operadores relacionais e aritméticos."
+   ],
+-  "tags": ["loops", "comparacao", "boas-praticas"],
++  "tags": [
++    "loops",
++    "comparacao",
++    "boas-praticas"
++  ],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -203,7 +211,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Relatório de revisão loops for/while 2024"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Relatório de revisão loops for/while 2024"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-20.json b/src/content/courses/algi/lessons/lesson-20.json
+index 37c4d5f..bc08493 100644
+--- a/src/content/courses/algi/lessons/lesson-20.json
++++ b/src/content/courses/algi/lessons/lesson-20.json
+@@ -9,22 +9,30 @@
+     "Implementar menus interativos utilizando a estrutura do-while.",
+     "Comparar vantagens do do-while em relação a while e for em fluxos de confirmação."
+   ],
+-  "competencies": ["05", "12"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Organizar mensagens e leituras obrigatórias dentro do bloco do-while.",
+-    "Controlar o fluxo de menu avaliando a condição de repetição ao final.",
+-    "Validar opções digitadas repetindo o menu até receber entrada aceitável."
++    "Modelar menus que exigem execução inicial obrigatória utilizando do-while.",
++    "Implementar validação de opções garantindo repetição até entrada aceitável.",
++    "Justificar escolha do do-while em comparação com outras estruturas de repetição."
+   ],
+   "outcomes": [
+-    "Entrega menu funcional que executa ao menos uma ação antes de testar a condição de saída.",
+-    "Justifica a escolha do do-while em relatório ou apresentação curta.",
+-    "Implementa validação que rejeita entradas inválidas e reapresenta o menu automaticamente."
++    "Entrega menu funcional que registra ação inicial e controle de saída com clareza.",
++    "Documenta testes que comprovam rejeição de entradas inválidas e repetição do menu.",
++    "Produz texto curto explicando critérios adotados para escolher o do-while."
+   ],
+   "prerequisites": [
+     "Conhecer while e condicionais.",
+     "Ter utilizado scanf e printf em exercícios anteriores."
+   ],
+-  "tags": ["loops", "do-while", "menus"],
++  "tags": [
++    "loops",
++    "do-while",
++    "menus"
++  ],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+diff --git a/src/content/courses/algi/lessons/lesson-21.json b/src/content/courses/algi/lessons/lesson-21.json
+index d5e1475..60d71de 100644
+--- a/src/content/courses/algi/lessons/lesson-21.json
++++ b/src/content/courses/algi/lessons/lesson-21.json
+@@ -9,19 +9,30 @@
+     "Implementar algoritmos com laços aninhados simples para tabulações e padrões visuais.",
+     "Analisar o custo computacional e a ordem de execução em aninhamentos."
+   ],
+-  "competencies": ["05", "12"],
++  "competencies": [
++    "05",
++    "08",
++    "12"
++  ],
+   "skills": [
+-    "Definir limites e variáveis de controle para cada nível de laço.",
+-    "Manipular tabelas e matrizes garantindo atualização correta das posições.",
+-    "Explicar a ordem de execução usando diagramas ou tabelas de rastreamento."
++    "Planejar laços aninhados definindo variáveis de controle e limites para cada nível.",
++    "Executar testes que comprovem preenchimento correto de estruturas bidimensionais.",
++    "Coordenar revisão entre pares utilizando tabelas de rastreamento para localizar gargalos."
+   ],
+   "outcomes": [
+-    "Entrega solução integradora que utiliza laços aninhados para gerar uma estrutura 2D coerente.",
+-    "Apresenta representação visual alinhada ao algoritmo implementado.",
+-    "Identifica gargalos ou repetições desnecessárias durante a depuração conjunta."
++    "Entrega solução que gera tabela 2D coerente com as regras fornecidas.",
++    "Anexa matriz de testes validando comportamentos com dados típicos e extremos.",
++    "Registra feedback recebido na revisão colaborativa e ajustes aplicados no código."
++  ],
++  "prerequisites": [
++    "Dominar laços simples (for, while).",
++    "Conhecer condicionais básicas."
++  ],
++  "tags": [
++    "loops",
++    "aninhamento",
++    "padroes"
+   ],
+-  "prerequisites": ["Dominar laços simples (for, while).", "Conhecer condicionais básicas."],
+-  "tags": ["loops", "aninhamento", "padroes"],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+diff --git a/src/content/courses/algi/lessons/lesson-22.json b/src/content/courses/algi/lessons/lesson-22.json
+index 590ab5a..7c9d30c 100644
+--- a/src/content/courses/algi/lessons/lesson-22.json
++++ b/src/content/courses/algi/lessons/lesson-22.json
+@@ -9,19 +9,30 @@
+     "Implementar validações de entrada antes de iniciar ciclos.",
+     "Gerar relatórios consolidados ao final do processamento."
+   ],
+-  "competencies": ["Arquitetura de algoritmos", "Qualidade de software", "Comunicação técnica"],
++  "competencies": [
++    "02",
++    "05",
++    "08"
++  ],
+   "skills": [
+-    "Aplicar condicionais múltiplas dentro de laços sem perder legibilidade.",
+-    "Prevenir estados inconsistentes ao combinar fluxos.",
+-    "Registrar métricas e mensagens significativas para o usuário."
++    "Combinar condicionais e laços para construir fluxos completos de processamento.",
++    "Monitorar estados intermediários usando logs ou tabelas de acompanhamento.",
++    "Comparar soluções alternativas avaliando clareza e esforço de manutenção."
+   ],
+   "outcomes": [
+-    "Entrega algoritmos que integram validação, processamento e resumo final.",
+-    "Apresenta relatório com métricas coletadas durante a execução.",
+-    "Argumenta sobre as escolhas de estrutura e suas vantagens."
++    "Entrega protótipo que integra decisões e repetições com resultados consistentes.",
++    "Apresenta tabela de estados registrando variáveis críticas ao longo da execução.",
++    "Disponibiliza análise escrita justificando a arquitetura final escolhida."
++  ],
++  "prerequisites": [
++    "Dominar for/while/do-while.",
++    "Conhecer if/else if/else e switch."
++  ],
++  "tags": [
++    "loops",
++    "condicionais",
++    "integracao"
+   ],
+-  "prerequisites": ["Dominar for/while/do-while.", "Conhecer if/else if/else e switch."],
+-  "tags": ["loops", "condicionais", "integracao"],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+@@ -110,7 +121,9 @@
+           "id": "validacao",
+           "title": "Validação do briefing",
+           "summary": "Entender requisitos, entradas e saídas.",
+-          "owners": ["Squad"],
++          "owners": [
++            "Squad"
++          ],
+           "durationHours": 1.5,
+           "activities": [
+             {
+@@ -138,13 +151,17 @@
+               "mitigation": "Validar com professor."
+             }
+           ],
+-          "checkpoints": ["Briefing validado"]
++          "checkpoints": [
++            "Briefing validado"
++          ]
+         },
+         {
+           "id": "dojo",
+           "title": "Dojo guiado",
+           "summary": "Implementar esqueleto com apoio do professor.",
+-          "owners": ["Squad"],
++          "owners": [
++            "Squad"
++          ],
+           "durationHours": 2,
+           "activities": [
+             {
+@@ -172,13 +189,17 @@
+               "mitigation": "Seguir padrão definido no dojo."
+             }
+           ],
+-          "checkpoints": ["Commit compartilhado"]
++          "checkpoints": [
++            "Commit compartilhado"
++          ]
+         },
+         {
+           "id": "laboratorio",
+           "title": "Laboratório e relatório",
+           "summary": "Refinar funcionalidades e documentar métricas.",
+-          "owners": ["Dupla"],
++          "owners": [
++            "Dupla"
++          ],
+           "durationHours": 3,
+           "activities": [
+             {
+@@ -210,7 +231,10 @@
+               "mitigation": "Reservar 1h exclusiva para o relatório."
+             }
+           ],
+-          "checkpoints": ["Logs revisados", "Relatório submetido"]
++          "checkpoints": [
++            "Logs revisados",
++            "Relatório submetido"
++          ]
+         }
+       ]
+     },
+@@ -392,7 +416,9 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
+     "sources": [
+       "Plano pedagógico Algoritmos I 2025.1",
+       "Blueprint integração loops-condicionais 2024"
+diff --git a/src/content/courses/algi/lessons/lesson-23.json b/src/content/courses/algi/lessons/lesson-23.json
+index b0d327f..a9f54c5 100644
+--- a/src/content/courses/algi/lessons/lesson-23.json
++++ b/src/content/courses/algi/lessons/lesson-23.json
+@@ -9,22 +9,30 @@
+     "Implementar algoritmo que percorre formulários e classifica pacientes.",
+     "Documentar testes, métricas e justificativas no relatório de entrega."
+   ],
+-  "competencies": ["Autonomia", "Gestão do tempo", "Qualidade de software"],
++  "competencies": [
++    "05",
++    "08",
++    "12"
++  ],
+   "skills": [
+-    "Planejar execução assíncrona com checkpoints claros.",
+-    "Integrar laços, condicionais e estruturas de dados simples.",
+-    "Produzir documentação mínima viável (código, CSV, relatório)."
++    "Documentar passo a passo a atividade assíncrona, incluindo critérios de avaliação.",
++    "Executar testes clínicos simulados registrando evidências compartilháveis.",
++    "Organizar feedback entre squads sincronizando correções e entregas finais."
+   ],
+   "outcomes": [
+-    "Entrega código funcional acompanhado de CSV e relatório.",
+-    "Apresenta mapa de testes com evidências anexadas.",
+-    "Cumpre prazos e publica reflexão individual no fórum."
++    "Publica guia de entrega com instruções, critérios e prazos acordados.",
++    "Anexa pacote de evidências com logs, capturas e resultados de cada cenário simulado.",
++    "Coordena sessão de retrospectiva registrando decisões e encaminhamentos do grupo."
+   ],
+   "prerequisites": [
+     "Ter concluído as aulas 19 a 22.",
+     "Saber manipular arquivos de texto simples em C."
+   ],
+-  "tags": ["assincrona", "projeto", "triagem"],
++  "tags": [
++    "assincrona",
++    "projeto",
++    "triagem"
++  ],
+   "duration": 180,
+   "modality": "async",
+   "resources": [
+@@ -295,7 +303,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing da clínica-escola 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Briefing da clínica-escola 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-24.json b/src/content/courses/algi/lessons/lesson-24.json
+index d163c7f..0078433 100644
+--- a/src/content/courses/algi/lessons/lesson-24.json
++++ b/src/content/courses/algi/lessons/lesson-24.json
+@@ -9,22 +9,30 @@
+     "Identificar boas práticas e pontos de melhoria nas soluções.",
+     "Planejar próximos estudos antes da introdução de funções."
+   ],
+-  "competencies": ["Comunicação", "Colaboração", "Aprendizagem contínua"],
++  "competencies": [
++    "08",
++    "11",
++    "12"
++  ],
+   "skills": [
+-    "Dar e receber feedback construtivo.",
+-    "Documentar aprendizados coletivos em painel compartilhado.",
+-    "Transformar feedback em plano de ação individual."
++    "Consolidar métricas e evidências coletadas nas atividades de laços.",
++    "Facilitar retrospectiva identificando conquistas, riscos e melhorias.",
++    "Comunicar plano de continuidade distribuindo responsabilidades entre os times."
+   ],
+   "outcomes": [
+-    "Entrega painel de retroalimentação preenchido em grupo.",
+-    "Registra ações de melhoria para próximos projetos.",
+-    "Publica síntese pessoal com indicadores de evolução."
++    "Entrega relatório síntese com indicadores de qualidade e aprendizados da unidade.",
++    "Conduz reunião de retrospectiva produzindo ata com itens de ação priorizados.",
++    "Apresenta roadmap compartilhado com responsáveis, prazos e recursos necessários."
+   ],
+   "prerequisites": [
+     "Ter concluído a atividade assíncrona da aula 23.",
+     "Levar evidências (prints, CSV, relatório)."
+   ],
+-  "tags": ["retrospectiva", "feedback", "planejamento"],
++  "tags": [
++    "retrospectiva",
++    "feedback",
++    "planejamento"
++  ],
+   "duration": 100,
+   "modality": "hybrid",
+   "resources": [
+@@ -305,7 +313,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-04-05T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia interno de retrospectivas 2024"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Guia interno de retrospectivas 2024"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-25.json b/src/content/courses/algi/lessons/lesson-25.json
+index 5da2c18..cfacbcf 100644
+--- a/src/content/courses/algi/lessons/lesson-25.json
++++ b/src/content/courses/algi/lessons/lesson-25.json
+@@ -9,22 +9,30 @@
+     "Escrever protótipos simples com parâmetros e retorno.",
+     "Organizar arquivo C com seções de protótipos, main e funções auxiliares."
+   ],
+-  "competencies": ["Pensamento computacional", "Design de software", "Depuração"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Declarar e chamar funções com e sem retorno.",
+-    "Documentar o propósito de cada função em comentários breves.",
+-    "Configurar projeto com separação de protótipos e implementação."
++    "Identificar oportunidades de modularização em programas sequenciais.",
++    "Desenhar protótipos de funções definindo assinaturas, parâmetros e retorno.",
++    "Registrar pré e pós-condições que orientem o uso correto de cada função."
+   ],
+   "outcomes": [
+-    "Entrega um programa que utiliza ao menos três funções bem nomeadas.",
+-    "Publica comentário explicando responsabilidade de cada função.",
+-    "Anexa registro de testes básicos executados nas funções criadas."
++    "Entrega roteiro que aponta blocos candidatos à extração em funções.",
++    "Disponibiliza protótipo documentado em arquivo header ou anotações estruturadas.",
++    "Apresenta quadro de pré/pós-condições validado com exemplos práticos."
+   ],
+   "prerequisites": [
+     "Rever laços e condicionais (aulas 19-24).",
+     "Trazer compilador configurado com flags -Wall -Wextra."
+   ],
+-  "tags": ["funcoes", "modularizacao", "c-basico"],
++  "tags": [
++    "funcoes",
++    "modularizacao",
++    "c-basico"
++  ],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+@@ -156,7 +164,11 @@
+     {
+       "type": "md3Table",
+       "title": "Checklist de um protótipo bem escrito",
+-      "headers": ["Item", "Pergunta", "Status"],
++      "headers": [
++        "Item",
++        "Pergunta",
++        "Status"
++      ],
+       "rows": [
+         [
+           {
+@@ -259,7 +271,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Diário de bordo do módulo de funções 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Diário de bordo do módulo de funções 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-26.json b/src/content/courses/algi/lessons/lesson-26.json
+index ab9c777..73efd56 100644
+--- a/src/content/courses/algi/lessons/lesson-26.json
++++ b/src/content/courses/algi/lessons/lesson-26.json
+@@ -9,22 +9,30 @@
+     "Projetar funções que retornam códigos de erro ou resultados numéricos.",
+     "Documentar contratos (pré e pós-condições) para cada função criada."
+   ],
+-  "competencies": ["Pensamento analítico", "Qualidade de software", "Comunicação técnica"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Definir parâmetros de entrada com tipos corretos.",
+-    "Utilizar ponteiros para atualizar valores fora do escopo local.",
+-    "Descrever pré-condições e efeitos colaterais de cada função."
++    "Implementar funções com parâmetros por valor e por referência conforme necessidade.",
++    "Construir casos de teste que validem contratos de entrada e saída.",
++    "Documentar brevemente cada função explicando propósito e efeitos colaterais."
+   ],
+   "outcomes": [
+-    "Entrega laboratório com funções parametrizadas e testes associados.",
+-    "Justifica escolha por valor ou referência em relatório curto.",
+-    "Adapta suíte de testes fornecida cobrindo cenários limite."
++    "Entrega código com funções parametrizadas e comentários sobre uso de ponteiros.",
++    "Anexa suíte de testes cobrindo cenários positivos, negativos e limites.",
++    "Registra documentação resumida disponível para colegas reutilizarem as funções."
+   ],
+   "prerequisites": [
+     "Aula 25 concluída com atividades de modularização.",
+     "Conhecimentos básicos de ponteiros."
+   ],
+-  "tags": ["funcoes", "parametros", "ponteiros"],
++  "tags": [
++    "funcoes",
++    "parametros",
++    "ponteiros"
++  ],
+   "duration": 115,
+   "modality": "hybrid",
+   "resources": [
+@@ -244,7 +252,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Laboratório de parâmetros 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Laboratório de parâmetros 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-27.json b/src/content/courses/algi/lessons/lesson-27.json
+index b2d682b..634e1dc 100644
+--- a/src/content/courses/algi/lessons/lesson-27.json
++++ b/src/content/courses/algi/lessons/lesson-27.json
+@@ -9,22 +9,30 @@
+     "Criar e incluir arquivos header com protótipos organizados.",
+     "Automatizar compilação modular usando make ou scripts equivalentes."
+   ],
+-  "competencies": ["Arquitetura de software", "Colaboração", "Gestão de projetos"],
++  "competencies": [
++    "05",
++    "08",
++    "12"
++  ],
+   "skills": [
+-    "Gerar headers (`.h`) e fontes (`.c`) separados.",
+-    "Controlar escopo com `static` e funções públicas.",
+-    "Montar Makefile ou script npm para compilar módulos incrementalmente."
++    "Estruturar projeto modular com separação entre arquivos fonte e cabeçalhos.",
++    "Configurar fluxo de compilação incremental verificando dependências.",
++    "Orquestrar revisão cruzada garantindo que cada módulo siga padrões definidos."
+   ],
+   "outcomes": [
+-    "Entrega blueprint modular com responsabilidades definidas.",
+-    "Apresenta execução bem sucedida com build modular.",
+-    "Disponibiliza relatório curto de integração contínua local."
++    "Entrega projeto com múltiplos arquivos e build script funcionando.",
++    "Documenta pipeline de compilação destacando passos e ferramentas utilizadas.",
++    "Registra atas de revisão compartilhadas com responsáveis por cada módulo."
+   ],
+   "prerequisites": [
+     "Aulas 25 e 26 concluídas.",
+     "Familiaridade com linha de comando para compilação."
+   ],
+-  "tags": ["modularizacao", "headers", "makefile"],
++  "tags": [
++    "modularizacao",
++    "headers",
++    "makefile"
++  ],
+   "duration": 125,
+   "modality": "in-person",
+   "resources": [
+@@ -151,7 +159,11 @@
+     {
+       "type": "md3Table",
+       "title": "Makefile mínimo",
+-      "headers": ["Alvo", "Dependências", "Comando"],
++      "headers": [
++        "Alvo",
++        "Dependências",
++        "Comando"
++      ],
+       "rows": [
+         [
+           {
+@@ -266,7 +278,9 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
+     "sources": [
+       "Plano pedagógico Algoritmos I 2025.1",
+       "Manual interno de integração contínua 2025"
+diff --git a/src/content/courses/algi/lessons/lesson-28.json b/src/content/courses/algi/lessons/lesson-28.json
+index 332b9e8..590f746 100644
+--- a/src/content/courses/algi/lessons/lesson-28.json
++++ b/src/content/courses/algi/lessons/lesson-28.json
+@@ -9,22 +9,30 @@
+     "Instrumentar funções com logs e medições simples.",
+     "Planejar manutenção preventiva em projetos com funções reutilizáveis."
+   ],
+-  "competencies": ["Qualidade de software", "Trabalho em equipe", "Aprendizagem contínua"],
++  "competencies": [
++    "05",
++    "08",
++    "12"
++  ],
+   "skills": [
+-    "Conduzir revisão de código guiada por rubrica.",
+-    "Utilizar ferramentas de cobertura para medir testes.",
+-    "Criar plano de manutenção destacando riscos e prioridades."
++    "Aplicar padrões de escrita e nomenclatura que favoreçam manutenção.",
++    "Executar checklist de revisão identificando dívidas técnicas e riscos.",
++    "Planejar ações de melhoria contínua distribuindo tarefas entre os membros da equipe."
+   ],
+   "outcomes": [
+-    "Entrega relatório de revisão cruzada com checklist aplicado.",
+-    "Apresenta métricas de cobertura ou logs coletados.",
+-    "Define backlog de melhorias preventivas para o projeto modular."
++    "Apresenta relatório de revisão com itens conformes e não conformes registrados.",
++    "Entrega código atualizado com correções priorizadas durante a sessão de pair review.",
++    "Compartilha plano de manutenção com responsáveis, prazos e métricas de acompanhamento."
+   ],
+   "prerequisites": [
+     "Completar projeto modular da aula 27.",
+     "Trazer testes atualizados executados localmente."
+   ],
+-  "tags": ["boas-praticas", "qualidade", "testes"],
++  "tags": [
++    "boas-praticas",
++    "qualidade",
++    "testes"
++  ],
+   "duration": 110,
+   "modality": "hybrid",
+   "resources": [
+@@ -240,7 +248,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Guia interno de qualidade 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Guia interno de qualidade 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-29.json b/src/content/courses/algi/lessons/lesson-29.json
+index 8ff8738..0759917 100644
+--- a/src/content/courses/algi/lessons/lesson-29.json
++++ b/src/content/courses/algi/lessons/lesson-29.json
+@@ -159,8 +159,13 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.1",
++      "Ata pedagógica de revisão 2024-12"
++    ]
+   },
+   "formatVersion": "md3.lesson.v1",
+   "slug": "avaliacao-np2",
+@@ -171,26 +176,30 @@
+     "Modularizar soluções com funções reutilizáveis e parâmetros bem definidos."
+   ],
+   "competencies": [
+-    "Raciocínio lógico aplicado",
+-    "Construção de algoritmos estruturados",
+-    "Modularização e reutilização de código"
++    "05",
++    "08",
++    "11"
+   ],
+   "skills": [
+-    "Traduzir requisitos de problemas em fluxos condicionais claros.",
+-    "Projetar loops eficientes com validação de entrada.",
+-    "Especificar funções com assinaturas e retornos adequados."
++    "Gerenciar tempo de avaliação aplicando estratégias para problemas longos.",
++    "Resolver questões integrando condicionais, laços e modularização.",
++    "Documentar raciocínio das respostas justificando escolhas algorítmicas."
+   ],
+   "outcomes": [
+-    "Resolve problemas avaliativos que combinam estruturas condicionais e laços.",
+-    "Demonstra domínio da comunicação de algoritmos em pseudocódigo ou fluxograma.",
+-    "Entrega soluções funcionais que respeitam critérios de modularização."
++    "Entrega avaliação NP2 completa dentro do tempo estipulado.",
++    "Registra checagem final garantindo que cada programa atende aos requisitos informados.",
++    "Anota lições aprendidas e tópicos para estudo complementar após a prova."
+   ],
+   "prerequisites": [
+     "Estruturas condicionais com if/else.",
+     "Laços de repetição (while, for, do-while).",
+     "Funções com parâmetros e retorno."
+   ],
+-  "tags": ["avaliacao", "algoritmos", "estruturas-de-controle"],
++  "tags": [
++    "avaliacao",
++    "algoritmos",
++    "estruturas-de-controle"
++  ],
+   "duration": 100,
+   "modality": "in-person",
+   "resources": [
+diff --git a/src/content/courses/algi/lessons/lesson-30.json b/src/content/courses/algi/lessons/lesson-30.json
+index 7f316c9..3ced9ee 100644
+--- a/src/content/courses/algi/lessons/lesson-30.json
++++ b/src/content/courses/algi/lessons/lesson-30.json
+@@ -9,22 +9,30 @@
+     "Percorrer vetores com loops for para calcular média, mínimo e máximo.",
+     "Relacionar vetores a cenários reais de armazenamento sequencial de dados."
+   ],
+-  "competencies": ["Pensamento computacional", "Modelagem de dados"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Planejar a leitura e escrita em posições específicas de um vetor.",
+-    "Utilizar variáveis auxiliares para estatísticas acumuladas.",
+-    "Interpretar diagramas e tabelas que representam vetores."
++    "Declarar vetores dimensionando corretamente e inicializando com dados de teste.",
++    "Implementar percursos que calculem estatísticas básicas validando limites de índice.",
++    "Comunicar resultados obtidos destacando interpretações para o contexto analisado."
+   ],
+   "outcomes": [
+-    "Implementa um programa que calcula média, valor mínimo e máximo de um vetor de notas.",
+-    "Documenta o percurso sequencial em um fluxograma MD3.",
+-    "Seleciona estruturas adequadas para armazenar registros homogêneos."
++    "Entrega código que lê dados em vetor, calcula métricas e apresenta relatório formatado.",
++    "Apresenta tabela de testes comprovando acesso seguro aos elementos do vetor.",
++    "Publica síntese que explica decisões tomadas e resultados alcançados com os dados coletados."
+   ],
+   "prerequisites": [
+     "Domínio de loops for (Aulas 18-19).",
+     "Conhecimento de variáveis e tipos numéricos em C."
+   ],
+-  "tags": ["vetores", "arrays", "estatistica-basica"],
++  "tags": [
++    "vetores",
++    "arrays",
++    "estatistica-basica"
++  ],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+@@ -159,11 +167,27 @@
+     {
+       "type": "md3Table",
+       "title": "Sintaxe essencial do vetor em C",
+-      "headers": ["Elemento", "Exemplo", "Observação"],
++      "headers": [
++        "Elemento",
++        "Exemplo",
++        "Observação"
++      ],
+       "rows": [
+-        ["Declaração", "int notas[5];", "Cria vetor com 5 inteiros não inicializados."],
+-        ["Inicialização", "float medias[3] = {7.2, 8.5, 6.9};", "Valores em ordem definida."],
+-        ["Acesso", "notas[i]", "Índices iniciam em 0 e vão até tamanho-1."],
++        [
++          "Declaração",
++          "int notas[5];",
++          "Cria vetor com 5 inteiros não inicializados."
++        ],
++        [
++          "Inicialização",
++          "float medias[3] = {7.2, 8.5, 6.9};",
++          "Valores em ordem definida."
++        ],
++        [
++          "Acesso",
++          "notas[i]",
++          "Índices iniciam em 0 e vão até tamanho-1."
++        ],
+         [
+           "Tamanho",
+           "sizeof(notas)/sizeof(notas[0])",
+@@ -232,19 +256,63 @@
+         }
+       ],
+       "edges": [
+-        ["start", "read"],
+-        ["read", "init"],
+-        ["init", "loop"],
+-        ["loop", "acc"],
+-        ["acc", "min"],
+-        ["min", "updateMin", "sim"],
+-        ["min", "max", "não"],
+-        ["updateMin", "max"],
+-        ["max", "updateMax", "sim"],
+-        ["max", "loop", "não"],
+-        ["updateMax", "loop"],
+-        ["loop", "calc", "fim"],
+-        ["calc", "end"]
++        [
++          "start",
++          "read"
++        ],
++        [
++          "read",
++          "init"
++        ],
++        [
++          "init",
++          "loop"
++        ],
++        [
++          "loop",
++          "acc"
++        ],
++        [
++          "acc",
++          "min"
++        ],
++        [
++          "min",
++          "updateMin",
++          "sim"
++        ],
++        [
++          "min",
++          "max",
++          "não"
++        ],
++        [
++          "updateMin",
++          "max"
++        ],
++        [
++          "max",
++          "updateMax",
++          "sim"
++        ],
++        [
++          "max",
++          "loop",
++          "não"
++        ],
++        [
++          "updateMax",
++          "loop"
++        ],
++        [
++          "loop",
++          "calc",
++          "fim"
++        ],
++        [
++          "calc",
++          "end"
++        ]
+       ]
+     },
+     {
+@@ -337,7 +405,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Notas de planejamento Vetores 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.2",
++      "Notas de planejamento Vetores 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-31.json b/src/content/courses/algi/lessons/lesson-31.json
+index 65294b6..b4d9cb4 100644
+--- a/src/content/courses/algi/lessons/lesson-31.json
++++ b/src/content/courses/algi/lessons/lesson-31.json
+@@ -9,22 +9,30 @@
+     "Construir tabelas de frequência a partir de dados numéricos.",
+     "Interpretar impactos de operações em tempo e memória."
+   ],
+-  "competencies": ["Pensamento crítico", "Análise de dados"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Separar operações em funções reutilizáveis.",
+-    "Utilizar acumuladores e contadores com clareza semântica.",
+-    "Documentar resultados em tabelas alinhadas ao padrão MD3."
++    "Projetar transformações sobre vetores utilizando acumuladores e normalizações.",
++    "Validar resultados comparando totais, médias e discrepâncias detectadas.",
++    "Registrar experimentos realizados descrevendo parâmetros e impactos observados."
+   ],
+   "outcomes": [
+-    "Entrega funções em C para somatório, média móvel e normalização de vetores.",
+-    "Gera tabela de frequência com contagem e percentual.",
+-    "Avalia custo de copiar vetores versus trabalhar in-place."
++    "Disponibiliza script que gera tabela derivada do vetor original com indicadores calculados.",
++    "Entrega planilha de verificação comprovando consistência dos resultados obtidos.",
++    "Documenta relatório curto explicando como ajustes no algoritmo afetaram os indicadores."
+   ],
+   "prerequisites": [
+     "Compreensão de vetores e loops (Aula 30).",
+     "Conhecimento de funções básicas em C."
+   ],
+-  "tags": ["vetores", "arrays", "operacoes"],
++  "tags": [
++    "vetores",
++    "arrays",
++    "operacoes"
++  ],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -159,9 +167,19 @@
+     {
+       "type": "md3Table",
+       "title": "Operações comuns sobre vetores",
+-      "headers": ["Operação", "Assinatura sugerida", "Tempo", "Observações"],
++      "headers": [
++        "Operação",
++        "Assinatura sugerida",
++        "Tempo",
++        "Observações"
++      ],
+       "rows": [
+-        ["Somatório", "int soma(int v[], int n)", "O(n)", "Retorna a soma, não altera o vetor."],
++        [
++          "Somatório",
++          "int soma(int v[], int n)",
++          "O(n)",
++          "Retorna a soma, não altera o vetor."
++        ],
+         [
+           "Cópia",
+           "void copia(int origem[], int destino[], int n)",
+@@ -257,14 +275,41 @@
+         }
+       ],
+       "edges": [
+-        ["start", "sum"],
+-        ["sum", "decision"],
+-        ["decision", "guard", "sim"],
+-        ["decision", "loop", "não"],
+-        ["guard", "end"],
+-        ["loop", "norm"],
+-        ["norm", "loop"],
+-        ["loop", "end", "fim"]
++        [
++          "start",
++          "sum"
++        ],
++        [
++          "sum",
++          "decision"
++        ],
++        [
++          "decision",
++          "guard",
++          "sim"
++        ],
++        [
++          "decision",
++          "loop",
++          "não"
++        ],
++        [
++          "guard",
++          "end"
++        ],
++        [
++          "loop",
++          "norm"
++        ],
++        [
++          "norm",
++          "loop"
++        ],
++        [
++          "loop",
++          "end",
++          "fim"
++        ]
+       ]
+     },
+     {
+@@ -372,7 +417,9 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-09-29T14:20:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
+     "sources": [
+       "Plano pedagógico Algoritmos I 2025.2",
+       "Briefing de oficinas Vetores 2025",
+diff --git a/src/content/courses/algi/lessons/lesson-32.json b/src/content/courses/algi/lessons/lesson-32.json
+index d9386f3..488ddf8 100644
+--- a/src/content/courses/algi/lessons/lesson-32.json
++++ b/src/content/courses/algi/lessons/lesson-32.json
+@@ -9,22 +9,30 @@
+     "Analisar custo temporal das buscas e seu impacto em coleções grandes.",
+     "Planejar saídas informativas quando o elemento não é encontrado."
+   ],
+-  "competencies": ["Resolução de problemas", "Análise de algoritmos"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Documentar pré e pós-condições de funções de busca.",
+-    "Comparar abordagens a partir de tabelas de desempenho.",
+-    "Construir fluxogramas que explicitem decisões de parada."
++    "Implementar funções de busca linear com e sem sentinela.",
++    "Medir quantidade de comparações executadas em diferentes cenários.",
++    "Documentar recomendações de uso destacando limites e vantagens de cada variação."
+   ],
+   "outcomes": [
+-    "Entrega função buscaLinear que retorna índice ou -1.",
+-    "Explica vantagens da técnica do sentinela em relatório curto.",
+-    "Relaciona número de comparações com tamanho do vetor."
++    "Entrega biblioteca com funções de busca retornando índices corretos ou -1.",
++    "Anexa relatório com gráficos ou tabelas que mostram o número de comparações por caso.",
++    "Publica nota técnica explicando quando utilizar sentinela e implicações para desempenho."
+   ],
+   "prerequisites": [
+     "Familiaridade com loops for/while.",
+     "Conhecimento de operadores relacionais e condicionais."
+   ],
+-  "tags": ["vetores", "busca", "arrays"],
++  "tags": [
++    "vetores",
++    "busca",
++    "arrays"
++  ],
+   "duration": 110,
+   "modality": "in-person",
+   "resources": [
+@@ -179,16 +187,31 @@
+     {
+       "type": "md3Table",
+       "title": "Comparativo de variantes de busca",
+-      "headers": ["Algoritmo", "Pré-condição", "Retorno", "Comparações médias"],
++      "headers": [
++        "Algoritmo",
++        "Pré-condição",
++        "Retorno",
++        "Comparações médias"
++      ],
+       "rows": [
+-        ["Linear simples", "Vetor não ordenado", "Índice ou -1", "n/2"],
++        [
++          "Linear simples",
++          "Vetor não ordenado",
++          "Índice ou -1",
++          "n/2"
++        ],
+         [
+           "Linear com sentinela",
+           "Vetor não ordenado com espaço extra",
+           "Índice ou n",
+           "n/2 (menos checagens de limite)"
+         ],
+-        ["Busca binária", "Vetor ordenado", "Índice ou -1", "log2 n"]
++        [
++          "Busca binária",
++          "Vetor ordenado",
++          "Índice ou -1",
++          "log2 n"
++        ]
+       ]
+     },
+     {
+@@ -237,15 +260,45 @@
+         }
+       ],
+       "edges": [
+-        ["start", "init"],
+-        ["init", "loop"],
+-        ["loop", "decision"],
+-        ["decision", "found", "sim"],
+-        ["decision", "inc", "não"],
+-        ["inc", "loop"],
+-        ["loop", "notfound", "fim"],
+-        ["notfound", "end"],
+-        ["found", "end"]
++        [
++          "start",
++          "init"
++        ],
++        [
++          "init",
++          "loop"
++        ],
++        [
++          "loop",
++          "decision"
++        ],
++        [
++          "decision",
++          "found",
++          "sim"
++        ],
++        [
++          "decision",
++          "inc",
++          "não"
++        ],
++        [
++          "inc",
++          "loop"
++        ],
++        [
++          "loop",
++          "notfound",
++          "fim"
++        ],
++        [
++          "notfound",
++          "end"
++        ],
++        [
++          "found",
++          "end"
++        ]
+       ]
+     },
+     {
+@@ -356,7 +409,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-10-05T10:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Guia interno de algoritmos de busca 2024"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.2",
++      "Guia interno de algoritmos de busca 2024"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-33.json b/src/content/courses/algi/lessons/lesson-33.json
+index 42ce510..1767db0 100644
+--- a/src/content/courses/algi/lessons/lesson-33.json
++++ b/src/content/courses/algi/lessons/lesson-33.json
+@@ -9,22 +9,30 @@
+     "Percorrer linhas e colunas utilizando loops aninhados.",
+     "Gerar tabelas formatadas a partir de matrizes."
+   ],
+-  "competencies": ["Modelagem de dados", "Comunicação técnica"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Planejar percursos linha-coluna com controle de índices.",
+-    "Aplicar formatação alinhada com printf para dados tabulares.",
+-    "Interpretar matrizes como coleções de vetores."
++    "Mapear dados tabulares para estruturas de matrizes em C.",
++    "Construir laços aninhados que preencham e apresentem tabelas formatadas.",
++    "Explicar resultados obtidos conectando-os ao problema de negócio proposto."
+   ],
+   "outcomes": [
+-    "Implementa programa que imprime tabela de presença a partir de matriz 2D.",
+-    "Desenha fluxograma MD3 com loops aninhados.",
+-    "Documenta estratégias de testes para percorrer matrizes."
++    "Entrega programa que gera matriz 2D com cabeçalhos e alinhamento adequado.",
++    "Registra checklist de validação garantindo preenchimento correto por linha e coluna.",
++    "Realiza apresentação breve relacionando a tabela gerada com decisões possíveis no cenário estudado."
+   ],
+   "prerequisites": [
+     "Domínio de vetores e loops (Aulas 30-31).",
+     "Capacidade de formatar saídas com printf."
+   ],
+-  "tags": ["matrizes", "arrays", "loops-aninhados"],
++  "tags": [
++    "matrizes",
++    "arrays",
++    "loops-aninhados"
++  ],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -141,13 +149,37 @@
+     {
+       "type": "md3Table",
+       "title": "Sintaxe de matrizes em C",
+-      "headers": ["Elemento", "Exemplo", "Descrição"],
++      "headers": [
++        "Elemento",
++        "Exemplo",
++        "Descrição"
++      ],
+       "rows": [
+-        ["Declaração", "int matriz[3][4];", "3 linhas, 4 colunas não inicializadas."],
+-        ["Inicialização", "int notas[2][3] = {{7,8,9},{6,5,10}};", "Valores linha a linha."],
+-        ["Acesso", "matriz[i][j]", "Primeiro índice = linha, segundo = coluna."],
+-        ["Percurso", "for (i) for (j)", "Loops aninhados para percorrer todos os elementos."],
+-        ["Constante de coluna", "#define COL 4", "Facilita manutenção de dimensões."]
++        [
++          "Declaração",
++          "int matriz[3][4];",
++          "3 linhas, 4 colunas não inicializadas."
++        ],
++        [
++          "Inicialização",
++          "int notas[2][3] = {{7,8,9},{6,5,10}};",
++          "Valores linha a linha."
++        ],
++        [
++          "Acesso",
++          "matriz[i][j]",
++          "Primeiro índice = linha, segundo = coluna."
++        ],
++        [
++          "Percurso",
++          "for (i) for (j)",
++          "Loops aninhados para percorrer todos os elementos."
++        ],
++        [
++          "Constante de coluna",
++          "#define COL 4",
++          "Facilita manutenção de dimensões."
++        ]
+       ]
+     },
+     {
+@@ -206,17 +238,52 @@
+         }
+       ],
+       "edges": [
+-        ["start", "initI"],
+-        ["initI", "loopI"],
+-        ["loopI", "initJ"],
+-        ["initJ", "loopJ"],
+-        ["loopJ", "print"],
+-        ["print", "incJ"],
+-        ["incJ", "loopJ"],
+-        ["loopJ", "newline", "fim"],
+-        ["newline", "incI"],
+-        ["incI", "loopI"],
+-        ["loopI", "end", "fim"]
++        [
++          "start",
++          "initI"
++        ],
++        [
++          "initI",
++          "loopI"
++        ],
++        [
++          "loopI",
++          "initJ"
++        ],
++        [
++          "initJ",
++          "loopJ"
++        ],
++        [
++          "loopJ",
++          "print"
++        ],
++        [
++          "print",
++          "incJ"
++        ],
++        [
++          "incJ",
++          "loopJ"
++        ],
++        [
++          "loopJ",
++          "newline",
++          "fim"
++        ],
++        [
++          "newline",
++          "incI"
++        ],
++        [
++          "incI",
++          "loopI"
++        ],
++        [
++          "loopI",
++          "end",
++          "fim"
++        ]
+       ]
+     },
+     {
+@@ -323,7 +390,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Checklist de laboratório 2D Arrays"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.2",
++      "Checklist de laboratório 2D Arrays"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-34.json b/src/content/courses/algi/lessons/lesson-34.json
+index 81a8cb6..b837bb1 100644
+--- a/src/content/courses/algi/lessons/lesson-34.json
++++ b/src/content/courses/algi/lessons/lesson-34.json
+@@ -9,19 +9,30 @@
+     "Executar multiplicação matricial com três loops.",
+     "Validar dimensões e tratar entradas inválidas."
+   ],
+-  "competencies": ["Pensamento algorítmico", "Raciocínio matemático"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Estruturar loops aninhados para combinações linha x coluna.",
+-    "Utilizar matrizes auxiliares sem desperdício de memória.",
+-    "Comunicar resultados em formato tabular e visual."
++    "Implementar transposição, somas e multiplicação de matrizes controlando dimensões.",
++    "Testar compatibilidade entre matrizes antes de executar operações.",
++    "Comparar desempenho e precisão das operações realizadas em cenários distintos."
+   ],
+   "outcomes": [
+-    "Entrega funções transpose e multiply com testes básicos.",
+-    "Gera relatório combinando duas matrizes de indicadores.",
+-    "Interpreta resultados da multiplicação no contexto de distribuição de recursos."
++    "Disponibiliza funções que executam operações matriciais retornando resultados corretos.",
++    "Entrega conjunto de testes automatizados ou planilhas que validam dimensões e saídas.",
++    "Documenta análise descrevendo tempo de execução e limitações observadas."
++  ],
++  "prerequisites": [
++    "Compreensão de matrizes 2D (Aula 33).",
++    "Conforto com loops for aninhados."
++  ],
++  "tags": [
++    "matrizes",
++    "arrays",
++    "multiplicacao"
+   ],
+-  "prerequisites": ["Compreensão de matrizes 2D (Aula 33).", "Conforto com loops for aninhados."],
+-  "tags": ["matrizes", "arrays", "multiplicacao"],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+@@ -176,7 +187,12 @@
+     {
+       "type": "md3Table",
+       "title": "Operações com matrizes",
+-      "headers": ["Operação", "Pré-condição", "Assinatura sugerida", "Observações"],
++      "headers": [
++        "Operação",
++        "Pré-condição",
++        "Assinatura sugerida",
++        "Observações"
++      ],
+       "rows": [
+         [
+           "Transposição",
+@@ -296,25 +312,87 @@
+         }
+       ],
+       "edges": [
+-        ["start", "check"],
+-        ["check", "error", "não"],
+-        ["error", "end"],
+-        ["check", "initI", "sim"],
+-        ["initI", "loopI"],
+-        ["loopI", "initJ"],
+-        ["initJ", "loopJ"],
+-        ["loopJ", "acc"],
+-        ["acc", "initK"],
+-        ["initK", "loopK"],
+-        ["loopK", "mul"],
+-        ["mul", "incK"],
+-        ["incK", "loopK"],
+-        ["loopK", "assign", "fim"],
+-        ["assign", "incJ"],
+-        ["incJ", "loopJ"],
+-        ["loopJ", "incI", "fim"],
+-        ["incI", "loopI"],
+-        ["loopI", "end", "fim"]
++        [
++          "start",
++          "check"
++        ],
++        [
++          "check",
++          "error",
++          "não"
++        ],
++        [
++          "error",
++          "end"
++        ],
++        [
++          "check",
++          "initI",
++          "sim"
++        ],
++        [
++          "initI",
++          "loopI"
++        ],
++        [
++          "loopI",
++          "initJ"
++        ],
++        [
++          "initJ",
++          "loopJ"
++        ],
++        [
++          "loopJ",
++          "acc"
++        ],
++        [
++          "acc",
++          "initK"
++        ],
++        [
++          "initK",
++          "loopK"
++        ],
++        [
++          "loopK",
++          "mul"
++        ],
++        [
++          "mul",
++          "incK"
++        ],
++        [
++          "incK",
++          "loopK"
++        ],
++        [
++          "loopK",
++          "assign",
++          "fim"
++        ],
++        [
++          "assign",
++          "incJ"
++        ],
++        [
++          "incJ",
++          "loopJ"
++        ],
++        [
++          "loopJ",
++          "incI",
++          "fim"
++        ],
++        [
++          "incI",
++          "loopI"
++        ],
++        [
++          "loopI",
++          "end",
++          "fim"
++        ]
+       ]
+     },
+     {
+@@ -425,7 +503,12 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-10-05T10:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
+-    "sources": ["Plano pedagógico Algoritmos I 2025.2", "Oficina de matrizes avançadas 2025"]
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
++    "sources": [
++      "Plano pedagógico Algoritmos I 2025.2",
++      "Oficina de matrizes avançadas 2025"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-35.json b/src/content/courses/algi/lessons/lesson-35.json
+index 39009ea..97244dc 100644
+--- a/src/content/courses/algi/lessons/lesson-35.json
++++ b/src/content/courses/algi/lessons/lesson-35.json
+@@ -9,22 +9,30 @@
+     "Inicializar e acessar membros por ponto e ponteiros.",
+     "Construir um mini-CRUD em memória com ênfase em criação e leitura."
+   ],
+-  "competencies": ["Pensamento algorítmico", "Modelagem de dados"],
++  "competencies": [
++    "05",
++    "08",
++    "11"
++  ],
+   "skills": [
+-    "Mapear requisitos simples para campos de registros.",
+-    "Encapsular operações básicas em funções.",
+-    "Documentar structs com comentários significativos."
++    "Definir structs representando registros compostos com campos coerentes.",
++    "Implementar operações CRUD em memória validando entrada e saída de dados.",
++    "Registrar casos de teste que comprovem a integridade do fluxo de operações."
+   ],
+   "outcomes": [
+-    "Define struct Empresa alinhada ao laboratório do semestre.",
+-    "Implementa funções create e list utilizando vetor fixo.",
+-    "Entrega relatório curto descrevendo decisões de modelagem."
++    "Entrega módulo com definição de struct e funções para criar, ler, atualizar e remover registros.",
++    "Anexa log de testes cobrindo operações bem-sucedidas e tratamento de erros.",
++    "Apresenta documentação resumida orientando como utilizar o CRUD implementado."
+   ],
+   "prerequisites": [
+     "Conhecimento de vetores simples (Aula 30).",
+     "Noções de funções e passagem de parâmetros."
+   ],
+-  "tags": ["structs", "crud", "revisao"],
++  "tags": [
++    "structs",
++    "crud",
++    "revisao"
++  ],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -142,7 +150,12 @@
+     {
+       "type": "md3Table",
+       "title": "Componentes essenciais de um registro",
+-      "headers": ["Elemento", "Descrição", "Exemplo", "Boas práticas"],
++      "headers": [
++        "Elemento",
++        "Descrição",
++        "Exemplo",
++        "Boas práticas"
++      ],
+       "rows": [
+         [
+           "Campos",
+@@ -262,7 +275,12 @@
+   "metadata": {
+     "status": "draft",
+     "updatedAt": "2025-03-07T12:00:00.000Z",
+-    "owners": ["Equipe Algoritmos I"],
+-    "sources": ["Plano de ensino Algoritmos I 2025.2", "Relatórios SEBRAE 2024"]
++    "owners": [
++      "Equipe Algoritmos I"
++    ],
++    "sources": [
++      "Plano de ensino Algoritmos I 2025.2",
++      "Relatórios SEBRAE 2024"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-36.json b/src/content/courses/algi/lessons/lesson-36.json
+index 38e6e65..f453b83 100644
+--- a/src/content/courses/algi/lessons/lesson-36.json
++++ b/src/content/courses/algi/lessons/lesson-36.json
+@@ -9,22 +9,30 @@
+     "Aplicar ordenação simples para organizar a coleção.",
+     "Documentar o estado da coleção com relatórios resumidos."
+   ],
+-  "competencies": ["Pensamento algorítmico", "Organização da informação"],
++  "competencies": [
++    "05",
++    "08",
++    "12"
++  ],
+   "skills": [
+-    "Gerenciar contagem de elementos ativos em vetores de structs.",
+-    "Reutilizar funções de comparação para ordenar registros.",
+-    "Gerar estatísticas básicas a partir de coleções."
++    "Organizar vetores de structs definindo estratégias de inserção e busca.",
++    "Garantir consistência dos dados ao realizar atualizações em lote.",
++    "Conduzir revisão em pares verificando aderência a padrões de dados da turma."
+   ],
+   "outcomes": [
+-    "Produz vetor de Empresas carregado com dados iniciais.",
+-    "Integra funções de ordenação com o menu CRUD do laboratório.",
+-    "Entrega relatório com ranking por faturamento e categoria."
++    "Entrega repositório em memória com operações de listagem e inserção validadas.",
++    "Registra testes que comprovam manutenção da integridade após múltiplas atualizações.",
++    "Documenta feedback trocado com o par e ajustes implementados na estrutura de dados."
+   ],
+   "prerequisites": [
+     "Domínio da declaração e uso de structs (Aula 35).",
+     "Conhecimento prévio de ordenação básica."
+   ],
+-  "tags": ["structs", "crud", "revisao"],
++  "tags": [
++    "structs",
++    "crud",
++    "revisao"
++  ],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+@@ -179,7 +187,12 @@
+     {
+       "type": "md3Table",
+       "title": "Estratégias de ordenação para vetores de structs",
+-      "headers": ["Algoritmo", "Quando usar", "Custo", "Observações"],
++      "headers": [
++        "Algoritmo",
++        "Quando usar",
++        "Custo",
++        "Observações"
++      ],
+       "rows": [
+         [
+           "Bubble Sort",
+@@ -299,7 +312,12 @@
+   "metadata": {
+     "status": "draft",
+     "updatedAt": "2025-10-05T10:00:00.000Z",
+-    "owners": ["Equipe Algoritmos I"],
+-    "sources": ["Plano de ensino Algoritmos I 2025.2", "Workshops SEBRAE de Dados 2024"]
++    "owners": [
++      "Equipe Algoritmos I"
++    ],
++    "sources": [
++      "Plano de ensino Algoritmos I 2025.2",
++      "Workshops SEBRAE de Dados 2024"
++    ]
+   }
+ }
+diff --git a/src/content/courses/algi/lessons/lesson-37.json b/src/content/courses/algi/lessons/lesson-37.json
+index 0531e45..0cb4982 100644
+--- a/src/content/courses/algi/lessons/lesson-37.json
++++ b/src/content/courses/algi/lessons/lesson-37.json
+@@ -9,22 +9,30 @@
+     "Atualizar campos selecionados mantendo histórico mínimo.",
+     "Realizar remoção lógica e física comparando abordagens."
+   ],
+-  "competencies": ["Pensamento crítico", "Confiabilidade de software"],
++  "competencies": [
++    "05",
++    "08",
++    "12"
++  ],
+   "skills": [
+-    "Projetar funções de busca reutilizáveis.",
+-    "Definir protocolos de atualização com validação.",
+-    "Gerenciar remoção com deslocamento de elementos e logs."
++    "Implementar buscas flexíveis em vetores de structs utilizando filtros variados.",
++    "Aplicar auditoria registrando histórico de alterações e validações.",
++    "Facilitar revisão coletiva alinhando critérios de atualização e rollback."
+   ],
+   "outcomes": [
+-    "Entrega funções searchById e searchByPrefix documentadas.",
+-    "Atualiza registros com validação de domínios e feedback ao usuário.",
+-    "Implementa remoção com compactação e ajuste do contador de elementos ativos."
++    "Disponibiliza módulo que localiza e atualiza registros com base em múltiplos campos.",
++    "Entrega log de auditoria descrevendo cada alteração realizada e testes associados.",
++    "Coordena reunião de alinhamento documentando decisões sobre políticas de atualização."
+   ],
+   "prerequisites": [
+     "Vetores de structs com ordenação básica (Aula 36).",
+     "Entendimento de CRUD sequencial."
+   ],
+-  "tags": ["structs", "crud", "revisao"],
++  "tags": [
++    "structs",
++    "crud",
++    "revisao"
++  ],
+   "duration": 125,
+   "modality": "in-person",
+   "resources": [
+@@ -187,7 +195,12 @@
+     {
+       "type": "md3Table",
+       "title": "Padrões de retorno para operações CRUD",
+-      "headers": ["Operação", "Retorno sugerido", "Descrição", "Quando aplicar"],
++      "headers": [
++        "Operação",
++        "Retorno sugerido",
++        "Descrição",
++        "Quando aplicar"
++      ],
+       "rows": [
+         [
+           "create",
+@@ -312,7 +325,9 @@
+   "metadata": {
+     "status": "draft",
+     "updatedAt": "2025-09-29T14:25:00.000Z",
+-    "owners": ["Equipe Algoritmos I"],
++    "owners": [
++      "Equipe Algoritmos I"
++    ],
+     "sources": [
+       "Plano de ensino Algoritmos I 2025.2",
+       "Relatórios IBGE 2024",
+diff --git a/src/content/courses/algi/lessons/lesson-38.json b/src/content/courses/algi/lessons/lesson-38.json
+index 403baf4..e6423d8 100644
+--- a/src/content/courses/algi/lessons/lesson-38.json
++++ b/src/content/courses/algi/lessons/lesson-38.json
+@@ -9,22 +9,30 @@
+     "Aplicar conhecimento em desafios práticos e quizzes competitivos.",
+     "Mapear pontos de melhoria individuais a partir do ranking e feedbacks."
+   ],
+-  "competencies": ["Trabalho em equipe", "Pensamento crítico", "Comunicação"],
++  "competencies": [
++    "05",
++    "11",
++    "12"
++  ],
+   "skills": [
+-    "Resolver desafios de código em tempo limitado.",
+-    "Registrar resultados e feedbacks em planilha de ranking.",
+-    "Refletir sobre evolução pessoal e do squad."
++    "Preparar desafios que revisem conteúdos do semestre em formato gamificado.",
++    "Compartilhar explicações rápidas das soluções adotadas pela equipe.",
++    "Colaborar na facilitação da dinâmica registrando pontuações e feedbacks."
+   ],
+   "outcomes": [
+-    "Completa tabuleiro Jeopardy com perguntas de múltiplos níveis.",
+-    "Entrega ranking final com medalhas e feedback qualitativo.",
+-    "Publica mural digital com síntese dos aprendizados do semestre."
++    "Entrega quiz ou jogo com questões alinhadas às competências trabalhadas.",
++    "Realiza apresentação de insights destacando estratégias usadas pela equipe para resolver desafios.",
++    "Consolida feedback do grupo em ata compartilhada com próximos passos de estudo."
+   ],
+   "prerequisites": [
+     "Participação nas aulas anteriores do semestre.",
+     "Projeto CRUD em memória iniciado."
+   ],
+-  "tags": ["structs", "crud", "revisao"],
++  "tags": [
++    "structs",
++    "crud",
++    "revisao"
++  ],
+   "duration": 130,
+   "modality": "in-person",
+   "resources": [
+@@ -242,7 +250,12 @@
+     {
+       "type": "md3Table",
+       "title": "Categorias e exemplos de perguntas",
+-      "headers": ["Categoria", "Exemplo", "Resolução esperada", "Pontuação"],
++      "headers": [
++        "Categoria",
++        "Exemplo",
++        "Resolução esperada",
++        "Pontuação"
++      ],
+       "rows": [
+         [
+           "Structs",
+@@ -342,7 +355,9 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-11T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
+     "sources": [
+       "Plano de ensino Algoritmos I 2025.2",
+       "HBR Gamification Strategies 2020",
+diff --git a/src/content/courses/algi/lessons/lesson-39.json b/src/content/courses/algi/lessons/lesson-39.json
+index 8f003ad..2091374 100644
+--- a/src/content/courses/algi/lessons/lesson-39.json
++++ b/src/content/courses/algi/lessons/lesson-39.json
+@@ -241,7 +241,9 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-11T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
+     "sources": [
+       "Plano pedagógico Algoritmos I 2025.1",
+       "Ata pedagógica de revisão 2024-12",
+@@ -257,25 +259,29 @@
+     "Mensurar a habilidade de decompor problemas complexos com funções."
+   ],
+   "competencies": [
+-    "Pensamento computacional avançado",
+-    "Estruturação e análise de algoritmos",
+-    "Modelagem de dados em baixo nível"
++    "05",
++    "08",
++    "11"
+   ],
+   "skills": [
+-    "Selecionar estruturas de controle adequadas a diferentes cenários.",
+-    "Implementar operações sobre coleções lineares com eficiência.",
+-    "Comunicar soluções completas em pseudocódigo e fluxogramas."
++    "Integrar conteúdos de lógica, estruturas e modularização em avaliação final.",
++    "Aplicar verificação sistemática das respostas durante a NP3.",
++    "Registrar justificativas técnicas para cada solução implementada."
+   ],
+   "outcomes": [
+-    "Resolve questões integradoras que combinam múltiplas estruturas de dados.",
+-    "Justifica escolhas algorítmicas considerando corretude e clareza.",
+-    "Entrega documentação organizada que facilita a leitura do avaliador."
++    "Entrega avaliação NP3 completa demonstrando domínio dos tópicos do semestre.",
++    "Executa checklist de conferência antes da entrega garantindo cobertura dos requisitos.",
++    "Produz relatório pós-prova destacando raciocínios utilizados e temas a reforçar."
+   ],
+   "prerequisites": [
+     "Todos os conteúdos das Unidades I a V da disciplina.",
+     "Prática prévia com listas de exercícios integradoras."
+   ],
+-  "tags": ["avaliacao", "algoritmos", "integrador"],
++  "tags": [
++    "avaliacao",
++    "algoritmos",
++    "integrador"
++  ],
+   "duration": 120,
+   "modality": "in-person",
+   "resources": [
+diff --git a/src/content/courses/algi/lessons/lesson-40.json b/src/content/courses/algi/lessons/lesson-40.json
+index 88679bb..7073daa 100644
+--- a/src/content/courses/algi/lessons/lesson-40.json
++++ b/src/content/courses/algi/lessons/lesson-40.json
+@@ -9,22 +9,30 @@
+     "Promover showcase dos projetos finais com feedback estruturado e celebração da turma.",
+     "Definir plano de continuidade com roadmap de estudos (Git e estruturas de dados) e recursos de apoio."
+   ],
+-  "competencies": ["Aprendizagem contínua", "Comunicação", "Planejamento de carreira"],
++  "competencies": [
++    "05",
++    "11",
++    "12"
++  ],
+   "skills": [
+-    "Interpretar devolutivas qualitativas e quantitativas das avaliações.",
+-    "Oferecer e receber feedback acionável em ambientes colaborativos.",
+-    "Planejar trilha de estudos autônoma alinhada aos objetivos profissionais."
++    "Sistematizar aprendizados do semestre conectando-os a trilhas futuras de estudo.",
++    "Comunicar devolutivas finais e orientações personalizadas aos colegas.",
++    "Planejar ações coletivas de continuidade envolvendo estudos e projetos complementares."
+   ],
+   "outcomes": [
+-    "Entende pontos fortes e oportunidades individuais a partir das NPs.",
+-    "Registra feedbacks recebidos durante o showcase em checklist dedicado.",
+-    "Sai com roadmap pessoal de estudos focado em Git e estruturas de dados."
++    "Apresenta painel síntese com recomendações de recursos e próximos conteúdos a explorar.",
++    "Registra devolutivas individuais ou em grupo destacando conquistas e desafios.",
++    "Co-constrói plano coletivo de desenvolvimento com responsáveis e marcos definidos."
+   ],
+   "prerequisites": [
+     "Participação na avaliação NP3.",
+     "Entrega das versões finais do projeto integrador."
+   ],
+-  "tags": ["encerramento", "feedback", "planejamento"],
++  "tags": [
++    "encerramento",
++    "feedback",
++    "planejamento"
++  ],
+   "duration": 115,
+   "modality": "in-person",
+   "resources": [
+@@ -333,7 +341,9 @@
+   "metadata": {
+     "status": "published",
+     "updatedAt": "2025-03-11T12:00:00.000Z",
+-    "owners": ["Prof. Tiago Sombra"],
++    "owners": [
++      "Prof. Tiago Sombra"
++    ],
+     "sources": [
+       "Plano pedagógico Algoritmos I 2025.1",
+       "Relatórios de acompanhamento 2024",

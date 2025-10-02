@@ -9,16 +9,16 @@
     "Promover showcase dos projetos finais com feedback estruturado e celebração da turma.",
     "Definir plano de continuidade com roadmap de estudos (Git e estruturas de dados) e recursos de apoio."
   ],
-  "competencies": ["Aprendizagem contínua", "Comunicação", "Planejamento de carreira"],
+  "competencies": ["05", "11", "12"],
   "skills": [
-    "Interpretar devolutivas qualitativas e quantitativas das avaliações.",
-    "Oferecer e receber feedback acionável em ambientes colaborativos.",
-    "Planejar trilha de estudos autônoma alinhada aos objetivos profissionais."
+    "Sistematizar aprendizados do semestre conectando-os a trilhas futuras de estudo.",
+    "Comunicar devolutivas finais e orientações personalizadas aos colegas.",
+    "Planejar ações coletivas de continuidade envolvendo estudos e projetos complementares."
   ],
   "outcomes": [
-    "Entende pontos fortes e oportunidades individuais a partir das NPs.",
-    "Registra feedbacks recebidos durante o showcase em checklist dedicado.",
-    "Sai com roadmap pessoal de estudos focado em Git e estruturas de dados."
+    "Apresenta painel síntese com recomendações de recursos e próximos conteúdos a explorar.",
+    "Registra devolutivas individuais ou em grupo destacando conquistas e desafios.",
+    "Co-constrói plano coletivo de desenvolvimento com responsáveis e marcos definidos."
   ],
   "prerequisites": [
     "Participação na avaliação NP3.",
@@ -28,6 +28,11 @@
   "duration": 115,
   "modality": "in-person",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Checklist de feedback final",
       "type": "checklist",
@@ -47,9 +52,29 @@
       "url": "https://static.md3.education/courses/algi/roadmap-pos-algi.md"
     },
     {
-      "label": "Formulário de feedback contínuo",
+      "label": "Formulário de feedback final",
       "type": "form",
-      "url": "https://forms.gle/algoritmosI-feedback-continuo"
+      "url": "https://forms.gle/algoritmosI-feedback-final"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -63,15 +88,40 @@
   },
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Encerramento e Devolutiva. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 40."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo do encerramento (1h55)",
       "items": [
         "(10 min) Boas-vindas e retomada dos marcos do semestre.",
         "(20 min) Devolutiva coletiva das NPs com análise de indicadores.",
         "(35 min) Showcase de projetos com rodada de perguntas.",
-        "(15 min) Coleta de feedback estruturado via checklist e formulário.",
+        "(15 min) Coleta de feedback estruturado via checklist e formulário final.",
         "(20 min) Painel de próximos passos e definição de compromissos.",
-        "(15 min) Roadmap futuro: Git, estruturas de dados e recursos complementares."
+        "(15 min) Roadmap futuro: Git colaborativo, estruturas de dados avançadas e agenda de monitoria."
       ]
     },
     {
@@ -96,19 +146,37 @@
       ]
     },
     {
+      "type": "checklist",
+      "title": "Checklist de devolutiva (aplicação em sala)",
+      "description": "Preencha em conjunto com a turma logo após a apresentação dos resultados.",
+      "items": [
+        "Compartilhei médias e distribuição das NPs utilizando o dashboard projetado.",
+        "Comuniquei critérios de correção e respondi às principais dúvidas coletivas.",
+        "Entreguei envelopes individuais com notas e feedbacks escritos.",
+        "Registrei compromissos de melhoria de cada squad no mural digital.",
+        "Alertei sobre prazos para recursos ou revisões formais."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Showcase de projetos",
       "content": [
         {
           "type": "paragraph",
-          "text": "Organize os grupos em estações. Cada equipe tem 5 minutos para apresentar problema, solução, impacto e próximos passos desejados."
+          "text": "Organize os grupos em estações. Cada equipe tem 5 minutos para apresentar problema, solução, impacto e próximos passos desejados, seguindo o Guia de showcase final para orientar storytelling e avaliação."
         },
         {
           "type": "unorderedList",
           "items": [
-            { "text": "Garanta registro visual (fotos, prints) para o mural digital." },
-            { "text": "Estimule perguntas usando a matriz Admirei / Sugiro." },
-            { "text": "Finalize cada rodada com destaque de uma prática replicável." }
+            {
+              "text": "Garanta registro visual (fotos, prints) para o mural digital."
+            },
+            {
+              "text": "Estimule perguntas usando a matriz Admirei / Sugiro e documente no template compartilhado."
+            },
+            {
+              "text": "Convide banca (professor, monitor, convidado) a atribuir badges rápidos (Pitch, UX, Solução Técnica) ao fim de cada rodada."
+            }
           ]
         }
       ]
@@ -119,8 +187,33 @@
       "items": [
         "Apresentei devolutiva coletiva com dados e narrativas.",
         "Conduzi roda de feedback cruzado usando o checklist oficial.",
-        "Registrei feedbacks individuais no formulário contínuo.",
+        "Registrei feedbacks individuais no formulário de feedback final.",
         "Combinei com a turma como os dados serão revisitados no próximo semestre."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Formulário de feedback final",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve 10 minutos ao término do showcase para que cada estudante preencha o formulário oficial: https://forms.gle/algoritmosI-feedback-final."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Reforce que o envio é obrigatório para consolidar a presença e registrar percepções da disciplina."
+            },
+            {
+              "text": "Solicite que indiquem highlights, pontos de melhoria e interesses para monitoria."
+            },
+            {
+              "text": "Baixe a planilha de respostas ao final da semana para embasar a reunião de planejamento do próximo semestre."
+            }
+          ]
+        }
       ]
     },
     {
@@ -129,11 +222,15 @@
       "steps": [
         {
           "title": "Curto prazo (1-2 semanas)",
-          "description": "Revisar devolutivas das NPs, atualizar portfólio e refatorar itens críticos do projeto."
+          "description": "Revisar devolutivas das NPs, atualizar portfólio, refatorar itens críticos do projeto e agendar conversa individual com monitoria."
         },
         {
           "title": "Médio prazo (1 mês)",
           "description": "Iniciar trilha de Git colaborativo com repositório compartilhado e pull requests semanais."
+        },
+        {
+          "title": "Apoio contínuo (monitoria)",
+          "description": "Participar das sessões semanais de monitoria para revisar conteúdos de C, tirar dúvidas sobre Git e receber desafios extras de estruturas de dados."
         },
         {
           "title": "Longo prazo (3 meses)",
@@ -161,7 +258,9 @@
             {
               "text": "Livro \"Pro Git\" (capítulos 1-4) para consolidar fluxo GitFlow e boas práticas."
             },
-            { "text": "Roadmap pós-Algoritmos I com metas semanais disponibilizado nos recursos." }
+            {
+              "text": "Roadmap pós-Algoritmos I com metas semanais disponibilizado nos recursos."
+            }
           ]
         }
       ]
@@ -187,12 +286,132 @@
           "text": "Reserve tempo para agradecer as contribuições coletivas, reconhecer quem apoiou colegas e reforçar o senso de comunidade."
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 40' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Submeta checklist de feedback final preenchido com os compromissos assumidos."
+            },
+            {
+              "text": "Anexe roadmap pessoal de estudos (Git + Estruturas de Dados) com metas dos próximos três meses."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "resourceGallery",
+      "title": "Recursos finais (CC)",
+      "src": "resources/algorithm-flowchart.json"
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.007Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Relatórios de acompanhamento 2024"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Relatórios de acompanhamento 2024",
+      "Ata de devolutiva final 2024.2"
+    ]
   }
 }

@@ -9,16 +9,16 @@
     "Combinar operadores lógicos para refinar regras com múltiplos critérios.",
     "Registrar resultados esperados para cada ramo antes de implementar."
   ],
-  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Pensamento crítico"],
+  "competencies": ["02", "05", "11"],
   "skills": [
-    "Escrever cadeias else if com condições mutuamente exclusivas.",
-    "Aplicar && e || para unir verificações dentro do mesmo ramo.",
-    "Validar a cobertura de cenários usando planilhas de teste."
+    "Priorizar condições em cadeias else if para garantir cobertura sem sobreposições.",
+    "Representar regras compostas por meio de árvores de decisão ou mapas lógicos.",
+    "Justificar por escrito o posicionamento de cada condição e suas implicações."
   ],
   "outcomes": [
-    "Entrega um programa que classifica entradas em três ou mais faixas sem ambiguidades.",
-    "Explica a escolha da ordem das condições em documentação curta.",
-    "Constrói tabela de testes que cobre limites inferior e superior de cada faixa."
+    "Entrega algoritmo que trata ao menos cinco faixas exclusivas com mensagens específicas.",
+    "Apresenta diagrama anotado validando que cada entrada é coberta por apenas um ramo.",
+    "Registra texto curto explicando ajustes realizados após testar limites das condições."
   ],
   "prerequisites": ["Revisar if-else e switch-case trabalhados nas aulas 10 e 11."],
   "tags": ["condicionais", "else-if", "regras"],
@@ -26,14 +26,34 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Planilha de testes para cadeias de decisão",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/planilha-else-if.xlsx"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Compilador OnlineGDB",
+      "label": "Playlist Estruturas Condicionais – Curso em Vídeo",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dk_nZHmxxf_J0WRAqy5Cz9"
+    },
+    {
+      "label": "Planilha de testes - Cadeias else if",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGICadeiasElseIfTests"
+    },
+    {
+      "label": "Checklist de validação manual",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistElseIf"
+    },
+    {
+      "label": "Template OnlineGDB - Cadeias de decisão",
       "type": "tool",
-      "url": "https://www.onlinegdb.com/online_c_compiler"
+      "url": "https://onlinegdb.com/H1ElseIfTemplate"
+    },
+    {
+      "label": "Repositório modelo C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
     }
   ],
   "bibliography": [
@@ -47,23 +67,63 @@
   },
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Cadeias de decisão com else if. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 12."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "Conteúdo",
-          "content": "Cadeias else if, combinações com operadores lógicos e documentação de faixas."
+          "title": "Recap",
+          "content": "Revisar if/else e exemplos de priorização de faixas (10 min)."
         },
         {
-          "icon": "bullseye",
-          "title": "Objetivo",
-          "content": "Garantir que cada faixa de regra seja coberta por um único ramo claramente documentado."
+          "icon": "target",
+          "title": "Briefing",
+          "content": "Apresentar o estudo de caso e mapear entradas/saídas esperadas (15 min)."
         },
         {
-          "icon": "gears",
-          "title": "Metodologia",
-          "content": "Exposição dialogada, análise de estudos de caso e laboratório orientado para criar classificadores completos."
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Construir o esqueleto do classificador em C com acompanhamento (30 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Testes orientados",
+          "content": "Executar tabela de casos limite na planilha compartilhada (25 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Retrospectiva",
+          "content": "Compartilhar falhas detectadas e ajustes realizados (20 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Detalhar entregáveis, rubrica e checklist final antes do envio (15 min)."
         }
       ]
     },
@@ -241,6 +301,30 @@
       }
     },
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Checklist de testes manuais",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Valide limites inferior, superior e valores médios para cada faixa."
+            },
+            {
+              "text": "Registre caso negativo que deve acionar o else final."
+            },
+            {
+              "text": "Anote em planilha o resultado obtido e o esperado para cada entrada."
+            },
+            {
+              "text": "Inclua captura de tela ou log do console quando houver divergência."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "md3Table",
       "title": "Cobertura das faixas",
       "headers": ["Condição", "Intervalo tratado", "Saída"],
@@ -331,16 +415,20 @@
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Tarefa (TED)",
-      "content": [
+      "type": "cardGrid",
+      "title": "Armadilhas em cadeias else if",
+      "cards": [
         {
-          "type": "paragraph",
-          "text": "Crie aula12_classificador.c para ler a nota final e frequência do aluno. Use else if para retornar Aprovado, Recuperação ou Reprovado considerando nota e presença mínima de 75%."
+          "title": "Faixas sobrepostas",
+          "content": "Condições com >= e <= mal ordenadas fazem valores caírem no ramo errado."
         },
         {
-          "type": "paragraph",
-          "text": "Envie junto uma planilha com os testes realizados (limites, casos de falha e sucesso)."
+          "title": "Condições inalcançáveis",
+          "content": "Quando um if cobre toda a faixa, os próximos else if nunca executam."
+        },
+        {
+          "title": "Valores padrão frágeis",
+          "content": "Esquecer validações no else final pode aceitar entradas inválidas sem aviso."
         }
       ]
     },
@@ -366,11 +454,273 @@
         "Combinar condições com operadores lógicos respeitando a prioridade.",
         "Validar limites superior e inferior para cada faixa implementada."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED 12 – Classificador com cobertura total",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie no Moodle (atividade TED Aula 12) até 23h59 do dia seguinte: código em C, planilha de testes preenchida e um parágrafo justificando a ordem dos ramos."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Arquivo principal: aula12_classificador.c."
+            },
+            {
+              "text": "Planilha 'TED12_Testes.xlsx' com casos válidos, limites e inválidos."
+            },
+            {
+              "text": "Comentário textual destacando decisões críticas adotadas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 12",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega no prazo registrado no Moodle (20%)."
+            },
+            {
+              "text": "Cobertura total das faixas solicitadas sem lacunas (40%)."
+            },
+            {
+              "text": "Planilha de testes com evidências e resultados conferidos (25%)."
+            },
+            {
+              "text": "Justificativa sobre ordenação das condições e casos críticos (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Envios sem planilha ou sem evidência de testes serão devolvidos para reenvio com desconto."
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Condições em C (if/else)",
+          "multiple": false,
+          "options": [
+            {
+              "text": "if (x > 0) executa quando x é positivo",
+              "correct": true
+            },
+            {
+              "text": "else if só executa junto com o if",
+              "correct": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "truthTable",
+      "title": "Tabela da verdade (AND/OR)",
+      "headers": ["A", "B", "A && B", "A || B"],
+      "rows": [
+        [
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          }
+        ],
+        [
+          {
+            "value": "F"
+          },
+          {
+            "value": "T"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "T"
+          }
+        ],
+        [
+          {
+            "value": "T"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "F"
+          },
+          {
+            "value": "T"
+          }
+        ],
+        [
+          {
+            "value": "T"
+          },
+          {
+            "value": "T"
+          },
+          {
+            "value": "T"
+          },
+          {
+            "value": "T"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Entrada → Saída\nnota=7.5 -> Aprovado\nnota=6.9 -> Reprovado",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Ordene condições do caso mais restritivo para o mais amplo.",
+            "Use parênteses para reforçar a intenção em expressões complexas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "if (nota = 7) { /* ... */ } // usa = no lugar de ==",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "if (nota == 7) { /* ... */ } // comparação correta",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\nint main(){\n  float nota;\n  if (scanf(\"%f\", &nota)!=1) return 1;\n  if (nota >= 7.0f) puts(\"Aprovado\"); else puts(\"Reprovado\");\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Escreva uma condição curta com && ou ||.", "O que confundiu hoje?"]
+        }
+      ]
+    },
+    {
+      "type": "glossary",
+      "title": "Glossário",
+      "items": [
+        {
+          "term": "Booleano",
+          "definition": "Verdadeiro/Falso, usado em decisões."
+        },
+        {
+          "term": "Operadores lógicos",
+          "definition": "&&, ||, !"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera casos: nota -> Aprovado/Reprovado\nimport random\nfor n in [6.9, 7.0, 8.5, 4.0]:\n    print(f\"nota={n} -> {'Aprovado' if n>=7 else 'Reprovado'}\")",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.977Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

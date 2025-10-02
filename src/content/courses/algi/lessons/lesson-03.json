@@ -9,16 +9,16 @@
     "Comparar diferentes representações (texto estruturado, fluxogramas, pseudocódigo).",
     "Identificar e corrigir lacunas em algoritmos propostos."
   ],
-  "competencies": ["Pensamento computacional", "Planejamento algorítmico", "Trabalho colaborativo"],
+  "competencies": ["02", "05", "12"],
   "skills": [
-    "Sequenciar instruções minimizando ambiguidades.",
-    "Traduzir algoritmos entre formatos distintos.",
-    "Avaliar algoritmos de colegas e propor melhorias."
+    "Sequenciar instruções em blocos de entrada, processamento e saída mantendo nomes padronizados.",
+    "Comparar versões de algoritmos em dinâmicas colaborativas e apontar lacunas ou redundâncias.",
+    "Reescrever pseudocódigo incorporando feedback registrado em checklist coletivo."
   ],
   "outcomes": [
-    "Produz um algoritmo detalhado para um problema cotidiano.",
-    "Justifica ajustes necessários em um algoritmo inconsistente.",
-    "Gera pseudocódigo alinhado à estrutura construída em grupo."
+    "Entrega algoritmo estruturado com rótulos de blocos e justificativa para a ordem escolhida.",
+    "Registra no mural da turma os pontos fortes e ajustes sugeridos para o algoritmo de outra dupla.",
+    "Disponibiliza versão revisada destacando trechos alterados após a rodada de feedback."
   ],
   "prerequisites": ["Revisar operadores lógicos apresentados na Aula 2."],
   "tags": ["algoritmos", "sequencia", "pseudocodigo"],
@@ -28,12 +28,32 @@
     {
       "label": "Quadro colaborativo da atividade Fishbowl",
       "type": "tool",
-      "url": "https://whiteboard.example.edu/fishbowl"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Template de pseudocódigo em Portugol",
-      "type": "document",
-      "url": "https://example.edu/algi/template-pseudocodigo.docx"
+      "label": "Guia de pseudocódigo (IME-USP)",
+      "type": "article",
+      "url": "https://www.ime.usp.br/~pf/algoritmos/apend/pseudocodigo.html"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -45,6 +65,31 @@
     "description": "Rubrica de observação da atividade Fishbowl + entrega individual de pseudocódigo estruturado."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Estruturando Algoritmos. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 03."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da Aula",
@@ -188,17 +233,6 @@
       ]
     },
     {
-      "type": "callout",
-      "variant": "task",
-      "title": "TED da Aula 3",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Publique no Moodle o pseudocódigo gerado em sala, destacando a regra condicional mais crítica."
-        }
-      ]
-    },
-    {
       "type": "checklist",
       "title": "Checklist de saída",
       "description": "Confirme antes de encerrar:",
@@ -207,11 +241,152 @@
         "Traduzi o algoritmo para pseudocódigo padronizado.",
         "Forneci feedback para outro grupo durante a dinâmica."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 03' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Envie o pseudocódigo final da dupla com comentários explicando cada bloco lógico."
+            },
+            {
+              "text": "Inclua uma breve justificativa (3-4 linhas) para a decisão mais sensível do algoritmo."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Representações: Pseudocódigo × C",
+      "tabs": [
+        {
+          "label": "Pseudocódigo",
+          "content": "<pre>ler A, B\nsoma ← A + B\nescrever soma</pre>"
+        },
+        {
+          "label": "C",
+          "code": "#include <stdio.h>\nint main(){int a,b; scanf(\"%d %d\",&a,&b); printf(\"%d\\n\", a+b);}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.966Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

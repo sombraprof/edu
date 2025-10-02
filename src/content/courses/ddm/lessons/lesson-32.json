@@ -1,0 +1,262 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-32",
+  "title": "Aula 32: Unidade VI – Consumo de APIs e Estado no React Native",
+  "slug": "consumo-api-react-native",
+  "summary": "Implementa consumo de APIs REST com React Query/Axios, trata estados de carregamento/erro e sincroniza dados com armazenamento local.",
+  "objective": "Capacitar os estudantes a integrar APIs externas ao app Expo, garantindo resiliência, caching e experiência consistente offline-first.",
+  "objectives": [
+    "Configurar cliente HTTP e camadas de serviço alinhadas ao projeto.",
+    "Implementar hooks para requisições e gerenciamento de estados com React Query.",
+    "Sincronizar dados com AsyncStorage garantindo suporte offline básico."
+  ],
+  "competencies": [
+    "Integração com APIs REST",
+    "Gerenciamento de estado assíncrono",
+    "Arquitetura limpa em projetos React Native"
+  ],
+  "skills": [
+    "Criar hooks de dados reutilizáveis.",
+    "Tratar estados loading, error e success com feedback visual MD3.",
+    "Persistir cache em AsyncStorage e invalidar dados conforme regras."
+  ],
+  "outcomes": [
+    "App com tela que consome API real e apresenta dados com fallback offline.",
+    "Logs estruturados de erros e estratégias de retry implementadas.",
+    "Documento de integração descrevendo endpoints e fluxos de sincronização."
+  ],
+  "prerequisites": [
+    "Navegação implementada (Aula 31).",
+    "Conhecimentos de fetch/async-await e promessas."
+  ],
+  "tags": ["react-native", "api", "react-query"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "TanStack Query for React Native",
+      "url": "https://tanstack.com/query/latest/docs/react-native/overview",
+      "type": "documentation"
+    },
+    {
+      "label": "AsyncStorage Guide",
+      "url": "https://react-native-async-storage.github.io/async-storage/docs/usage",
+      "type": "documentation"
+    }
+  ],
+  "bibliography": [
+    "TANSTACK. Query Documentation. 2024.",
+    "NADER, A. React Native in Action. Manning, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega incremental do projeto com integração de API e cache offline validados via checklist no AVA."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo (150 min)",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Revisão dos fluxos de navegação implementados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(35 min) Exposição",
+          "content": "camadas de serviço, TanStack Query e estratégias offline-first."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Live coding",
+          "content": "hook `useTasks` consumindo endpoint REST protegido."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Oficina",
+          "content": "integração no app do grupo com feedback visual MD3."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Alinhamento da TED",
+          "content": "testes de resiliência e documentação da API."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Entregável alinhado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta aula alimenta a atividade avaliativa da semana, na qual cada grupo precisa demonstrar consumo de pelo menos um endpoint real do backend institucional (ou mock autorizado) e relatar estratégias de caching."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Pilares do encontro",
+      "cards": [
+        {
+          "icon": "database",
+          "title": "Camada de dados",
+          "content": "Serviços HTTP, adaptadores e modelos tipados compartilhados."
+        },
+        {
+          "icon": "gears",
+          "title": "Estado assíncrono",
+          "content": "TanStack Query para sincronização, cache e retries automáticos."
+        },
+        {
+          "icon": "monitor",
+          "title": "Experiência offline",
+          "content": "Persistência em AsyncStorage, placeholders e indicadores MD3."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Checklist de integração",
+      "items": [
+        {
+          "title": "Configuração",
+          "content": "Instalar Axios/TanStack Query.",
+          "language": "plaintext",
+          "code": "- Instalar Axios/TanStack Query.\n- Criar cliente HTTP com interceptors.\n- Configurar QueryClientProvider no root."
+        },
+        {
+          "title": "Implementação",
+          "content": "Hook customizado com tipagem forte.",
+          "language": "plaintext",
+          "code": "- Hook customizado com tipagem forte.\n- Feedback visual para loading/erro usando componentes MD3.\n- Uso de `invalidateQueries` após mutações."
+        },
+        {
+          "title": "Offline",
+          "content": "PersistQueryClientProvider com AsyncStorage.",
+          "language": "plaintext",
+          "code": "- PersistQueryClientProvider com AsyncStorage.\n- Fallback para dados em cache quando offline.\n- Monitoramento de conectividade com `expo-network`."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de dados",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Requisição – Cliente HTTP envia request com headers configurados (token, idioma)."
+            },
+            {
+              "text": "Resposta – Hook recebe dados, processa transformações e atualiza cache."
+            },
+            {
+              "text": "Sincronização – Dados persistidos localmente e atualizados quando houver conectividade."
+            },
+            {
+              "text": "Monitoramento – Logs e métricas coletados via Sentry/Expo para análise posterior."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Pipeline da TED – Integração de API",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entrega obrigatória que valida a competência de integração remota."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Briefing com o backend | Entender contratos e limites. | Responsáveis: Grupo | Duração: 1h | Atividades: Reunião com squad backend | Entregáveis: Notas compartilhadas | Riscos: Mudança de contrato (Registrar versão e acompanhar change log do backend.) | Checkpoints: Contratos confirmados"
+            },
+            {
+              "text": "Desenvolvimento | Codificar hooks, componentes e estados. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar hook; Atualizar UI | Entregáveis: Branch `feature/api-integration` | Riscos: Instabilidade da API (Configurar retries exponenciais e mocks locais.) | Checkpoints: Hook funcional, UI atualizada"
+            },
+            {
+              "text": "Qualidade | Testes e documentação. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Rodar testes; Atualizar docs | Entregáveis: Relatório de integração | Riscos: Atraso na documentação (Designar responsável específico para documentação desde o início.) | Checkpoints: Testes rodados, Relatório anexado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Consumo de APIs e Estado no React Native usando Expo e React Navigation."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Consumo de APIs e Estado no React Native: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: TANSTACK (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de TANSTACK (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "TANSTACK. Query Documentation. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Consumo de APIs e Estado no React Native relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: TANSTACK. Query Documentation. 2024.",
+            "Conecte com o estudo: NADER, A. React Native in Action. Manning, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "NADER, A. React Native in Action. Manning, 2023."
+        }
+      ]
+    }
+  ]
+}

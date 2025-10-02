@@ -4,35 +4,114 @@
   "objective": "Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Avaliação NP3. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 39."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Escopo e formato da avaliação",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Duração total: 120 minutos, prova presencial com consulta vedada."
+            },
+            {
+              "text": "Estrutura: três blocos (diagnóstico, desenvolvimento, reflexão) com entregas sequenciais."
+            },
+            {
+              "text": "Material permitido: apenas caneta azul ou preta, lápis para rascunho e régua para organização do papel."
+            },
+            {
+              "text": "Entregáveis: caderno de questões, folha de respostas e rascunhos assinados."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Mapa da avaliação integradora",
       "items": [
-        "Escopo: Prova NP3 presencial abrangendo todos os tópicos do semestre, com duração de 120 minutos.",
-        "Formato: Questões discursivas, resolução de algoritmos completos e análise de código existente.",
-        "Objetivo: Demonstrar domínio de lógica, estruturas de dados lineares e modularização em C.",
-        "Estratégia: Planejar tempo entre leitura, rascunho e revisão, priorizando clareza de raciocínio.",
-        "Entrega: Respostas devem conter pseudocódigo ou C legível, acompanhadas de explicações breves."
+        "(10 min) Orientações iniciais: regras de conduta, checagem de documentos e distribuição dos cadernos.",
+        "(25 min) Bloco 1 — Diagnóstico: questões objetivas e problemas curtos para aquecer raciocínio lógico.",
+        "(45 min) Bloco 2 — Desenvolvimento: resolução de algoritmos completos com vetores, matrizes e structs.",
+        "(30 min) Bloco 3 — Reflexão: análise crítica de código legado, justificativas e estimativas de complexidade.",
+        "(10 min) Revisão final e entrega: conferência de respostas, organização dos materiais e assinatura de recebimento."
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Roteiro operacional da NP3",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Bloco 0 — Conduta",
+          "content": "Explique normas de sigilo, desligamento de dispositivos e procedimento para dúvidas antes do início da contagem de tempo."
+        },
+        {
+          "icon": "book-open",
+          "title": "Bloco 1 — Diagnóstico",
+          "content": "Liberado após orientações; alunos respondem perguntas de múltipla escolha e pequenos algoritmos (25 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Bloco 2 — Desenvolvimento",
+          "content": "Questões de implementação em C com suporte a rascunho. Professores registram dúvidas frequentes no quadro (45 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Bloco 3 — Revisão crítica",
+          "content": "Análise de código legado e perguntas discursivas orientadas à justificativa de escolhas (30 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Bloco 4 — Encerramento",
+          "content": "Colete provas, rascunhos e listas de presença; confirme recibo de entrega e orientações para devolutiva (10 min)."
+        }
       ]
     },
     {
       "type": "cardGrid",
-      "title": "Componentes-chave da prova",
+      "title": "Rubrica oficial NP3",
       "cards": [
         {
-          "title": "Fluxos completos",
-          "content": "Avalia a capacidade de ligar entrada, processamento e saída com estruturas sequenciais, condicionais e iterativas."
+          "title": "Corretude — 40%",
+          "content": "Implementa solução que compila, atende aos requisitos e trata casos de borda (entradas inválidas, limites de loops)."
         },
         {
-          "title": "Coleções",
-          "content": "Questões com vetores, matrizes e structs, explorando percursos, buscas e agregações de dados."
+          "title": "Estrutura e modularização — 25%",
+          "content": "Organiza o código em funções coesas, usa variáveis bem nomeadas e respeita o fluxo proposto no enunciado."
         },
         {
-          "title": "Funções reutilizáveis",
-          "content": "Exige decomposição em funções bem nomeadas, com parâmetros e retorno adequados para reutilização."
+          "title": "Domínio de dados — 20%",
+          "content": "Manipula vetores, matrizes e structs com precisão, mantendo integridade e desempenho aceitável."
         },
         {
-          "title": "Análise crítica",
-          "content": "Inclui identificação de erros lógicos, discussão de complexidade e sugestões de melhoria em códigos fornecidos."
+          "title": "Clareza comunicativa — 15%",
+          "content": "Apresenta comentários breves, justificativas e rascunhos legíveis, apoiando a correção e a rastreabilidade da solução."
         }
       ]
     },
@@ -60,6 +139,10 @@
         {
           "type": "paragraph",
           "text": "Utilize rascunho para mapear as etapas do algoritmo antes de codificar. A clareza na apresentação vale pontos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Sinalize dúvidas levantando a mão; deslocamentos só são autorizados com acompanhamento do fiscal."
         }
       ]
     },
@@ -72,9 +155,9 @@
           "title": "Como a nota é distribuída",
           "items": [
             "Corretude (40%): resultados esperados, tratamento de bordas e validação de entrada.",
-            "Estrutura (30%): uso apropriado de laços, decisões e funções para organizar o algoritmo.",
+            "Estrutura (25%): uso apropriado de laços, decisões e funções para organizar o algoritmo.",
             "Dados (20%): manipulação correta de vetores, matrizes e registros, incluindo índices e inicializações.",
-            "Apresentação (10%): indentação, nomenclatura consistente e explicações concisas quando solicitadas."
+            "Apresentação (15%): indentação, nomenclatura consistente e explicações concisas quando solicitadas."
           ]
         },
         {
@@ -109,15 +192,113 @@
         {
           "type": "paragraph",
           "text": "Prova individual, sem consulta. Entregue todo material de rascunho ao final e mantenha dispositivos desligados."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Chegue com 15 minutos de antecedência para acomodação e conferência de documentos."
+            },
+            {
+              "text": "Durante os blocos 1 e 2, somente perguntas de compreensão do enunciado serão respondidas."
+            },
+            {
+              "text": "Saídas ao banheiro são registradas e realizadas uma pessoa por vez, com supervisão."
+            },
+            {
+              "text": "Assine a lista de presença e o recibo de entrega antes de deixar a sala."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta aula substitui a TED por atividades avaliativas presenciais. Utilize o tempo pós-aula para registrar percepções e organizar as evidências."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Preencha o formulário de percepção pós-avaliação disponível no Moodle até 23h59."
+            },
+            {
+              "text": "Arquive digitalmente a prova escaneada ou registrada conforme orientação institucional."
+            },
+            {
+              "text": "Anote dúvidas específicas para a devolutiva coletiva."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.006Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Ata pedagógica de revisão 2024-12",
+      "Guia operacional de avaliações NP3 2025"
+    ]
   },
   "formatVersion": "md3.lesson.v1",
   "slug": "avaliacao-np3",
@@ -127,20 +308,16 @@
     "Verificar a manipulação correta de vetores, matrizes e registros.",
     "Mensurar a habilidade de decompor problemas complexos com funções."
   ],
-  "competencies": [
-    "Pensamento computacional avançado",
-    "Estruturação e análise de algoritmos",
-    "Modelagem de dados em baixo nível"
-  ],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Selecionar estruturas de controle adequadas a diferentes cenários.",
-    "Implementar operações sobre coleções lineares com eficiência.",
-    "Comunicar soluções completas em pseudocódigo e fluxogramas."
+    "Integrar conteúdos de lógica, estruturas e modularização em avaliação final.",
+    "Aplicar verificação sistemática das respostas durante a NP3.",
+    "Registrar justificativas técnicas para cada solução implementada."
   ],
   "outcomes": [
-    "Resolve questões integradoras que combinam múltiplas estruturas de dados.",
-    "Justifica escolhas algorítmicas considerando corretude e clareza.",
-    "Entrega documentação organizada que facilita a leitura do avaliador."
+    "Entrega avaliação NP3 completa demonstrando domínio dos tópicos do semestre.",
+    "Executa checklist de conferência antes da entrega garantindo cobertura dos requisitos.",
+    "Produz relatório pós-prova destacando raciocínios utilizados e temas a reforçar."
   ],
   "prerequisites": [
     "Todos os conteúdos das Unidades I a V da disciplina.",
@@ -151,14 +328,39 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Roteiro de revisão NP3",
-      "url": "https://example.edu/algi/roteiro-np3",
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Resumo de Algoritmos I (UFRGS)",
+      "url": "https://www.inf.ufrgs.br/~jucimar/algoritmos1/resumo_alg1.pdf",
       "type": "guide"
     },
     {
-      "label": "Checklist de preparação para avaliações integrais",
-      "url": "https://example.edu/algi/checklist-integrador",
+      "label": "Checklist de estudos para provas (IFMG)",
+      "url": "https://www.ifmg.edu.br/sabara/arquivo/pro-reitoria-de-ensino/checklist_de_estudos_para_provas.pdf",
       "type": "checklist"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [

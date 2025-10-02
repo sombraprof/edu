@@ -1,0 +1,250 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-24",
+  "title": "Aula 24: Unidade V – Setup do Firebase para Android",
+  "slug": "setup-firebase-android",
+  "summary": "Guia a preparação do projeto Android para usar Firebase, incluindo configuração do console, integração com Gradle e boas práticas de segurança.",
+  "objective": "Configurar o projeto Android para consumir serviços Firebase com segurança, preparando ambientes e chaves corretamente.",
+  "objectives": [
+    "Criar projeto no Firebase Console e registrar app Android.",
+    "Integrar o arquivo google-services.json com Gradle.",
+    "Configurar módulos necessários (Analytics, Firestore, Auth) de forma incremental.",
+    "Definir ambientes e variáveis seguras para chaves e IDs sensíveis."
+  ],
+  "competencies": [
+    "Configuração de serviços backend",
+    "Gestão de credenciais e ambientes",
+    "Boas práticas de segurança mobile"
+  ],
+  "skills": [
+    "Registrar app Android no Firebase Console.",
+    "Aplicar plugin google-services e dependências no Gradle.",
+    "Organizar flavors ou build variants para separar ambientes.",
+    "Configurar Remote Config e Crashlytics opcionalmente."
+  ],
+  "outcomes": [
+    "Projeto Android conectado ao Firebase com módulos essenciais.",
+    "Checklist de segurança preenchido para uso de chaves.",
+    "Ambientes dev e prod separados com chaves distintas.",
+    "Documentação atualizada sobre setup e permissões."
+  ],
+  "prerequisites": [
+    "Projeto Android funcional com Gradle atualizado.",
+    "Conta no Firebase com permissões administrativas.",
+    "Conhecimento básico de gerenciamento de dependências."
+  ],
+  "tags": ["android", "firebase", "setup", "seguranca"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Firebase Android Setup",
+      "url": "https://firebase.google.com/docs/android/setup",
+      "type": "reference"
+    },
+    {
+      "label": "Add Firebase to your Android project",
+      "url": "https://developer.android.com/studio/write/firebase",
+      "type": "article"
+    },
+    {
+      "label": "Security checklist",
+      "url": "https://firebase.google.com/support/guides/security-checklist",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "GOOGLE. Firebase Documentation. 2024.",
+    "PEREIRA, L. Firebase para Android. Novatec, 2023.",
+    "PONTES, C. Segurança em apps mobile. Casa do Código, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist validando setup, segurança das chaves e documentação dos ambientes."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade V",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=fgdpvwEWJ9M",
+          "title": "Get to know Cloud Firestore",
+          "caption": "Sessão oficial apresentando recursos do Cloud Firestore. Créditos: Firebase (Google, 2020)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX",
+          "title": "Firebase for Android",
+          "caption": "Playlist institucional cobrindo autenticação, Firestore e regras de segurança. Créditos: Firebase (Google, 2024)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Warm-up",
+          "content": "Mitos e verdades sobre Firebase (10 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Configuração no console (20 min).",
+          "content": "Configuração no console (20 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Laboratório",
+          "content": "Integração do google-services.json (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Hands-on",
+          "content": "Estruturando build variants e segurança (35 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "TED",
+          "content": "Checklist de segurança e documentação (10 min)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Warm-up",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "00:05 – Quiz mitos x verdades – Cartões com afirmações sobre Firebase para classificar como mito ou verdade."
+            },
+            {
+              "text": "00:05 – Mapa de serviços – Grupos listam quais serviços pretendem usar no projeto integrador."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos registrar o app no Firebase e configurar ambientes seguros."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Criar projeto Firebase e habilitar Firestore e Authentication.",
+            "Registrar o aplicativo Android informando packageName único.",
+            "Baixar google-services.json e adicionar à pasta app/.",
+            "Aplicar o plugin com.google.gms.google-services no build.gradle (app).",
+            "Adicionar dependências Firebase BOM e módulos necessários.",
+            "Configurar productFlavors dev e prod com applicationIdSuffix e arquivos google-services dedicados."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "error",
+      "title": "Segurança em destaque",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Nunca versionar google-services.json com credenciais reais em repositórios públicos. Configure .gitignore específico e use secrets no CI."
+        },
+        {
+          "type": "paragraph",
+          "text": "Habilite autenticação multifator para administradores no console Firebase antes de publicar o app."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Documento compartilhado com checklist de setup, indicando status de cada etapa (console, google-services, flavors, segurança) e evidências (capturas)."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica de segurança Firebase",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Configuração correta do console e serviços (30%).",
+            "Gestão de credenciais e .gitignore (30%).",
+            "Documentação das variantes e ambientes (25%).",
+            "Políticas de acesso administrativo (15%)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Este trecho demonstra a integração em tempo real discutida em Setup do Firebase para Android, com listeners seguros."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "val db = Firebase.firestore\nval usuarios = db.collection(\"usuarios\")\nusuarios.whereEqualTo(\"ativo\", true)\n    .addSnapshotListener { snapshot, erro ->\n        if (erro != null) {\n            Log.e(\"UnidadeV\", \"Erro ao consultar Setup do Firebase para Android\", erro)\n            return@addSnapshotListener\n        }\n        val ativos = snapshot?.documents?.size ?: 0\n        Log.d(\"UnidadeV\", \"Usuários ativos: $ativos\")\n    }\n// Referência: GOOGLE (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Garanta que os logs e regras sigam as orientações de GOOGLE (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "GOOGLE. Firebase Documentation. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise Setup do Firebase para Android conectando os artefatos do projeto às boas práticas de segurança do Firebase."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: GOOGLE. Firebase Documentation. 2024.",
+            "Conecte com o estudo: PEREIRA, L. Firebase para Android. Novatec, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Modele um cenário de sincronização offline e valide como o Firestore responde às perdas de conexão."
+        },
+        {
+          "type": "blockquote",
+          "text": "PEREIRA, L. Firebase para Android. Novatec, 2023."
+        }
+      ]
+    }
+  ]
+}

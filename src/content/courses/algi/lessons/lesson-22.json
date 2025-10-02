@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-22",
-  "title": "Aula 22: Integrando Laços e Condicionais",
+  "title": "Integrando Laços e Condicionais",
   "summary": "Integra estruturas de repetição com decisões complexas para tratar fluxos completos de processamento.",
+  "description": "Integra validação, processamento iterativo e relatórios usando laços combinados com condicionais.",
   "objective": "Construir rotinas robustas que combinem laços e condicionais com validação e relatórios de execução.",
   "objectives": [
     "Mapear pontos de decisão dentro e fora de laços.",
     "Implementar validações de entrada antes de iniciar ciclos.",
     "Gerar relatórios consolidados ao final do processamento."
   ],
-  "competencies": ["Arquitetura de algoritmos", "Qualidade de software", "Comunicação técnica"],
+  "competencies": ["02", "05"],
   "skills": [
-    "Aplicar condicionais múltiplas dentro de laços sem perder legibilidade.",
-    "Prevenir estados inconsistentes ao combinar fluxos.",
-    "Registrar métricas e mensagens significativas para o usuário."
+    "Combinar condicionais e laços para construir fluxos completos de processamento.",
+    "Monitorar estados intermediários usando logs ou tabelas de acompanhamento.",
+    "Comparar soluções alternativas avaliando clareza e esforço de manutenção."
   ],
   "outcomes": [
-    "Entrega algoritmos que integram validação, processamento e resumo final.",
-    "Apresenta relatório com métricas coletadas durante a execução.",
-    "Argumenta sobre as escolhas de estrutura e suas vantagens."
+    "Entrega protótipo que integra decisões e repetições com resultados consistentes.",
+    "Apresenta tabela de estados registrando variáveis críticas ao longo da execução.",
+    "Disponibiliza análise escrita justificando a arquitetura final escolhida."
   ],
   "prerequisites": ["Dominar for/while/do-while.", "Conhecer if/else if/else e switch."],
   "tags": ["loops", "condicionais", "integracao"],
@@ -26,15 +27,29 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia de integração laços + condicionais",
-      "type": "reading",
-      "file": "courses/algi/loops-condicionais-integracao.md",
-      "url": "https://static.md3.education/courses/algi/loops-condicionais-integracao.md"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Planilha de métricas (Google Sheets)",
-      "url": "https://docs.google.com/spreadsheets/d/1metrics-template",
-      "type": "template"
+      "label": "Guia: Como escrever um project brief (Atlassian)",
+      "type": "article",
+      "url": "https://www.atlassian.com/br/agile/project-management/project-brief"
+    },
+    {
+      "label": "Planilha de métricas de execução",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIMetricasLoops"
+    },
+    {
+      "label": "Guia: Como escrever relatórios técnicos (UFSC)",
+      "type": "handout",
+      "url": "https://www.inf.ufsc.br/~visonho/ComoEscreverRelatorios.pdf"
+    },
+    {
+      "label": "Vídeo: Integrando menus e laços",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=G4q1WmtiSPQ"
     }
   ],
   "bibliography": [
@@ -46,6 +61,31 @@
     "description": "Entrega de rotina de processamento de pedidos com relatório de métricas e justificativa técnica."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Integrando Laços e Condicionais. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 22."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -68,30 +108,114 @@
       ]
     },
     {
-      "type": "flightPlan",
-      "title": "Plano de voo (2h00)",
-      "items": [
-        "(15 min) Revisão do ciclo completo de processamento.",
-        "(20 min) Workshop: validar entrada antes do laço.",
-        "(30 min) Coding dojo: processamento de pedidos com regras condicionais.",
-        "(20 min) Laboratório em trios: tratamento de exceções e logs.",
-        "(15 min) Construção do relatório de métricas.",
-        "(10 min) Pausa ativa e dúvidas rápidas.",
-        "(10 min) Socialização das soluções.",
-        "(10 min) Briefing da tarefa avaliativa."
+      "type": "contentBlock",
+      "title": "Pipeline da integração",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Etapas para combinar laços e condicionais em um mini-sistema."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Validação do briefing | Entender requisitos, entradas e saídas. | Responsáveis: Squad | Duração: 1.5h | Atividades: Ler briefing; Registrar riscos | Entregáveis: Canvas de requisitos | Riscos: Requisitos ambíguos (Validar com professor.) | Checkpoints: Briefing validado"
+            },
+            {
+              "text": "Dojo guiado | Implementar esqueleto com apoio do professor. | Responsáveis: Squad | Duração: 2h | Atividades: Configurar projeto; Criar rotinas base | Entregáveis: Commit inicial | Riscos: Divergência de abordagem (Seguir padrão definido no dojo.) | Checkpoints: Commit compartilhado"
+            },
+            {
+              "text": "Laboratório e relatório | Refinar funcionalidades e documentar métricas. | Responsáveis: Dupla | Duração: 3h | Atividades: Refinar funcionalidades; Escrever relatório | Entregáveis: Código final; Relatório técnico | Riscos: Atraso na documentação (Reservar 1h exclusiva para o relatório.) | Checkpoints: Logs revisados, Relatório submetido"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "videosBlock",
-      "title": "Referências em vídeo",
-      "videos": [
+      "type": "callout",
+      "variant": "warning",
+      "title": "Entrega obrigatória no portfólio",
+      "content": [
         {
-          "youtubeId": "l1dwYQz9g7E",
-          "title": "Pipelines de processamento com C"
+          "type": "paragraph",
+          "text": "Submeta código, relatório e métricas no AVA na tarefa 'Integração de laços e condicionais'."
         },
         {
-          "youtubeId": "vCsjG8xqQng",
-          "title": "Validação de dados em laços"
+          "type": "list",
+          "items": [
+            {
+              "text": "Inclua link do repositório e PDF do relatório."
+            },
+            {
+              "text": "Faça upload da planilha de métricas preenchida."
+            },
+            {
+              "text": "Descreva no texto do envio quais logs foram coletados."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo (2h00)",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Revisão do ciclo completo de processamento."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Workshop",
+          "content": "validar entrada antes do laço."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Coding dojo",
+          "content": "processamento de pedidos com regras condicionais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Laboratório em trios",
+          "content": "tratamento de exceções e logs."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Construção do relatório de métricas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Pausa ativa e dúvidas rápidas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Socialização das soluções."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Briefing da tarefa avaliativa."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Referências em vídeo",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Pipelines de processamento com C – https://www.youtube.com/watch?v=l1dwYQz9g7E"
+            },
+            {
+              "text": "Validação de dados em laços – https://www.youtube.com/watch?v=vCsjG8xqQng"
+            }
+          ]
         }
       ]
     },
@@ -113,28 +237,39 @@
       ]
     },
     {
-      "type": "cardGrid",
+      "type": "representations",
       "title": "Regras condicionais prioritárias",
-      "cards": [
+      "items": [
         {
           "title": "Casos críticos",
-          "content": "Tratam prioridade absoluta (ex.: estoque zerado → alerta)."
+          "content": "Tratam prioridade absoluta (ex.: estoque zerado → alerta).",
+          "language": "plaintext",
+          "code": "Tratam prioridade absoluta (ex.: estoque zerado → alerta)."
         },
         {
           "title": "Casos prioritários",
-          "content": "Aplicam descontos, filas preferenciais, mensagens personalizadas."
+          "content": "Aplicam descontos, filas preferenciais, mensagens personalizadas.",
+          "language": "plaintext",
+          "code": "Aplicam descontos, filas preferenciais, mensagens personalizadas."
         },
         {
           "title": "Casos padrão",
-          "content": "Processamento nominal com logs básicos."
+          "content": "Processamento nominal com logs básicos.",
+          "language": "plaintext",
+          "code": "Processamento nominal com logs básicos."
         }
       ]
     },
     {
-      "type": "code",
-      "language": "c",
+      "type": "contentBlock",
       "title": "Integração completa",
-      "code": "int totalPedidos = 0, atrasados = 0;\nint quantidade;\nprintf(\"Quantos pedidos serão processados? \");\nscanf(\"%d\", &quantidade);\nif (quantidade <= 0) {\n  printf(\"Nada a processar.\\n\");\n  return 0;\n}\nfor (int i = 0; i < quantidade; i++) {\n  Pedido pedido = lerPedido();\n  if (!pedido.valido) {\n    printf(\"Pedido %d inválido.\\n\", i + 1);\n    continue;\n  }\n  if (pedido.prioridade == ALTA) {\n    trataPrioritario(pedido);\n  } else if (pedido.atrasado) {\n    atrasados++;\n    trataAtrasado(pedido);\n  } else {\n    trataNormal(pedido);\n  }\n  totalPedidos++;\n}\nprintf(\"Processados: %d | Atrasados: %d\\n\", totalPedidos, atrasados);\n"
+      "content": [
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "int totalPedidos = 0, atrasados = 0;\nint quantidade;\nprintf(\"Quantos pedidos serão processados? \");\nscanf(\"%d\", &quantidade);\nif (quantidade <= 0) {\n  printf(\"Nada a processar.\\n\");\n  return 0;\n}\nfor (int i = 0; i < quantidade; i++) {\n  Pedido pedido = lerPedido();\n  if (!pedido.valido) {\n    printf(\"Pedido %d inválido.\\n\", i + 1);\n    continue;\n  }\n  if (pedido.prioridade == ALTA) {\n    trataPrioritario(pedido);\n  } else if (pedido.atrasado) {\n    atrasados++;\n    trataAtrasado(pedido);\n  } else {\n    trataNormal(pedido);\n  }\n  totalPedidos++;\n}\nprintf(\"Processados: %d | Atrasados: %d\\n\", totalPedidos, atrasados);\n"
+        }
+      ]
     },
     {
       "type": "checklist",
@@ -144,11 +279,214 @@
         "Documentei cada regra condicional com comentários claros.",
         "Registrei métricas e gerei resumo final com mensagens amigáveis."
       ]
+    },
+    {
+      "type": "representations",
+      "title": "Checklist de logs",
+      "items": [
+        {
+          "title": "Entradas",
+          "content": "Registre valores recebidos e validações aplicadas.",
+          "language": "plaintext",
+          "code": "Registre valores recebidos e validações aplicadas."
+        },
+        {
+          "title": "Decisões",
+          "content": "Anote quando condicionais direcionam para caminhos distintos.",
+          "language": "plaintext",
+          "code": "Anote quando condicionais direcionam para caminhos distintos."
+        },
+        {
+          "title": "Iterações",
+          "content": "Logue quantas vezes cada laço executou.",
+          "language": "plaintext",
+          "code": "Logue quantas vezes cada laço executou."
+        },
+        {
+          "title": "Erros",
+          "content": "Documente exceções e como foram tratadas.",
+          "language": "plaintext",
+          "code": "Documente exceções e como foram tratadas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Entrega Aula 22 – Portfólio",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie até 23h59: repositório atualizado, relatório técnico e planilha de métricas."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Link do repositório com README atualizado."
+            },
+            {
+              "text": "Relatório 'A22_portfolio.pdf' seguindo o template."
+            },
+            {
+              "text": "Planilha 'Metricas_A22.xlsx' com logs consolidados."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação Aula 22",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Integração correta de laços e condicionais (35%)."
+            },
+            {
+              "text": "Documentação de logs e métricas (30%)."
+            },
+            {
+              "text": "Relatório técnico com análise crítica (25%)."
+            },
+            {
+              "text": "Organização do repositório e comunicação (10%)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Mini-pipeline do exercício integrador",
+      "stages": [
+        {
+          "id": "req",
+          "title": "Requisitos",
+          "activities": [
+            {
+              "id": "a1",
+              "label": "Ler enunciado"
+            }
+          ],
+          "owners": ["Dupla"],
+          "checkpoints": ["Esboço"]
+        },
+        {
+          "id": "impl",
+          "title": "Implementação",
+          "activities": [
+            {
+              "id": "a2",
+              "label": "Codar"
+            }
+          ],
+          "owners": ["Dupla"],
+          "checkpoints": ["Teste"]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregar no AVA até 23h59 do dia seguinte."
+        },
+        {
+          "type": "list",
+          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-04T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.986Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": [
       "Plano pedagógico Algoritmos I 2025.1",

@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-33",
-  "title": "Aula 33: Matrizes 2D e Geração de Tabelas",
+  "title": "Matrizes 2D e Geração de Tabelas",
   "summary": "Apresenta matrizes bidimensionais em C para organizar dados tabulares e gerar relatórios estruturados.",
+  "description": "Introduz matrizes 2D, loops aninhados e geração de tabelas formatadas com dados de presença.",
   "objective": "Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar tabelas formatadas.",
   "objectives": [
     "Declarar matrizes estáticas e inicializá-las com dados reais.",
     "Percorrer linhas e colunas utilizando loops aninhados.",
     "Gerar tabelas formatadas a partir de matrizes."
   ],
-  "competencies": ["Modelagem de dados", "Comunicação técnica"],
+  "competencies": ["05", "11"],
   "skills": [
-    "Planejar percursos linha-coluna com controle de índices.",
-    "Aplicar formatação alinhada com printf para dados tabulares.",
-    "Interpretar matrizes como coleções de vetores."
+    "Mapear dados tabulares para estruturas de matrizes em C.",
+    "Construir laços aninhados que preencham e apresentem tabelas formatadas.",
+    "Explicar resultados obtidos conectando-os ao problema de negócio proposto."
   ],
   "outcomes": [
-    "Implementa programa que imprime tabela de presença a partir de matriz 2D.",
-    "Desenha fluxograma MD3 com loops aninhados.",
-    "Documenta estratégias de testes para percorrer matrizes."
+    "Entrega programa que gera matriz 2D com cabeçalhos e alinhamento adequado.",
+    "Registra checklist de validação garantindo preenchimento correto por linha e coluna.",
+    "Realiza apresentação breve relacionando a tabela gerada com decisões possíveis no cenário estudado."
   ],
   "prerequisites": [
     "Domínio de vetores e loops (Aulas 30-31).",
@@ -28,6 +29,11 @@
   "duration": 115,
   "modality": "in-person",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Dataset de presença em laboratório (CSV)",
       "type": "dataset",
@@ -43,6 +49,26 @@
       "label": "Khan Academy - Matriz como tabela",
       "type": "course",
       "url": "https://pt.khanacademy.org/math/precalculus/precalc-matrices/introduction-to-matrices/a/introduction-to-matrices"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -50,6 +76,31 @@
     "ZIVIANI, N. Projetos de Algoritmos em C. Cengage, 2021."
   ],
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Matrizes 2D e Geração de Tabelas. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 33."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Percurso da aula",
@@ -82,56 +133,144 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h55)",
-      "items": [
-        "(10 min) Warm-up com quiz sobre índices.",
-        "(20 min) Aula expositiva com slides e md3Table de sintaxe.",
-        "(25 min) Demonstração de loops aninhados em C.",
-        "(30 min) Oficina: gerar tabela de presença a partir do CSV.",
-        "(20 min) Revisão de código em duplas.",
-        "(10 min) Orientação da prática pós-aula."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Warm-up com quiz sobre índices."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Aula expositiva com slides e md3Table de sintaxe."
+        },
+        {
+          "icon": "check-circle",
+          "title": "25 min",
+          "content": "Demonstração de loops aninhados em C."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Oficina",
+          "content": "gerar tabela de presença a partir do CSV."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Revisão de código em duplas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Orientação da prática pós-aula."
+        }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "contentBlock",
       "title": "Sintaxe de matrizes em C",
-      "headers": ["Elemento", "Exemplo", "Descrição"],
-      "rows": [
-        ["Declaração", "int matriz[3][4];", "3 linhas, 4 colunas não inicializadas."],
-        ["Inicialização", "int notas[2][3] = {{7,8,9},{6,5,10}};", "Valores linha a linha."],
-        ["Acesso", "matriz[i][j]", "Primeiro índice = linha, segundo = coluna."],
-        ["Percurso", "for (i) for (j)", "Loops aninhados para percorrer todos os elementos."],
-        ["Constante de coluna", "#define COL 4", "Facilita manutenção de dimensões."]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Elemento: Declaração | Exemplo: int matriz[3][4]; | Descrição: 3 linhas, 4 colunas não inicializadas."
+            },
+            {
+              "text": "Elemento: Inicialização | Exemplo: int notas[2][3] = {{7,8,9},{6,5,10}}; | Descrição: Valores linha a linha."
+            },
+            {
+              "text": "Elemento: Acesso | Exemplo: matriz[i][j] | Descrição: Primeiro índice = linha, segundo = coluna."
+            },
+            {
+              "text": "Elemento: Percurso | Exemplo: for (i) for (j) | Descrição: Loops aninhados para percorrer todos os elementos."
+            },
+            {
+              "text": "Elemento: Constante de coluna | Exemplo: #define COL 4 | Descrição: Facilita manutenção de dimensões."
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "md3Flowchart",
+      "type": "contentBlock",
       "title": "Fluxograma de impressão da matriz",
-      "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "initI", "type": "process", "label": "i = 0" },
-        { "id": "loopI", "type": "loop", "label": "Enquanto i < linhas" },
-        { "id": "initJ", "type": "process", "label": "j = 0" },
-        { "id": "loopJ", "type": "loop", "label": "Enquanto j < colunas" },
-        { "id": "print", "type": "process", "label": "Imprimir matriz[i][j]" },
-        { "id": "incJ", "type": "process", "label": "j++" },
-        { "id": "newline", "type": "process", "label": "Imprimir \n" },
-        { "id": "incI", "type": "process", "label": "i++" },
-        { "id": "end", "type": "end", "label": "Fim" }
-      ],
-      "edges": [
-        ["start", "initI"],
-        ["initI", "loopI"],
-        ["loopI", "initJ"],
-        ["initJ", "loopJ"],
-        ["loopJ", "print"],
-        ["print", "incJ"],
-        ["incJ", "loopJ"],
-        ["loopJ", "newline", "fim"],
-        ["newline", "incI"],
-        ["incI", "loopI"],
-        ["loopI", "end", "fim"]
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "i = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto i < linhas – tipo: loop"
+            },
+            {
+              "text": "j = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto j < colunas – tipo: loop"
+            },
+            {
+              "text": "Imprimir matriz[i][j] – tipo: process"
+            },
+            {
+              "text": "j++ – tipo: process"
+            },
+            {
+              "text": "Imprimir – tipo: process"
+            },
+            {
+              "text": "i++ – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → initI"
+            },
+            {
+              "text": "initI → loopI"
+            },
+            {
+              "text": "loopI → initJ"
+            },
+            {
+              "text": "initJ → loopJ"
+            },
+            {
+              "text": "loopJ → print"
+            },
+            {
+              "text": "print → incJ"
+            },
+            {
+              "text": "incJ → loopJ"
+            },
+            {
+              "text": "loopJ → newline – fim"
+            },
+            {
+              "text": "newline → incI"
+            },
+            {
+              "text": "incI → loopI"
+            },
+            {
+              "text": "loopI → end – fim"
+            }
+          ]
+        }
       ]
     },
     {
@@ -145,19 +284,34 @@
         {
           "type": "orderedList",
           "items": [
-            { "text": "Importar os dados e armazenar em matriz int[6][4]." },
-            { "text": "Calcular total de presenças por estudante e por encontro." },
-            { "text": "Imprimir tabela com cabeçalhos e totais usando printf alinhado." }
+            {
+              "text": "Importar os dados e armazenar em matriz int[6][4]."
+            },
+            {
+              "text": "Calcular total de presenças por estudante e por encontro."
+            },
+            {
+              "text": "Imprimir tabela com cabeçalhos e totais usando printf alinhado."
+            }
           ]
         }
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
       "title": "Para continuar estudando",
-      "videos": [
-        { "youtubeId": "Q0qkBhe-Z4w", "title": "CS50 2023 - Arrays (trecho de matrizes)" },
-        { "youtubeId": "0oGJTQCy4cQ", "title": "Khan Academy - Introdução a matrizes" }
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 2023 - Arrays (trecho de matrizes) – https://www.youtube.com/watch?v=Q0qkBhe-Z4w"
+            },
+            {
+              "text": "Khan Academy - Introdução a matrizes – https://www.youtube.com/watch?v=0oGJTQCy4cQ"
+            }
+          ]
+        }
       ]
     },
     {
@@ -174,11 +328,150 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 33' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Submeta aula33_matrizes.c formatando relatórios 3x3 e 4x4 com alinhamento adequado."
+            },
+            {
+              "text": "Envie captura do console e planilha com dados de teste utilizados."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "headers": ["i", "j", "v[i][j]"],
+      "rows": [
+        [
+          {
+            "value": "0"
+          },
+          {
+            "value": "0"
+          },
+          {
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "value": "0"
+          },
+          {
+            "value": "1"
+          },
+          {
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Matriz 2x2\n[[1,2],[3,4]] -> imprime em tabela",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-13T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.002Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Checklist de laboratório 2D Arrays"]
   }

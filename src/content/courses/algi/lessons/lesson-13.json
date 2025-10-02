@@ -5,20 +5,20 @@
   "summary": "Combina operadores lógicos e cadeias else if para tratar cenários complexos sem deixar lacunas ou sobreposições.",
   "objective": "Aplicar &&, || e ! em cadeias de decisão planejadas que cobrem todas as regras do problema.",
   "objectives": [
-    "Planejar expressões booleanas que representem faixas e combinações de critérios.",
-    "Encadear if, else if e else garantindo que apenas um ramo execute por vez.",
-    "Registrar testes que validem limites, exceções e casos negativos antes da implementação."
+    "Compor expressões lógicas combinando operadores relacionais e lógicos.",
+    "Planejar cadeias else if para atender múltiplos cenários de decisão.",
+    "Avaliar a legibilidade de condições compostas em algoritmos em C."
   ],
-  "competencies": ["Raciocínio algorítmico", "Resolução de problemas", "Pensamento crítico"],
+  "competencies": ["02", "05", "08"],
   "skills": [
-    "Combinar operadores relacionais e lógicos em expressões equivalentes.",
-    "Selecionar a ordem correta das condições em cadeias else if.",
-    "Interpretar tabelas verdade para depurar decisões compostas."
+    "Traduzir requisitos complexos em expressões booleanas utilizando operadores compostos.",
+    "Executar testes de mesa para detectar lacunas ou sobreposições em cadeias de decisão.",
+    "Refatorar condições com curto-circuito visando clareza e desempenho."
   ],
   "outcomes": [
-    "Entrega um programa que valida múltiplos critérios sem aceitar entradas inválidas.",
-    "Justifica a ordem das condições e documenta os intervalos cobertos.",
-    "Apresenta planilha de testes com limites mínimo, máximo e casos excepcionais."
+    "Disponibiliza conjunto de casos de teste que evidenciam cobertura completa do problema.",
+    "Entrega código revisado com operadores lógicos apropriados e comentários sobre riscos mitigados.",
+    "Apresenta relatório comparando a versão inicial e a refatorada, destacando ganhos observados."
   ],
   "prerequisites": ["Revisar if/else, switch-case e cadeias else if das aulas 10-12."],
   "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
@@ -26,19 +26,29 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia rápido de operadores lógicos",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/operadores-logicos.pdf"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Planilha para mapa de testes",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/testes-condicionais.xlsx"
+      "label": "Referência: Operadores lógicos em C (Programiz)",
+      "type": "article",
+      "url": "https://www.programiz.com/c-programming/c-operators#logical"
     },
     {
-      "label": "Compilador OnlineGDB",
+      "label": "Planilha colaborativa de combinações",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGICombosLogicos"
+    },
+    {
+      "label": "Projeto OnlineGDB – Condições compostas",
       "type": "tool",
-      "url": "https://www.onlinegdb.com/online_c_compiler"
+      "url": "https://onlinegdb.com/H1CondicoesCompostas"
+    },
+    {
+      "label": "Playlist Condicionais avançadas",
+      "type": "playlist",
+      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dm6wYOIwxbG5C0s6ydQIJe7"
     }
   ],
   "bibliography": [
@@ -51,6 +61,31 @@
     "description": "Implementação de um validador de acesso com relatório de testes que justifique cada combinação lógica."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Condições compostas e encadeadas. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 13."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
@@ -78,6 +113,7 @@
       "items": [
         "(10 min) Aquecimento: revisão das cadeias else if e diagnóstico de dúvidas da NP1.",
         "(20 min) Operadores &&, || e ! aplicados a intervalos e exclusões.",
+        "(15 min) Construção colaborativa da tabela verdade do caso de acesso.",
         "(25 min) Estudo guiado: validador de benefícios com múltiplos critérios.",
         "(25 min) Oficina em duplas para mapear cenários e implementar cadeias.",
         "(20 min) Revisão coletiva dos testes criados pelas duplas.",
@@ -200,6 +236,31 @@
         {
           "label": "Condição falsa",
           "state": "false"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Justificativa obrigatória no Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "No envio do TED, registre no campo de comentários a lógica adotada e explique como a tabela verdade comprova cada decisão."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Aponte qual combinação de sinais concede acesso."
+            },
+            {
+              "text": "Descreva o cenário que resulta em bloqueio."
+            },
+            {
+              "text": "Explique como tratou exceções ou casos especiais."
+            }
+          ]
         }
       ]
     },
@@ -437,20 +498,6 @@
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Tarefa (TED)",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Implemente aula13_validacao_login.c lendo usuarioAtivo (0/1), tentativas e bloqueado (0/1)."
-        },
-        {
-          "type": "paragraph",
-          "text": "Permita acesso apenas se usuarioAtivo == 1, tentativas < 3 e !bloqueado. Registre os testes utilizados na entrega."
-        }
-      ]
-    },
-    {
       "type": "videos",
       "title": "Vídeos de apoio",
       "videos": [
@@ -472,11 +519,143 @@
         "Organizar cadeias else if sem sobrepor faixas ou deixar lacunas.",
         "Documentar testes cobrindo limites e exceções das regras compostas."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED 13 – Relatório de validação lógica",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Submeta até 23h59 do dia seguinte: código em C, planilha de combinações preenchida e relatório em PDF (1 página) com análise dos casos limites."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Arquivo aula13_validacao.c com condições compostas."
+            },
+            {
+              "text": "Planilha 'Mapa_Combos.xlsx' exportada ou linkada."
+            },
+            {
+              "text": "Relatório 'TED13_relatorio.pdf' seguindo o template fornecido."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 13",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Expressões lógicas corretas e sem redundâncias (35%)."
+            },
+            {
+              "text": "Cobertura dos cenários na tabela verdade e planilha (30%)."
+            },
+            {
+              "text": "Relatório com justificativa textual clara (25%)."
+            },
+            {
+              "text": "Organização dos arquivos e envio no prazo (10%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Submissões sem justificativa textual no Moodle serão devolvidas para revisão."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Entrada → Saída\nidade=18, media=9.0 -> Aprovado com Mérito\nidade=17, media=8.0 -> Aprovado\nidade=20, media=3.5 -> Reprovado",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.977Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

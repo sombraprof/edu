@@ -1,7 +1,9 @@
 <script lang="ts">
 export const meta = {
   id: 'lesson-15',
-  title: 'Aula 40: Avaliação Final – NP3',
+  title: 'Aula 15: Tipos de Sistemas Empresariais',
+  objective:
+    'Analisar classificações de sistemas empresariais e relacioná-las a necessidades organizacionais.',
   available: true,
 };
 </script>

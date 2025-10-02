@@ -4,6 +4,31 @@
   "objective": "Avaliar a capacidade de aplicar if/else encadeados, operadores lógicos e estruturas de repetição (while, for, do-while), bem como a modularização com funções (parâmetros, retorno e boas práticas de escopo/protótipos) em problemas práticos de pequena escala.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Avaliação NP2. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 29."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da avaliação",
       "items": [
@@ -104,11 +129,103 @@
           "text": "Avaliação individual, sem consulta. Mantenha dispositivos desligados e entregue qualquer rascunho anexado à prova ao final."
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta aula substitui a TED por atividades avaliativas presenciais. Utilize o tempo pós-aula para registrar percepções e organizar as evidências."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Preencha o formulário de percepção pós-avaliação disponível no Moodle até 23h59."
+            },
+            {
+              "text": "Arquive digitalmente a prova escaneada ou registrada conforme orientação institucional."
+            },
+            {
+              "text": "Anote dúvidas específicas para a devolutiva coletiva."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.995Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   },
@@ -120,20 +237,16 @@
     "Combinar laços de repetição com contadores e acumuladores.",
     "Modularizar soluções com funções reutilizáveis e parâmetros bem definidos."
   ],
-  "competencies": [
-    "Raciocínio lógico aplicado",
-    "Construção de algoritmos estruturados",
-    "Modularização e reutilização de código"
-  ],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Traduzir requisitos de problemas em fluxos condicionais claros.",
-    "Projetar loops eficientes com validação de entrada.",
-    "Especificar funções com assinaturas e retornos adequados."
+    "Gerenciar tempo de avaliação aplicando estratégias para problemas longos.",
+    "Resolver questões integrando condicionais, laços e modularização.",
+    "Documentar raciocínio das respostas justificando escolhas algorítmicas."
   ],
   "outcomes": [
-    "Resolve problemas avaliativos que combinam estruturas condicionais e laços.",
-    "Demonstra domínio da comunicação de algoritmos em pseudocódigo ou fluxograma.",
-    "Entrega soluções funcionais que respeitam critérios de modularização."
+    "Entrega avaliação NP2 completa dentro do tempo estipulado.",
+    "Registra checagem final garantindo que cada programa atende aos requisitos informados.",
+    "Anota lições aprendidas e tópicos para estudo complementar após a prova."
   ],
   "prerequisites": [
     "Estruturas condicionais com if/else.",
@@ -145,14 +258,39 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia de estudos NP2",
-      "url": "https://example.edu/algi/guia-np2",
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Guia: Revisão de lógica de programação (DevMedia)",
+      "url": "https://www.devmedia.com.br/guia/logica-de-programacao/38324",
       "type": "guide"
     },
     {
-      "label": "Rubrica de avaliação de algoritmos",
-      "url": "https://example.edu/algi/rubrica-np",
+      "label": "Rubrica de lógica de programação (UFSM)",
+      "url": "https://www.ufsm.br/app/uploads/sites/346/2019/06/Rubrica_Logica_de_Programacao.pdf",
       "type": "rubric"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [

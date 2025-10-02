@@ -1,0 +1,394 @@
+{
+  "id": "lesson-36",
+  "title": "Aula 36: Transformação Digital e Tendências Emergentes",
+  "objective": "Explorar tendências tecnológicas e seu impacto no planejamento estratégico de SI.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "calendar-days",
+          "title": "Contexto",
+          "content": "Panorama de tendências 2025-2028 alinhado às prioridades do PESI (15 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Dinâmica",
+          "content": "Squads analisam impactos de cada tendência por domínio de negócio (30 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Laboratório",
+          "content": "Construção colaborativa do radar tecnológico com critérios de priorização (35 min)."
+        },
+        {
+          "icon": "target",
+          "title": "Aplicação",
+          "content": "Desenho de pipeline de experimentação e salvaguardas de risco (20 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Orientações sobre entregáveis, checklist e submissão (10 min)."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Macro tendências 2025-2028",
+      "items": [
+        {
+          "title": "Plataformas de dados confiáveis",
+          "content": "Zero trust, governança automatizada e mesh de dados.",
+          "language": "plaintext",
+          "code": "Zero trust, governança automatizada e mesh de dados."
+        },
+        {
+          "title": "IA generativa aplicada",
+          "content": "Automação de decisões, copilotos e interfaces conversacionais.",
+          "language": "plaintext",
+          "code": "Automação de decisões, copilotos e interfaces conversacionais."
+        },
+        {
+          "title": "Experiências imersivas",
+          "content": "Metaverso corporativo, realidade aumentada em operações.",
+          "language": "plaintext",
+          "code": "Metaverso corporativo, realidade aumentada em operações."
+        },
+        {
+          "title": "Sustentabilidade digital",
+          "content": "Green IT, medição de carbono e circularidade de hardware.",
+          "language": "plaintext",
+          "code": "Green IT, medição de carbono e circularidade de hardware."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de avaliação de tendência",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "Consolidar sinais e drivers – tipo: process"
+            },
+            {
+              "text": "Aderência ao PESI? – tipo: decision"
+            },
+            {
+              "text": "Classificar impacto × esforço – tipo: process"
+            },
+            {
+              "text": "Risco crítico identificado? – tipo: decision"
+            },
+            {
+              "text": "Definir salvaguardas e owners – tipo: process"
+            },
+            {
+              "text": "Inserir na esteira de experimentos – tipo: process"
+            },
+            {
+              "text": "Apresentar ao comitê – tipo: process"
+            },
+            {
+              "text": "Decisão – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → scan"
+            },
+            {
+              "text": "scan → fit"
+            },
+            {
+              "text": "fit → priorizar – sim"
+            },
+            {
+              "text": "fit → end – não"
+            },
+            {
+              "text": "priorizar → risco"
+            },
+            {
+              "text": "risco → mitigar – sim"
+            },
+            {
+              "text": "risco → pipeline – não"
+            },
+            {
+              "text": "mitigar → pipeline"
+            },
+            {
+              "text": "pipeline → forum"
+            },
+            {
+              "text": "forum → end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Radar tecnológico",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Tendência: IA generativa | Horizonte: 0-18 meses | Oportunidades: Automação de atendimento, suporte a desenvolvedores | Riscos: Viés algorítmico, segurança de dados"
+            },
+            {
+              "text": "Tendência: Digital twin de operações | Horizonte: 18-36 meses | Oportunidades: Otimização de ativos físicos, simulação | Riscos: Investimento alto, integração complexa"
+            },
+            {
+              "text": "Tendência: Realidade aumentada | Horizonte: 18-36 meses | Oportunidades: Treinamento imersivo, manutenção remota | Riscos: Adoção cultural, devices"
+            },
+            {
+              "text": "Tendência: Computação quântica | Horizonte: 36-60 meses | Oportunidades: Criptografia pós-quântica, novas capacidades analíticas | Riscos: Imaturidade tecnológica, custos"
+            },
+            {
+              "text": "Tendência: Green cloud | Horizonte: 0-24 meses | Oportunidades: Redução de carbono, compliance ESG | Riscos: Necessidade de métricas confiáveis"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Pipeline de experimentação de tendências",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Sequência para transformar sinais em iniciativas priorizadas."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Scouting | Monitorar relatórios, startups e benchmarks. | Responsáveis: Analista de inovação | Duração: 8h | Atividades: Scan mensal; Catalogar sinais | Entregáveis: Catálogo de sinais priorizados | Riscos: Excesso de fontes (Definir curadoria trimestral.) | Checkpoints: Painel de sinais atualizado"
+            },
+            {
+              "text": "Experimentação | Testar hipótese com prova de conceito controlada. | Responsáveis: Product manager, Tech lead | Duração: 24h | Atividades: Prova de conceito; Plano de testes | Entregáveis: Script automatizado; Relatório de testes | Riscos: Exposição de dados (Aplicar mascaramento e controles de auditoria.) | Checkpoints: Critérios de sucesso mensurados"
+            },
+            {
+              "text": "Decisão | Apresentar resultado ao comitê e atualizar roadmap. | Responsáveis: Comitê de inovação | Duração: 6h | Atividades: Fórum executivo; Atualizar roadmap | Entregáveis: Ata com deliberação | Riscos: Falta de patrocínio (Engajar sponsors nas etapas anteriores.) | Checkpoints: Roadmap atualizado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Ecossistema de inovação",
+      "summary": "Relaciona atores e fluxos necessários para incorporar tendências ao PESI.",
+      "factors": [
+        {
+          "id": "labs",
+          "name": "Laboratórios internos",
+          "summary": "Equipes de pesquisa aplicada",
+          "kind": "capability",
+          "indicators": ["provas_conceito"]
+        },
+        {
+          "id": "partners",
+          "name": "Parceiros externos",
+          "summary": "Startups, universidades",
+          "kind": "external",
+          "indicators": ["parcerias_ativas"]
+        },
+        {
+          "id": "governanca",
+          "name": "Governança de inovação",
+          "summary": "Comitês, funding",
+          "kind": "constraint",
+          "indicators": ["budget_inovacao"]
+        },
+        {
+          "id": "negocio",
+          "name": "Áreas de negócio",
+          "summary": "Patrocínio e pilotos",
+          "kind": "flow",
+          "indicators": ["pilotos_negocio"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "labs",
+          "to": "partners",
+          "description": "Labs conectam pesquisas a parceiros especializados."
+        },
+        {
+          "from": "partners",
+          "to": "negocio",
+          "description": "Parcerias aceleram pilotos em áreas de negócio."
+        },
+        {
+          "from": "governanca",
+          "to": "labs",
+          "description": "Governança define critérios e orçamento dos experimentos."
+        },
+        {
+          "from": "negocio",
+          "to": "governanca",
+          "description": "Resultados dos pilotos influenciam priorização futura."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Trilha de maturidade digital",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Fase 1 – Explorar tendências com pilotos controlados e métricas claras."
+            },
+            {
+              "text": "Fase 2 – Escalar soluções com arquitetura modular e governança."
+            },
+            {
+              "text": "Fase 3 – Integrar novas capacidades ao core e às jornadas do cliente."
+            },
+            {
+              "text": "Fase 4 – Realizar revisão estratégica para novas ondas de inovação."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Panorama de tendências",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=rs1bV0w0Sx0",
+          "title": "Curso em Vídeo — Panorama de Transformação Digital",
+          "caption": "Resumo introdutório sobre transformação digital e impactos para negócios."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=Q8TXgCzxEnw",
+          "title": "freeCodeCamp — Tendências de IA para líderes",
+          "caption": "Discussão prática sobre uso responsável de IA em produtos digitais."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 36 — Radar de tendências",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza um radar com quatro tendências priorizadas, anexando script de coleta dos sinais, relatório de testes da prova de conceito e log de auditoria. Publique no Moodle até 23h59 do dia seguinte."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Script automatizado (YAML/JSON/notebook) com critérios de classificação."
+            },
+            {
+              "text": "Relatório de testes contendo métricas de impacto, esforço e riscos."
+            },
+            {
+              "text": "Log de auditoria consolidando acessos e salvaguardas."
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "title": "Checklist de submissão",
+          "items": [
+            "Radar exportado em PDF ou imagem com legenda de categorias.",
+            "Script versionado e linkado no repositório da turma.",
+            "Relatório de testes com data, responsáveis e evidências.",
+            "Log de auditoria em CSV ou JSON revisado por um colega."
+          ]
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-36-transformacao-digital-e-tendencias",
+  "summary": "Discute tendências emergentes e como incorporá-las ao planejamento estratégico de SI via ecossistemas de inovação.",
+  "objectives": [
+    "Identificar tendências tecnológicas relevantes para o PESI.",
+    "Avaliar impactos e riscos associados a cada tendência.",
+    "Planejar mecanismos de inovação para absorver novas capacidades."
+  ],
+  "competencies": ["Foresight tecnológico", "Gestão de inovação", "Planejamento estratégico"],
+  "outcomes": [
+    "Produz radar de tendências com priorização contextualizada.",
+    "Descreve como parceiros e labs contribuem para adoção tecnológica.",
+    "Integra tendências ao roadmap de maturidade digital."
+  ],
+  "prerequisites": [
+    "Conhecer objetivos e roadmap do PESI (aulas 32 e 33).",
+    "Ter mapeamento de capacidades e gaps atualizado."
+  ],
+  "tags": ["tendencias", "transformacao-digital", "inovacao"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de radar de tendências",
+      "url": "https://example.edu/tgs/templates/radar-tendencias",
+      "type": "template"
+    },
+    {
+      "label": "Dataset CSV — Indicadores de maturidade digital",
+      "url": "https://data.gov.br/dataset/maturidade-transformacao-digital.csv",
+      "type": "dataset"
+    },
+    {
+      "label": "Vídeo Curso em Vídeo — Transformação Digital e Inovação",
+      "url": "https://www.youtube.com/watch?v=rs1bV0w0Sx0",
+      "type": "video"
+    },
+    {
+      "label": "Vídeo freeCodeCamp — Responsible AI Trends",
+      "url": "https://www.youtube.com/watch?v=Q8TXgCzxEnw",
+      "type": "video"
+    },
+    {
+      "label": "Planilha de testes para provas de conceito",
+      "url": "https://docs.google.com/spreadsheets/d/1TGS_PoC_Test_Plan",
+      "type": "spreadsheet"
+    },
+    {
+      "label": "Template de log de auditoria (JSON)",
+      "url": "https://example.edu/tgs/templates/log-auditoria.json",
+      "type": "template"
+    },
+    {
+      "label": "Relatório Gartner 2025",
+      "url": "https://example.edu/tgs/reports/gartner-2025",
+      "type": "report"
+    }
+  ],
+  "bibliography": [
+    "GARTNER. Top Strategic Technology Trends 2025. Gartner, 2025.",
+    "ACCENTURE. Technology Vision 2025. Accenture, 2025."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Radar de tendências com análise de impacto e horizonte."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Radar de Tendências 2025"]
+  }
+}

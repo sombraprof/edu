@@ -9,20 +9,16 @@
     "Selecionar tipos primitivos apropriados para cada informação.",
     "Implementar exemplos simples de leitura, processamento e exibição com validação."
   ],
-  "competencies": [
-    "Fundamentos de programação",
-    "Gestão de dados em memória",
-    "Precisão matemática"
-  ],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Declarar variáveis e constantes com tipos corretos.",
-    "Converter entradas textuais em valores numéricos.",
-    "Formatar saídas usando especificadores printf/scanf."
+    "Declarar variáveis, constantes e tipos coerentes com os dados fornecidos pelo problema.",
+    "Validar leituras e escritas utilizando scanf e printf com especificadores compatíveis.",
+    "Registrar tabela de testes contendo valores válidos, inválidos e limites para cada variável."
   ],
   "outcomes": [
-    "Produz um programa que captura dados do usuário e exibe cálculos básicos.",
-    "Justifica a escolha de tipos e identifica limites de cada representação.",
-    "Documenta constantes utilizadas no código."
+    "Entrega código comentado que evidencia a escolha de tipos e o uso de constantes nominais.",
+    "Demonstra execução correta do programa para dados válidos e sinaliza tratamento de entradas incorretas.",
+    "Compartilha planilha ou quadro de testes com resultados observados e ajustes aplicados."
   ],
   "prerequisites": ["Revisar o template em C da Aula 4 e o fluxograma selecionado na Aula 5."],
   "tags": ["variaveis", "tipos", "constantes"],
@@ -30,14 +26,39 @@
   "modality": "in-person",
   "resources": [
     {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "Ambiente C configurado (VS Code + GCC)",
       "type": "equipment",
       "url": "https://code.visualstudio.com/docs/cpp/config-msvc"
     },
     {
-      "label": "Tabela de especificadores printf/scanf",
-      "type": "handout",
-      "url": "https://example.edu/algi/especificadores-c.pdf"
+      "label": "Referência: Format specifiers em C (Programiz)",
+      "type": "article",
+      "url": "https://www.programiz.com/c-programming/format-specifiers"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -49,6 +70,31 @@
     "description": "Entrega de exercício prático (cadastro simplificado) com análise dos tipos escolhidos."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Variáveis, Constantes e Tipos de Dados. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 06."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "flightPlan",
       "title": "Plano de voo (1h50)",
@@ -85,7 +131,7 @@
     },
     {
       "type": "md3Table",
-      "headers": ["Tipo", "Intervalo aproximado", "Especificador", "Uso comum"],
+      "headers": ["Tipo", "Intervalo aproximado", "printf", "scanf", "Uso comum"],
       "rows": [
         [
           {
@@ -95,10 +141,34 @@
             "value": "-2.147.483.648 a 2.147.483.647"
           },
           {
-            "value": "%d"
+            "value": "%d",
+            "mono": true
+          },
+          {
+            "value": "%d",
+            "mono": true
           },
           {
             "value": "Contagens, idades, quantidades"
+          }
+        ],
+        [
+          {
+            "value": "unsigned int"
+          },
+          {
+            "value": "0 a 4.294.967.295"
+          },
+          {
+            "value": "%u",
+            "mono": true
+          },
+          {
+            "value": "%u",
+            "mono": true
+          },
+          {
+            "value": "Contadores que nunca ficam negativos"
           }
         ],
         [
@@ -109,7 +179,12 @@
             "value": "±3.4e38 (7 casas)"
           },
           {
-            "value": "%f"
+            "value": "%0.2f",
+            "mono": true
+          },
+          {
+            "value": "%f",
+            "mono": true
           },
           {
             "value": "Médias, preços, sensores"
@@ -123,7 +198,12 @@
             "value": "±1.7e308 (15 casas)"
           },
           {
-            "value": "%lf"
+            "value": "%0.4lf",
+            "mono": true
+          },
+          {
+            "value": "%lf",
+            "mono": true
           },
           {
             "value": "Cálculos científicos, finanças"
@@ -137,12 +217,60 @@
             "value": "0 a 255"
           },
           {
-            "value": "%c"
+            "value": "%c",
+            "mono": true
           },
           {
-            "value": "Caracteres isolados"
+            "value": " %c",
+            "mono": true
+          },
+          {
+            "value": "Caracteres isolados, respostas de menu"
+          }
+        ],
+        [
+          {
+            "value": "char[]"
+          },
+          {
+            "value": "Strings terminadas com caractere nulo"
+          },
+          {
+            "value": "%s",
+            "mono": true
+          },
+          {
+            "value": " %29s",
+            "mono": true
+          },
+          {
+            "value": "Nomes, descrições curtas"
           }
         ]
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Cheat sheet C para consulta rápida",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Salve a referência da GNU libc com sintaxe de formatação e exemplos para consulta durante o laboratório: https://www.gnu.org/software/libc/manual/html_node/Formatted-Output-Functions.html"
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Destacar na folha os especificadores de printf/scanf mais usados nesta aula."
+            },
+            {
+              "text": "Registrar exemplos adicionais de constantes e intervalos com base nos exercícios."
+            },
+            {
+              "text": "Anotar perguntas para trazer ao plantão ou fórum do Moodle."
+            }
+          ]
+        }
       ]
     },
     {
@@ -187,17 +315,6 @@
       ]
     },
     {
-      "type": "callout",
-      "variant": "task",
-      "title": "TED da Aula 6",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Submeta no Moodle o código do cadastro com comentários explicando a escolha de cada tipo."
-        }
-      ]
-    },
-    {
       "type": "checklist",
       "title": "Checklist de saída",
       "description": "Finalize confirmando:",
@@ -206,11 +323,435 @@
         "Testei entradas válidas e inválidas.",
         "Atualizei minha tabela de especificadores printf/scanf."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Teste no OnlineGDB antes de entregar",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Execute o código no projeto pré-configurado e registre evidências."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Valide pelo menos três cenários (padrão, limite e inválido)."
+            },
+            {
+              "text": "Faça captura de tela do console com os testes principais."
+            },
+            {
+              "text": "Anexe o link da execução compartilhável quando enviar a TED."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 06' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entregue o código do cadastro em C com declaração de variáveis, constantes e comentários sobre tipos escolhidos."
+            },
+            {
+              "text": "Adicione planilha de testes com pelo menos cinco casos (válidos e inválidos)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Tipos primitivos em C",
+      "shuffle": true,
+      "cards": [
+        {
+          "front": "<b>int</b>",
+          "back": "Inteiro (ex.: -2, 0, 42)."
+        },
+        {
+          "front": "<b>float</b>",
+          "back": "Ponto flutuante (ex.: 3.14)."
+        },
+        {
+          "front": "<b>char</b>",
+          "back": "Caractere (ex.: \n, A, 0)."
+        },
+        {
+          "question": "const?",
+          "answer": "Valor constante; não pode ser modificado."
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Mini-quiz — Tipos e variáveis",
+          "multiple": true,
+          "options": [
+            {
+              "text": "int armazena números inteiros",
+              "correct": true
+            },
+            {
+              "text": "float armazena texto",
+              "correct": false
+            },
+            {
+              "text": "char armazena um único caractere",
+              "correct": true
+            }
+          ]
+        }
+      }
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.970Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

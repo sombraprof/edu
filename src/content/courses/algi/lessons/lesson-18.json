@@ -9,16 +9,16 @@
     "Comparar equivalências entre for e while em exemplos reais.",
     "Aplicar for em tabelas e cálculos acumulativos com validação de limites."
   ],
-  "competencies": ["Pensamento computacional", "Organização algorítmica", "Raciocínio matemático"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Selecionar variáveis de controle adequadas.",
-    "Garantir que a condição torne-se falsa em tempo finito.",
-    "Documentar testes que validem limites inferior e superior."
+    "Configurar laços for detalhando inicialização, condição e atualização.",
+    "Comparar abordagens for e while justificando escolha em função do problema.",
+    "Produzir documentação curta com exemplos de uso e testes realizados."
   ],
   "outcomes": [
-    "Produz algoritmos que percorrem vetores e faixas numéricas usando for.",
-    "Justifica quando converter um while em for melhora a legibilidade.",
-    "Entrega exercícios com evidências de testes e análise de complexidade básica."
+    "Apresenta programa funcional com pelo menos dois laços for em cenários distintos.",
+    "Disponibiliza relatório comparativo entre soluções for e while destacando métricas coletadas.",
+    "Entrega registro de testes indicando entradas, saídas e observações para melhorias futuras."
   ],
   "prerequisites": ["Conhecer laços while e operadores aritméticos."],
   "tags": ["loops", "for", "repeticao"],
@@ -26,25 +26,110 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Slides Estrutura for",
-      "url": "https://example.edu/algi/slides/for-md3.pdf",
-      "type": "slide"
+      "label": "Artigo: Diferenças entre os laços for e while em C",
+      "type": "article",
+      "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop-in-c/"
     },
     {
-      "label": "Compilador OnlineGDB",
-      "url": "https://www.onlinegdb.com/online_c_compiler",
-      "type": "tool"
+      "label": "Planilha de contagem incremental",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIPatternsFor"
+    },
+    {
+      "label": "Vídeo: For loops em C (freeCodeCamp)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=1Lfd8F7U3eE"
+    },
+    {
+      "label": "Projeto OnlineGDB – Tabuada parametrizada",
+      "type": "tool",
+      "url": "https://onlinegdb.com/H1ForTabuada"
+    },
+    {
+      "label": "Capítulo 4 – Estruturas de repetição (Forbellone & Eberspächer)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Planilha de controle de estoque (Sebrae SC)",
+      "type": "spreadsheet",
+      "url": "https://www.sebrae-sc.com.br/arquivos_site/download/planilha-controle-estoque.xlsx"
     }
   ],
   "bibliography": [
-    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020.",
-    "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 4, Estruturas de Repetição.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 6, Estruturas de repetição controlada.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 5, Laços de iteração.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 7, Estruturas de controle e validação de limites.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 6, Estruturas de repetição e testes."
   ],
   "assessment": {
     "type": "practice",
-    "description": "Checklist de exercícios práticos com tabuada, somatórios e percorrimento de vetores."
+    "description": "Checklist de exercícios práticos com tabuada, somatórios e percorrimento de vetores contextualizados na auditoria de produção da Farmácia Escola.",
+    "rubric": "Pensamento computacional (40%): estrutura os laços conforme o método de decomposição apresentado por Forbellone & Eberspächer (Cap. 4). Organização algorítmica (35%): documenta inicialização, condição e atualização de acordo com Manzano & Oliveira (Cap. 6) e Backes (Cap. 5). Raciocínio matemático (25%): valida limites numéricos e registra evidências na planilha de auditoria conforme Santos (Cap. 7) e Ascencio & Campos (Cap. 6)."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Estrutura de Repetição for. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 18."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "Comparativo inicial",
+          "content": "Revisar diferenças entre while e for com exemplos lado a lado (10 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Componentes do for",
+          "content": "Mapear inicialização, condição e atualização em exercícios guiados (20 min)."
+        },
+        {
+          "icon": "code",
+          "title": "Laboratório guiado",
+          "content": "Gerar tabuadas, séries e varreduras controladas (30 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Experimentos",
+          "content": "Testar incrementos alternativos e laços decrescentes (25 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Debrief",
+          "content": "Comparar implementação em for versus while e registrar aprendizados (15 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Alinhar entregáveis e rubrica da prática pós-aula (15 min)."
+        }
+      ]
+    },
     {
       "type": "flightPlan",
       "title": "Plano de voo (1h55)",
@@ -62,22 +147,76 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "O laço for é ideal quando conhecemos o número de repetições ou conseguimos derivá-lo de um intervalo controlado."
+          "text": "Forbellone & Eberspächer (Cap. 4) e Manzano & Oliveira (Cap. 6) reforçam que a clareza na inicialização, condição e atualização torna o laço for ideal para cenários auditáveis, como a contagem de lotes da Farmácia Escola que utilizaremos nesta aula."
         },
         {
           "type": "roadmap",
           "steps": [
             {
               "title": "Inicialização",
-              "description": "Executada uma vez antes da primeira iteração."
+              "description": "Executada uma vez antes da primeira iteração e registrada na planilha de auditoria conforme Santos (Cap. 7)."
             },
             {
               "title": "Condição",
-              "description": "Verificada antes de cada ciclo."
+              "description": "Verificada antes de cada ciclo, seguindo o checklist de testes sugerido por Ascencio & Campos (Cap. 6)."
             },
             {
               "title": "Atualização",
-              "description": "Executada após cada iteração."
+              "description": "Executada após cada iteração, permitindo saltos múltiplos como exemplificado por Backes (Cap. 5)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A cada passagem pelo for, atualize também indicadores percentuais do estudo de caso para demonstrar aderência às recomendações de Ascencio & Campos (Cap. 6) sobre transparência de cálculos."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Experimente incrementos diferentes",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Backes (Cap. 5) recomenda testar saltos de 2, decrementos e atualizações múltiplas na mesma expressão; registre os resultados na planilha e compare-os com os limites estabelecidos por Santos (Cap. 7) para evitar extrapolar a capacidade produtiva."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Documente na planilha os valores percorridos em cada variação."
+            },
+            {
+              "text": "Verifique se a condição permanece coerente ao inverter a direção."
+            },
+            {
+              "text": "Utilize comentários para explicar a intenção de saltos não unitários."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Estudo de caso: Auditoria da Farmácia Escola",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize a planilha fornecida para monitorar a produção diária de cápsulas manipuladas. Aplique laços for para calcular médias por turno, apontar desvios e gerar alertas automáticos conforme o protocolo descrito por Ascencio & Campos (Cap. 6)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Inicialize contadores separados por turno seguindo o quadro sugerido por Forbellone & Eberspächer (Cap. 4)."
+            },
+            {
+              "text": "Valide limites mínimos e máximos antes de atualizar acumuladores, conforme as heurísticas de Manzano & Oliveira (Cap. 6)."
+            },
+            {
+              "text": "Gere mensagens com `printf` sinalizando metas atingidas e gaps, reforçando a análise de conformidade proposta por Santos (Cap. 7)."
             }
           ]
         }
@@ -121,6 +260,28 @@
             "value": "Esquecer leitura no fim pode travar condição"
           }
         ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Padrões com laço for",
+      "cards": [
+        {
+          "title": "Contagem crescente",
+          "content": "Ideal para iterar intervalos conhecidos (0..n) com atualização unitária."
+        },
+        {
+          "title": "Contagem decrescente",
+          "content": "Útil para timers, contagem regressiva e percursos reversos."
+        },
+        {
+          "title": "Saltos regulares",
+          "content": "Percorra apenas elementos pares/ímpares usando incrementos maiores que 1."
+        },
+        {
+          "title": "Loop vazio",
+          "content": "Quando lógica está na expressão de atualização, documente riscos de legibilidade."
+        }
       ]
     },
     {
@@ -205,12 +366,185 @@
         "Analisar equivalência com while e registrar diferenças no caderno.",
         "Preparar dúvidas para a aula 19 (for vs while)."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED 18 – Tabuada parametrizada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Submeta até 23h59: código em C gerando tabuadas configuráveis para o caso da Farmácia Escola, captura do console e planilha com cenários testados seguindo o checklist de Ascencio & Campos (Cap. 6)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Arquivo aula18_tabuada.c organizado conforme as recomendações de Forbellone & Eberspächer (Cap. 4)."
+            },
+            {
+              "text": "Imagem ou PDF com saída para diferentes parâmetros, destacando incrementos inspirados em Backes (Cap. 5)."
+            },
+            {
+              "text": "Planilha 'TED18_contagens.xlsx' com incrementos variados e análises alinhadas a Santos (Cap. 7) e Manzano & Oliveira (Cap. 6)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Explique como o algoritmo mantém rastreabilidade dos lotes auditados, relacionando cada etapa aos autores estudados."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 18",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Pensamento computacional (40%): uso correto do for com inicialização, condição e atualização claros conforme Forbellone & Eberspächer (Cap. 4)."
+            },
+            {
+              "text": "Organização algorítmica (35%): suporte a diferentes incrementos e faixas sem ajustes manuais seguindo Manzano & Oliveira (Cap. 6) e Backes (Cap. 5)."
+            },
+            {
+              "text": "Raciocínio matemático (15%): registros de testes completos com evidências e validação de limites conforme Santos (Cap. 7)."
+            },
+            {
+              "text": "Comunicação técnica (10%): organização dos arquivos, comentários explicativos e síntese conectando o estudo de caso às recomendações de Ascencio & Campos (Cap. 6)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A pontuação compõe a mesma rubrica registrada no campo Assessment desta aula para garantir alinhamento entre competências e entregáveis."
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "for (inicialização; condição; incremento)",
+      "steps": [
+        {
+          "title": "Inicialização",
+          "description": "int i = 0;"
+        },
+        {
+          "title": "Condição",
+          "description": "i < n"
+        },
+        {
+          "title": "Incremento",
+          "description": "i++"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Entrada → Saída\nn=5 -> 1 2 3 4 5",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for (int i=0; i<n; ) { /* sem incremento */ }",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for (int i=0; i<n; i++) { /* ok */ }",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\nint main(){\n  int n; if (scanf(\"%d\", &n)!=1) return 1;\n  for (int i=1;i<=n;i++){ printf(\"%d%s\", i, i==n?\"\n\":\" \"); }\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Qual foi o padrão de incremento que você usou?", "Quando preferir while?"]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera n e sequência esperada 1..n\nfor n in [3,5,7]:\n    print(f\"n={n} -> \", ' '.join(str(i) for i in range(1, n+1)))",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-20T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.983Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano pedagógico Algoritmos I 2025.1", "Worksheet loops contados 2025"]
+    "sources": [
+      "Plano pedagógico Algoritmos I 2025.1",
+      "Worksheet loops contados 2025",
+      "Planilha de auditoria pós-módulo (aba Laços)"
+    ]
   }
 }

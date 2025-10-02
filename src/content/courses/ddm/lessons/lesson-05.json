@@ -45,6 +45,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade I",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE",
+          "title": "Android Basics in Kotlin (Android Developers)",
+          "caption": "Playlist oficial sobre fundamentos de Android e Kotlin. Créditos: Android Developers (Google, 2024)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ldM6QZy9e0s",
+          "title": "Kotlin-first no Google I/O 2019",
+          "caption": "Keynote institucional destacando a adoção do Kotlin no Android. Créditos: Google I/O (2019)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de Voo da Aula",
       "items": [
@@ -94,7 +110,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "// Finding views by ID and assigning them to variables (EN)\\nval meuButton: Button = findViewById(R.id.buttonSaudacao)\\nval meuEditText: EditText = findViewById(R.id.editTextNome)"
+          "code": "// Finding views by ID and assigning them to variables (EN)\\nval meuButton: Button = findViewById(R.id.buttonSaudacao)\\nval meuEditText: EditText = findViewById(R.id.editTextNome)\n\n// Referência: Google (2024)"
         },
         {
           "type": "callout",
@@ -133,7 +149,7 @@
             {
               "type": "code",
               "language": "kotlin",
-              "code": "// Modern and concise lambda syntax (EN)\\nmeuButton.setOnClickListener {\\n    // Action to be executed when the button is clicked\\n    Log.d(TAG, \\\"Botão foi clicado!\\\")\\n}"
+              "code": "// Modern and concise lambda syntax (EN)\\nmeuButton.setOnClickListener {\\n    // Action to be executed when the button is clicked\\n    Log.d(TAG, \\\"Botão foi clicado!\\\")\\n}\n\n// Referência: Google (2024)"
             }
           ]
         },
@@ -148,7 +164,7 @@
             {
               "type": "code",
               "language": "kotlin",
-              "code": "// Legacy anonymous class syntax (EN)\\nmeuButton.setOnClickListener(object : View.OnClickListener {\\n    override fun onClick(v: View?) {\\n        // Action to be executed\\n        Log.d(TAG, \\\"Botão foi clicado!\\\")\\n    }\\n})"
+              "code": "// Legacy anonymous class syntax (EN)\\nmeuButton.setOnClickListener(object : View.OnClickListener {\\n    override fun onClick(v: View?) {\\n        // Action to be executed\\n        Log.d(TAG, \\\"Botão foi clicado!\\\")\\n    }\\n})\n\n// Referência: Google (2024)"
             }
           ]
         },
@@ -163,7 +179,7 @@
             {
               "type": "code",
               "language": "kotlin",
-              "code": "// Long click example (EN)\\nmeuButton.setOnLongClickListener {\\n    Log.d(TAG, \\\"O botão foi pressionado por um tempo!\\\")\\n    true // Returning 'true' indicates the event was consumed\\n}"
+              "code": "// Long click example (EN)\\nmeuButton.setOnLongClickListener {\\n    Log.d(TAG, \\\"O botão foi pressionado por um tempo!\\\")\\n    true // Returning 'true' indicates the event was consumed\\n}\n\n// Referência: Google (2024)"
             }
           ]
         },
@@ -241,7 +257,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "package br.com.unichristus.ads.olamundoandroid\\n\\nimport androidx.appcompat.app.AppCompatActivity\\nimport android.os.Bundle\\nimport android.util.Log\\nimport android.widget.Button\\nimport android.widget.EditText\\n\\nclass MainActivity : AppCompatActivity() {\\n\\n    // Good practice (EN): Define a constant TAG for logs from this class\\n    private val TAG = \\\"MainActivity\\\"\\n\\n    override fun onCreate(savedInstanceState: Bundle?) {\\n        super.onCreate(savedInstanceState)\\n        setContentView(R.layout.activity_main)\\n\\n        // Find views by ID defined in XML\\n        val meuButton: Button = findViewById(R.id.buttonSaudacao)\\n        val meuEditText: EditText = findViewById(R.id.editTextNome)\\n\\n        // Set click listener for the button (lambda syntax)\\n        meuButton.setOnClickListener {\\n            // This block runs when the button is clicked\\n\\n            // 1) Read the text typed by the user\\n            val nomeDigitado = meuEditText.text.toString()\\n\\n            // 2) Show the text in Logcat using Debug level\\n            Log.d(TAG, \\\"O nome digitado foi: $nomeDigitado\\\")\\n        }\\n    }\\n}"
+          "code": "package br.com.unichristus.ads.olamundoandroid\\n\\nimport androidx.appcompat.app.AppCompatActivity\\nimport android.os.Bundle\\nimport android.util.Log\\nimport android.widget.Button\\nimport android.widget.EditText\\n\\nclass MainActivity : AppCompatActivity() {\\n\\n    // Good practice (EN): Define a constant TAG for logs from this class\\n    private val TAG = \\\"MainActivity\\\"\\n\\n    override fun onCreate(savedInstanceState: Bundle?) {\\n        super.onCreate(savedInstanceState)\\n        setContentView(R.layout.activity_main)\\n\\n        // Find views by ID defined in XML\\n        val meuButton: Button = findViewById(R.id.buttonSaudacao)\\n        val meuEditText: EditText = findViewById(R.id.editTextNome)\\n\\n        // Set click listener for the button (lambda syntax)\\n        meuButton.setOnClickListener {\\n            // This block runs when the button is clicked\\n\\n            // 1) Read the text typed by the user\\n            val nomeDigitado = meuEditText.text.toString()\\n\\n            // 2) Show the text in Logcat using Debug level\\n            Log.d(TAG, \\\"O nome digitado foi: $nomeDigitado\\\")\\n        }\\n    }\\n}\n\n// Referência: Google (2024)"
         },
         {
           "type": "list",
@@ -299,6 +315,61 @@
             "OLIVEIRA, Diego Bittencourt de et al. Desenvolvimento para Dispositivos Móveis. Porto Alegre: SAGAH, 2019. v. 1.",
             "SIMAS, V. L. et al. Desenvolvimento para Dispositivos Móveis – Volume 2. Grupo A, 2019."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O trecho abaixo demonstra como instrumentar o registo de eventos no contexto de Manipulação de Eventos e Uso de Logcat, reforçando o que discutimos em sala."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "// Exemplo aplicado de Manipulação de Eventos e Uso de Logcat\nval moduloAtual = \"Manipulação de Eventos e Uso de Logcat\"\nandroid.util.Log.d(\"UnidadeI\", \"Preparando $moduloAtual\")\n// Referência: Google (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Note como o comentário final conecta o exemplo às diretrizes oficiais discutidas em Google (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Google. \"Handle user input.\" 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para aprofundar Manipulação de Eventos e Uso de Logcat, retome as leituras indicadas e conecte com as práticas de laboratório."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: Google. \"Handle user input.\" 2024.",
+            "Conecte com o estudo: Google. \"Logcat command-line tool.\" 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione os indicadores discutidos com os dados de mercado apresentados na bibliografia."
+        },
+        {
+          "type": "blockquote",
+          "text": "Google. \"Logcat command-line tool.\" 2024."
         }
       ]
     }

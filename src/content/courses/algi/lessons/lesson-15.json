@@ -9,16 +9,16 @@
     "Corrigir coletivamente os erros mais frequentes identificados nas questões.",
     "Consolidar boas práticas para escrever cadeias condicionais claras e testáveis."
   ],
-  "competencies": ["Pensamento crítico", "Raciocínio algorítmico", "Comunicação técnica"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Diagnosticar falhas lógicas em decisões compostas.",
-    "Reescrever código C aplicando boas práticas de clareza e indentação.",
-    "Planejar testes que previnam regressões após ajustes."
+    "Analisar devolutivas da NP1 identificando padrões de erro por tema.",
+    "Refatorar respostas e códigos corrigindo falhas lógicas e de comunicação.",
+    "Explicar planos de melhoria em apresentação breve para a turma."
   ],
   "outcomes": [
-    "Entrega guia pessoal de correção com os pontos de melhoria e ações de estudo.",
-    "Reimplementa ao menos uma questão da prova corrigindo erros identificados.",
-    "Documenta novos casos de teste que garantam cobertura dos cenários críticos."
+    "Entrega planilha com classificação dos erros cometidos e prioridade de revisão.",
+    "Disponibiliza versão corrigida dos exercícios com comentários sobre ajustes implementados.",
+    "Realiza pitch de até cinco minutos destacando aprendizados e próximos passos de estudo."
   ],
   "prerequisites": ["Trazer a prova NP1 corrigida e os rascunhos utilizados na avaliação."],
   "tags": ["condicionais", "revisao", "avaliacao"],
@@ -26,19 +26,34 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Rubrica detalhada da NP1",
-      "type": "handout",
-      "url": "https://example.edu/algi/avaliacoes/rubrica-np1.pdf"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Planilha de reescrita de código",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/reescrita-condicionais.xlsx"
+      "label": "Planilha de reescrita pós-NP1",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIPosNP1Reescrita"
     },
     {
-      "label": "Compilador OnlineGDB",
+      "label": "Vídeo: Depurando condicionais em C (freeCodeCamp)",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=8pcV9A9kvJ0"
+    },
+    {
+      "label": "Projeto OnlineGDB – Correção NP1",
       "type": "tool",
-      "url": "https://www.onlinegdb.com/online_c_compiler"
+      "url": "https://onlinegdb.com/H1CorrecoesNP1"
+    },
+    {
+      "label": "Formulário de upload da prova anotada",
+      "type": "form",
+      "url": "https://forms.gle/UploadProvaNP1"
+    },
+    {
+      "label": "Repositório modelo de refatoração",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-np1-review"
     }
   ],
   "bibliography": [
@@ -52,23 +67,88 @@
   },
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Correção da NP1 e aprofundamento. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 15."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Envio obrigatório da prova anotada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Digitalize ou fotografe a prova com suas anotações e faça o upload no formulário indicado antes de iniciar a reescrita."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Utilize o formulário 'Upload prova NP1' disponível no Moodle."
+            },
+            {
+              "text": "Garanta legibilidade dos comentários e destaque as questões revisadas."
+            },
+            {
+              "text": "Sem o envio da prova anotada o feedback individual ficará pendente."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "Conteúdo",
-          "content": "Devolutiva da NP1, análise de erros, reescrita de condicionais e mini-laboratório orientado."
+          "title": "Panorama",
+          "content": "Analisar distribuição de notas e critérios da rubrica (15 min)."
         },
         {
-          "icon": "bullseye",
-          "title": "Objetivo",
-          "content": "Converter feedback em ações práticas e reforçar os pontos frágeis observados na avaliação."
+          "icon": "monitor",
+          "title": "Mapeamento de erros",
+          "content": "Identificar padrões recorrentes nas questões (20 min)."
         },
         {
-          "icon": "gears",
-          "title": "Metodologia",
-          "content": "Discussão guiada, exercícios de refatoração em duplas e construção de plano individual de estudos."
+          "icon": "code",
+          "title": "Laboratório de refatoração",
+          "content": "Reescrever trechos problemáticos com apoio do professor (30 min)."
+        },
+        {
+          "icon": "users",
+          "title": "Feedback em pares",
+          "content": "Trocar códigos e comentar melhorias aplicadas (20 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Plano individual",
+          "content": "Registrar ações de estudo e metas para a próxima unidade (15 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "Orientações TED",
+          "content": "Detalhar entrega revisada e checklist de evidências (15 min)."
         }
       ]
     },
@@ -133,6 +213,28 @@
             "value": "Cadeias else if com sobreposição"
           }
         ]
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Padrões de erro observados",
+      "cards": [
+        {
+          "title": "Comparações invertidas",
+          "content": "Uso de > no lugar de >= ou < quando o enunciado exigia inclusão de limites."
+        },
+        {
+          "title": "Sentinelas ausentes",
+          "content": "Códigos que não tratam entradas inválidas e deixam o else vazio."
+        },
+        {
+          "title": "Variáveis sem reset",
+          "content": "Acumuladores reutilizados sem reinicialização entre cenários de teste."
+        },
+        {
+          "title": "Documentação incompleta",
+          "content": "Falta de comentários explicando a ordem das condições e ausência de testes."
+        }
       ]
     },
     {
@@ -399,20 +501,6 @@
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Tarefa (TED)",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Implemente aula15_revisao_condicionais.c considerando idade, renda, temDeficiencia e cadastro ativo."
-        },
-        {
-          "type": "paragraph",
-          "text": "Documente no README as combinações que tornam o usuário elegível e anexe a planilha de testes preenchida."
-        }
-      ]
-    },
-    {
       "type": "videos",
       "title": "Vídeos de apoio",
       "videos": [
@@ -434,11 +522,158 @@
         "Reescrever condicionais compostas aplicando boas práticas.",
         "Criar testes adicionais que validem as correções realizadas."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "TED 15 – Reescrita comentada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Submeta até 23h59 do dia seguinte: versão corrigida da questão escolhida, guia pessoal de correção e resumo das mudanças aplicadas."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Arquivo aula15_reescrita.c com comentários destacando alterações."
+            },
+            {
+              "text": "Guia 'Plano_posNP1.pdf' preenchido com metas e próximos estudos."
+            },
+            {
+              "text": "Prints ou planilha de testes demonstrando cobertura dos cenários críticos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Critérios de avaliação TED 15",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega com prova anotada anexada e reescrita consistente (30%)."
+            },
+            {
+              "text": "Correções justificadas linha a linha no código (30%)."
+            },
+            {
+              "text": "Planilha ou prints evidenciando novos testes executados (25%)."
+            },
+            {
+              "text": "Plano de estudos realista e alinhado ao feedback (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Reenvios sem destaque das alterações poderão ser desconsiderados."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Erros comuns × Soluções",
+      "tabs": [
+        {
+          "label": "Erros",
+          "content": "<ul><li>Falta de validação</li><li>Operador incorreto</li></ul>"
+        },
+        {
+          "label": "Correções",
+          "code": "// use >= ao invés de > em ...",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.979Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

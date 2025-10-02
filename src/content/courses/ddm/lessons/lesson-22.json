@@ -1,0 +1,246 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-22",
+  "title": "Aula 22: Unidade IV – Retrofit com corrotinas e Flow",
+  "slug": "retrofit-corrotinas-flow",
+  "summary": "Evolui o consumo de APIs usando Retrofit com suporte a corrotinas e Flow, garantindo chamadas assíncronas eficientes e reativas.",
+  "objective": "Implementar serviços Retrofit com suporte a corrotinas, integrando-os ao fluxo reativo do app com Flow e tratamento estruturado de exceções.",
+  "objectives": [
+    "Configurar Retrofit para retornar tipos suspensos e Flow.",
+    "Integrar corrotinas com ViewModelScope e StateFlow.",
+    "Aplicar operadores Flow para transformar e combinar dados remotos.",
+    "Implementar retry e backoff respeitando limites de API."
+  ],
+  "competencies": [
+    "Programação assíncrona com corrotinas",
+    "Integração reativa de dados",
+    "Boas práticas de consumo de API"
+  ],
+  "skills": [
+    "Criar serviços Retrofit com funções suspensas.",
+    "Utilizar flowOn, map e catch para tratar resultados.",
+    "Configurar retries exponenciais com delay controlado.",
+    "Expor dados remotos via StateFlow ou LiveData para a UI."
+  ],
+  "outcomes": [
+    "Entrega um repositório que consome API com corrotinas e Flow.",
+    "Aplica tratamento de erros com sealed classes e estados de UI.",
+    "Documenta estratégias de retry alinhadas ao limite da API.",
+    "Integra dados remotos ao RecyclerView com updates reativos."
+  ],
+  "prerequisites": [
+    "Concluir a Aula 21 com Retrofit síncrono configurado.",
+    "Conhecer corrotinas, ViewModelScope e Flow básicos.",
+    "Projeto com camada de dados modularizada."
+  ],
+  "tags": ["android", "retrofit", "coroutines", "flow"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guide to coroutines on Android",
+      "url": "https://developer.android.com/kotlin/coroutines",
+      "type": "article"
+    },
+    {
+      "label": "Retrofit Kotlin Coroutines Support",
+      "url": "https://square.github.io/retrofit/KotlinCoroutineCallAdapterFactory/",
+      "type": "reference"
+    },
+    {
+      "label": "Kotlin Flow reference",
+      "url": "https://kotlinlang.org/docs/flow.html",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "NILSON, M. Asynchronous Programming with Kotlin. Manning, 2023.",
+    "GOOGLE. Coroutines best practices on Android. 2024.",
+    "LEMOS, R. Fluxos reativos com Kotlin Flow. Casa do Código, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de integração reativa avaliando o uso adequado de corrotinas, Flow e tratamento de exceções."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade IV",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=y3QmE21zBIA",
+          "title": "Networking best practices on Android",
+          "caption": "Sessão do Android Developers sobre consumo de APIs. Créditos: Google I/O (2019)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=BOHK_w09pVA",
+          "title": "Kotlin Coroutines: fundamentos",
+          "caption": "Apresentação oficial sobre corrotinas para operações assíncronas. Créditos: JetBrains (2019)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Warm-up",
+          "content": "Kahoot sobre conceitos de corrotinas (10 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Refatorando serviço Retrofit para funções suspensas (25 m...",
+          "content": "Refatorando serviço Retrofit para funções suspensas (25 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Laboratório",
+          "content": "Expondo Flow no repositório e ViewModel (40 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Debrief",
+          "content": "Estratégias de retry e limites de API (15 min)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "TED",
+          "content": "Documentar política de retries no projeto integrador (10 min)."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Warm-up colaborativo",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "00:05 – Quiz corrotinas vs threads – Equipes respondem perguntas rápidas sobre diferenças entre threads e corrotinas."
+            },
+            {
+              "text": "00:05 – Storyboard de fluxo de dados – Esboçar no quadro branco como dados fluem da API até a UI usando Flow."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Roteiro prático – laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos converter o módulo de filmes para utilizar corrotinas e Flow. O objetivo é substituir chamadas Call<T> por funções suspensas e expor um Flow<Result<List<Movie>>>."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            "Adicionar dependência de call adapter para corrotinas (se necessário) e habilitar support coroutines.",
+            "Atualizar MovieService com funções suspensas usando Response<MovieResponse>.",
+            "Criar um repositório MovieRepository que retorna Flow<MovieUiState> utilizando flow { emit(...) }.",
+            "Aplicar operadores map e catch para transformar o Response e emitir estados Loading, Success, Error.",
+            "Implementar retryWhen com contagem máxima baseada no limite da API (3 tentativas).",
+            "Testar com viewModelScope.launch e observar StateFlow na UI."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Respeito aos limites da API",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente exponencial backoff iniciando em 1s, dobrando até 8s. Documente em código e no README que, após 3 tentativas, o app sugere ao usuário aguardar para não violar termos de uso."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "title": "TED / Entregável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Pull request com a refatoração para corrotinas e Flow, incluindo testes unitários básicos do repositório e README descrevendo a política de retry."
+        }
+      ],
+      "variant": "info"
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Rubrica de revisão de código",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Uso correto de funções suspensas e Flow (35%).",
+            "Tratamento de erros e retries documentados (30%).",
+            "Cobertura mínima de testes (20%).",
+            "Clareza do PR e aderência ao padrão da equipe (15%)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O fragmento resume o padrão de cliente Retrofit aplicado às discussões de Retrofit com corrotinas e Flow."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "interface ApiService {\n    @GET(\"/posts\")\n    suspend fun listarPosts(): List<PostResponse>\n}\n\nval retrofit = Retrofit.Builder()\n    .baseUrl(\"https://api.exemplo.dev\")\n    .addConverterFactory(MoshiConverterFactory.create())\n    .build()\n\nval service = retrofit.create(ApiService::class.java)\n// Referência: NILSON, M (2023)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mantenha a configuração alinhada ao que NILSON, M (2023) descreve para serialização e segurança."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "NILSON, M. Asynchronous Programming with Kotlin. Manning, 2023."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Retome o fluxo de consumo de APIs de Retrofit com corrotinas e Flow, considerando políticas de tratamento de erros."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: NILSON, M. Asynchronous Programming with Kotlin. Manning, 2023.",
+            "Conecte com o estudo: GOOGLE. Coroutines best practices on Android. 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Documente como o endpoint crítico do seu projeto lida com latência e falhas de rede."
+        },
+        {
+          "type": "blockquote",
+          "text": "GOOGLE. Coroutines best practices on Android. 2024."
+        }
+      ]
+    }
+  ]
+}

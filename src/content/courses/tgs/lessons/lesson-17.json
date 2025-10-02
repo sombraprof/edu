@@ -1,0 +1,201 @@
+{
+  "id": "lesson-17",
+  "title": "Aula 17: Business Intelligence e Dashboards",
+  "objective": "Explorar conceitos de BI e avaliar dashboards como apoio à decisão.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "CONTEÚDO",
+          "content": "Cadeia de BI, storytelling com dados e avaliação crítica de dashboards."
+        },
+        {
+          "icon": "target",
+          "title": "OBJETIVOS",
+          "content": "- Diferenciar componentes do ecossistema de BI.\n- Identificar boas práticas de visualização.\n- Interpretar indicadores para tomada de decisão."
+        },
+        {
+          "icon": "desktop",
+          "title": "METODOLOGIA",
+          "content": "Demonstração guiada em ferramenta BI, estudo de caso comparativo e debate orientado sobre decisões suportadas pelos dashboards."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Do dado ao insight",
+      "steps": [
+        {
+          "title": "Coleta",
+          "content": "Identificar fontes confiáveis e garantir governança dos dados que alimentarão o dashboard."
+        },
+        {
+          "title": "Transformação",
+          "content": "Modelar tabelas, calcular indicadores e tratar exceções."
+        },
+        {
+          "title": "Visualização",
+          "content": "Escolher gráficos adequados, destacar alertas e construir narrativas."
+        },
+        {
+          "title": "Ação",
+          "content": "Definir planos de ação com base nas variações observadas e monitorar impactos."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist de design de dashboard",
+      "cards": [
+        {
+          "title": "Propósito",
+          "content": "O painel responde a perguntas de negócio específicas?"
+        },
+        {
+          "title": "Contexto",
+          "content": "Existem benchmarks, metas e filtros claros para leitura?"
+        },
+        {
+          "title": "Interação",
+          "content": "O usuário pode explorar detalhes sem perder a visão geral?"
+        },
+        {
+          "title": "Acessibilidade",
+          "content": "Cores, tipografia e legendas atendem pessoas com diferentes necessidades?"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Demonstração guiada",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/bi-demo",
+          "title": "Construindo um dashboard em 10 minutos",
+          "caption": "Trecho gravado pela docente mostrando conexão de dados, criação de KPIs e publicação segura."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso comparativo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Compare dois dashboards: um de vendas regionais e outro de suporte ao cliente. Em grupos, identifiquem quais decisões cada painel facilita e quais dados adicionais seriam necessários."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Quais KPIs aparecem e o que eles significam?",
+            "O layout direciona a atenção corretamente?",
+            "Há alertas para desvios críticos?"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Debate orientado",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Confiança nos dados",
+              "text": "Como garantir que decisões não sejam tomadas com dados desatualizados ou enviesados?"
+            },
+            {
+              "title": "Ação versus observação",
+              "text": "Quando um dashboard deve disparar processos automáticos e quando apenas informar gestores?"
+            },
+            {
+              "title": "Mensuração de impacto",
+              "text": "Como avaliar se o dashboard realmente mudou o comportamento da equipe?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas destacadas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Registre os princípios de design que emergirem da demonstração: hierarquia visual, contextualização, storytelling e atualização contínua."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "TED",
+      "items": [
+        "Publicar no AVA, até às 21h de amanhã, uma captura do dashboard analisado.",
+        "Descrever duas decisões que podem ser tomadas a partir dele.",
+        "Apontar um indicador adicional ou ajuste visual que aumentaria o valor do painel."
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-17-business-intelligence-e-dashboards",
+  "summary": "Discute fundamentos de BI, avalia dashboards reais e orienta o uso de indicadores para decisões baseadas em dados.",
+  "objectives": [
+    "Compreender o ciclo de BI da coleta ao insight.",
+    "Analisar dashboards com critérios de design e negócio.",
+    "Planejar ações baseadas em indicadores chave."
+  ],
+  "competencies": [
+    "Pensamento analítico",
+    "Comunicação baseada em dados",
+    "Tomada de decisão orientada a evidências"
+  ],
+  "skills": [
+    "Interpretar KPIs e relacioná-los a objetivos estratégicos.",
+    "Identificar melhorias em dashboards existentes.",
+    "Produzir narrativas visuais claras para stakeholders."
+  ],
+  "outcomes": [
+    "Registra análise crítica de dashboard no AVA.",
+    "Propõe ajustes que elevam maturidade de BI da organização.",
+    "Aplica boas práticas de storytelling com dados em projetos acadêmicos."
+  ],
+  "prerequisites": [
+    "Revisar conceitos de integração da aula 16.",
+    "Explorar previamente o dataset disponibilizado no AVA."
+  ],
+  "tags": ["aula-17-bi"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Dataset de vendas trimestrais",
+      "url": "https://example.edu/tgs/datasets/vendas-trimestre",
+      "type": "dataset"
+    },
+    {
+      "label": "Guia rápido de visualização",
+      "url": "https://example.edu/tgs/guias/design-dashboard",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "FEW, Stephen. Information Dashboard Design. Analytics Press, 2013.",
+    "KNAFLIC, Cole Nussbaumer. Storytelling com Dados. Alta Books, 2021."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de análise de dashboard entregue no AVA."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1"]
+  }
+}

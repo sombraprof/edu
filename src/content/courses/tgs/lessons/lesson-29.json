@@ -1,0 +1,232 @@
+{
+  "id": "lesson-29",
+  "title": "Aula 29: Fundamentos do Planejamento Estratégico de SI",
+  "objective": "Estabelecer visão sistêmica sobre o ciclo de planejamento estratégico de sistemas de informação.",
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Itinerário da aula",
+      "items": [
+        "Panorama das pressões externas e internas que demandam planejamento de SI.",
+        "Modelo de governança para condução do Plano Diretor de Tecnologia (PDTI/PESI).",
+        "Exercício colaborativo de definição de perguntas norteadoras para a etapa de diagnóstico."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Motores do planejamento",
+      "cards": [
+        {
+          "title": "Estratégia do negócio",
+          "content": "Metas corporativas, proposta de valor e diferenciais competitivos definem prioridades de SI."
+        },
+        {
+          "title": "Regulação e compliance",
+          "content": "Normas como LGPD, Bacen e Susep exigem controles, trilhas de auditoria e planos de continuidade."
+        },
+        {
+          "title": "Transformação digital",
+          "content": "Inovação em produtos, canais e operações demanda investimentos coordenados em tecnologia."
+        },
+        {
+          "title": "Capacidades internas",
+          "content": "Processos, pessoas e arquitetura existentes condicionam ritmo e abrangência das iniciativas."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Domínios e recursos pré-prova",
+      "cards": [
+        {
+          "title": "Estratégia & Governança",
+          "content": "Revisar mapa estratégico e usar o guia de alinhamento PESI para conectar metas a iniciativas."
+        },
+        {
+          "title": "Processos & Operações",
+          "content": "Mapear processos críticos utilizando o canvas de diagnóstico disponibilizado na pasta da disciplina."
+        },
+        {
+          "title": "Dados & Tecnologia",
+          "content": "Organizar inventário de sistemas com o template de catálogo de aplicações e integrações."
+        },
+        {
+          "title": "Pessoas & Cultura",
+          "content": "Planejar entrevistas com stakeholders apoiando-se no roteiro de mudança organizacional."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Evolução do planejamento de TI",
+      "steps": [
+        {
+          "title": "Anos 1980",
+          "content": "Planos de processamento de dados focados em infraestrutura e automação departamental."
+        },
+        {
+          "title": "Anos 1990",
+          "content": "Integração com reengenharia de processos e surgimento de ERPs corporativos."
+        },
+        {
+          "title": "Anos 2000",
+          "content": "PDTI alinhado à governança corporativa, frameworks como COBIT e ITIL."
+        },
+        {
+          "title": "Anos 2010",
+          "content": "Digitalização de jornadas, analytics e integração omnicanal."
+        },
+        {
+          "title": "Anos 2020+",
+          "content": "Estratégias data-driven, plataformas, ecossistemas e sustentabilidade digital."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Macroetapas do PESI",
+      "headers": ["Fase", "Perguntas-guia", "Principais entregáveis"],
+      "rows": [
+        [
+          "Preparação",
+          "Quem patrocina? Quais fronteiras do plano?",
+          "Termo de abertura, comitê, matriz de stakeholders"
+        ],
+        [
+          "Diagnóstico",
+          "Onde estamos em processos, dados e tecnologia?",
+          "Inventário de ativos, análise de maturidade, mapa de riscos"
+        ],
+        [
+          "Formulação",
+          "Que objetivos e indicadores conectam SI à estratégia?",
+          "Mapa estratégico de SI, metas plurianuais, carteira preliminar"
+        ],
+        [
+          "Execução",
+          "Como priorizar, financiar e governar o portfólio?",
+          "Roadmap, modelo de governança, plano de comunicação"
+        ],
+        [
+          "Monitoramento",
+          "Como medir valor e ajustar continuamente?",
+          "Painéis de indicadores, ritos de revisão, lições aprendidas"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Conduta durante atividades avaliativas",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Material autorizado apenas o entregue pelo professor; demais dispositivos permanecem guardados."
+            },
+            {
+              "text": "Trabalhos em grupo exigem registro de contribuição individual no formulário oficial."
+            },
+            {
+              "text": "Referencie fontes externas explicitamente para evitar plágio e reprovação."
+            },
+            {
+              "text": "Solicite apoio em caso de dúvida; combinações paralelas durante prova anulam a entrega."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Casos recomendados",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/pesi-banco-inovador",
+          "title": "Planejamento de SI no Banco Horizonte",
+          "caption": "Case sobre alinhamento entre diretoria de estratégia e TI para expansão digital."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/pdti-setor-publico",
+          "title": "PDTI em órgão regulador",
+          "caption": "Relato de implantação do ciclo PDTI com governança compartilhada."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 29 — Linha do tempo comentada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Elabore uma linha do tempo executiva destacando três marcos que influenciaram o planejamento de TI da sua organização ou de um caso pesquisado. Entregue no AVA até 72h após a aula com comentários sobre impactos estratégicos."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-29-fundamentos-planejamento-estrategico-si",
+  "summary": "Introduz fundamentos, atores e macroetapas do planejamento estratégico de sistemas de informação.",
+  "objectives": [
+    "Reconhecer fatores que impulsionam o planejamento estratégico de SI.",
+    "Distinguir macroetapas do PESI e seus produtos principais.",
+    "Preparar perguntas norteadoras para o diagnóstico situacional."
+  ],
+  "competencies": [
+    "Pensamento sistêmico aplicado a estratégia",
+    "Governança de TI",
+    "Análise organizacional"
+  ],
+  "outcomes": [
+    "Mapeia atores e pressões que justificam o PESI.",
+    "Explica o encadeamento das macroetapas do plano.",
+    "Seleciona evidências necessárias para iniciar o diagnóstico."
+  ],
+  "prerequisites": [
+    "Revisar conceitos de alinhamento estratégico estudados na aula 12.",
+    "Trazer organogramas e indicadores atuais da organização analisada."
+  ],
+  "tags": ["planejamento-estrategico", "pesi", "governanca"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de termo de abertura de PESI",
+      "url": "https://example.edu/tgs/templates/termo-abertura-pesi",
+      "type": "template"
+    },
+    {
+      "label": "Guia COBIT Design para PESI",
+      "url": "https://example.edu/tgs/guides/cobit-design",
+      "type": "guide"
+    },
+    {
+      "label": "Checklist pré-prova PESI",
+      "url": "https://example.edu/tgs/checklists/pre-prova-pesi",
+      "type": "checklist"
+    }
+  ],
+  "bibliography": [
+    "WEILL, Peter; ROSS, Jeanne. IT Governance. Harvard Business Review Press, 2017.",
+    "ALMEIDA, T. Planejamento Estratégico de Sistemas de Informação. Atlas, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Linha do tempo comentada conectando marcos históricos a impactos estratégicos.",
+    "deliverables": [
+      "Linha do tempo em formato visual (PDF ou Miro exportado) com pelo menos cinco marcos.",
+      "Comentário analítico para cada marco destacando impactos e indicadores associados.",
+      "Resumo executivo (até 300 palavras) relacionando aprendizados às prioridades da organização estudada."
+    ],
+    "rubric": "Avalia clareza narrativa, conexão com objetivos de SI, evidências utilizadas e viabilidade das recomendações.",
+    "dueDate": "2025-03-20T23:59:00.000Z"
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Benchmark PESI 2024"]
+  }
+}

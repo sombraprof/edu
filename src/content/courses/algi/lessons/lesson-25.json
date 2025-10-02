@@ -9,16 +9,16 @@
     "Escrever protótipos simples com parâmetros e retorno.",
     "Organizar arquivo C com seções de protótipos, main e funções auxiliares."
   ],
-  "competencies": ["Pensamento computacional", "Design de software", "Depuração"],
+  "competencies": ["05", "08", "11"],
   "skills": [
-    "Declarar e chamar funções com e sem retorno.",
-    "Documentar o propósito de cada função em comentários breves.",
-    "Configurar projeto com separação de protótipos e implementação."
+    "Identificar oportunidades de modularização em programas sequenciais.",
+    "Desenhar protótipos de funções definindo assinaturas, parâmetros e retorno.",
+    "Registrar pré e pós-condições que orientem o uso correto de cada função."
   ],
   "outcomes": [
-    "Entrega um programa que utiliza ao menos três funções bem nomeadas.",
-    "Publica comentário explicando responsabilidade de cada função.",
-    "Anexa registro de testes básicos executados nas funções criadas."
+    "Entrega roteiro que aponta blocos candidatos à extração em funções.",
+    "Disponibiliza protótipo documentado em arquivo header ou anotações estruturadas.",
+    "Apresenta quadro de pré/pós-condições validado com exemplos práticos."
   ],
   "prerequisites": [
     "Rever laços e condicionais (aulas 19-24).",
@@ -28,6 +28,11 @@
   "duration": 120,
   "modality": "in-person",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Rubrica de modularização",
       "type": "rubric",
@@ -44,6 +49,26 @@
       "label": "Playlist: Funções em C (Programação Descomplicada)",
       "type": "playlist",
       "url": "https://www.youtube.com/playlist?list=PL8iN9FQ7_jt6t-6eJX0sUqIxon1H2mS2I"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -56,6 +81,31 @@
     "description": "Miniatividade individual: refatorar um algoritmo sequencial em funções com protótipo documentado."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Funções e Modularização. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 25."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da sessão",
@@ -113,13 +163,39 @@
       "title": "Checklist de um protótipo bem escrito",
       "headers": ["Item", "Pergunta", "Status"],
       "rows": [
-        [{ "value": "Nome" }, { "value": "Representa ação clara?" }, { "value": "✅/⚠️" }],
         [
-          { "value": "Parâmetros" },
-          { "value": "Inclui apenas o necessário?" },
-          { "value": "✅/⚠️" }
+          {
+            "value": "Nome"
+          },
+          {
+            "value": "Representa ação clara?"
+          },
+          {
+            "value": "✅/⚠️"
+          }
         ],
-        [{ "value": "Retorno" }, { "value": "Comunica sucesso/erro?" }, { "value": "✅/⚠️" }]
+        [
+          {
+            "value": "Parâmetros"
+          },
+          {
+            "value": "Inclui apenas o necessário?"
+          },
+          {
+            "value": "✅/⚠️"
+          }
+        ],
+        [
+          {
+            "value": "Retorno"
+          },
+          {
+            "value": "Comunica sucesso/erro?"
+          },
+          {
+            "value": "✅/⚠️"
+          }
+        ]
       ]
     },
     {
@@ -136,11 +212,190 @@
         "Adicionei comentários de propósito.",
         "Rodei a suíte de testes fornecida e registrei os resultados."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 25' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente aula25_funcoes.c extraindo ao menos três funções puras do exercício trabalhado."
+            },
+            {
+              "text": "Anexe planilha com parâmetros de teste e resultados obtidos por função."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Decomposição em funções",
+      "steps": [
+        {
+          "title": "Ler dados",
+          "description": "Função input()"
+        },
+        {
+          "title": "Processar",
+          "description": "Função process()"
+        },
+        {
+          "title": "Exibir",
+          "description": "Função output()"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Funções\ninput: 2 3 -> soma()=5",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Funções pequenas e coesas: uma responsabilidade clara por função.",
+            "Prefira passar dados por parâmetro ao invés de depender de variáveis globais."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int soma(int a,int b){ printf(\"%d\", a+b); } // mistura cálculo e I/O",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int soma(int a,int b){ return a+b; } // devolve resultado",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Flashcards — revisão rápida",
+      "shuffle": true,
+      "cards": [
+        {
+          "front": "<b>Protótipo</b>",
+          "back": "Assinatura da função"
+        },
+        {
+          "front": "<b>Escopo</b>",
+          "back": "Visibilidade da variável"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.990Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Diário de bordo do módulo de funções 2025"]
   }

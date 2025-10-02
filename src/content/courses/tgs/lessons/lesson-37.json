@@ -1,0 +1,388 @@
+{
+  "id": "lesson-37",
+  "title": "Aula 37: Planejamento por Cenários e Futuros de SI",
+  "objective": "Aplicar técnicas de foresight para projetar futuros possíveis e implicações para o PESI.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "Exploração",
+          "content": "Revisão de sinais fracos e drivers de mudança (20 min)."
+        },
+        {
+          "icon": "bullseye",
+          "title": "Cocriação",
+          "content": "Construção colaborativa de matrizes 2×2 e narrativas (35 min)."
+        },
+        {
+          "icon": "gears",
+          "title": "Modelagem",
+          "content": "Mapeamento de gatilhos, respostas e métricas críticas (25 min)."
+        },
+        {
+          "icon": "calendar-days",
+          "title": "Simulação",
+          "content": "Testes de resposta rápida com pipeline adaptativo (20 min)."
+        },
+        {
+          "icon": "tasks",
+          "title": "TED",
+          "content": "Checklist e orientações para narrativa 2030 (10 min)."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Elementos do foresight",
+      "items": [
+        {
+          "title": "Sinais fracos",
+          "content": "Indícios emergentes que sugerem mudanças futuras.",
+          "language": "plaintext",
+          "code": "Indícios emergentes que sugerem mudanças futuras."
+        },
+        {
+          "title": "Forças motrizes",
+          "content": "Tendências macroeconômicas, tecnológicas e sociais.",
+          "language": "plaintext",
+          "code": "Tendências macroeconômicas, tecnológicas e sociais."
+        },
+        {
+          "title": "Incertezas críticas",
+          "content": "Variáveis de alto impacto e difícil previsão.",
+          "language": "plaintext",
+          "code": "Variáveis de alto impacto e difícil previsão."
+        },
+        {
+          "title": "Narrativas",
+          "content": "Histórias que conectam eventos e guiam decisões estratégicas.",
+          "language": "plaintext",
+          "code": "Histórias que conectam eventos e guiam decisões estratégicas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de construção de cenários",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "Coletar sinais e dados – tipo: process"
+            },
+            {
+              "text": "Identificar forças motrizes – tipo: process"
+            },
+            {
+              "text": "Incerteza crítica? – tipo: decision"
+            },
+            {
+              "text": "Montar matriz 2×2 – tipo: process"
+            },
+            {
+              "text": "Criar narrativa e storyline – tipo: process"
+            },
+            {
+              "text": "Derivar implicações para SI – tipo: process"
+            },
+            {
+              "text": "Definir sinais de alerta – tipo: process"
+            },
+            {
+              "text": "Cenário pronto – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → dados"
+            },
+            {
+              "text": "dados → drivers"
+            },
+            {
+              "text": "drivers → incertezas"
+            },
+            {
+              "text": "incertezas → matriz – sim"
+            },
+            {
+              "text": "incertezas → drivers – não"
+            },
+            {
+              "text": "matriz → narrativa"
+            },
+            {
+              "text": "narrativa → implicacoes"
+            },
+            {
+              "text": "implicacoes → sinais"
+            },
+            {
+              "text": "sinais → end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Matriz 2x2 de cenários",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cenário: Regulado & Estável | Descrição: Mercado com regulação forte e baixa disrupção | Implicações para SI: Foco em compliance e eficiência | Alertas precoces: Novas normas, auditorias frequentes"
+            },
+            {
+              "text": "Cenário: Regulado & Disruptivo | Descrição: Regulação rígida e mudanças tecnológicas rápidas | Implicações para SI: Necessidade de inovação segura | Alertas precoces: Sandbox regulatórios, startups licenciadas"
+            },
+            {
+              "text": "Cenário: Livre & Estável | Descrição: Ambiente competitivo com poucas barreiras | Implicações para SI: Escala de produtos digitais | Alertas precoces: Entrada de players globais"
+            },
+            {
+              "text": "Cenário: Livre & Disruptivo | Descrição: Mercado aberto e alta velocidade de inovação | Implicações para SI: Portfólio flexível e parcerias | Alertas precoces: Investimentos massivos em IA e dados"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Pipeline de respostas a cenários",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Fluxo para monitorar gatilhos e acionar planos adaptativos."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Monitorar | Coletar sinais de alerta e validar hipóteses. | Responsáveis: PMO, Analista de riscos | Duração: 6h | Atividades: Dashboard de sinais; Auditar logs | Entregáveis: Log consolidado de gatilhos | Riscos: Latência de dados (Automatizar ingestão e alertas.) | Checkpoints: Sinais atualizados no painel"
+            },
+            {
+              "text": "Responder | Executar scripts e planos de mitigação. | Responsáveis: Squad de contingência | Duração: 16h | Atividades: Rodar scripts; Testar mudanças | Entregáveis: Scripts executados; Relatório de testes | Riscos: Falha em rollback (Definir plano B e monitoramento contínuo.) | Checkpoints: Testes aprovados"
+            },
+            {
+              "text": "Replanejar | Atualizar roadmap e comunicar stakeholders. | Responsáveis: Comitê de estratégia, Product manager | Duração: 8h | Atividades: Repriorizar portfólio; Comunicar mudanças | Entregáveis: Roadmap revisado | Riscos: Falta de adesão (Envolver sponsors em simulações.) | Checkpoints: Roadmap publicado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Matriz de respostas estratégicas",
+      "summary": "Mapeia gatilhos de mudança e planos de resposta do PESI.",
+      "factors": [
+        {
+          "id": "gatilhos",
+          "name": "Gatilhos",
+          "summary": "Eventos monitorados",
+          "kind": "constraint",
+          "indicators": ["alertas_ativos"]
+        },
+        {
+          "id": "portfolio",
+          "name": "Portfólio adaptativo",
+          "summary": "Backlog flexível",
+          "kind": "flow",
+          "indicators": ["iniciativas_repriorizadas"]
+        },
+        {
+          "id": "investimentos",
+          "name": "Investimentos",
+          "summary": "Capex e Opex",
+          "kind": "resource",
+          "indicators": ["budget_disponivel"]
+        },
+        {
+          "id": "competencias",
+          "name": "Competências futuras",
+          "summary": "Upskilling e talento",
+          "kind": "capability",
+          "indicators": ["talentos_formados"]
+        }
+      ],
+      "connections": [
+        {
+          "from": "gatilhos",
+          "to": "portfolio",
+          "description": "Gatilhos acionam repriorização do backlog."
+        },
+        {
+          "from": "investimentos",
+          "to": "portfolio",
+          "description": "Realocação de orçamento viabiliza respostas."
+        },
+        {
+          "from": "competencias",
+          "to": "portfolio",
+          "description": "Competências futuras permitem executar novos planos."
+        },
+        {
+          "from": "portfolio",
+          "to": "investimentos",
+          "description": "Novas prioridades demandam redistribuição de budget."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Sequência de construção de cenários",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Etapa 1 – Coleta sinais e tendências com especialistas."
+            },
+            {
+              "text": "Etapa 2 – Define forças motrizes e incertezas críticas."
+            },
+            {
+              "text": "Etapa 3 – Constrói matrizes de cenários e narrativas."
+            },
+            {
+              "text": "Etapa 4 – Extrai implicações para portfólio e riscos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Futuros de SI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=FzT9I3J7P1s",
+          "title": "Curso em Vídeo — Como construir cenários futuros",
+          "caption": "Passo a passo para estruturar cenários estratégicos."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VYOq-Jxk_3g",
+          "title": "freeCodeCamp — Foresight for Technology Leaders",
+          "caption": "Ferramentas para antecipar impactos tecnológicos."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 37 — Narrativa 2030",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escreva uma narrativa de cenário para 2030 considerando incertezas críticas do seu setor. Anexe script de simulação, relatório de testes das respostas e log de auditoria dos gatilhos monitorados."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Script de simulação com parametrizações dos cenários."
+            },
+            {
+              "text": "Relatório de testes validando respostas e riscos residuais."
+            },
+            {
+              "text": "Log de auditoria com gatilhos e decisões tomadas."
+            }
+          ]
+        },
+        {
+          "type": "checklist",
+          "title": "Checklist de submissão",
+          "items": [
+            "Narrativa 2030 em PDF com storyline e implicações.",
+            "Script versionado com instruções de execução.",
+            "Relatório de testes com métricas de cobertura.",
+            "Log de auditoria (CSV/JSON) assinado digitalmente."
+          ]
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-37-planejamento-por-cenarios-e-futuros",
+  "summary": "Aplica foresight ao planejamento estratégico de SI, criando cenários e planos de resposta adaptativos.",
+  "objectives": [
+    "Utilizar ferramentas de foresight para identificar futuros plausíveis.",
+    "Derivar implicações estratégicas para SI a partir de cenários.",
+    "Planejar respostas adaptativas diante de gatilhos e incertezas."
+  ],
+  "competencies": ["Planejamento por cenários", "Gestão de riscos", "Pensamento crítico"],
+  "outcomes": [
+    "Produz matriz de cenários com implicações de SI.",
+    "Define gatilhos e planos de resposta no portfólio.",
+    "Comunica narrativa 2030 alinhada ao negócio."
+  ],
+  "prerequisites": [
+    "Radar de tendências concluído (aula 36).",
+    "Participação prévia em fóruns de governança (aula 34)."
+  ],
+  "tags": ["cenarios", "foresight", "planejamento"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Template de matriz 2x2",
+      "url": "https://example.edu/tgs/templates/matriz-2x2",
+      "type": "template"
+    },
+    {
+      "label": "Dataset JSON — Indicadores de risco prospectivo",
+      "url": "https://data.gov.br/dataset/indicadores-risco-prospectivo.json",
+      "type": "dataset"
+    },
+    {
+      "label": "Vídeo Curso em Vídeo — Futuros e Estratégia",
+      "url": "https://www.youtube.com/watch?v=FzT9I3J7P1s",
+      "type": "video"
+    },
+    {
+      "label": "Vídeo freeCodeCamp — Scenario Planning for Tech",
+      "url": "https://www.youtube.com/watch?v=VYOq-Jxk_3g",
+      "type": "video"
+    },
+    {
+      "label": "Planilha de monitoramento de sinais",
+      "url": "https://docs.google.com/spreadsheets/d/1TGS_Sinais2030",
+      "type": "spreadsheet"
+    },
+    {
+      "label": "Template de log de auditoria de cenários (CSV)",
+      "url": "https://example.edu/tgs/templates/log-auditoria-cenarios.csv",
+      "type": "template"
+    },
+    {
+      "label": "Guia de narrativas de cenário",
+      "url": "https://example.edu/tgs/guides/narrativas-cenario",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "SCHOEMAKER, Paul. Scenario Planning in Organizations. Harvard, 2014.",
+    "EUROSTAT. Strategic Foresight Report 2024. European Commission, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Narrativa de cenário 2030 com implicações estratégicas."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Toolkit Foresight 2024"]
+  }
+}

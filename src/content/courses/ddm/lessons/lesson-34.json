@@ -1,0 +1,262 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-34",
+  "title": "Aula 34: Unidade VI – Oficina React Native + Firebase",
+  "slug": "oficina-react-native-firebase",
+  "summary": "Integra o app Expo com Firebase (Authentication e Firestore), abordando segurança, regras e sincronização em tempo real.",
+  "objective": "Implementar autenticação e persistência em nuvem com Firebase, garantindo segurança e escalabilidade para o MVP da turma.",
+  "objectives": [
+    "Configurar projeto Firebase com Authentication e Firestore.",
+    "Integrar SDK do Firebase ao projeto Expo com módulos compatíveis.",
+    "Implementar fluxo de login, cadastro e sincronização de dados em tempo real."
+  ],
+  "competencies": [
+    "Integração de serviços cloud",
+    "Segurança e governança de dados",
+    "Arquitetura reativa em tempo real"
+  ],
+  "skills": [
+    "Configurar Firebase no Expo com `expo-firebase`/`react-native-firebase`.",
+    "Criar regras de segurança e índices para Firestore.",
+    "Sincronizar dados entre cliente e nuvem com listeners ao vivo."
+  ],
+  "outcomes": [
+    "App com fluxo de autenticação funcional e protegido.",
+    "Coleções Firestore configuradas com regras compatíveis.",
+    "Documento de arquitetura cloud anexado ao repositório."
+  ],
+  "prerequisites": [
+    "Integração de API local concluída (Aula 32).",
+    "Conta Firebase institucional ativa."
+  ],
+  "tags": ["react-native", "firebase", "cloud"],
+  "duration": 180,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Firebase for Expo",
+      "url": "https://docs.expo.dev/guides/using-firebase/",
+      "type": "documentation"
+    },
+    {
+      "label": "Firestore Security Rules",
+      "url": "https://firebase.google.com/docs/firestore/security/get-started",
+      "type": "documentation"
+    }
+  ],
+  "bibliography": [
+    "FIREBASE. Documentation. Google, 2024.",
+    "RODRIGUES, M. Serverless Mobile Apps. Packt, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega da oficina: fluxo de autenticação e coleção Firestore funcional registrados em vídeo curto + checklist de segurança."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo (180 min)",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Visão geral do ecossistema Firebase e requisitos de segurança."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Configuração guiada",
+          "content": "criação de projeto, app web e variáveis ambiente."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(50 min) Implementação",
+          "content": "Authentication com email/senha e providers sociais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(50 min) Firestore em ação",
+          "content": "coleções, listeners e sincronização offline."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Consolidação",
+          "content": "checklist de segurança, testes e planejamento da TED."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Atenção à segurança",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O plano de ensino exige que qualquer integração cloud cumpra requisitos de LGPD e segurança. Revise as regras do Firestore e evite publicar chaves sensíveis no repositório."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Etapas da oficina",
+      "cards": [
+        {
+          "icon": "users",
+          "title": "Autenticação",
+          "content": "Implementar login/cadastro com validação e tratamento de erros."
+        },
+        {
+          "icon": "database",
+          "title": "Persistência",
+          "content": "Criar coleções Firestore e sincronizar dados em tempo real."
+        },
+        {
+          "icon": "settings",
+          "title": "Segurança",
+          "content": "Escrever regras, configurar índices e validar acesso conforme papéis."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Checklist de integração cloud",
+      "items": [
+        {
+          "title": "Setup",
+          "content": "Projeto Firebase criado com usuários registrados.",
+          "language": "plaintext",
+          "code": "- Projeto Firebase criado com usuários registrados.\n- Credenciais armazenadas em `.env` e `app.config.ts`.\n- SDKs instalados e configurados no Expo."
+        },
+        {
+          "title": "Autenticação",
+          "content": "Fluxo de login/cadastro com feedback MD3.",
+          "language": "plaintext",
+          "code": "- Fluxo de login/cadastro com feedback MD3.\n- Reset de senha e verificação de email opcional.\n- Proteção de rotas autenticadas no React Navigation."
+        },
+        {
+          "title": "Firestore",
+          "content": "Coleções com índices e regras baseadas em usuário.",
+          "language": "plaintext",
+          "code": "- Coleções com índices e regras baseadas em usuário.\n- Sync offline habilitado com `enableIndexedDbPersistence`.\n- Listeners removidos corretamente para evitar vazamentos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de dados com Firebase",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Autenticar – Usuário envia credenciais, Firebase Auth valida e retorna token."
+            },
+            {
+              "text": "Autorizar – Aplicativo injeta token em cabeçalhos e aplica regras de segurança."
+            },
+            {
+              "text": "Sincronizar – Listeners atualizam UI em tempo real e persistem dados offline."
+            },
+            {
+              "text": "Monitorar – Logar atividades com Firebase Analytics/Crashlytics para auditoria."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Pipeline da TED – Integração Firebase",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Atividade avaliativa que valida segurança e sincronização em nuvem."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Configuração | Preparar projeto e chaves. | Responsáveis: Grupo | Duração: 2h | Atividades: Configurar console; Gerenciar chaves | Entregáveis: Credenciais seguras | Riscos: Vazamento de chaves (Usar gitignore, secrets do GitHub e revisão dupla antes de commits.) | Checkpoints: Projeto criado, Chaves seguras"
+            },
+            {
+              "text": "Implementação | Desenvolver fluxo de autenticação e persistência. | Responsáveis: Grupo | Duração: 4h | Atividades: Implementar Auth; CRUD Firestore | Entregáveis: Branch `feature/firebase` | Riscos: Limite de quota (Configurar regras para evitar escritas excessivas e usar mocks em testes.) | Checkpoints: Auth funcionando, Firestore sincronizando"
+            },
+            {
+              "text": "Validação | Testes, segurança e documentação. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Testar regras; Gravar walkthrough | Entregáveis: Checklist de segurança | Riscos: Regras permissivas (Revisão cruzada e uso de simulador antes de publicar.) | Checkpoints: Regras aprovadas, Vídeo enviado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Oficina React Native + Firebase usando Expo e React Navigation."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Oficina React Native + Firebase: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: FIREBASE (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de FIREBASE (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "FIREBASE. Documentation. Google, 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Oficina React Native + Firebase relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: FIREBASE. Documentation. Google, 2024.",
+            "Conecte com o estudo: RODRIGUES, M. Serverless Mobile Apps. Packt, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "RODRIGUES, M. Serverless Mobile Apps. Packt, 2023."
+        }
+      ]
+    }
+  ]
+}

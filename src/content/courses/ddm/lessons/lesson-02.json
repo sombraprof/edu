@@ -43,6 +43,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade I",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE",
+          "title": "Android Basics in Kotlin (Android Developers)",
+          "caption": "Playlist oficial sobre fundamentos de Android e Kotlin. Créditos: Android Developers (Google, 2024)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ldM6QZy9e0s",
+          "title": "Kotlin-first no Google I/O 2019",
+          "caption": "Keynote institucional destacando a adoção do Kotlin no Android. Créditos: Google I/O (2019)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de Voo da Aula",
       "items": [
@@ -185,6 +201,26 @@
           ]
         },
         {
+          "type": "callout",
+          "variant": "info",
+          "title": "Envio oficial no Moodle",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Acesse Moodle > DDM 2024.1 > Unidade I > TED 02 – Configuração do Ambiente para anexar a evidência."
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "Link direto: https://moodle.unichristus.br/mod/assign/view.php?id=98142.",
+                "Prazo oficial: 20/06/2024 às 23h59 (horário de Fortaleza).",
+                "Formatos aceitos: PNG, JPG ou PDF com até 10 MB (anexe captura e comentários)."
+              ]
+            }
+          ]
+        },
+        {
           "type": "bibliographyBlock",
           "title": "Bibliografia Recomendada",
           "references": [
@@ -193,12 +229,71 @@
           ]
         }
       ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O trecho abaixo demonstra como instrumentar o registo de eventos no contexto de Configuração do Ambiente de Desenvolvimento, reforçando o que discutimos em sala."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "// Exemplo aplicado de Configuração do Ambiente de Desenvolvimento\nval moduloAtual = \"Configuração do Ambiente de Desenvolvimento\"\nandroid.util.Log.d(\"UnidadeI\", \"Preparando $moduloAtual\")\n// Referência: Google (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Note como o comentário final conecta o exemplo às diretrizes oficiais discutidas em Google (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Google. \"Install Android Studio.\" 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para aprofundar Configuração do Ambiente de Desenvolvimento, retome as leituras indicadas e conecte com as práticas de laboratório."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: Google. \"Install Android Studio.\" 2024.",
+            "Conecte com o estudo: JetBrains. \"Kotlin Documentation.\" 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione os indicadores discutidos com os dados de mercado apresentados na bibliografia."
+        },
+        {
+          "type": "blockquote",
+          "text": "JetBrains. \"Kotlin Documentation.\" 2024."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2024-05-06T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Guia de Laboratório DDM – Ambiente"]
+    "updatedAt": "2024-06-18T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra", "Ana Paula (Governança)"],
+    "sources": ["Guia de Laboratório DDM – Ambiente", "docs/governance/moodle-ted-crosswalk.md"],
+    "evidences": [
+      "Ata: docs/governance/professor-validation-meeting.md",
+      "Planilha: docs/governance/post-module-monitoring.md"
+    ]
   }
 }

@@ -1,0 +1,373 @@
+{
+  "id": "lesson-26",
+  "title": "Aula 26: ERP, E-commerce e Plataformas Digitais",
+  "objective": "Discutir estratégias de integração do ERP com canais digitais e marketplaces, garantindo consistência de estoque, preços e atendimento.",
+  "content": [
+    {
+      "type": "flightPlan",
+      "title": "Trilha híbrida da aula",
+      "items": [
+        "Pré-aula online: leitura guiada e quiz diagnóstico sobre integrações ERP ↔ canais digitais.",
+        "Encontro síncrono (60 min): revisão conceitual, walkthrough do fluxo e debate de riscos.",
+        "Laboratório híbrido (30 min): squads ajustam conectores em sandbox compartilhado com acompanhamento remoto.",
+        "Pós-aula assíncrona: registrar decisões e pendências no board de integrações."
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "monitor",
+          "title": "Contextualização",
+          "content": "Mapeamos pressões comerciais e operacionais que exigem sincronização omnicanal."
+        },
+        {
+          "icon": "gears",
+          "title": "Arquitetura",
+          "content": "Desmontamos componentes ERP, OMS, middleware e canais, destacando dados críticos."
+        },
+        {
+          "icon": "users",
+          "title": "Oficina orientada",
+          "content": "Times simulam incidentes, definem SLAs e documentam contratos de integração."
+        },
+        {
+          "icon": "calendar-days",
+          "title": "Follow-up",
+          "content": "Fechamos com plano de monitoramento contínuo e próximos experimentos digitais."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Dados que circulam entre ERP e canais digitais",
+      "headers": ["Categoria", "Origem", "Frequência", "Risco se falhar"],
+      "rows": [
+        ["Estoque", "ERP/WMS", "Quase real-time", "Venda de item indisponível"],
+        ["Preço", "ERP/Financeiro", "Diária ou sob evento", "Margens incorretas"],
+        ["Pedidos", "E-commerce/OMS", "Imediata", "Não faturamento"],
+        ["Clientes", "E-commerce/CRM", "Sob evento", "Entrega inviabilizada"],
+        ["Promoções", "Marketing", "Agendada", "Campanha inválida"]
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Fluxo de dados ERP ↔ canais digitais",
+        "summary": "Visão simplificada do ciclo pedido → faturamento → atendimento ao cliente.",
+        "nodes": [
+          { "id": "start", "type": "start", "title": "Início" },
+          { "id": "pedido", "type": "input", "title": "Pedido no canal" },
+          {
+            "id": "oms",
+            "type": "process",
+            "title": "OMS valida regra",
+            "description": "Checa estoque, preço e promoções."
+          },
+          {
+            "id": "decision-estoque",
+            "type": "decision",
+            "title": "Estoque disponível?",
+            "branches": [
+              {
+                "id": "estoque-sim",
+                "label": "Sim",
+                "target": "erp",
+                "description": "Reserva SKU"
+              },
+              {
+                "id": "estoque-nao",
+                "label": "Não",
+                "target": "process-escalonar",
+                "description": "Aciona fallback"
+              }
+            ]
+          },
+          {
+            "id": "process-escalonar",
+            "type": "process",
+            "title": "Escalonar para atendimento",
+            "description": "Notifica SAC para reter cliente."
+          },
+          {
+            "id": "erp",
+            "type": "process",
+            "title": "ERP atualiza saldo",
+            "description": "Registra pedido, impostos e condições de pagamento."
+          },
+          {
+            "id": "fiscal",
+            "type": "process",
+            "title": "Módulo fiscal",
+            "description": "Emite NF-e/boletos e integra gateway."
+          },
+          { "id": "envio", "type": "process", "title": "WMS despacha" },
+          {
+            "id": "pos-venda",
+            "type": "process",
+            "title": "CS atualiza cliente",
+            "description": "Comunica tracking e opções de troca."
+          },
+          { "id": "fim", "type": "end", "title": "Fim" }
+        ],
+        "connections": [
+          { "from": "start", "to": "pedido" },
+          { "from": "pedido", "to": "oms" },
+          { "from": "oms", "to": "decision-estoque" },
+          { "from": "decision-estoque", "to": "erp", "label": "Sim" },
+          { "from": "decision-estoque", "to": "process-escalonar", "label": "Não" },
+          { "from": "process-escalonar", "to": "pos-venda" },
+          { "from": "erp", "to": "fiscal" },
+          { "from": "fiscal", "to": "envio" },
+          { "from": "envio", "to": "pos-venda" },
+          { "from": "pos-venda", "to": "fim" }
+        ]
+      }
+    },
+    {
+      "type": "cardGrid",
+      "title": "Parâmetros que sustentam a integração",
+      "cards": [
+        {
+          "title": "Catálogo & SKUs",
+          "content": "Estrutura de atributos, hierarquias e políticas de substituição."
+        },
+        {
+          "title": "Regras de preço",
+          "content": "Faixas, promoções, cupons e impostos dinâmicos."
+        },
+        {
+          "title": "SLA e fulfillment",
+          "content": "Service level agreements por canal e regras de roteamento logístico."
+        },
+        {
+          "title": "Contratos de integração",
+          "content": "Versionamento de APIs, webhooks, janelas de manutenção e fallback."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Incidentes simulados",
+      "cards": [
+        {
+          "title": "Duplicidade de pedidos",
+          "content": "Marketplace envia pedido duas vezes. Como o ERP evita faturamento duplicado?"
+        },
+        {
+          "title": "Divergência de preço",
+          "content": "Tabela no ERP não sincroniza. Que monitoria detecta?"
+        },
+        {
+          "title": "Estoque negativo",
+          "content": "Reserva online excede disponibilidade. Qual política aplicar?"
+        },
+        {
+          "title": "Cancelamento tardio",
+          "content": "Cliente cancela após faturamento. Quais integrações tratam devolução?"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Arquitetura integrada",
+      "summary": "Componentes que sustentam a jornada digital.",
+      "factors": [
+        {
+          "id": "erp",
+          "name": "ERP",
+          "summary": "Fonte de estoque, preços e faturamento.",
+          "kind": "driver",
+          "indicators": ["atualizacao_precos", "acuracia_estoque"]
+        },
+        {
+          "id": "oms",
+          "name": "Order Management",
+          "summary": "Orquestra pedidos multicanal.",
+          "kind": "flow",
+          "indicators": ["sla_roteamento"]
+        },
+        {
+          "id": "marketplaces",
+          "name": "Marketplaces",
+          "summary": "Canais externos com regras próprias.",
+          "kind": "flow",
+          "indicators": ["penalidades"]
+        },
+        {
+          "id": "ecommerce",
+          "name": "E-commerce próprio",
+          "summary": "Vitrine digital e carrinho.",
+          "kind": "flow",
+          "indicators": ["taxa_conversao"]
+        },
+        {
+          "id": "cliente",
+          "name": "Cliente final",
+          "summary": "Experiência e fidelização.",
+          "kind": "outcome",
+          "indicators": ["nps_digital", "recompra"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "experiencia-omnicanal",
+          "name": "Experiência omnicanal",
+          "polarity": "reinforcing",
+          "summary": "Sincronização eficiente aumenta satisfação e gera novas vendas.",
+          "steps": [
+            {
+              "id": "omni-1",
+              "from": "erp",
+              "to": "oms",
+              "effect": "reinforces",
+              "description": "Dados atualizados permitem roteamento correto."
+            },
+            {
+              "id": "omni-2",
+              "from": "oms",
+              "to": "marketplaces",
+              "effect": "reinforces",
+              "description": "OMS publica status confiáveis nos canais."
+            },
+            {
+              "id": "omni-3",
+              "from": "marketplaces",
+              "to": "ecommerce",
+              "effect": "reinforces",
+              "description": "Experiência consistente fortalece marca própria."
+            },
+            {
+              "id": "omni-4",
+              "from": "ecommerce",
+              "to": "cliente",
+              "effect": "reinforces",
+              "description": "Compra fluida melhora satisfação."
+            },
+            {
+              "id": "omni-5",
+              "from": "cliente",
+              "to": "erp",
+              "effect": "reinforces",
+              "description": "Feedback influencia planejamento de estoque e preços."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-omni-1",
+          "label": "Monitoria unificada",
+          "description": "Dashboard único com SLAs por canal evita visão fragmentada."
+        },
+        {
+          "id": "insight-omni-2",
+          "label": "Governança tributária",
+          "description": "Regras fiscais variam por marketplace e exigem parametrização específica."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Documentação obrigatória dos contratos de integração",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Toda alteração em APIs, webhooks ou SLAs deve gerar atualização do contrato técnico-funcional assinado pelos responsáveis de TI, Comercial e Jurídico. Registre versionamento, logs de testes e plano de rollback."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Checklist de go-live digital",
+      "steps": [
+        { "title": "H-48", "content": "Congelar catálogo e validar preços." },
+        { "title": "H-24", "content": "Executar sincronização completa de estoque." },
+        { "title": "H-12", "content": "Rodar pedidos de teste end-to-end." },
+        { "title": "H", "content": "Abrir canais com monitoria dedicada." },
+        { "title": "H+24", "content": "Revisar SLAs, incidentes e ajustar regras." }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Demonstrações sugeridas",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/sap-commerce-integration",
+          "title": "SAP Commerce + S/4HANA",
+          "caption": "Fluxo de sincronização de catálogo, preços e pedidos."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/totvs-omnicanal",
+          "title": "TOTVS Omnichannel",
+          "caption": "Integração Protheus com marketplaces brasileiros."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 26 — Plano de monitoramento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Monte um plano de monitoramento com indicadores, ferramentas e rotinas para integrações digitais. Entregue no AVA até às 22h de dois dias após a aula."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-26-erp-ecommerce-e-plataformas-digitais",
+  "summary": "Explora integrações entre ERP, e-commerce, OMS e marketplaces para garantir experiência omnicanal consistente.",
+  "objectives": [
+    "Mapear dados críticos compartilhados entre ERP e canais digitais.",
+    "Planejar sincronização e monitoramento de integrações.",
+    "Propor plano de monitoramento com indicadores e rotinas."
+  ],
+  "competencies": [
+    "Arquitetura de integrações digitais",
+    "Gestão de SLAs",
+    "Planejamento orientado ao cliente"
+  ],
+  "outcomes": [
+    "Entrega plano de monitoramento com indicadores coerentes.",
+    "Identifica riscos de sincronização por categoria de dado.",
+    "Participa da simulação de incidentes propondo respostas."
+  ],
+  "prerequisites": [
+    "Ler relatório executivo da aula 25.",
+    "Revisar integrações estudadas na aula 21."
+  ],
+  "tags": ["aula-26-erp-ecommerce"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Arquitetura de referência omnicanal",
+      "url": "https://example.edu/tgs/guias/arquitetura-omnicanal",
+      "type": "guide"
+    },
+    {
+      "label": "Planilha de monitoramento",
+      "url": "https://example.edu/tgs/templates/monitoramento-erp-digital",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "DION, Chris. Omnichannel Retail: How to Build Winning Stores in a Digital World. Wiley, 2023.",
+    "GARTNER. Market Guide for Digital Commerce Integrations. Gartner, 2024."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Plano de monitoramento das integrações digitais."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Referência Omnicanal 2024"]
+  }
+}

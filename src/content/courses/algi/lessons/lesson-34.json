@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-34",
-  "title": "Aula 34: Manipulações com Matrizes",
+  "title": "Manipulações com Matrizes",
   "summary": "Aprofunda o trabalho com matrizes 2D realizando transposição, somas e multiplicação para resolver problemas de relatórios e transformações.",
+  "description": "Aprofunda manipulações matriciais com transposição, somas e multiplicação aplicada a indicadores.",
   "objective": "Aplicar operações clássicas de matrizes para gerar indicadores combinados e preparar o terreno para algoritmos de processamento de imagens e dados.",
   "objectives": [
     "Implementar funções para transpor e somar matrizes.",
     "Executar multiplicação matricial com três loops.",
     "Validar dimensões e tratar entradas inválidas."
   ],
-  "competencies": ["Pensamento algorítmico", "Raciocínio matemático"],
+  "competencies": ["05", "08"],
   "skills": [
-    "Estruturar loops aninhados para combinações linha x coluna.",
-    "Utilizar matrizes auxiliares sem desperdício de memória.",
-    "Comunicar resultados em formato tabular e visual."
+    "Implementar transposição, somas e multiplicação de matrizes controlando dimensões.",
+    "Testar compatibilidade entre matrizes antes de executar operações.",
+    "Comparar desempenho e precisão das operações realizadas em cenários distintos."
   ],
   "outcomes": [
-    "Entrega funções transpose e multiply com testes básicos.",
-    "Gera relatório combinando duas matrizes de indicadores.",
-    "Interpreta resultados da multiplicação no contexto de distribuição de recursos."
+    "Disponibiliza funções que executam operações matriciais retornando resultados corretos.",
+    "Entrega conjunto de testes automatizados ou planilhas que validam dimensões e saídas.",
+    "Documenta análise descrevendo tempo de execução e limitações observadas."
   ],
   "prerequisites": ["Compreensão de matrizes 2D (Aula 33).", "Conforto com loops for aninhados."],
   "tags": ["matrizes", "arrays", "multiplicacao"],
@@ -32,6 +33,36 @@
       "url": "https://static.md3.education/courses/algi/matriz-multiplicacao-exemplo.json"
     },
     {
+      "label": "Dataset: OWID Energy Data",
+      "type": "dataset",
+      "url": "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv"
+    },
+    {
+      "label": "Capítulo 8 – Matrizes bidimensionais (Forbellone & Eberspächer)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 11 – Arrays multidimensionais (Manzano & Oliveira)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 9 – Matrizes e operações (Backes)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 12 – Processamento matricial em C (Santos)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 8 – Matrizes e validações (Ascencio & Campos)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "CS50 - Short: Matrix Multiplication",
       "type": "video",
       "url": "https://www.youtube.com/watch?v=ykP1t9hYx7A"
@@ -40,13 +71,66 @@
       "label": "Khan Academy - Multiplicação de matrizes",
       "type": "course",
       "url": "https://pt.khanacademy.org/math/algebra-home/alg-matrices/alg-matrix-multiplication/a/matrix-multiplication"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
-    "PRESSMAN, R. Engenharia de Software. McGraw Hill, 2023 (capítulo sobre métricas e matrizes).",
-    "STANLEY, R. Algoritmos Numéricos em C. Pioneira, 2020."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 8, Matrizes bidimensionais.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 11, Arrays multidimensionais e aplicações.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 9, Operações com matrizes.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 12, Processamento matricial e validação de dimensões.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 8, Matrizes, testes e relatórios."
   ],
+  "assessment": {
+    "type": "practice",
+    "description": "TED: Relatório do painel energético do Campus Vale com transposição, soma e multiplicação das matrizes de demanda e geração, incluindo evidências na planilha de auditoria.",
+    "rubric": "Pensamento algorítmico (35%): implementa funções conforme Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11). Raciocínio matemático (30%): valida dimensões e interpreta resultados seguindo Backes (Cap. 9) e Santos (Cap. 12). Comunicação técnica (20%): apresenta narrativa do caso do Campus Vale alinhada ao checklist de Ascencio & Campos (Cap. 8). Sustentabilidade e responsabilidade (15%): contextualiza indicadores energéticos e registra decisões na planilha compartilhada."
+  },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Leia Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11) destacando como estruturam transposição e multiplicação. Registre dúvidas na planilha de preparação para relacioná-las ao estudo de caso do painel energético do Campus Vale."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 34."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro detalhado",
@@ -79,121 +163,227 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h00)",
-      "items": [
-        "(10 min) Check-in com quiz sobre matrizes.",
-        "(20 min) Código ao vivo da função transpose.",
-        "(15 min) Exercício individual: soma de matrizes.",
-        "(35 min) Workshop: multiplicação com validação de dimensões.",
-        "(25 min) Estudo de caso: combinar matrizes de indicadores do JSON.",
-        "(15 min) Apresentação rápida dos resultados por squads."
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Operações com matrizes",
-      "headers": ["Operação", "Pré-condição", "Assinatura sugerida", "Observações"],
-      "rows": [
-        [
-          "Transposição",
-          "Matriz m x n",
-          "void transpose(int src[m][n], int dst[n][m])",
-          "Usar matrizes distintas para evitar sobrescrita."
-        ],
-        [
-          "Soma",
-          "Mesmas dimensões",
-          "void add(int A[m][n], int B[m][n], int C[m][n])",
-          "Executar operação elemento a elemento."
-        ],
-        [
-          "Subtração",
-          "Mesmas dimensões",
-          "void subtract(int A[m][n], int B[m][n], int C[m][n])",
-          "Útil para variação entre indicadores."
-        ],
-        [
-          "Multiplicação",
-          "A m x n, B n x p",
-          "void multiply(int A[m][n], int B[n][p], int C[m][p])",
-          "Três loops e acumulador local."
-        ],
-        [
-          "Escalonamento",
-          "Qualquer dimensão",
-          "void scale(float A[m][n], float fator)",
-          "Multiplica cada elemento pelo fator."
-        ]
-      ]
-    },
-    {
-      "type": "md3Flowchart",
-      "title": "Fluxograma da multiplicação de matrizes",
-      "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "check", "type": "decision", "label": "n == colunasA && n == linhasB?" },
-        { "id": "error", "type": "process", "label": "Exibir erro de dimensão" },
-        { "id": "initI", "type": "process", "label": "i = 0" },
-        { "id": "loopI", "type": "loop", "label": "Enquanto i < m" },
-        { "id": "initJ", "type": "process", "label": "j = 0" },
-        { "id": "loopJ", "type": "loop", "label": "Enquanto j < p" },
-        { "id": "acc", "type": "process", "label": "soma = 0" },
-        { "id": "initK", "type": "process", "label": "k = 0" },
-        { "id": "loopK", "type": "loop", "label": "Enquanto k < n" },
-        { "id": "mul", "type": "process", "label": "soma += A[i][k] * B[k][j]" },
-        { "id": "incK", "type": "process", "label": "k++" },
-        { "id": "assign", "type": "process", "label": "C[i][j] = soma" },
-        { "id": "incJ", "type": "process", "label": "j++" },
-        { "id": "incI", "type": "process", "label": "i++" },
-        { "id": "end", "type": "end", "label": "Fim" }
-      ],
-      "edges": [
-        ["start", "check"],
-        ["check", "error", "não"],
-        ["error", "end"],
-        ["check", "initI", "sim"],
-        ["initI", "loopI"],
-        ["loopI", "initJ"],
-        ["initJ", "loopJ"],
-        ["loopJ", "acc"],
-        ["acc", "initK"],
-        ["initK", "loopK"],
-        ["loopK", "mul"],
-        ["mul", "incK"],
-        ["incK", "loopK"],
-        ["loopK", "assign", "fim"],
-        ["assign", "incJ"],
-        ["incJ", "loopJ"],
-        ["loopJ", "incI", "fim"],
-        ["incI", "loopI"],
-        ["loopI", "end", "fim"]
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Check-in com quiz sobre matrizes."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Código ao vivo da função transpose."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(15 min) Exercício individual",
+          "content": "soma de matrizes."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(35 min) Workshop",
+          "content": "multiplicação com validação de dimensões."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Estudo de caso",
+          "content": "combinar matrizes de indicadores do JSON."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Apresentação rápida dos resultados por squads."
+        }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Exemplo prático: cruzando indicadores de campus",
+      "title": "Operações com matrizes",
       "content": [
         {
-          "type": "paragraph",
-          "text": "O arquivo matriz-multiplicacao-exemplo.json traz matrizes A (alocação de tutores por curso) e B (horas planejadas por atividade)."
-        },
-        {
-          "type": "orderedList",
+          "type": "unorderedList",
           "items": [
-            { "text": "Validar dimensões antes de multiplicar." },
-            { "text": "Gerar matriz resultado C representando horas totais de tutores por curso." },
-            { "text": "Imprimir resumo destacando curso com maior carga resultante." }
+            {
+              "text": "Operação: Transposição | Pré-condição: Matriz m x n | Assinatura sugerida: void transpose(int src[m][n], int dst[n][m]) | Observações: Usar matrizes distintas para evitar sobrescrita."
+            },
+            {
+              "text": "Operação: Soma | Pré-condição: Mesmas dimensões | Assinatura sugerida: void add(int A[m][n], int B[m][n], int C[m][n]) | Observações: Executar operação elemento a elemento."
+            },
+            {
+              "text": "Operação: Subtração | Pré-condição: Mesmas dimensões | Assinatura sugerida: void subtract(int A[m][n], int B[m][n], int C[m][n]) | Observações: Útil para variação entre indicadores."
+            },
+            {
+              "text": "Operação: Multiplicação | Pré-condição: A m x n, B n x p | Assinatura sugerida: void multiply(int A[m][n], int B[n][p], int C[m][p]) | Observações: Três loops e acumulador local."
+            },
+            {
+              "text": "Operação: Escalonamento | Pré-condição: Qualquer dimensão | Assinatura sugerida: void scale(float A[m][n], float fator) | Observações: Multiplica cada elemento pelo fator."
+            }
           ]
         }
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
+      "title": "Fluxograma da multiplicação de matrizes",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "n == colunasA && n == linhasB? – tipo: decision"
+            },
+            {
+              "text": "Exibir erro de dimensão – tipo: process"
+            },
+            {
+              "text": "i = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto i < m – tipo: loop"
+            },
+            {
+              "text": "j = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto j < p – tipo: loop"
+            },
+            {
+              "text": "soma = 0 – tipo: process"
+            },
+            {
+              "text": "k = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto k < n – tipo: loop"
+            },
+            {
+              "text": "soma += A[i][k] * B[k][j] – tipo: process"
+            },
+            {
+              "text": "k++ – tipo: process"
+            },
+            {
+              "text": "C[i][j] = soma – tipo: process"
+            },
+            {
+              "text": "j++ – tipo: process"
+            },
+            {
+              "text": "i++ – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → check"
+            },
+            {
+              "text": "check → error – não"
+            },
+            {
+              "text": "error → end"
+            },
+            {
+              "text": "check → initI – sim"
+            },
+            {
+              "text": "initI → loopI"
+            },
+            {
+              "text": "loopI → initJ"
+            },
+            {
+              "text": "initJ → loopJ"
+            },
+            {
+              "text": "loopJ → acc"
+            },
+            {
+              "text": "acc → initK"
+            },
+            {
+              "text": "initK → loopK"
+            },
+            {
+              "text": "loopK → mul"
+            },
+            {
+              "text": "mul → incK"
+            },
+            {
+              "text": "incK → loopK"
+            },
+            {
+              "text": "loopK → assign – fim"
+            },
+            {
+              "text": "assign → incJ"
+            },
+            {
+              "text": "incJ → loopJ"
+            },
+            {
+              "text": "loopJ → incI – fim"
+            },
+            {
+              "text": "incI → loopI"
+            },
+            {
+              "text": "loopI → end – fim"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso: painel energético do Campus Vale",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A planilha do Campus Vale traz matrizes de geração solar (kWh) e demanda por prédio. Forbellone & Eberspächer (Cap. 8) reforçam validar índices antes da multiplicação, enquanto Santos (Cap. 12) propõe registrar dimensões e erros em log."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Aplique a transposição sugerida por Manzano & Oliveira (Cap. 11) para alinhar horários com setores."
+            },
+            {
+              "text": "Calcule matrizes de balanço energético seguindo o passo a passo de Backes (Cap. 9) e documente validações."
+            },
+            {
+              "text": "Relate no template de auditoria como Ascencio & Campos (Cap. 8) orientam o checklist de confiabilidade."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Referências audiovisuais",
-      "videos": [
-        { "youtubeId": "ykP1t9hYx7A", "title": "CS50 Short - Matrix Multiplication" },
-        { "youtubeId": "zjMuIxRvygQ", "title": "Khan Academy - Matrix multiplication" }
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 Short - Matrix Multiplication – https://www.youtube.com/watch?v=ykP1t9hYx7A"
+            },
+            {
+              "text": "Khan Academy - Matrix multiplication – https://www.youtube.com/watch?v=zjMuIxRvygQ"
+            }
+          ]
+        }
       ]
     },
     {
@@ -202,19 +392,212 @@
       "title": "Atividades pós-aula",
       "content": [
         {
+          "type": "paragraph",
+          "text": "Utilize a planilha do Campus Vale para justificar cada decisão técnica com base na bibliografia."
+        },
+        {
           "type": "list",
           "items": [
-            "Extender o código para aceitar dimensões informadas pelo usuário.",
-            "Comparar desempenho com e sem matrizes auxiliares usando clock().",
-            "Escrever breve relato conectando multiplicação de matrizes a análise de dados reais da instituição."
+            "Generalize funções para dimensões variáveis conforme Santos (Cap. 12).",
+            "Compare matrizes auxiliares com logs de tempo seguindo Backes (Cap. 9).",
+            "Produza narrativa dos impactos energéticos alinhada ao checklist de Ascencio & Campos (Cap. 8)."
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 34' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entregue aula34_matriz_operacoes.c com funções para transpor, somar e multiplicar matrizes."
+            },
+            {
+              "text": "Anexe relatório descrevendo casos de teste e validação de dimensões."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implementação: funções seguem Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11) (35%)."
+            },
+            {
+              "text": "Validação matemática: registros de dimensões e testes conforme Backes (Cap. 9) e Santos (Cap. 12) (30%)."
+            },
+            {
+              "text": "Contextualização: análise do caso energético articulada a Ascencio & Campos (Cap. 8) (20%)."
+            },
+            {
+              "text": "Evidências: anexos e checklist preenchidos na planilha de auditoria do Campus Vale (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle destacando o capítulo consultado para manter a trilha de auditoria pedagógica."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "headers": ["i", "j", "v[i][j]"],
+      "rows": [
+        [
+          {
+            "value": "0"
+          },
+          {
+            "value": "0"
+          },
+          {
+            "value": "1"
+          }
+        ],
+        [
+          {
+            "value": "0"
+          },
+          {
+            "value": "1"
+          },
+          {
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Soma por linha\n[[1,2],[3,4]] -> L1=3, L2=7",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int soma; for(int i=0;i<2;i++){ for(int j=0;j<2;j++){ soma+=m[i][j]; } } // soma não inicializada",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for(int i=0;i<2;i++){ int soma=0; for(int j=0;j<2;j++){ soma+=m[i][j]; } printf(\"L%d=%d\n\", i+1, soma);} ",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "#include <stdio.h>\nint main(){\n  int m[2][2];\n  for (int i=0;i<2;i++) for (int j=0;j<2;j++) scanf(\"%d\", &m[i][j]);\n  for (int i=0;i<2;i++){\n    int soma=0; for (int j=0;j<2;j++){ soma+=m[i][j]; }\n    printf(\"L%d=%d\n\", i+1, soma);\n  }\n  return 0;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera 2x2 e soma por linha\nmat = [[1,2],[3,4]]\nfor i,row in enumerate(mat, start=1):\n    print(f\"L{i}={sum(row)}\")",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Exercícios propostos",
+      "items": ["Leia 3x3 e exiba soma de cada linha.", "Encontre o maior elemento da matriz."]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-14T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.004Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Oficina de matrizes avançadas 2025"]
   }

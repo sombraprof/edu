@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-32",
-  "title": "Aula 32: Buscas em Vetores",
+  "title": "Buscas em Vetores",
   "summary": "Introduz algoritmos de busca linear e variantes com sentinela, conectando-os a cenários de catálogo e relatórios.",
+  "description": "Discute algoritmos de busca linear e variações com sentinela aplicados a catálogos e inventários.",
   "objective": "Selecionar e implementar estratégias de busca apropriadas para localizar elementos em vetores não ordenados.",
   "objectives": [
     "Implementar busca linear tradicional e com sentinela.",
     "Analisar custo temporal das buscas e seu impacto em coleções grandes.",
     "Planejar saídas informativas quando o elemento não é encontrado."
   ],
-  "competencies": ["Resolução de problemas", "Análise de algoritmos"],
+  "competencies": ["05", "08"],
   "skills": [
-    "Documentar pré e pós-condições de funções de busca.",
-    "Comparar abordagens a partir de tabelas de desempenho.",
-    "Construir fluxogramas que explicitem decisões de parada."
+    "Implementar funções de busca linear com e sem sentinela.",
+    "Medir quantidade de comparações executadas em diferentes cenários.",
+    "Documentar recomendações de uso destacando limites e vantagens de cada variação."
   ],
   "outcomes": [
-    "Entrega função buscaLinear que retorna índice ou -1.",
-    "Explica vantagens da técnica do sentinela em relatório curto.",
-    "Relaciona número de comparações com tamanho do vetor."
+    "Entrega biblioteca com funções de busca retornando índices corretos ou -1.",
+    "Anexa relatório com gráficos ou tabelas que mostram o número de comparações por caso.",
+    "Publica nota técnica explicando quando utilizar sentinela e implicações para desempenho."
   ],
   "prerequisites": [
     "Familiaridade com loops for/while.",
@@ -35,6 +36,36 @@
       "url": "https://static.md3.education/courses/algi/busca-catalogo.csv"
     },
     {
+      "label": "Planilha de controle de estoque (Sebrae)",
+      "type": "spreadsheet",
+      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/Planilha%20-%20Controle%20de%20Estoque.xlsx"
+    },
+    {
+      "label": "Capítulo 7 – Pesquisa sequencial (Forbellone & Eberspächer)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 9 – Vetores e busca linear (Manzano & Oliveira)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 8 – Arrays e desempenho (Backes)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 10 – Análise de eficiência em C (Santos)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 7 – Vetores e registros (Ascencio & Campos)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "CS50 Shorts - Linear Search",
       "type": "video",
       "url": "https://www.youtube.com/watch?v=9YddVVsdG5A"
@@ -43,13 +74,66 @@
       "label": "Khan Academy - Pesquisa linear",
       "type": "course",
       "url": "https://pt.khanacademy.org/computing/computer-science/algorithms#linear-search"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
-    "CORMEN, T. H. et al. Algoritmos: Teoria e Prática. 4. ed. MIT Press, 2022.",
-    "LAFORE, R. Estruturas de Dados & Algoritmos em C. Pearson, 2021."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 7, Pesquisa sequencial em vetores.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 9, Vetores e busca linear.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 8, Arrays e análise de desempenho.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 10, Medição de eficiência e logs de busca.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 7, Vetores e relatórios de auditoria."
   ],
+  "assessment": {
+    "type": "practice",
+    "description": "TED: Relatório do inventário do Armazém Popular comparando busca linear tradicional e com sentinela, com evidências coletadas na planilha de auditoria compartilhada.",
+    "rubric": "Resolução de problemas (35%): implementa e justifica a busca conforme Forbellone & Eberspächer (Cap. 7) e Manzano & Oliveira (Cap. 9). Análise de algoritmos (30%): interpreta métricas de comparações seguindo Backes (Cap. 8) e Santos (Cap. 10). Comunicação técnica (20%): relaciona achados à rotina de auditoria do Armazém Popular de acordo com Ascencio & Campos (Cap. 7). Responsabilidade profissional (15%): registra evidências e limitações na planilha do case conforme orientações da planilha de auditoria pós-módulo."
+  },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia Forbellone & Eberspächer (Cap. 7) sobre pesquisa sequencial e Manzano & Oliveira (Cap. 9) sobre vetores antes da aula. Registre dúvidas na planilha de preparação para que possamos conectá-las ao estudo de caso do Armazém Popular."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 32."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro da aula",
@@ -82,81 +166,167 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h50)",
-      "items": [
-        "(10 min) Aquecimento com estimativas de busca.",
-        "(20 min) Demonstração da função buscaLinear no dataset.",
-        "(20 min) Refatoração para versão com sentinela.",
-        "(30 min) Laboratório: medir comparações para elementos existentes e ausentes.",
-        "(20 min) Discussão guiada sobre eficiência.",
-        "(10 min) Briefing da atividade pós-aula."
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Comparativo de variantes de busca",
-      "headers": ["Algoritmo", "Pré-condição", "Retorno", "Comparações médias"],
-      "rows": [
-        ["Linear simples", "Vetor não ordenado", "Índice ou -1", "n/2"],
-        [
-          "Linear com sentinela",
-          "Vetor não ordenado com espaço extra",
-          "Índice ou n",
-          "n/2 (menos checagens de limite)"
-        ],
-        ["Busca binária", "Vetor ordenado", "Índice ou -1", "log2 n"]
-      ]
-    },
-    {
-      "type": "md3Flowchart",
-      "title": "Fluxograma da busca linear",
-      "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "init", "type": "process", "label": "i = 0" },
-        { "id": "loop", "type": "loop", "label": "Enquanto i < n" },
-        { "id": "decision", "type": "decision", "label": "v[i] == chave?" },
-        { "id": "found", "type": "process", "label": "Retornar i" },
-        { "id": "inc", "type": "process", "label": "i++" },
-        { "id": "notfound", "type": "process", "label": "Retornar -1" },
-        { "id": "end", "type": "end", "label": "Fim" }
-      ],
-      "edges": [
-        ["start", "init"],
-        ["init", "loop"],
-        ["loop", "decision"],
-        ["decision", "found", "sim"],
-        ["decision", "inc", "não"],
-        ["inc", "loop"],
-        ["loop", "notfound", "fim"],
-        ["notfound", "end"],
-        ["found", "end"]
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Aquecimento com estimativas de busca."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Demonstração da função buscaLinear no dataset."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Refatoração para versão com sentinela."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Laboratório",
+          "content": "medir comparações para elementos existentes e ausentes."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Discussão guiada sobre eficiência."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Briefing da atividade pós-aula."
+        }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Exemplo prático: localizar SKU no catálogo",
+      "title": "Comparativo de variantes de busca",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Use o arquivo busca-catalogo.csv (código;nome;estoque) para localizar um SKU informado via teclado e imprimir o registro."
-        },
-        {
-          "type": "orderedList",
+          "type": "unorderedList",
           "items": [
-            { "text": "Carregar os códigos em vetor inteiro e nomes em vetor paralelo." },
-            { "text": "Utilizar busca linear para encontrar o índice correspondente." },
-            { "text": "Apresentar mensagem clara quando o SKU não existir." }
+            {
+              "text": "Algoritmo: Linear simples | Pré-condição: Vetor não ordenado | Retorno: Índice ou -1 | Comparações médias: n/2"
+            },
+            {
+              "text": "Algoritmo: Linear com sentinela | Pré-condição: Vetor não ordenado com espaço extra | Retorno: Índice ou n | Comparações médias: n/2 (menos checagens de limite)"
+            },
+            {
+              "text": "Algoritmo: Busca binária | Pré-condição: Vetor ordenado | Retorno: Índice ou -1 | Comparações médias: log2 n"
+            }
           ]
         }
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
+      "title": "Fluxograma da busca linear",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "i = 0 – tipo: process"
+            },
+            {
+              "text": "Enquanto i < n – tipo: loop"
+            },
+            {
+              "text": "v[i] == chave? – tipo: decision"
+            },
+            {
+              "text": "Retornar i – tipo: process"
+            },
+            {
+              "text": "i++ – tipo: process"
+            },
+            {
+              "text": "Retornar -1 – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → init"
+            },
+            {
+              "text": "init → loop"
+            },
+            {
+              "text": "loop → decision"
+            },
+            {
+              "text": "decision → found – sim"
+            },
+            {
+              "text": "decision → inc – não"
+            },
+            {
+              "text": "inc → loop"
+            },
+            {
+              "text": "loop → notfound – fim"
+            },
+            {
+              "text": "notfound → end"
+            },
+            {
+              "text": "found → end"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso: inventário do Armazém Popular",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A planilha de auditoria do Armazém Popular registra entradas e saídas de insumos farmacêuticos monitoradas pela Farmácia Escola. Forbellone & Eberspächer (Cap. 7) indicam validar cada índice percorrido, enquanto Backes (Cap. 8) recomenda medir comparações para justificar a escolha do algoritmo."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Carregue códigos e lotes na estrutura proposta por Manzano & Oliveira (Cap. 9) e documente pré/pós-condições na planilha."
+            },
+            {
+              "text": "Implemente busca com sentinela e registre o número de comparações seguindo a ficha de eficiência de Santos (Cap. 10)."
+            },
+            {
+              "text": "Relacione o resultado encontrado aos alertas de auditoria orientados por Ascencio & Campos (Cap. 7)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Recomendações de estudo",
-      "videos": [
-        { "youtubeId": "9YddVVsdG5A", "title": "CS50 Shorts - Linear Search" },
-        { "youtubeId": "qN3b9YzKz7w", "title": "Khan Academy - Linear search walkthrough" }
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 Shorts - Linear Search – https://www.youtube.com/watch?v=9YddVVsdG5A"
+            },
+            {
+              "text": "Khan Academy - Linear search walkthrough – https://www.youtube.com/watch?v=qN3b9YzKz7w"
+            }
+          ]
+        }
       ]
     },
     {
@@ -165,19 +335,203 @@
       "title": "Atividades pós-aula",
       "content": [
         {
+          "type": "paragraph",
+          "text": "Siga o roteiro da planilha de auditoria para relacionar cada teste aos referenciais bibliográficos."
+        },
+        {
           "type": "list",
           "items": [
-            "Implementar buscaLinearSentinela e comparar tempo com a versão simples.",
-            "Redigir parágrafo explicando quando migrar para busca binária.",
-            "Subir resultados da medição para planilha colaborativa da turma."
+            "Implementar buscaLinearSentinela medindo comparações conforme Backes (Cap. 8).",
+            "Explicar em relatório quando migrar para busca binária utilizando critérios de Santos (Cap. 10).",
+            "Subir resultados na planilha colaborativa vinculando riscos apontados por Ascencio & Campos (Cap. 7)."
           ]
         }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 32' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente aula32_busca_linear.c com duas estratégias (padrão e com sentinela)."
+            },
+            {
+              "text": "Anexe planilha comparando número de iterações e resultado encontrado em diferentes cenários."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implementação: código segue a decomposição proposta por Forbellone & Eberspächer (Cap. 7) e Manzano & Oliveira (Cap. 9) (35%)."
+            },
+            {
+              "text": "Eficiência: relatório compara métricas conforme Backes (Cap. 8) e Santos (Cap. 10) (30%)."
+            },
+            {
+              "text": "Análise crítica: conecta achados ao plano de auditoria do Armazém Popular com base em Ascencio & Campos (Cap. 7) (20%)."
+            },
+            {
+              "text": "Evidências: anexos na planilha de auditoria incluem logs, capturas e checklist de revisão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final e referencie a seção estudada para agilizar o feedback docente."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Busca linear",
+      "tabs": [
+        {
+          "label": "Pseudocódigo",
+          "content": "<pre>para i de 0 até n-1\n se v[i]==x então retorna i\nretorna -1</pre>"
+        },
+        {
+          "label": "C",
+          "code": "int busca(int*v,int n,int x){for(int i=0;i<n;i++) if(v[i]==x) return i; return -1;}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Busca linear\n[3,5,7], x=5 -> 1\n[3,5,7], x=10 -> -1",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio).",
+            "Retorne cedo ao encontrar o elemento para reduzir custo."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "int idx; for(int i=0;i<n;i++){ if(v[i]==x) idx=i; } // percorre tudo",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "for(int i=0;i<n;i++){ if(v[i]==x) return i; } // retorna cedo",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Solução de referência",
+      "content": [
+        {
+          "type": "code",
+          "code": "int busca(int *v, int n, int x){\n  for (int i=0;i<n;i++){ if (v[i]==x) return i; }\n  return -1;\n}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Gera vetores e alvos\nimport random\narr = [3,5,7]\nfor x in [3,5,10]:\n    idx = next((i for i,v in enumerate(arr) if v==x), -1)\n    print(f\"{arr}, x={x} -> {idx}\")",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Exercícios propostos",
+      "items": [
+        "Implemente busca linear que retorna índice de x ou -1.",
+        "Conte quantas comparações são feitas para cada busca."
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-12T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:29.002Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Guia interno de algoritmos de busca 2024"]
   }

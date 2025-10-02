@@ -5,20 +5,20 @@
   "summary": "Apresenta a simbologia essencial dos fluxogramas e orienta a tradução de algoritmos textuais para representações visuais.",
   "objective": "Representar algoritmos usando fluxogramas claros que facilitem a comunicação entre equipe e stakeholders.",
   "objectives": [
-    "Identificar os símbolos básicos de um fluxograma e suas funções.",
-    "Construir fluxogramas coerentes a partir de algoritmos previamente elaborados.",
-    "Utilizar ferramentas digitais para documentar fluxos e compartilhar revisões."
+    "Mapear algoritmos simples em fluxogramas legíveis.",
+    "Relacionar símbolos padronizados a operações de entrada, processamento e decisão.",
+    "Interpretar fluxos produzidos por colegas para validar raciocínios."
   ],
-  "competencies": ["Modelagem visual de processos", "Comunicação técnica", "Colaboração em dupla"],
+  "competencies": ["02", "11", "12"],
   "skills": [
-    "Converter passos textuais em representações gráficas padronizadas.",
-    "Evidenciar pontos de decisão e caminhos alternativos.",
-    "Validar fluxogramas com colegas e ajustar rotas incoerentes."
+    "Selecionar símbolos de fluxo adequados para início, decisões, processamento e término.",
+    "Alinhar fluxogramas ao pseudocódigo correspondente destacando equivalências entre blocos.",
+    "Conduzir revisão em dupla verificando legibilidade, setas e descrições dos caminhos alternativos."
   ],
   "outcomes": [
-    "Entrega fluxograma consistente para um algoritmo já estudado.",
-    "Explica a lógica representada para quem não acompanhou o planejamento inicial.",
-    "Documenta ferramentas e boas práticas para manutenção dos fluxos."
+    "Produz fluxograma completo com legenda de símbolos e validação feita pelo colega.",
+    "Apresenta checklist assinado confirmando correspondência entre fluxograma e algoritmo textual.",
+    "Registra ajustes realizados após a revisão cruzada em comentário ou nota compartilhada."
   ],
   "prerequisites": ["Trazer o algoritmo/pseudocódigo desenvolvido na Aula 4."],
   "tags": ["fluxograma", "visualizacao", "processos"],
@@ -26,14 +26,49 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Miro ou Draw.io (versão web)",
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Miro (versão web)",
       "type": "tool",
       "url": "https://miro.com"
     },
     {
-      "label": "Folhas A3 e canetas hidrográficas",
-      "type": "material",
-      "url": "https://example.edu/algi/kit-visuais.pdf"
+      "label": "Draw.io (app.diagrams.net)",
+      "type": "tool",
+      "url": "https://app.diagrams.net/"
+    },
+    {
+      "label": "Folha de símbolos de fluxograma para impressão (Lucidchart)",
+      "type": "handout",
+      "url": "https://www.lucidchart.com/pages/pt/download/folha-de-simbolos-de-fluxograma"
+    },
+    {
+      "label": "Guia MD3 de simbologia para fluxogramas",
+      "type": "document",
+      "url": "https://static.md3.education/courses/algi/guias/simbologia-fluxogramas.pdf"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -45,6 +80,31 @@
     "description": "Cada dupla apresenta o fluxograma produzido e recebe feedback usando checklist de consistência."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Fluxogramas e Visualização da Lógica. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 05."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da Aula",
@@ -63,6 +123,67 @@
           "icon": "gears",
           "title": "Metodologia",
           "content": "Exposição dialogada, demonstração com Md3Flowchart e prática em duplas."
+        }
+      ]
+    },
+    {
+      "type": "md3Flowchart",
+      "title": "Biblioteca MD3 de símbolos para fluxogramas",
+      "nodes": [
+        {
+          "id": "inicio",
+          "type": "start",
+          "title": "Início/Fim",
+          "summary": "Usado para delimitar o fluxo. Formato oval."
+        },
+        {
+          "id": "entrada",
+          "type": "input-output",
+          "title": "Entrada/Saída",
+          "summary": "Representa leitura de dados ou exibição de resultados (paralelogramo)."
+        },
+        {
+          "id": "processo",
+          "type": "process",
+          "title": "Processo",
+          "summary": "Mostra cálculos ou atribuições (retângulo)."
+        },
+        {
+          "id": "decisao",
+          "type": "decision",
+          "title": "Decisão",
+          "summary": "Indica ramificações com perguntas fechadas (losango)."
+        },
+        {
+          "id": "conector",
+          "type": "connector",
+          "title": "Conector",
+          "summary": "Liga pontos distantes do diagrama mantendo a leitura limpa."
+        }
+      ],
+      "connections": [
+        {
+          "from": "inicio",
+          "to": "entrada"
+        },
+        {
+          "from": "entrada",
+          "to": "processo"
+        },
+        {
+          "from": "processo",
+          "to": "decisao"
+        },
+        {
+          "from": "decisao",
+          "to": "conector",
+          "label": "Sim"
+        },
+        {
+          "from": "decisao",
+          "to": "processo",
+          "kind": "loop",
+          "label": "Não / repetir"
         }
       ]
     },
@@ -215,12 +336,17 @@
     },
     {
       "type": "callout",
-      "variant": "task",
-      "title": "TED da Aula 5",
+      "variant": "info",
+      "title": "Roteiro de revisão cruzada",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Envie no Moodle o fluxograma final (PDF ou link) e um parágrafo justificando decisões críticas."
+          "type": "list",
+          "items": [
+            "Compare o fluxograma recebido com o Guia MD3 de simbologia e a biblioteca acima; marque símbolos ausentes ou trocados.",
+            "Percorra cada caminho respondendo: entrada → processamento → decisão → saída estão completos? Documente lacunas.",
+            "Sugira melhorias objetivas (organização, textos nos símbolos, conectores) e combine ajustes em até 10 minutos."
+          ],
+          "ordered": true
         }
       ]
     },
@@ -233,11 +359,142 @@
         "Recebi e forneci feedback para outra dupla.",
         "Registrei ferramentas e convenções adotadas."
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 05' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Faça upload do fluxograma final exportado (PDF ou imagem) junto com o arquivo-fonte da ferramenta utilizada."
+            },
+            {
+              "text": "Preencha o checklist de símbolos (Início/Fim, Entrada/Saída, Processo, Decisão, Conectores) indicando onde aparecem e justifique escolhas em um parágrafo."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "resourceGallery",
+      "title": "Galeria — Fluxogramas (CC)",
+      "src": "resources/algorithm-flowchart.json"
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.969Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

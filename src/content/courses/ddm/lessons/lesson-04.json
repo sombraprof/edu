@@ -45,6 +45,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade I",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE",
+          "title": "Android Basics in Kotlin (Android Developers)",
+          "caption": "Playlist oficial sobre fundamentos de Android e Kotlin. Créditos: Android Developers (Google, 2024)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=ldM6QZy9e0s",
+          "title": "Kotlin-first no Google I/O 2019",
+          "caption": "Keynote institucional destacando a adoção do Kotlin no Android. Créditos: Google I/O (2019)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de Voo da Aula",
       "items": [
@@ -90,7 +106,7 @@
             {
               "type": "code",
               "language": "xml",
-              "code": "<!-- Basic TextView example (EN): Displays a static title on screen. -->\\n<TextView\\n    android:id=\\\"@+id/textViewTitulo\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:text=\\\"Bem-vindo ao Meu App\\\"\\n    android:textSize=\\\"24sp\\\"\\n    android:textColor=\\\"@color/black\\\" />"
+              "code": "<!-- Basic TextView example (EN): Displays a static title on screen. -->\\n<TextView\\n    android:id=\\\"@+id/textViewTitulo\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:text=\\\"Bem-vindo ao Meu App\\\"\\n    android:textSize=\\\"24sp\\\"\\n    android:textColor=\\\"@color/black\\\" />\n\n// Referência: Material Design (2024)"
             },
             {
               "type": "callout",
@@ -131,7 +147,7 @@
             {
               "type": "code",
               "language": "xml",
-              "code": "<!-- EditText example (EN): Collects user's name with a suitable keyboard. -->\\n<EditText\\n    android:id=\\\"@+id/editTextNome\\\"\\n    android:layout_width=\\\"match_parent\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:hint=\\\"Digite seu nome\\\"\\n    android:inputType=\\\"textPersonName\\\" />"
+              "code": "<!-- EditText example (EN): Collects user's name with a suitable keyboard. -->\\n<EditText\\n    android:id=\\\"@+id/editTextNome\\\"\\n    android:layout_width=\\\"match_parent\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:hint=\\\"Digite seu nome\\\"\\n    android:inputType=\\\"textPersonName\\\" />\n\n// Referência: Material Design (2024)"
             },
             {
               "type": "callout",
@@ -171,7 +187,7 @@
             {
               "type": "code",
               "language": "xml",
-              "code": "<!-- Button example (EN): A simple action trigger. -->\\n<Button\\n    android:id=\\\"@+id/buttonConfirmar\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:text=\\\"Confirmar\\\" />"
+              "code": "<!-- Button example (EN): A simple action trigger. -->\\n<Button\\n    android:id=\\\"@+id/buttonConfirmar\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:text=\\\"Confirmar\\\" />\n\n// Referência: Material Design (2024)"
             },
             {
               "type": "callout",
@@ -210,7 +226,7 @@
             {
               "type": "code",
               "language": "xml",
-              "code": "<!-- ImageView example (EN): Shows a drawable with accessibility text. -->\\n"
+              "code": "<!-- ImageView example (EN): Shows a drawable with accessibility text. -->\\n\n\n// Referência: Material Design (2024)"
             },
             {
               "type": "callout",
@@ -250,7 +266,7 @@
             {
               "type": "code",
               "language": "xml",
-              "code": "<!-- CheckBox example (EN): Multiple selections allowed. -->\\n<CheckBox\\n    android:id=\\\"@+id/checkboxTermos\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:text=\\\"Aceito os termos e condições\\\" />"
+              "code": "<!-- CheckBox example (EN): Multiple selections allowed. -->\\n<CheckBox\\n    android:id=\\\"@+id/checkboxTermos\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:text=\\\"Aceito os termos e condições\\\" />\n\n// Referência: Material Design (2024)"
             },
             {
               "type": "callout",
@@ -289,7 +305,7 @@
             {
               "type": "code",
               "language": "xml",
-              "code": "<!-- RadioGroup example (EN): Only one option can be selected at a time. -->\\n<RadioGroup\\n    android:id=\\\"@+id/radioGroupGenero\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:orientation=\\\"vertical\\\">\\n\\n    <RadioButton\\n        android:id=\\\"@+id/radioButtonMasc\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:text=\\\"Masculino\\\" />\\n\\n    <RadioButton\\n        android:id=\\\"@+id/radioButtonFem\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:text=\\\"Feminino\\\" />\\n\\n</RadioGroup>"
+              "code": "<!-- RadioGroup example (EN): Only one option can be selected at a time. -->\\n<RadioGroup\\n    android:id=\\\"@+id/radioGroupGenero\\\"\\n    android:layout_width=\\\"wrap_content\\\"\\n    android:layout_height=\\\"wrap_content\\\"\\n    android:orientation=\\\"vertical\\\">\\n\\n    <RadioButton\\n        android:id=\\\"@+id/radioButtonMasc\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:text=\\\"Masculino\\\" />\\n\\n    <RadioButton\\n        android:id=\\\"@+id/radioButtonFem\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:text=\\\"Feminino\\\" />\\n\\n</RadioGroup>\n\n// Referência: Material Design (2024)"
             },
             {
               "type": "callout",
@@ -334,7 +350,7 @@
         {
           "type": "code",
           "language": "xml",
-          "code": "<!-- ConstraintLayout example (EN): Labels, input field, and a button centered with constraints. -->\\n<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\"?>\\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\\\"http://schemas.android.com/apk/res/android\\\"\\n    xmlns:app=\\\"http://schemas.android.com/apk/res-auto\\\"\\n    xmlns:tools=\\\"http://schemas.android.com/tools\\\"\\n    android:layout_width=\\\"match_parent\\\"\\n    android:layout_height=\\\"match_parent\\\"\\n    tools:context=\\\".MainActivity\\\">\\n\\n    <TextView\\n        android:id=\\\"@+id/textViewLabel\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:layout_marginTop=\\\"128dp\\\"\\n        android:text=\\\"Por favor, digite seu nome abaixo:\\\"\\n        android:textSize=\\\"18sp\\\"\\n        app:layout_constraintTop_toTopOf=\\\"parent\\\"\\n        app:layout_constraintStart_toStartOf=\\\"parent\\\"\\n        app:layout_constraintEnd_toEndOf=\\\"parent\\\" />\\n\\n    <EditText\\n        android:id=\\\"@+id/editTextNome\\\"\\n        android:layout_width=\\\"0dp\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:layout_marginStart=\\\"32dp\\\"\\n        android:layout_marginTop=\\\"16dp\\\"\\n        android:layout_marginEnd=\\\"32dp\\\"\\n        android:hint=\\\"Seu nome\\\"\\n        android:inputType=\\\"textPersonName\\\"\\n        app:layout_constraintTop_toBottomOf=\\\"@id/textViewLabel\\\"\\n        app:layout_constraintStart_toStartOf=\\\"parent\\\"\\n        app:layout_constraintEnd_toEndOf=\\\"parent\\\" />\\n\\n    <Button\\n        android:id=\\\"@+id/buttonSaudacao\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:layout_marginTop=\\\"24dp\\\"\\n        android:text=\\\"Exibir Mensagem\\\"\\n        app:layout_constraintTop_toBottomOf=\\\"@id/editTextNome\\\"\\n        app:layout_constraintStart_toStartOf=\\\"parent\\\"\\n        app:layout_constraintEnd_toEndOf=\\\"parent\\\" />\\n\\n</androidx.constraintlayout.widget.ConstraintLayout>"
+          "code": "<!-- ConstraintLayout example (EN): Labels, input field, and a button centered with constraints. -->\\n<?xml version=\\\"1.0\\\" encoding=\\\"utf-8\\\"?>\\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\\\"http://schemas.android.com/apk/res/android\\\"\\n    xmlns:app=\\\"http://schemas.android.com/apk/res-auto\\\"\\n    xmlns:tools=\\\"http://schemas.android.com/tools\\\"\\n    android:layout_width=\\\"match_parent\\\"\\n    android:layout_height=\\\"match_parent\\\"\\n    tools:context=\\\".MainActivity\\\">\\n\\n    <TextView\\n        android:id=\\\"@+id/textViewLabel\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:layout_marginTop=\\\"128dp\\\"\\n        android:text=\\\"Por favor, digite seu nome abaixo:\\\"\\n        android:textSize=\\\"18sp\\\"\\n        app:layout_constraintTop_toTopOf=\\\"parent\\\"\\n        app:layout_constraintStart_toStartOf=\\\"parent\\\"\\n        app:layout_constraintEnd_toEndOf=\\\"parent\\\" />\\n\\n    <EditText\\n        android:id=\\\"@+id/editTextNome\\\"\\n        android:layout_width=\\\"0dp\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:layout_marginStart=\\\"32dp\\\"\\n        android:layout_marginTop=\\\"16dp\\\"\\n        android:layout_marginEnd=\\\"32dp\\\"\\n        android:hint=\\\"Seu nome\\\"\\n        android:inputType=\\\"textPersonName\\\"\\n        app:layout_constraintTop_toBottomOf=\\\"@id/textViewLabel\\\"\\n        app:layout_constraintStart_toStartOf=\\\"parent\\\"\\n        app:layout_constraintEnd_toEndOf=\\\"parent\\\" />\\n\\n    <Button\\n        android:id=\\\"@+id/buttonSaudacao\\\"\\n        android:layout_width=\\\"wrap_content\\\"\\n        android:layout_height=\\\"wrap_content\\\"\\n        android:layout_marginTop=\\\"24dp\\\"\\n        android:text=\\\"Exibir Mensagem\\\"\\n        app:layout_constraintTop_toBottomOf=\\\"@id/editTextNome\\\"\\n        app:layout_constraintStart_toStartOf=\\\"parent\\\"\\n        app:layout_constraintEnd_toEndOf=\\\"parent\\\" />\\n\\n</androidx.constraintlayout.widget.ConstraintLayout>\n\n// Referência: Material Design (2024)"
         }
       ]
     },
@@ -381,6 +397,61 @@
             "SIMAS, V. L. et al. Desenvolvimento para Dispositivos Móveis – Volume 2. Grupo A, 2019.",
             "OLIVEIRA, Diego Bittencourt de et al. Desenvolvimento para Dispositivos Móveis. SAGAH, 2019. v. 1."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O trecho abaixo demonstra como instrumentar o registo de eventos no contexto de Componentes de UI, reforçando o que discutimos em sala."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "// Exemplo aplicado de Componentes de UI\nval moduloAtual = \"Componentes de UI\"\nandroid.util.Log.d(\"UnidadeI\", \"Preparando $moduloAtual\")\n// Referência: Material Design (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Note como o comentário final conecta o exemplo às diretrizes oficiais discutidas em Material Design (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Material Design. \"Components.\" 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para aprofundar Componentes de UI, retome as leituras indicadas e conecte com as práticas de laboratório."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: Material Design. \"Components.\" 2024.",
+            "Conecte com o estudo: Google. \"Build a UI with Layout Editor.\" 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione os indicadores discutidos com os dados de mercado apresentados na bibliografia."
+        },
+        {
+          "type": "blockquote",
+          "text": "Google. \"Build a UI with Layout Editor.\" 2024."
         }
       ]
     }

@@ -1,0 +1,225 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-18",
+  "title": "Aula 18: Unidade III – CRUD com Room (Parte 2)",
+  "slug": "crud-room-parte-2",
+  "summary": "Completa o ciclo CRUD com operações de atualização e remoção no Room, incluindo padrões de UX para edição in-line e confirmações de exclusão.",
+  "objective": "Implementar update e delete na camada Room garantindo consistência visual e transacional do aplicativo.",
+  "objectives": [
+    "Criar fluxos de edição reutilizando formulários e ViewModels.",
+    "Implementar operações delete confirmadas com Snackbar/Diálogo.",
+    "Propagar estados de sucesso/erro para a UI de forma reativa.",
+    "Preparar casos de teste para update/delete."
+  ],
+  "competencies": [
+    "Arquitetura limpa em Android",
+    "UX writing para fluxos críticos",
+    "Manutenção de dados persistidos"
+  ],
+  "skills": [
+    "Utilizar transactions ou estratégias de consistência em updates.",
+    "Configurar DiffUtil para refletir mudanças em listas.",
+    "Exibir confirmações amigáveis antes de deletar.",
+    "Criar testes instrumentados de exclusão."
+  ],
+  "outcomes": [
+    "Entrega tela de edição funcional ligada ao DAO.",
+    "Disponibiliza exclusão com feedback e undo opcional.",
+    "Registra evidências de testes no Moodle."
+  ],
+  "prerequisites": ["Aula 17 – CRUD com Room (Parte 1)."],
+  "tags": ["android", "room", "crud", "persistencia"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Room update/delete",
+      "url": "https://developer.android.com/reference/androidx/room/Dao#update",
+      "type": "reference"
+    },
+    {
+      "label": "Material Design dialogs",
+      "url": "https://m3.material.io/components/dialogs/overview",
+      "type": "guide"
+    },
+    {
+      "label": "Testing flows with Turbine",
+      "url": "https://cashapp.github.io/turbine/",
+      "type": "article"
+    }
+  ],
+  "bibliography": [
+    "ANDROID DEVELOPERS. Persist data with Room. 2024.",
+    "JOHNS, R. Android Clean Architecture. Packt, 2023.",
+    "NIELD, J. Kotlin Programming: The Big Nerd Ranch Guide. 3. ed. 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Rubrica de pares avaliando a consistência de update/delete com foco em UX e feedback visual."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade III",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
+          "title": "Room: arquitetando persistência local",
+          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
+          "title": "Android Jetpack Architecture Components",
+          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Retomar o fluxo Create + Read da aula anterior.",
+        "Planejar UX para edição e exclusão.",
+        "Implementar @Update e @Delete no DAO.",
+        "Projeto prático: editar e excluir produtos.",
+        "Testes instrumentados e logs.",
+        "TED 18 e avisos Moodle."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Update reativo com Room",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Demonstramos como reutilizar o mesmo formulário de cadastro em modo edição, populando campos e persistindo alterações."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "suspend fun atualizar(produto: Produto) = produtoDao.update(produto)\n\nfun carregarProduto(id: Int): LiveData<Produto> =\n    produtoDao.buscarPorId(id).asLiveData()\n\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Dica de UX",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Indique visualmente que o formulário está em modo edição (ex.: título \"Editar produto\" e botão \"Salvar alterações\")."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Projeto prático: edição e exclusão com feedback",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas, evoluam o app catálogo permitindo editar itens e excluir com confirmação, garantindo undo via Snackbar."
+        },
+        {
+          "type": "subBlock",
+          "title": "Entregáveis",
+          "items": [
+            "Tela de edição com validação e persistência via ViewModel.",
+            "Botão contextual no RecyclerView para editar/excluir (Menu contextual ou Swipe).",
+            "Dialog ou Snackbar confirmando exclusão.",
+            "Teste instrumentado cobrindo update/delete."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED 18 – Evidências de Update/Delete",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prepare um relatório curto com prints da edição, exclusão e undo funcionando, além de logs de testes."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Explicar como o ViewModel diferencia modo cadastro vs. edição.",
+            "Mostrar configuração do SwipeToDelete/ContextMenu.",
+            "Anexar saída dos testes instrumentados ou Turbine."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Avisos Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie o relatório TED 18 e o link do repositório atualizado no Moodle > Unidade III > Aula 18 até 23h59 do próximo dia útil."
+        },
+        {
+          "type": "paragraph",
+          "text": "Participe do fórum \"Melhorias de UX em CRUD\" compartilhando um insight sobre feedback visual."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de CRUD com Room (Parte 2)."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ANDROID DEVELOPERS. Persist data with Room. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reforce os conceitos de CRUD com Room (Parte 2) relacionando SharedPreferences, Room e estratégias de migração."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: ANDROID DEVELOPERS. Persist data with Room. 2024.",
+            "Conecte com o estudo: JOHNS, R. Android Clean Architecture. Packt, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+        },
+        {
+          "type": "blockquote",
+          "text": "JOHNS, R. Android Clean Architecture. Packt, 2023."
+        }
+      ]
+    }
+  ]
+}

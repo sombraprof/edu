@@ -406,12 +406,27 @@ function formatDuration(value: number | undefined): string | undefined {
   return `${normalized.toFixed(1)} h`;
 }
 
+function parseLocalDate(input: string): Date | undefined {
+  const trimmed = input?.trim();
+  if (!trimmed) return undefined;
+  const iso = /^(\d{4})-(\d{2})-(\d{2})$/;
+  const m = iso.exec(trimmed);
+  if (m) {
+    const y = Number(m[1]);
+    const mo = Number(m[2]) - 1;
+    const d = Number(m[3]);
+    return new Date(y, mo, d);
+  }
+  const date = new Date(trimmed);
+  return Number.isNaN(date.getTime()) ? undefined : date;
+}
+
 function formatDate(value: string): string | undefined {
   if (!value) {
     return undefined;
   }
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
+  const date = parseLocalDate(value);
+  if (!date) {
     return value;
   }
   return date.toLocaleDateString('pt-BR', {

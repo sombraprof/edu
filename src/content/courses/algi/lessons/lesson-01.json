@@ -9,20 +9,16 @@
     "Mapear o funcionamento da disciplina, critérios de avaliação e recursos de apoio.",
     "Experimentar a construção de algoritmos usando passos claros e estruturados."
   ],
-  "competencies": [
-    "Raciocínio lógico aplicado à computação",
-    "Planejamento de soluções algorítmicas",
-    "Comunicação de processos passo a passo"
-  ],
+  "competencies": ["02", "05", "11"],
   "skills": [
-    "Identificar premissas e conclusões em argumentos lógicos.",
-    "Traduzir situações cotidianas em sequências de passos executáveis.",
-    "Selecionar representações adequadas (fluxogramas, pseudocódigo) para comunicar algoritmos."
+    "Identificar estruturas lógicas presentes em problemas cotidianos e classificá-las como condição, sequência ou repetição.",
+    "Descrever passo a passo um algoritmo simples utilizando o ciclo entrada → processamento → saída.",
+    "Comunicar expectativas da disciplina, critérios de avaliação e canais de apoio em linguagem objetiva."
   ],
   "outcomes": [
-    "Explica os pilares da disciplina e os critérios de avaliação.",
-    "Esboça um algoritmo simples a partir de um problema cotidiano.",
-    "Relaciona os principais formatos de representação algorítmica."
+    "Entrega quadro comparativo mapeando pelo menos três situações reais para estruturas lógicas básicas.",
+    "Produz algoritmo inicial com entradas, processamento e saídas validadas em dupla com o professor.",
+    "Apresenta resumo oral ou escrito explicitando cronograma, instrumentos avaliativos e recursos oferecidos na disciplina."
   ],
   "prerequisites": [
     "Familiaridade básica com o uso de computadores e navegação em ambientes virtuais de aprendizagem."
@@ -32,14 +28,14 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Plano de ensino da disciplina",
+      "label": "Plano de ensino de Algoritmos (UEPG)",
       "type": "document",
-      "url": "https://example.edu/algi/plano-ensino"
+      "url": "https://www.uepg.br/cear/wp-content/uploads/sites/4/2020/02/Plano-de-Ensino-Algoritmos.pdf"
     },
     {
       "label": "Moodle institucional",
       "type": "platform",
-      "url": "https://ava.example.edu"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Playlist: Lógica de Programação (Curso em Vídeo)",
@@ -50,6 +46,26 @@
       "label": "Artigo: Como escrever algoritmos claros",
       "type": "article",
       "url": "https://www.alura.com.br/artigos/como-escrever-algoritmos"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -61,6 +77,31 @@
     "description": "Checklist de participação no check-in inicial e entrega do esboço de algoritmo cotidiano."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução à Lógica e Algoritmos. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 01."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da Aula",
@@ -251,11 +292,189 @@
     {
       "type": "component",
       "component": "Md3LogicOperators"
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 01' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Publique no Moodle a ficha de expectativas preenchida (PDF ou foto legível)."
+            },
+            {
+              "text": "Anexe o esboço de algoritmo cotidiano criado em sala com comentários de entrada, processamento e saída."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Representações: Pseudocódigo × C",
+      "tabs": [
+        {
+          "label": "Pseudocódigo",
+          "content": "<pre>ler A, B\nsoma ← A + B\nescrever soma</pre>"
+        },
+        {
+          "label": "C",
+          "code": "#include <stdio.h>\nint main(){int a,b; scanf(\"%d %d\",&a,&b); printf(\"%d\\n\", a+b);}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Em uma frase: o que é um algoritmo?", "Qual dúvida fica para a próxima aula?"]
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Flashcards — revisão rápida",
+      "shuffle": true,
+      "cards": [
+        {
+          "front": "<b>Algoritmo</b>",
+          "back": "Sequência finita de passos para resolver um problema."
+        },
+        {
+          "front": "<b>EPS</b>",
+          "back": "Entrada, Processamento, Saída."
+        }
+      ]
+    },
+    {
+      "type": "glossary",
+      "title": "Glossário",
+      "items": [
+        {
+          "term": "Algoritmo",
+          "definition": "Sequência finita de instruções."
+        },
+        {
+          "term": "Pseudocódigo",
+          "definition": "Representação textual estruturada de um algoritmo."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Exercícios propostos",
+      "items": [
+        "Descreva, em até 10 linhas, um algoritmo do seu dia a dia (EPS).",
+        "Compare com um colega e refine etapas ambíguas."
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.957Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

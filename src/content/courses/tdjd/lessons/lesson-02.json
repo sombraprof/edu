@@ -41,6 +41,107 @@
       ]
     },
     {
+      "type": "component",
+      "component": "Md3Flowchart",
+      "props": {
+        "title": "Decisões Cotidianas com Raciocínio Lógico",
+        "summary": "Fluxo de escolhas simples que ilustram operadores lógicos presentes no design de jogos e na vida diária.",
+        "nodes": [
+          {
+            "id": "start",
+            "type": "start",
+            "title": "Início do dia"
+          },
+          {
+            "id": "energia",
+            "type": "decision",
+            "title": "Dormiu 7h E tomou café?"
+          },
+          {
+            "id": "descanso",
+            "type": "process",
+            "title": "Planejar pausa curta"
+          },
+          {
+            "id": "transporte",
+            "type": "decision",
+            "title": "Chovendo OU trânsito intenso?"
+          },
+          {
+            "id": "metro",
+            "type": "process",
+            "title": "Ir de metrô"
+          },
+          {
+            "id": "bike",
+            "type": "process",
+            "title": "Ir de bicicleta"
+          },
+          {
+            "id": "agenda",
+            "type": "decision",
+            "title": "Reunião importante XOR entrega de projeto?"
+          },
+          {
+            "id": "priorizar",
+            "type": "process",
+            "title": "Definir prioridade do dia"
+          },
+          {
+            "id": "end",
+            "type": "end",
+            "title": "Chegada com plano claro"
+          }
+        ],
+        "connections": [
+          {
+            "from": "start",
+            "to": "energia"
+          },
+          {
+            "from": "energia",
+            "to": "descanso",
+            "when": "Não"
+          },
+          {
+            "from": "energia",
+            "to": "transporte",
+            "when": "Sim"
+          },
+          {
+            "from": "descanso",
+            "to": "transporte"
+          },
+          {
+            "from": "transporte",
+            "to": "metro",
+            "when": "Sim"
+          },
+          {
+            "from": "transporte",
+            "to": "bike",
+            "when": "Não"
+          },
+          {
+            "from": "metro",
+            "to": "agenda"
+          },
+          {
+            "from": "bike",
+            "to": "agenda"
+          },
+          {
+            "from": "agenda",
+            "to": "priorizar"
+          },
+          {
+            "from": "priorizar",
+            "to": "end"
+          }
+        ]
+      }
+    },
+    {
       "type": "contentBlock",
       "title": "📖 Glossário de Termos",
       "content": [
@@ -72,6 +173,48 @@
         {
           "type": "paragraph",
           "text": "💡 Agora que conhecemos os principais termos, vamos entender como eles se aplicam na definição dos gêneros e na experiência de jogo."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "🧭 Materiais para o Brainstorm Colaborativo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize os quadros digitais para mapear referências de gêneros e mecânicas junto à turma."
+        },
+        {
+          "type": "button",
+          "text": "Quadro Miro – Matriz de Gêneros",
+          "href": "https://miro.com/app/board/tdjd-aula02-generos/"
+        },
+        {
+          "type": "button",
+          "text": "Planilha de Brainstorm no Google Sheets",
+          "href": "https://docs.google.com/spreadsheets/d/tdjd-aula02-brainstorm/edit"
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "🔍 Operadores Lógicos na Prática de Game Design",
+      "cards": [
+        {
+          "title": "AND (E)",
+          "content": "Eventos que exigem duas condições verdadeiras: abrir porta somente com chave E energia carregada."
+        },
+        {
+          "title": "OR (OU)",
+          "content": "Flexibiliza caminhos: missão completa quando o jogador derrota o chefe OU resgata todos os civis."
+        },
+        {
+          "title": "NOT (NÃO)",
+          "content": "Inverte estados: inimigo fica invisível ENQUANTO NÃO for iluminado."
+        },
+        {
+          "title": "XOR (OU Exclusivo)",
+          "content": "Escolhas mutuamente exclusivas: gastar ponto de habilidade em ataque OU defesa, nunca nos dois ao mesmo tempo."
         }
       ]
     },
@@ -465,28 +608,19 @@
     },
     {
       "type": "contentBlock",
-      "title": "📝 Tarefa (TED): Analisando seu Jogo Favorito",
+      "title": "📝 Tarefa (TED Orientado): Analisando seu Jogo Favorito",
       "content": [
         {
           "type": "paragraph",
-          "text": "Para a próxima aula, vamos aplicar os conceitos que vimos hoje."
+          "text": "Escolha um jogo que você domina e produza uma síntese de até 15 linhas no fórum, classificando gênero, tipo de gameplay e duas mecânicas-chave que sustentam a experiência."
         },
         {
-          "type": "list",
-          "items": [
-            "Análise no Fórum: Escolha um jogo que você gosta e joga (ou jogou) bastante. Crie uma postagem no fórum do Moodle respondendo:\"Qual é o gênero principal do seu jogo? E quais outros gêneros secundários você consegue identificar nele? Justifique sua classificação apontando 2 ou 3 mecânicas principais (físicas ou matemáticas) que o definem.\"",
-            "Identifique o Gameplay: Na mesma postagem, classifique o tipo de gameplay predominante (Singleplayer, Competitivo, Cooperativo, etc.) e explique como ele contribui para a experiência."
-          ]
+          "type": "paragraph",
+          "text": "Utilize a planilha de brainstorming para organizar evidências (links, prints, timestamp de vídeos) antes de postar, reforçando o olhar analítico sobre matemática e física aplicadas."
         },
         {
-          "type": "callout",
-          "variant": "info",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "💡 Exemplo de Postagem: \"Meu jogo é Rocket League. O gênero principal é Esporte/Ação. As mecânicas fundamentais são a física de colisões (elásticas entre carros e bola) e a dinâmica de movimento translacional para os saltos e voos. O gameplay é totalmente Multiplayer Competitivo, onde a previsibilidade da física permite jogadas de alta habilidade.\""
-            }
-          ]
+          "type": "paragraph",
+          "text": "Finalize respondendo explicitamente como cada mecânica escolhida dialoga com expectativas do público-alvo, conectando teoria e prática."
         }
       ]
     },

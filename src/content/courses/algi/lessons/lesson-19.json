@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-19",
-  "title": "Aula 19: For versus While na Prática",
-  "summary": "Compara laços for e while em cenários reais, avaliando legibilidade, controle e riscos de cada abordagem.",
-  "objective": "Decidir conscientemente entre for e while ao implementar repetições controladas por contador ou condição dinâmica.",
+  "title": "Comparação entre for e while",
+  "summary": "Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados.",
+  "objective": "Decidir com segurança entre for e while e justificar a refatoração escolhida para cada problema.",
+  "description": "A aula conduz a análise de problemas que podem ser resolvidos com for ou while, destacando critérios de escolha, refatoração cruzada e registro de evidências de teste.",
   "objectives": [
-    "Identificar critérios de escolha entre laços for e while.",
-    "Refatorar algoritmos para alternar entre estruturas mantendo a corretude.",
-    "Mensurar impacto na legibilidade e testes ao trocar o tipo de laço."
+    "Distinguir cenários ideais para laços controlados por contador e por condição.",
+    "Refatorar algoritmos simples convertendo entre for e while sem alterar resultados.",
+    "Registrar evidências que sustentem a decisão sobre a estrutura de repetição escolhida."
   ],
-  "competencies": ["Pensamento computacional", "Análise crítica de código", "Comunicação técnica"],
+  "competencies": ["02", "05"],
   "skills": [
-    "Comparar estruturas de repetição com base no contexto do problema.",
-    "Registrar testes de limite para cada variação do algoritmo.",
-    "Documentar trade-offs de manutenção entre abordagens equivalentes."
+    "Avaliar requisitos para decidir entre laços for e while considerando clareza e manutenção.",
+    "Refatorar algoritmos convertendo entre estruturas sem alterar resultado final.",
+    "Medir impactos da refatoração registrando desempenho, legibilidade e riscos."
   ],
   "outcomes": [
-    "Entrega quadros comparativos justificando a escolha da estrutura de repetição.",
-    "Mantém versões for e while com comportamentos idênticos e testes validados.",
-    "Apresenta em sala argumentos que ligam clareza de código a requisitos funcionais."
+    "Produz tabela comparativa que relaciona critérios do problema ao laço selecionado.",
+    "Entrega versões equivalentes em for e while confirmando saídas idênticas.",
+    "Anexa relatório com testes de limites, métricas de tempo e análise de riscos mitigados."
   ],
   "prerequisites": [
     "Conhecer laços while e for básicos.",
@@ -29,15 +30,29 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia comparativo for x while (PDF de apoio)",
-      "type": "reading",
-      "file": "courses/algi/loops-for-while-comparativo.md",
-      "url": "https://static.md3.education/courses/algi/loops-for-while-comparativo.md"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Ferramenta de diff online",
-      "url": "https://www.diffchecker.com/",
-      "type": "tool"
+      "label": "Artigo comparativo: for vs while (GeeksforGeeks)",
+      "type": "article",
+      "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop/"
+    },
+    {
+      "label": "Planilha de refatoração",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIComparativoLoops"
+    },
+    {
+      "label": "Repositório de exemplos equivalentes",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-loops-comparativos"
+    },
+    {
+      "label": "Vídeo: Debate CS50 sobre loops",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=3WrJj90OBZU"
     }
   ],
   "bibliography": [
@@ -50,130 +65,262 @@
   },
   "content": [
     {
-      "type": "lessonPlan",
-      "title": "Plano da aula",
-      "cards": [
-        {
-          "icon": "target",
-          "title": "Foco",
-          "content": "Comparar implementações equivalentes usando for e while e discutir critérios objetivos."
-        },
-        {
-          "icon": "users",
-          "title": "Metodologia",
-          "content": "Estudo de caso guiado, laboratório em duplas e retrospectiva coletiva com quadro comparativo."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Evidências",
-          "content": "Quadro resumo preenchido + código revisado publicado em repositório da turma."
-        }
-      ]
-    },
-    {
-      "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
-      "items": [
-        "(15 min) Aquecimento: identificar elementos em comum entre for e while.",
-        "(25 min) Análise orientada de código com refatoração live coding.",
-        "(30 min) Laboratório em duplas: trocar while por for (e vice-versa) mantendo testes.",
-        "(20 min) Debate estruturado: critérios de escolha e armadilhas.",
-        "(15 min) Construção do quadro comparativo no mural digital.",
-        "(10 min) Exit-ticket individual no AVA."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Recomendações de vídeo",
-      "videos": [
-        {
-          "youtubeId": "dQw4w9WgXcQ",
-          "title": "For vs While: quando usar cada um?"
-        },
-        {
-          "youtubeId": "J3kPPrO0KJA",
-          "title": "Debugando loops: checklist rápido"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Critérios de decisão",
+      "type": "callout",
+      "variant": "task",
+      "title": "Warm-up (início da aula)",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Um bom critério para escolher entre for e while é perguntar se o número de iterações pode ser determinado antes da execução."
-        },
-        {
           "type": "list",
-          "ordered": false,
           "items": [
-            "Quantidade conhecida ou intervalo definido → prefira for.",
-            "Repetição até uma condição externa mudar → prefira while.",
-            "Legibilidade > preferências pessoais: documente o motivo da escolha."
+            "Escreva em 3 minutos: o que você lembra da aula passada?",
+            "Compartilhe com a dupla."
           ]
         }
       ]
     },
     {
-      "type": "md3Table",
-      "title": "Mapa de equivalências",
-      "headers": ["Aspecto", "for", "while"],
-      "rows": [
-        [
-          { "value": "Inicialização" },
-          { "value": "Na própria declaração" },
-          { "value": "Antes do laço" }
-        ],
-        [
-          { "value": "Atualização" },
-          { "value": "Após cada iteração (3º campo)" },
-          { "value": "Dentro do corpo" }
-        ],
-        [
-          { "value": "Uso ideal" },
-          { "value": "Percorrer coleções, contagens" },
-          { "value": "Leituras sentinela, loops condicionais" }
-        ]
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Critérios de escolha",
+          "content": "Investigar quando um laço controlado por contador é mais claro do que um laço por sentinela."
+        },
+        {
+          "icon": "code",
+          "title": "Refatoração guiada",
+          "content": "Converter um exemplo base escrito com for para while e o inverso, preservando invariantes."
+        },
+        {
+          "icon": "users",
+          "title": "Debate rápido",
+          "content": "Compartilhar evidências de testes e riscos percebidos em cada estrutura."
+        }
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Estudos de caso para discussão",
-      "cards": [
+      "type": "contentBlock",
+      "title": "Perguntas para decidir entre for e while",
+      "content": [
         {
-          "title": "Processar notas de alunos",
-          "content": "Número de alunos conhecido → for com índice e relatório tabular."
+          "type": "paragraph",
+          "text": "A escolha do laço começa pela compreensão do fluxo e das condições que encerram a repetição."
         },
         {
-          "title": "Leitura até digitar 'sair'",
-          "content": "Valor sentinela desconhecido → while com validação de entrada."
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "O número de iterações é conhecido de antemão? Utilize for para deixar o contador explícito."
+            },
+            {
+              "text": "A parada depende de um valor calculado ou informado em tempo de execução? Prefira while para destacar a guarda."
+            },
+            {
+              "text": "Existe risco de esquecer a atualização ou leitura dentro do bloco? Anote invariantes e valide com testes de mesa."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Passos para refatorar entre for e while",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Liste entradas, saídas, variáveis de controle e condição de parada do algoritmo original."
+            },
+            {
+              "text": "Reescreva a inicialização, a condição e a atualização adequando-as à estrutura alvo."
+            },
+            {
+              "text": "Verifique se a atualização do contador ou da sentinela ocorre no ponto correto do bloco."
+            },
+            {
+              "text": "Execute testes com casos mínimos, limites e valores excepcionais comparando as duas versões."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Documente a intenção do laço",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Comentários curtos ou nomes descritivos ajudam a equipe a compreender por que determinado laço foi escolhido."
         },
         {
-          "title": "Cálculo de parcelas",
-          "content": "Iterações dependem de negociação → avalie se while traz flexibilidade."
+          "type": "list",
+          "items": [
+            {
+              "text": "Registre no cabeçalho quais variáveis são invariantes durante a repetição."
+            },
+            {
+              "text": "Explique quando o laço deve parar e qual estado deve ser preservado ao final."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checklist de equivalência",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "A sequência de valores processados é idêntica nas duas versões?"
+            },
+            {
+              "text": "O contador ou sentinela é inicializado com o mesmo valor de referência?"
+            },
+            {
+              "text": "Os efeitos colaterais dentro do laço permanecem na mesma ordem?"
+            },
+            {
+              "text": "Os casos de parada antecipada continuam garantidos?"
+            }
+          ]
         }
       ]
     },
     {
       "type": "code",
       "language": "c",
-      "title": "For e while equivalentes",
-      "code": "int limite = 10;\nfor (int i = 0; i < limite; i++) {\n  printf(\"For: %d\\n\", i);\n}\nint j = 0;\nwhile (j < limite) {\n  printf(\"While: %d\\n\", j);\n  j++;\n}\n"
+      "title": "Comparando contador e sentinela",
+      "code": "int soma_por_contador(const int *valores, int quantidade) {\n  int acumulador = 0;\n  for (int indice = 0; indice < quantidade; indice++) {\n    acumulador += valores[indice];\n  }\n  return acumulador;\n}\n\nint soma_por_sentinela(void) {\n  int entrada;\n  int acumulador = 0;\n  while (scanf(\"%d\", &entrada) == 1 && entrada != -1) {\n    acumulador += entrada;\n  }\n  return acumulador;\n}\n"
     },
     {
-      "type": "checklist",
-      "title": "Checklist pós-aula",
-      "items": [
-        "Atualizei meu quadro comparativo com pelo menos dois exemplos reais.",
-        "Executei testes limites (0, 1, n) nas duas versões do algoritmo.",
-        "Anotei dúvidas específicas para discutir na monitoria."
+      "type": "callout",
+      "variant": "task",
+      "title": "Atividade em dupla",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escolha um exercício da Unidade III e produza versões equivalentes usando for e while."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Registre na planilha da turma o problema escolhido e o critério de escolha de cada laço."
+            },
+            {
+              "text": "Anexe no AVA os casos de teste que comprovam a equivalência das saídas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "for × while",
+      "tabs": [
+        {
+          "label": "for",
+          "code": "for (int i=0;i<n;i++){ /* ... */ }",
+          "language": "c"
+        },
+        {
+          "label": "while",
+          "code": "int i=0; while (i<n){ /* ... */ i++; }",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregar no AVA até 23h59 do dia seguinte."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Resolver 2 exercícios com laços (um com for e outro com while/do-while).",
+            "Anexar comentários sobre complexidade percebida."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# for\nn=3 -> 1 2 3\n# while\nn=3 -> 1 2 3",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-01T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.984Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Relatório de revisão loops for/while 2024"]
   }

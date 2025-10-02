@@ -24,6 +24,18 @@ import SystemMapper from '@/components/lesson/SystemMapper.vue';
 import Timeline from '@/components/lesson/Timeline.vue';
 import TruthTable from '@/components/lesson/TruthTable.vue';
 import VideosBlock from '@/components/lesson/VideosBlock.vue';
+import BalancedScorecard from '@/components/lesson/BalancedScorecard.vue';
+import QuizBlock from '@/components/lesson/QuizBlock.vue';
+import Flashcards from '@/components/lesson/Flashcards.vue';
+import ResourceGallery from '@/components/lesson/ResourceGallery.vue';
+import Stepper from '@/components/lesson/Stepper.vue';
+import TabsBlock from '@/components/lesson/TabsBlock.vue';
+import Glossary from '@/components/lesson/Glossary.vue';
+import ParsonsPuzzle from '@/components/lesson/ParsonsPuzzle.vue';
+import ScenarioMatrix from '@/components/lesson/ScenarioMatrix.vue';
+import SpriteSheetViewer from '@/components/lesson/SpriteSheetViewer.vue';
+import CRCCards from '@/components/lesson/CRCCards.vue';
+import ApiEndpoints from '@/components/lesson/ApiEndpoints.vue';
 import type { Component } from 'vue';
 
 export type LessonBlock = Record<string, unknown> & { type: string };
@@ -49,6 +61,18 @@ const customComponentRegistry: Record<string, Component> = {
   ClassDesigner,
   PipelineCanvas,
   SystemMapper,
+  BalancedScorecard,
+  QuizBlock,
+  Flashcards,
+  ResourceGallery,
+  Stepper,
+  TabsBlock,
+  Glossary,
+  ParsonsPuzzle,
+  ScenarioMatrix,
+  SpriteSheetViewer,
+  CRCCards,
+  ApiEndpoints,
 };
 
 const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
@@ -99,6 +123,19 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   flightPlan: dataBlock(FlightPlan),
   accordion: dataBlock(Accordion),
   representations: dataBlock(Representations),
+  quiz: dataBlock(QuizBlock),
+  multipleChoice: dataBlock(QuizBlock),
+  flashcards: dataBlock(Flashcards),
+  resourceGallery: dataBlock(ResourceGallery),
+  stepper: dataBlock(Stepper),
+  tabs: dataBlock(TabsBlock),
+  glossary: dataBlock(Glossary),
+  parsons: dataBlock(ParsonsPuzzle),
+  parsonsPuzzle: dataBlock(ParsonsPuzzle),
+  scenarioMatrix: dataBlock(ScenarioMatrix),
+  spriteSheet: dataBlock(SpriteSheetViewer),
+  crcCards: dataBlock(CRCCards),
+  apiEndpoints: dataBlock(ApiEndpoints),
   truthTable(block) {
     return {
       component: TruthTable,
@@ -186,6 +223,18 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
         factors: toSystemFactors(block.factors),
         loops: toSystemLoops(block.loops ?? block.cycles),
         insights: toSystemInsights(block.insights),
+      },
+    };
+  },
+  balancedScorecard(block) {
+    return {
+      component: BalancedScorecard,
+      props: {
+        title: toOptionalString(block.title),
+        summary: toOptionalString(block.summary),
+        perspectives: toBalancedScorecardPerspectives(block.perspectives ?? block.columns),
+        objectives: toBalancedScorecardObjectives(block.objectives ?? block.items),
+        indicators: toBalancedScorecardIndicators(block.indicators ?? block.metrics),
       },
     };
   },
@@ -1102,6 +1151,241 @@ function toPipelineStatus(value: unknown) {
   }
   const allowed = new Set(['not-started', 'in-progress', 'blocked', 'done']);
   return allowed.has(status) ? (status as any) : undefined;
+}
+
+type BalancedScorecardTone = 'primary' | 'success' | 'warning' | 'info' | 'neutral' | 'danger';
+type BalancedScorecardIndicatorStatus =
+  | 'on-track'
+  | 'at-risk'
+  | 'off-track'
+  | 'achieved'
+  | 'not-started';
+
+interface BalancedScorecardPerspectiveEntry {
+  id: string;
+  title: string;
+  summary?: string;
+  tone?: BalancedScorecardTone;
+  badge?: string;
+}
+
+interface BalancedScorecardObjectiveEntry {
+  id: string;
+  perspectiveId: string;
+  title: string;
+  summary?: string;
+  owner?: string;
+  initiatives?: string[];
+  indicatorIds?: string[];
+}
+
+interface BalancedScorecardIndicatorEntry {
+  id: string;
+  title: string;
+  summary?: string;
+  perspectiveId?: string;
+  objectiveId?: string;
+  target?: string;
+  current?: string;
+  baseline?: string;
+  frequency?: string;
+  owner?: string;
+  status?: BalancedScorecardIndicatorStatus;
+}
+
+function toBalancedScorecardPerspectives(value: unknown): BalancedScorecardPerspectiveEntry[] {
+  return toBalancedScorecardEntries(value, (record) => {
+    const id = toOptionalTrimmedString(
+      record.id ?? record.key ?? record.slug ?? record.handle ?? record.perspectiveId
+    );
+    const title = toOptionalTrimmedString(record.title ?? record.name ?? record.label);
+    if (!id || !title) {
+      return undefined;
+    }
+
+    return {
+      id,
+      title,
+      summary: toOptionalTrimmedString(record.summary ?? record.description ?? record.content),
+      tone: toBalancedScorecardTone(record.tone ?? record.variant ?? record.emphasis),
+      badge: toOptionalTrimmedString(
+        record.badge ?? record.shortTitle ?? record.acronym ?? record.code
+      ),
+    };
+  });
+}
+
+function toBalancedScorecardObjectives(value: unknown): BalancedScorecardObjectiveEntry[] {
+  return toBalancedScorecardEntries(value, (record) => {
+    const id = toOptionalTrimmedString(
+      record.id ?? record.key ?? record.slug ?? record.objectiveId
+    );
+    const perspectiveId = toOptionalTrimmedString(
+      record.perspectiveId ?? record.perspective ?? record.columnId ?? record.parentId
+    );
+    const title = toOptionalTrimmedString(record.title ?? record.name ?? record.label);
+
+    if (!id || !perspectiveId || !title) {
+      return undefined;
+    }
+
+    const initiatives = toStringArray(
+      record.initiatives ?? record.actions ?? record.projects
+    ).filter((item) => item.length > 0);
+    const indicatorIds = toStringArray(
+      record.indicators ?? record.metricIds ?? record.measures
+    ).filter((item) => item.length > 0);
+
+    return {
+      id,
+      perspectiveId,
+      title,
+      summary: toOptionalTrimmedString(
+        record.summary ?? record.description ?? record.content ?? record.subtitle
+      ),
+      owner: toOptionalTrimmedString(
+        record.owner ?? record.responsible ?? record.lead ?? record.manager
+      ),
+      initiatives: initiatives.length ? initiatives : undefined,
+      indicatorIds: indicatorIds.length ? indicatorIds : undefined,
+    };
+  });
+}
+
+function toBalancedScorecardIndicators(value: unknown): BalancedScorecardIndicatorEntry[] {
+  return toBalancedScorecardEntries(value, (record) => {
+    const id = toOptionalTrimmedString(record.id ?? record.key ?? record.slug ?? record.metricId);
+    const title = toOptionalTrimmedString(record.title ?? record.name ?? record.label);
+    if (!id || !title) {
+      return undefined;
+    }
+
+    return {
+      id,
+      title,
+      summary: toOptionalTrimmedString(
+        record.summary ?? record.description ?? record.content ?? record.subtitle
+      ),
+      perspectiveId: toOptionalTrimmedString(
+        record.perspectiveId ?? record.perspective ?? record.columnId ?? record.parentId
+      ),
+      objectiveId: toOptionalTrimmedString(
+        record.objectiveId ?? record.objective ?? record.targetObjective ?? record.goalId
+      ),
+      target: toOptionalTrimmedString(
+        record.target ?? record.goal ?? record.meta ?? record.expected
+      ),
+      current: toOptionalTrimmedString(
+        record.current ?? record.value ?? record.actual ?? record.result
+      ),
+      baseline: toOptionalTrimmedString(
+        record.baseline ?? record.base ?? record.start ?? record.initial
+      ),
+      frequency: toOptionalTrimmedString(
+        record.frequency ?? record.cadence ?? record.periodicity ?? record.period ?? record.review
+      ),
+      owner: toOptionalTrimmedString(
+        record.owner ?? record.responsible ?? record.guardian ?? record.manager
+      ),
+      status: toBalancedScorecardStatus(record.status ?? record.health ?? record.state),
+    };
+  });
+}
+
+function toBalancedScorecardEntries<T>(
+  value: unknown,
+  mapper: (record: Record<string, unknown>) => T | undefined
+): T[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => {
+      if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+        return undefined;
+      }
+      return mapper(entry as Record<string, unknown>);
+    })
+    .filter((item): item is T => Boolean(item));
+}
+
+function toBalancedScorecardTone(value: unknown): BalancedScorecardTone | undefined {
+  if (typeof value !== 'string') {
+    return undefined;
+  }
+
+  const normalized = value.trim().toLowerCase();
+  switch (normalized) {
+    case 'primary':
+    case 'azul':
+      return 'primary';
+    case 'success':
+    case 'positivo':
+    case 'verde':
+      return 'success';
+    case 'warning':
+    case 'atenção':
+    case 'attention':
+    case 'amber':
+      return 'warning';
+    case 'info':
+    case 'informational':
+    case 'secundario':
+    case 'secondary':
+      return 'info';
+    case 'danger':
+    case 'error':
+    case 'critico':
+    case 'critical':
+      return 'danger';
+    case 'neutral':
+    case 'default':
+    case 'cinza':
+      return 'neutral';
+    default:
+      return undefined;
+  }
+}
+
+function toBalancedScorecardStatus(value: unknown): BalancedScorecardIndicatorStatus | undefined {
+  if (typeof value !== 'string') {
+    return undefined;
+  }
+
+  const normalized = value.trim().toLowerCase();
+  switch (normalized) {
+    case 'on-track':
+    case 'ontrack':
+    case 'no ritmo':
+    case 'ok':
+    case 'green':
+      return 'on-track';
+    case 'at-risk':
+    case 'atrisk':
+    case 'atenção':
+    case 'yellow':
+    case 'amber':
+      return 'at-risk';
+    case 'off-track':
+    case 'offtrack':
+    case 'atrasado':
+    case 'critical':
+    case 'red':
+      return 'off-track';
+    case 'achieved':
+    case 'atingido':
+    case 'done':
+    case 'completed':
+      return 'achieved';
+    case 'not-started':
+    case 'notstarted':
+    case 'pendente':
+    case 'pending':
+      return 'not-started';
+    default:
+      return undefined;
+  }
 }
 
 function toFlowNodes(value: unknown) {

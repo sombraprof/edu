@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-38",
-  "title": "Aula 38: Revisão Gamificada do Semestre",
+  "title": "Revisão Gamificada do Semestre",
   "summary": "Consolida conteúdos com dinâmica Jeopardy, ranking colaborativo e síntese dos aprendizados em squads.",
+  "description": "Revisa o semestre com dinâmica gamificada envolvendo Jeopardy, ranking colaborativo e feedbacks.",
   "objective": "Promover revisão abrangente dos conceitos-chave da disciplina por meio de atividades gamificadas e colaborativas.",
   "objectives": [
     "Relembrar tópicos centrais (fluxo sequencial, controle, funções, structs).",
     "Aplicar conhecimento em desafios práticos e quizzes competitivos.",
     "Mapear pontos de melhoria individuais a partir do ranking e feedbacks."
   ],
-  "competencies": ["Trabalho em equipe", "Pensamento crítico", "Comunicação"],
+  "competencies": ["11", "12"],
   "skills": [
-    "Resolver desafios de código em tempo limitado.",
-    "Registrar resultados e feedbacks em planilha de ranking.",
-    "Refletir sobre evolução pessoal e do squad."
+    "Preparar desafios que revisem conteúdos do semestre em formato gamificado.",
+    "Compartilhar explicações rápidas das soluções adotadas pela equipe.",
+    "Colaborar na facilitação da dinâmica registrando pontuações e feedbacks."
   ],
   "outcomes": [
-    "Completa tabuleiro Jeopardy com perguntas de múltiplos níveis.",
-    "Entrega ranking final com medalhas e feedback qualitativo.",
-    "Publica mural digital com síntese dos aprendizados do semestre."
+    "Entrega quiz ou jogo com questões alinhadas às competências trabalhadas.",
+    "Realiza apresentação de insights destacando estratégias usadas pela equipe para resolver desafios.",
+    "Consolida feedback do grupo em ata compartilhada com próximos passos de estudo."
   ],
   "prerequisites": [
     "Participação nas aulas anteriores do semestre.",
@@ -29,10 +30,21 @@
   "modality": "in-person",
   "resources": [
     {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "Kit Jeopardy para revisão",
       "type": "guide",
       "file": "courses/algi/gamificacao-jeopardy-kit.md",
       "url": "https://static.md3.education/courses/algi/gamificacao-jeopardy-kit.md"
+    },
+    {
+      "label": "Slides oficiais da dinâmica Jeopardy",
+      "type": "slides",
+      "file": "courses/algi/aula-38-jeopardy-slides.pdf",
+      "url": "https://static.md3.education/courses/algi/aula-38-jeopardy-slides.pdf"
     },
     {
       "label": "Template de ranking gamificado",
@@ -41,9 +53,34 @@
       "url": "https://static.md3.education/courses/algi/gamificacao-ranking-template.csv"
     },
     {
+      "label": "Planilha de pontuação em tempo real",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGJeopardyPontuacao"
+    },
+    {
       "label": "Artigo Harvard Business Review - Gamification in Education",
       "type": "article",
       "url": "https://hbr.org/2020/03/how-gamification-can-boost-learner-engagement"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -52,46 +89,131 @@
   ],
   "content": [
     {
-      "type": "lessonPlan",
-      "title": "Roteiro detalhado",
-      "cards": [
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
         {
-          "icon": "clock",
-          "title": "Boas-vindas",
-          "content": "Aquecimento com quiz flash revisando structs e CRUD (10 min)."
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Revisão Gamificada do Semestre. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
         },
         {
-          "icon": "tasks",
-          "title": "Jeopardy",
-          "content": "Tabuleiro com cinco categorias (Structs, Vetores, Funções, Controle, Desafios) (45 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Ranking dinâmico",
-          "content": "Atualização em tempo real da planilha de pontuação (20 min)."
-        },
-        {
-          "icon": "users",
-          "title": "Oficina de retrospectiva",
-          "content": "Canvas de lições aprendidas e próximos passos (30 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Encerramento",
-          "content": "Entrega de medalhas e feedbacks individuais (25 min)."
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 38."
+            }
+          ]
         }
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
+      "title": "Roteiro detalhado",
+      "cards": [
+        {
+          "icon": "bullseye",
+          "title": "Briefing e kits",
+          "content": "(10 min) Apresente os slides oficiais, distribua kits (cartelas, cartas, sineta) e alinhe papéis do squad."
+        },
+        {
+          "icon": "code",
+          "title": "Rodadas Jeopardy",
+          "content": "(45 min) Use o tabuleiro projetado; squads escolhem casas, respondem em 90s e validam com o gabarito do kit."
+        },
+        {
+          "icon": "monitor",
+          "title": "Ranking em tempo real",
+          "content": "(15 min) Atualize a planilha oficial a cada rodada, sinalizando badges de consistência e colaboração."
+        },
+        {
+          "icon": "users",
+          "title": "Laboratório de estratégias",
+          "content": "(20 min) Squads analisam ranking, definem apostas para rodada relâmpago e registram lições no mural."
+        },
+        {
+          "icon": "gears",
+          "title": "Rodada relâmpago",
+          "content": "(20 min) Perguntas bônus com badges especiais (Insight, Apoio Técnico, Fair Play) e atualização final do ranking."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Premiação e feedback",
+          "content": "(20 min) Entregue certificados, colete impressões rápidas e sinalize abertura do formulário de feedback 360°."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Kit Jeopardy por squad",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cada kit deve ser entregue completo em envelope identificado: cartelas de respostas, cartas de categorias, gabarito laminado, contadores de ponto e badge cards."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cartelas numeradas de 100 a 500 por categoria para escolha das perguntas."
+            },
+            {
+              "text": "Campainha ou sinalizador para indicar resposta pronta (alternativa: reação no chat)."
+            },
+            {
+              "text": "Cartões de badge (Insight, Fair Play, Mentor Relâmpago) para premiações adicionais."
+            },
+            {
+              "text": "Guia rápido com critérios de desempate e penalidades."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Reserve um kit extra para demonstração durante o briefing e mantenha spray sanitizante para revezamento seguro."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
       "title": "Plano de voo (2h10)",
-      "items": [
-        "(15 min) Icebreaker: bingo de conceitos-chave.",
-        "(45 min) Rodadas Jeopardy com perguntas de código e interpretação.",
-        "(20 min) Desafio relâmpago: refatorar função CRUD indicada pelo ranking.",
-        "(25 min) Sessão de feedback 360° entre squads.",
-        "(20 min) Construção do mural digital com insights.",
-        "(5 min) Anúncio dos destaques e próximos passos para NP3."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Icebreaker com quiz flash e revisão das regras nos slides."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(45 min) Rodadas principais",
+          "content": "squads escolhem casas, respondem e registram tentativas na planilha."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(15 min) Painel do ranking",
+          "content": "atualização coletiva e registro dos badges conquistados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Desafio relâmpago com perguntas de alta complexidade e possibilidade de aposta."
+        },
+        {
+          "icon": "check-circle",
+          "title": "25 min",
+          "content": "Círculo de feedback 360° mediado por roteiro de perguntas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Construção do mural digital com insights e anúncio dos destaques."
+        }
       ]
     },
     {
@@ -109,50 +231,68 @@
               "text": "Use perguntas que envolvam leitura de código, correção de bugs e estimativa de complexidade."
             },
             {
-              "text": "Atribua badges extras para squads que colaborarem com outras equipes durante a revisão."
+              "text": "Atribua badges extras (Fair Play, Mentor Relâmpago, Insight) para squads que colaborarem com outras equipes ou justificarem soluções com profundidade."
             },
             {
-              "text": "Publique ranking parcial a cada rodada para incentivar planejamento estratégico."
+              "text": "Publique ranking parcial a cada rodada usando o dashboard da planilha oficial para incentivar planejamento estratégico."
             }
           ]
         }
       ]
     },
     {
-      "type": "md3Table",
+      "type": "callout",
+      "variant": "info",
+      "title": "Feedback 360° orientado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve 25 minutos para o círculo de feedback 360°. Projete o roteiro no slide 12 e oriente que cada squad forneça percepções sobre comunicação, domínio técnico e colaboração."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Preencha o formulário https://forms.gle/algi-feedback-360 durante a roda para capturar evidências."
+            },
+            {
+              "text": "Garanta que todos recebam ao menos um elogio (Keep) e uma sugestão de melhoria (Grow)."
+            },
+            {
+              "text": "Colete compromissos no mural digital para acompanhamento na aula 40."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Reforce sigilo e respeito mútuo: feedback deve ser específico, gentil e orientado a ações futuras."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Categorias e exemplos de perguntas",
-      "headers": ["Categoria", "Exemplo", "Resolução esperada", "Pontuação"],
-      "rows": [
-        [
-          "Structs",
-          "Identificar erro em typedef e sugerir correção.",
-          "Mostrar typedef completo e motivo da falha.",
-          "200"
-        ],
-        [
-          "Vetores",
-          "Reordenar vetor de registros após remoção.",
-          "Apresentar código com deslocamento correto.",
-          "300"
-        ],
-        [
-          "CRUD",
-          "Escolher retorno adequado para função delete.",
-          "Explicar bool e mensagens ao usuário.",
-          "100"
-        ],
-        [
-          "Controle",
-          "Converter laço while em for mantendo lógica.",
-          "Código equivalente com justificativa.",
-          "400"
-        ],
-        [
-          "Desafios",
-          "Aplicar busca por prefixo em lista ordenada.",
-          "Implementar varredura até mismatch.",
-          "500"
-        ]
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Categoria: Structs | Exemplo: Identificar erro em typedef e sugerir correção. | Resolução esperada: Mostrar typedef completo e motivo da falha. | Pontuação: 200"
+            },
+            {
+              "text": "Categoria: Vetores | Exemplo: Reordenar vetor de registros após remoção. | Resolução esperada: Apresentar código com deslocamento correto. | Pontuação: 300"
+            },
+            {
+              "text": "Categoria: CRUD | Exemplo: Escolher retorno adequado para função delete. | Resolução esperada: Explicar bool e mensagens ao usuário. | Pontuação: 100"
+            },
+            {
+              "text": "Categoria: Controle | Exemplo: Converter laço while em for mantendo lógica. | Resolução esperada: Código equivalente com justificativa. | Pontuação: 400"
+            },
+            {
+              "text": "Categoria: Desafios | Exemplo: Aplicar busca por prefixo em lista ordenada. | Resolução esperada: Implementar varredura até mismatch. | Pontuação: 500"
+            }
+          ]
+        }
       ]
     },
     {
@@ -169,12 +309,132 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 38' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Publique resumo individual destacando aprendizados e questões que acertou/errou na dinâmica Jeopardy."
+            },
+            {
+              "text": "Anexe planilha de pontuação da equipe e sugestões para próximos estudos."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "resourceGallery",
+      "title": "Recursos de revisão (CC)",
+      "src": "resources/systems-thinking.json"
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Monte seus próprios casos com base nas revisões.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
-    "status": "draft",
-    "updatedAt": "2025-10-04T11:20:00.000Z",
-    "owners": ["Equipe Algoritmos I"],
-    "sources": ["Plano de ensino Algoritmos I 2025.2", "HBR Gamification Strategies 2020"]
+    "status": "published",
+    "updatedAt": "2025-10-02T08:28:29.005Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": [
+      "Plano de ensino Algoritmos I 2025.2",
+      "HBR Gamification Strategies 2020",
+      "Relatório de monitoria gamificada 2024"
+    ]
   }
 }

@@ -1,0 +1,291 @@
+{
+  "id": "lesson-24",
+  "title": "Aula 24 (Sábado Letivo): Estudo de Caso SAP em Operações",
+  "objective": "Vivenciar, em regime intensivo, a análise de um caso real de implantação SAP focado em operações industriais.",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da imersão",
+      "cards": [
+        {
+          "icon": "calendar-days",
+          "title": "CARGA HORÁRIA",
+          "content": "Sábado letivo das 8h às 12h30 com intervalos orientados e atividades guiadas."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVOS",
+          "content": "- Explorar documentação real de projeto SAP.\n- Mapear interdependências entre módulos de produção e manutenção.\n- Elaborar recomendações para estabilidade pós-go-live."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Trabalho em squads, análise documental, simulação de war room e apresentação final."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Agenda do sábado letivo",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "08h00 — Kick-off – Briefing do caso, papéis e entregáveis."
+            },
+            {
+              "text": "09h00 — Deep dive – Análise de documentos de blueprint, matriz de integrações e plano de testes."
+            },
+            {
+              "text": "10h30 — Simulação – War room com incidentes simulados envolvendo SAP PP, MM e PM."
+            },
+            {
+              "text": "11h30 — Recomendações – Elaboração de plano de estabilização e lições aprendidas."
+            },
+            {
+              "text": "12h15 — Pitch final – Apresentação de sínteses para banca avaliadora."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Artefatos fornecidos",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Documento: Blueprint PP | Descrição: Processos de planejamento e execução da produção | Uso durante a imersão: Identificar dependências com manutenção"
+            },
+            {
+              "text": "Documento: Matriz de integrações | Descrição: Fluxos entre SAP, MES e sensores IoT | Uso durante a imersão: Mapear pontos de falha"
+            },
+            {
+              "text": "Documento: Plano de testes | Descrição: Roteiros de cenários críticos | Uso durante a imersão: Distribuir entre squads e avaliar cobertura"
+            },
+            {
+              "text": "Documento: Dashboard de incidentes | Descrição: Registros pós-go-live | Uso durante a imersão: Priorizar ações de estabilização"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Desafios para os squads",
+      "items": [
+        {
+          "title": "Squad Produção",
+          "content": "Avaliar sincronização PP ↔ MES e gargalos de ordens.",
+          "language": "plaintext",
+          "code": "Avaliar sincronização PP ↔ MES e gargalos de ordens."
+        },
+        {
+          "title": "Squad Manutenção",
+          "content": "Analisar integração PM com sensores e estoque de peças.",
+          "language": "plaintext",
+          "code": "Analisar integração PM com sensores e estoque de peças."
+        },
+        {
+          "title": "Squad Qualidade",
+          "content": "Checar rastreabilidade e registros de não conformidade.",
+          "language": "plaintext",
+          "code": "Checar rastreabilidade e registros de não conformidade."
+        },
+        {
+          "title": "Squad Governança",
+          "content": "Definir indicadores e ritos de acompanhamento pós-go-live.",
+          "language": "plaintext",
+          "code": "Definir indicadores e ritos de acompanhamento pós-go-live."
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Mapa do caso SAP",
+      "summary": "Fluxos entre produção, manutenção e cadeia de suprimentos na planta industrial.",
+      "factors": [
+        {
+          "id": "planejamento",
+          "name": "Planejamento",
+          "summary": "MPS/MRP atualizados semanalmente.",
+          "kind": "driver",
+          "indicators": ["aderencia_plano"]
+        },
+        {
+          "id": "execucao",
+          "name": "Execução",
+          "summary": "Ordens de produção no SAP PP.",
+          "kind": "flow",
+          "indicators": ["oee", "tempo_ciclo"]
+        },
+        {
+          "id": "manutencao",
+          "name": "Manutenção",
+          "summary": "Planos preventivos no SAP PM.",
+          "kind": "flow",
+          "indicators": ["disponibilidade_maquinas"]
+        },
+        {
+          "id": "materiais",
+          "name": "Materiais",
+          "summary": "Peças de reposição e matérias-primas.",
+          "kind": "stock",
+          "indicators": ["estoque_segurança"]
+        },
+        {
+          "id": "performance",
+          "name": "Performance",
+          "summary": "Resultados de produção e qualidade.",
+          "kind": "outcome",
+          "indicators": ["yield", "refugos"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "continuidade-operacional",
+          "name": "Continuidade operacional",
+          "polarity": "reinforcing",
+          "summary": "Planejamento alinhado com manutenção garante estabilidade de produção.",
+          "steps": [
+            {
+              "id": "sap-1",
+              "from": "planejamento",
+              "to": "execucao",
+              "effect": "reinforces",
+              "description": "Planos realistas reduzem ajustes de última hora."
+            },
+            {
+              "id": "sap-2",
+              "from": "execucao",
+              "to": "manutencao",
+              "effect": "reinforces",
+              "description": "Dados de produção alimentam gatilhos de manutenção."
+            },
+            {
+              "id": "sap-3",
+              "from": "manutencao",
+              "to": "materiais",
+              "effect": "reinforces",
+              "description": "Ordens de manutenção consomem peças que precisam ser repostas."
+            },
+            {
+              "id": "sap-4",
+              "from": "materiais",
+              "to": "planejamento",
+              "effect": "balances",
+              "description": "Níveis de estoque ajustam o plano mestre para evitar rupturas."
+            },
+            {
+              "id": "sap-5",
+              "from": "execucao",
+              "to": "performance",
+              "effect": "reinforces",
+              "description": "Execução estável melhora indicadores de performance."
+            },
+            {
+              "id": "sap-6",
+              "from": "performance",
+              "to": "planejamento",
+              "effect": "reinforces",
+              "description": "Resultados alimentam revisão de metas."
+            }
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-sabado-1",
+          "label": "War room disciplinado",
+          "description": "Registro estruturado de incidentes acelera resolução."
+        },
+        {
+          "id": "insight-sabado-2",
+          "label": "Dados IoT",
+          "description": "Integrações com sensores exigem monitoramento contínuo."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Material preparatório",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/sap-pp-demo",
+          "title": "Demonstração SAP PP",
+          "caption": "Visão geral do planejamento e execução de ordens."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/sap-pm-dashboard",
+          "title": "Painel SAP PM",
+          "caption": "Monitora ordens preventivas e backlog de manutenção."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 24 — Diário de campo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Registre um diário de campo (mín. 600 palavras) com aprendizados do sábado letivo, destacando evidências analisadas e decisões do squad. Submeta até às 20h do domingo subsequente."
+        }
+      ]
+    }
+  ],
+  "formatVersion": "md3.lesson.v1",
+  "slug": "aula-24-sabado-letivo-estudo-de-caso-sap",
+  "summary": "Sábado letivo imersivo analisando caso real de implantação SAP com foco em produção e manutenção.",
+  "objectives": [
+    "Interpretar documentação real de projeto SAP.",
+    "Diagnosticar interdependências entre módulos industriais.",
+    "Produzir recomendações de estabilização pós-go-live."
+  ],
+  "competencies": [
+    "Análise de casos complexos",
+    "Colaboração em squads",
+    "Gestão de operações industriais"
+  ],
+  "outcomes": [
+    "Entrega diário de campo completo.",
+    "Apresenta pitch com recomendações estruturadas.",
+    "Mapeia riscos prioritários da operação."
+  ],
+  "prerequisites": [
+    "Rever materiais de implantação das aulas 20-23.",
+    "Assistir previamente aos vídeos preparatórios."
+  ],
+  "tags": ["aula-24-sabado-sap"],
+  "duration": 210,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Pacote de documentos SAP",
+      "url": "https://example.edu/tgs/cases/sap-industria",
+      "type": "dataset"
+    },
+    {
+      "label": "Template de diário de campo",
+      "url": "https://example.edu/tgs/templates/diario-campo",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "SAP PRESS. Production Planning with SAP S/4HANA. SAP Press, 2023.",
+    "MALHOTRA, Manish. Implementing SAP Plant Maintenance (PM). SAP Press, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Diário de campo avaliando aprendizado da imersão."
+  },
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "owners": ["Profa. Marina Duarte"],
+    "sources": ["Plano de ensino TGS 2025.1", "Caso SAP fornecido pela parceira IndustrialTech"]
+  }
+}

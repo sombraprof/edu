@@ -9,16 +9,16 @@
     "Identificar lacunas de aprendizagem em lógica booleana e estruturas condicionais.",
     "Coletar evidências para orientar a devolutiva e os planos de reforço da próxima aula."
   ],
-  "competencies": ["Raciocínio algorítmico", "Pensamento computacional", "Comunicação técnica"],
+  "competencies": ["02", "05", "08"],
   "skills": [
-    "Interpretar enunciados e traduzir em algoritmos estruturados.",
-    "Escrever código C com sintaxe, entrada e saída corretas sem apoio externo.",
-    "Justificar respostas com clareza quando solicitado."
+    "Organizar tempo e recursos para executar avaliação escrita com foco em lógica e condicionais.",
+    "Aplicar estratégias de revisão rápida para validar respostas antes da entrega.",
+    "Registrar justificativas concisas que evidenciem raciocínio em cada questão."
   ],
   "outcomes": [
-    "Submete avaliação manuscrita contendo algoritmos corretos e bem apresentados.",
-    "Registra justificativas claras para decisões tomadas durante a prova.",
-    "Entrega folha de rascunho anexada com eventuais fluxogramas de apoio."
+    "Entrega prova preenchida dentro do tempo previsto com todas as questões respondidas.",
+    "Revisa itens críticos destacando conferência de fluxogramas, tabelas e códigos escritos.",
+    "Anota observações pós-prova apontando pontos fortes e tópicos para revisão."
   ],
   "prerequisites": ["Revisar aulas 01-13, incluindo operadores, fluxogramas e cadeias de decisão."],
   "tags": ["avaliacao", "np1", "diagnostico"],
@@ -26,14 +26,34 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Prova impressa NP1",
-      "type": "assessment",
-      "url": "https://example.edu/algi/avaliacoes/np1-2025.pdf"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Folha de respostas padrão",
+      "label": "Rubrica de lógica de programação (UFSM)",
       "type": "handout",
-      "url": "https://example.edu/algi/avaliacoes/folha-respostas.pdf"
+      "url": "https://www.ufsm.br/app/uploads/sites/346/2019/06/Rubrica_Logica_de_Programacao.pdf"
+    },
+    {
+      "label": "Folha de respostas objetiva (Centro Paula Souza)",
+      "type": "handout",
+      "url": "https://www.cps.sp.gov.br/wp-content/uploads/sites/4/2021/07/FOLHA-DE-RESPOSTAS.pdf"
+    },
+    {
+      "label": "Checklist de preparação para a NP1",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIPreparacaoNP1"
+    },
+    {
+      "label": "Formulário de percepção pós-prova",
+      "type": "form",
+      "url": "https://forms.gle/NP1PercepcaoAluno"
+    },
+    {
+      "label": "Artigo: Como se preparar para provas (Descomplica)",
+      "type": "article",
+      "url": "https://descomplica.com.br/blog/estudar/como-se-preparar-para-provas/"
     }
   ],
   "bibliography": [
@@ -44,9 +64,48 @@
   ],
   "assessment": {
     "type": "exam",
-    "description": "Avaliação presencial manuscrita cobrindo lógica, fluxogramas e condicionais simples e compostas."
+    "description": "Avaliação presencial manuscrita com 10 minutos de orientação, 90 minutos de resolução individual e 10 minutos de coleta, cobrindo lógica sequencial, fluxogramas e condicionais.",
+    "phases": [
+      {
+        "title": "Orientação (10%)",
+        "description": "Leitura das instruções, esclarecimento de dúvidas gerais e assinatura das listas."
+      },
+      {
+        "title": "Execução (90%)",
+        "description": "Resolução individual sem consulta, focada nas quatro questões distribuídas nos domínios avaliados."
+      },
+      {
+        "title": "Coleta (10%)",
+        "description": "Revisão final, organização das folhas e entrega ao fiscal com confirmação da presença."
+      }
+    ]
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Avaliação NP1. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 14."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Formato da aplicação",
@@ -79,6 +138,24 @@
       ]
     },
     {
+      "type": "timeline",
+      "title": "Cronograma 10-90-10",
+      "steps": [
+        {
+          "title": "0 – 10 min | Orientação",
+          "content": "Conferência de documentos, leitura das regras e esclarecimento coletivo."
+        },
+        {
+          "title": "10 – 100 min | Execução",
+          "content": "Resolução individual das questões com acompanhamento do professor e fiscais."
+        },
+        {
+          "title": "100 – 110 min | Coleta",
+          "content": "Revisão final, organização das folhas, assinatura da ata e entrega."
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Escopo da avaliação",
       "content": [
@@ -90,6 +167,28 @@
             "Unidade III – Programas sequenciais em C com entrada e saída.",
             "Início da Unidade IV – Estruturas condicionais simples e compostas."
           ]
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Domínios avaliados",
+      "cards": [
+        {
+          "title": "Lógica sequencial",
+          "content": "Algoritmos estruturados em pseudocódigo, ordem das instruções e rastreamento manual."
+        },
+        {
+          "title": "Fluxogramas",
+          "content": "Uso correto de símbolos, ramificações e caminhos alternativos completos."
+        },
+        {
+          "title": "Condições e operadores",
+          "content": "Aplicação de operadores relacionais e lógicos, incluindo cadeias else if e equivalências."
+        },
+        {
+          "title": "Análise e justificativa",
+          "content": "Explicações escritas, documentação de hipóteses e clareza nas respostas."
         }
       ]
     },
@@ -142,6 +241,31 @@
             "value": "3,0"
           }
         ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Conduta durante a NP1 (regra 10-90-10)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mantenha silêncio absoluto e posicione materiais não autorizados dentro da mochila. Levantamentos só serão permitidos após os 90 minutos de execução."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Orientação (10 min): dúvidas somente coletivas; sem consulta a materiais."
+            },
+            {
+              "text": "Execução (90 min): uso exclusivo de caneta azul/preta; proibido celular ou smartwatch."
+            },
+            {
+              "text": "Coleta (10 min): permaneça sentado até a equipe autorizar a saída e confirme a entrega da folha de respostas."
+            }
+          ]
+        }
       ]
     },
     {
@@ -249,19 +373,85 @@
     },
     {
       "type": "callout",
-      "variant": "task",
-      "title": "TED",
+      "variant": "info",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Não há TED nesta aula. Utilize o tempo pós-prova para revisar as questões com as anotações pessoais e preparar dúvidas para a devolutiva."
+          "text": "Esta aula substitui a TED por atividades avaliativas presenciais. Utilize o tempo pós-aula para registrar percepções e organizar as evidências."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Preencha o formulário de percepção pós-avaliação disponível no Moodle até 23h59."
+            },
+            {
+              "text": "Arquive digitalmente a prova escaneada ou registrada conforme orientação institucional."
+            },
+            {
+              "text": "Anote dúvidas específicas para a devolutiva coletiva."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.978Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

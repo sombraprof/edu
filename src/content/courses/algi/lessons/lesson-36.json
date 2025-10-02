@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-36",
-  "title": "Aula 36: Vetores de Structs",
+  "title": "Vetores de Structs",
   "summary": "Constrói coleções de registros com structs em vetor e prepara o terreno para operações CRUD completas.",
+  "description": "Organiza coleções de registros com structs em vetor, adicionando ordenação e relatórios.",
   "objective": "Estruturar vetores de structs para representar catálogos de dados e aplicar operações coletivas de ordenação e agregação.",
   "objectives": [
     "Armazenar múltiplos registros em vetores de structs com limites configuráveis.",
     "Aplicar ordenação simples para organizar a coleção.",
     "Documentar o estado da coleção com relatórios resumidos."
   ],
-  "competencies": ["Pensamento algorítmico", "Organização da informação"],
+  "competencies": ["05", "12"],
   "skills": [
-    "Gerenciar contagem de elementos ativos em vetores de structs.",
-    "Reutilizar funções de comparação para ordenar registros.",
-    "Gerar estatísticas básicas a partir de coleções."
+    "Organizar vetores de structs definindo estratégias de inserção e busca.",
+    "Garantir consistência dos dados ao realizar atualizações em lote.",
+    "Conduzir revisão em pares verificando aderência a padrões de dados da turma."
   ],
   "outcomes": [
-    "Produz vetor de Empresas carregado com dados iniciais.",
-    "Integra funções de ordenação com o menu CRUD do laboratório.",
-    "Entrega relatório com ranking por faturamento e categoria."
+    "Entrega repositório em memória com operações de listagem e inserção validadas.",
+    "Registra testes que comprovam manutenção da integridade após múltiplas atualizações.",
+    "Documenta feedback trocado com o par e ajustes implementados na estrutura de dados."
   ],
   "prerequisites": [
     "Domínio da declaração e uso de structs (Aula 35).",
@@ -35,6 +36,36 @@
       "url": "https://static.md3.education/courses/algi/crud-ordenacao-lab.md"
     },
     {
+      "label": "Planilha de clientes para controle (Sebrae)",
+      "type": "spreadsheet",
+      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/planilha-controle-clientes.xlsx"
+    },
+    {
+      "label": "Capítulo 12 – Vetores de registros (Forbellone & Eberspächer)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 13 – Registros e arquivos (Manzano & Oliveira)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 12 – Structs e ordenação (Backes)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 14 – Manipulação de registros em C (Santos)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Capítulo 9 – Registros, ordenação e auditoria (Ascencio & Campos)",
+      "type": "bookChapter",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
       "label": "Dataset SEBRAE - Perfil dos Pequenos Negócios",
       "type": "dataset",
       "url": "https://dados.sebrae.com.br/dataset/perfil-dos-pequenos-negocios"
@@ -43,13 +74,66 @@
       "label": "Artigo DevDocs - qsort em C",
       "type": "article",
       "url": "https://devdocs.io/c/program/qsort"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
-    "ZIVIANI, N. Projetos de Algoritmos. Cengage, 2020.",
-    "DEITEL, P.; DEITEL, H. C Como Programar. 9. ed. Pearson, 2022."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 12, Vetores de registros.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 13, Estruturas de registros e arquivos.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 12, Structs, ordenação e relatórios.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 14, Manipulação de registros e logs.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 9, Registros, ordenação e auditoria."
   ],
+  "assessment": {
+    "type": "practice",
+    "description": "TED: Dashboard da Cooperativa TechSul com ordenação de clientes, métricas de faturamento e registro das decisões na planilha de auditoria do squad.",
+    "rubric": "Pensamento algorítmico (30%): estrutura as funções CRUD e de ordenação conforme Forbellone & Eberspächer (Cap. 12) e Manzano & Oliveira (Cap. 13). Organização da informação (30%): compara estratégias de ordenação à luz de Backes (Cap. 12) e Santos (Cap. 14). Responsabilidade profissional (20%): documenta logs, critérios e exceções seguindo Ascencio & Campos (Cap. 9). Colaboração (20%): sintetiza contribuições da planilha de auditoria e evidencia decisões coletivas do case TechSul."
+  },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Leia Forbellone & Eberspächer (Cap. 12) e Manzano & Oliveira (Cap. 13) sobre vetores de registros, registrando dúvidas na planilha de preparação para conectar à rotina da Cooperativa TechSul."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 36."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro detalhado",
@@ -82,73 +166,86 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h00)",
-      "items": [
-        "(15 min) Icebreaker com cards de dados reais SEBRAE.",
-        "(20 min) Live coding: carga inicial do vetor com dados fictícios.",
-        "(25 min) Oficina: implementar função de ordenação crescente por faturamento.",
-        "(30 min) Laboratório orientado: integrar ordenação ao menu CRUD.",
-        "(20 min) Relato rápido por squads: métricas derivadas do vetor.",
-        "(10 min) Quiz interativo sobre complexidade e estabilidade de ordenações."
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Estratégias de ordenação para vetores de structs",
-      "headers": ["Algoritmo", "Quando usar", "Custo", "Observações"],
-      "rows": [
-        [
-          "Bubble Sort",
-          "Listas pequenas e necessidade de implementação rápida",
-          "O(n^2)",
-          "Fácil de adaptar para ordenação decrescente."
-        ],
-        [
-          "Insertion Sort",
-          "Coleções quase ordenadas",
-          "O(n^2)",
-          "Bom para inserir novos registros mantendo a ordem."
-        ],
-        [
-          "qsort (stdlib)",
-          "Quando o custo de implementação importa",
-          "O(n log n)",
-          "Exige comparador consistente e inclui ponteiros void."
-        ],
-        [
-          "Selection Sort",
-          "Situações de memória crítica",
-          "O(n^2)",
-          "Poucas trocas, útil para dados estáticos."
-        ],
-        [
-          "Counting Sort",
-          "Campos inteiros com domínio pequeno",
-          "O(n + k)",
-          "Requer estrutura auxiliar e limites bem definidos."
-        ]
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Icebreaker com cards de dados reais SEBRAE."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Live coding",
+          "content": "carga inicial do vetor com dados fictícios."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Oficina",
+          "content": "implementar função de ordenação crescente por faturamento."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Laboratório orientado",
+          "content": "integrar ordenação ao menu CRUD."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(20 min) Relato rápido por squads",
+          "content": "métricas derivadas do vetor."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Quiz interativo sobre complexidade e estabilidade de ordenações."
+        }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Laboratório: integração CRUD com ordenação",
+      "title": "Estratégias de ordenação para vetores de structs",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Algoritmo: Bubble Sort | Quando usar: Listas pequenas e necessidade de implementação rápida | Custo: O(n^2) | Observações: Fácil de adaptar para ordenação decrescente."
+            },
+            {
+              "text": "Algoritmo: Insertion Sort | Quando usar: Coleções quase ordenadas | Custo: O(n^2) | Observações: Bom para inserir novos registros mantendo a ordem."
+            },
+            {
+              "text": "Algoritmo: qsort (stdlib) | Quando usar: Quando o custo de implementação importa | Custo: O(n log n) | Observações: Exige comparador consistente e inclui ponteiros void."
+            },
+            {
+              "text": "Algoritmo: Selection Sort | Quando usar: Situações de memória crítica | Custo: O(n^2) | Observações: Poucas trocas, útil para dados estáticos."
+            },
+            {
+              "text": "Algoritmo: Counting Sort | Quando usar: Campos inteiros com domínio pequeno | Custo: O(n + k) | Observações: Requer estrutura auxiliar e limites bem definidos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso: Cooperativa TechSul",
       "content": [
         {
           "type": "paragraph",
-          "text": "A turma evolui o CRUD iniciado na aula anterior adicionando ordenação configurável e relatórios baseados em estatísticas do vetor."
+          "text": "A Cooperativa TechSul atende pequenos negócios de tecnologia e precisa auditar contratos trimestrais. Forbellone & Eberspächer (Cap. 12) defendem separar contadores ativos, enquanto Santos (Cap. 14) recomenda registrar logs das operações CRUD."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Implementar menu com opções de ordenação por faturamento e por ordem alfabética de setor."
+              "text": "Implemente funções de ordenação conforme Backes (Cap. 12) para classificar por faturamento e nível de risco."
             },
             {
-              "text": "Registrar no relatório do squad como a ordenação impacta a busca e as atualizações."
+              "text": "Relacione cada atualização ao checklist de auditoria de Ascencio & Campos (Cap. 9), anexando evidências."
             },
             {
-              "text": "Comparar desempenho das abordagens Bubble vs Insertion para 200 registros simulados."
+              "text": "Documente métricas de tempo e trocas na planilha do case, inspirando-se em Manzano & Oliveira (Cap. 13) para análise crítica."
             }
           ]
         }
@@ -161,15 +258,159 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Os datasets do SEBRAE podem conter campos sensíveis. Redija um plano de anonimização quando necessário e registre as decisões na ata do laboratório."
+          "text": "Ascencio & Campos (Cap. 9) orientam anonimizar campos sensíveis. Registre na planilha de auditoria o protocolo seguido, alinhando-se às recomendações de Santos (Cap. 14) sobre logs."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 36' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entregue aula36_structs_vetor.c com rotinas de inclusão, ordenação e busca em vetor de structs."
+            },
+            {
+              "text": "Inclua relatório com ordenações aplicadas e justificativas para critérios escolhidos."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implementação: funções CRUD e ordenação aderem a Forbellone & Eberspächer (Cap. 12) e Manzano & Oliveira (Cap. 13) (30%)."
+            },
+            {
+              "text": "Qualidade dos relatórios: compara estratégias conforme Backes (Cap. 12) e Santos (Cap. 14) (30%)."
+            },
+            {
+              "text": "Governança: evidencia critérios de auditoria seguindo Ascencio & Campos (Cap. 9) (20%)."
+            },
+            {
+              "text": "Colaboração: integra contribuições da planilha da Cooperativa TechSul (20%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum destacando capítulo e página consultados para fortalecer a trilha de auditoria."
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Vetor de structs",
+      "steps": [
+        {
+          "title": "Declaração",
+          "description": "Pessoa turma[50];"
+        },
+        {
+          "title": "Preenchimento",
+          "description": "for ... scanf(...)"
+        },
+        {
+          "title": "Consulta",
+          "description": "Buscar por matrícula"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Vetor de produtos (3) -> lista formatada",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
         }
       ]
     }
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-10-02T09:30:00.000Z",
-    "owners": ["Equipe Algoritmos I"],
+    "updatedAt": "2025-10-02T08:28:29.005Z",
+    "owners": ["Equipe Algoritmos I", "Prof. Tiago Sombra"],
     "sources": ["Plano de ensino Algoritmos I 2025.2", "Workshops SEBRAE de Dados 2024"]
   }
 }

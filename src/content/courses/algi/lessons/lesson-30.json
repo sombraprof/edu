@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-30",
-  "title": "Aula 30: Introdução a Vetores",
+  "title": "Introdução a Vetores",
   "summary": "Apresenta o conceito de vetores (arrays) em C, destacando sua utilidade na organização de dados homogêneos e no cálculo de estatísticas básicas.",
+  "description": "Apresenta vetores como coleções homogêneas, destacando sintaxe em C e cálculo de estatísticas básicas.",
   "objective": "Reconhecer vetores como estruturas de dados fundamentais, compreender sua sintaxe em C e aplicar percursos lineares para obter estatísticas simples.",
   "objectives": [
     "Declarar e inicializar vetores em C respeitando tipos e tamanhos.",
     "Percorrer vetores com loops for para calcular média, mínimo e máximo.",
     "Relacionar vetores a cenários reais de armazenamento sequencial de dados."
   ],
-  "competencies": ["Pensamento computacional", "Modelagem de dados"],
+  "competencies": ["05", "11"],
   "skills": [
-    "Planejar a leitura e escrita em posições específicas de um vetor.",
-    "Utilizar variáveis auxiliares para estatísticas acumuladas.",
-    "Interpretar diagramas e tabelas que representam vetores."
+    "Declarar vetores dimensionando corretamente e inicializando com dados de teste.",
+    "Implementar percursos que calculem estatísticas básicas validando limites de índice.",
+    "Comunicar resultados obtidos destacando interpretações para o contexto analisado."
   ],
   "outcomes": [
-    "Implementa um programa que calcula média, valor mínimo e máximo de um vetor de notas.",
-    "Documenta o percurso sequencial em um fluxograma MD3.",
-    "Seleciona estruturas adequadas para armazenar registros homogêneos."
+    "Entrega código que lê dados em vetor, calcula métricas e apresenta relatório formatado.",
+    "Apresenta tabela de testes comprovando acesso seguro aos elementos do vetor.",
+    "Publica síntese que explica decisões tomadas e resultados alcançados com os dados coletados."
   ],
   "prerequisites": [
     "Domínio de loops for (Aulas 18-19).",
@@ -28,6 +29,11 @@
   "duration": 110,
   "modality": "in-person",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Dataset de notas (CSV)",
       "type": "dataset",
@@ -43,6 +49,26 @@
       "label": "Khan Academy - Introdução a arrays",
       "type": "course",
       "url": "https://pt.khanacademy.org/computing/ap-computer-science-principles/computers-101/arrays-intro/a/intro-to-arrays"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -54,6 +80,31 @@
     "description": "Entrega de script em C que calcula média, mínimo e máximo das notas fornecidas no dataset."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Vetores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 30."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro da sessão",
@@ -86,76 +137,167 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (1h50)",
-      "items": [
-        "(10 min) Icebreaker: cole o post-it com a palavra que associa a 'vetor'.",
-        "(20 min) Mini-aula: anatomia de um vetor em C.",
-        "(25 min) Demonstração no projetor: percorrendo o vetor e imprimindo índices.",
-        "(35 min) Oficina prática: cálculo de média/mínimo/máximo usando o CSV.",
-        "(10 min) Compartilhamento de resultados no quadro.",
-        "(10 min) Atividade pós-aula orientada."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Para revisar depois",
-      "videos": [
+      "cards": [
         {
-          "youtubeId": "Q0qkBhe-Z4w",
-          "title": "CS50 Shorts - Arrays"
+          "icon": "check-circle",
+          "title": "(10 min) Icebreaker",
+          "content": "cole o post-it com a palavra que associa a 'vetor'."
         },
         {
-          "youtubeId": "gQcW5Pg0TBM",
-          "title": "Array basics (Khan Academy)"
+          "icon": "check-circle",
+          "title": "(20 min) Mini-aula",
+          "content": "anatomia de um vetor em C."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Demonstração no projetor",
+          "content": "percorrendo o vetor e imprimindo índices."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(35 min) Oficina prática",
+          "content": "cálculo de média/mínimo/máximo usando o CSV."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Compartilhamento de resultados no quadro."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Atividade pós-aula orientada."
         }
       ]
     },
     {
-      "type": "md3Table",
-      "title": "Sintaxe essencial do vetor em C",
-      "headers": ["Elemento", "Exemplo", "Observação"],
-      "rows": [
-        ["Declaração", "int notas[5];", "Cria vetor com 5 inteiros não inicializados."],
-        ["Inicialização", "float medias[3] = {7.2, 8.5, 6.9};", "Valores em ordem definida."],
-        ["Acesso", "notas[i]", "Índices iniciam em 0 e vão até tamanho-1."],
-        [
-          "Tamanho",
-          "sizeof(notas)/sizeof(notas[0])",
-          "Estratégia para calcular o número de posições."
-        ]
+      "type": "contentBlock",
+      "title": "Para revisar depois",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "CS50 Shorts - Arrays – https://www.youtube.com/watch?v=Q0qkBhe-Z4w"
+            },
+            {
+              "text": "Array basics (Khan Academy) – https://www.youtube.com/watch?v=gQcW5Pg0TBM"
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "md3Flowchart",
+      "type": "contentBlock",
+      "title": "Sintaxe essencial do vetor em C",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Elemento: Declaração | Exemplo: int notas[5]; | Observação: Cria vetor com 5 inteiros não inicializados."
+            },
+            {
+              "text": "Elemento: Inicialização | Exemplo: float medias[3] = {7.2, 8.5, 6.9}; | Observação: Valores em ordem definida."
+            },
+            {
+              "text": "Elemento: Acesso | Exemplo: notas[i] | Observação: Índices iniciam em 0 e vão até tamanho-1."
+            },
+            {
+              "text": "Elemento: Tamanho | Exemplo: sizeof(notas)/sizeof(notas[0]) | Observação: Estratégia para calcular o número de posições."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Fluxo do cálculo de média, mínimo e máximo",
-      "nodes": [
-        { "id": "start", "type": "start", "label": "Início" },
-        { "id": "read", "type": "process", "label": "Ler vetor de notas" },
-        { "id": "init", "type": "process", "label": "media = 0, min = notas[0], max = notas[0]" },
-        { "id": "loop", "type": "loop", "label": "Para i = 0 até n-1" },
-        { "id": "acc", "type": "process", "label": "media += notas[i]" },
-        { "id": "min", "type": "decision", "label": "notas[i] < min?" },
-        { "id": "updateMin", "type": "process", "label": "min = notas[i]" },
-        { "id": "max", "type": "decision", "label": "notas[i] > max?" },
-        { "id": "updateMax", "type": "process", "label": "max = notas[i]" },
-        { "id": "calc", "type": "process", "label": "media = media / n" },
-        { "id": "end", "type": "end", "label": "Fim" }
-      ],
-      "edges": [
-        ["start", "read"],
-        ["read", "init"],
-        ["init", "loop"],
-        ["loop", "acc"],
-        ["acc", "min"],
-        ["min", "updateMin", "sim"],
-        ["min", "max", "não"],
-        ["updateMin", "max"],
-        ["max", "updateMax", "sim"],
-        ["max", "loop", "não"],
-        ["updateMax", "loop"],
-        ["loop", "calc", "fim"],
-        ["calc", "end"]
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Início – tipo: start"
+            },
+            {
+              "text": "Ler vetor de notas – tipo: process"
+            },
+            {
+              "text": "media = 0, min = notas[0], max = notas[0] – tipo: process"
+            },
+            {
+              "text": "Para i = 0 até n-1 – tipo: loop"
+            },
+            {
+              "text": "media += notas[i] – tipo: process"
+            },
+            {
+              "text": "notas[i] < min? – tipo: decision"
+            },
+            {
+              "text": "min = notas[i] – tipo: process"
+            },
+            {
+              "text": "notas[i] > max? – tipo: decision"
+            },
+            {
+              "text": "max = notas[i] – tipo: process"
+            },
+            {
+              "text": "media = media / n – tipo: process"
+            },
+            {
+              "text": "Fim – tipo: end"
+            }
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "start → read"
+            },
+            {
+              "text": "read → init"
+            },
+            {
+              "text": "init → loop"
+            },
+            {
+              "text": "loop → acc"
+            },
+            {
+              "text": "acc → min"
+            },
+            {
+              "text": "min → updateMin – sim"
+            },
+            {
+              "text": "min → max – não"
+            },
+            {
+              "text": "updateMin → max"
+            },
+            {
+              "text": "max → updateMax – sim"
+            },
+            {
+              "text": "max → loop – não"
+            },
+            {
+              "text": "updateMax → loop"
+            },
+            {
+              "text": "loop → calc – fim"
+            },
+            {
+              "text": "calc → end"
+            }
+          ]
+        }
       ]
     },
     {
@@ -169,9 +311,15 @@
         {
           "type": "orderedList",
           "items": [
-            { "text": "Carregue os valores em um vetor float." },
-            { "text": "Percorra o vetor atualizando acumuladores." },
-            { "text": "Formate a saída com duas casas decimais." }
+            {
+              "text": "Carregue os valores em um vetor float."
+            },
+            {
+              "text": "Percorra o vetor atualizando acumuladores."
+            },
+            {
+              "text": "Formate a saída com duas casas decimais."
+            }
           ]
         }
       ]
@@ -190,11 +338,154 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 30' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente aula30_vetores.c lendo 10 valores e calculando média, mínimo e máximo."
+            },
+            {
+              "text": "Anexe planilha com os vetores utilizados, resultados esperados e prints do console."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Vetores — conceitos-chave",
+      "cards": [
+        {
+          "front": "<b>Vetor</b>",
+          "back": "Coleção indexada de itens do mesmo tipo."
+        },
+        {
+          "front": "<b>Índice</b>",
+          "back": "Posição do elemento (geralmente inicia em 0)."
+        },
+        {
+          "question": "Tamanho do vetor?",
+          "answer": "Quantidade fixa de elementos reservados."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Vetor (leitura e exibição)\n[5, 2, 9] -> imprime 5 2 9",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "glossary",
+      "title": "Glossário",
+      "items": [
+        {
+          "term": "Vetor",
+          "definition": "Coleção indexada de itens do mesmo tipo."
+        },
+        {
+          "term": "Índice",
+          "definition": "Posição (geralmente inicia em 0)."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-04-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.999Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.2", "Notas de planejamento Vetores 2025"]
   }

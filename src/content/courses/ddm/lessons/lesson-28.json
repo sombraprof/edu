@@ -1,0 +1,262 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-28",
+  "title": "Aula 28: Unidade VI – Nativo vs Híbrido: Estratégias de Plataforma",
+  "slug": "nativo-vs-hibrido-estrategias",
+  "summary": "Compara abordagens nativas e híbridas, mapeando critérios técnicos, de produto e de equipe para orientar escolhas informadas em projetos móveis.",
+  "objective": "Avaliar criticamente alternativas nativas e híbridas, escolhendo a abordagem mais adequada para cenários reais de produto.",
+  "objectives": [
+    "Listar os principais diferenciais de apps nativos, híbridos e cross-platform.",
+    "Analisar impactos de manutenção, performance e experiência em cada abordagem.",
+    "Construir uma matriz de decisão alinhada às metas do produto e restrições da equipe."
+  ],
+  "competencies": [
+    "Avaliação de trade-offs tecnológicos",
+    "Planejamento de produtos móveis",
+    "Comunicação técnica baseada em evidências"
+  ],
+  "skills": [
+    "Conduzir análises comparativas de plataformas móveis.",
+    "Traduzir requisitos de negócio em critérios técnicos.",
+    "Apresentar recomendações sustentadas por dados e métricas."
+  ],
+  "outcomes": [
+    "Mapeia vantagens e limitações de abordagens nativas e híbridas.",
+    "Defende uma estratégia de plataforma alinhada ao roadmap do produto.",
+    "Entrega uma matriz de decisão reutilizável pela equipe."
+  ],
+  "prerequisites": [
+    "Conceitos de arquitetura mobile e ciclo de vida de apps.",
+    "Experiência prévia com desenvolvimento Android nativo."
+  ],
+  "tags": ["estrategia", "mobile", "react-native"],
+  "duration": 120,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Choosing a mobile app framework",
+      "url": "https://developer.android.com/guide/platform/app-architecture",
+      "type": "article"
+    },
+    {
+      "label": "Flutter vs React Native vs Kotlin Multiplatform (Thoughtworks Radar)",
+      "url": "https://www.thoughtworks.com/radar/techniques",
+      "type": "report"
+    }
+  ],
+  "bibliography": [
+    "THOUGHTWORKS. Technology Radar, Vol. 29, 2024.",
+    "ALBERTS, J. Mobile Strategy Essentials. O'Reilly, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Matriz comparativa justificando a abordagem recomendada para o projeto integrador (registrada na planilha de acompanhamento da disciplina)."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo (120 min)",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "(10 min) Warm-up",
+          "content": "recapitulando aprendizados nativos da Unidade V."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Exposição guiada",
+          "content": "panorama nativo x híbrido x multiplataforma."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Estudo de caso",
+          "content": "benchmark de apps brasileiros e internacionais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(35 min) Oficina orientada",
+          "content": "construção da matriz de decisão do projeto."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Socialização e feedback cruzado + alinhamento da TED da semana."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Conexão com o plano de ensino",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta aula dá início à Unidade VI (Desenvolvimento Multiplataforma). A entrega assíncrona (TED) prevista no plano de ensino exige que cada grupo justifique a arquitetura escolhida para o MVP. Use os critérios apresentados aqui para embasar essa decisão."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Mapa da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Competência",
+          "content": "Selecionar a estratégia de plataforma mais aderente ao problema de negócio."
+        },
+        {
+          "icon": "users",
+          "title": "Metodologia",
+          "content": "Aula dialogada + estudo de caso colaborativo + discussão orientada."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Evidência",
+          "content": "Matriz de decisão preenchida e comentada no mural da disciplina."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Critérios para comparar abordagens",
+      "items": [
+        {
+          "title": "Experiência do usuário",
+          "content": "Performance e UX",
+          "language": "plaintext",
+          "code": "Performance e UX\n- FPS e fluidez em animações complexas.\n- Acesso a APIs nativas e hardware.\n- Consistência com guias de plataforma."
+        },
+        {
+          "title": "Equipes e processos",
+          "content": "Capacitação",
+          "language": "plaintext",
+          "code": "Capacitação\n- Stack já dominada pelo time.\n- Curva de aprendizado e onboarding.\n- Ferramentas de CI/CD disponíveis."
+        },
+        {
+          "title": "Negócio e operação",
+          "content": "Time-to-market",
+          "language": "plaintext",
+          "code": "Time-to-market\n- Custo de manutenção a longo prazo.\n- Roadmap e dispositivos suportados.\n- Compliance com lojas e parceiros."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Linha do tempo de decisão",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Diagnóstico – Mapeie requisitos funcionais, dispositivos alvo e restrições da organização."
+            },
+            {
+              "text": "Seleção de critérios – Priorize critérios técnicos, de UX e de negócio com o patrocinador."
+            },
+            {
+              "text": "Avaliação de alternativas – Pontue nativo, híbrido e multiplataforma considerando riscos e oportunidades."
+            },
+            {
+              "text": "Recomendação – Documente a abordagem vencedora, indicando planos de mitigação para pontos fracos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Pipeline da TED – Matriz de decisão",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Atividade assíncrona prevista no plano de ensino para consolidar a Unidade VI."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Levantamento de requisitos | Consolidar expectativas do cliente interno. | Responsáveis: Grupo | Duração: 2h | Atividades: Revisar briefing do projeto; Atualizar personas | Entregáveis: Resumo executivo | Riscos: Requisitos incompletos (Solicitar validação com o professor até 24h após a aula.) | Checkpoints: Objetivos claros, Stakeholders confirmados"
+            },
+            {
+              "text": "Comparação das abordagens | Pontuar nativo, híbrido e cross-platform. | Responsáveis: Grupo | Duração: 3h | Atividades: Coletar benchmarks; Preencher matriz | Entregáveis: Matriz comparativa | Riscos: Viés de familiaridade (Buscar opinião de pelo menos um colega de outro grupo.) | Checkpoints: Critérios pontuados, Justificativas registradas"
+            },
+            {
+              "text": "Validação e registro | Garantir aderência ao plano de ensino. | Responsáveis: Grupo | Duração: 1h | Atividades: Coletar feedback; Ajustar recomendações | Entregáveis: Postagem no AVA | Riscos: Atraso no feedback (Registrar dúvidas no mural até 48h antes do prazo final.) | Checkpoints: Feedback recebido, TED concluída"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Nativo vs Híbrido: Estratégias de Plataforma usando Expo e React Navigation."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Nativo vs Híbrido: Estratégias de Plataforma: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: THOUGHTWORKS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de THOUGHTWORKS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "THOUGHTWORKS. Technology Radar, Vol. 29, 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Nativo vs Híbrido: Estratégias de Plataforma relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: THOUGHTWORKS. Technology Radar, Vol. 29, 2024.",
+            "Conecte com o estudo: ALBERTS, J. Mobile Strategy Essentials. O'Reilly, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "ALBERTS, J. Mobile Strategy Essentials. O'Reilly, 2023."
+        }
+      ]
+    }
+  ]
+}

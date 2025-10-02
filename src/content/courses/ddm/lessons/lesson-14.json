@@ -54,6 +54,22 @@
   },
   "content": [
     {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade III",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
+          "title": "Room: arquitetando persistência local",
+          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
+          "title": "Android Jetpack Architecture Components",
+          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
       "type": "flightPlan",
       "title": "Plano de voo da aula",
       "items": [
@@ -139,7 +155,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "import androidx.room.ColumnInfo\nimport androidx.room.Entity\nimport androidx.room.PrimaryKey\n\n@Entity(tableName = \"tabela_de_notas\")\ndata class Nota(\n    @PrimaryKey(autoGenerate = true)\n    val id: Int = 0,\n\n    @ColumnInfo(name = \"titulo_da_nota\")\n    val titulo: String,\n\n    @ColumnInfo(name = \"conteudo_da_nota\")\n    val conteudo: String\n)"
+          "code": "import androidx.room.ColumnInfo\nimport androidx.room.Entity\nimport androidx.room.PrimaryKey\n\n@Entity(tableName = \"tabela_de_notas\")\ndata class Nota(\n    @PrimaryKey(autoGenerate = true)\n    val id: Int = 0,\n\n    @ColumnInfo(name = \"titulo_da_nota\")\n    val titulo: String,\n\n    @ColumnInfo(name = \"conteudo_da_nota\")\n    val conteudo: String\n)\n\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "callout",
@@ -170,7 +186,7 @@
         {
           "type": "code",
           "language": "kotlin",
-          "code": "import androidx.room.Dao\nimport androidx.room.Delete\nimport androidx.room.Insert\nimport androidx.room.Query\n\n@Dao\ninterface NotaDao {\n\n    @Insert\n    suspend fun insert(nota: Nota)\n\n    @Query(\"SELECT * FROM tabela_de_notas ORDER BY id DESC\")\n    suspend fun getAll(): List<Nota>\n\n    @Query(\"DELETE FROM tabela_de_notas\")\n    suspend fun deleteAll()\n\n    @Delete\n    suspend fun delete(nota: Nota)\n}"
+          "code": "import androidx.room.Dao\nimport androidx.room.Delete\nimport androidx.room.Insert\nimport androidx.room.Query\n\n@Dao\ninterface NotaDao {\n\n    @Insert\n    suspend fun insert(nota: Nota)\n\n    @Query(\"SELECT * FROM tabela_de_notas ORDER BY id DESC\")\n    suspend fun getAll(): List<Nota>\n\n    @Query(\"DELETE FROM tabela_de_notas\")\n    suspend fun deleteAll()\n\n    @Delete\n    suspend fun delete(nota: Nota)\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "callout",
@@ -217,6 +233,61 @@
       "items": [
         "SIMAS, V. L. et al. Desenvolvimento para Dispositivos Móveis – Volume 2. Grupo A, 2019.",
         "Documentação oficial do Jetpack Room (https://developer.android.com/training/data-storage/room)."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de Introdução ao Room: Entities e DAO."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ANDROID DEVELOPERS. Save data in a local database using Room. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reforce os conceitos de Introdução ao Room: Entities e DAO relacionando SharedPreferences, Room e estratégias de migração."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: ANDROID DEVELOPERS. Save data in a local database using Room. 2024.",
+            "Conecte com o estudo: GOYAL, M. Android Room Database. Apress, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+        },
+        {
+          "type": "blockquote",
+          "text": "GOYAL, M. Android Room Database. Apress, 2023."
+        }
       ]
     }
   ],

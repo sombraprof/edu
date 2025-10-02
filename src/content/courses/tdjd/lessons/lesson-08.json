@@ -44,6 +44,56 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "🧾 Recibos formatados e cadeia de impressão em C",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para documentar compras in-game ou logs de economia, use um recibo padronizado no console antes de migrar para UI definitiva."
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "title": "Template de recibo impresso via printf",
+          "code": "#include <stdio.h>\n\nvoid imprimir_recibo(const char *jogador, const char *item, int quantidade, double preco_unitario) {\n    double subtotal = quantidade * preco_unitario;\n    double imposto = subtotal * 0.12;\n    double total = subtotal + imposto;\n\n    printf(\"==============================\\n\");\n    printf(\"RECIBO DE LOJA IN-GAME\\n\");\n    printf(\"Jogador: %-20s\\n\", jogador);\n    printf(\"Item   : %-20s\\n\", item);\n    printf(\"Qtd    : %3d x R$ %7.2f\\n\", quantidade, preco_unitario);\n    printf(\"Subtotal: R$ %8.2f\\n\", subtotal);\n    printf(\"Imposto : R$ %8.2f\\n\", imposto);\n    printf(\"TOTAL   : R$ %8.2f\\n\", total);\n    printf(\"==============================\\n\");\n}\n"
+        },
+        {
+          "type": "md3Table",
+          "title": "Máscaras printf mais usadas",
+          "headers": ["Máscara", "Tipo", "Exemplo de saída", "Observação"],
+          "rows": [
+            ["%d", "int", "42", "Inteiros com sinal"],
+            ["%u", "unsigned int", "42", "Inteiros sem sinal"],
+            ["%ld", "long", "120000", "Use para long (32/64 bits)"],
+            ["%f", "float/double", "3.141593", "6 casas decimais padrão"],
+            ["%.2f", "float/double", "3.14", "Controle de casas decimais"],
+            ["%s", "char[]", "PlayerOne", "Strings terminadas com caractere nulo"],
+            ["%c", "char", "A", "Caracteres isolados"],
+            ["%p", "ponteiro", "0x7ffee4b7", "Endereços em memória"],
+            ["%02d", "int", "07", "Preenchimento com zeros"],
+            ["%-10s", "char[]", "Loot      ", "Alinhamento à esquerda"]
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "title": "Encadeamento de formatação",
+          "code": "#include <stdio.h>\n#include <string.h>\n\nvoid resumo_financeiro(const char *fase, double saldo_inicial, double ganho, double gasto) {\n    char linha[64];\n    char buffer[256] = \"\";\n\n    snprintf(linha, sizeof(linha), \"Fase: %s\\n\", fase);\n    strncat(buffer, linha, sizeof(buffer) - strlen(buffer) - 1);\n\n    snprintf(linha, sizeof(linha), \"Saldo inicial: R$ %.2f\\n\", saldo_inicial);\n    strncat(buffer, linha, sizeof(buffer) - strlen(buffer) - 1);\n\n    snprintf(linha, sizeof(linha), \"Ganho: R$ %.2f\\n\", ganho);\n    strncat(buffer, linha, sizeof(buffer) - strlen(buffer) - 1);\n\n    snprintf(linha, sizeof(linha), \"Gasto: R$ %.2f\\n\", gasto);\n    strncat(buffer, linha, sizeof(buffer) - strlen(buffer) - 1);\n\n    printf(\"%s\", buffer);\n}\n"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Anexe a evidência do console",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O envio da tarefa só será validado com o screenshot do console executando o recibo formatado. Inclua o código visível e a saída na mesma imagem."
+        }
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Princípios do Bom Level Design",
       "cards": [

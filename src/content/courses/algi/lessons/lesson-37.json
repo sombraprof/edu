@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-37",
-  "title": "Aula 37: Busca e Atualização em Vetores de Structs",
+  "title": "Busca e Atualização em Vetores de Structs",
   "summary": "Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria.",
+  "description": "Aprofunda operações de busca, atualização e remoção em vetores de structs com foco em integridade.",
   "objective": "Desenvolver habilidades para localizar, atualizar e remover registros em vetores de structs, garantindo integridade dos dados.",
   "objectives": [
     "Implementar buscas lineares e por chave composta.",
     "Atualizar campos selecionados mantendo histórico mínimo.",
     "Realizar remoção lógica e física comparando abordagens."
   ],
-  "competencies": ["Pensamento crítico", "Confiabilidade de software"],
+  "competencies": ["05", "12"],
   "skills": [
-    "Projetar funções de busca reutilizáveis.",
-    "Definir protocolos de atualização com validação.",
-    "Gerenciar remoção com deslocamento de elementos e logs."
+    "Implementar buscas flexíveis em vetores de structs utilizando filtros variados.",
+    "Aplicar auditoria registrando histórico de alterações e validações.",
+    "Facilitar revisão coletiva alinhando critérios de atualização e rollback."
   ],
   "outcomes": [
-    "Entrega funções searchById e searchByPrefix documentadas.",
-    "Atualiza registros com validação de domínios e feedback ao usuário.",
-    "Implementa remoção com compactação e ajuste do contador de elementos ativos."
+    "Disponibiliza módulo que localiza e atualiza registros com base em múltiplos campos.",
+    "Entrega log de auditoria descrevendo cada alteração realizada e testes associados.",
+    "Coordena reunião de alinhamento documentando decisões sobre políticas de atualização."
   ],
   "prerequisites": [
     "Vetores de structs com ordenação básica (Aula 36).",
@@ -28,6 +29,11 @@
   "duration": 125,
   "modality": "in-person",
   "resources": [
+    {
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
     {
       "label": "Dataset IBGE - Cadastro Central de Empresas (Tabela 6463)",
       "type": "dataset",
@@ -43,13 +49,76 @@
       "label": "Guia SEBRAE - Boas práticas de atendimento",
       "type": "article",
       "url": "https://www.sebrae.com.br/sites/PortalSebrae/artigos/boas-praticas-de-atendimento"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+    },
+    {
+      "label": "Artigo: Registros e arquivos sequenciais (Unicesumar)",
+      "type": "article",
+      "url": "https://www.unicesumar.edu.br/wp-content/uploads/sites/65/2017/12/registros-e-arquivos.pdf"
+    },
+    {
+      "label": "Planilha de controle de clientes (Sebrae)",
+      "type": "spreadsheet",
+      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/planilha-controle-clientes.xlsx"
     }
   ],
   "bibliography": [
-    "LAFORE, R. Estruturas de Dados e Algoritmos em C++. Pearson, 2019.",
-    "SOMMERVILLE, I. Engenharia de Software. 11. ed. Pearson, 2020."
+    "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. 3. ed. Pearson, 2020. Cap. 8, Registros e arquivos sequenciais.",
+    "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos – Lógica para Desenvolvimento de Programação de Computadores. 28. ed. Érica, 2019. Cap. 12, Vetores de registros.",
+    "BACKES, A. Linguagem C: Completa e Descomplicada. 2. ed. Elsevier, 2019. Cap. 12, Structs e manipulação de coleções.",
+    "SANTOS, R. Introdução à Programação em C. Bookman, 2021. Cap. 11, Boas práticas de atualização e auditoria.",
+    "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 10, Registros, arquivos e estudos de caso de atendimento."
   ],
+  "assessment": {
+    "type": "project",
+    "description": "Estudo de caso SEBRAE: construir rotinas de busca, atualização e remoção registrando logs e justificativas alinhadas às métricas de atendimento.",
+    "rubric": "Pensamento crítico (40%): define critérios de busca e atualização inspirados em Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12). Confiabilidade de software (35%): registra logs e valida integraidade conforme Backes (Cap. 12) e Santos (Cap. 11). Comunicação técnica (25%): documenta histórico e decisões seguindo o formato de casos apresentado por Ascencio & Campos (Cap. 10)."
+  },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Busca e Atualização em Vetores de Structs. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 37."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Roteiro detalhado",
@@ -82,15 +151,39 @@
       ]
     },
     {
-      "type": "flightPlan",
+      "type": "lessonPlan",
       "title": "Plano de voo (2h05)",
-      "items": [
-        "(15 min) Estudo de caso: empresas que cresceram segundo IBGE.",
-        "(25 min) Live coding: busca por id com retorno de ponteiro.",
-        "(30 min) Oficina: atualização de faturamento com logs de alterações.",
-        "(25 min) Laboratório: remoção e compactação do vetor com relatório automático.",
-        "(20 min) Testes cruzados entre squads (pair review).",
-        "(10 min) Reflexão escrita sobre integridade e auditoria."
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "(15 min) Estudo de caso",
+          "content": "empresas que cresceram segundo IBGE."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Live coding",
+          "content": "busca por id com retorno de ponteiro."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(30 min) Oficina",
+          "content": "atualização de faturamento com logs de alterações."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(25 min) Laboratório",
+          "content": "remoção e compactação do vetor com relatório automático."
+        },
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Testes cruzados entre squads (pair review)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Reflexão escrita sobre integridade e auditoria."
+        }
       ]
     },
     {
@@ -99,55 +192,77 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Conecte as operações CRUD às métricas de atendimento SEBRAE, justificando por que determinados campos precisam de validação adicional e feedback claro ao usuário."
+          "text": "Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12) orientam a documentar cada etapa de busca, atualização e remoção para preservar a rastreabilidade dos atendimentos SEBRAE. Utilize o capítulo 11 de Santos para validar campos sensíveis antes de salvar."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Implemente busca por múltiplos critérios (id, setor, faixa de faturamento)."
+              "text": "Implemente busca por múltiplos critérios (id, setor, faixa de faturamento) utilizando filtros compostos como sugerido por Manzano & Oliveira (Cap. 12)."
             },
-            { "text": "Mantenha log textual das alterações relevantes para auditoria." },
-            { "text": "Crie testes unitários simples para funções de atualização e remoção." }
+            {
+              "text": "Mantenha log textual das alterações relevantes para auditoria seguindo os exemplos de Backes (Cap. 12) e Santos (Cap. 11)."
+            },
+            {
+              "text": "Crie testes unitários simples para funções de atualização e remoção, documentando entradas e saídas no formato defendido por Ascencio & Campos (Cap. 10)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Relacione cada decisão a uma evidência na planilha de logs do estudo de caso para demonstrar aderência às boas práticas de governança."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Padrões de retorno para operações CRUD",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Operação: create | Retorno sugerido: int (novo tamanho) | Descrição: Incrementa contador e retorna total de registros. | Quando aplicar: Ao inserir no fim do vetor."
+            },
+            {
+              "text": "Operação: read | Retorno sugerido: int (índice) ou ponteiro | Descrição: Localiza registro e permite inspeção. | Quando aplicar: Quando busca por id ou prefixo."
+            },
+            {
+              "text": "Operação: update | Retorno sugerido: bool | Descrição: Indica sucesso/falha após validações. | Quando aplicar: Atualização de campos sensíveis."
+            },
+            {
+              "text": "Operação: delete | Retorno sugerido: bool | Descrição: Retorna sucesso após compactação. | Quando aplicar: Remoção física movendo elementos."
+            },
+            {
+              "text": "Operação: auditLog | Retorno sugerido: void | Descrição: Gera linha de log com contexto da alteração. | Quando aplicar: Chamar após operações críticas."
+            }
           ]
         }
       ]
     },
     {
-      "type": "md3Table",
-      "title": "Padrões de retorno para operações CRUD",
-      "headers": ["Operação", "Retorno sugerido", "Descrição", "Quando aplicar"],
-      "rows": [
-        [
-          "create",
-          "int (novo tamanho)",
-          "Incrementa contador e retorna total de registros.",
-          "Ao inserir no fim do vetor."
-        ],
-        [
-          "read",
-          "int (índice) ou ponteiro",
-          "Localiza registro e permite inspeção.",
-          "Quando busca por id ou prefixo."
-        ],
-        [
-          "update",
-          "bool",
-          "Indica sucesso/falha após validações.",
-          "Atualização de campos sensíveis."
-        ],
-        [
-          "delete",
-          "bool",
-          "Retorna sucesso após compactação.",
-          "Remoção física movendo elementos."
-        ],
-        [
-          "auditLog",
-          "void",
-          "Gera linha de log com contexto da alteração.",
-          "Chamar após operações críticas."
-        ]
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Estudo de caso: Atendimento SEBRAE",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Use o dataset do Cadastro Central de Empresas e a planilha de logs para simular a triagem de atendimentos. Forbellone & Eberspächer (Cap. 8) recomendam registrar motivo de cada alteração antes de persistir os dados."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente atualizações condicionais com validações de domínio inspiradas em Santos (Cap. 11)."
+            },
+            {
+              "text": "Gere logs estruturados destacando id, campo alterado e responsável conforme Backes (Cap. 12)."
+            },
+            {
+              "text": "Explique na retro como as métricas de atendimento se conectam ao modelo de Ascencio & Campos (Cap. 10)."
+            }
+          ]
+        }
       ]
     },
     {
@@ -164,12 +279,161 @@
           ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 37' para anexar o artefato solicitado, relatando como cada busca e atualização atende ao protocolo descrito por Forbellone & Eberspächer (Cap. 8)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente aula37_structs_auditoria.c registrando buscas, atualizações e logs de auditoria conforme Manzano & Oliveira (Cap. 12) e Backes (Cap. 12)."
+            },
+            {
+              "text": "Anexe tabela de logs destacando data/hora, operação executada e responsável, alinhada às orientações de Santos (Cap. 11) e Ascencio & Campos (Cap. 10)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Pensamento crítico (40%): define critérios de busca e atualização seguindo Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12)."
+            },
+            {
+              "text": "Confiabilidade de software (35%): código atende ao enunciado, registra logs e valida integridade conforme Backes (Cap. 12) e Santos (Cap. 11)."
+            },
+            {
+              "text": "Evidências documentadas (15%): testes e tabela de logs descrevem cenários e resultados conforme Ascencio & Campos (Cap. 10)."
+            },
+            {
+              "text": "Integração com competências (10%): reflexão explica como o estudo de caso reforça Pensamento crítico e Confiabilidade de software."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e indique qual autor embasa a solução proposta."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Atualização de registros",
+      "tabs": [
+        {
+          "label": "Buscar",
+          "code": "int idx = buscaCPF(clientes, n, cpf);",
+          "language": "c"
+        },
+        {
+          "label": "Atualizar",
+          "code": "clientes[idx].saldo += valor;",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Busca/atualização\nCPF=123 atualiza saldo +100 -> novo saldo esperado",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "clientes[idx].saldo += valor; // sem verificar idx",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "if (idx>=0) clientes[idx].saldo += valor; // validação",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-10-03T08:45:00.000Z",
-    "owners": ["Equipe Algoritmos I"],
-    "sources": ["Plano de ensino Algoritmos I 2025.2", "Relatórios IBGE 2024"]
+    "updatedAt": "2025-10-02T08:28:29.005Z",
+    "owners": ["Equipe Algoritmos I", "Prof. Tiago Sombra"],
+    "sources": [
+      "Plano de ensino Algoritmos I 2025.2",
+      "Relatórios IBGE 2024",
+      "Planilha de auditoria pós-módulo (aba Structs)"
+    ]
   }
 }

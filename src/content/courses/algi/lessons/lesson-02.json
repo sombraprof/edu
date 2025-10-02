@@ -9,20 +9,16 @@
     "Reconhecer operadores lógicos e aplicá-los a regras de decisão.",
     "Validar conclusões por meio de tabelas-verdade e simulações."
   ],
-  "competencies": [
-    "Pensamento lógico-analítico",
-    "Modelagem de processos",
-    "Comunicação estruturada"
-  ],
+  "competencies": ["02", "05", "11"],
   "skills": [
-    "Diferenciar operadores lógicos em situações reais.",
-    "Construir tabelas-verdade para expressões simples.",
-    "Registrar algoritmos com decisões condicionais em pseudocódigo."
+    "Classificar operadores lógicos (E, OU, NÃO) conforme o tipo de decisão exigida pelo problema.",
+    "Produzir tabelas-verdade completas que comprovem o comportamento de expressões booleanas.",
+    "Documentar em pseudocódigo um algoritmo que combine condições compostas com justificativas de cada ramo."
   ],
   "outcomes": [
-    "Mapeia um problema cotidiano em passos lógicos identificando decisões críticas.",
-    "Seleciona o operador lógico adequado (E, OU, NÃO) para cada decisão.",
-    "Justifica o resultado de uma expressão lógica usando tabela-verdade."
+    "Apresenta quadro de decomposição destacando decisões, operadores escolhidos e alternativas descartadas.",
+    "Resolve ao menos três expressões booleanas verificando resultados com tabelas-verdade anotadas.",
+    "Publica pseudocódigo revisado em dupla com comentários que explicam o efeito de cada condição lógica."
   ],
   "prerequisites": ["Revisar o plano de ensino e o conceito de algoritmo da Aula 1."],
   "tags": ["logica", "operadores", "tabela-verdade"],
@@ -30,14 +26,14 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Coleção de exercícios: operadores lógicos",
-      "type": "worksheet",
-      "url": "https://example.edu/algi/operadores-logicos.pdf"
+      "label": "Slides: Operadores lógicos (MC102 - Unicamp)",
+      "type": "presentation",
+      "url": "https://www.ic.unicamp.br/~ra169722/mc102/slides/03_logica.pdf"
     },
     {
       "label": "Quadro colaborativo online",
       "type": "tool",
-      "url": "https://whiteboard.example.edu"
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
       "label": "Gerador de tabela-verdade (labs.dcc.ufmg.br)",
@@ -48,6 +44,26 @@
       "label": "Artigo: Operadores lógicos aplicados a algoritmos",
       "type": "article",
       "url": "https://www.devmedia.com.br/logica-de-programacao-operadores-logicos/23821"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -59,6 +75,31 @@
     "description": "Ficha entregue em dupla com a decomposição de um processo cotidiano e a tabela-verdade da regra decisória principal."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Raciocínio Lógico e Operadores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 02."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da Aula",
@@ -368,19 +409,178 @@
     },
     {
       "type": "callout",
-      "variant": "task",
-      "title": "TED da Aula 2",
+      "variant": "warning",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Publique no Moodle uma descrição do processo escolhido pela dupla, anexando a tabela-verdade construída em sala."
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 02' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Descreva o processo cotidiano escolhido pela dupla indicando entradas, decisões e saídas."
+            },
+            {
+              "text": "Anexe a tabela-verdade construída na aula e destaque a regra crítica que fundamenta a decisão final."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Representações: Pseudocódigo × C",
+      "tabs": [
+        {
+          "label": "Pseudocódigo",
+          "content": "<pre>ler A, B\nsoma ← A + B\nescrever soma</pre>"
+        },
+        {
+          "label": "C",
+          "code": "#include <stdio.h>\nint main(){int a,b; scanf(\"%d %d\",&a,&b); printf(\"%d\\n\", a+b);}",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Em uma frase: o que é um algoritmo?", "Qual dúvida fica para a próxima aula?"]
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Flashcards — revisão rápida",
+      "shuffle": true,
+      "cards": [
+        {
+          "front": "<b>Algoritmo</b>",
+          "back": "Sequência finita de passos para resolver um problema."
+        },
+        {
+          "front": "<b>EPS</b>",
+          "back": "Entrada, Processamento, Saída."
+        }
+      ]
+    },
+    {
+      "type": "glossary",
+      "title": "Glossário",
+      "items": [
+        {
+          "term": "Algoritmo",
+          "definition": "Sequência finita de instruções."
+        },
+        {
+          "term": "Pseudocódigo",
+          "definition": "Representação textual estruturada de um algoritmo."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
         }
       ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.965Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }

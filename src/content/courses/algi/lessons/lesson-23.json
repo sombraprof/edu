@@ -1,24 +1,25 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-23",
-  "title": "Aula 23: Atividade Assíncrona de Triagem Clínica",
+  "title": "Atividade Assíncrona de Triagem Clínica",
   "summary": "Propõe atividade assíncrona integradora que combina laços, condicionais e registro de testes na simulação de triagem.",
+  "description": "Atividade assíncrona de triagem clínica integrando laços, condicionais e documentação de testes.",
   "objective": "Planejar e executar a triagem automatizada cumprindo requisitos funcionais, documentação e entrega assíncrona.",
   "objectives": [
     "Interpretar o briefing de triagem e planejar o fluxo de decisão.",
     "Implementar algoritmo que percorre formulários e classifica pacientes.",
     "Documentar testes, métricas e justificativas no relatório de entrega."
   ],
-  "competencies": ["Autonomia", "Gestão do tempo", "Qualidade de software"],
+  "competencies": ["02", "12"],
   "skills": [
-    "Planejar execução assíncrona com checkpoints claros.",
-    "Integrar laços, condicionais e estruturas de dados simples.",
-    "Produzir documentação mínima viável (código, CSV, relatório)."
+    "Documentar passo a passo a atividade assíncrona, incluindo critérios de avaliação.",
+    "Executar testes clínicos simulados registrando evidências compartilháveis.",
+    "Organizar feedback entre squads sincronizando correções e entregas finais."
   ],
   "outcomes": [
-    "Entrega código funcional acompanhado de CSV e relatório.",
-    "Apresenta mapa de testes com evidências anexadas.",
-    "Cumpre prazos e publica reflexão individual no fórum."
+    "Publica guia de entrega com instruções, critérios e prazos acordados.",
+    "Anexa pacote de evidências com logs, capturas e resultados de cada cenário simulado.",
+    "Coordena sessão de retrospectiva registrando decisões e encaminhamentos do grupo."
   ],
   "prerequisites": [
     "Ter concluído as aulas 19 a 22.",
@@ -29,15 +30,39 @@
   "modality": "async",
   "resources": [
     {
-      "label": "Briefing oficial da triagem",
-      "type": "document",
-      "file": "courses/algi/triagem-async-briefing.md",
-      "url": "https://static.md3.education/courses/algi/triagem-async-briefing.md"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
     },
     {
-      "label": "Modelo de relatório (Google Docs)",
-      "url": "https://docs.google.com/document/d/1triagem-template",
-      "type": "template"
+      "label": "Manual de Classificação de Risco da Secretaria de Saúde do DF",
+      "type": "handout",
+      "url": "https://www.saude.df.gov.br/wp-conteudo/uploads/2018/03/Manual-Classificacao-Risco.pdf"
+    },
+    {
+      "label": "Dataset: Hospital Emergency Room Triage",
+      "type": "dataset",
+      "url": "https://www.kaggle.com/datasets/biancaferreira/triage-emergency-room"
+    },
+    {
+      "label": "Modelo de relatório técnico para saúde (SUS)",
+      "type": "document",
+      "url": "https://www.gov.br/saude/pt-br/composicao/saps/atencao-primaria/publicacoes/formularios/modelo-de-relatorio-tecnico.pdf"
+    },
+    {
+      "label": "Planilha de acompanhamento (Google Sheets)",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGITrilha23"
+    },
+    {
+      "label": "Formulário de autoavaliação",
+      "type": "form",
+      "url": "https://forms.gle/AutoavaliacaoAula23"
+    },
+    {
+      "label": "Repositório modelo Git",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-triagem-async"
     }
   ],
   "bibliography": [
@@ -49,6 +74,31 @@
     "description": "Entrega no AVA com código, CSV, relatório de testes e reflexão individual."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Atividade Assíncrona de Triagem Clínica. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 23."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano de execução assíncrona",
@@ -71,43 +121,105 @@
       ]
     },
     {
-      "type": "flightPlan",
-      "title": "Plano de voo assíncrono (3 dias)",
-      "items": [
-        "Dia 1 (1h) – Ler briefing, mapear fluxograma, listar dúvidas.",
-        "Dia 2 (1h30) – Codificar solução, gerar CSV e validar casos extremos.",
-        "Dia 3 (30 min) – Revisar testes, preencher relatório e publicar reflexão."
-      ]
-    },
-    {
-      "type": "videosBlock",
-      "title": "Suportes em vídeo",
-      "videos": [
+      "type": "contentBlock",
+      "title": "Cronograma de 3 dias",
+      "content": [
         {
-          "youtubeId": "8kK-cA99SA0",
-          "title": "Triagem com estruturas de controle"
-        },
-        {
-          "youtubeId": "2LzgBBrZPdg",
-          "title": "Registrando testes e evidências"
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Dia 1 – Briefing e modelagem – Ler briefing, definir responsabilidades e desenhar fluxograma."
+            },
+            {
+              "text": "Dia 2 – Implementação – Codificar solução, registrar logs e validar com checklist."
+            },
+            {
+              "text": "Dia 3 – Testes e relatório – Executar testes completos, finalizar relatório e preparar envio."
+            }
+          ]
         }
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Checklist de planejamento",
+      "type": "callout",
+      "variant": "warning",
+      "title": "Prazos e checkpoints",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Dia 1 até 22h: fluxograma e checklist inicial no repositório."
+            },
+            {
+              "text": "Dia 2 até 21h: versão funcional com logs publicados."
+            },
+            {
+              "text": "Dia 3 até 23h59: envio do pacote completo no Moodle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo assíncrono (3 dias)",
       "cards": [
         {
+          "icon": "check-circle",
+          "title": "Dia 1 (1h) – Ler briefing, mapear fluxograma, listar dúvi...",
+          "content": "Dia 1 (1h) – Ler briefing, mapear fluxograma, listar dúvidas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Dia 2 (1h30) – Codificar solução, gerar CSV e validar cas...",
+          "content": "Dia 2 (1h30) – Codificar solução, gerar CSV e validar casos extremos."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Dia 3 (30 min) – Revisar testes, preencher relatório e pu...",
+          "content": "Dia 3 (30 min) – Revisar testes, preencher relatório e publicar reflexão."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Suportes em vídeo",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Triagem com estruturas de controle – https://www.youtube.com/watch?v=8kK-cA99SA0"
+            },
+            {
+              "text": "Registrando testes e evidências – https://www.youtube.com/watch?v=2LzgBBrZPdg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Checklist de planejamento",
+      "items": [
+        {
           "title": "Dados críticos",
-          "content": "Definir estruturas para sintomas, sinais vitais e riscos."
+          "content": "Definir estruturas para sintomas, sinais vitais e riscos.",
+          "language": "plaintext",
+          "code": "Definir estruturas para sintomas, sinais vitais e riscos."
         },
         {
           "title": "Regras de decisão",
-          "content": "Priorizar emergências, depois riscos e casos padrão."
+          "content": "Priorizar emergências, depois riscos e casos padrão.",
+          "language": "plaintext",
+          "code": "Priorizar emergências, depois riscos e casos padrão."
         },
         {
           "title": "Saídas",
-          "content": "CSV com nome, classificação e justificativa textual."
+          "content": "CSV com nome, classificação e justificativa textual.",
+          "language": "plaintext",
+          "code": "CSV com nome, classificação e justificativa textual."
         }
       ]
     },
@@ -136,11 +248,190 @@
         "Publiquei reflexão no fórum destacando aprendizados.",
         "Revisei o código com ferramenta de análise estática (clang-tidy ou cppcheck)."
       ]
+    },
+    {
+      "type": "representations",
+      "title": "Critérios da triagem",
+      "items": [
+        {
+          "title": "Cobertura de casos",
+          "content": "Fluxo trata pacientes críticos, regulares e encerramento.",
+          "language": "plaintext",
+          "code": "Fluxo trata pacientes críticos, regulares e encerramento."
+        },
+        {
+          "title": "Automação de testes",
+          "content": "Planilha e scripts demonstram execução repetível.",
+          "language": "plaintext",
+          "code": "Planilha e scripts demonstram execução repetível."
+        },
+        {
+          "title": "Relatório técnico",
+          "content": "Documento resume decisões, métricas e próximos passos.",
+          "language": "plaintext",
+          "code": "Documento resume decisões, métricas e próximos passos."
+        },
+        {
+          "title": "Trabalho colaborativo",
+          "content": "Registre contribuições de cada membro no repositório.",
+          "language": "plaintext",
+          "code": "Registre contribuições de cada membro no repositório."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Entrega Aula 23",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Compacte código, fluxograma, planilha, relatório e reflexões em ALG1_A23_Nome.zip."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Código em C com logs."
+            },
+            {
+              "text": "Fluxograma atualizado e checklist de testes."
+            },
+            {
+              "text": "Relatório final com métricas e autoavaliação."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Rubrica Aula 23",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Cumprimento dos checkpoints (25%)."
+            },
+            {
+              "text": "Funcionalidade e logs confiáveis (35%)."
+            },
+            {
+              "text": "Qualidade da documentação (25%)."
+            },
+            {
+              "text": "Reflexão e autoavaliação (15%)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "parsons",
+      "title": "Reordene o programa",
+      "lines": ["int main(){", "  /* ... */", "  return 0;", "}", "#include <stdio.h>"],
+      "solution": ["#include <stdio.h>", "int main(){", "  /* ... */", "  return 0;", "}"]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregar no AVA até 23h59 do dia seguinte."
+        },
+        {
+          "type": "list",
+          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-03-05T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.989Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Briefing da clínica-escola 2025"]
   }

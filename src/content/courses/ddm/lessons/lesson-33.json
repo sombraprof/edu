@@ -1,0 +1,262 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-33",
+  "title": "Aula 33: Unidade VI – Revisão Prática Integrada",
+  "slug": "revisao-pratica-integrada",
+  "summary": "Consolida aprendizados com uma clínica de revisão integrando Android nativo, React Native e backend, preparando para a entrega final.",
+  "objective": "Revisar de forma orientada os componentes críticos do projeto integrador, identificando gaps técnicos e planejando ajustes finais.",
+  "objectives": [
+    "Avaliar o estado atual do MVP com checklist multidisciplinar.",
+    "Planejar correções priorizando riscos de usabilidade, performance e integração.",
+    "Simular apresentação técnica destacando decisões de arquitetura."
+  ],
+  "competencies": [
+    "Gestão de projetos mobile",
+    "Integração contínua e controle de qualidade",
+    "Comunicação técnica e storytelling"
+  ],
+  "skills": [
+    "Realizar code review cruzado entre equipes.",
+    "Aplicar testes exploratórios e automatizados no app Expo.",
+    "Apresentar plano de melhoria utilizando métricas e feedbacks coletados."
+  ],
+  "outcomes": [
+    "Checklist de revisão concluído com ações priorizadas.",
+    "Backlog de ajustes alinhado com o professor orientador.",
+    "Pitch técnico ensaiado com foco em entregáveis avaliativos."
+  ],
+  "prerequisites": [
+    "Integração com API entregue (Aula 32).",
+    "Repositório atualizado com navegação e persistência."
+  ],
+  "tags": ["revisao", "projeto", "qualidade"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Mobile Testing Checklist",
+      "url": "https://developer.android.com/training/testing",
+      "type": "guide"
+    },
+    {
+      "label": "Expo – Debugging",
+      "url": "https://docs.expo.dev/debugging/",
+      "type": "documentation"
+    }
+  ],
+  "bibliography": [
+    "GOOGLE. Testing documentation. 2024.",
+    "BROWN, L. Mobile Project Management. O'Reilly, 2022."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Registro de revisão integrado publicado no mural da disciplina, com plano de ação validado."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano de voo (150 min)",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "20 min",
+          "content": "Retomada dos critérios da entrega final e análise do cronograma."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Rodada de code review cruzado (duplas trocadas)."
+        },
+        {
+          "icon": "check-circle",
+          "title": "(40 min) Testes guiados",
+          "content": "cenários críticos de navegação, API e offline."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Oficina de storytelling e apresentação técnica."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Planejamento do backlog final e definição de responsáveis."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Conexão com avaliação final",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Esta revisão faz parte do acompanhamento previsto no plano de ensino para garantir qualidade na entrega final. O registro do plano de ação será utilizado como evidência no cálculo da nota de participação técnica."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Estações da revisão",
+      "cards": [
+        {
+          "icon": "code",
+          "title": "Code review",
+          "content": "Analisar PRs recentes utilizando checklist de padrões MD3, performance e segurança."
+        },
+        {
+          "icon": "monitor",
+          "title": "Testes",
+          "content": "Executar testes instrumentados/automáticos e registrar bugs críticos no board."
+        },
+        {
+          "icon": "graduation-cap",
+          "title": "Pitch",
+          "content": "Simular defesa do projeto com foco em métricas e storytelling."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Checklist multidisciplinar",
+      "items": [
+        {
+          "title": "Experiência",
+          "content": "Fluxos principais sem bloqueios.",
+          "language": "plaintext",
+          "code": "- Fluxos principais sem bloqueios.\n- Feedback visual consistente com MD3.\n- Acessibilidade validada (TalkBack/VoiceOver)."
+        },
+        {
+          "title": "Tecnologia",
+          "content": "Cobertura de testes mínimos (unitário + integração).",
+          "language": "plaintext",
+          "code": "- Cobertura de testes mínimos (unitário + integração).\n- Integrações com API monitoradas e com logs significativos.\n- Uso de variáveis de ambiente seguro."
+        },
+        {
+          "title": "Gestão",
+          "content": "Backlog priorizado com critérios MoSCoW.",
+          "language": "plaintext",
+          "code": "- Backlog priorizado com critérios MoSCoW.\n- Board atualizado com responsáveis e prazos.\n- Comunicação com stakeholders registrada."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Ciclo da revisão",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Diagnóstico – Analisar indicadores (burndown, bugs abertos, cobertura de testes)."
+            },
+            {
+              "text": "Planejamento – Definir prioridades, estimar esforço e distribuir responsáveis."
+            },
+            {
+              "text": "Execução – Implementar correções prioritárias e registrar progresso no board."
+            },
+            {
+              "text": "Follow-up – Revisar ações concluídas e atualizar plano conforme feedback do professor."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Pipeline da TED – Plano de melhoria",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Atividade avaliativa que consolida ações para a entrega final."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Avaliação | Concluir checklist multidisciplinar. | Responsáveis: Grupo | Duração: 2h | Atividades: Preencher checklist | Entregáveis: Checklist consolidado | Riscos: Avaliação superficial (Utilizar critérios objetivos e evidências (prints, logs).) | Checkpoints: Checklist validado"
+            },
+            {
+              "text": "Planejamento | Transformar achados em backlog. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Priorizar itens | Entregáveis: Board atualizado | Riscos: Sobrecarga de tarefas (Balancear carga entre integrantes e negociar escopo.) | Checkpoints: Backlog priorizado"
+            },
+            {
+              "text": "Apresentação | Preparar storytelling para banca. | Responsáveis: Grupo | Duração: 1h | Atividades: Construir roteiro; Ensaiar | Entregáveis: Pitch gravado | Riscos: Discurso desalinhado (Revisar script com professor antes do envio.) | Checkpoints: Pitch enviado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Revisão Prática Integrada usando Expo e React Navigation."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Revisão Prática Integrada: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: GOOGLE (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de GOOGLE (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "GOOGLE. Testing documentation. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Revisão Prática Integrada relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: GOOGLE. Testing documentation. 2024.",
+            "Conecte com o estudo: BROWN, L. Mobile Project Management. O'Reilly, 2022."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "BROWN, L. Mobile Project Management. O'Reilly, 2022."
+        }
+      ]
+    }
+  ]
+}

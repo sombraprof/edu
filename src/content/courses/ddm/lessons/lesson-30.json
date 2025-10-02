@@ -1,0 +1,270 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-30",
+  "title": "Aula 30: Unidade VI – Avaliação NP2 (Prova Integrada)",
+  "slug": "avaliacao-np2",
+  "summary": "Realiza a avaliação NP2 prevista no plano de ensino, com prova prática e análise crítica envolvendo Android nativo e React Native.",
+  "objective": "Verificar o domínio das competências desenvolvidas nas Unidades III a VI, aplicando conceitos de persistência, APIs e multiplataforma em cenários reais.",
+  "objectives": [
+    "Aplicar fundamentos de arquitetura mobile em um estudo de caso.",
+    "Construir uma funcionalidade prática em React Native/Expo seguindo requisitos dados.",
+    "Justificar decisões técnicas comparando abordagens nativas e híbridas."
+  ],
+  "competencies": [
+    "Desenvolvimento full-stack mobile",
+    "Integração de dados locais e remotos",
+    "Tomada de decisão orientada a requisitos"
+  ],
+  "skills": [
+    "Implementar fluxos de tela e estados em React Native.",
+    "Persistir e sincronizar dados utilizando APIs REST e cache local.",
+    "Comunicar as escolhas técnicas em relatório estruturado."
+  ],
+  "outcomes": [
+    "Entrega a prova NP2 com código funcional e relatório justificativo.",
+    "Segue critérios de usabilidade e arquitetura solicitados na instrução da prova.",
+    "Demonstra domínio sobre conceitos avaliados no semestre.",
+    "Reflete sobre pontos fortes e planos de melhoria pós-prova."
+  ],
+  "prerequisites": [
+    "Concluir as TEDs das aulas 27 a 29.",
+    "Possuir o ambiente Expo configurado e validado."
+  ],
+  "tags": ["avaliacao", "np2", "react-native"],
+  "duration": 160,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Instruções oficiais da NP2",
+      "url": "https://ava.faculdade.br/ddm/np2-2025.pdf",
+      "type": "handout"
+    }
+  ],
+  "bibliography": [
+    "Material compilado da disciplina (Aulas 13-29).",
+    "GOOGLE. Android Developers Guides. 2024.",
+    "REACT NATIVE. Documentation. 2024."
+  ],
+  "assessment": {
+    "type": "summative",
+    "description": "NP2 com peso 2: prova prática (60%) + relatório argumentativo (40%) conforme regulamento institucional."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Cronograma da avaliação (160 min)",
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Acolhida, conferência de presença e leitura das instruções."
+        },
+        {
+          "icon": "check-circle",
+          "title": "15 min",
+          "content": "Organização do ambiente e download dos insumos da prova."
+        },
+        {
+          "icon": "check-circle",
+          "title": "90 min",
+          "content": "Desenvolvimento prático do desafio React Native/Expo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "30 min",
+          "content": "Redação do relatório técnico comparativo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "10 min",
+          "content": "Revisão final, checklist de entrega e submissão no AVA."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Regras essenciais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A NP2 é individual e presencial. É proibido compartilhar código, telas ou arquivos durante a aplicação. O uso de materiais de consulta impressos ou digitais está limitado ao acervo disponibilizado previamente no AVA."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Entrega fora do AVA ou após o horário limite implica nota 0."
+            },
+            {
+              "text": "A prova exige commit final assinado digitalmente no repositório individual."
+            },
+            {
+              "text": "Dúvidas devem ser direcionadas ao professor aplicador, sem consulta a colegas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Estrutura da prova",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Parte 1 – Implementação",
+          "content": "Criar tela de listagem e detalhe consumindo endpoint REST fornecido, com cache local e estado offline."
+        },
+        {
+          "icon": "book-open",
+          "title": "Parte 2 – Relatório",
+          "content": "Produzir relatório (máx. 1 página) comparando solução React Native com alternativa nativa."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Critérios",
+          "content": "Funcionalidade, arquitetura, qualidade de código, justificativa técnica e experiência do usuário."
+        }
+      ]
+    },
+    {
+      "type": "representations",
+      "title": "Rubrica resumida",
+      "items": [
+        {
+          "title": "Implementação (60%)",
+          "content": "Consumo correto da API e tratamento de erros.",
+          "language": "plaintext",
+          "code": "- Consumo correto da API e tratamento de erros.\n- Uso adequado de estados, hooks e componentes reutilizáveis.\n- Persistência offline funcionando conforme instrução."
+        },
+        {
+          "title": "Relatório (40%)",
+          "content": "Comparação objetiva entre abordagens nativa e híbrida.",
+          "language": "plaintext",
+          "code": "- Comparação objetiva entre abordagens nativa e híbrida.\n- Justificativas alinhadas ao plano de ensino (critérios de negócio, equipe, arquitetura).\n- Clareza, concisão e referências corretas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checkpoint da prova",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "T-15 min – Receba as instruções, abra o repositório e confirme credenciais de acesso ao AVA."
+            },
+            {
+              "text": "T+45 min – Estrutura básica do app pronta, componentes principais renderizando dados mockados."
+            },
+            {
+              "text": "T+105 min – Integração com API concluída, testes de erro realizados e prints capturados."
+            },
+            {
+              "text": "T+150 min – Relatório finalizado e revisado, com comparativo claro e anexos de evidência."
+            },
+            {
+              "text": "T+160 min – Entrega enviada no AVA e commit final com tag `np2-2025`."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo de submissão NP2",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Passos obrigatórios para registrar a avaliação conforme o regulamento institucional."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Pré-prova | Conferir requisitos antes da aplicação. | Responsáveis: Aluno | Duração: 0.5h | Atividades: Validar documentos; Testar ambiente | Entregáveis: Checklist assinado | Riscos: Ambiente não executa (Buscar posto de apoio técnico até 24h antes da avaliação.) | Checkpoints: Documentos ok, Ambiente validado"
+            },
+            {
+              "text": "Execução | Desenvolvimento da prova em sala. | Responsáveis: Aluno | Duração: 2.5h | Atividades: Implementar requisitos; Testar funcionalidades | Entregáveis: Commit + tag | Riscos: Perda de código (Realize commits incrementais a cada 30 minutos.) | Checkpoints: Histórias essenciais concluídas, Testes executados"
+            },
+            {
+              "text": "Pós-prova | Finalizar submissão e autoavaliação. | Responsáveis: Aluno | Duração: 0.5h | Atividades: Enviar no AVA; Preencher autoavaliação | Entregáveis: Recibo de entrega | Riscos: Não preencher autoavaliação (Agendar lembrete automático no celular ao fim da prova.) | Checkpoints: Upload confirmado, Autoavaliação enviada"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Avaliação NP2 (Prova Integrada) usando Expo e React Navigation."
+        },
+        {
+          "type": "codeBlock",
+          "language": "c",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Avaliação NP2 (Prova Integrada): stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: Material compilado da disciplina (Aulas 13-29) (s.d.)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de Material compilado da disciplina (Aulas 13-29) (s.d.)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Material compilado da disciplina (Aulas 13-29)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Avaliação NP2 (Prova Integrada) relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: Material compilado da disciplina (Aulas 13-29).",
+            "Conecte com o estudo: GOOGLE. Android Developers Guides. 2024."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "GOOGLE. Android Developers Guides. 2024."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-15",
+  "title": "Aula 15: Unidade III – Revisão para NP1 e Checklist de Persistência",
+  "slug": "revisao-np1-persistencia",
+  "summary": "Consolida os conceitos de persistência local vistos até o momento e orienta a preparação para a avaliação NP1 com foco na camada de dados em apps Android.",
+  "objective": "Organizar evidências, revisar fundamentos de persistência local e alinhar expectativas para a prova e o trabalho da NP1.",
+  "objectives": [
+    "Revisitar SharedPreferences e Room, comparando casos de uso.",
+    "Resolver questões-guia sobre modelagem de dados locais.",
+    "Planejar o trabalho avaliativo da NP1 conectando requisitos de persistência.",
+    "Listar materiais obrigatórios a serem submetidos no Moodle."
+  ],
+  "competencies": [
+    "Análise crítica de soluções de persistência",
+    "Planejamento de avaliações práticas em desenvolvimento mobile",
+    "Comunicação técnica em times de desenvolvimento"
+  ],
+  "skills": [
+    "Diagnosticar problemas de persistência em apps Kotlin.",
+    "Elaborar respostas estruturadas para questões teóricas e práticas.",
+    "Montar um checklist de entrega compatível com critérios da disciplina."
+  ],
+  "outcomes": [
+    "Reforça conceitos-chave de SharedPreferences e Room para a prova.",
+    "Documenta o escopo do trabalho avaliativo alinhado com NP1.",
+    "Publica no Moodle o plano de estudos e o checklist acordado em aula."
+  ],
+  "prerequisites": [
+    "Aula 13 – Persistência com SharedPreferences.",
+    "Aula 14 – Introdução ao Room."
+  ],
+  "tags": ["android", "room", "shared-preferences", "avaliacao"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist oficial NP1",
+      "url": "https://classroom.example.edu/ddm/np1-checklist",
+      "type": "document"
+    },
+    {
+      "label": "Room persistence library",
+      "url": "https://developer.android.com/training/data-storage/room",
+      "type": "article"
+    },
+    {
+      "label": "SharedPreferences overview",
+      "url": "https://developer.android.com/training/data-storage/shared-preferences",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "ANDROID DEVELOPERS. Save data in a local database using Room. 2024.",
+    "GOYAL, M. Android Room Database. Apress, 2023.",
+    "PHILLIPS, M. Kotlin Apprentice. raywenderlich, 2023."
+  ],
+  "assessment": {
+    "type": "diagnostic",
+    "description": "Simulado guiado da NP1 com rubrica comentada em sala e checklist de entrega do trabalho prático."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade III",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
+          "title": "Room: arquitetando persistência local",
+          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+        },
+        {
+          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
+          "title": "Android Jetpack Architecture Components",
+          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo da aula",
+      "items": [
+        "Aquecimento: mapa mental colaborativo sobre persistência local.",
+        "Revisão dirigida: SharedPreferences x Room em cenários reais.",
+        "Simulado comentado: questões objetivas e discursivas modelo NP1.",
+        "Projeto prático: revisão do app catálogo com foco no banco local.",
+        "Checklist NP1: trabalho + prova, critérios e rubrica.",
+        "Avisos Moodle: prazos de submissão e fóruns de dúvidas.",
+        "TED de preparação: plano de estudos e ajustes finais no protótipo."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Revisão orientada dos tópicos de persistência",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Trabalhamos em duplas para comparar as abordagens de SharedPreferences e Room usando um quadro Kanban com cartões de casos de uso."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Dados chave-valor simples → SharedPreferences",
+            "Listas estruturadas com relações → Room",
+            "Sincronização com backend → Planejar cache e atualizações"
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Dica para a prova",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Ao justificar uma escolha, cite pelo menos duas vantagens e uma limitação da tecnologia selecionada."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Projeto prático: catálogo de produtos com persistência",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize o projeto iniciado na Aula 14 para validar se todas as entidades, DAOs e instância do RoomDatabase estão coerentes com os requisitos de NP1."
+        },
+        {
+          "type": "subBlock",
+          "title": "Checklist mínimo",
+          "items": [
+            "Entity com campos obrigatórios anotados corretamente.",
+            "DAO com consultas parametrizadas para filtragem.",
+            "Database expondo instância singleton e migração automática básica.",
+            "Tela que consome dados persistidos após reiniciar o app."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Critérios da banca",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Demonstre o fluxo completo: cadastro → persistência → leitura. Evidencie logs de erro tratados."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED 15 – Plano de estudos orientado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Monte um quadro semanal com blocos de revisão (teoria) e prática (codificação) até a data da NP1. Inclua referências específicas e metas mensuráveis."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Rever apostila de persistência local (páginas 42–59).",
+            "Praticar com o simulado extra disponibilizado no Moodle.",
+            "Testar o app catálogo em dispositivos diferentes ou emuladores."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Avisos Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie o Plano de Estudos (PDF) e o checklist do projeto no Moodle > Unidade III > NP1 até 23h59 do dia seguinte."
+        },
+        {
+          "type": "paragraph",
+          "text": "Participe do fórum \"Dúvidas NP1 – Persistência\" com pelo menos uma pergunta ou contribuição até dois dias antes da prova."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de Revisão para NP1 e Checklist de Persistência."
+        },
+        {
+          "type": "code",
+          "language": "kotlin",
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "ANDROID DEVELOPERS. Save data in a local database using Room. 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reforce os conceitos de Revisão para NP1 e Checklist de Persistência relacionando SharedPreferences, Room e estratégias de migração."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: ANDROID DEVELOPERS. Save data in a local database using Room. 2024.",
+            "Conecte com o estudo: GOYAL, M. Android Room Database. Apress, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+        },
+        {
+          "type": "blockquote",
+          "text": "GOYAL, M. Android Room Database. Apress, 2023."
+        }
+      ]
+    }
+  ]
+}

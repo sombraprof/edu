@@ -1,0 +1,321 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-29",
+  "title": "Aula 29: Unidade VI – Setup Expo e Fundamentos do React Native",
+  "slug": "setup-expo-react-native",
+  "summary": "Configura o ambiente Expo, apresenta a estrutura de um projeto React Native e constrói a primeira tela funcional.",
+  "objective": "Habilitar a turma a criar, executar e depurar um projeto React Native com Expo, conectando-se às práticas adotadas na disciplina.",
+  "objectives": [
+    "Instalar e configurar Expo CLI, simuladores e ferramentas de suporte.",
+    "Reconhecer a estrutura de pastas e o ciclo de execução de um app React Native.",
+    "Construir uma tela inicial com componentes básicos e estilos compartilhados."
+  ],
+  "competencies": [
+    "Configuração de ambientes multiplataforma",
+    "Arquitetura de projetos React Native",
+    "Aplicação de guidelines Material Design 3 em RN"
+  ],
+  "skills": [
+    "Executar comandos Expo CLI para criação e build local.",
+    "Utilizar o Expo Go ou emuladores para depuração.",
+    "Organizar componentes e estilos utilizando StyleSheet e tokens MD3."
+  ],
+  "outcomes": [
+    "Entrega um projeto Expo iniciado e versionado no repositório do grupo.",
+    "Documenta o fluxo de configuração seguindo checklist institucional.",
+    "Apresenta a primeira tela com componentes básicos e tipografia coerente."
+  ],
+  "prerequisites": [
+    "Conhecimentos de JavaScript/TypeScript.",
+    "Experiência prévia com Git e Node.js."
+  ],
+  "tags": ["react-native", "expo", "setup"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Expo – Get Started",
+      "url": "https://docs.expo.dev/get-started/installation/",
+      "type": "documentation"
+    },
+    {
+      "label": "React Native Styling Cheatsheet",
+      "url": "https://callstack.github.io/react-native-paper/",
+      "type": "reference"
+    }
+  ],
+  "bibliography": [
+    "REACT NATIVE. Documentation. Meta Platforms, 2024.",
+    "PINTO, L. React Native in Action. Manning, 2023."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de setup concluído + captura da tela inicial publicada no repositório Git da turma."
+  },
+  "content": [
+    {
+      "type": "videos",
+      "title": "Referências em vídeo – Unidade VI",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=0-S5a0eXPoc",
+          "title": "React Native: build mobile apps with React",
+          "caption": "Apresentação do React Conf sobre fundamentos do React Native. Créditos: Meta (2022)."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=VozPNrt-LfE",
+          "title": "Expo & React Navigation overview",
+          "caption": "Sessão oficial destacando o ecossistema Expo. Créditos: Expo (2023)."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (150 min)",
+      "items": [
+        "(15 min) Check-in e alinhamento com a matriz de decisão da aula 28.",
+        "(35 min) Demonstração guiada: instalação de Expo CLI, Node LTS e configuração de simuladores.",
+        "(40 min) Anatomia do projeto Expo: scripts, estrutura e diferenças para projetos nativos.",
+        "(40 min) Oficina prática: criação da tela Home com componentes básicos e tokens MD3.",
+        "(20 min) Revisão da TED: checklist de setup compartilhado e registro no repositório."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Entrega prevista no plano",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O plano de ensino prevê que, ao fim da Aula 29, cada grupo tenha o repositório Expo configurado e publicado. Utilize o checklist disponibilizado no AVA e marque a atividade no mural assim que concluir."
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Componentes da sessão",
+      "cards": [
+        {
+          "icon": "desktop",
+          "title": "Ferramental",
+          "content": "Node LTS, Expo CLI, Expo Go, Android Studio/iOS Simulator."
+        },
+        {
+          "icon": "code",
+          "title": "Hands-on",
+          "content": "Criar o projeto `ddm-mvp` em Expo e implementar a tela Home com componentes básicos."
+        },
+        {
+          "icon": "tasks",
+          "title": "Controle de versão",
+          "content": "Configurar repositório com branch principal e padronizar commits conforme convenção da turma."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist de setup",
+      "columns": 2,
+      "cards": [
+        {
+          "title": "Ambiente local",
+          "tone": "info",
+          "items": [
+            "Node.js LTS instalado e verificado.",
+            "Expo CLI configurado globalmente.",
+            "Simulador Android/iOS testado com projeto de exemplo."
+          ]
+        },
+        {
+          "title": "Projeto Expo",
+          "tone": "primary",
+          "items": [
+            "Projeto criado com `npx create-expo-app`.",
+            "Pacotes MD3 e React Navigation preparados para aula 31.",
+            "Script de start documentado no README do repositório."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Linha de ação para configuração",
+      "steps": [
+        {
+          "title": "Pré-aula",
+          "content": "Garantir Node e Git atualizados conforme guia enviado no AVA."
+        },
+        {
+          "title": "Durante a aula",
+          "content": "Instalar Expo CLI, criar o projeto e validar execução em dispositivo/emulador."
+        },
+        {
+          "title": "Pós-aula",
+          "content": "Documentar o setup no README, subir para GitHub Classroom e registrar no mural."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da TED – Setup publicado",
+      "summary": "Fluxo obrigatório para validar o setup, conforme instruções de avaliação contínua.",
+      "stages": [
+        {
+          "id": "preparacao",
+          "title": "Preparação",
+          "summary": "Checar pré-requisitos de ambiente.",
+          "owners": ["Dupla"],
+          "durationHours": 1,
+          "activities": [
+            {
+              "id": "versoes",
+              "label": "Validar versões",
+              "description": "Executar `node -v`, `npm -v` e `expo --version` e registrar no quadro."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "print-versoes",
+              "label": "Captura de versões",
+              "description": "Imagem anexada ao relatório da TED."
+            }
+          ],
+          "risks": [
+            {
+              "id": "permissoes",
+              "label": "Permissões bloqueadas",
+              "severity": "low",
+              "mitigation": "Executar terminal como administrador (Windows) ou usar `sudo` quando indicado."
+            }
+          ],
+          "checkpoints": ["Ferramentas atualizadas"]
+        },
+        {
+          "id": "implantacao",
+          "title": "Implantação",
+          "summary": "Criar projeto e configurar dependências.",
+          "owners": ["Dupla"],
+          "durationHours": 3,
+          "activities": [
+            {
+              "id": "create",
+              "label": "Criar app Expo",
+              "description": "Executar `npx create-expo-app ddm-mvp` e escolher template blank (TypeScript)."
+            },
+            {
+              "id": "config",
+              "label": "Configurar pacotes",
+              "description": "Instalar React Navigation, Expo Router e dependências de MD3."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "repo",
+              "label": "Repositório versionado",
+              "description": "Push inicial com README atualizado e instruções de start."
+            }
+          ],
+          "risks": [
+            {
+              "id": "dependencias",
+              "label": "Erro na instalação",
+              "severity": "medium",
+              "mitigation": "Limpar cache com `npx expo start -c` e consultar fórum da turma."
+            }
+          ],
+          "checkpoints": ["Projeto executando", "Dependências instaladas"]
+        },
+        {
+          "id": "validacao",
+          "title": "Validação",
+          "summary": "Registrar evidências e enviar relatório.",
+          "owners": ["Dupla"],
+          "durationHours": 1,
+          "activities": [
+            {
+              "id": "screenshot",
+              "label": "Capturar tela",
+              "description": "Gerar print da Home no Expo Go ou simulador."
+            },
+            {
+              "id": "checklist",
+              "label": "Completar checklist",
+              "description": "Marcar itens obrigatórios no formulário da disciplina."
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "relatorio",
+              "label": "Relatório enviado",
+              "description": "Arquivo PDF submetido até 23h59 de domingo."
+            }
+          ],
+          "risks": [
+            {
+              "id": "prazo",
+              "label": "Envio fora do prazo",
+              "severity": "medium",
+              "mitigation": "Planejar fechamento no sábado e revisar checklist com antecedência."
+            }
+          ],
+          "checkpoints": ["Print anexado", "Formulário enviado"]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo de código comentado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O código reforça os padrões de navegação modular discutidos em Setup Expo e Fundamentos do React Native usando Expo e React Navigation."
+        },
+        {
+          "type": "code",
+          "language": "tsx",
+          "code": "import { useEffect } from 'react'\nimport { NavigationContainer } from '@react-navigation/native'\nimport { createNativeStackNavigator } from '@react-navigation/native-stack'\n\nconst Stack = createNativeStackNavigator()\n\nexport function App() {\n  useEffect(() => {\n    console.log('Setup Expo e Fundamentos do React Native: stack pronto')\n  }, [])\n\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Home\" component={HomeScreen} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  )\n}\n// Referência: REACT NATIVE (2024)"
+        },
+        {
+          "type": "paragraph",
+          "text": "Repare na instrumentação simples ligada às recomendações de REACT NATIVE (2024)."
+        },
+        {
+          "type": "callout",
+          "variant": "academic",
+          "title": "Fundamentação bibliográfica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "REACT NATIVE. Documentation. Meta Platforms, 2024."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Leitura complementar e estudos de caso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprofunde Setup Expo e Fundamentos do React Native relacionando o ecossistema React Native com as integrações Android estudadas previamente."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Releia: REACT NATIVE. Documentation. Meta Platforms, 2024.",
+            "Conecte com o estudo: PINTO, L. React Native in Action. Manning, 2023."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje um estudo de caso que compare a experiência nativa e a híbrida no seu projeto integrador."
+        },
+        {
+          "type": "blockquote",
+          "text": "PINTO, L. React Native in Action. Manning, 2023."
+        }
+      ]
+    }
+  ]
+}

@@ -9,16 +9,16 @@
     "Aplicar precedência e agrupamento para evitar ambiguidades em expressões.",
     "Interpretar resultados lógicos para alimentar decisões e fluxos de controle."
   ],
-  "competencies": ["Raciocínio lógico", "Pensamento computacional", "Programação estruturada"],
+  "competencies": ["02", "05", "08"],
   "skills": [
-    "Selecionar operadores adequados para cálculos matemáticos e comparações.",
-    "Reescrever expressões utilizando parênteses para tornar a intenção explícita.",
-    "Avaliar o resultado de operações booleanas para controlar o fluxo do programa."
+    "Organizar expressões utilizando precedência e parênteses para garantir clareza lógica.",
+    "Simular avaliações de expressões passo a passo verificando efeitos de operadores relacionais e lógicos.",
+    "Criar casos de teste que comprovem limites e exceções dos cálculos implementados."
   ],
   "outcomes": [
-    "Produz um programa que combina operadores aritméticos, relacionais e lógicos para resolver um caso realista.",
-    "Explica oralmente como a precedência impacta o resultado de expressões compostas.",
-    "Elabora uma tabela-verdade simples para validar condições críticas do algoritmo."
+    "Entrega quadro com expressões reescritas e justificativas para o posicionamento de parênteses.",
+    "Apresenta tabela de rastreamento com valores intermediários e resultado final de cada expressão.",
+    "Disponibiliza conjunto de testes documentados cobrindo entradas típicas, limites e valores inválidos."
   ],
   "prerequisites": ["Revisar variáveis, tipos e leitura com scanf trabalhados na Aula 6."],
   "tags": ["operadores", "expressoes", "linguagem-c"],
@@ -26,14 +26,39 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia rápido de operadores C (PDF)",
-      "type": "handout",
-      "url": "https://example.edu/algi/guias/operadores-c.pdf"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "platform",
+      "url": "https://eadsp.unichristus.edu.br/"
+    },
+    {
+      "label": "Referência: Operadores em C (Programiz)",
+      "type": "article",
+      "url": "https://www.programiz.com/c-programming/c-operators"
     },
     {
       "label": "Compilador OnlineGDB",
       "type": "tool",
       "url": "https://www.onlinegdb.com/online_c_compiler"
+    },
+    {
+      "label": "OnlineGDB - Projeto C pré-configurado",
+      "type": "tool",
+      "url": "https://onlinegdb.com/7JwALg8qH"
+    },
+    {
+      "label": "Replit - Workspace Algoritmos I",
+      "type": "tool",
+      "url": "https://replit.com/@md3-education/algi-template"
+    },
+    {
+      "label": "VS Code - Template C com CMake",
+      "type": "repository",
+      "url": "https://github.com/md3-education/algi-c-template"
+    },
+    {
+      "label": "Planilha de preparação pré-aula",
+      "type": "spreadsheet",
+      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
     }
   ],
   "bibliography": [
@@ -46,6 +71,31 @@
     "description": "Entrega individual de um programa que calcula indicadores compostos (médias ponderadas e faixas) destacando o uso correto de operadores e precedência."
   },
   "content": [
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Warm-up (pré-aula)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Operadores e Expressões em C. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+            },
+            {
+              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
+            },
+            {
+              "text": "Confirme no Moodle a leitura das instruções da Aula 07."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "lessonPlan",
       "title": "Plano da Aula",
@@ -368,6 +418,96 @@
       ]
     },
     {
+      "type": "truthTable",
+      "title": "Operadores relacionais alimentando decisões lógicas",
+      "headers": [
+        "Entrada",
+        "idade >= 18",
+        "cartao == 'S'",
+        "Pode viajar (idade >= 18 && cartao == 'S')"
+      ],
+      "rows": [
+        [
+          {
+            "value": "17 anos, cartão S"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Barrado"
+          }
+        ],
+        [
+          {
+            "value": "18 anos, cartão N"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Barrado"
+          }
+        ],
+        [
+          {
+            "value": "21 anos, cartão S"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Verdadeiro"
+          },
+          {
+            "state": "true",
+            "display": "Autorizado"
+          }
+        ],
+        [
+          {
+            "value": "16 anos, cartão N"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Falso"
+          },
+          {
+            "state": "false",
+            "display": "Barrado"
+          }
+        ]
+      ],
+      "legend": [
+        {
+          "label": "Condição satisfeita",
+          "state": "true"
+        },
+        {
+          "label": "Condição não satisfeita",
+          "state": "false"
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Precedência e agrupamento",
       "content": [
@@ -382,6 +522,21 @@
             "Evite misturar muitos operadores diferentes em uma única linha.",
             "Teste expressões complexas isoladamente antes de inseri-las em decisões.",
             "Documente com comentários quando a intenção não for óbvia."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Worksheet progressiva",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            "Nível 1 – Resolva cinco expressões simples e marque o operador dominante.",
+            "Nível 2 – Compare pares de valores e complete os resultados esperados em uma tabela.",
+            "Nível 3 – Combine relacionais e lógicos, anotando o passo a passo que levou ao valor final.",
+            "Nível 4 – Reescreva as expressões usando parênteses para deixar a intenção explícita e valide no OnlineGDB."
           ]
         }
       ]
@@ -421,11 +576,205 @@
           "code": "float n1, n2, n3;\nfloat media;\n\nprintf(\"Digite as tres notas: \");\nscanf(\"%f %f %f\", &n1, &n2, &n3);\nmedia = (n1 * 4 + n2 * 3 + n3 * 3) / 10.0f;\nif (media >= 7.0f && media <= 10.0f) {\n  printf(\"Aprovado com media %.1f\\n\", media);\n} else if (media >= 5.0f) {\n  printf(\"Recuperacao com media %.1f\\n\", media);\n} else {\n  printf(\"Reprovado com media %.1f\\n\", media);\n}\n"
         }
       ]
+    },
+    {
+      "type": "videos",
+      "title": "Reforço em precedência",
+      "videos": [
+        {
+          "title": "Ordem de operadores em C",
+          "src": "https://www.youtube.com/embed/JnAmSrg0xgk"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 07' para anexar o artefato solicitado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Implemente arquivo aula07_operadores.c reproduzindo os exercícios de precedência resolvidos em sala."
+            },
+            {
+              "text": "Registre no Moodle um quadro comparativo com o resultado esperado de cada expressão e observações de depuração."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Rubrica de avaliação"
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+            },
+            {
+              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
+            },
+            {
+              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
+            },
+            {
+              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Precedência de operadores",
+          "multiple": false,
+          "options": [
+            {
+              "text": "2 + 2 * 2 = 6",
+              "correct": true
+            },
+            {
+              "text": "2 + 2 * 2 = 8",
+              "correct": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "component",
+      "component": "Md3LogicOperators"
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Casos de teste sugeridos",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Defina entradas e saídas esperadas para validar seu programa.",
+          "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Boas práticas",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Use nomes de variáveis autoexplicativos (ex.: total, media, indice).",
+            "Evite números mágicos; use constantes quando apropriado.",
+            "Comente trechos que expressem intenção (não o óbvio)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Erros comuns e refatorações",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Leia o enunciado e valide entradas antes de processar.",
+            "Inicialize variáveis; evite estados indefinidos."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Anti-exemplo</strong>"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"%d\", 2 + 2 * 2); // espera 8 (incorreto)",
+          "language": "c"
+        },
+        {
+          "type": "paragraph",
+          "text": "<strong>Refatorado</strong>"
+        },
+        {
+          "type": "code",
+          "code": "printf(\"%d\", 2 + (2 * 2)); // 6 (correto: precedência)",
+          "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Check-out (fechamento rápido)",
+      "content": [
+        {
+          "type": "list",
+          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+        }
+      ]
+    },
+    {
+      "type": "flashcards",
+      "title": "Flashcards — revisão rápida",
+      "shuffle": true,
+      "cards": [
+        {
+          "front": "<b>Precedência</b>",
+          "back": "*, / antes de +, -"
+        },
+        {
+          "front": "<b>Parênteses</b>",
+          "back": "Explicitam intenção"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Gerador de casos de teste (Python)",
+      "content": [
+        {
+          "type": "code",
+          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
+          "language": "python"
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-10T12:00:00.000Z",
+    "updatedAt": "2025-10-02T08:28:28.971Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano pedagógico Algoritmos I 2025.1", "Ata pedagógica de revisão 2024-12"]
   }
