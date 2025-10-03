@@ -358,49 +358,49 @@
         "latestTimestamp": "2025-10-01T09:18:10Z",
         "entries": [
           {
-            "id": "lista1",
+            "id": "worksheet-01",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-20T12:00:00.000Z",
             "available": true
           },
           {
-            "id": "lista2",
+            "id": "worksheet-02",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-20T12:00:00.000Z",
             "available": true
           },
           {
-            "id": "lista3",
+            "id": "worksheet-03",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-21T12:00:00.000Z",
             "available": true
           },
           {
-            "id": "lista4",
+            "id": "worksheet-04",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-21T12:00:00.000Z",
             "available": true
           },
           {
-            "id": "lista5",
+            "id": "worksheet-05",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-21T12:00:00.000Z",
             "available": true
           },
           {
-            "id": "lista6",
+            "id": "worksheet-06",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2025-02-21T12:00:00.000Z",
             "available": true
           },
           {
-            "id": "refatoracao-modular",
+            "id": "modular-refactoring",
             "generatedBy": "LLM-Assistente-Edu",
             "model": "gpt-4o",
             "timestamp": "2025-10-01T09:18:10Z",
@@ -453,14 +453,14 @@
         "latestTimestamp": "2024-06-14T00:00:00.000Z",
         "entries": [
           {
-            "id": "modelagem-uml",
+            "id": "uml-modeling",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
             "available": false
           },
           {
-            "id": "refatoracao",
+            "id": "refactoring",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
@@ -483,7 +483,7 @@
         "latestTimestamp": "2024-06-14T00:00:00.000Z",
         "entries": [
           {
-            "id": "protótipo-papel",
+            "id": "paper-prototype",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
@@ -520,7 +520,7 @@
             "available": true
           },
           {
-            "id": "mapa-sistema",
+            "id": "system-map",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",

@@ -60,7 +60,6 @@
 import { computed, nextTick, onMounted, ref, shallowRef, watch } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
-import Prism from 'prismjs';
 import LessonReadiness from '@/components/lesson/LessonReadiness.vue';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 import LessonOverview from '@/components/lesson/LessonOverview.vue';
@@ -68,17 +67,6 @@ import type { LessonBlock } from '@/components/lesson/blockRegistry';
 import type { NormalizedLesson } from '@/content/schema/lesson';
 import Md3Button from '@/components/Md3Button.vue';
 import { normalizeManifest } from '@/content/loaders';
-
-import 'prismjs/components/prism-markup';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-python';
-import 'prismjs/components/prism-json';
-import 'prismjs/components/prism-java';
-import 'prismjs/components/prism-c';
-import 'prismjs/components/prism-cpp';
-import 'prismjs/components/prism-csharp';
-import 'prismjs/components/prism-kotlin';
 
 interface LessonRef {
   id: string;
@@ -113,6 +101,45 @@ type LessonContent = NormalizedLesson & { content: LessonBlock[] };
 
 const lessonData = shallowRef<LessonContent | null>(null);
 
+type PrismModule = typeof import('prismjs');
+let prismInstance: PrismModule | null = null;
+let prismLoader: Promise<PrismModule> | null = null;
+
+async function ensurePrism(): Promise<PrismModule> {
+  if (prismInstance) {
+    return prismInstance;
+  }
+
+  if (!prismLoader) {
+    prismLoader = (async () => {
+      const core = await import('prismjs');
+      const Prism = (core as { default?: PrismModule }).default ?? (core as PrismModule);
+      const globalWithPrism = globalThis as typeof globalThis & { Prism?: PrismModule };
+      if (!globalWithPrism.Prism) {
+        globalWithPrism.Prism = Prism;
+      }
+
+      await Promise.all([
+        import('prismjs/components/prism-markup'),
+        import('prismjs/components/prism-javascript'),
+        import('prismjs/components/prism-typescript'),
+        import('prismjs/components/prism-python'),
+        import('prismjs/components/prism-json'),
+        import('prismjs/components/prism-java'),
+        import('prismjs/components/prism-c'),
+        import('prismjs/components/prism-cpp'),
+        import('prismjs/components/prism-csharp'),
+        import('prismjs/components/prism-kotlin'),
+      ]);
+
+      return Prism;
+    })();
+  }
+
+  prismInstance = await prismLoader;
+  return prismInstance;
+}
+
 function normalizeStringList(value: unknown): string[] {
   if (!Array.isArray(value)) {
     return [];
@@ -123,7 +150,8 @@ function normalizeStringList(value: unknown): string[] {
     .filter((entry): entry is string => entry.length > 0);
 }
 
-function highlight() {
+async function highlight() {
+  const Prism = await ensurePrism();
   requestAnimationFrame(() => {
     Prism.highlightAll();
   });
@@ -205,7 +233,7 @@ async function loadLesson() {
     };
 
     await nextTick();
-    highlight();
+    await highlight();
   } catch (error) {
     console.error('[LessonView] Failed to load lesson:', error);
     lessonTitle.value = 'Erro ao carregar aula';
