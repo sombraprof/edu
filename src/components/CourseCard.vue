@@ -8,7 +8,7 @@
   >
     <div class="course-card__header">
       <div class="course-card__title-row">
-        <span class="badge course-card__institution">
+        <span class="course-card__institution">
           {{ institutionLabel }}
         </span>
         <h3 class="md-typescale-headline-small font-semibold text-on-surface">
@@ -71,19 +71,24 @@ const institutionAccentStyles: Record<string, Record<string, string>> = {
     '--course-card-accent': 'var(--institution-unichristus-accent)',
     '--course-card-accent-container': 'var(--institution-unichristus-accent-container)',
     '--course-card-accent-on-container': 'var(--institution-unichristus-on-accent-container)',
-    '--course-card-badge-bg': 'var(--institution-unichristus-accent-container)',
-    '--course-card-badge-color': 'var(--institution-unichristus-on-accent-container)',
+    '--course-card-badge-bg':
+      'color-mix(in srgb, var(--course-card-accent-container) 86%, transparent)',
+    '--course-card-badge-color': 'var(--course-card-accent-on-container)',
   },
   Unifametro: {
     '--course-card-accent': 'var(--institution-unifametro-accent)',
     '--course-card-accent-container': 'var(--institution-unifametro-accent-container)',
     '--course-card-accent-on-container': 'var(--institution-unifametro-on-accent-container)',
-    '--course-card-badge-bg': 'var(--institution-unifametro-accent-container)',
-    '--course-card-badge-color': 'var(--institution-unifametro-on-accent-container)',
+    '--course-card-badge-bg':
+      'color-mix(in srgb, var(--course-card-accent-container) 86%, transparent)',
+    '--course-card-badge-color': 'var(--course-card-accent-on-container)',
   },
 };
 
-const accentStyle = computed<Record<string, string>>(
-  () => institutionAccentStyles[institutionLabel.value] ?? baseAccentStyle
-);
+const accentStyle = computed<Record<string, string>>(() => {
+  const key = Object.keys(institutionAccentStyles).find(
+    (k) => k.toLowerCase() === institutionLabel.value.toLowerCase()
+  );
+  return key ? institutionAccentStyles[key] : baseAccentStyle;
+});
 </script>

@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+html[data-theme='dark'] {
+  /* Institution brand accents - Dark Theme */
+  --institution-unichristus-accent: #b4c5ff;
+  --institution-unichristus-accent-container: #003ea8;
+  --institution-unichristus-on-accent-container: #dbe1ff;
+
+  --institution-unifametro-accent: #52df9a;
+  --institution-unifametro-accent-container: #005232;
+  --institution-unifametro-on-accent-container: #72fcb4;
+}
+
 :root {
   /* Institution brand accents */
   --institution-unichristus-accent: #0b57d0;
@@ -1558,6 +1569,11 @@ html {
   }
 
   .course-card__institution {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium;
+    font-family: var(--md-sys-typescale-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    line-height: var(--md-sys-typescale-label-medium-line-height);
+    letter-spacing: var(--md-sys-typescale-label-medium-tracking);
     white-space: nowrap;
     flex-shrink: 0;
     margin-left: auto;
