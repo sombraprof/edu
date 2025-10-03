@@ -1,0 +1,125 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-13",
+  "title": "Aula 13: Avaliações AV2 e AV3",
+  "summary": "Conduz avaliações finais: prova teórico-prática (AV2), entrega da APS consolidada e banca avaliativa (AV3).",
+  "objective": "Realizar e acompanhar as avaliações finais garantindo feedback, registro e fechamento acadêmico.",
+  "objectives": [
+    "Aplicar avaliação escrita/prática (AV2) cobrindo fundamentos, exceções e testes.",
+    "Executar banca AV3 com demonstração do projeto, documentação e defesas técnicas.",
+    "Registrar feedbacks individuais e planos de melhoria contínua.",
+    "Consolidar notas de APS, AV2 e AV3 dentro dos prazos institucionais."
+  ],
+  "competencies": ["Avaliação formativa e somativa", "Comunicação", "Gestão acadêmica"],
+  "skills": [
+    "Gerenciar tempo de prova e apresentação de acordo com rubricas.",
+    "Responder questionamentos técnicos com base no projeto desenvolvido.",
+    "Documentar feedbacks e evidências em ata de avaliação."
+  ],
+  "outcomes": [
+    "Prova AV2 aplicada e corrigida com feedback individual.",
+    "Banca AV3 registrada com atas e notas consolidadas.",
+    "Plano pós-avaliação com pontos de melhoria e referências adicionais."
+  ],
+  "prerequisites": [
+    "Projeto finalizado e evidências publicadas na aula 12.",
+    "Checklist de entrega aprovado pelo professor."
+  ],
+  "tags": ["avaliacao", "av2", "av3"],
+  "duration": 1280,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia da prova AV2",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/av2-guide"
+    },
+    {
+      "label": "Template de ata da banca AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/av3-minutes-template"
+    },
+    {
+      "label": "Checklist de evidências AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/av3-evidence-checklist"
+    }
+  ],
+  "bibliography": [
+    "PRESSMAN, R.; MAXIM, B. Engenharia de Software. 10. ed. AMGH, 2020.",
+    "SOMMERVILLE, I. Software Engineering. 11. ed. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "exam",
+    "description": "Aplicação das avaliações finais: AV2 (prova individual teórico-prática) e AV3 (banca com demonstração do projeto).",
+    "rubric": "AV2 avalia fundamentos, exceções e testes; AV3 considera aderência funcional, qualidade técnica, documentação e apresentação."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da semana avaliativa",
+      "unit": {
+        "title": "Unidade V — Entrega e Avaliação",
+        "content": "Fechamento acadêmico com avaliações somativas e feedback estruturado."
+      },
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "AV2",
+          "content": "Prova teórico-prática sobre POO, exceções e testes."
+        },
+        {
+          "icon": "users",
+          "title": "Banca AV3",
+          "content": "Apresentação do projeto e defesas técnicas."
+        },
+        {
+          "icon": "tasks",
+          "title": "Feedback",
+          "content": "Registro de notas, planos de melhoria e fechamento."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (21h20)",
+      "items": [
+        "Dia 1 (180 min) – Revisão dirigida e resolução de dúvidas focadas em exceções e testes.",
+        "Dia 2 (180 min) – Aplicação da prova AV2 (parte escrita + estudo de caso prático).",
+        "Dia 2 (80 min) – Correção coletiva e publicação de gabarito comentado.",
+        "Dia 3 (240 min) – Preparação final e alinhamento logístico das bancas AV3.",
+        "Dia 3 (120 min) – Ensaios rápidos e ajustes em pitches/documentação.",
+        "Dia 4 (240 min) – Banca AV3 com comissões avaliadoras (tempo por equipe + arguição).",
+        "Dia 4 (120 min) – Feedback individual e assinatura das atas.",
+        "Atividade assíncrona (120 min) – Consolidação de notas em sistema acadêmico e plano pós-avaliação."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Pontualidade",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Chegue com antecedência para AV2 e AV3; atrasos impactam nota e possibilidade de apresentação."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Peso das avaliações",
+      "content": [
+        {
+          "type": "list",
+          "items": ["APS: 30%", "AV2: 30%", "AV3: 40%"]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-03-29T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Regulamento de avaliações Unifametro"]
+  }
+}

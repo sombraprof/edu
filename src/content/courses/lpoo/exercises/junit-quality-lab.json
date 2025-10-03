@@ -1,0 +1,55 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "junit-quality-lab",
+  "title": "Laboratório – Pipeline de Testes com JUnit",
+  "summary": "Configure um pipeline completo com testes JUnit 5, cobertura e análise estática integrada ao CI.",
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Garantir que cada push execute testes automatizados, gere relatórios de cobertura e aplique regras de estilo automaticamente."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Passos sugeridos",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Fixtures reutilizáveis",
+              "text": "Crie builders ou métodos `@BeforeEach` para dados consistentes."
+            },
+            {
+              "title": "Testes parametrizados",
+              "text": "Utilize `@ParameterizedTest` com CSV/MethodSource para cobrir múltiplos cenários."
+            },
+            {
+              "title": "Métricas",
+              "text": "Habilite JaCoCo e exporte relatório XML para o pipeline."
+            },
+            {
+              "title": "CI",
+              "text": "Configure GitHub Actions (ou outra ferramenta) executando `mvn verify`, SpotBugs e Checkstyle."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Critérios de aceitação",
+      "items": [
+        "Cobertura mínima de 75% reportada em `target/site/jacoco/index.html`.",
+        "Relatório SpotBugs sem defeitos de alta severidade.",
+        "Workflow CI compartilhado na pasta `.github/workflows`.",
+        "Badge de status adicionado ao README."
+      ]
+    }
+  ]
+}

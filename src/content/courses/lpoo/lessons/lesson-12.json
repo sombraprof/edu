@@ -1,0 +1,132 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-12",
+  "title": "Aula 12: Finalização do Projeto Integrador",
+  "summary": "Consolida entregáveis finais do sistema bancário, garantindo qualidade, documentação e preparação para bancas.",
+  "objective": "Encerrar desenvolvimento do projeto com evidências completas para AV2 e planejamento da banca AV3.",
+  "objectives": [
+    "Organizar backlog remanescente priorizando requisitos críticos e correções.",
+    "Validar qualidade do produto com testes, revisão de código e checklist de entrega.",
+    "Preparar documentação técnica, pitch e roteiro de demonstração.",
+    "Ensaiar apresentação e coletar feedbacks para a banca avaliativa."
+  ],
+  "competencies": ["Gestão de projeto", "Qualidade de software", "Comunicação técnica"],
+  "skills": [
+    "Gerenciar sprints de fechamento com foco em valor entregue.",
+    "Consolidar métricas de qualidade (cobertura, bugs, performance).",
+    "Construir narrativa de apresentação clara para stakeholders."
+  ],
+  "outcomes": [
+    "Release candidate do sistema bancário com backlog zerado.",
+    "Documentação final (manual do usuário, arquitetura, plano de testes).",
+    "Pitch deck e roteiro para banca AV3."
+  ],
+  "prerequisites": ["APS 02 concluída e avaliada.", "Backlog técnico priorizado na aula 11."],
+  "tags": ["projeto", "entrega", "gestao"],
+  "duration": 1200,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de entrega final",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/final-delivery-checklist"
+    },
+    {
+      "label": "Roteiro de apresentação para banca",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/project-pitch-template"
+    },
+    {
+      "label": "Guia para relatórios técnicos",
+      "type": "document",
+      "url": "https://example.edu/lpoo/relatorio-tecnico"
+    }
+  ],
+  "bibliography": [
+    "HUMBLE, J.; FARLEY, D. Continuous Delivery. Addison-Wesley, 2021.",
+    "KNAPP, D. Scrum Mastery. 2. ed. 2023."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Entrega final do projeto integrador – release candidate acompanhado de documentação e métricas.",
+    "rubric": "Backlog crítico concluído, testes passando no CI, documentação publicada e pitch ensaiado com roteiro aprovado."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade V — Entrega e Avaliação",
+        "content": "Preparar a versão final do projeto e evidências para as avaliações somativas."
+      },
+      "cards": [
+        {
+          "icon": "tasks",
+          "title": "Backlog final",
+          "content": "Limpar pendências técnicas e funcionais."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Qualidade",
+          "content": "Consolidar métricas, testes e documentação."
+        },
+        {
+          "icon": "desktop",
+          "title": "Pitch",
+          "content": "Ensaiar narrativa e tempo de apresentação."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (20h00)",
+      "items": [
+        "Dia 1 (4h) – Planejamento final: revisar backlog, definir responsáveis e metas diárias.",
+        "Dia 1 (2h) – Revisão de qualidade: rodar pipelines, analisar métricas e mapear ajustes.",
+        "Dia 2 (4h) – Desenvolvimento concentrado: fechamento de histórias críticas e débitos técnicos.",
+        "Dia 2 (2h) – Revisão cruzada de código e atualização de documentação.",
+        "Dia 3 (3h) – Elaboração de pitch deck, roteiro de demo e alinhamento do storytelling.",
+        "Dia 3 (2h) – Ensaios gravados com feedback entre equipes.",
+        "Dia 4 (1h) – Ajustes finais em documentação e scripts de automação.",
+        "Dia 4 (2h) – Simulação de banca com painel convidado.",
+        "Atividade assíncrona (2h) – Compilar evidências para AV2 (relatórios, métricas, logs)."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Entregáveis obrigatórios",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Código versionado, documentação atualizada, métricas exportadas e pitch deck compartilhado no repositório."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Marcos da semana",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "RC pronto",
+          "content": "Build estável com testes verdes e checklist concluído."
+        },
+        {
+          "title": "Documentação publicada",
+          "content": "Guia técnico e manual do usuário disponíveis no repositório."
+        },
+        {
+          "title": "Pitch validado",
+          "content": "Ensaios registrados com feedback e tempo dentro do limite."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-03-22T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Checklist interno de bancas"]
+  }
+}

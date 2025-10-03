@@ -1,0 +1,142 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-11",
+  "title": "Aula 11: Refatoração Orientada a Testes (TDD)",
+  "summary": "Pratica ciclos TDD para evoluir o projeto bancário com segurança e métricas de cobertura confiáveis.",
+  "objective": "Aplicar refatoração incremental guiada por testes automatizados, reduzindo riscos no fechamento da APS 02 e do projeto.",
+  "objectives": [
+    "Executar ciclos Red-Green-Refactor disciplinados em katas e no projeto.",
+    "Identificar e remover code smells com suporte de testes de regressão.",
+    "Utilizar técnicas de mock/stub para isolar dependências externas.",
+    "Preparar o backlog de refatorações priorizadas para a fase final do projeto."
+  ],
+  "competencies": [
+    "Design orientado a testes",
+    "Refatoração contínua",
+    "Gestão técnica do backlog"
+  ],
+  "skills": [
+    "Escrever testes antes da implementação em cenários críticos.",
+    "Aplicar padrões de refatoração (Extract Class, Introduce Parameter Object, etc.).",
+    "Mensurar impacto das mudanças com métricas de cobertura e complexidade."
+  ],
+  "outcomes": [
+    "Lista priorizada de refatorações com responsáveis e critérios de aceite.",
+    "Incrementos aplicados ao projeto com commits pequenos e testados.",
+    "Relatório de métricas antes/depois para AV2."
+  ],
+  "prerequisites": [
+    "Suite de testes do projeto configurada e rodando no CI.",
+    "APS 02 entregue ou em ajustes finais."
+  ],
+  "tags": ["tdd", "refatoracao", "testes"],
+  "duration": 720,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia rápido de TDD e refatoração",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/tdd-refactoring-guide"
+    },
+    {
+      "label": "Kata: refatoração guiada por testes",
+      "type": "exercise",
+      "url": "https://edu.local/courses/lpoo/exercises/tdd-refactor-kata"
+    },
+    {
+      "label": "Livro de receitas do Mockito",
+      "type": "documentation",
+      "url": "https://www.baeldung.com/mockito-series"
+    }
+  ],
+  "bibliography": [
+    "BECK, K. Test-Driven Development: By Example. Addison-Wesley, 2022.",
+    "MESZAROS, G. xUnit Test Patterns. Addison-Wesley, 2017."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Code review avaliativo – demonstrar refatorações guiadas por testes e melhorias de design.",
+    "rubric": "Commits pequenos, cobertura mantida/expandida, justificativa das refatorações e ausência de regressões."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade IV — Robustez e Manutenibilidade",
+        "content": "Garantir evolução sustentável do código com suporte de testes."
+      },
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Red-Green-Refactor",
+          "content": "Ciclo disciplinado e métricas de feedback."
+        },
+        {
+          "icon": "book-open",
+          "title": "Refatorações",
+          "content": "Padrões aplicados em cenários reais do projeto."
+        },
+        {
+          "icon": "tasks",
+          "title": "Backlog técnico",
+          "content": "Organização de débitos técnicos para AV2/AV3."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (12h00)",
+      "items": [
+        "(45 min) Warm-up: kata TDD em dupla para alinhar ritmo.",
+        "(60 min) Mini aula: critérios para refatorar com segurança e limites do TDD.",
+        "(90 min) Laboratório guiado: refatorar módulo de relatórios usando testes existentes.",
+        "(60 min) Sessão de mocks/stubs para integrações externas.",
+        "(75 min) Oficina: seleção e priorização de débitos técnicos usando WSJF.",
+        "(90 min) Pair programming: aplicar refatorações complexas com supervisão do professor.",
+        "(60 min) Revisão cruzada de pull requests com checklist orientado a testes.",
+        "(60 min) Registro de métricas antes/depois (complexidade, cobertura, duplicação).",
+        "(60 min) Debriefing das lições aprendidas e alinhamento para finalização do projeto.",
+        "(60 min) Bloco assíncrono supervisionado para concluir ajustes da APS 02.",
+        "(60 min) Mesa redonda sobre dificuldades enfrentadas na adoção de TDD.",
+        "(60 min) Preparação do pacote de evidências para AV2."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Anti-patterns para evitar",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Não deixe testes quebrados ou ignorados; mantenha commits pequenos e revertíveis."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Quadro técnico da semana",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "To Do",
+          "content": "Selecionar classe candidata e escrever o primeiro teste vermelho."
+        },
+        {
+          "title": "Doing",
+          "content": "Implementar o ajuste mínimo e monitorar cobertura em tempo real."
+        },
+        {
+          "title": "Done",
+          "content": "Revisar em pares e atualizar documentação/ADRs após o merge."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-03-15T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Workshops internos de TDD"]
+  }
+}

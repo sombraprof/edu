@@ -1,0 +1,55 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "tdd-refactor-kata",
+  "title": "Kata – Refatoração Guiada por Testes",
+  "summary": "Evolua um módulo legado praticando ciclos TDD e refatorações seguras.",
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Contexto",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O módulo de cálculo de tarifas possui condicionais duplicadas e ausência de testes. Utilize TDD para estabilizar e refatorar o código."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Desafio",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Teste vermelho",
+              "text": "Crie um teste descrevendo comportamento desejado (tarifa diferenciada para clientes premium)."
+            },
+            {
+              "title": "Implementação mínima",
+              "text": "Faça apenas o necessário para o teste passar, registrando commit separado."
+            },
+            {
+              "title": "Refatoração",
+              "text": "Aplique padrões como Strategy ou Introduce Parameter Object para reduzir condicionais."
+            },
+            {
+              "title": "Métricas",
+              "text": "Compare cobertura e complexidade ciclomática antes/depois."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Conclusão",
+      "items": [
+        "Commits pequenos com mensagens claras (Red/Green/Refactor).",
+        "Relatório de métricas anexado ao PR.",
+        "Teste de regressão cobrindo o bug original.",
+        "Documentação breve das decisões de design."
+      ]
+    }
+  ]
+}
