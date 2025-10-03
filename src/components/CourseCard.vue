@@ -61,18 +61,25 @@ const accentStyle = computed<Record<string, string>>(() => {
         '--course-card-accent': 'var(--md-sys-color-primary)',
         '--course-card-accent-container': 'var(--md-sys-color-primary-container)',
         '--course-card-accent-on-container': 'var(--md-sys-color-on-primary-container)',
+        '--course-card-badge-bg': 'var(--md-sys-color-primary-container)',
+        '--course-card-badge-color': 'var(--md-sys-color-on-primary-container)',
       };
     case 'Unifametro':
       return {
-        '--course-card-accent': 'var(--md-sys-color-tertiary)',
-        '--course-card-accent-container': 'var(--md-sys-color-tertiary-container)',
-        '--course-card-accent-on-container': 'var(--md-sys-color-on-tertiary-container)',
+        '--course-card-accent': 'var(--md-sys-color-success)',
+        '--course-card-accent-container': 'var(--md-sys-color-success-container)',
+        '--course-card-accent-on-container': 'var(--md-sys-color-on-success-container)',
+        '--course-card-badge-bg': 'var(--md-sys-color-success-container)',
+        '--course-card-badge-color': 'var(--md-sys-color-on-success-container)',
       };
     default:
       return {
         '--course-card-accent': 'var(--md-sys-color-secondary)',
         '--course-card-accent-container': 'var(--md-sys-color-secondary-container)',
         '--course-card-accent-on-container': 'var(--md-sys-color-on-secondary-container)',
+        '--course-card-badge-bg':
+          'color-mix(in srgb, var(--course-card-accent-container) 86%, transparent)',
+        '--course-card-badge-color': 'var(--course-card-accent-on-container)',
       };
   }
 });
