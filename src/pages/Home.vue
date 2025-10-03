@@ -9,7 +9,7 @@
             {{ heroDescription }}
           </p>
         </div>
-        <div class="grid gap-3 sm:grid-cols-2 md:w-64 md:grid-cols-1">
+        <div v-if="shouldShowFilters" class="grid gap-3 sm:grid-cols-2 md:w-64 md:grid-cols-1">
           <div class="surface-tonal md-shape-large p-4 md-elevation-1">
             <p class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant">
               Disciplinas
@@ -94,9 +94,9 @@
 
     <section class="md-stack md-stack-4">
       <div class="md-stack md-stack-2">
-        <h2 class="text-title-large font-semibold text-on-surface">Disciplinas disponíveis</h2>
-        <p class="supporting-text">
-          Mostrando {{ filtered.length }} de {{ courses.length }} disciplinas cadastrados.
+        <h2 class="text-title-large font-semibold text-on-surface">{{ listHeading }}</h2>
+        <p v-if="listDescription" class="supporting-text">
+          {{ listDescription }}
         </p>
       </div>
 
@@ -147,6 +147,15 @@ const heroDescription = computed(() => {
     return `${baseMessage} Use a busca para encontrar rapidamente a disciplina desejada.`;
   }
   return `${baseMessage} Explore as opções disponíveis abaixo.`;
+});
+const listHeading = computed(() =>
+  shouldShowFilters.value ? 'Disciplinas disponíveis' : 'Disciplinas'
+);
+const listDescription = computed(() => {
+  if (shouldShowFilters.value) {
+    return `Mostrando ${filtered.value.length} de ${courses.length} disciplinas cadastradas.`;
+  }
+  return 'Confira abaixo as disciplinas disponíveis.';
 });
 const noResultsHelp = computed(() => {
   if (shouldShowFilters.value) {
