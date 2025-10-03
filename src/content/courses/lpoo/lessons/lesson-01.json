@@ -33,9 +33,10 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Plano de ensino LPOO 2024.1",
+      "label": "Plano de ensino LPOO 2025.2",
       "type": "document",
-      "url": "https://example.edu/lpoo/plano-ensino"
+      "description": "Plano de ensino oficial atualizado da disciplina para o semestre 2025.2.",
+      "url": "https://example.edu/lpoo/plano-ensino-2025-2"
     },
     {
       "label": "Configuração do ambiente Java",
@@ -269,8 +270,8 @@
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2024-05-25T00:00:00.000Z",
+    "updatedAt": "2025-02-01T00:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano de ensino LPOO 2024.1", "Anotações de aula 2023.2"]
+    "sources": ["Plano de ensino LPOO 2025.2", "Anotações de aula 2023.2"]
   }
 }
