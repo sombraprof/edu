@@ -1,0 +1,138 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-09",
+  "title": "Aula 9: Tratamento de Exceções e Resiliência",
+  "summary": "Constrói resiliência no código com tratamento estruturado de exceções, logging e políticas de recuperação.",
+  "objective": "Dominar estratégias de captura, propagação e criação de exceções alinhadas ao projeto integrador.",
+  "objectives": [
+    "Reconhecer categorias de falhas (checadas, não checadas e erros) e quando utilizá-las.",
+    "Implementar fluxos `try`/`catch`/`finally` com logging, garantindo liberação de recursos.",
+    "Projetar exceções personalizadas orientadas a domínio para o sistema bancário.",
+    "Planejar medidas de resiliência e testes focados em cenários excepcionais."
+  ],
+  "competencies": ["Tratamento de erros", "Observabilidade", "Design orientado a domínio"],
+  "skills": [
+    "Mapear pontos de falha e definir estratégias de mitigação.",
+    "Escrever exceções customizadas com mensagens orientadas a diagnóstico.",
+    "Instrumentar logging estruturado para auditoria de falhas."
+  ],
+  "outcomes": [
+    "Guia de exceções alinhado aos casos de uso críticos do projeto.",
+    "Implementação de tratadores com testes de regressão para fluxos inválidos.",
+    "Checklist de resiliência incorporado ao Definition of Done da equipe."
+  ],
+  "prerequisites": [
+    "Domínio dos pilares de POO e coleções trabalhados até a aula 08.",
+    "Ambiente Java com bibliotecas de logging configuradas (SLF4J/Logback)."
+  ],
+  "tags": ["java", "excecoes", "resiliencia"],
+  "duration": 480,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Playbook de exceções no projeto bancário",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/java-exceptions-playbook"
+    },
+    {
+      "label": "Dojo: Tratando falhas no sistema bancário",
+      "type": "exercise",
+      "url": "https://edu.local/courses/lpoo/exercises/exception-handling"
+    },
+    {
+      "label": "Oracle Tutorial – Exceptions",
+      "type": "documentation",
+      "url": "https://docs.oracle.com/javase/tutorial/essential/exceptions/"
+    }
+  ],
+  "bibliography": [
+    "BLOCH, J. Effective Java. 3. ed. Addison-Wesley, 2018.",
+    "GOETZ, B. Java Concurrency in Practice. Addison-Wesley, 2017."
+  ],
+  "assessment": {
+    "type": "aps",
+    "description": "APS 02 – Implementar tratadores e notificações de falha no módulo de transferências do projeto bancário.",
+    "rubric": "Fluxos inválidos devidamente mapeados, logs contextualizados e testes cobrindo cenários de exceção primários."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade IV — Robustez e Manutenibilidade",
+        "content": "Garantir que o sistema continue confiável diante de falhas internas e externas."
+      },
+      "cards": [
+        {
+          "icon": "bullseye",
+          "title": "Mapeamento de riscos",
+          "content": "Identificar pontos de falha críticos no fluxo bancário."
+        },
+        {
+          "icon": "code",
+          "title": "Tratamento",
+          "content": "Aplicar blocos `try`/`catch` e exceções customizadas."
+        },
+        {
+          "icon": "tasks",
+          "title": "APS 02",
+          "content": "Iniciar entrega avaliativa com critérios alinhados ao DoD."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (8h00)",
+      "items": [
+        "(60 min) Kick-off: mapa de riscos e classificação das falhas do backlog.",
+        "(75 min) Aula expositiva: hierarquia de exceções, multi-catch e boas mensagens.",
+        "(45 min) Laboratório guiado: convertendo códigos de erro em exceções customizadas.",
+        "(60 min) Coding dojo: implementar bloco `try-with-resources` com testes.",
+        "(40 min) Revisão coletiva de logs estruturados (SLF4J + MDC).",
+        "(90 min) Sprint APS 02 – planejamento e implementação inicial em trios.",
+        "(70 min) Sessão de testes: orquestrar cenários excepcionais com JUnit e AssertJ.",
+        "(40 min) Retrospectiva + definição de entregáveis e responsabilidades assíncronas."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "APS 02 – Expectativas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A APS deve demonstrar domínio de logs estruturados, exceções orientadas a domínio e planos de rollback."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Checklist de resiliência",
+      "columns": 2,
+      "cards": [
+        {
+          "title": "Tratamento",
+          "content": "Todas as chamadas externas possuem estratégia de fallback ou notificação."
+        },
+        {
+          "title": "Métricas",
+          "content": "Exceções relevantes geram métricas e alertas para a equipe."
+        },
+        {
+          "title": "Testes",
+          "content": "Cenários excepcionais possuem testes automatizados claros."
+        },
+        {
+          "title": "Documentação",
+          "content": "Políticas de tratamento estão descritas no README do projeto."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-03-01T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia interno de resiliência Unifametro"]
+  }
+}

@@ -3,16 +3,29 @@
   "generatedAt": "2025-09-29T01:29:26.429Z",
   "entries": [
     {
-      "id": "uml-modeling",
-      "title": "Modelagem UML de caso real",
-      "description": "Crie diagrama de classes com relacionamentos, atributos e multiplicidades.",
-      "link": "courses/lpoo/exercises/uml-modeling.html",
-      "available": false,
-      "file": "uml-modeling.vue",
+      "id": "exception-handling",
+      "title": "Dojo – Tratamento de Exceções",
+      "description": "Atualize o módulo de transferências com exceções customizadas, logs e testes de falha.",
+      "link": "courses/lpoo/exercises/exception-handling.html",
+      "available": true,
+      "file": "exception-handling.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
         "model": "manual",
-        "timestamp": "2024-06-14T00:00:00.000Z"
+        "timestamp": "2025-03-01T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "junit-quality-lab",
+      "title": "Laboratório – Pipeline de Testes com JUnit",
+      "description": "Configure fixtures, testes parametrizados e pipeline CI com cobertura e análise estática.",
+      "link": "courses/lpoo/exercises/junit-quality-lab.html",
+      "available": true,
+      "file": "junit-quality-lab.vue",
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-08T00:00:00.000Z"
       }
     },
     {
@@ -22,6 +35,32 @@
       "link": "courses/lpoo/exercises/refactoring.html",
       "available": false,
       "file": "refactoring.vue",
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2024-06-14T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "tdd-refactor-kata",
+      "title": "Kata – Refatoração Guiada por Testes",
+      "description": "Pratique ciclos Red-Green-Refactor e registre métricas antes/depois ao evoluir um módulo legado.",
+      "link": "courses/lpoo/exercises/tdd-refactor-kata.html",
+      "available": true,
+      "file": "tdd-refactor-kata.vue",
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-15T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "uml-modeling",
+      "title": "Modelagem UML de caso real",
+      "description": "Crie diagrama de classes com relacionamentos, atributos e multiplicidades.",
+      "link": "courses/lpoo/exercises/uml-modeling.html",
+      "available": false,
+      "file": "uml-modeling.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
         "model": "manual",

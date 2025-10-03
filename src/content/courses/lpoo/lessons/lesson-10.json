@@ -1,0 +1,142 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-10",
+  "title": "Aula 10: Boas Práticas de Código e Testes com JUnit 5",
+  "summary": "Integra padrões de escrita limpa, revisões de código e automação de testes com JUnit 5 e AssertJ.",
+  "objective": "Elevar o nível de qualidade do projeto com convenções de código, cobertura de testes e inspeções colaborativas.",
+  "objectives": [
+    "Aplicar convenções de código e análise estática para prevenir defeitos recorrentes.",
+    "Configurar suites de testes com fixtures reutilizáveis, asserts fluentes e testes parametrizados.",
+    "Empregar revisão por pares e checklists de qualidade alinhados ao pipeline do projeto.",
+    "Integrar verificações automatizadas (lint, cobertura, quality gate) ao fluxo de CI."
+  ],
+  "competencies": ["Qualidade de código", "Testes automatizados", "Integração contínua"],
+  "skills": [
+    "Criar fixtures e dados de teste consistentes.",
+    "Utilizar regras de estilo (Checkstyle/SpotBugs) para prevenir regressões.",
+    "Configurar GitHub Actions ou Jenkins para executar bateria de testes e métricas."
+  ],
+  "outcomes": [
+    "Guia de estilo compartilhado com convenções e exemplos.",
+    "Suite de testes com cobertura mínima acordada e execução automatizada.",
+    "Pipeline de qualidade com relatórios de cobertura e análise estática."
+  ],
+  "prerequisites": [
+    "APS 02 em andamento com tratadores de exceção implementados.",
+    "Conhecimento básico de JUnit apresentado na aula 06."
+  ],
+  "tags": ["qualidade", "junit", "boas-praticas"],
+  "duration": 720,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de código limpo para LPOO",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/java-clean-code-checklist"
+    },
+    {
+      "label": "Laboratório: pipeline de testes com JUnit",
+      "type": "exercise",
+      "url": "https://edu.local/courses/lpoo/exercises/junit-quality-lab"
+    },
+    {
+      "label": "JUnit 5 Cookbook",
+      "type": "documentation",
+      "url": "https://junit.org/junit5/docs/current/user-guide/"
+    }
+  ],
+  "bibliography": [
+    "MARTIN, R. Clean Code. Prentice Hall, 2018.",
+    "FOWLER, M. Refactoring: Improving the Design of Existing Code. 2. ed. Addison-Wesley, 2019."
+  ],
+  "assessment": {
+    "type": "lab",
+    "description": "Laboratório avaliativo – Configurar pipeline de testes com métricas de cobertura e checklist de revisão.",
+    "rubric": "Padrões aplicados, testes parametrizados cobrindo cenários críticos e pipeline automatizado executando sem falhas."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade IV — Robustez e Manutenibilidade",
+        "content": "Consolidar disciplina de testes e boas práticas no projeto colaborativo."
+      },
+      "cards": [
+        {
+          "icon": "code",
+          "title": "Código limpo",
+          "content": "Convenções de nome, formatação e estrutura."
+        },
+        {
+          "icon": "gears",
+          "title": "JUnit 5",
+          "content": "Fixtures, asserts fluentes e testes parametrizados."
+        },
+        {
+          "icon": "check-circle",
+          "title": "CI",
+          "content": "Automação de qualidade rodando a cada push."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (12h00)",
+      "items": [
+        "(60 min) Revisão dos pontos críticos encontrados na APS 02.",
+        "(90 min) Workshop: aplicando checklist de código limpo em trechos do projeto.",
+        "(75 min) Aula demonstrativa: fixtures, `@BeforeEach`, testes parametrizados e asserts fluentes.",
+        "(60 min) Laboratório guiado: refatorar testes existentes com dados builders.",
+        "(45 min) Pair review: aplicar checklist em pull requests reais.",
+        "(90 min) Configuração de pipelines de qualidade com GitHub Actions.",
+        "(75 min) Medição de cobertura e análise estática com JaCoCo + SpotBugs.",
+        "(60 min) Trilha assíncrona: registrar convenções no repositório e ajustar planos de testes.",
+        "(45 min) Stand-up ampliado para sincronizar próximos passos da APS 02.",
+        "(60 min) Oficina de dúvidas abertas sobre testes e boas práticas.",
+        "(60 min) Preparação da documentação técnica exigida para a AV2.",
+        "(60 min) Retrospectiva orientada a métricas de qualidade."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Definition of Done atualizado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Inclua cobertura mínima, checklist de código limpo e aprovação em pipeline automatizado antes do merge."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Maturidade de testes",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Nível 1 – Testes manuais",
+              "text": "Execuções ad hoc sem rastreabilidade ou métricas."
+            },
+            {
+              "title": "Nível 2 – Testes unitários",
+              "text": "Casos básicos automatizados com JUnit e dados consistentes."
+            },
+            {
+              "title": "Nível 3 – Pipeline automatizado",
+              "text": "Execução contínua com métricas e bloqueios de qualidade."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-03-08T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia de qualidade de software Unifametro"]
+  }
+}
