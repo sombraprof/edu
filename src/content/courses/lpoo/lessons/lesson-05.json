@@ -48,6 +48,11 @@
       "url": "https://www.youtube.com/watch?v=Y2WIDqgqH90",
       "duration": "PT24M44S",
       "studyObjective": "Acompanhar um exemplo completo de reutilização de código com superclasses e subclasses orientado por Paul Deitel."
+    },
+    {
+      "label": "Exemplo completo: hierarquia Funcionario/Analista/Estagiario",
+      "type": "repository",
+      "url": "https://example.edu/repos/lpoo/heranca-funcionarios"
     }
   ],
   "bibliography": [
@@ -153,6 +158,21 @@
               }
             ]
           }
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo comentado de herança em Java",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Note como a superclasse concentra validações e o estado compartilhado, enquanto as subclasses apenas especializam o cálculo salarial."
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "code": "public class Funcionario {\n    // Use 'protected' para expor somente o necessário às subclasses mantendo encapsulamento.\n    protected final String nome;\n    protected final double salarioBase;\n\n    public Funcionario(String nome, double salarioBase) {\n        // Valide entradas no construtor para garantir objetos sempre consistentes.\n        if (nome == null || nome.isBlank()) {\n            throw new IllegalArgumentException(\"Nome não pode ser vazio\");\n        }\n        if (salarioBase < 0) {\n            throw new IllegalArgumentException(\"Salário base deve ser não negativo\");\n        }\n        this.nome = nome;\n        this.salarioBase = salarioBase;\n    }\n\n    public String getNome() {\n        return nome;\n    }\n\n    public double calcularSalario() {\n        return salarioBase;\n    }\n}\n\npublic class Analista extends Funcionario {\n    private final double bonusProjeto;\n\n    public Analista(String nome, double salarioBase, double bonusProjeto) {\n        super(nome, salarioBase); // Delegue ao construtor da superclasse sempre que precisar reutilizar validações comuns.\n        if (bonusProjeto < 0) {\n            throw new IllegalArgumentException(\"Bônus deve ser não negativo\");\n        }\n        this.bonusProjeto = bonusProjeto;\n    }\n\n    @Override\n    public double calcularSalario() {\n        return super.calcularSalario() + bonusProjeto;\n    }\n}\n\npublic class Estagiario extends Funcionario {\n    private final int horasSemana;\n\n    public Estagiario(String nome, double salarioBase, int horasSemana) {\n        super(nome, salarioBase); // Chame 'super()' primeiro para garantir que o estado herdado seja inicializado corretamente.\n        if (horasSemana <= 0 || horasSemana > 40) {\n            throw new IllegalArgumentException(\"Horas semanais devem estar entre 1 e 40\");\n        }\n        this.horasSemana = horasSemana;\n    }\n\n    @Override\n    public double calcularSalario() {\n        return super.calcularSalario() * horasSemana / 40.0;\n    }\n}\n\npublic class FolhaPagamento {\n    public static void main(String[] args) {\n        // Rotina rápida de teste para demonstrar polimorfismo e verificar sobrescritas.\n        Funcionario ana = new Analista(\"Ana\", 6000, 1200);\n        Funcionario joao = new Estagiario(\"João\", 2000, 30);\n\n        System.out.printf(\"%s recebe R$ %.2f\\n\", ana.getNome(), ana.calcularSalario());\n        System.out.printf(\"%s recebe R$ %.2f\\n\", joao.getNome(), joao.calcularSalario());\n    }\n}"
         }
       ]
     },
