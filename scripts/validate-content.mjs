@@ -80,6 +80,8 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'Md3CodeSample',
   'MemoryDiagram',
   'OrderedList',
+  'Md3Checklist',
+  'Md3Callout',
   'CardGrid',
   'ClassDesigner',
   'PipelineCanvas',
