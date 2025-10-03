@@ -1,0 +1,127 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-14",
+  "title": "Aula 14: Banca AV3 e Feedback Final",
+  "summary": "Conduz as apresentações finais do projeto bancário, realiza arguições e formaliza devolutivas individuais.",
+  "objective": "Avaliar o projeto integrado por meio da banca AV3, assegurando registro das notas e feedbacks para cada equipe.",
+  "objectives": [
+    "Organizar o cronograma de apresentações e alinhar critérios avaliativos.",
+    "Registrar evidências e notas durante as defesas do projeto.",
+    "Fornecer feedback imediato e orientar próximos passos acadêmicos.",
+    "Encerrar a disciplina com ata assinada e comunicados institucionais."
+  ],
+  "competencies": ["Comunicação", "Avaliação somativa", "Gestão acadêmica"],
+  "skills": [
+    "Conduzir arguições claras e objetivas.",
+    "Manter tempo de apresentação dentro dos limites definidos.",
+    "Registrar notas e observações em formulários oficiais."
+  ],
+  "outcomes": [
+    "Banca AV3 concluída com atas preenchidas.",
+    "Feedback qualitativo entregue a cada equipe.",
+    "Plano de acompanhamento pós-disciplina comunicado."
+  ],
+  "prerequisites": [
+    "Release candidate publicado com evidências revisadas na aula 13.",
+    "Checklist de evidências AV3 disponível para a banca."
+  ],
+  "tags": ["avaliacao", "av3", "apresentacao"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de evidências AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/av3-evidence-checklist"
+    },
+    {
+      "label": "Template de ata da banca AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/av3-minutes-template"
+    },
+    {
+      "label": "Template de pitch para banca AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/project-pitch-template"
+    }
+  ],
+  "bibliography": [
+    "PRESSMAN, R.; MAXIM, B. Engenharia de Software. 10. ed. AMGH, 2020.",
+    "SOMMERVILLE, I. Software Engineering. 11. ed. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "exam",
+    "description": "Banca AV3: apresentação do projeto, defesa técnica e entrega de documentação final.",
+    "rubric": "Demonstração funcional (35%), qualidade técnica e código (30%), documentação e evidências (20%) e comunicação na defesa (15%)."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da banca",
+      "unit": {
+        "title": "Unidade VI — Entrega Final",
+        "content": "Avaliar o projeto integrador com critérios institucionais e feedback estruturado."
+      },
+      "cards": [
+        {
+          "icon": "calendar-days",
+          "title": "Agenda",
+          "content": "Ordem de apresentação e tempos de cada equipe."
+        },
+        {
+          "icon": "users",
+          "title": "Defesas",
+          "content": "Apresentação, demonstração e arguição."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Feedback",
+          "content": "Entrega de notas, apontamentos e próximos passos."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h30)",
+      "items": [
+        "(15 min) Acolhida, assinatura de listas e reforço dos critérios da banca.",
+        "(100 min) Apresentações das equipes (15 min cada) com demonstração e arguição.",
+        "(20 min) Deliberação rápida da banca e registro das notas.",
+        "(15 min) Feedback presencial para cada equipe.",
+        "(10 min) Encerramento institucional e próximos passos acadêmicos."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Pontualidade",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Chegue com pelo menos 15 minutos de antecedência. Atrasos comprometem a avaliação e podem reduzir o tempo de defesa."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Critérios avaliativos",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Aderência funcional ao escopo proposto.",
+            "Qualidade do código, testes e documentação.",
+            "Clareza na comunicação da equipe e divisão de responsabilidades.",
+            "Respostas técnicas durante a arguição."
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-29T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Regulamento de avaliações Unifametro"]
+  }
+}
