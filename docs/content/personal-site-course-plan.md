@@ -51,8 +51,9 @@ Este documento traduz os dados do relatório `reports/course-content-summary.jso
 **Ações imediatas**
 
 1. Projetar o componente `ClassDesigner` derivado do `Md3BlockDiagram` para representar relações UML, preparando presets para Storybook.
-2. Migrar as próximas aulas (09-12) mantendo estudos de caso, fluxos de regras de negócio e exercícios práticos alinhados ao novo padrão MD3.
-3. Atualizar os exercícios com rubricas de orientação a objetos (encapsulamento, herança, polimorfismo) e implementar feedback automático via testes ou checklists.
+2. Reequilibrar o cronograma das aulas 09-16, antecipando a revisão de herança/polimorfismo para a semana anterior à NP2 e registrando os novos marcos de entrega em `lessons.json`.
+3. Produzir os vídeos de apoio dos módulos 09-12 (análise de casos, refatoração guiada e padrões de projeto introdutórios) e anexá-los aos blocos `videos` já publicados.
+4. Liberar os exercícios revisados com rubricas de encapsulamento, herança e polimorfismo, conectando-os ao `validate:content` e abrindo janela de submissão assistida uma semana antes da APS.
 
 ### Tecnologia e Desenvolvimento para Jogos Digitais (TDJD)
 

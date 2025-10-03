@@ -173,6 +173,12 @@ Esses materiais dão visibilidade sobre o estado atual do projeto e aceleram a c
 - Histórias interativas documentam o `Md3AppShell`, a barra inferior, breadcrumbs e campo de busca com roteador em memória, cobrindo a navegação adaptativa e eventos de busca/navegação antes da integração nas telas reais. 【F:src/components/layout/Md3AppShell.stories.ts†L1-L200】【F:src/components/layout/Md3BottomAppBar.stories.ts†L1-L83】【F:src/components/layout/Md3Breadcrumbs.stories.ts†L1-L74】【F:src/components/layout/Md3SearchField.stories.ts†L1-L61】
 - A documentação de layout e do Storybook foi atualizada para refletir o novo escopo, próximos passos de viewports e testes visuais. 【F:docs/design-system/layout.md†L42-L55】【F:docs/design-system/storybook.md†L15-L32】
 
+36. **Plano de ação de LPOO reequilibrado e comunicado ao QA/Implantação**
+
+- `docs/content/personal-site-course-plan.md` removeu a pendência de migração das aulas 09-12 e detalha o reequilíbrio do cronograma 09-16, produção de vídeos e liberação de exercícios com janela alinhada à APS. 【F:docs/content/personal-site-course-plan.md†L115-L141】
+- `docs/material-redesign-plan.md` passou a consolidar os novos marcos (semanas 11-13), responsáveis e dependências de QA para cronograma, vídeos e exercícios do curso de LPOO. 【F:docs/material-redesign-plan.md†L118-L132】
+- A atualização foi registrada neste relatório para informar QA e implantação; compartilharemos o resumo no canal de acompanhamento para antecipar validações de testes e publicação.
+
 ## O que ainda pode ser feito
 
 A partir das recomendações listadas na revisão de arquitetura, seguem frentes prioritárias:
