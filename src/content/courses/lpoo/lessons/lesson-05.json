@@ -341,6 +341,32 @@
     },
     {
       "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Rotina completa com `super` e polimorfismo",
+        "summary": "Construtores chamam <code>super(...)</code> logo no início, métodos sobrescritos reutilizam lógica comum e a rotina de teste confirma o comportamento especializado.",
+        "language": "java",
+        "code": "import java.util.List;\n\npublic class Funcionario {\n    // Construtor centraliza validações compartilhadas e garante invariantes.\n    protected final String nome;\n    protected final double salarioBase;\n\n    public Funcionario(String nome, double salarioBase) {\n        if (nome == null || nome.isBlank()) {\n            throw new IllegalArgumentException(\"Nome não pode ser vazio\");\n        }\n        if (salarioBase < 0) {\n            throw new IllegalArgumentException(\"Salário base deve ser não negativo\");\n        }\n        this.nome = nome.trim();\n        this.salarioBase = salarioBase;\n    }\n\n    public String getNome() {\n        return nome;\n    }\n\n    public double calcularSalario() {\n        // Subclasses podem somar componentes adicionais sobre este valor.\n        return salarioBase;\n    }\n}\n\npublic class Analista extends Funcionario {\n    private final double bonusProjeto;\n\n    public Analista(String nome, double salarioBase, double bonusProjeto) {\n        super(nome, salarioBase); // Reaproveita as validações de estado da superclasse.\n        if (bonusProjeto < 0) {\n            throw new IllegalArgumentException(\"Bônus deve ser não negativo\");\n        }\n        this.bonusProjeto = bonusProjeto;\n    }\n\n    @Override\n    public double calcularSalario() {\n        double salarioComBonus = super.calcularSalario() + bonusProjeto;\n        // Documente a regra para facilitar futuras extensões.\n        return salarioComBonus;\n    }\n}\n\npublic class Estagiario extends Funcionario {\n    private final int horasSemana;\n\n    public Estagiario(String nome, double salarioBase, int horasSemana) {\n        super(nome, salarioBase); // Sempre invoque super(...) como primeira linha do construtor.\n        if (horasSemana <= 0 || horasSemana > 40) {\n            throw new IllegalArgumentException(\"Horas semanais devem estar entre 1 e 40\");\n        }\n        this.horasSemana = horasSemana;\n    }\n\n    @Override\n    public double calcularSalario() {\n        double proporcional = super.calcularSalario() * horasSemana / 40.0;\n        return proporcional;\n    }\n}\n\npublic final class FolhaPagamento {\n    private FolhaPagamento() {\n        // Evite instanciar utilitários - mantenha apenas membros estáticos.\n    }\n\n    public static void main(String[] args) {\n        Funcionario analista = new Analista(\"Ana\", 6000, 1200);\n        Funcionario estagiario = new Estagiario(\"João\", 2000, 30);\n\n        List<Funcionario> equipe = List.of(analista, estagiario);\n        for (Funcionario funcionario : equipe) {\n            System.out.printf(\"%s recebe R$ %.2f%n\", funcionario.getNome(), funcionario.calcularSalario());\n        }\n    }\n}",
+        "highlights": [
+          "Comentários estratégicos orientam futuras refatorações e reforçam as motivações das escolhas de design.",
+          "`super(...)` aparece na primeira linha dos construtores, garantindo inicialização do estado herdado.",
+          "A rotina `main` percorre uma lista polimórfica demonstrando a diferença de cada sobrescrita."
+        ]
+      }
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist guiado de refatoração",
+      "description": "Percorra cada etapa antes de finalizar a migração para a hierarquia `Funcionario`:",
+      "items": [
+        "Concentrar atributos e validações comuns na superclasse antes de mover comportamento especializado.",
+        "Garantir que todos os construtores de subclasses chamem `super(...)` como primeira instrução.",
+        "Adicionar `@Override` nas operações sobrescritas e validar diferenças funcionais em `Analista` e `Estagiario`.",
+        "Executar a rotina `main` ou a suíte de testes para confirmar o polimorfismo e registrar aprendizados."
+      ]
+    },
+    {
+      "type": "component",
       "component": "Md3Flowchart",
       "props": {
         "title": "Fluxo de construção da hierarquia",
@@ -421,7 +447,7 @@
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2025-02-01T00:00:00.000Z",
+    "updatedAt": "2025-10-03T18:39:18.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Relatório AV1 2025.2", "Plano de aula LPOO – módulo 2"]
   }

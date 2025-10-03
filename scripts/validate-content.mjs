@@ -77,6 +77,7 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'Md3LogicOperators',
   'Md3BlockDiagram',
   'Md3Flowchart',
+  'Md3CodeSample',
   'MemoryDiagram',
   'OrderedList',
   'CardGrid',
