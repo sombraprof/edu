@@ -175,9 +175,9 @@ Esses materiais dão visibilidade sobre o estado atual do projeto e aceleram a c
 
 36. **Plano de ação de LPOO reequilibrado e comunicado ao QA/Implantação**
 
-- `docs/content/personal-site-course-plan.md` removeu a pendência de migração das aulas 09-12 e detalha o reequilíbrio do cronograma 09-16, produção de vídeos e liberação de exercícios com janela alinhada à APS. 【F:docs/content/personal-site-course-plan.md†L115-L141】
-- `docs/material-redesign-plan.md` passou a consolidar os novos marcos (semanas 11-13), responsáveis e dependências de QA para cronograma, vídeos e exercícios do curso de LPOO. 【F:docs/material-redesign-plan.md†L118-L132】
-- A atualização foi registrada neste relatório para informar QA e implantação; compartilharemos o resumo no canal de acompanhamento para antecipar validações de testes e publicação.
+- `docs/content/personal-site-course-plan.md` removeu a pendência de migração das aulas 09-12, registrou que as doze primeiras aulas já estão no schema `md3.lesson.v1` e detalha reequilíbrio do cronograma 09-16, vídeos complementares e liberação de exercícios com janela alinhada à APS. 【F:docs/content/personal-site-course-plan.md†L115-L141】
+- `docs/material-redesign-plan.md` consolida os novos marcos (semanas 11-13), responsáveis, dependências de QA/Implantação e o checkpoint de revisão NP2+APS. 【F:docs/material-redesign-plan.md†L118-L133】
+- Resumo compartilhado com QA e implantação por meio deste relatório e da notificação no canal operacional, antecipando preparação de testes, legendas e gatilhos de CI antes da APS.
 
 ## O que ainda pode ser feito
 
