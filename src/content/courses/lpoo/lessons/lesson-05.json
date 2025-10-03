@@ -115,6 +115,49 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Exercício guiado: refatoração da hierarquia `Funcionario`",
+      "steps": [
+        {
+          "title": "Mapear atributos e validações comuns",
+          "description": "Tempo estimado: 10 min | Perguntas: Quais campos aparecem em todas as classes atuais? Existem validações duplicadas? | Critérios de sucesso: checklist de atributos compartilhados e validações acordadas com a dupla."
+        },
+        {
+          "title": "Extrair a superclasse `Funcionario`",
+          "description": "Tempo estimado: 15 min | Perguntas: Que construtor garante estado consistente? Quais métodos permanecem genéricos? | Critérios de sucesso: superclasse compilando com testes existentes passando sem alterações."
+        },
+        {
+          "title": "Criar `Analista` e `Estagiario`",
+          "description": "Tempo estimado: 15 min | Perguntas: Que dados adicionais cada perfil exige? Há comportamento exclusivo? | Critérios de sucesso: subclasses instanciadas sem duplicação de código e cobrindo os cenários discutidos."
+        },
+        {
+          "title": "Sobrescrever métodos críticos",
+          "description": "Tempo estimado: 10 min | Perguntas: O cálculo salarial respeita regras de negócio? Precisamos chamar `super`? | Critérios de sucesso: métodos sobrescritos com testes exibindo resultados distintos por perfil."
+        },
+        {
+          "title": "Executar e revisar testes",
+          "description": "Tempo estimado: 10 min | Perguntas: Todos os cenários foram cobertos? Há casos-limite pendentes? | Critérios de sucesso: suíte de testes passando e registro dos aprendizados/ajustes no repositório da turma."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Atenção aos erros recorrentes",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Ignorar validações ao mover atributos para a superclasse, permitindo estados inválidos.",
+            "Esquecer de marcar métodos com `@Override`, mascarando comportamentos antigos.",
+            "Chamar `super()` após inicializações específicas e gerar `NullPointerException`.",
+            "Não atualizar testes para cobrir regras diferenciadas de `Analista` e `Estagiario`.",
+            "Duplicar lógica de cálculo salarial nas subclasses em vez de reutilizar `super`."
+          ]
+        }
+      ]
+    },
+    {
       "type": "timeline",
       "title": "Indicadores da AV1",
       "steps": [
