@@ -1,132 +1,113 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-12",
-  "title": "Aula 12: Finalização do Projeto Integrador",
-  "summary": "Consolida entregáveis finais do sistema bancário, garantindo qualidade, documentação e preparação para bancas.",
-  "objective": "Encerrar desenvolvimento do projeto com evidências completas para AV2 e planejamento da banca AV3.",
+  "title": "Aula 12: TDD e Refatoração Guiada por Testes",
+  "summary": "Pratica ciclos Red-Green-Refactor, utiliza doubles e prioriza melhorias incrementais no sistema bancário.",
+  "objective": "Consolidar o uso de testes como motor de desenvolvimento e refatoração contínua antes da preparação final da AV3.",
   "objectives": [
-    "Organizar backlog remanescente priorizando requisitos críticos e correções.",
-    "Validar qualidade do produto com testes, revisão de código e checklist de entrega.",
-    "Preparar documentação técnica, pitch e roteiro de demonstração.",
-    "Ensaiar apresentação e coletar feedbacks para a banca avaliativa."
+    "Aplicar o ciclo TDD completo em uma funcionalidade do projeto.",
+    "Utilizar mocks ou stubs para isolar dependências externas.",
+    "Mapear e priorizar débitos técnicos com base em métricas de teste.",
+    "Registrar evidências de melhorias realizadas para compartilhamento com a banca."
   ],
-  "competencies": ["Gestão de projeto", "Qualidade de software", "Comunicação técnica"],
+  "competencies": ["Desenvolvimento orientado a testes", "Refatoração", "Gestão de débito técnico"],
   "skills": [
-    "Gerenciar sprints de fechamento com foco em valor entregue.",
-    "Consolidar métricas de qualidade (cobertura, bugs, performance).",
-    "Construir narrativa de apresentação clara para stakeholders."
+    "Escrever testes antes de implementar a solução definitiva.",
+    "Refatorar código legado garantindo cobertura contínua.",
+    "Comunicar resultados de refatorações com indicadores objetivos."
   ],
   "outcomes": [
-    "Release candidate do sistema bancário com backlog zerado.",
-    "Documentação final (manual do usuário, arquitetura, plano de testes).",
-    "Pitch deck e roteiro para banca AV3."
+    "Funcionalidade evoluída com testes automatizados em TDD.",
+    "Lista priorizada de débitos técnicos com responsáveis definidos.",
+    "Registro de antes/depois evidenciando melhorias estruturais."
   ],
-  "prerequisites": ["APS 02 concluída e avaliada.", "Backlog técnico priorizado na aula 11."],
-  "tags": ["projeto", "entrega", "gestao"],
-  "duration": 1200,
+  "prerequisites": [
+    "Projeto com suíte de testes automatizados configurada na aula anterior.",
+    "Familiaridade com padrões de código limpo e logging."
+  ],
+  "tags": ["tdd", "refatoracao", "testes"],
+  "duration": 150,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Checklist de entrega final",
+      "label": "Guia rápido de TDD e refatoração",
       "type": "supplement",
-      "url": "https://edu.local/courses/lpoo/supplements/final-delivery-checklist"
+      "url": "https://edu.local/courses/lpoo/supplements/tdd-refactoring-guide"
     },
     {
-      "label": "Roteiro de apresentação para banca",
-      "type": "supplement",
-      "url": "https://edu.local/courses/lpoo/supplements/project-pitch-template"
+      "label": "Kata – Refatoração Guiada por Testes",
+      "type": "exercise",
+      "url": "https://edu.local/courses/lpoo/exercises/tdd-refactor-kata"
     },
     {
-      "label": "Guia para relatórios técnicos",
-      "type": "document",
-      "url": "https://example.edu/lpoo/relatorio-tecnico"
+      "label": "Checklist de código limpo para LPOO",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/java-clean-code-checklist"
     }
   ],
   "bibliography": [
-    "HUMBLE, J.; FARLEY, D. Continuous Delivery. Addison-Wesley, 2021.",
-    "KNAPP, D. Scrum Mastery. 2. ed. 2023."
+    "BECK, K. Test-Driven Development: By Example. Addison-Wesley, 2021.",
+    "MESZAROS, G. xUnit Test Patterns. Addison-Wesley, 2014."
   ],
   "assessment": {
-    "type": "project",
-    "description": "Entrega final do projeto integrador – release candidate acompanhado de documentação e métricas.",
-    "rubric": "Backlog crítico concluído, testes passando no CI, documentação publicada e pitch ensaiado com roteiro aprovado."
+    "type": "practice",
+    "description": "Kata avaliativo: executar um ciclo completo de TDD refatorando módulo legado e documentar métricas de melhoria.",
+    "rubric": "Sequência Red-Green-Refactor registrada (40%), cobertura adicional comprovada (30%) e justificativas técnicas documentadas (30%)."
   },
   "content": [
     {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "unit": {
-        "title": "Unidade V — Entrega e Avaliação",
-        "content": "Preparar a versão final do projeto e evidências para as avaliações somativas."
+        "title": "Unidade V — Robustez",
+        "content": "Manter código sustentável a partir de testes automatizados e refatorações seguras."
       },
       "cards": [
         {
           "icon": "tasks",
-          "title": "Backlog final",
-          "content": "Limpar pendências técnicas e funcionais."
+          "title": "Ciclo TDD",
+          "content": "Red-Green-Refactor aplicado ao domínio bancário."
         },
         {
-          "icon": "check-circle",
-          "title": "Qualidade",
-          "content": "Consolidar métricas, testes e documentação."
+          "icon": "settings",
+          "title": "Refatoração",
+          "content": "Melhorias estruturais guiadas por métricas."
         },
         {
-          "icon": "desktop",
-          "title": "Pitch",
-          "content": "Ensaiar narrativa e tempo de apresentação."
+          "icon": "book-open",
+          "title": "Evidências",
+          "content": "Registro das melhorias para a banca."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (20h00)",
+      "title": "Plano de voo (2h30)",
       "items": [
-        "Dia 1 (4h) – Planejamento final: revisar backlog, definir responsáveis e metas diárias.",
-        "Dia 1 (2h) – Revisão de qualidade: rodar pipelines, analisar métricas e mapear ajustes.",
-        "Dia 2 (4h) – Desenvolvimento concentrado: fechamento de histórias críticas e débitos técnicos.",
-        "Dia 2 (2h) – Revisão cruzada de código e atualização de documentação.",
-        "Dia 3 (3h) – Elaboração de pitch deck, roteiro de demo e alinhamento do storytelling.",
-        "Dia 3 (2h) – Ensaios gravados com feedback entre equipes.",
-        "Dia 4 (1h) – Ajustes finais em documentação e scripts de automação.",
-        "Dia 4 (2h) – Simulação de banca com painel convidado.",
-        "Atividade assíncrona (2h) – Compilar evidências para AV2 (relatórios, métricas, logs)."
+        "(15 min) Aquecimento: revisão do ciclo TDD e indicadores de sucesso.",
+        "(25 min) Demonstração guiada: escrever teste antes da implementação usando um caso do projeto.",
+        "(50 min) Kata em duplas: evoluir funcionalidade com TDD e registrar métricas.",
+        "(30 min) Refatoração orientada por métricas: reduzir duplicidades e melhorar legibilidade.",
+        "(20 min) Mini-clínica: analisar débitos técnicos levantados e priorizar ações.",
+        "(10 min) Compartilhamento rápido de aprendizados e ajustes no backlog técnico."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Entregáveis obrigatórios",
+      "title": "Registro de evidências",
       "content": [
         {
           "type": "paragraph",
-          "text": "Código versionado, documentação atualizada, métricas exportadas e pitch deck compartilhado no repositório."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Marcos da semana",
-      "columns": 3,
-      "cards": [
-        {
-          "title": "RC pronto",
-          "content": "Build estável com testes verdes e checklist concluído."
-        },
-        {
-          "title": "Documentação publicada",
-          "content": "Guia técnico e manual do usuário disponíveis no repositório."
-        },
-        {
-          "title": "Pitch validado",
-          "content": "Ensaios registrados com feedback e tempo dentro do limite."
+          "text": "Capture prints de cobertura, gráficos de complexidade e descrição das refatorações realizadas; serão usados na banca AV3."
         }
       ]
     }
   ],
   "metadata": {
-    "status": "in-review",
-    "updatedAt": "2025-03-22T00:00:00.000Z",
+    "status": "draft",
+    "updatedAt": "2025-10-15T00:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano de ensino LPOO 2025.2", "Checklist interno de bancas"]
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia interno de TDD Unifametro"]
   }
 }

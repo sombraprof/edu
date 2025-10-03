@@ -1,48 +1,48 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-13",
-  "title": "Aula 13: Avaliações AV2 e AV3",
-  "summary": "Conduz avaliações finais: prova teórico-prática (AV2), entrega da APS consolidada e banca avaliativa (AV3).",
-  "objective": "Realizar e acompanhar as avaliações finais garantindo feedback, registro e fechamento acadêmico.",
+  "title": "Aula 13: Laboratório Final e Preparação para AV3",
+  "summary": "Garante estabilidade do release candidate, encerra pendências e ensaia a apresentação da banca AV3.",
+  "objective": "Proporcionar um laboratório supervisionado para consolidar evidências, revisar métricas e aprimorar o pitch final do projeto bancário.",
   "objectives": [
-    "Aplicar avaliação escrita/prática (AV2) cobrindo fundamentos, exceções e testes.",
-    "Executar banca AV3 com demonstração do projeto, documentação e defesas técnicas.",
-    "Registrar feedbacks individuais e planos de melhoria contínua.",
-    "Consolidar notas de APS, AV2 e AV3 dentro dos prazos institucionais."
+    "Validar funcionalidades críticas com testes automatizados e exploratórios.",
+    "Aplicar checklists de entrega final e organizar documentação obrigatória.",
+    "Ensaiar o pitch da equipe com feedback estruturado.",
+    "Planejar logística do dia da banca e alinhar responsabilidades."
   ],
-  "competencies": ["Avaliação formativa e somativa", "Comunicação", "Gestão acadêmica"],
+  "competencies": ["Gestão de projeto", "Qualidade de software", "Comunicação"],
   "skills": [
-    "Gerenciar tempo de prova e apresentação de acordo com rubricas.",
-    "Responder questionamentos técnicos com base no projeto desenvolvido.",
-    "Documentar feedbacks e evidências em ata de avaliação."
+    "Priorizar correções de última hora com base em risco.",
+    "Consolidar evidências em repositórios e planilhas institucionais.",
+    "Aprimorar narrativa e tempo do pitch."
   ],
   "outcomes": [
-    "Prova AV2 aplicada e corrigida com feedback individual.",
-    "Banca AV3 registrada com atas e notas consolidadas.",
-    "Plano pós-avaliação com pontos de melhoria e referências adicionais."
+    "Release candidate validado e versionado.",
+    "Checklist de evidências AV3 concluído.",
+    "Pitch ensaiado com plano de apresentação definido."
   ],
   "prerequisites": [
-    "Projeto finalizado e evidências publicadas na aula 12.",
-    "Checklist de entrega aprovado pelo professor."
+    "Resultados das atividades de TDD consolidados na aula 12.",
+    "Todos os integrantes com acesso aos materiais de apresentação."
   ],
-  "tags": ["avaliacao", "av2", "av3"],
-  "duration": 1280,
+  "tags": ["projeto", "laboratorio", "av3"],
+  "duration": 180,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Guia da prova AV2",
+      "label": "Checklist de entrega final",
       "type": "supplement",
-      "url": "https://edu.local/courses/lpoo/supplements/av2-guide"
-    },
-    {
-      "label": "Template de ata da banca AV3",
-      "type": "supplement",
-      "url": "https://edu.local/courses/lpoo/supplements/av3-minutes-template"
+      "url": "https://edu.local/courses/lpoo/supplements/final-delivery-checklist"
     },
     {
       "label": "Checklist de evidências AV3",
       "type": "supplement",
       "url": "https://edu.local/courses/lpoo/supplements/av3-evidence-checklist"
+    },
+    {
+      "label": "Template de pitch para banca AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/project-pitch-template"
     }
   ],
   "bibliography": [
@@ -50,76 +50,66 @@
     "SOMMERVILLE, I. Software Engineering. 11. ed. Pearson, 2020."
   ],
   "assessment": {
-    "type": "exam",
-    "description": "Aplicação das avaliações finais: AV2 (prova individual teórico-prática) e AV3 (banca com demonstração do projeto).",
-    "rubric": "AV2 avalia fundamentos, exceções e testes; AV3 considera aderência funcional, qualidade técnica, documentação e apresentação."
+    "type": "project",
+    "description": "Laboratório final avaliativo: estabilizar release candidate, atualizar documentação e registrar ensaio do pitch.",
+    "rubric": "Release sem falhas críticas (40%), documentação completa (30%) e roteiro de apresentação aprovado (30%)."
   },
   "content": [
     {
       "type": "lessonPlan",
-      "title": "Plano da semana avaliativa",
+      "title": "Plano da aula",
       "unit": {
-        "title": "Unidade V — Entrega e Avaliação",
-        "content": "Fechamento acadêmico com avaliações somativas e feedback estruturado."
+        "title": "Unidade VI — Entrega Final",
+        "content": "Concluir o projeto com qualidade e preparar comunicação para a banca."
       },
       "cards": [
         {
-          "icon": "book-open",
-          "title": "AV2",
-          "content": "Prova teórico-prática sobre POO, exceções e testes."
+          "icon": "gears",
+          "title": "Correções prioritárias",
+          "content": "Eliminar defeitos e pendências críticas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Evidências",
+          "content": "Checklist completo e documentação atualizada."
         },
         {
           "icon": "users",
-          "title": "Banca AV3",
-          "content": "Apresentação do projeto e defesas técnicas."
-        },
-        {
-          "icon": "tasks",
-          "title": "Feedback",
-          "content": "Registro de notas, planos de melhoria e fechamento."
+          "title": "Pitch",
+          "content": "Ensaios com feedback e ajustes finais."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (21h20)",
+      "title": "Plano de voo (3h00)",
       "items": [
-        "Dia 1 (180 min) – Revisão dirigida e resolução de dúvidas focadas em exceções e testes.",
-        "Dia 2 (180 min) – Aplicação da prova AV2 (parte escrita + estudo de caso prático).",
-        "Dia 2 (80 min) – Correção coletiva e publicação de gabarito comentado.",
-        "Dia 3 (240 min) – Preparação final e alinhamento logístico das bancas AV3.",
-        "Dia 3 (120 min) – Ensaios rápidos e ajustes em pitches/documentação.",
-        "Dia 4 (240 min) – Banca AV3 com comissões avaliadoras (tempo por equipe + arguição).",
-        "Dia 4 (120 min) – Feedback individual e assinatura das atas.",
-        "Atividade assíncrona (120 min) – Consolidação de notas em sistema acadêmico e plano pós-avaliação."
+        "(20 min) Check-in geral: status da equipe, riscos e definição de prioridades.",
+        "(50 min) Rodada de correções: focar em bugs críticos identificados na aula 12.",
+        "(40 min) Validação guiada: executar bateria de testes automatizados e exploratórios.",
+        "(30 min) Atualização de documentação: README, guias de execução e registros da APS.",
+        "(25 min) Preparação de evidências: checklist AV3, artefatos no drive institucional e prints de métricas.",
+        "(35 min) Ensaios de pitch com feedback rápido do professor e colegas.",
+        "(20 min) Planejamento logístico da banca: horários, ordem de apresentação e materiais.",
+        "(20 min) Retrospectiva final e próximos passos."
       ]
     },
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Pontualidade",
+      "title": "Controle de versões",
       "content": [
         {
           "type": "paragraph",
-          "text": "Chegue com antecedência para AV2 e AV3; atrasos impactam nota e possibilidade de apresentação."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Peso das avaliações",
-      "content": [
-        {
-          "type": "list",
-          "items": ["APS: 30%", "AV2: 30%", "AV3: 40%"]
+          "text": "Finalize a versão candidata e gere tag/release no repositório até o fim do dia para evitar divergências na banca."
         }
       ]
     }
   ],
   "metadata": {
-    "status": "in-review",
-    "updatedAt": "2025-03-29T00:00:00.000Z",
+    "status": "draft",
+    "updatedAt": "2025-10-22T00:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Plano de ensino LPOO 2025.2", "Regulamento de avaliações Unifametro"]
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia de entrega final Unifametro"]
   }
 }
