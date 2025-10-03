@@ -29,14 +29,9 @@
     "Conhecimento sobre classes, encapsulamento e métodos."
   ],
   "tags": ["poo", "heranca", "avaliacao"],
-  "duration": 120,
+  "duration": 150,
   "modality": "in-person",
   "resources": [
-    {
-      "label": "Relatório consolidado da AV1",
-      "type": "document",
-      "url": "https://example.edu/lpoo/relatorios/av1"
-    },
     {
       "label": "Guia Oracle: Inheritance",
       "type": "article",
@@ -62,11 +57,6 @@
       "url": "https://www.youtube.com/watch?v=fxQ6jF7zpHg",
       "duration": "PT36M27S",
       "studyObjective": "Aprofundar polimorfismo dinâmico conectado à herança, observando padrões de sobrescrita e LSP para preparar a aula 06."
-    },
-    {
-      "label": "Exemplo completo: hierarquia Funcionario/Analista/Estagiario",
-      "type": "repository",
-      "url": "https://example.edu/repos/lpoo/heranca-funcionarios"
     }
   ],
   "bibliography": [
@@ -488,13 +478,6 @@
               }
             ]
           }
-        },
-        {
-          "type": "list",
-          "items": [
-            "Repositório oficial da turma: https://example.edu/repos/lpoo/heranca-funcionarios",
-            "Formulário de feedback rápido: https://example.edu/forms/lpoo/feedback-heranca"
-          ]
         },
         {
           "type": "paragraph",
