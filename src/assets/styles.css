@@ -5,6 +5,15 @@
 @tailwind utilities;
 
 :root {
+  /* Institution brand accents */
+  --institution-unichristus-accent: #0b57d0;
+  --institution-unichristus-accent-container: #d8e2ff;
+  --institution-unichristus-on-accent-container: #001b3b;
+
+  --institution-unifametro-accent: #0b6a4a;
+  --institution-unifametro-accent-container: #bfe8d1;
+  --institution-unifametro-on-accent-container: #002116;
+
   /* MD3 Spacing System */
   --md-sys-spacing-1: 0.25rem; /* 4px */
   --md-sys-spacing-2: 0.5rem; /* 8px */
