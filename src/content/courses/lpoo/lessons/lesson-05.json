@@ -43,11 +43,25 @@
       "url": "https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html"
     },
     {
+      "label": "Oracle Academy – Type Inheritance Foundation",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=SA5c_PfPYtI",
+      "duration": "PT30M00S",
+      "studyObjective": "Revisitar a teoria de herança da Oracle Academy, alinhando `extends`, visibilidade e uso de `super` ao exercício da hierarquia `Funcionario`."
+    },
+    {
       "label": "Deitel LiveLessons – Introdução à Herança em Java",
       "type": "video",
       "url": "https://www.youtube.com/watch?v=Y2WIDqgqH90",
       "duration": "PT24M44S",
-      "studyObjective": "Acompanhar um exemplo completo de reutilização de código com superclasses e subclasses orientado por Paul Deitel."
+      "studyObjective": "Conectar a análise da AV1 à implementação de `Funcionario`, observando como Paul Deitel refatora superclasses e prepara o terreno para polimorfismo seguro."
+    },
+    {
+      "label": "Opcional — Oracle Developer Live: Herança e Polimorfismo em Profundidade",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=fxQ6jF7zpHg",
+      "duration": "PT36M27S",
+      "studyObjective": "Aprofundar polimorfismo dinâmico conectado à herança, observando padrões de sobrescrita e LSP para preparar a aula 06."
     },
     {
       "label": "Exemplo completo: hierarquia Funcionario/Analista/Estagiario",
