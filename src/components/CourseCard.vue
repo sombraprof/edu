@@ -52,35 +52,38 @@ import Md3Button from './Md3Button.vue';
 
 const props = defineProps<{ meta: CourseMeta }>();
 
-const institutionLabel = computed(() => props.meta.institution);
-
-const accentStyle = computed<Record<string, string>>(() => {
-  switch (props.meta.institution) {
-    case 'Unichristus':
-      return {
-        '--course-card-accent': 'var(--md-sys-color-primary)',
-        '--course-card-accent-container': 'var(--md-sys-color-primary-container)',
-        '--course-card-accent-on-container': 'var(--md-sys-color-on-primary-container)',
-        '--course-card-badge-bg': 'var(--md-sys-color-primary-container)',
-        '--course-card-badge-color': 'var(--md-sys-color-on-primary-container)',
-      };
-    case 'Unifametro':
-      return {
-        '--course-card-accent': 'var(--md-sys-color-success)',
-        '--course-card-accent-container': 'var(--md-sys-color-success-container)',
-        '--course-card-accent-on-container': 'var(--md-sys-color-on-success-container)',
-        '--course-card-badge-bg': 'var(--md-sys-color-success-container)',
-        '--course-card-badge-color': 'var(--md-sys-color-on-success-container)',
-      };
-    default:
-      return {
-        '--course-card-accent': 'var(--md-sys-color-secondary)',
-        '--course-card-accent-container': 'var(--md-sys-color-secondary-container)',
-        '--course-card-accent-on-container': 'var(--md-sys-color-on-secondary-container)',
-        '--course-card-badge-bg':
-          'color-mix(in srgb, var(--course-card-accent-container) 86%, transparent)',
-        '--course-card-badge-color': 'var(--course-card-accent-on-container)',
-      };
-  }
+const institutionLabel = computed(() => {
+  const label = props.meta.institution?.trim();
+  return label && label.length > 0 ? label : 'Universidade';
 });
+
+const baseAccentStyle = {
+  '--course-card-accent': 'var(--md-sys-color-secondary)',
+  '--course-card-accent-container': 'var(--md-sys-color-secondary-container)',
+  '--course-card-accent-on-container': 'var(--md-sys-color-on-secondary-container)',
+  '--course-card-badge-bg':
+    'color-mix(in srgb, var(--course-card-accent-container) 86%, transparent)',
+  '--course-card-badge-color': 'var(--course-card-accent-on-container)',
+} satisfies Record<string, string>;
+
+const institutionAccentStyles: Record<string, Record<string, string>> = {
+  Unichristus: {
+    '--course-card-accent': 'var(--institution-unichristus-accent)',
+    '--course-card-accent-container': 'var(--institution-unichristus-accent-container)',
+    '--course-card-accent-on-container': 'var(--institution-unichristus-on-accent-container)',
+    '--course-card-badge-bg': 'var(--institution-unichristus-accent-container)',
+    '--course-card-badge-color': 'var(--institution-unichristus-on-accent-container)',
+  },
+  Unifametro: {
+    '--course-card-accent': 'var(--institution-unifametro-accent)',
+    '--course-card-accent-container': 'var(--institution-unifametro-accent-container)',
+    '--course-card-accent-on-container': 'var(--institution-unifametro-on-accent-container)',
+    '--course-card-badge-bg': 'var(--institution-unifametro-accent-container)',
+    '--course-card-badge-color': 'var(--institution-unifametro-on-accent-container)',
+  },
+};
+
+const accentStyle = computed<Record<string, string>>(
+  () => institutionAccentStyles[institutionLabel.value] ?? baseAccentStyle
+);
 </script>
