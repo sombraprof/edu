@@ -33,6 +33,26 @@
   "modality": "in-person",
   "resources": [
     {
+      "label": "Plano de ensino LPOO 2025.2",
+      "type": "document",
+      "url": "https://example.edu/lpoo/plano-ensino-2025-2"
+    },
+    {
+      "label": "Deitel & Deitel — Java Como Programar (cap. 4)",
+      "type": "book",
+      "url": "https://www.pearson.com/en-us/subject-catalog/p/java-how-to-program/P200000000934/9781292402067"
+    },
+    {
+      "label": "Goodrich, Tamassia & Goldwasser — Data Structures and Algorithms in Java (cap. 3)",
+      "type": "book",
+      "url": "https://www.wiley.com/en-us/Data+Structures+and+Algorithms+in+Java%2C+7th+Edition-p-9781119498590"
+    },
+    {
+      "label": "Herbert Schildt — Java: A Beginner's Guide (cap. 5)",
+      "type": "book",
+      "url": "https://www.mhprofessional.com/java-a-beginners-guide-eighth-edition-9781260440218-usa"
+    },
+    {
       "label": "Guia Oracle sobre encapsulamento",
       "type": "article",
       "url": "https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html"
@@ -294,8 +314,11 @@
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2024-05-25T00:00:00.000Z",
+    "updatedAt": "2025-10-03T00:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
-    "sources": ["Guidelines internos de revisão 2024", "Effective Java – Capítulo 4"]
+    "sources": [
+      "Plano de ensino LPOO 2025.2",
+      "docs/governance/lesson-audit-plan.md – LPOO (2025.2)"
+    ]
   }
 }
