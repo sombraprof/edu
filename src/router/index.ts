@@ -1,15 +1,15 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '../pages/Home.vue';
-import CourseLayout from '../pages/CourseLayout.vue';
-import CourseHome from '../pages/CourseHome.vue';
-import LessonView from '../pages/LessonView.vue';
-import ExerciseView from '../pages/ExerciseView.vue';
-import ValidationReport from '../pages/ValidationReport.vue';
-const ProfessorDashboard = () => import('../pages/professor/ProfessorDashboard.vue');
-const ProfessorIngestion = () => import('../pages/professor/IngestionWorkbench.vue');
-const ProfessorEditor = () => import('../pages/professor/EditorWorkbench.vue');
-const ProfessorValidation = () => import('../pages/professor/ValidationWorkbench.vue');
-const ProfessorPublication = () => import('../pages/professor/PublicationWorkbench.vue');
+const CourseLayout = () => import('../pages/CourseLayout.vue');
+const CourseHome = () => import('../pages/CourseHome.vue');
+const LessonView = () => import('../pages/LessonView.vue');
+const ExerciseView = () => import('../pages/ExerciseView.vue');
+const ValidationReport = () => import('../pages/ValidationReport.vue');
+const FacultyDashboard = () => import('../pages/faculty/FacultyDashboard.vue');
+const FacultyIngestion = () => import('../pages/faculty/IngestionWorkbench.vue');
+const FacultyEditor = () => import('../pages/faculty/EditorWorkbench.vue');
+const FacultyValidation = () => import('../pages/faculty/ValidationWorkbench.vue');
+const FacultyPublication = () => import('../pages/faculty/PublicationWorkbench.vue');
 
 export const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: Home },
@@ -24,34 +24,34 @@ export const routes: RouteRecordRaw[] = [
     ],
   },
   {
-    path: '/relatorios/validacao-conteudo',
+    path: '/reports/content-validation',
     name: 'validation-report',
     component: ValidationReport,
   },
   {
-    path: '/professor',
-    name: 'professor-dashboard',
-    component: ProfessorDashboard,
+    path: '/faculty',
+    name: 'faculty-dashboard',
+    component: FacultyDashboard,
   },
   {
-    path: '/professor/ingestao',
-    name: 'professor-ingestion',
-    component: ProfessorIngestion,
+    path: '/faculty/ingestion',
+    name: 'faculty-ingestion',
+    component: FacultyIngestion,
   },
   {
-    path: '/professor/editor',
-    name: 'professor-editor',
-    component: ProfessorEditor,
+    path: '/faculty/editor',
+    name: 'faculty-editor',
+    component: FacultyEditor,
   },
   {
-    path: '/professor/validacao',
-    name: 'professor-validation',
-    component: ProfessorValidation,
+    path: '/faculty/validation',
+    name: 'faculty-validation',
+    component: FacultyValidation,
   },
   {
-    path: '/professor/publicacao',
-    name: 'professor-publication',
-    component: ProfessorPublication,
+    path: '/faculty/publication',
+    name: 'faculty-publication',
+    component: FacultyPublication,
   },
   // Fallback to home for unknown routes
   { path: '/:pathMatch(.*)*', redirect: '/' },

@@ -1,0 +1,137 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-11",
+  "title": "Aula 11: Testes Automatizados com JUnit 5",
+  "summary": "Constrói suíte de testes consistente, mede cobertura e integra verificações ao pipeline do projeto bancário.",
+  "objective": "Capacitar a turma a padronizar testes com JUnit 5 e a incorporar checagens automatizadas no fluxo de desenvolvimento.",
+  "objectives": [
+    "Revisar convenções de código limpo que impactam a escrita de testes.",
+    "Configurar fixtures reutilizáveis com anotações do JUnit 5.",
+    "Escrever testes parametrizados e asserts fluentes para cenários relevantes.",
+    "Integrar relatórios de cobertura e análise estática ao pipeline de CI."
+  ],
+  "competencies": ["Qualidade de código", "Testes automatizados", "Integração contínua"],
+  "skills": [
+    "Criar dados de teste consistentes utilizando builders ou factories.",
+    "Aplicar regras de estilo e linters para prevenir regressões.",
+    "Configurar execução automatizada em pipelines GitHub Actions ou Jenkins."
+  ],
+  "outcomes": [
+    "Guia de estilo de testes compartilhado pela equipe.",
+    "Suite de testes com métricas de cobertura mínima acordada.",
+    "Pipeline de qualidade rodando automaticamente a cada push."
+  ],
+  "prerequisites": [
+    "Conhecimentos sobre exceções e logging tratados na aula anterior.",
+    "Projeto bancário atualizado com dependências do JUnit 5."
+  ],
+  "tags": ["qualidade", "junit", "testes"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de código limpo para LPOO",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/java-clean-code-checklist"
+    },
+    {
+      "label": "Laboratório: pipeline de testes com JUnit",
+      "type": "exercise",
+      "url": "https://edu.local/courses/lpoo/exercises/junit-quality-lab"
+    },
+    {
+      "label": "JUnit 5 Cookbook",
+      "type": "documentation",
+      "url": "https://junit.org/junit5/docs/current/user-guide/"
+    }
+  ],
+  "bibliography": [
+    "MARTIN, R. Clean Code. Prentice Hall, 2018.",
+    "FOWLER, M. Refactoring: Improving the Design of Existing Code. 2. ed. Addison-Wesley, 2019."
+  ],
+  "assessment": {
+    "type": "lab",
+    "description": "Laboratório avaliativo para configurar pipeline de testes com métricas de cobertura e checklist de revisão.",
+    "rubric": "Pipeline executa testes e análise estática (40%), cobertura mínima acordada (30%) e documentação do fluxo no README (30%)."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade V — Robustez",
+        "content": "Elevar a confiabilidade do projeto com testes automatizados e convenções de qualidade."
+      },
+      "cards": [
+        {
+          "icon": "check-circle",
+          "title": "Código limpo",
+          "content": "Regras que sustentam testes legíveis e manuteníveis."
+        },
+        {
+          "icon": "code",
+          "title": "JUnit 5",
+          "content": "Fixtures, asserts fluentes e testes parametrizados."
+        },
+        {
+          "icon": "gears",
+          "title": "Pipeline",
+          "content": "Integração de métricas no CI."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h30)",
+      "items": [
+        "(20 min) Discussão guiada: problemas de qualidade identificados após a AV2.",
+        "(30 min) Workshop rápido: aplicar checklist de código limpo em trechos reais.",
+        "(35 min) Aula demonstrativa: fixtures (@BeforeEach/@AfterEach), asserts fluentes e testes parametrizados.",
+        "(40 min) Laboratório em pares: refatorar testes existentes usando dados builders.",
+        "(15 min) Configuração inicial do pipeline de qualidade com GitHub Actions.",
+        "(10 min) Monitorar cobertura com JaCoCo e gerar relatório de análise estática.",
+        "(10 min) Debrief e definição de tarefas assíncronas."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Definition of Done atualizado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Antes do merge, garanta código revisado, testes passando no pipeline e documentação dos impactos no projeto."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Maturidade de testes",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Nível 1 – Manual",
+              "text": "Execuções pontuais, sem rastreabilidade."
+            },
+            {
+              "title": "Nível 2 – Automatizado",
+              "text": "Testes unitários cobrindo regras críticas com dados representativos."
+            },
+            {
+              "title": "Nível 3 – Observável",
+              "text": "Pipelines automatizados com métricas e gatilhos de bloqueio."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-08T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia de qualidade de software Unifametro"]
+  }
+}

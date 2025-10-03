@@ -214,6 +214,19 @@ export default defineConfig(({ command }) => {
         '@': path.resolve(__dirname, './src'),
       },
     },
+    build: {
+      chunkSizeWarningLimit: 1500,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vue: ['vue', 'vue-router'],
+            head: ['@vueuse/head'],
+            prism: ['prismjs'],
+            icons: ['lucide-vue-next'],
+          },
+        },
+      },
+    },
     server: {
       port: 5173,
     },

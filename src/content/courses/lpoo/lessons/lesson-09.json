@@ -1,0 +1,106 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-09",
+  "title": "Aula 9: AV2 – Prova Teórico-Prática",
+  "summary": "Aplica a avaliação AV2, reforça orientações logísticas e encerra a APS 02 com comunicação de próximos passos.",
+  "objective": "Garantir uma aplicação organizada da AV2, assegurando que todos os estudantes compreendam critérios e prazos subsequentes.",
+  "objectives": [
+    "Alinhar regras da prova e esclarecer dúvidas de última hora.",
+    "Aplicar a avaliação escrita/prática dentro do tempo regulamentar.",
+    "Registrar entregas e confirmar recebimento da APS 02 finalizada.",
+    "Orientar procedimentos pós-prova e cronograma das aulas seguintes."
+  ],
+  "competencies": ["Gestão do tempo", "Comunicação", "Avaliação somativa"],
+  "skills": [
+    "Organizar materiais e formulários necessários para a prova.",
+    "Conduzir checagem de presença e registro de entrega em formulário digital.",
+    "Aplicar checklists para evitar inconformidades durante a avaliação."
+  ],
+  "outcomes": [
+    "Prova AV2 aplicada com ata assinada.",
+    "Relatório rápido de ocorrências e recebimento das avaliações.",
+    "Mensagem pós-prova com cronograma das aulas de exceções e testes."
+  ],
+  "prerequisites": [
+    "APS 02 concluída e entregue até a véspera da avaliação.",
+    "Participação nas revisões sobre pilares de POO, coleções e herança."
+  ],
+  "tags": ["avaliacao", "av2", "prova"],
+  "duration": 130,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia da prova AV2",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/av2-guide"
+    },
+    {
+      "label": "Checklist de entrega final",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/final-delivery-checklist"
+    }
+  ],
+  "bibliography": [
+    "DEITEL, P.; DEITEL, H. Java: Como Programar. 11. ed. Pearson, 2023.",
+    "ECKEL, B. Thinking in Java. 4. ed. Prentice Hall, 2017."
+  ],
+  "assessment": {
+    "type": "exam",
+    "description": "AV2 individual com questões objetivas, discursivas e estudo de caso prático envolvendo fundamentos de POO e coleções.",
+    "rubric": "Domínio conceitual (40%), resolução do estudo de caso (40%) e clareza nas justificativas (20%)."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade IV — Avaliação Somativa",
+        "content": "Aplicação da AV2 com foco em fundamentos e boas práticas de POO."
+      },
+      "cards": [
+        {
+          "icon": "bullseye",
+          "title": "Orientações iniciais",
+          "content": "Regras da prova, materiais permitidos e prazos."
+        },
+        {
+          "icon": "book-open",
+          "title": "Prova AV2",
+          "content": "Execução do instrumento avaliativo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Encerramento",
+          "content": "Entrega formal, confirmação da APS e recados finais."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h10)",
+      "items": [
+        "(15 min) Recepção, conferência de presença e revisão das regras da AV2.",
+        "(95 min) Aplicação da prova teórico-prática com acompanhamento individual.",
+        "(10 min) Coleta das avaliações, assinatura da ata e registro da APS 02 entregue.",
+        "(10 min) Comunicado dos próximos encontros sobre exceções e testes."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Lembrete sobre APS",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A APS 02 deve estar publicada no repositório e registrada no ambiente virtual antes da aplicação da prova. Use este momento apenas para confirmar o protocolo de entrega."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-01T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Regulamento de avaliações Unifametro"]
+  }
+}

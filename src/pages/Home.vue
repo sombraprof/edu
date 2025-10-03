@@ -6,11 +6,10 @@
           <span class="chip w-fit">Disciplinas</span>
           <h1 class="text-display-small font-semibold text-on-surface">Escolha sua disciplina</h1>
           <p class="supporting-text text-body-large">
-            Materiais, exercícios e referências de todas as turmas do professor Tiago Sombra em um
-            único lugar. Use a busca para encontrar rapidamente a disciplina desejada.
+            {{ heroDescription }}
           </p>
         </div>
-        <div class="grid gap-3 sm:grid-cols-2 md:w-64 md:grid-cols-1">
+        <div v-if="shouldShowFilters" class="grid gap-3 sm:grid-cols-2 md:w-64 md:grid-cols-1">
           <div class="surface-tonal md-shape-large p-4 md-elevation-1">
             <p class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant">
               Disciplinas
@@ -32,7 +31,7 @@
         </div>
       </div>
 
-      <div class="mt-6">
+      <div v-if="shouldShowFilters" class="mt-6">
         <Md3Button
           type="button"
           :variant="filtersOpen ? 'tonal' : 'text'"
@@ -95,9 +94,9 @@
 
     <section class="md-stack md-stack-4">
       <div class="md-stack md-stack-2">
-        <h2 class="text-title-large font-semibold text-on-surface">Disciplinas disponíveis</h2>
-        <p class="supporting-text">
-          Mostrando {{ filtered.length }} de {{ courses.length }} disciplinas cadastrados.
+        <h2 class="text-title-large font-semibold text-on-surface">{{ listHeading }}</h2>
+        <p v-if="listDescription" class="supporting-text">
+          {{ listDescription }}
         </p>
       </div>
 
@@ -107,7 +106,7 @@
       <div v-else class="card p-8 text-center">
         <h3 class="text-title-medium font-semibold">Nenhuma disciplina encontrada</h3>
         <p class="mt-2 supporting-text">
-          Ajuste os filtros ou limpe a busca para visualizar todas as opções disponíveis.
+          {{ noResultsHelp }}
         </p>
         <Md3Button class="mt-4" variant="text" type="button" @click="clearFilters">
           Limpar filtros
@@ -129,12 +128,6 @@ const q = ref('');
 const inst = ref('');
 const filtersOpen = ref(false);
 
-const institutions = computed(() => {
-  const unique = new Set<string>();
-  courses.forEach((c) => unique.add(c.institution));
-  return Array.from(unique);
-});
-
 const filtered = computed(() => {
   const term = q.value.trim().toLowerCase();
   return courses.filter((course) => {
@@ -146,13 +139,58 @@ const filtered = computed(() => {
   });
 });
 
+const shouldShowFilters = computed(() => courses.length > 10);
+const heroDescription = computed(() => {
+  const baseMessage =
+    'Materiais, exercícios e referências de todas as turmas do professor Tiago Sombra em um único lugar.';
+  if (shouldShowFilters.value) {
+    return `${baseMessage} Use a busca para encontrar rapidamente a disciplina desejada.`;
+  }
+  return `${baseMessage} Explore as opções disponíveis abaixo.`;
+});
+const listHeading = computed(() =>
+  shouldShowFilters.value ? 'Disciplinas disponíveis' : 'Disciplinas'
+);
+const listDescription = computed(() => {
+  if (shouldShowFilters.value) {
+    return `Mostrando ${filtered.value.length} de ${courses.length} disciplinas cadastradas.`;
+  }
+  return 'Confira abaixo as disciplinas disponíveis.';
+});
+const noResultsHelp = computed(() => {
+  if (shouldShowFilters.value) {
+    return 'Ajuste os filtros ou limpe a busca para visualizar todas as opções disponíveis.';
+  }
+  return 'Verifique os termos digitados ou tente uma nova busca para visualizar as opções disponíveis.';
+});
+
+const institutions = computed(() => {
+  const unique = new Set<string>();
+  courses.forEach((c) => unique.add(c.institution));
+  return Array.from(unique);
+});
+
+watch(shouldShowFilters, (canShow) => {
+  if (!canShow) {
+    filtersOpen.value = false;
+    q.value = '';
+    inst.value = '';
+  }
+});
+
 watch([q, inst], ([query, institution]) => {
+  if (!shouldShowFilters.value) {
+    return;
+  }
   if (query || institution) {
     filtersOpen.value = true;
   }
 });
 
 function toggleFilters() {
+  if (!shouldShowFilters.value) {
+    return;
+  }
   filtersOpen.value = !filtersOpen.value;
 }
 

@@ -3,12 +3,12 @@
   "generatedAt": "2025-09-29T01:29:26.415Z",
   "entries": [
     {
-      "id": "lista1",
+      "id": "worksheet-01",
       "title": "Lista 1 — Algoritmos básicos",
       "description": "Problemas de entrada, processamento e saída para consolidar a lógica sequencial.",
-      "link": "courses/algi/exercises/lista1.html",
+      "link": "courses/algi/exercises/worksheet-01.html",
       "available": false,
-      "file": "lista1.vue",
+      "file": "worksheet-01.vue",
       "type": "worksheet",
       "durationMinutes": 120,
       "metadata": {
@@ -18,12 +18,12 @@
       }
     },
     {
-      "id": "lista2",
+      "id": "worksheet-02",
       "title": "Lista 2 — Condicionais e operadores",
       "description": "Questões com estruturas de decisão, operadores relacionais e expressões lógicas.",
-      "link": "courses/algi/exercises/lista2.html",
+      "link": "courses/algi/exercises/worksheet-02.html",
       "available": false,
-      "file": "lista2.vue",
+      "file": "worksheet-02.vue",
       "type": "worksheet",
       "durationMinutes": 140,
       "metadata": {
@@ -33,12 +33,12 @@
       }
     },
     {
-      "id": "lista3",
+      "id": "worksheet-03",
       "title": "Lista 3 — Laços e repetição",
       "description": "Laços contados, condicionais e sentinelas com análise de limites e variáveis de controle.",
-      "link": "courses/algi/exercises/lista3.html",
+      "link": "courses/algi/exercises/worksheet-03.html",
       "available": false,
-      "file": "lista3.vue",
+      "file": "worksheet-03.vue",
       "type": "worksheet",
       "durationMinutes": 150,
       "metadata": {
@@ -48,12 +48,12 @@
       }
     },
     {
-      "id": "lista4",
+      "id": "worksheet-04",
       "title": "Lista 4 — Funções e modularização",
       "description": "Problemas que reforçam decomposição em funções, parâmetros e reuso de lógica.",
-      "link": "courses/algi/exercises/lista4.html",
+      "link": "courses/algi/exercises/worksheet-04.html",
       "available": false,
-      "file": "lista4.vue",
+      "file": "worksheet-04.vue",
       "type": "worksheet",
       "durationMinutes": 160,
       "metadata": {
@@ -63,12 +63,12 @@
       }
     },
     {
-      "id": "lista5",
+      "id": "worksheet-05",
       "title": "Lista 5 — Vetores e matrizes",
       "description": "Coleções lineares e bidimensionais com cálculos agregados e leitura estruturada.",
-      "link": "courses/algi/exercises/lista5.html",
+      "link": "courses/algi/exercises/worksheet-05.html",
       "available": false,
-      "file": "lista5.vue",
+      "file": "worksheet-05.vue",
       "type": "worksheet",
       "durationMinutes": 180,
       "metadata": {
@@ -78,12 +78,12 @@
       }
     },
     {
-      "id": "lista6",
+      "id": "worksheet-06",
       "title": "Lista 6 — Registros e structs",
       "description": "Modelagem de dados compostos com operações sobre coleções de registros.",
-      "link": "courses/algi/exercises/lista6.html",
+      "link": "courses/algi/exercises/worksheet-06.html",
       "available": false,
-      "file": "lista6.vue",
+      "file": "worksheet-06.vue",
       "type": "worksheet",
       "durationMinutes": 200,
       "metadata": {
@@ -93,12 +93,12 @@
       }
     },
     {
-      "id": "refatoracao-modular",
+      "id": "modular-refactoring",
       "title": "Refatoração modular: folha de pagamento",
       "description": "Refatore um algoritmo sequencial de folha de pagamento separando responsabilidades em cinco funções colaborativas antes da NP2.",
-      "link": "courses/algi/exercises/refatoracao-modular.html",
+      "link": "courses/algi/exercises/modular-refactoring.html",
       "available": false,
-      "file": "refatoracao-modular.vue",
+      "file": "modular-refactoring.vue",
       "metadata": {
         "generatedBy": "LLM-Assistente-Edu",
         "model": "gpt-4o",

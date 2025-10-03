@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2025-10-02T12:47:50.524Z",
+  "generatedAt": "2025-10-03T14:17:48.204Z",
   "status": "passed-with-warnings",
   "totals": {
     "courses": 5,
-    "lessons": 145,
-    "lessonsWithIssues": 21,
+    "lessons": 151,
+    "lessonsWithIssues": 20,
     "problems": 0,
-    "warnings": 41
+    "warnings": 40
   },
   "courses": [
     {
@@ -317,26 +317,6 @@
           "lessonId": "lesson-34"
         }
       ]
-    },
-    {
-      "id": "tdjd",
-      "lessonsTotal": 17,
-      "lessonsWithIssues": 1,
-      "problems": 0,
-      "warnings": 1,
-      "lessons": [
-        {
-          "file": "src/content/courses/tdjd/lessons/lesson-03.json",
-          "problems": [],
-          "warnings": [
-            {
-              "type": "legacy-block",
-              "message": "Bloco legado em content[9]: \"quiz\" requer refino futuro."
-            }
-          ],
-          "lessonId": "lesson-03"
-        }
-      ]
     }
   ],
   "generation": {
@@ -358,53 +338,53 @@
         "latestTimestamp": "2025-10-01T09:18:10Z",
         "entries": [
           {
-            "id": "lista1",
-            "generatedBy": "Equipe EDU",
-            "model": "manual",
-            "timestamp": "2025-02-20T12:00:00.000Z",
-            "available": true
-          },
-          {
-            "id": "lista2",
-            "generatedBy": "Equipe EDU",
-            "model": "manual",
-            "timestamp": "2025-02-20T12:00:00.000Z",
-            "available": true
-          },
-          {
-            "id": "lista3",
-            "generatedBy": "Equipe EDU",
-            "model": "manual",
-            "timestamp": "2025-02-21T12:00:00.000Z",
-            "available": true
-          },
-          {
-            "id": "lista4",
-            "generatedBy": "Equipe EDU",
-            "model": "manual",
-            "timestamp": "2025-02-21T12:00:00.000Z",
-            "available": true
-          },
-          {
-            "id": "lista5",
-            "generatedBy": "Equipe EDU",
-            "model": "manual",
-            "timestamp": "2025-02-21T12:00:00.000Z",
-            "available": true
-          },
-          {
-            "id": "lista6",
-            "generatedBy": "Equipe EDU",
-            "model": "manual",
-            "timestamp": "2025-02-21T12:00:00.000Z",
-            "available": true
-          },
-          {
-            "id": "refatoracao-modular",
+            "id": "modular-refactoring",
             "generatedBy": "LLM-Assistente-Edu",
             "model": "gpt-4o",
             "timestamp": "2025-10-01T09:18:10Z",
-            "available": true
+            "available": false
+          },
+          {
+            "id": "worksheet-01",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-20T12:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "worksheet-02",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-20T12:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "worksheet-03",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "worksheet-04",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "worksheet-05",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": false
+          },
+          {
+            "id": "worksheet-06",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-02-21T12:00:00.000Z",
+            "available": false
           }
         ]
       },
@@ -440,27 +420,48 @@
       },
       {
         "course": "lpoo",
-        "total": 2,
-        "withMetadata": 2,
+        "total": 5,
+        "withMetadata": 5,
         "missingMetadata": 0,
         "byGenerator": {
-          "Equipe EDU": 2
+          "Equipe EDU": 5
         },
         "byModel": {
-          "manual": 2
+          "manual": 5
         },
         "earliestTimestamp": "2024-06-14T00:00:00.000Z",
-        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2025-03-15T00:00:00.000Z",
         "entries": [
           {
-            "id": "modelagem-uml",
+            "id": "exception-handling",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-01T00:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "junit-quality-lab",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-08T00:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "refactoring",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
             "available": false
           },
           {
-            "id": "refatoracao",
+            "id": "tdd-refactor-kata",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-15T00:00:00.000Z",
+            "available": true
+          },
+          {
+            "id": "uml-modeling",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
@@ -483,11 +484,11 @@
         "latestTimestamp": "2024-06-14T00:00:00.000Z",
         "entries": [
           {
-            "id": "protótipo-papel",
+            "id": "paper-prototype",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
-            "available": true
+            "available": false
           },
           {
             "id": "vertical-slice",
@@ -517,14 +518,14 @@
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
-            "available": true
+            "available": false
           },
           {
-            "id": "mapa-sistema",
+            "id": "system-map",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z",
-            "available": true
+            "available": false
           }
         ]
       }
@@ -578,24 +579,80 @@
       },
       {
         "course": "lpoo",
-        "total": 1,
-        "withMetadata": 1,
+        "total": 9,
+        "withMetadata": 9,
         "missingMetadata": 0,
         "byGenerator": {
-          "Equipe EDU": 1
+          "Equipe EDU": 9
         },
         "byModel": {
-          "manual": 1
+          "manual": 9
         },
         "earliestTimestamp": "2024-06-14T00:00:00.000Z",
-        "latestTimestamp": "2024-06-14T00:00:00.000Z",
+        "latestTimestamp": "2025-03-25T00:00:00.000Z",
         "entries": [
+          {
+            "id": "av2-guide",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-25T00:00:00.000Z"
+          },
+          {
+            "id": "av3-evidence-checklist",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-25T00:00:00.000Z"
+          },
+          {
+            "id": "av3-minutes-template",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-25T00:00:00.000Z"
+          },
+          {
+            "id": "final-delivery-checklist",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-22T00:00:00.000Z"
+          },
+          {
+            "id": "java-clean-code-checklist",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-08T00:00:00.000Z"
+          },
+          {
+            "id": "java-exceptions-playbook",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-01T00:00:00.000Z"
+          },
           {
             "id": "patterns-cheatsheet",
             "type": "reference",
             "generatedBy": "Equipe EDU",
             "model": "manual",
             "timestamp": "2024-06-14T00:00:00.000Z"
+          },
+          {
+            "id": "project-pitch-template",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-22T00:00:00.000Z"
+          },
+          {
+            "id": "tdd-refactoring-guide",
+            "type": "reference",
+            "generatedBy": "Equipe EDU",
+            "model": "manual",
+            "timestamp": "2025-03-15T00:00:00.000Z"
           }
         ]
       },

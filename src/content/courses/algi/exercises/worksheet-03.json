@@ -1,0 +1,96 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "worksheet-03",
+  "title": "Lista 3 — Laços e repetição",
+  "summary": "Exercícios progressivos para consolidar laços `for`, `while` e controle de sentinela.",
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivos de aprendizagem",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Selecionar o laço adequado (contado, condicional ou infinito controlado) para cada problema."
+            },
+            {
+              "text": "Controlar variáveis acumuladoras e contadores com atenção aos limites de parada."
+            },
+            {
+              "text": "Registrar saídas tabulares ou sequenciais de forma clara para comparação com gabaritos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Orientações gerais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Construa fluxogramas simplificados antes de codificar. Identifique condições de parada e estados iniciais de cada variável."
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Feedback automatizado",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Compare os resultados com Beecrowd 1071 (Soma de Impares Consecutivos I) e 1142 (PUM) ou com o HackerRank > C > For Loop in C para verificar limites e incrementos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Desafios",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Somatório segmentado",
+              "text": "Nível: básico — Leia dois inteiros e some apenas os valores pares no intervalo inclusivo entre eles."
+            },
+            {
+              "title": "Tabela de multiplicação",
+              "text": "Nível: básico — Receba um número inteiro e gere uma tabela de multiplicação de 1 a 10 com alinhamento de colunas."
+            },
+            {
+              "title": "Sequência de Fibonacci",
+              "text": "Nível: intermediário — Imprima os primeiros N termos da sequência de Fibonacci utilizando laço `while` e explique a escolha do tipo de laço."
+            },
+            {
+              "title": "Controle de estoque contínuo",
+              "text": "Nível: avançado — Leia movimentos de estoque até receber sentinela 'FIM'. Atualize saldo e informe alertas quando o nível mínimo for alcançado."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica resumida",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Corretude dos limites: laços iniciam e encerram com as condições definidas."
+            },
+            {
+              "text": "Uso de acumuladores: variáveis inicializadas corretamente e atualizadas no bloco certo."
+            },
+            {
+              "text": "Testes registrados: tabela ou anotações com pelo menos dois casos de entrada por exercício."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

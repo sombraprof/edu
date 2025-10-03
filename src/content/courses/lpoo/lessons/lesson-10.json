@@ -1,0 +1,126 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-10",
+  "title": "Aula 10: Introdução a Exceções e Resiliência",
+  "summary": "Apresenta fundamentos de tratamento de exceções, logging e políticas de recuperação aplicadas ao sistema bancário.",
+  "objective": "Habilitar a turma a identificar pontos de falha e implementar estratégias básicas de captura e propagação de exceções.",
+  "objectives": [
+    "Diferenciar exceções checadas, não checadas e erros em Java.",
+    "Construir hierarquias de exceções alinhadas ao domínio bancário.",
+    "Aplicar blocos try/catch/finally e try-with-resources com boas mensagens.",
+    "Planejar evidências de logging para auditoria e observabilidade."
+  ],
+  "competencies": ["Tratamento de erros", "Observabilidade", "Design orientado a domínio"],
+  "skills": [
+    "Mapear riscos em casos de uso críticos.",
+    "Criar exceções customizadas reutilizáveis.",
+    "Instrumentar logs estruturados para apoiar diagnóstico."
+  ],
+  "outcomes": [
+    "Matriz de riscos com classificação por impacto e probabilidade.",
+    "Pacote de exceções do domínio implementado com mensagens orientadas a negócio.",
+    "Fluxo de tratamento validado com teste automatizado simples."
+  ],
+  "prerequisites": [
+    "Revisar conceitos de herança e polimorfismo aplicados ao projeto.",
+    "Ter o repositório do sistema bancário configurado localmente."
+  ],
+  "tags": ["java", "excecoes", "robustez"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Playbook de exceções no projeto bancário",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/java-exceptions-playbook"
+    },
+    {
+      "label": "Dojo: Tratando falhas no sistema bancário",
+      "type": "exercise",
+      "url": "https://edu.local/courses/lpoo/exercises/exception-handling"
+    },
+    {
+      "label": "Oracle Tutorial – Exceptions",
+      "type": "documentation",
+      "url": "https://docs.oracle.com/javase/tutorial/essential/exceptions/"
+    }
+  ],
+  "bibliography": [
+    "BLOCH, J. Effective Java. 3. ed. Addison-Wesley, 2018.",
+    "GOETZ, B. Java Concurrency in Practice. Addison-Wesley, 2017."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Laboratório guiado sobre exceções: adaptar operações de transferência para utilizar exceções customizadas e logs estruturados.",
+    "rubric": "Classificação correta de erros, mensagens claras e teste cobrindo cenário excepcional principal."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade V — Robustez",
+        "content": "Estabelecer fundamentos de tratamento de falhas para sustentar evoluções posteriores."
+      },
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Mapa de riscos",
+          "content": "Identificação de falhas potenciais no fluxo bancário."
+        },
+        {
+          "icon": "code",
+          "title": "Tratamento estruturado",
+          "content": "Hierarquias de exceções e uso de try/catch."
+        },
+        {
+          "icon": "desktop",
+          "title": "Laboratório",
+          "content": "Hands-on guiado com logs e testes."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h30)",
+      "items": [
+        "(15 min) Contextualização: incidentes reais e expectativas da unidade.",
+        "(30 min) Exposição: hierarquia de exceções, checked vs unchecked e boas práticas de mensagens.",
+        "(35 min) Atividade em grupo: construir matriz de risco e priorizar cenários críticos.",
+        "(40 min) Laboratório guiado: implementar exceções customizadas e blocos try-with-resources.",
+        "(20 min) Instrumentação de logs estruturados com SLF4J/MDC.",
+        "(10 min) Teste rápido: validar cenário excepcional com JUnit.",
+        "(10 min) Retrospectiva e encaminhamentos assíncronos."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Boas práticas de tratamento",
+      "columns": 2,
+      "cards": [
+        {
+          "title": "Contextualize",
+          "content": "Inclua dados relevantes nas mensagens de exceção sem vazar informações sensíveis."
+        },
+        {
+          "title": "Recupere",
+          "content": "Avalie fallback, retry ou cancelamento controlado conforme o tipo de falha."
+        },
+        {
+          "title": "Centralize",
+          "content": "Concentre tratadores em bordas do sistema para evitar código duplicado."
+        },
+        {
+          "title": "Monitore",
+          "content": "Utilize logs estruturados e dashboards para detectar padrões de erro."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-01T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia interno de resiliência Unifametro"]
+  }
+}

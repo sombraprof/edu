@@ -4,7 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
+html[data-theme='dark'] {
+  /* Institution brand accents - Dark Theme */
+  --institution-unichristus-accent: #b4c5ff;
+  --institution-unichristus-accent-container: #003ea8;
+  --institution-unichristus-on-accent-container: #dbe1ff;
+
+  --institution-unifametro-accent: #52df9a;
+  --institution-unifametro-accent-container: #005232;
+  --institution-unifametro-on-accent-container: #72fcb4;
+}
+
 :root {
+  /* Institution brand accents */
+  --institution-unichristus-accent: #0b57d0;
+  --institution-unichristus-accent-container: #d8e2ff;
+  --institution-unichristus-on-accent-container: #001b3b;
+
+  --institution-unifametro-accent: #0b6a4a;
+  --institution-unifametro-accent-container: #bfe8d1;
+  --institution-unifametro-on-accent-container: #002116;
+
   /* MD3 Spacing System */
   --md-sys-spacing-1: 0.25rem; /* 4px */
   --md-sys-spacing-2: 0.5rem; /* 8px */
@@ -1549,6 +1569,11 @@ html {
   }
 
   .course-card__institution {
+    @apply inline-flex items-center gap-1 rounded-full px-3 py-1 font-medium;
+    font-family: var(--md-sys-typescale-font);
+    font-size: var(--md-sys-typescale-label-medium-size);
+    line-height: var(--md-sys-typescale-label-medium-line-height);
+    letter-spacing: var(--md-sys-typescale-label-medium-tracking);
     white-space: nowrap;
     flex-shrink: 0;
     margin-left: auto;
@@ -1693,14 +1718,14 @@ html {
     z-index: 60;
     display: grid;
     place-items: center;
-    min-width: 3.5rem;
-    min-height: 3.5rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
     padding: 0;
-    --md3-button-container: var(--md-sys-color-primary-container);
-    --md3-button-color: var(--md-sys-color-on-primary-container);
-    --md3-button-outline-color: var(--md-sys-color-primary-container);
-    --md3-button-shadow: var(--md-sys-elevation-level2);
-    --md3-button-state-layer: var(--md-sys-state-layer-on-primary-container);
+    --md3-button-container: var(--md-sys-color-primary);
+    --md3-button-color: var(--md-sys-color-on-primary);
+    --md3-button-outline-color: var(--md-sys-color-primary);
+    --md3-button-shadow: var(--md-sys-elevation-level3);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-primary);
     border-radius: var(--md-sys-border-radius-4xl);
     box-shadow: var(--md3-button-shadow);
     transition:
@@ -1719,8 +1744,8 @@ html {
 
   .md3-fab .md3-button__icon,
   .md3-fab .md-icon {
-    width: var(--md-sys-icon-size-medium);
-    height: var(--md-sys-icon-size-medium);
+    width: var(--md-sys-icon-size-small);
+    height: var(--md-sys-icon-size-small);
   }
 
   .md3-fab .md3-button__icon--leading,

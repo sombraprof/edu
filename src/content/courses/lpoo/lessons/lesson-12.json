@@ -1,0 +1,113 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-12",
+  "title": "Aula 12: TDD e Refatoração Guiada por Testes",
+  "summary": "Pratica ciclos Red-Green-Refactor, utiliza doubles e prioriza melhorias incrementais no sistema bancário.",
+  "objective": "Consolidar o uso de testes como motor de desenvolvimento e refatoração contínua antes da preparação final da AV3.",
+  "objectives": [
+    "Aplicar o ciclo TDD completo em uma funcionalidade do projeto.",
+    "Utilizar mocks ou stubs para isolar dependências externas.",
+    "Mapear e priorizar débitos técnicos com base em métricas de teste.",
+    "Registrar evidências de melhorias realizadas para compartilhamento com a banca."
+  ],
+  "competencies": ["Desenvolvimento orientado a testes", "Refatoração", "Gestão de débito técnico"],
+  "skills": [
+    "Escrever testes antes de implementar a solução definitiva.",
+    "Refatorar código legado garantindo cobertura contínua.",
+    "Comunicar resultados de refatorações com indicadores objetivos."
+  ],
+  "outcomes": [
+    "Funcionalidade evoluída com testes automatizados em TDD.",
+    "Lista priorizada de débitos técnicos com responsáveis definidos.",
+    "Registro de antes/depois evidenciando melhorias estruturais."
+  ],
+  "prerequisites": [
+    "Projeto com suíte de testes automatizados configurada na aula anterior.",
+    "Familiaridade com padrões de código limpo e logging."
+  ],
+  "tags": ["tdd", "refatoracao", "testes"],
+  "duration": 150,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Guia rápido de TDD e refatoração",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/tdd-refactoring-guide"
+    },
+    {
+      "label": "Kata – Refatoração Guiada por Testes",
+      "type": "exercise",
+      "url": "https://edu.local/courses/lpoo/exercises/tdd-refactor-kata"
+    },
+    {
+      "label": "Checklist de código limpo para LPOO",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/java-clean-code-checklist"
+    }
+  ],
+  "bibliography": [
+    "BECK, K. Test-Driven Development: By Example. Addison-Wesley, 2021.",
+    "MESZAROS, G. xUnit Test Patterns. Addison-Wesley, 2014."
+  ],
+  "assessment": {
+    "type": "practice",
+    "description": "Kata avaliativo: executar um ciclo completo de TDD refatorando módulo legado e documentar métricas de melhoria.",
+    "rubric": "Sequência Red-Green-Refactor registrada (40%), cobertura adicional comprovada (30%) e justificativas técnicas documentadas (30%)."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade V — Robustez",
+        "content": "Manter código sustentável a partir de testes automatizados e refatorações seguras."
+      },
+      "cards": [
+        {
+          "icon": "tasks",
+          "title": "Ciclo TDD",
+          "content": "Red-Green-Refactor aplicado ao domínio bancário."
+        },
+        {
+          "icon": "settings",
+          "title": "Refatoração",
+          "content": "Melhorias estruturais guiadas por métricas."
+        },
+        {
+          "icon": "book-open",
+          "title": "Evidências",
+          "content": "Registro das melhorias para a banca."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (2h30)",
+      "items": [
+        "(15 min) Aquecimento: revisão do ciclo TDD e indicadores de sucesso.",
+        "(25 min) Demonstração guiada: escrever teste antes da implementação usando um caso do projeto.",
+        "(50 min) Kata em duplas: evoluir funcionalidade com TDD e registrar métricas.",
+        "(30 min) Refatoração orientada por métricas: reduzir duplicidades e melhorar legibilidade.",
+        "(20 min) Mini-clínica: analisar débitos técnicos levantados e priorizar ações.",
+        "(10 min) Compartilhamento rápido de aprendizados e ajustes no backlog técnico."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Registro de evidências",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Capture prints de cobertura, gráficos de complexidade e descrição das refatorações realizadas; serão usados na banca AV3."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-15T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia interno de TDD Unifametro"]
+  }
+}

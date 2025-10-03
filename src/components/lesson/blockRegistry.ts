@@ -36,6 +36,26 @@ import ScenarioMatrix from '@/components/lesson/ScenarioMatrix.vue';
 import SpriteSheetViewer from '@/components/lesson/SpriteSheetViewer.vue';
 import CRCCards from '@/components/lesson/CRCCards.vue';
 import ApiEndpoints from '@/components/lesson/ApiEndpoints.vue';
+import DefinitionCard from '@/components/lesson/DefinitionCard.vue';
+import ComparativeTable from '@/components/lesson/ComparativeTable.vue';
+import SystemDiagram from '@/components/lesson/SystemDiagram.vue';
+import CodeChallenge from '@/components/lesson/CodeChallenge.vue';
+import MemoryVisualizer from '@/components/lesson/MemoryVisualizer.vue';
+import CaseStudy from '@/components/lesson/CaseStudy.vue';
+import StatCard from '@/components/lesson/StatCard.vue';
+import KnowledgeCheck from '@/components/lesson/KnowledgeCheck.vue';
+import InteractiveDemo from '@/components/lesson/InteractiveDemo.vue';
+import PedagogicalNote from '@/components/lesson/PedagogicalNote.vue';
+import CodeSubmission from '@/components/exercise/CodeSubmission.vue';
+import DragAndDrop from '@/components/exercise/DragAndDrop.vue';
+import ConceptMapper from '@/components/exercise/ConceptMapper.vue';
+import BugFixChallenge from '@/components/exercise/BugFixChallenge.vue';
+import DataEntryForm from '@/components/exercise/DataEntryForm.vue';
+import ScenarioBuilder from '@/components/exercise/ScenarioBuilder.vue';
+import PeerReviewTask from '@/components/exercise/PeerReviewTask.vue';
+import TestGenerator from '@/components/exercise/TestGenerator.vue';
+import RubricDisplay from '@/components/exercise/RubricDisplay.vue';
+import SelfAssessment from '@/components/exercise/SelfAssessment.vue';
 import type { Component } from 'vue';
 
 export type LessonBlock = Record<string, unknown> & { type: string };
@@ -73,6 +93,26 @@ const customComponentRegistry: Record<string, Component> = {
   SpriteSheetViewer,
   CRCCards,
   ApiEndpoints,
+  DefinitionCard,
+  ComparativeTable,
+  SystemDiagram,
+  CodeChallenge,
+  MemoryVisualizer,
+  CaseStudy,
+  StatCard,
+  KnowledgeCheck,
+  InteractiveDemo,
+  PedagogicalNote,
+  CodeSubmission,
+  DragAndDrop,
+  ConceptMapper,
+  BugFixChallenge,
+  DataEntryForm,
+  ScenarioBuilder,
+  PeerReviewTask,
+  TestGenerator,
+  RubricDisplay,
+  SelfAssessment,
 };
 
 const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
@@ -136,6 +176,26 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   spriteSheet: dataBlock(SpriteSheetViewer),
   crcCards: dataBlock(CRCCards),
   apiEndpoints: dataBlock(ApiEndpoints),
+  definitionCard: dataBlock(DefinitionCard),
+  comparativeTable: dataBlock(ComparativeTable),
+  systemDiagram: dataBlock(SystemDiagram),
+  codeChallenge: dataBlock(CodeChallenge),
+  memoryVisualizer: dataBlock(MemoryVisualizer),
+  caseStudy: dataBlock(CaseStudy),
+  statCard: dataBlock(StatCard),
+  knowledgeCheck: dataBlock(KnowledgeCheck),
+  interactiveDemo: dataBlock(InteractiveDemo),
+  pedagogicalNote: dataBlock(PedagogicalNote),
+  codeSubmission: dataBlock(CodeSubmission),
+  dragAndDrop: dataBlock(DragAndDrop),
+  conceptMapper: dataBlock(ConceptMapper),
+  bugFixChallenge: dataBlock(BugFixChallenge),
+  dataEntryForm: dataBlock(DataEntryForm),
+  scenarioBuilder: dataBlock(ScenarioBuilder),
+  peerReviewTask: dataBlock(PeerReviewTask),
+  testGenerator: dataBlock(TestGenerator),
+  rubricDisplay: dataBlock(RubricDisplay),
+  selfAssessment: dataBlock(SelfAssessment),
   truthTable(block) {
     return {
       component: TruthTable,
@@ -272,7 +332,7 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   },
 };
 
-const legacyBlockTypes = ['dragAndDrop', 'fileTree', 'quiz'] as const;
+const legacyBlockTypes = ['fileTree', 'quiz'] as const;
 
 export function resolveBlock(block: LessonBlock): BlockResolution {
   const handler = blockHandlers[block.type];

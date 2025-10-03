@@ -3,6 +3,84 @@
   "generatedAt": "2025-09-29T01:29:26.430Z",
   "entries": [
     {
+      "id": "av2-guide",
+      "title": "Guia da prova AV2",
+      "description": "Formato, conteúdos e critérios de correção da avaliação AV2.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/av2-guide.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-25T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "av3-evidence-checklist",
+      "title": "Checklist de evidências AV3",
+      "description": "Lista de materiais e registros exigidos para a banca final.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/av3-evidence-checklist.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-25T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "av3-minutes-template",
+      "title": "Template de ata da banca AV3",
+      "description": "Modelo para registro das avaliações da banca final.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/av3-minutes-template.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-25T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "final-delivery-checklist",
+      "title": "Checklist de entrega final",
+      "description": "Passos obrigatórios antes de enviar o release candidate para AV2/AV3.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/final-delivery-checklist.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-22T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "java-clean-code-checklist",
+      "title": "Checklist de código limpo",
+      "description": "Lista de verificação para revisões de código, testes e análise estática do projeto.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/java-clean-code-checklist.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-08T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "java-exceptions-playbook",
+      "title": "Playbook de exceções para o projeto bancário",
+      "description": "Boas práticas, fluxos e checklist para implementar tratamento de erros e logging na APS 02.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/java-exceptions-playbook.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-01T00:00:00.000Z"
+      }
+    },
+    {
       "id": "patterns-cheatsheet",
       "title": "Cheatsheet de padrões de projeto",
       "description": "Quadro resumido com intenções, diagramas e exemplos práticos dos padrões mais usados.",
@@ -13,6 +91,32 @@
         "generatedBy": "Equipe EDU",
         "model": "manual",
         "timestamp": "2024-06-14T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "project-pitch-template",
+      "title": "Template de pitch para banca AV3",
+      "description": "Roteiro e estrutura sugerida para apresentação final do sistema bancário.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/project-pitch-template.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-22T00:00:00.000Z"
+      }
+    },
+    {
+      "id": "tdd-refactoring-guide",
+      "title": "Guia rápido de TDD e refatoração",
+      "description": "Resumo do ciclo Red-Green-Refactor, estratégias e métricas para refatorar com segurança.",
+      "type": "reference",
+      "link": "courses/lpoo/supplements/tdd-refactoring-guide.md",
+      "available": true,
+      "metadata": {
+        "generatedBy": "Equipe EDU",
+        "model": "manual",
+        "timestamp": "2025-03-15T00:00:00.000Z"
       }
     }
   ]

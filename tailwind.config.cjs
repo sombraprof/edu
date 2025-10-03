@@ -65,7 +65,7 @@ materialColors.info = withOpacityValue('primary');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
-  content: ['./index.html', './src/**/*.{vue,ts,tsx,js,jsx}'],
+  content: ['./index.html', './src/**/*.{vue,ts}', './src/content/**/*.{json,md}'],
   theme: {
     extend: {
       fontFamily: {

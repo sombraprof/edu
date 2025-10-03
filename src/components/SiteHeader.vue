@@ -94,40 +94,40 @@ const navLinks = computed<NavAction[]>(() => {
   }
 
   if (teacherMode.value) {
-    const toProfessor: RouteLocationRaw = { name: 'professor-dashboard' };
+    const toFaculty: RouteLocationRaw = { name: 'faculty-dashboard' };
     actions.push({
-      label: 'Painel do professor',
-      to: toProfessor,
+      label: 'Painel docente',
+      to: toFaculty,
       icon: School,
-      targetName: 'professor-dashboard',
+      targetName: 'faculty-dashboard',
     });
-    const toIngestion: RouteLocationRaw = { name: 'professor-ingestion' };
+    const toIngestion: RouteLocationRaw = { name: 'faculty-ingestion' };
     actions.push({
       label: 'Ingestão de JSON',
       to: toIngestion,
       icon: UploadCloud,
-      targetName: 'professor-ingestion',
+      targetName: 'faculty-ingestion',
     });
-    const toEditor: RouteLocationRaw = { name: 'professor-editor' };
+    const toEditor: RouteLocationRaw = { name: 'faculty-editor' };
     actions.push({
       label: 'Editor visual',
       to: toEditor,
       icon: PenSquare,
-      targetName: 'professor-editor',
+      targetName: 'faculty-editor',
     });
-    const toValidation: RouteLocationRaw = { name: 'professor-validation' };
+    const toValidation: RouteLocationRaw = { name: 'faculty-validation' };
     actions.push({
       label: 'Validações & relatórios',
       to: toValidation,
       icon: ListChecks,
-      targetName: 'professor-validation',
+      targetName: 'faculty-validation',
     });
-    const toPublication: RouteLocationRaw = { name: 'professor-publication' };
+    const toPublication: RouteLocationRaw = { name: 'faculty-publication' };
     actions.push({
       label: 'Publicação & Git',
       to: toPublication,
       icon: GitPullRequest,
-      targetName: 'professor-publication',
+      targetName: 'faculty-publication',
     });
     const toReport: RouteLocationRaw = { name: 'validation-report' };
     actions.push({

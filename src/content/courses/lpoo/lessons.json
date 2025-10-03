@@ -89,6 +89,72 @@
       "tags": ["projeto", "banco", "entrega"],
       "duration": 180,
       "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-09",
+      "title": "Aula 9: AV2 – Prova Teórico-Prática",
+      "file": "lesson-09.json",
+      "available": true,
+      "description": "Aplica a avaliação AV2 com foco nos fundamentos de POO trabalhados no semestre e encerra a APS 02.",
+      "summary": "Realiza a prova individual, orienta procedimentos e comunica próximos passos pós-avaliação.",
+      "tags": ["avaliacao", "av2", "prova"],
+      "duration": 130,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-10",
+      "title": "Aula 10: Introdução a Exceções e Resiliência",
+      "file": "lesson-10.json",
+      "available": true,
+      "description": "Apresenta conceitos essenciais de tratamento de exceções, logging e estratégias de recuperação para o projeto bancário.",
+      "summary": "Mapeia riscos, cria hierarquia de exceções e pratica blocos de tratamento em laboratório guiado.",
+      "tags": ["java", "excecoes", "robustez"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-11",
+      "title": "Aula 11: Testes Automatizados com JUnit 5",
+      "file": "lesson-11.json",
+      "available": true,
+      "description": "Evolui a base de testes com fixtures, asserts fluentes e integração ao pipeline de qualidade.",
+      "summary": "Constrói suíte de testes consistente, mede cobertura e define critérios para revisão contínua.",
+      "tags": ["qualidade", "junit", "testes"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-12",
+      "title": "Aula 12: TDD e Refatoração Guiada por Testes",
+      "file": "lesson-12.json",
+      "available": true,
+      "description": "Pratica ciclos Red-Green-Refactor, mocks e estratégias de refatoração incremental para o sistema bancário.",
+      "summary": "Aplica katas orientados a testes, controla regressões e prioriza débito técnico de forma guiada.",
+      "tags": ["tdd", "refatoracao", "testes"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-13",
+      "title": "Aula 13: Laboratório Final e Preparação para AV3",
+      "file": "lesson-13.json",
+      "available": true,
+      "description": "Dedica encontro integral para finalizar o release candidate, validar métricas e ensaiar o pitch da banca.",
+      "summary": "Organiza checklists, realiza testes finais e prepara a documentação e apresentação para a AV3.",
+      "tags": ["projeto", "laboratorio", "av3"],
+      "duration": 180,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-14",
+      "title": "Aula 14: Banca AV3 e Feedback Final",
+      "file": "lesson-14.json",
+      "available": true,
+      "description": "Conduz a banca AV3 com apresentação do projeto, arguição técnica e devolutivas individuais.",
+      "summary": "Avalia a entrega final, registra atas e define encaminhamentos pós-disciplina.",
+      "tags": ["avaliacao", "av3", "apresentacao"],
+      "duration": 150,
+      "formatVersion": "md3.lesson.v1"
     }
   ]
 }

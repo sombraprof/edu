@@ -1,0 +1,115 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "lesson-13",
+  "title": "Aula 13: Laboratório Final e Preparação para AV3",
+  "summary": "Garante estabilidade do release candidate, encerra pendências e ensaia a apresentação da banca AV3.",
+  "objective": "Proporcionar um laboratório supervisionado para consolidar evidências, revisar métricas e aprimorar o pitch final do projeto bancário.",
+  "objectives": [
+    "Validar funcionalidades críticas com testes automatizados e exploratórios.",
+    "Aplicar checklists de entrega final e organizar documentação obrigatória.",
+    "Ensaiar o pitch da equipe com feedback estruturado.",
+    "Planejar logística do dia da banca e alinhar responsabilidades."
+  ],
+  "competencies": ["Gestão de projeto", "Qualidade de software", "Comunicação"],
+  "skills": [
+    "Priorizar correções de última hora com base em risco.",
+    "Consolidar evidências em repositórios e planilhas institucionais.",
+    "Aprimorar narrativa e tempo do pitch."
+  ],
+  "outcomes": [
+    "Release candidate validado e versionado.",
+    "Checklist de evidências AV3 concluído.",
+    "Pitch ensaiado com plano de apresentação definido."
+  ],
+  "prerequisites": [
+    "Resultados das atividades de TDD consolidados na aula 12.",
+    "Todos os integrantes com acesso aos materiais de apresentação."
+  ],
+  "tags": ["projeto", "laboratorio", "av3"],
+  "duration": 180,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Checklist de entrega final",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/final-delivery-checklist"
+    },
+    {
+      "label": "Checklist de evidências AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/av3-evidence-checklist"
+    },
+    {
+      "label": "Template de pitch para banca AV3",
+      "type": "supplement",
+      "url": "https://edu.local/courses/lpoo/supplements/project-pitch-template"
+    }
+  ],
+  "bibliography": [
+    "PRESSMAN, R.; MAXIM, B. Engenharia de Software. 10. ed. AMGH, 2020.",
+    "SOMMERVILLE, I. Software Engineering. 11. ed. Pearson, 2020."
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Laboratório final avaliativo: estabilizar release candidate, atualizar documentação e registrar ensaio do pitch.",
+    "rubric": "Release sem falhas críticas (40%), documentação completa (30%) e roteiro de apresentação aprovado (30%)."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "unit": {
+        "title": "Unidade VI — Entrega Final",
+        "content": "Concluir o projeto com qualidade e preparar comunicação para a banca."
+      },
+      "cards": [
+        {
+          "icon": "gears",
+          "title": "Correções prioritárias",
+          "content": "Eliminar defeitos e pendências críticas."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Evidências",
+          "content": "Checklist completo e documentação atualizada."
+        },
+        {
+          "icon": "users",
+          "title": "Pitch",
+          "content": "Ensaios com feedback e ajustes finais."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (3h00)",
+      "items": [
+        "(20 min) Check-in geral: status da equipe, riscos e definição de prioridades.",
+        "(50 min) Rodada de correções: focar em bugs críticos identificados na aula 12.",
+        "(40 min) Validação guiada: executar bateria de testes automatizados e exploratórios.",
+        "(30 min) Atualização de documentação: README, guias de execução e registros da APS.",
+        "(25 min) Preparação de evidências: checklist AV3, artefatos no drive institucional e prints de métricas.",
+        "(35 min) Ensaios de pitch com feedback rápido do professor e colegas.",
+        "(20 min) Planejamento logístico da banca: horários, ordem de apresentação e materiais.",
+        "(20 min) Retrospectiva final e próximos passos."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Controle de versões",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Finalize a versão candidata e gere tag/release no repositório até o fim do dia para evitar divergências na banca."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "draft",
+    "updatedAt": "2025-10-22T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino LPOO 2025.2", "Guia de entrega final Unifametro"]
+  }
+}

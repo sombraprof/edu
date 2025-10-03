@@ -1,0 +1,55 @@
+{
+  "formatVersion": "md3.lesson.v1",
+  "id": "exception-handling",
+  "title": "Dojo – Tratamento de Exceções",
+  "summary": "Implemente tratadores consistentes para fluxos críticos do sistema bancário e registre logs estruturados.",
+  "content": [
+    {
+      "type": "contentBlock",
+      "title": "Cenário",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O módulo de transferências precisa lidar com falhas em serviços externos e validações de entrada. Atualize o código legado garantindo resiliência e observabilidade."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividades",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapeamento de riscos",
+              "text": "Identifique pontos onde exceções podem ocorrer (entrada inválida, timeout, saldo insuficiente)."
+            },
+            {
+              "title": "Exceções customizadas",
+              "text": "Crie classes derivadas de `RuntimeException`/`Exception` representando erros de domínio."
+            },
+            {
+              "title": "Tratadores",
+              "text": "Aplique `try-with-resources`, multi-catch e logs estruturados usando SLF4J + MDC."
+            },
+            {
+              "title": "Testes",
+              "text": "Implemente testes JUnit cobrindo ao menos três cenários de falha."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Entrega",
+      "items": [
+        "Exceções customizadas com mensagens claras.",
+        "Logs estruturados contendo `transactionId` e `clientId`.",
+        "Testes automatizados executando com sucesso.",
+        "Atualização do README com políticas de tratamento."
+      ]
+    }
+  ]
+}
