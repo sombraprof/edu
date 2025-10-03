@@ -865,8 +865,8 @@ html {
   .app-brand__mark {
     display: grid;
     place-items: center;
-    width: 2.75rem;
-    height: 2.75rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: var(--md-sys-border-radius-full);
     background-color: var(--md-sys-color-primary);
     color: var(--md-sys-color-on-primary);
