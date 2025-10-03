@@ -147,133 +147,159 @@ watch(
 </script>
 
 <style>
-/* Using a global style tag here to define the Prism theme based on MD3 */
-
-/* Base code block style */
+/* Accessible code block redesign focused on high-contrast legibility */
 .code-block {
-  --_toolbar-padding-inline: var(--md-sys-spacing-6);
-  --_toolbar-padding-block: var(--md-sys-spacing-2);
-  --_content-padding-inline: var(--md-sys-spacing-7);
-  --_content-padding-block: var(--md-sys-spacing-4);
-
-  background: color-mix(
+  --cb-radius: 12px;
+  --cb-border: color-mix(in srgb, var(--md-sys-color-outline, #cbd5f5) 45%, transparent 55%);
+  --cb-surface: color-mix(in srgb, var(--md-sys-color-surface, #ffffff) 94%, white 6%);
+  --cb-header-bg: color-mix(
     in srgb,
-    var(--md-sys-color-surface-container-highest, var(--md-sys-color-surface)) 94%,
-    var(--md-sys-color-surface) 6%
+    var(--md-sys-color-surface-container-highest, #e8edf5) 80%,
+    white 20%
   );
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--md-sys-color-outline-variant, var(--md-sys-color-outline)) 55%,
-      transparent
-    );
-  border-radius: var(--md-sys-shape-corner-extra-large, var(--md-sys-border-radius-xl));
-  box-shadow: var(--md-sys-elevation-level1);
-  margin-block: var(--code-block-spacing, 0);
+  --cb-header-text: color-mix(in srgb, var(--md-sys-color-on-surface, #0f172a) 95%, black 5%);
+  --cb-code-bg: color-mix(in srgb, var(--md-sys-color-surface, #ffffff) 90%, #dbeafe 10%);
+  --cb-toolbar-color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary, #2563eb) 70%,
+    var(--md-sys-color-on-surface, #0f172a) 30%
+  );
+  --cb-dot-red: #f87171;
+  --cb-dot-amber: #f59e0b;
+  --cb-dot-green: #22c55e;
+
+  background: var(--cb-surface);
+  border-radius: var(--cb-radius);
+  box-shadow: none;
+  margin-block: var(--code-block-spacing, 1.5rem);
   overflow: hidden;
-  position: relative;
   display: flex;
   flex-direction: column;
+}
+
+html[data-theme='dark'] .code-block {
+  --cb-border: rgba(148, 163, 184, 0.35);
+  --cb-surface: #0b121a;
+  --cb-header-bg: #121c2b;
+  --cb-header-text: #e2e8f0;
+  --cb-code-bg: #0f1c2f;
+  --cb-toolbar-color: #60a5fa;
+  --cb-dot-red: #fb7185;
+  --cb-dot-amber: #facc15;
+  --cb-dot-green: #34d399;
 }
 
 .code-block__chrome {
   display: flex;
   align-items: center;
-  gap: var(--md-sys-spacing-3);
-  padding-inline: var(--_toolbar-padding-inline);
-  padding-block: var(--_toolbar-padding-block);
-  background-color: var(--md-sys-color-surface-container-highest);
-  background-color: color-mix(
-    in srgb,
-    var(--md-sys-color-surface-container-highest) 88%,
-    transparent
-  );
-  border-bottom: 1px solid var(--md-sys-color-outline-variant);
-  border-bottom: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 70%, transparent);
+  gap: var(--md-sys-spacing-3, 0.75rem);
+  padding-inline: var(--md-sys-spacing-6, 1.25rem);
+  padding-block: var(--md-sys-spacing-3, 0.75rem);
+  background: var(--cb-header-bg);
+  color: var(--cb-header-text);
+  border-bottom: 1px solid color-mix(in srgb, var(--cb-border) 70%, transparent 30%);
 }
 
 .code-block__chrome-dots {
   display: inline-flex;
-  gap: 0.45rem;
+  gap: 0.5rem;
 }
 
 .code-block__chrome-dots span {
-  width: 0.625rem;
-  height: 0.625rem;
+  width: 0.55rem;
+  height: 0.55rem;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--md-sys-color-on-surface-variant) 28%, transparent);
-  transition: background-color 200ms ease;
+  background: var(--cb-dot-red);
+  opacity: 0.9;
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.code-block__chrome-dots span:nth-child(2) {
+  background: var(--cb-dot-amber);
+}
+
+.code-block__chrome-dots span:nth-child(3) {
+  background: var(--cb-dot-green);
 }
 
 .group:hover .code-block__chrome-dots span {
-  background: color-mix(in srgb, var(--md-sys-color-on-surface-variant) 42%, transparent);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .code-block__label {
   margin: 0;
-  font: var(--md-sys-typescale-label-medium, 500 0.75rem/1.2 'Figtree', sans-serif);
-  color: var(--md-sys-color-on-surface-variant);
+  font:
+    600 0.78rem/1.2 'Figtree',
+    'Inter',
+    system-ui;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: inherit;
   flex: 1;
+  user-select: none;
 }
 
 .code-block__toolbar {
   display: flex;
   justify-content: flex-end;
+  color: var(--cb-toolbar-color);
+}
+
+.code-block__toolbar .md3-button {
+  color: inherit;
+  font-weight: 600;
+}
+
+.code-block__toolbar .md3-button:hover,
+.code-block__toolbar .md3-button:focus-visible {
+  color: color-mix(in srgb, var(--cb-toolbar-color) 85%, white 15%);
 }
 
 .code-block__pre {
   margin: 0;
-  padding-inline: var(--_content-padding-inline);
-  padding-block: var(--_content-padding-block);
-  padding-top: var(--md-sys-spacing-2);
+  padding: var(--md-sys-spacing-5, 0.75rem);
+  background: var(--cb-code-bg);
+  border: none;
+  border-radius: 0;
   overflow-x: auto;
 }
 
 .code-block code {
-  border: none;
-  box-shadow: none;
-  padding: 0;
+  display: block;
+  min-width: 100%;
   background: none;
-}
-
-/* Plain text styling - no syntax highlighting */
-.plain-text {
-  color: var(--md-sys-color-on-surface) !important;
-  background: transparent !important;
-}
-
-.plain-text * {
-  color: var(--md-sys-color-on-surface) !important;
-  background: transparent !important;
-  font-weight: normal !important;
-  font-style: normal !important;
-}
-
-/* Ensure plain text doesn't inherit Prism styles */
-.code-block .plain-text {
-  all: unset;
-  color: var(--md-sys-color-on-surface);
-  font-family: 'Fira Code', 'JetBrains Mono', monospace;
-  font-size: 0.875em;
-  font-weight: 500;
-  line-height: 1.6;
+  border: none;
+  padding: 0;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: var(--prism-color-text);
   white-space: pre-wrap;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  tab-size: 4;
+  border-radius: 8px;
+  padding: 4px;
 }
 
-/* Plain text mode - remove borders, shadows and backgrounds */
+/* Plain text block variant */
 .code-block.plain-text-mode {
-  background-color: transparent !important;
+  --cb-border: transparent;
+  --cb-surface: transparent;
+  --cb-header-bg: transparent;
+  --cb-code-bg: transparent;
+  background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
-  margin: 0 !important;
   border-radius: 0 !important;
+  margin-block: 0;
 }
 
 .code-block.plain-text-mode .code-block__chrome {
-  display: none !important; /* Hide the button container */
+  display: none !important;
 }
 
 .code-block.plain-text-mode pre {
@@ -282,51 +308,36 @@ watch(
   background: transparent !important;
 }
 
-.code-block pre,
-.code-block code {
+.code-block .plain-text {
+  color: var(--prism-color-text);
   font-family: 'Fira Code', 'JetBrains Mono', monospace;
-  text-shadow: none;
-  background: none;
-  text-align: left;
+  font-size: 0.95rem;
   white-space: pre-wrap;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.6;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
 }
 
-/* Light Theme */
+/* Prism token palette */
 :root {
-  --prism-color-text: var(--md-sys-color-on-surface);
-  --prism-color-comment: var(--md-sys-color-on-surface-variant);
-  --prism-color-keyword: var(--md-sys-color-primary);
-  --prism-color-string: var(--md-sys-color-secondary);
-  --prism-color-function: var(--md-sys-color-primary);
-  --prism-color-number: var(--md-sys-color-error);
-  --prism-color-operator: var(--md-sys-color-on-surface-variant);
-  --prism-color-punctuation: var(--md-sys-color-outline);
+  --prism-color-text: #0f172a;
+  --prism-color-comment: #64748b;
+  --prism-color-keyword: #4338ca;
+  --prism-color-string: #0f766e;
+  --prism-color-function: #b45309;
+  --prism-color-number: #b91c1c;
+  --prism-color-operator: #1e293b;
+  --prism-color-punctuation: #475569;
 }
 
-/* Dark Theme */
 html[data-theme='dark'] {
-  --prism-color-text: var(--md-sys-color-on-surface);
-  --prism-color-comment: var(--md-sys-color-on-surface-variant);
-  --prism-color-keyword: var(--md-sys-color-primary);
-  --prism-color-string: var(--md-sys-color-secondary);
-  --prism-color-function: var(--md-sys-color-primary);
-  --prism-color-number: var(--md-sys-color-error);
-  --prism-color-operator: var(--md-sys-color-on-surface-variant);
-  --prism-color-punctuation: var(--md-sys-color-outline);
+  --prism-color-text: #e2e8f0;
+  --prism-color-comment: #94a3b8;
+  --prism-color-keyword: #c084fc;
+  --prism-color-string: #34d399;
+  --prism-color-function: #38bdf8;
+  --prism-color-number: #fca5a5;
+  --prism-color-operator: #bae6fd;
+  --prism-color-punctuation: #cbd5f5;
 }
 
-/* Token colors */
 code[class*='language-'],
 pre[class*='language-'] {
   color: var(--prism-color-text);
@@ -344,17 +355,16 @@ pre[class*='language-'] {
   color: var(--prism-color-punctuation);
 }
 
-.token.namespace {
-  opacity: 0.7;
-}
-
 .token.property,
 .token.tag,
-.token.boolean,
-.token.number,
 .token.constant,
 .token.symbol,
 .token.deleted {
+  color: var(--prism-color-number);
+}
+
+.token.boolean,
+.token.number {
   color: var(--prism-color-number);
 }
 
@@ -362,7 +372,6 @@ pre[class*='language-'] {
 .token.attr-name,
 .token.string,
 .token.char,
-.token.builtin,
 .token.inserted {
   color: var(--prism-color-string);
 }
@@ -394,7 +403,7 @@ pre[class*='language-'] {
 
 .token.important,
 .token.bold {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .token.italic {

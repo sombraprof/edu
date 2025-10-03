@@ -342,9 +342,104 @@ function cardClasses(item: ContentItem) {
   } else if (!item.available) {
     classes.push('card--disabled');
   }
+  classes.push(
+    item.type === 'lesson' ? 'course-home__card--lesson' : 'course-home__card--exercise'
+  );
   if (viewMode.value === 'list') {
     classes.push('md:flex-row', 'md:items-center', 'md:justify-between');
   }
   return classes.join(' ');
 }
 </script>
+
+<style scoped>
+:global(.course-home__card--lesson) {
+  --card-focus-color: var(--md-sys-color-primary);
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface) 88%,
+    var(--md-sys-color-primary-container) 12%
+  );
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary) 26%,
+    var(--md-sys-color-outline) 74%
+  );
+}
+
+:global(.course-home__card--exercise) {
+  --card-focus-color: var(--md-sys-color-tertiary);
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface) 84%,
+    var(--md-sys-color-tertiary-container) 16%
+  );
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-tertiary) 28%,
+    var(--md-sys-color-outline) 72%
+  );
+}
+
+:global(.card--interactive.course-home__card--lesson:hover),
+:global(.card--interactive.course-home__card--lesson:focus-visible) {
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary) 42%,
+    var(--md-sys-color-outline) 58%
+  );
+}
+
+:global(.card--interactive.course-home__card--exercise:hover),
+:global(.card--interactive.course-home__card--exercise:focus-visible) {
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-tertiary) 45%,
+    var(--md-sys-color-outline) 55%
+  );
+}
+
+:global(html[data-theme='dark'] .course-home__card--lesson) {
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container-highest) 58%,
+    rgba(59, 130, 246, 0.28) 42%
+  );
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary) 36%,
+    var(--md-sys-color-outline-variant) 64%
+  );
+}
+
+:global(html[data-theme='dark'] .course-home__card--exercise) {
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container-highest) 54%,
+    rgba(16, 185, 129, 0.32) 46%
+  );
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-tertiary) 38%,
+    var(--md-sys-color-outline-variant) 62%
+  );
+}
+
+:global(html[data-theme='dark'] .card--interactive.course-home__card--lesson:hover),
+:global(html[data-theme='dark'] .card--interactive.course-home__card--lesson:focus-visible) {
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary) 50%,
+    var(--md-sys-color-outline-variant) 50%
+  );
+}
+
+:global(html[data-theme='dark'] .card--interactive.course-home__card--exercise:hover),
+:global(html[data-theme='dark'] .card--interactive.course-home__card--exercise:focus-visible) {
+  border-color: color-mix(
+    in srgb,
+    var(--md-sys-color-tertiary) 54%,
+    var(--md-sys-color-outline-variant) 46%
+  );
+}
+</style>
