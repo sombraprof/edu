@@ -1696,11 +1696,11 @@ html {
     min-width: 3.5rem;
     min-height: 3.5rem;
     padding: 0;
-    --md3-button-container: var(--md-sys-color-primary-container);
-    --md3-button-color: var(--md-sys-color-on-primary-container);
-    --md3-button-outline-color: var(--md-sys-color-primary-container);
-    --md3-button-shadow: var(--md-sys-elevation-level2);
-    --md3-button-state-layer: var(--md-sys-state-layer-on-primary-container);
+    --md3-button-container: var(--md-sys-color-primary);
+    --md3-button-color: var(--md-sys-color-on-primary);
+    --md3-button-outline-color: var(--md-sys-color-primary);
+    --md3-button-shadow: var(--md-sys-elevation-level3);
+    --md3-button-state-layer: var(--md-sys-state-layer-on-primary);
     border-radius: var(--md-sys-border-radius-4xl);
     box-shadow: var(--md3-button-shadow);
     transition:
