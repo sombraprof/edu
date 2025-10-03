@@ -13,6 +13,7 @@ import LegacySection from '@/components/lesson/LegacySection.vue';
 import LessonPlan from '@/components/lesson/LessonPlan.vue';
 import Md3BlockDiagram from '@/components/lesson/Md3BlockDiagram.vue';
 import Md3Flowchart from '@/components/lesson/Md3Flowchart.vue';
+import Md3CodeSample from '@/components/lesson/Md3CodeSample.vue';
 import Md3LogicOperators from '@/components/lesson/Md3LogicOperators.vue';
 import Md3Table from '@/components/lesson/Md3Table.vue';
 import MemoryDiagram from '@/components/lesson/MemoryDiagram.vue';
@@ -74,6 +75,7 @@ const customComponentRegistry: Record<string, Component> = {
   Md3LogicOperators,
   Md3BlockDiagram,
   Md3Flowchart,
+  Md3CodeSample,
   MemoryDiagram,
   OrderedList,
   CardGrid,
