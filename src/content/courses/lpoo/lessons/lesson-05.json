@@ -118,6 +118,43 @@
       ]
     },
     {
+      "type": "component",
+      "component": "Md3Checklist",
+      "props": {
+        "title": "Tarefa assíncrona: consolidar o plano pós-AV1",
+        "supportingText": "Converta os insights da aula em compromissos mensuráveis e compartilhe com a dupla de acompanhamento.",
+        "items": [
+          {
+            "label": "Metas prioritárias",
+            "supportingText": "Mapeie ao menos duas habilidades da AV1 que precisam de reforço, vinculando-as a indicadores concretos (ex.: testes que falharam, dúvidas recorrentes)."
+          },
+          {
+            "label": "Entregáveis",
+            "supportingText": "Atualize o repositório da disciplina com uma versão refinada da hierarquia `Funcionario` e registre no README o racional das mudanças."
+          },
+          {
+            "label": "Prazo",
+            "supportingText": "Submeta as evidências até sexta-feira, 23h59, garantindo tempo para feedback antes da aula 06."
+          },
+          {
+            "label": "Critérios de qualidade",
+            "supportingText": "Mantenha cobertura de testes para os cenários críticos da AV1, documente métricas de complexidade se houver ajustes significativos e descreva implicações no plano de ação individual."
+          }
+        ],
+        "links": [
+          {
+            "label": "Repositório oficial da turma",
+            "url": "https://example.edu/repos/lpoo/heranca-funcionarios"
+          },
+          {
+            "label": "Formulário de feedback rápido",
+            "url": "https://example.edu/forms/lpoo/feedback-heranca"
+          }
+        ],
+        "integrationNote": "Os artefatos entregues alimentam o plano de ação individual listado nos outcomes, orientando mentorias e intervenções personalizadas nas próximas sprints."
+      }
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Pergunta norteadora",

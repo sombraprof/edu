@@ -78,6 +78,8 @@ const customComponentRegistry: Record<string, Component> = {
   Md3CodeSample,
   MemoryDiagram,
   OrderedList,
+  Md3Checklist: ChecklistBlock,
+  Md3Callout: Callout,
   CardGrid,
   Roadmap,
   ClassDesigner,
