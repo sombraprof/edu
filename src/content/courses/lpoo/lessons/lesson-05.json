@@ -118,41 +118,22 @@
       ]
     },
     {
-      "type": "component",
-      "component": "Md3Checklist",
-      "props": {
-        "title": "Tarefa assíncrona: consolidar o plano pós-AV1",
-        "supportingText": "Converta os insights da aula em compromissos mensuráveis e compartilhe com a dupla de acompanhamento.",
-        "items": [
-          {
-            "label": "Metas prioritárias",
-            "supportingText": "Mapeie ao menos duas habilidades da AV1 que precisam de reforço, vinculando-as a indicadores concretos (ex.: testes que falharam, dúvidas recorrentes)."
-          },
-          {
-            "label": "Entregáveis",
-            "supportingText": "Atualize o repositório da disciplina com uma versão refinada da hierarquia `Funcionario` e registre no README o racional das mudanças."
-          },
-          {
-            "label": "Prazo",
-            "supportingText": "Submeta as evidências até sexta-feira, 23h59, garantindo tempo para feedback antes da aula 06."
-          },
-          {
-            "label": "Critérios de qualidade",
-            "supportingText": "Mantenha cobertura de testes para os cenários críticos da AV1, documente métricas de complexidade se houver ajustes significativos e descreva implicações no plano de ação individual."
-          }
-        ],
-        "links": [
-          {
-            "label": "Repositório oficial da turma",
-            "url": "https://example.edu/repos/lpoo/heranca-funcionarios"
-          },
-          {
-            "label": "Formulário de feedback rápido",
-            "url": "https://example.edu/forms/lpoo/feedback-heranca"
-          }
-        ],
-        "integrationNote": "Os artefatos entregues alimentam o plano de ação individual listado nos outcomes, orientando mentorias e intervenções personalizadas nas próximas sprints."
-      }
+      "type": "timeline",
+      "title": "Indicadores da AV1",
+      "steps": [
+        {
+          "title": "Objetivos atingidos",
+          "content": "70% dominaram criação de classes e construtores."
+        },
+        {
+          "title": "Alertas",
+          "content": "40% tiveram dificuldades com validação e tratamento de erros."
+        },
+        {
+          "title": "Próximas ações",
+          "content": "Oficinas extras sobre encapsulamento e plantão tira-dúvidas."
+        }
+      ]
     },
     {
       "type": "callout",
@@ -162,32 +143,6 @@
         {
           "type": "paragraph",
           "text": "Qual comportamento realmente precisa ser herdado? Há riscos de dependências rígidas se a hierarquia crescer demais?"
-        }
-      ]
-    },
-    {
-      "type": "stepper",
-      "title": "Exercício guiado: refatoração da hierarquia `Funcionario`",
-      "steps": [
-        {
-          "title": "Mapear atributos e validações comuns",
-          "description": "Tempo estimado: 10 min | Perguntas: Quais campos aparecem em todas as classes atuais? Existem validações duplicadas? | Critérios de sucesso: checklist de atributos compartilhados e validações acordadas com a dupla."
-        },
-        {
-          "title": "Extrair a superclasse `Funcionario`",
-          "description": "Tempo estimado: 15 min | Perguntas: Que construtor garante estado consistente? Quais métodos permanecem genéricos? | Critérios de sucesso: superclasse compilando com testes existentes passando sem alterações."
-        },
-        {
-          "title": "Criar `Analista` e `Estagiario`",
-          "description": "Tempo estimado: 15 min | Perguntas: Que dados adicionais cada perfil exige? Há comportamento exclusivo? | Critérios de sucesso: subclasses instanciadas sem duplicação de código e cobrindo os cenários discutidos."
-        },
-        {
-          "title": "Sobrescrever métodos críticos",
-          "description": "Tempo estimado: 10 min | Perguntas: O cálculo salarial respeita regras de negócio? Precisamos chamar `super`? | Critérios de sucesso: métodos sobrescritos com testes exibindo resultados distintos por perfil."
-        },
-        {
-          "title": "Executar e revisar testes",
-          "description": "Tempo estimado: 10 min | Perguntas: Todos os cenários foram cobertos? Há casos-limite pendentes? | Critérios de sucesso: suíte de testes passando e registro dos aprendizados/ajustes no repositório da turma."
         }
       ]
     },
@@ -205,24 +160,6 @@
             "Não atualizar testes para cobrir regras diferenciadas de `Analista` e `Estagiario`.",
             "Duplicar lógica de cálculo salarial nas subclasses em vez de reutilizar `super`."
           ]
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "title": "Indicadores da AV1",
-      "steps": [
-        {
-          "title": "Objetivos atingidos",
-          "content": "70% dominaram criação de classes e construtores."
-        },
-        {
-          "title": "Alertas",
-          "content": "40% tiveram dificuldades com validação e tratamento de erros."
-        },
-        {
-          "title": "Próximas ações",
-          "content": "Oficinas extras sobre encapsulamento e plantão tira-dúvidas."
         }
       ]
     },
@@ -252,6 +189,44 @@
               }
             ]
           }
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Composição ou herança?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Segundo Barnes & Kölling (2023), a composição favorece mudanças localizadas ao permitir que objetos deleguem responsabilidades a outros componentes em vez de depender de cadeias profundas de herança."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deitel (2023) recomenda avaliar se existe uma clara relação `é-um`; caso contrário, prefira montar o comportamento com objetos membros (`tem-um`)."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "Use herança quando...",
+                "text": "A subclasse precisa estender uma abstração estável e reutilizar implementações existentes."
+              },
+              {
+                "title": "Use composição quando...",
+                "text": "O comportamento varia em tempo de execução ou pode ser combinado dinamicamente com outras funções."
+              },
+              {
+                "title": "Critério de decisão",
+                "text": "Faça um quadro de responsabilidades e identifique se a especialização altera a identidade conceitual do objeto."
+              }
+            ]
+          }
+        },
+        {
+          "type": "code",
+          "language": "text",
+          "code": "Comparação rápida\n+------------------+----------------------------+\n| Herança           | Compartilha estrutura fixa |\n| Composição        | Combina componentes flexíveis |\n+------------------+----------------------------+"
         }
       ]
     },
@@ -339,44 +314,6 @@
     },
     {
       "type": "contentBlock",
-      "title": "Composição ou herança?",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Segundo Barnes & Kölling (2023), a composição favorece mudanças localizadas ao permitir que objetos deleguem responsabilidades a outros componentes em vez de depender de cadeias profundas de herança."
-        },
-        {
-          "type": "paragraph",
-          "text": "Deitel (2023) recomenda avaliar se existe uma clara relação `é-um`; caso contrário, prefira montar o comportamento com objetos membros (`tem-um`)."
-        },
-        {
-          "component": "OrderedList",
-          "props": {
-            "items": [
-              {
-                "title": "Use herança quando...",
-                "text": "A subclasse precisa estender uma abstração estável e reutilizar implementações existentes."
-              },
-              {
-                "title": "Use composição quando...",
-                "text": "O comportamento varia em tempo de execução ou pode ser combinado dinamicamente com outras funções."
-              },
-              {
-                "title": "Critério de decisão",
-                "text": "Faça um quadro de responsabilidades e identifique se a especialização altera a identidade conceitual do objeto."
-              }
-            ]
-          }
-        },
-        {
-          "type": "code",
-          "language": "text",
-          "code": "Comparação rápida\n+------------------+----------------------------+\n| Herança           | Compartilha estrutura fixa |\n| Composição        | Combina componentes flexíveis |\n+------------------+----------------------------+"
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
       "title": "Exemplo comentado de herança em Java",
       "content": [
         {
@@ -404,6 +341,32 @@
           "A rotina `main` percorre uma lista polimórfica demonstrando a diferença de cada sobrescrita."
         ]
       }
+    },
+    {
+      "type": "stepper",
+      "title": "Exercício guiado: refatoração da hierarquia `Funcionario`",
+      "steps": [
+        {
+          "title": "Mapear atributos e validações comuns",
+          "description": "Tempo estimado: 10 min | Perguntas: Quais campos aparecem em todas as classes atuais? Existem validações duplicadas? | Critérios de sucesso: checklist de atributos compartilhados e validações acordadas com a dupla."
+        },
+        {
+          "title": "Extrair a superclasse `Funcionario`",
+          "description": "Tempo estimado: 15 min | Perguntas: Que construtor garante estado consistente? Quais métodos permanecem genéricos? | Critérios de sucesso: superclasse compilando com testes existentes passando sem alterações."
+        },
+        {
+          "title": "Criar `Analista` e `Estagiario`",
+          "description": "Tempo estimado: 15 min | Perguntas: Que dados adicionais cada perfil exige? Há comportamento exclusivo? | Critérios de sucesso: subclasses instanciadas sem duplicação de código e cobrindo os cenários discutidos."
+        },
+        {
+          "title": "Sobrescrever métodos críticos",
+          "description": "Tempo estimado: 10 min | Perguntas: O cálculo salarial respeita regras de negócio? Precisamos chamar `super`? | Critérios de sucesso: métodos sobrescritos com testes exibindo resultados distintos por perfil."
+        },
+        {
+          "title": "Executar e revisar testes",
+          "description": "Tempo estimado: 10 min | Perguntas: Todos os cenários foram cobertos? Há casos-limite pendentes? | Critérios de sucesso: suíte de testes passando e registro dos aprendizados/ajustes no repositório da turma."
+        }
+      ]
     },
     {
       "type": "checklist",
@@ -494,6 +457,50 @@
           }
         ]
       }
+    },
+    {
+      "type": "contentBlock",
+      "title": "Tarefa assíncrona: consolidar o plano pós-AV1",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Converta os insights da aula em compromissos mensuráveis e compartilhe com a dupla de acompanhamento."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "Metas prioritárias",
+                "text": "Mapeie ao menos duas habilidades da AV1 que precisam de reforço, vinculando-as a indicadores concretos (ex.: testes que falharam, dúvidas recorrentes)."
+              },
+              {
+                "title": "Entregáveis",
+                "text": "Atualize o repositório da disciplina com uma versão refinada da hierarquia `Funcionario` e registre no README o racional das mudanças."
+              },
+              {
+                "title": "Prazo",
+                "text": "Submeta as evidências até sexta-feira, 23h59, garantindo tempo para feedback antes da aula 06."
+              },
+              {
+                "title": "Critérios de qualidade",
+                "text": "Mantenha cobertura de testes para os cenários críticos da AV1, documente métricas de complexidade se houver ajustes significativos e descreva implicações no plano de ação individual."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Repositório oficial da turma: https://example.edu/repos/lpoo/heranca-funcionarios",
+            "Formulário de feedback rápido: https://example.edu/forms/lpoo/feedback-heranca"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Os artefatos entregues alimentam o plano de ação individual listado nos outcomes, orientando mentorias e intervenções personalizadas nas próximas sprints."
+        }
+      ]
     }
   ],
   "metadata": {
