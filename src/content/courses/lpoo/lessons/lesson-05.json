@@ -206,6 +206,126 @@
     },
     {
       "type": "contentBlock",
+      "title": "Hierarquia simples vs. múltipla",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Barnes & Kölling (2023) destacam que o Java adota herança simples: cada classe concreta só pode estender uma superclasse direta, formando uma árvore clara de responsabilidades."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deitel (2023) reforça que a linguagem compensa a ausência de herança múltipla com interfaces, permitindo que uma classe implemente diversos contratos sem herdar implementação duplicada."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Herança simples → facilita rastrear origem de atributos e comportamentos.",
+            "Interfaces → oferecem múltiplos pontos de extensão via métodos abstratos.",
+            "Combinação → estenda uma classe base e implemente quantas interfaces forem necessárias."
+          ]
+        },
+        {
+          "type": "code",
+          "language": "text",
+          "code": "Funcionario\n├── Analista (extends Funcionario, implements Avaliavel)\n└── Estagiario (extends Funcionario, implements Treinavel, Avaliavel)"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Modificadores de acesso na herança",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os autores Deitel (2023) e Barnes & Kölling (2023) convergem ao orientar o uso criterioso de `public`, `protected` e `private` para proteger invariantes ao estender classes."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "public",
+                "text": "Visível a todas as classes. Use para comportamentos que compõem a API estável da superclasse."
+              },
+              {
+                "title": "protected",
+                "text": "Visível a subclasses e ao pacote. Ideal para expor ganchos de extensão sem quebrar encapsulamento."
+              },
+              {
+                "title": "private",
+                "text": "Restrito à classe que declara. Preserve regras internas delegando acesso via getters/setters controlados."
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Combine modificadores com classes utilitárias no mesmo pacote quando precisar compartilhar lógica de suporte sem abrir toda a API."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Uso de `super` e ciclos de vida",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Deitel (2023) lembra que construtores de subclasses devem invocar `super()` como primeira instrução para garantir inicialização consistente do estado herdado."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ao sobrescrever métodos, Barnes & Kölling (2023) sugerem chamar `super.metodo()` quando a superclasse já fornece parte da lógica e apenas uma etapa adicional precisa ser acrescentada."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use `super` para acessar implementações originais que permanecem válidas.",
+            "Evite duplicar validações herdadas — delegue ao construtor da superclasse.",
+            "Documente efeitos colaterais herdados para orientar futuras subclasses."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Composição ou herança?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Segundo Barnes & Kölling (2023), a composição favorece mudanças localizadas ao permitir que objetos deleguem responsabilidades a outros componentes em vez de depender de cadeias profundas de herança."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deitel (2023) recomenda avaliar se existe uma clara relação `é-um`; caso contrário, prefira montar o comportamento com objetos membros (`tem-um`)."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "Use herança quando...",
+                "text": "A subclasse precisa estender uma abstração estável e reutilizar implementações existentes."
+              },
+              {
+                "title": "Use composição quando...",
+                "text": "O comportamento varia em tempo de execução ou pode ser combinado dinamicamente com outras funções."
+              },
+              {
+                "title": "Critério de decisão",
+                "text": "Faça um quadro de responsabilidades e identifique se a especialização altera a identidade conceitual do objeto."
+              }
+            ]
+          }
+        },
+        {
+          "type": "code",
+          "language": "text",
+          "code": "Comparação rápida\n+------------------+----------------------------+\n| Herança           | Compartilha estrutura fixa |\n| Composição        | Combina componentes flexíveis |\n+------------------+----------------------------+"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Exemplo comentado de herança em Java",
       "content": [
         {
