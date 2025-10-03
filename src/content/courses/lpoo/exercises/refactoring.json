@@ -2,40 +2,121 @@
   "formatVersion": "md3.lesson.v1",
   "id": "refactoring",
   "title": "Exercício — Refatoração orientada a objetos",
-  "summary": "Refatore um código legado aplicando princípios SOLID e padrões de projeto simples.",
+  "summary": "Refatore um código legado aplicando princípios SOLID, herança controlada e testes automatizados.",
+  "objective": "Consolidar boas práticas de herança e polimorfismo ao evoluir o módulo legado do sistema bancário.",
+  "objectives": [
+    "Mapear code smells relacionados a hierarquias mal definidas e condicionais extensas.",
+    "Aplicar padrões orientados a objetos (Strategy, Template Method) para reduzir acoplamento.",
+    "Garantir segurança da refatoração com suíte de testes automatizados e análise estática."
+  ],
+  "competencies": ["Design orientado a objetos", "Qualidade de código", "Refatoração sustentável"],
+  "skills": [
+    "Identificar oportunidades de extração de classes e interfaces.",
+    "Reescrever condicionais utilizando polimorfismo controlado.",
+    "Mensurar impacto das mudanças com métricas de cobertura e complexidade."
+  ],
+  "outcomes": [
+    "Relatório comparativo antes/depois com métricas objetivas.",
+    "Branch com refatorações organizadas em commits pequenos.",
+    "Testes automatizados garantindo regressão zero nas regras críticas."
+  ],
+  "prerequisites": [
+    "Revisar as aulas 05 e 06 sobre herança, polimorfismo e princípios SOLID.",
+    "Executar a suíte de testes base do projeto bancário para garantir ambiente estável."
+  ],
+  "tags": ["poo", "refatoracao", "solid", "java"],
+  "duration": 240,
+  "modality": "async",
+  "resources": [
+    {
+      "label": "Repositório legado do sistema bancário",
+      "type": "repository",
+      "url": "https://github.com/example/lpoo-banco-legado"
+    },
+    {
+      "label": "Formulário de submissão no Classroom",
+      "type": "submission",
+      "url": "https://classroom.example.edu/lpoo/refactoring"
+    }
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Entrega individual com refatorações documentadas, testes automatizados atualizados e análise comparativa das métricas de qualidade.",
+    "rubric": "Clareza dos commits e justificativas (30%), cobertura e confiabilidade dos testes (30%), aderência aos princípios SOLID e padrões aplicados (40%)."
+  },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivos de aprendizagem",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Reforçar o uso de polimorfismo para substituir condicionais duplicadas."
+            },
+            {
+              "text": "Aplicar refatorações seguras com apoio de testes automatizados."
+            },
+            {
+              "text": "Documentar decisões técnicas para futuras evoluções do módulo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Competências desenvolvidas",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Pensamento crítico ao avaliar arquiteturas orientadas a objetos."
+            },
+            {
+              "text": "Comunicação técnica por meio de relatórios de refatoração."
+            },
+            {
+              "text": "Gestão de configuração com histórico de commits bem estruturado."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "contentBlock",
       "title": "Contexto",
       "content": [
         {
           "type": "paragraph",
-          "text": "Partindo de um projeto legado (disponibilizado no repositório), identifique code smells e proponha melhorias estruturais."
+          "text": "Você receberá a versão legada do módulo de cobrança do sistema bancário. O código utiliza herança de forma inadequada, acumulando condicionais e duplicação de regras. O objetivo é reestruturar a hierarquia e eliminar code smells mantendo comportamento."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Etapas sugeridas",
+      "title": "Plano de execução sugerido",
       "content": [
         {
           "type": "orderedList",
           "items": [
             {
               "title": "Diagnóstico",
-              "text": "Liste problemas de coesão, acoplamento e duplicação."
+              "text": "Mapeie classes com responsabilidades sobrepostas, métodos com muitos `if/else` e violações do princípio aberto-fechado."
             },
             {
               "title": "Planejamento",
-              "text": "Priorize refatorações rápidas que gerem impacto (extração de classes, interfaces, injeção de dependências)."
+              "text": "Priorize refatorações que dependam de herança/polimorfismo (extração de superclasse, interfaces, Template Method)."
             },
             {
               "title": "Implementação",
-              "text": "Aplique testes automatizados ou manuais para validar comportamento antes/depois."
+              "text": "Evolua o código com ciclos curtos Red-Green-Refactor garantindo que os testes cobrem os cenários críticos."
             },
             {
               "title": "Documentação",
-              "text": "Atualize README detalhando mudanças e justificativas."
+              "text": "Atualize README, diagrama de classes e registre métricas coletadas (complexidade, cobertura, quantidade de classes)."
             }
           ]
         }
@@ -43,11 +124,47 @@
     },
     {
       "type": "checklist",
-      "title": "Entrega",
+      "title": "Checklist de entrega",
       "items": [
-        "Branch com commits organizados.",
-        "Relatório comparando arquitetura antes e depois.",
-        "Lista de padrões SOLID aplicados e próximos passos."
+        "Branch dedicado com commits pequenos e mensagens padronizadas (feat/refactor/fix).",
+        "Relatório comparativo listando problemas iniciais, decisões de refatoração e resultados obtidos.",
+        "Execução documentada dos testes automatizados (screenshot ou relatório de cobertura).",
+        "Diagrama de classes atualizado refletindo a nova hierarquia."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica detalhada",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Excelente: refatorações cobrem todos os code smells críticos, testes passam no CI e relatório evidencia ganhos mensuráveis."
+            },
+            {
+              "text": "Bom: refatorações tratam a maioria dos problemas e documentação traz métricas básicas."
+            },
+            {
+              "text": "Insuficiente: mudanças sem suporte de testes ou sem justificativa alinhada aos princípios SOLID."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Submissão",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Envie o link do seu pull request e do relatório no formulário do Classroom até a data combinada."
+        },
+        {
+          "type": "paragraph",
+          "text": "A confirmação será enviada automaticamente por e-mail institucional."
+        }
       ]
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-03T14:17:48.204Z",
+  "generatedAt": "2025-10-03T19:06:50.490Z",
   "status": "passed-with-warnings",
   "totals": {
     "courses": 5,
@@ -429,7 +429,7 @@
         "byModel": {
           "manual": 5
         },
-        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
+        "earliestTimestamp": "2025-02-20T00:00:00.000Z",
         "latestTimestamp": "2025-03-15T00:00:00.000Z",
         "entries": [
           {
@@ -450,8 +450,8 @@
             "id": "refactoring",
             "generatedBy": "Equipe EDU",
             "model": "manual",
-            "timestamp": "2024-06-14T00:00:00.000Z",
-            "available": false
+            "timestamp": "2025-02-20T00:00:00.000Z",
+            "available": true
           },
           {
             "id": "tdd-refactor-kata",
@@ -464,8 +464,8 @@
             "id": "uml-modeling",
             "generatedBy": "Equipe EDU",
             "model": "manual",
-            "timestamp": "2024-06-14T00:00:00.000Z",
-            "available": false
+            "timestamp": "2025-02-20T00:00:00.000Z",
+            "available": true
           }
         ]
       },
@@ -588,8 +588,8 @@
         "byModel": {
           "manual": 9
         },
-        "earliestTimestamp": "2024-06-14T00:00:00.000Z",
-        "latestTimestamp": "2025-03-25T00:00:00.000Z",
+        "earliestTimestamp": "2025-03-01T00:00:00.000Z",
+        "latestTimestamp": "2025-04-09T00:00:00.000Z",
         "entries": [
           {
             "id": "av2-guide",
@@ -638,7 +638,7 @@
             "type": "reference",
             "generatedBy": "Equipe EDU",
             "model": "manual",
-            "timestamp": "2024-06-14T00:00:00.000Z"
+            "timestamp": "2025-04-09T00:00:00.000Z"
           },
           {
             "id": "project-pitch-template",

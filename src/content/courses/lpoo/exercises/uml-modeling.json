@@ -2,15 +2,100 @@
   "formatVersion": "md3.lesson.v1",
   "id": "uml-modeling",
   "title": "Exercício — Modelagem UML",
-  "summary": "Desenhe diagramas UML representando casos de uso e classes para um cenário orientado a objetos.",
+  "summary": "Modele casos de uso e classes para apoiar o projeto bancário integrador, alinhando requisitos e arquitetura.",
+  "objective": "Conectar o levantamento de requisitos do projeto com diagramas UML consistentes que orientem a implementação.",
+  "objectives": [
+    "Traduzir histórias de usuário em casos de uso completos com atores e fluxos alternativos.",
+    "Representar classes, atributos e relacionamentos refletindo decisões de herança e composição.",
+    "Evidenciar regras de negócio críticas em artefatos visuais e textuais."
+  ],
+  "competencies": [
+    "Modelagem orientada a objetos",
+    "Engenharia de requisitos",
+    "Comunicação técnica"
+  ],
+  "skills": [
+    "Construir diagramas de casos de uso seguindo notação UML 2.5.",
+    "Detalhar multiplicidades, navegabilidade e generalizações em diagramas de classes.",
+    "Documentar premissas e restrições que impactam a próxima sprint de implementação."
+  ],
+  "outcomes": [
+    "Pacote UML (.mdj, .uml ou .xmi) com diagramas atualizados.",
+    "Relatório breve explicando decisões de modelagem e impactos no backlog.",
+    "Checklist validado com o time destacando dúvidas a discutir na aula seguinte."
+  ],
+  "prerequisites": [
+    "Revisar os conceitos das aulas 03 a 08 sobre análise de requisitos e projeto orientado a objetos.",
+    "Concluir o levantamento inicial do projeto bancário e consolidar personas."
+  ],
+  "tags": ["poo", "uml", "modelagem", "projeto"],
+  "duration": 180,
+  "modality": "async",
+  "resources": [
+    {
+      "label": "Template StarUML do projeto bancário",
+      "type": "template",
+      "url": "https://files.example.edu/lpoo/uml-template.mdj"
+    },
+    {
+      "label": "Guia de submissão (Classroom)",
+      "type": "submission",
+      "url": "https://classroom.example.edu/lpoo/uml-modeling"
+    }
+  ],
+  "assessment": {
+    "type": "project",
+    "description": "Entrega em dupla dos diagramas UML e relatório de impacto nas histórias da sprint.",
+    "rubric": "Cobertura dos requisitos prioritários (35%), consistência e clareza dos diagramas (35%), justificativa escrita das decisões e premissas (30%)."
+  },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Objetivos de aprendizagem",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Garantir alinhamento entre requisitos levantados e artefatos UML."
+            },
+            {
+              "text": "Preparar a base estrutural para as próximas sprints de implementação."
+            },
+            {
+              "text": "Comunicar decisões arquiteturais para o time multidisciplinar."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Competências desenvolvidas",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Análise crítica de requisitos e mapeamento para casos de uso."
+            },
+            {
+              "text": "Pensamento sistêmico ao definir fronteiras e responsabilidades das classes."
+            },
+            {
+              "text": "Comunicação visual por meio de artefatos UML padronizados."
+            }
+          ]
+        }
+      ]
+    },
     {
       "type": "contentBlock",
       "title": "Cenário",
       "content": [
         {
           "type": "paragraph",
-          "text": "Escolha um domínio (ex.: banco digital, biblioteca online, plataforma de streaming) e modele requisitos principais."
+          "text": "Parta do mesmo domínio utilizado no projeto integrador (sistema bancário digital). Considere atores como cliente, gerente e auditor, além de integrações externas como serviços antifraude."
         }
       ]
     },
@@ -22,16 +107,16 @@
           "type": "orderedList",
           "items": [
             {
-              "title": "Casos de uso",
-              "text": "Identifique atores e fluxos primários, destacando extensões e inclusões quando necessário."
+              "title": "Casos de uso prioritários",
+              "text": "Descreva fluxos principal, alternativos, extensões e pré/pós-condições para abertura de conta, transferências e auditoria."
             },
             {
               "title": "Diagrama de classes",
-              "text": "Mapeie classes principais, atributos, métodos e relacionamentos com multiplicidade."
+              "text": "Defina entidades, serviços e classes auxiliares com multiplicidade, atributos chave e generalizações necessárias."
             },
             {
               "title": "Regras de negócio",
-              "text": "Liste regras derivadas da modelagem que impactam implementação."
+              "text": "Liste pelo menos cinco regras extraídas dos diagramas e associe-as às histórias do backlog."
             }
           ]
         }
@@ -39,11 +124,47 @@
     },
     {
       "type": "checklist",
-      "title": "Checklist",
+      "title": "Checklist de entrega",
       "items": [
-        "Diagramas exportados em PDF ou imagem.",
-        "Descrições textuais dos casos de uso críticos.",
-        "Hipóteses e limitações registradas para discussão em sala."
+        "Diagramas exportados em PDF ou imagem anexados ao repositório.",
+        "Arquivo editável (.mdj/.uml/.xmi) armazenado na pasta `docs/uml` do projeto.",
+        "Descrição textual dos casos de uso críticos em markdown.",
+        "Hipóteses, riscos e dúvidas registrados para discussão síncrona."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Rubrica detalhada",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Excelente: diagramas coerentes com o backlog e regras explicitadas, sem inconsistências de notação."
+            },
+            {
+              "text": "Bom: cobre requisitos principais com poucos ajustes pontuais sugeridos na revisão."
+            },
+            {
+              "text": "Insuficiente: lacunas de atores, relacionamentos ou regras que inviabilizam a implementação."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Submissão",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Faça upload dos arquivos no repositório da equipe e envie o link definitivo pelo Classroom."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inclua no formulário os nomes da dupla, link do branch e breve resumo das dúvidas abertas."
+        }
       ]
     }
   ]

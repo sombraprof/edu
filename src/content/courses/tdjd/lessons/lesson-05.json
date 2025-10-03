@@ -205,6 +205,104 @@
       ]
     },
     {
+      "type": "component",
+      "component": "Md3BlockDiagram",
+      "props": {
+        "title": "UML do controlador de jogador (Input System)",
+        "summary": "O diagrama sintetiza a hierarquia discutida no exercício guiado, destacando como o script PlayerController reutiliza o ciclo de vida do MonoBehaviour, delega física ao CharacterController e consome o asset gerado pelo novo Input System.",
+        "blocks": [
+          {
+            "id": "monoBehaviour",
+            "title": "MonoBehaviour",
+            "summary": "Ciclo de vida disponível: OnEnable(), Update(), OnDisable().",
+            "layer": 1,
+            "kind": "external"
+          },
+          {
+            "id": "playerController",
+            "title": "PlayerController",
+            "summary": "Atributos: _controls: PlayerControls, _moveInput: Vector2, _cc: CharacterController. Métodos: Awake(), OnEnable(), OnDisable(), Update().",
+            "layer": 2
+          },
+          {
+            "id": "characterController",
+            "title": "CharacterController",
+            "summary": "Componente de física que expõe Move(Vector3) para deslocar o jogador.",
+            "layer": 3,
+            "kind": "process"
+          },
+          {
+            "id": "playerControls",
+            "title": "PlayerControls",
+            "summary": "Classe auto-gerada pelo Input System. Métodos: Enable(), Disable(); atributo Player: PlayerActions.",
+            "layer": 3,
+            "kind": "process"
+          },
+          {
+            "id": "playerActions",
+            "title": "PlayerActions",
+            "summary": "Mapa 'Player' com a ação Move: InputAction; métodos Enable()/Disable().",
+            "layer": 4,
+            "kind": "data-store"
+          }
+        ],
+        "channels": [
+          {
+            "id": "inheritance",
+            "from": "monoBehaviour",
+            "to": "playerController",
+            "description": "Herança garante acesso aos ganchos do ciclo de vida discutidos em aula.",
+            "kind": "control"
+          },
+          {
+            "id": "physics",
+            "from": "playerController",
+            "to": "characterController",
+            "description": "[RequireComponent] assegura a presença do CharacterController antes de rodar o protótipo.",
+            "kind": "control"
+          },
+          {
+            "id": "inputAsset",
+            "from": "playerController",
+            "to": "playerControls",
+            "description": "Instancia e habilita o asset gerado pelo Input System na rotina Awake/OnEnable().",
+            "kind": "data"
+          },
+          {
+            "id": "mapExpose",
+            "from": "playerControls",
+            "to": "playerActions",
+            "description": "Classe expõe o mapa Player com a ação Move configurada no exercício guiado.",
+            "kind": "control"
+          },
+          {
+            "id": "eventFlow",
+            "from": "playerActions",
+            "to": "playerController",
+            "description": "Eventos Move.performed/Move.canceled alimentam _moveInput e mantêm o vetor normalizado.",
+            "kind": "data"
+          }
+        ],
+        "legend": [
+          {
+            "id": "design",
+            "label": "Decisão de design",
+            "description": "O controlador herda MonoBehaviour para reutilizar o ciclo de vida padronizado sem reinventar hooks."
+          },
+          {
+            "id": "fisica",
+            "label": "Física reaproveitada",
+            "description": "A composição com CharacterController reproduz a recomendação de usar componentes prontos para colisão estável."
+          },
+          {
+            "id": "input",
+            "label": "Fluxo de entrada",
+            "description": "O asset PlayerControls gera callbacks que sincronizam _moveInput com os bindings definidos durante a demonstração."
+          }
+        ]
+      }
+    },
+    {
       "type": "cardGrid",
       "title": "Erros Comuns e Soluções",
       "cards": [
@@ -431,7 +529,7 @@
   },
   "metadata": {
     "status": "published",
-    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "updatedAt": "2025-03-31T00:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano de ensino TDJD 2025.1"]
   }

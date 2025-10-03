@@ -44,15 +44,16 @@ Este documento traduz os dados do relatório `reports/course-content-summary.jso
 
 ### Linguagens de Programação Orientada a Objetos (LPOO)
 
-- As oito primeiras aulas foram migradas para `md3.lesson.v1`, removendo wrappers `.vue`, enriquecendo objetivos, planos de voo e blocos MD3 específicos da disciplina (fluxogramas, tabelas de visibilidade e diagramas de blocos). 【F:src/content/courses/lpoo/lessons/lesson-01.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-02.json†L1-L203】【F:src/content/courses/lpoo/lessons/lesson-03.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-04.json†L1-L227】【F:src/content/courses/lpoo/lessons/lesson-05.json†L1-L210】【F:src/content/courses/lpoo/lessons/lesson-06.json†L1-L208】【F:src/content/courses/lpoo/lessons/lesson-07.json†L1-L242】【F:src/content/courses/lpoo/lessons/lesson-08.json†L1-L211】
+- As doze primeiras aulas foram migradas para `md3.lesson.v1`, removendo wrappers `.vue`, enriquecendo objetivos, planos de voo e blocos MD3 específicos da disciplina (fluxogramas, tabelas de visibilidade e diagramas de blocos). 【F:src/content/courses/lpoo/lessons/lesson-01.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-02.json†L1-L203】【F:src/content/courses/lpoo/lessons/lesson-03.json†L1-L214】【F:src/content/courses/lpoo/lessons/lesson-04.json†L1-L227】【F:src/content/courses/lpoo/lessons/lesson-05.json†L1-L210】【F:src/content/courses/lpoo/lessons/lesson-06.json†L1-L208】【F:src/content/courses/lpoo/lessons/lesson-07.json†L1-L242】【F:src/content/courses/lpoo/lessons/lesson-08.json†L1-L211】【F:src/content/courses/lpoo/lessons/lesson-09.json†L1-L248】【F:src/content/courses/lpoo/lessons/lesson-10.json†L1-L250】【F:src/content/courses/lpoo/lessons/lesson-11.json†L1-L246】【F:src/content/courses/lpoo/lessons/lesson-12.json†L1-L240】
 - O índice `lessons.json` traz resumos, tags, duração e `formatVersion`, habilitando relatórios e a navegação do site pessoal sem wrappers legados. 【F:src/content/courses/lpoo/lessons.json†L1-L64】
 - Exercícios (`modelagem-uml.json`, `refatoracao.json`) ainda não seguem o schema de competências e precisam de rubricas alinhadas. 【F:reports/course-content-summary.json†L515-L527】
 
 **Ações imediatas**
 
 1. Projetar o componente `ClassDesigner` derivado do `Md3BlockDiagram` para representar relações UML, preparando presets para Storybook.
-2. Migrar as próximas aulas (09-12) mantendo estudos de caso, fluxos de regras de negócio e exercícios práticos alinhados ao novo padrão MD3.
-3. Atualizar os exercícios com rubricas de orientação a objetos (encapsulamento, herança, polimorfismo) e implementar feedback automático via testes ou checklists.
+2. Reequilibrar o cronograma das aulas 09-16, antecipando a revisão de herança/polimorfismo para a semana anterior à NP2 e registrando checkpoints no `lessons.json` (sumário, objetivos avaliativos e entregas por sprint).
+3. Publicar os vídeos de apoio dos módulos 09-12 (análise de casos, refatoração guiada e padrões de projeto introdutórios) diretamente nos blocos `videos`, garantindo descrição, duração e legendas revisadas.
+4. Liberar os exercícios revisados com rubricas de encapsulamento, herança e polimorfismo, conectando-os ao `validate:content`, abrindo janela de submissão assistida uma semana antes da APS e sinalizando dependências de testes automatizados.
 
 ### Tecnologia e Desenvolvimento para Jogos Digitais (TDJD)
 

@@ -5,7 +5,7 @@ export const meta = {
   id: metaData.id,
   title: metaData.title,
   summary: metaData.summary,
-  available: false,
+  available: true,
 };
 
 export default {};

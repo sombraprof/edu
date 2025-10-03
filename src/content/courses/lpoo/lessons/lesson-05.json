@@ -41,6 +41,32 @@
       "label": "Guia Oracle: Inheritance",
       "type": "article",
       "url": "https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html"
+    },
+    {
+      "label": "Oracle Academy – Type Inheritance Foundation",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=SA5c_PfPYtI",
+      "duration": "PT30M00S",
+      "studyObjective": "Revisitar a teoria de herança da Oracle Academy, alinhando `extends`, visibilidade e uso de `super` ao exercício da hierarquia `Funcionario`."
+    },
+    {
+      "label": "Deitel LiveLessons – Introdução à Herança em Java",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=Y2WIDqgqH90",
+      "duration": "PT24M44S",
+      "studyObjective": "Conectar a análise da AV1 à implementação de `Funcionario`, observando como Paul Deitel refatora superclasses e prepara o terreno para polimorfismo seguro."
+    },
+    {
+      "label": "Opcional — Oracle Developer Live: Herança e Polimorfismo em Profundidade",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=fxQ6jF7zpHg",
+      "duration": "PT36M27S",
+      "studyObjective": "Aprofundar polimorfismo dinâmico conectado à herança, observando padrões de sobrescrita e LSP para preparar a aula 06."
+    },
+    {
+      "label": "Exemplo completo: hierarquia Funcionario/Analista/Estagiario",
+      "type": "repository",
+      "url": "https://example.edu/repos/lpoo/heranca-funcionarios"
     }
   ],
   "bibliography": [
@@ -92,17 +118,6 @@
       ]
     },
     {
-      "type": "callout",
-      "variant": "info",
-      "title": "Pergunta norteadora",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Qual comportamento realmente precisa ser herdado? Há riscos de dependências rígidas se a hierarquia crescer demais?"
-        }
-      ]
-    },
-    {
       "type": "timeline",
       "title": "Indicadores da AV1",
       "steps": [
@@ -117,6 +132,34 @@
         {
           "title": "Próximas ações",
           "content": "Oficinas extras sobre encapsulamento e plantão tira-dúvidas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Pergunta norteadora",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Qual comportamento realmente precisa ser herdado? Há riscos de dependências rígidas se a hierarquia crescer demais?"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Atenção aos erros recorrentes",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Ignorar validações ao mover atributos para a superclasse, permitindo estados inválidos.",
+            "Esquecer de marcar métodos com `@Override`, mascarando comportamentos antigos.",
+            "Chamar `super()` após inicializações específicas e gerar `NullPointerException`.",
+            "Não atualizar testes para cobrir regras diferenciadas de `Analista` e `Estagiario`.",
+            "Duplicar lógica de cálculo salarial nas subclasses em vez de reutilizar `super`."
+          ]
         }
       ]
     },
@@ -147,6 +190,193 @@
             ]
           }
         }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Composição ou herança?",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Segundo Barnes & Kölling (2023), a composição favorece mudanças localizadas ao permitir que objetos deleguem responsabilidades a outros componentes em vez de depender de cadeias profundas de herança."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deitel (2023) recomenda avaliar se existe uma clara relação `é-um`; caso contrário, prefira montar o comportamento com objetos membros (`tem-um`)."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "Use herança quando...",
+                "text": "A subclasse precisa estender uma abstração estável e reutilizar implementações existentes."
+              },
+              {
+                "title": "Use composição quando...",
+                "text": "O comportamento varia em tempo de execução ou pode ser combinado dinamicamente com outras funções."
+              },
+              {
+                "title": "Critério de decisão",
+                "text": "Faça um quadro de responsabilidades e identifique se a especialização altera a identidade conceitual do objeto."
+              }
+            ]
+          }
+        },
+        {
+          "type": "code",
+          "language": "text",
+          "code": "Comparação rápida\n+------------------+----------------------------+\n| Herança           | Compartilha estrutura fixa |\n| Composição        | Combina componentes flexíveis |\n+------------------+----------------------------+"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Hierarquia simples vs. múltipla",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Barnes & Kölling (2023) destacam que o Java adota herança simples: cada classe concreta só pode estender uma superclasse direta, formando uma árvore clara de responsabilidades."
+        },
+        {
+          "type": "paragraph",
+          "text": "Deitel (2023) reforça que a linguagem compensa a ausência de herança múltipla com interfaces, permitindo que uma classe implemente diversos contratos sem herdar implementação duplicada."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Herança simples → facilita rastrear origem de atributos e comportamentos.",
+            "Interfaces → oferecem múltiplos pontos de extensão via métodos abstratos.",
+            "Combinação → estenda uma classe base e implemente quantas interfaces forem necessárias."
+          ]
+        },
+        {
+          "type": "code",
+          "language": "text",
+          "code": "Funcionario\n├── Analista (extends Funcionario, implements Avaliavel)\n└── Estagiario (extends Funcionario, implements Treinavel, Avaliavel)"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Modificadores de acesso na herança",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os autores Deitel (2023) e Barnes & Kölling (2023) convergem ao orientar o uso criterioso de `public`, `protected` e `private` para proteger invariantes ao estender classes."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "public",
+                "text": "Visível a todas as classes. Use para comportamentos que compõem a API estável da superclasse."
+              },
+              {
+                "title": "protected",
+                "text": "Visível a subclasses e ao pacote. Ideal para expor ganchos de extensão sem quebrar encapsulamento."
+              },
+              {
+                "title": "private",
+                "text": "Restrito à classe que declara. Preserve regras internas delegando acesso via getters/setters controlados."
+              }
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "text": "Combine modificadores com classes utilitárias no mesmo pacote quando precisar compartilhar lógica de suporte sem abrir toda a API."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Uso de `super` e ciclos de vida",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Deitel (2023) lembra que construtores de subclasses devem invocar `super()` como primeira instrução para garantir inicialização consistente do estado herdado."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ao sobrescrever métodos, Barnes & Kölling (2023) sugerem chamar `super.metodo()` quando a superclasse já fornece parte da lógica e apenas uma etapa adicional precisa ser acrescentada."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Use `super` para acessar implementações originais que permanecem válidas.",
+            "Evite duplicar validações herdadas — delegue ao construtor da superclasse.",
+            "Documente efeitos colaterais herdados para orientar futuras subclasses."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo comentado de herança em Java",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Note como a superclasse concentra validações e o estado compartilhado, enquanto as subclasses apenas especializam o cálculo salarial."
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "code": "public class Funcionario {\n    // Use 'protected' para expor somente o necessário às subclasses mantendo encapsulamento.\n    protected final String nome;\n    protected final double salarioBase;\n\n    public Funcionario(String nome, double salarioBase) {\n        // Valide entradas no construtor para garantir objetos sempre consistentes.\n        if (nome == null || nome.isBlank()) {\n            throw new IllegalArgumentException(\"Nome não pode ser vazio\");\n        }\n        if (salarioBase < 0) {\n            throw new IllegalArgumentException(\"Salário base deve ser não negativo\");\n        }\n        this.nome = nome;\n        this.salarioBase = salarioBase;\n    }\n\n    public String getNome() {\n        return nome;\n    }\n\n    public double calcularSalario() {\n        return salarioBase;\n    }\n}\n\npublic class Analista extends Funcionario {\n    private final double bonusProjeto;\n\n    public Analista(String nome, double salarioBase, double bonusProjeto) {\n        super(nome, salarioBase); // Delegue ao construtor da superclasse sempre que precisar reutilizar validações comuns.\n        if (bonusProjeto < 0) {\n            throw new IllegalArgumentException(\"Bônus deve ser não negativo\");\n        }\n        this.bonusProjeto = bonusProjeto;\n    }\n\n    @Override\n    public double calcularSalario() {\n        return super.calcularSalario() + bonusProjeto;\n    }\n}\n\npublic class Estagiario extends Funcionario {\n    private final int horasSemana;\n\n    public Estagiario(String nome, double salarioBase, int horasSemana) {\n        super(nome, salarioBase); // Chame 'super()' primeiro para garantir que o estado herdado seja inicializado corretamente.\n        if (horasSemana <= 0 || horasSemana > 40) {\n            throw new IllegalArgumentException(\"Horas semanais devem estar entre 1 e 40\");\n        }\n        this.horasSemana = horasSemana;\n    }\n\n    @Override\n    public double calcularSalario() {\n        return super.calcularSalario() * horasSemana / 40.0;\n    }\n}\n\npublic class FolhaPagamento {\n    public static void main(String[] args) {\n        // Rotina rápida de teste para demonstrar polimorfismo e verificar sobrescritas.\n        Funcionario ana = new Analista(\"Ana\", 6000, 1200);\n        Funcionario joao = new Estagiario(\"João\", 2000, 30);\n\n        System.out.printf(\"%s recebe R$ %.2f\\n\", ana.getNome(), ana.calcularSalario());\n        System.out.printf(\"%s recebe R$ %.2f\\n\", joao.getNome(), joao.calcularSalario());\n    }\n}"
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Rotina completa com `super` e polimorfismo",
+        "summary": "Construtores chamam <code>super(...)</code> logo no início, métodos sobrescritos reutilizam lógica comum e a rotina de teste confirma o comportamento especializado.",
+        "language": "java",
+        "code": "import java.util.List;\n\npublic class Funcionario {\n    // Construtor centraliza validações compartilhadas e garante invariantes.\n    protected final String nome;\n    protected final double salarioBase;\n\n    public Funcionario(String nome, double salarioBase) {\n        if (nome == null || nome.isBlank()) {\n            throw new IllegalArgumentException(\"Nome não pode ser vazio\");\n        }\n        if (salarioBase < 0) {\n            throw new IllegalArgumentException(\"Salário base deve ser não negativo\");\n        }\n        this.nome = nome.trim();\n        this.salarioBase = salarioBase;\n    }\n\n    public String getNome() {\n        return nome;\n    }\n\n    public double calcularSalario() {\n        // Subclasses podem somar componentes adicionais sobre este valor.\n        return salarioBase;\n    }\n}\n\npublic class Analista extends Funcionario {\n    private final double bonusProjeto;\n\n    public Analista(String nome, double salarioBase, double bonusProjeto) {\n        super(nome, salarioBase); // Reaproveita as validações de estado da superclasse.\n        if (bonusProjeto < 0) {\n            throw new IllegalArgumentException(\"Bônus deve ser não negativo\");\n        }\n        this.bonusProjeto = bonusProjeto;\n    }\n\n    @Override\n    public double calcularSalario() {\n        double salarioComBonus = super.calcularSalario() + bonusProjeto;\n        // Documente a regra para facilitar futuras extensões.\n        return salarioComBonus;\n    }\n}\n\npublic class Estagiario extends Funcionario {\n    private final int horasSemana;\n\n    public Estagiario(String nome, double salarioBase, int horasSemana) {\n        super(nome, salarioBase); // Sempre invoque super(...) como primeira linha do construtor.\n        if (horasSemana <= 0 || horasSemana > 40) {\n            throw new IllegalArgumentException(\"Horas semanais devem estar entre 1 e 40\");\n        }\n        this.horasSemana = horasSemana;\n    }\n\n    @Override\n    public double calcularSalario() {\n        double proporcional = super.calcularSalario() * horasSemana / 40.0;\n        return proporcional;\n    }\n}\n\npublic final class FolhaPagamento {\n    private FolhaPagamento() {\n        // Evite instanciar utilitários - mantenha apenas membros estáticos.\n    }\n\n    public static void main(String[] args) {\n        Funcionario analista = new Analista(\"Ana\", 6000, 1200);\n        Funcionario estagiario = new Estagiario(\"João\", 2000, 30);\n\n        List<Funcionario> equipe = List.of(analista, estagiario);\n        for (Funcionario funcionario : equipe) {\n            System.out.printf(\"%s recebe R$ %.2f%n\", funcionario.getNome(), funcionario.calcularSalario());\n        }\n    }\n}",
+        "highlights": [
+          "Comentários estratégicos orientam futuras refatorações e reforçam as motivações das escolhas de design.",
+          "`super(...)` aparece na primeira linha dos construtores, garantindo inicialização do estado herdado.",
+          "A rotina `main` percorre uma lista polimórfica demonstrando a diferença de cada sobrescrita."
+        ]
+      }
+    },
+    {
+      "type": "stepper",
+      "title": "Exercício guiado: refatoração da hierarquia `Funcionario`",
+      "steps": [
+        {
+          "title": "Mapear atributos e validações comuns",
+          "description": "Tempo estimado: 10 min | Perguntas: Quais campos aparecem em todas as classes atuais? Existem validações duplicadas? | Critérios de sucesso: checklist de atributos compartilhados e validações acordadas com a dupla."
+        },
+        {
+          "title": "Extrair a superclasse `Funcionario`",
+          "description": "Tempo estimado: 15 min | Perguntas: Que construtor garante estado consistente? Quais métodos permanecem genéricos? | Critérios de sucesso: superclasse compilando com testes existentes passando sem alterações."
+        },
+        {
+          "title": "Criar `Analista` e `Estagiario`",
+          "description": "Tempo estimado: 15 min | Perguntas: Que dados adicionais cada perfil exige? Há comportamento exclusivo? | Critérios de sucesso: subclasses instanciadas sem duplicação de código e cobrindo os cenários discutidos."
+        },
+        {
+          "title": "Sobrescrever métodos críticos",
+          "description": "Tempo estimado: 10 min | Perguntas: O cálculo salarial respeita regras de negócio? Precisamos chamar `super`? | Critérios de sucesso: métodos sobrescritos com testes exibindo resultados distintos por perfil."
+        },
+        {
+          "title": "Executar e revisar testes",
+          "description": "Tempo estimado: 10 min | Perguntas: Todos os cenários foram cobertos? Há casos-limite pendentes? | Critérios de sucesso: suíte de testes passando e registro dos aprendizados/ajustes no repositório da turma."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist guiado de refatoração",
+      "description": "Percorra cada etapa antes de finalizar a migração para a hierarquia `Funcionario`:",
+      "items": [
+        "Concentrar atributos e validações comuns na superclasse antes de mover comportamento especializado.",
+        "Garantir que todos os construtores de subclasses chamem `super(...)` como primeira instrução.",
+        "Adicionar `@Override` nas operações sobrescritas e validar diferenças funcionais em `Analista` e `Estagiario`.",
+        "Executar a rotina `main` ou a suíte de testes para confirmar o polimorfismo e registrar aprendizados."
       ]
     },
     {
@@ -185,7 +415,7 @@
           {
             "id": "subclasse",
             "type": "process",
-            "title": "Implementar subclass e sobrescrever métodos"
+            "title": "Implementar subclasse e sobrescrever métodos"
           },
           {
             "id": "usar",
@@ -227,11 +457,55 @@
           }
         ]
       }
+    },
+    {
+      "type": "contentBlock",
+      "title": "Tarefa assíncrona: consolidar o plano pós-AV1",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Converta os insights da aula em compromissos mensuráveis e compartilhe com a dupla de acompanhamento."
+        },
+        {
+          "component": "OrderedList",
+          "props": {
+            "items": [
+              {
+                "title": "Metas prioritárias",
+                "text": "Mapeie ao menos duas habilidades da AV1 que precisam de reforço, vinculando-as a indicadores concretos (ex.: testes que falharam, dúvidas recorrentes)."
+              },
+              {
+                "title": "Entregáveis",
+                "text": "Atualize o repositório da disciplina com uma versão refinada da hierarquia `Funcionario` e registre no README o racional das mudanças."
+              },
+              {
+                "title": "Prazo",
+                "text": "Submeta as evidências até sexta-feira, 23h59, garantindo tempo para feedback antes da aula 06."
+              },
+              {
+                "title": "Critérios de qualidade",
+                "text": "Mantenha cobertura de testes para os cenários críticos da AV1, documente métricas de complexidade se houver ajustes significativos e descreva implicações no plano de ação individual."
+              }
+            ]
+          }
+        },
+        {
+          "type": "list",
+          "items": [
+            "Repositório oficial da turma: https://example.edu/repos/lpoo/heranca-funcionarios",
+            "Formulário de feedback rápido: https://example.edu/forms/lpoo/feedback-heranca"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Os artefatos entregues alimentam o plano de ação individual listado nos outcomes, orientando mentorias e intervenções personalizadas nas próximas sprints."
+        }
+      ]
     }
   ],
   "metadata": {
     "status": "in-review",
-    "updatedAt": "2025-02-01T00:00:00.000Z",
+    "updatedAt": "2025-10-03T18:39:18.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Relatório AV1 2025.2", "Plano de aula LPOO – módulo 2"]
   }
