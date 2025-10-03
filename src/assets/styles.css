@@ -1693,8 +1693,8 @@ html {
     z-index: 60;
     display: grid;
     place-items: center;
-    min-width: 3.5rem;
-    min-height: 3.5rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
     padding: 0;
     --md3-button-container: var(--md-sys-color-primary);
     --md3-button-color: var(--md-sys-color-on-primary);
@@ -1719,8 +1719,8 @@ html {
 
   .md3-fab .md3-button__icon,
   .md3-fab .md-icon {
-    width: var(--md-sys-icon-size-medium);
-    height: var(--md-sys-icon-size-medium);
+    width: var(--md-sys-icon-size-small);
+    height: var(--md-sys-icon-size-small);
   }
 
   .md3-fab .md3-button__icon--leading,
