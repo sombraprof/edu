@@ -7,7 +7,7 @@
       "title": "Dojo – Tratamento de Exceções",
       "description": "Atualize o módulo de transferências com exceções customizadas, logs e testes de falha.",
       "link": "courses/lpoo/exercises/exception-handling.html",
-      "available": false,
+      "available": true,
       "file": "exception-handling.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
@@ -20,7 +20,7 @@
       "title": "Laboratório – Pipeline de Testes com JUnit",
       "description": "Configure fixtures, testes parametrizados e pipeline CI com cobertura e análise estática.",
       "link": "courses/lpoo/exercises/junit-quality-lab.html",
-      "available": false,
+      "available": true,
       "file": "junit-quality-lab.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
@@ -31,14 +31,14 @@
     {
       "id": "refactoring",
       "title": "Refatoração orientada a objetos",
-      "description": "Aplique princípios SOLID para melhorar um código legado simples.",
+      "description": "Refatore o módulo de cobranças aplicando herança, polimorfismo e testes automatizados para estabilizar o projeto bancário.",
       "link": "courses/lpoo/exercises/refactoring.html",
-      "available": false,
+      "available": true,
       "file": "refactoring.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
         "model": "manual",
-        "timestamp": "2024-06-14T00:00:00.000Z"
+        "timestamp": "2025-02-20T00:00:00.000Z"
       }
     },
     {
@@ -46,7 +46,7 @@
       "title": "Kata – Refatoração Guiada por Testes",
       "description": "Pratique ciclos Red-Green-Refactor e registre métricas antes/depois ao evoluir um módulo legado.",
       "link": "courses/lpoo/exercises/tdd-refactor-kata.html",
-      "available": false,
+      "available": true,
       "file": "tdd-refactor-kata.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
@@ -57,14 +57,14 @@
     {
       "id": "uml-modeling",
       "title": "Modelagem UML de caso real",
-      "description": "Crie diagrama de classes com relacionamentos, atributos e multiplicidades.",
+      "description": "Modele casos de uso e classes do projeto bancário para alinhar requisitos, regras e arquitetura antes da sprint seguinte.",
       "link": "courses/lpoo/exercises/uml-modeling.html",
-      "available": false,
+      "available": true,
       "file": "uml-modeling.vue",
       "metadata": {
         "generatedBy": "Equipe EDU",
         "model": "manual",
-        "timestamp": "2024-06-14T00:00:00.000Z"
+        "timestamp": "2025-02-20T00:00:00.000Z"
       }
     }
   ]
