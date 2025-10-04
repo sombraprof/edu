@@ -123,6 +123,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Estruturando Algoritmos",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 3: Estruturando Algoritmos. Contexto da aula: Explora estratégias para organizar passos de um algoritmo, destacar decisões e preparar a transição para pseudocódigo. Objetivo central: Transformar ideias em sequências claras e ordenadas que possam ser implementadas em linguagem de programação. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "pseudocodigo", "sequencia"],
+      "tips": [
+        "Peça variações de atividades que reforcem aplicar técnicas de decomposição para mapear processos complexos.",
+        "Solicite exemplos adicionais relacionados a algoritmos, sequencia.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem comparar diferentes representações (texto estruturado, fluxogramas, pseudocódigo)."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "A ordem importa",
       "content": [

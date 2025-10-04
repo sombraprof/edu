@@ -1,6 +1,6 @@
 <template>
-  <article class="prompt-tip card md-stack md-stack-4">
-    <header class="prompt-tip__header md-stack md-stack-2">
+  <article class="prompt-tip md-stack md-stack-5">
+    <header class="prompt-tip__header md-stack md-stack-3">
       <div class="prompt-tip__badge" aria-hidden="true">
         <span class="prompt-tip__badge-icon md-icon md-icon--md">
           <Sparkles />
@@ -33,7 +33,7 @@
       </ul>
     </header>
 
-    <section class="prompt-tip__content md-stack md-stack-3">
+    <section class="prompt-tip__content md-stack md-stack-4">
       <div class="prompt-tip__prompt">
         <p :id="instructionsId" class="prompt-tip__prompt-instructions text-body-small">
           Compartilhe este prompt com uma IA generativa (como ChatGPT, Gemini ou Copilot) e siga as
@@ -60,7 +60,6 @@
               <Copy v-else />
             </span>
           </template>
-          <span class="prompt-tip__copy-label">{{ copied ? 'Copiado!' : 'Copiar' }}</span>
         </Md3Button>
         <span v-if="copied" class="prompt-tip__feedback" role="status" aria-live="polite">
           Prompt copiado com sucesso.
@@ -161,20 +160,26 @@ const copyPrompt = async () => {
 }
 
 .prompt-tip {
-  position: relative;
-  padding: 1.75rem;
-  border-radius: 20px;
-  border: 1px solid rgba(16, 163, 127, 0.35);
-  background: linear-gradient(135deg, #f7f8fb 0%, #eef1f7 45%, #e4e9f5 100%);
+  --prompt-tip-radius: 24px;
+  --prompt-tip-border: color-mix(
+    in srgb,
+    var(--md-sys-color-outline-variant, var(--md-sys-color-outline, #cbd5f5)) 65%,
+    transparent
+  );
+  --prompt-tip-surface: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container-high, var(--md-sys-color-surface, #ffffff)) 82%,
+    var(--md-sys-color-surface, #ffffff) 18%
+  );
+  --prompt-tip-shadow: color-mix(in srgb, var(--md-sys-color-on-surface, #0f172a) 12%, transparent);
+  display: grid;
+  gap: var(--md-sys-spacing-6, 1.5rem);
+  padding: clamp(1.5rem, 1.8vw + 1rem, 2rem);
+  border-radius: var(--prompt-tip-radius);
+  border: 1px solid var(--prompt-tip-border);
+  background: var(--prompt-tip-surface);
   color: var(--md-sys-color-on-surface, #0f172a);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
-}
-
-:global(html[data-theme='dark']) :host .prompt-tip {
-  background: linear-gradient(135deg, #343541 0%, #444654 45%, #202123 100%);
-  color: #f7f7f8;
-  border-color: rgba(16, 163, 127, 0.45);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 16px 36px var(--prompt-tip-shadow);
 }
 
 .prompt-tip__header {
@@ -184,20 +189,18 @@ const copyPrompt = async () => {
 .prompt-tip__badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.85rem;
+  gap: var(--md-sys-spacing-2, 0.5rem);
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
-  background: rgba(16, 163, 127, 0.12);
-  color: rgba(16, 163, 127, 0.95);
+  background: color-mix(in srgb, var(--md-sys-color-primary, #2563eb) 16%, transparent);
+  color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary, #2563eb) 82%,
+    var(--md-sys-color-on-surface, #0f172a) 18%
+  );
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 0.75rem;
-}
-
-:global(html[data-theme='dark']) :host .prompt-tip__badge {
-  background: rgba(16, 163, 127, 0.22);
-  color: rgba(125, 255, 224, 0.95);
 }
 
 .prompt-tip__badge-icon {
@@ -205,8 +208,17 @@ const copyPrompt = async () => {
 }
 
 .prompt-tip__badge-icon :deep(svg) {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.prompt-tip__badge-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+}
+
+.prompt-tip__header-copy {
+  margin: 0;
 }
 
 .prompt-tip__intro {
@@ -216,17 +228,26 @@ const copyPrompt = async () => {
 
 .prompt-tip__audience {
   letter-spacing: 0.18em;
-  color: rgba(16, 163, 127, 0.85);
+  color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary, #2563eb) 70%,
+    var(--md-sys-color-on-surface, #0f172a) 30%
+  );
+}
+
+.prompt-tip__title {
+  margin: 0;
 }
 
 .prompt-tip__description {
+  margin: 0;
   color: color-mix(in srgb, currentColor 88%, transparent 12%);
 }
 
 .prompt-tip__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--md-sys-spacing-2, 0.5rem);
   margin: 0;
   padding: 0;
 }
@@ -241,31 +262,40 @@ const copyPrompt = async () => {
   gap: 0.4rem;
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
-  font-size: 0.8125rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: #0f172a;
-  background: rgba(16, 163, 127, 0.16);
-  border: 1px solid rgba(16, 163, 127, 0.35);
+  color: color-mix(
+    in srgb,
+    var(--md-sys-color-on-secondary-container, var(--md-sys-color-on-surface)) 90%,
+    var(--md-sys-color-on-surface, #0f172a) 10%
+  );
+  background: color-mix(in srgb, var(--md-sys-color-secondary-container, #e0e8ff) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-secondary, #4c51bf) 35%, transparent);
 }
 
-:global(html[data-theme='dark']) :host .prompt-tip__tag {
-  color: #f7f7f8;
-  background: rgba(16, 163, 127, 0.22);
-  border-color: rgba(16, 163, 127, 0.55);
+.prompt-tip__content {
+  position: relative;
 }
 
 .prompt-tip__prompt {
   position: relative;
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(16, 163, 127, 0.25);
-  background: rgba(255, 255, 255, 0.86);
+  padding: clamp(1.1rem, 1vw + 0.9rem, 1.5rem);
+  border-radius: 18px;
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--md-sys-color-outline-variant, var(--md-sys-color-outline, #cbd5f5)) 60%,
+      transparent
+    );
+  background: color-mix(
+    in srgb,
+    var(--md-sys-color-surface-container-highest, #f4f6fb) 88%,
+    var(--md-sys-color-surface, #ffffff) 12%
+  );
+  box-shadow: 0 12px 26px
+    color-mix(in srgb, var(--md-sys-color-on-surface, #0f172a) 10%, transparent);
   color: inherit;
-}
-
-:global(html[data-theme='dark']) :host .prompt-tip__prompt {
-  background: rgba(32, 33, 35, 0.85);
-  border-color: rgba(16, 163, 127, 0.45);
+  overflow: hidden;
 }
 
 .prompt-tip__prompt-instructions {
@@ -290,42 +320,58 @@ const copyPrompt = async () => {
   font-size: 0.95rem;
   line-height: 1.55;
   white-space: pre-wrap;
+  word-break: break-word;
   overflow-x: auto;
+  padding-right: 2.75rem;
 }
 
 .prompt-tip__copy-button {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  --md3-button-icon-size: 1.1rem;
-}
-
-.prompt-tip__copy-label {
-  font-weight: 600;
+  --md3-button-icon-size: 1.15rem;
 }
 
 .prompt-tip__feedback {
   position: absolute;
-  bottom: 0.9rem;
-  right: 1rem;
+  inset-block-end: 0.85rem;
+  inset-inline-end: 1rem;
   font-size: 0.75rem;
-  color: rgba(16, 163, 127, 0.85);
-}
-
-:global(html[data-theme='dark']) :host .prompt-tip__feedback {
-  color: rgba(125, 255, 224, 0.85);
+  font-weight: 600;
+  color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary, #2563eb) 78%,
+    var(--md-sys-color-on-surface, #0f172a) 22%
+  );
 }
 
 .prompt-tip__tips-title {
+  margin: 0;
   color: color-mix(in srgb, currentColor 92%, transparent 8%);
 }
 
 .prompt-tip__tips-list {
   margin: 0;
   padding-left: 1rem;
+  display: grid;
+  gap: var(--md-sys-spacing-1, 0.25rem);
 }
 
 .prompt-tip__tips-item {
   color: color-mix(in srgb, currentColor 88%, transparent 12%);
+}
+
+@media (max-width: 768px) {
+  .prompt-tip {
+    padding: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .prompt-tip__prompt {
+    padding: clamp(1rem, 3vw, 1.35rem);
+  }
+
+  .prompt-tip__prompt-text {
+    padding-right: 2.25rem;
+  }
 }
 </style>

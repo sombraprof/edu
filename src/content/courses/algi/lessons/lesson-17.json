@@ -107,15 +107,16 @@
     },
     {
       "type": "promptTip",
-      "title": "Prompt para ativar invariantes e sentinelas",
-      "description": "Use com o assistente para guiar revisões rápidas ou dinâmicas de laboratório sobre loops while.",
-      "audience": "docentes e monitores",
-      "prompt": "Você é tutor de Algoritmos I preparando estudantes para implementar laços while com sentinela. Elabore um roteiro em três etapas: (1) revisar a lógica do while e definir invariantes, (2) propor um exercício de média de notas com sentinela e validação de entrada, (3) montar um checklist de testes cobrindo entradas válidas, inválidas e casos limite. Para cada etapa, indique objetivo, atividades sugeridas e perguntas disparadoras.",
-      "tags": ["algoritmos", "while", "sentinela"],
+      "title": "Prompt para planejar Estrutura de Repetição while",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 17: Estrutura de Repetição while. Contexto da aula: Introduz laços while para repetir blocos enquanto condições permanecem verdadeiras, aplicando sentinelas e validações. Objetivo central: Compreender, modelar e implementar laços while controlados por condição e por sentinela. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "loops", "repeticao", "while"],
       "tips": [
-        "Peça uma versão adaptada para estudantes que ainda confundem condição de parada com atualização de variáveis.",
-        "Solicite exemplos extras de validação de entrada envolvendo valores negativos e limites superiores.",
-        "Gere um resumo final em formato de quadro branco com tópicos-chave para projetar na sala."
+        "Peça variações de atividades que reforcem identificar situações em que while é mais adequado que for ou decisões simples.",
+        "Solicite exemplos adicionais relacionados a loops, while.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem traduzir fluxogramas com laço enquanto em pseudocódigo/c."
       ]
     },
     {
@@ -157,28 +158,60 @@
       "headers": ["Situação", "for", "while", "do-while"],
       "rows": [
         [
-          { "value": "Contagem conhecida" },
-          { "value": "✅" },
-          { "value": "⚠️" },
-          { "value": "⚠️" }
+          {
+            "value": "Contagem conhecida"
+          },
+          {
+            "value": "✅"
+          },
+          {
+            "value": "⚠️"
+          },
+          {
+            "value": "⚠️"
+          }
         ],
         [
-          { "value": "Condição avaliada antes" },
-          { "value": "✅" },
-          { "value": "✅" },
-          { "value": "❌" }
+          {
+            "value": "Condição avaliada antes"
+          },
+          {
+            "value": "✅"
+          },
+          {
+            "value": "✅"
+          },
+          {
+            "value": "❌"
+          }
         ],
         [
-          { "value": "Executar ao menos 1 vez" },
-          { "value": "❌" },
-          { "value": "❌" },
-          { "value": "✅" }
+          {
+            "value": "Executar ao menos 1 vez"
+          },
+          {
+            "value": "❌"
+          },
+          {
+            "value": "❌"
+          },
+          {
+            "value": "✅"
+          }
         ],
         [
-          { "value": "Leitura com sentinela" },
-          { "value": "⚠️" },
-          { "value": "✅" },
-          { "value": "✅" }
+          {
+            "value": "Leitura com sentinela"
+          },
+          {
+            "value": "⚠️"
+          },
+          {
+            "value": "✅"
+          },
+          {
+            "value": "✅"
+          }
         ]
       ],
       "summary": "(⚠️ = possível, mas não é o mais natural)"

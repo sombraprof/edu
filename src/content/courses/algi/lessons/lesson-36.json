@@ -166,6 +166,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Vetores de Structs",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Vetores de Structs. Contexto da aula: Constrói coleções de registros com structs em vetor e prepara o terreno para operações CRUD completas. Objetivo central: Estruturar vetores de structs para representar catálogos de dados e aplicar operações coletivas de ordenação e agregação. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "crud", "revisao", "structs"],
+      "tips": [
+        "Peça variações de atividades que reforcem armazenar múltiplos registros em vetores de structs com limites configuráveis.",
+        "Solicite exemplos adicionais relacionados a structs, crud.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem aplicar ordenação simples para organizar a coleção."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano de voo (2h00)",
       "cards": [

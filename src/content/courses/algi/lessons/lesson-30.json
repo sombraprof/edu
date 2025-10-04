@@ -137,6 +137,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Introdução a Vetores",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Introdução a Vetores. Contexto da aula: Apresenta o conceito de vetores (arrays) em C, destacando sua utilidade na organização de dados homogêneos e no cálculo de estatísticas básicas. Objetivo central: Reconhecer vetores como estruturas de dados fundamentais, compreender sua sintaxe em C e aplicar percursos lineares para obter estatísticas simples. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "arrays", "estatistica-basica", "vetores"],
+      "tips": [
+        "Peça variações de atividades que reforcem declarar e inicializar vetores em c respeitando tipos e tamanhos.",
+        "Solicite exemplos adicionais relacionados a vetores, arrays.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem percorrer vetores com loops for para calcular média, mínimo e máximo."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano de voo (1h50)",
       "cards": [

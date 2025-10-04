@@ -150,6 +150,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Revisão Gamificada do Semestre",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Revisão Gamificada do Semestre. Contexto da aula: Consolida conteúdos com dinâmica Jeopardy, ranking colaborativo e síntese dos aprendizados em squads. Objetivo central: Promover revisão abrangente dos conceitos-chave da disciplina por meio de atividades gamificadas e colaborativas. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "crud", "revisao", "structs"],
+      "tips": [
+        "Peça variações de atividades que reforcem relembrar tópicos centrais (fluxo sequencial, controle, funções, structs).",
+        "Solicite exemplos adicionais relacionados a structs, crud.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem aplicar conhecimento em desafios práticos e quizzes competitivos."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Kit Jeopardy por squad",
       "content": [

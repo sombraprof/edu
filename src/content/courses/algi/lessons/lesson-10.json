@@ -132,6 +132,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Condicionais com if e else",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 10: Condicionais com if e else. Contexto da aula: Transforma algoritmos sequenciais em decisões controladas por condições booleanas, introduzindo desvios simples e comunicação clara de cada caminho. Objetivo central: Empregar estruturas if e if-else para alterar o fluxo do programa conforme regras de negócio bem definidas. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "condicionais", "controle-de-fluxo", "if-else"],
+      "tips": [
+        "Peça variações de atividades que reforcem reconhecer situações em que o fluxo sequencial precisa ser desviado por meio de uma condição.",
+        "Solicite exemplos adicionais relacionados a condicionais, if-else.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem escrever e testar expressões booleanas que alimentam estruturas if e if-else."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Quando precisamos desviar do fluxo sequencial",
       "content": [

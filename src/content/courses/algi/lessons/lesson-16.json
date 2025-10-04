@@ -144,6 +144,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Atividade Prática Assíncrona – Condicionais",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 16: Atividade Prática Assíncrona – Condicionais. Contexto da aula: Aplica condicionais compostas em um miniaplicativo de triagem, documentando decisões, testes e evidências de entrega. Objetivo central: Conduzir uma atividade autônoma que consolide condicionais aninhadas, operadores lógicos e planejamento de testes. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "assincrona", "atividade", "condicionais"],
+      "tips": [
+        "Peça variações de atividades que reforcem revisar requisitos funcionais de um fluxo de triagem clínica.",
+        "Solicite exemplos adicionais relacionados a condicionais, atividade.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem desenhar fluxogramas que reflitam decisões exclusivas e caminhos alternativos."
+      ]
+    },
+    {
       "type": "pipelineCanvas",
       "title": "Fluxo da atividade assíncrona",
       "summary": "Três etapas obrigatórias para concluir a triagem médica digital.",

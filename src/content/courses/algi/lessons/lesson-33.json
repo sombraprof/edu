@@ -133,6 +133,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Matrizes 2D e Geração de Tabelas",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Matrizes 2D e Geração de Tabelas. Contexto da aula: Apresenta matrizes bidimensionais em C para organizar dados tabulares e gerar relatórios estruturados. Objetivo central: Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar tabelas formatadas. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "arrays", "loops-aninhados", "matrizes"],
+      "tips": [
+        "Peça variações de atividades que reforcem declarar matrizes estáticas e inicializá-las com dados reais.",
+        "Solicite exemplos adicionais relacionados a matrizes, arrays.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem percorrer linhas e colunas utilizando loops aninhados."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano de voo (1h55)",
       "cards": [

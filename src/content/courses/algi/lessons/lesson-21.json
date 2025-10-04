@@ -98,6 +98,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Problemas com laços aninhados simples",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Problemas com laços aninhados simples. Contexto da aula: Integra laços aninhados para resolver problemas bidimensionais, produzindo tabelas e padrões em C. Objetivo central: Modelar e implementar laços aninhados que gerem estruturas 2D consistentes, avaliando custos e depurando erros comuns. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "aninhamento", "loops", "padroes"],
+      "tips": [
+        "Peça variações de atividades que reforcem planejar estruturas de dados bidimensionais que dependem de laços aninhados.",
+        "Solicite exemplos adicionais relacionados a loops, aninhamento.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem implementar algoritmos com laços aninhados simples para tabulações e padrões visuais."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Fundamentos dos laços aninhados",
       "content": [

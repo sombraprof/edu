@@ -134,6 +134,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Introdução a Structs (Registros)",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Introdução a Structs (Registros). Contexto da aula: Apresenta structs em C como registros compostos e conduz um CRUD básico em memória para consolidar o modelo de dados. Objetivo central: Compreender a declaração, instância e manipulação inicial de structs em C, preparando-se para coleções de registros. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "crud", "revisao", "structs"],
+      "tips": [
+        "Peça variações de atividades que reforcem declarar structs com campos adequados ao domínio proposto.",
+        "Solicite exemplos adicionais relacionados a structs, crud.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem inicializar e acessar membros por ponto e ponteiros."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano de voo (1h55)",
       "cards": [
