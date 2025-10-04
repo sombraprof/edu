@@ -2,7 +2,12 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import LessonRenderer from '../LessonRenderer.vue';
 import ddmLesson01 from '@/content/courses/ddm/lessons/lesson-01.json';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
+import type {
+  BibliographyFallbackData,
+  ResolvedLessonBlock,
+} from '@/pages/course/LessonRenderer.logic';
+import type { LessonMetadataSummaryProps } from '@/components/lesson/LessonMetadataSummary.vue';
 
 vi.mock('@/pages/course/LessonRenderer.logic', async () => {
   const actual = await vi.importActual<typeof import('@/pages/course/LessonRenderer.logic')>(
@@ -116,9 +121,9 @@ describe('LessonRenderer', () => {
 
   it('shows empty state when controller reports no renderable content', () => {
     useLessonRendererMock.mockReturnValue({
-      metadataSummary: ref(null),
-      resolvedBlocks: ref([]),
-      bibliographyFallback: ref(null),
+      metadataSummary: computed<LessonMetadataSummaryProps | null>(() => null),
+      resolvedBlocks: computed<ResolvedLessonBlock[]>(() => []),
+      bibliographyFallback: computed<BibliographyFallbackData | null>(() => null),
       hasRenderableContent: computed(() => false),
     });
 
