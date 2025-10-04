@@ -4,169 +4,153 @@
   "objective": "Transformar objetivos estratégicos em um roadmap priorizado de iniciativas de SI.",
   "content": [
     {
-      "type": "representations",
-      "title": "Critérios de priorização",
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reúna a lista de iniciativas do PESI, com estimativas preliminares de esforço, benefício e dependências."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Traga estimativas de esforço/benefício por iniciativa."
+            },
+            {
+              "text": "Identifique dependências técnicas ou regulatórias relevantes."
+            },
+            {
+              "text": "Mapeie restrições de orçamento e equipe."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Critérios",
+          "content": "Definir critérios de priorização (valor, risco, urgência)."
+        },
+        {
+          "icon": "target",
+          "title": "Pontuação",
+          "content": "Aplicar matriz de priorização às iniciativas."
+        },
+        {
+          "icon": "calendar-days",
+          "title": "Roadmap",
+          "content": "Organizar releases e marcos multitrimestre."
+        },
+        {
+          "icon": "users",
+          "title": "Governança",
+          "content": "Planejar ritos de revisão e atualização do roadmap."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Valor estratégico",
-          "content": "Contribuição direta aos objetivos do BSC e KPIs corporativos.",
-          "language": "plaintext",
-          "code": "Contribuição direta aos objetivos do BSC e KPIs corporativos."
-        },
-        {
-          "title": "Urgência regulatória",
-          "content": "Prazos legais ou riscos de continuidade se não executar.",
-          "language": "plaintext",
-          "code": "Prazos legais ou riscos de continuidade se não executar."
-        },
-        {
-          "title": "Viabilidade",
-          "content": "Disponibilidade de recursos, maturidade tecnológica e complexidade.",
-          "language": "plaintext",
-          "code": "Disponibilidade de recursos, maturidade tecnológica e complexidade."
-        },
-        {
-          "title": "Dependências",
-          "content": "Sequência lógica entre iniciativas e impactos em programas correlatos.",
-          "language": "plaintext",
-          "code": "Sequência lógica entre iniciativas e impactos em programas correlatos."
-        }
+        "(10 min) Check-in com desafios de priorização relatados pelos squads.",
+        "(20 min) Exposição: modelos de priorização (WSJF, matriz valor x esforço).",
+        "(15 min) Definição dos critérios e pesos adotados pela turma.",
+        "(20 min) Oficina: pontuar iniciativas e ordenar portfólio.",
+        "(15 min) Construção do roadmap trimestral com dependências.",
+        "(15 min) Discussão sobre capacidade e restrições de recursos.",
+        "(15 min) Síntese e orientações para comunicação do roadmap."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Matriz de pontuação",
+      "title": "Conceitos essenciais",
       "content": [
         {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Iniciativa: Plataforma de dados corporativos | Valor: 5 | Urgência: 4 | Esforço: 3 | Score ponderado: 4,4"
-            },
-            {
-              "text": "Iniciativa: Portal omnicanal | Valor: 4 | Urgência: 5 | Esforço: 4 | Score ponderado: 4,2"
-            },
-            {
-              "text": "Iniciativa: Automação de backoffice | Valor: 3 | Urgência: 3 | Esforço: 2 | Score ponderado: 3,2"
-            },
-            {
-              "text": "Iniciativa: Programa de cibersegurança | Valor: 5 | Urgência: 5 | Esforço: 4 | Score ponderado: 4,8"
-            },
-            {
-              "text": "Iniciativa: ERP financeiro-cloud | Valor: 4 | Urgência: 4 | Esforço: 5 | Score ponderado: 4,0"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Roadmap macro (12 trimestres)",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "T1-T2 – Quick wins regulatórios e fundação de governança de dados."
-            },
-            {
-              "text": "T3-T4 – Entrega da primeira onda da plataforma de dados e pilotos omnicanal."
-            },
-            {
-              "text": "T5-T6 – Implantação do programa de cibersegurança e automações críticas."
-            },
-            {
-              "text": "T7-T8 – Rollout do ERP financeiro-cloud e expansão dos casos de analytics."
-            },
-            {
-              "text": "T9-T12 – Escala das jornadas digitais e revisão estratégica do portfólio."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Carteira integrada",
-      "summary": "Visualiza dependências chave entre iniciativas prioritárias.",
-      "factors": [
-        {
-          "id": "dados_plataforma",
-          "name": "Plataforma de dados",
-          "summary": "Lago corporativo e catálogo",
-          "kind": "resource",
-          "indicators": ["datasets_publicados"]
+          "type": "paragraph",
+          "text": "Priorização transparente equilibra valor estratégico, urgência, riscos e capacidade de execução. Critérios claros evitam disputas e permitem revisões periódicas."
         },
         {
-          "id": "omni",
-          "name": "Omnicanalidade",
-          "summary": "Portal e apps unificados",
-          "kind": "outcome",
-          "indicators": ["clientes_ativos"]
-        },
-        {
-          "id": "seguranca",
-          "name": "Cibersegurança",
-          "summary": "Controles e conformidade",
-          "kind": "constraint",
-          "indicators": ["incidentes_severos"]
-        },
-        {
-          "id": "erp",
-          "name": "ERP Cloud",
-          "summary": "Plataforma financeira e compliance",
-          "kind": "resource",
-          "indicators": ["processos_migrados"]
-        }
-      ],
-      "connections": [
-        {
-          "from": "dados_plataforma",
-          "to": "omni",
-          "description": "Dados consistentes alimentam personalização."
-        },
-        {
-          "from": "seguranca",
-          "to": "dados_plataforma",
-          "description": "Controles definem padrões de acesso e criptografia."
-        },
-        {
-          "from": "erp",
-          "to": "dados_plataforma",
-          "description": "Integrações financeiras alimentam indicadores estratégicos."
-        },
-        {
-          "from": "seguranca",
-          "to": "omni",
-          "description": "Camadas de proteção garantem confiança do cliente."
+          "type": "paragraph",
+          "text": "Roadmap traduz prioridades em tempo, destacando dependências, marcos e entregas incrementais. Deve ser revisado continuamente para responder a mudanças."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Casos de roadmap",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/roadmap-ti-financas",
-          "title": "Roadmap de TI em serviços financeiros",
-          "caption": "Sequenciamento de 12 trimestres em banco digital."
+          "url": "https://example.edu/tgs/videos/priorizacao-pesi",
+          "title": "Priorização de iniciativas",
+          "caption": "Aplicando matrizes de valor x esforço."
         },
         {
-          "url": "https://example.edu/tgs/videos/priorizacao-portfolio-ti",
-          "title": "Priorização com value scoring",
-          "caption": "Aplicação prática da matriz de pontuação."
+          "url": "https://example.edu/tgs/videos/roadmap-si",
+          "title": "Construindo o roadmap",
+          "caption": "Exemplo de roadmap trimestral para SI."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Critérios",
+              "text": "Defina e pese critérios de priorização."
+            },
+            {
+              "title": "Pontuação",
+              "text": "Aplique critérios nas iniciativas do case."
+            },
+            {
+              "title": "Roadmap",
+              "text": "Distribua iniciativas priorizadas ao longo dos trimestres."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para revisar o roadmap",
+      "description": "Cole a tabela de iniciativas com pontuações.",
+      "prompt": "Você é diretor de portfólio de SI. Analise as iniciativas e pontuações abaixo e sugira ajustes, dependências críticas e riscos. Monte um roadmap trimestral e recomende ritos de governança. Iniciativas: [liste sua tabela].",
+      "tips": [
+        "Informe capacidade de execução por trimestre.",
+        "Peça sugestões de quick wins e iniciativas estratégicas.",
+        "Solicite plano de comunicação para stakeholders."
+      ],
+      "tags": ["roadmap", "priorizacao"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 33 — Roadmap trimestral",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Produza um roadmap em trimestres para as cinco principais iniciativas de SI, incluindo dependências e quick wins. Publique no mural do curso e comente coerência de pelo menos dois colegas."
+          "text": "Publique matriz de priorização, roadmap trimestral e plano de revisão do portfólio do PESI."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Definiu critérios claros e pesos acordados.",
+        "Pontuou iniciativas com base em dados e discussões.",
+        "Organizou roadmap considerando capacidade e dependências."
       ]
     }
   ],

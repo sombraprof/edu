@@ -4,182 +4,151 @@
   "objective": "Mensurar a capacidade de aplicar pensamento sistêmico na análise de organizações complexas.",
   "content": [
     {
-      "type": "lessonPlan",
-      "title": "Plano da avaliação",
-      "cards": [
-        {
-          "icon": "check-circle",
-          "title": "Data e duração",
-          "content": "Prova NP2 presencial com 110 minutos de duração."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Foco",
-          "content": "Aplicar pensamento sistêmico em estudos de caso envolvendo homeostase, feedback e fronteiras."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Formato",
-          "content": "Questões discursivas e análise de diagramas fornecidos."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Preparação",
-          "content": "Revisar aulas 6 a 10, anotações de laboratório e discussões no fórum."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Pós-prova",
-          "content": "Registrar percepções e dúvidas para a devolutiva coletiva."
-        }
-      ]
-    },
-    {
-      "type": "representations",
-      "title": "Competências avaliadas",
-      "items": [
-        {
-          "title": "Modelagem",
-          "content": "Representar fluxos e loops de feedback destacando variáveis críticas.",
-          "language": "plaintext",
-          "code": "Representar fluxos e loops de feedback destacando variáveis críticas."
-        },
-        {
-          "title": "Diagnóstico",
-          "content": "Identificar causas raiz e pontos de ruptura em sistemas abertos.",
-          "language": "plaintext",
-          "code": "Identificar causas raiz e pontos de ruptura em sistemas abertos."
-        },
-        {
-          "title": "Intervenção",
-          "content": "Propor ações que preservem homeostase ou conduzam à transformação desejada.",
-          "language": "plaintext",
-          "code": "Propor ações que preservem homeostase ou conduzam à transformação desejada."
-        }
-      ]
-    },
-    {
-      "type": "representations",
-      "title": "Backlog preventivo pré-avaliação",
-      "items": [
-        {
-          "title": "Loops de feedback",
-          "content": "Revisar mapas produzidos, verificar polaridade e indicadores associados.",
-          "language": "plaintext",
-          "code": "Revisar mapas produzidos, verificar polaridade e indicadores associados."
-        },
-        {
-          "title": "Homeostase",
-          "content": "Listar exemplos e contraexemplos em cada estudo de caso trabalhado.",
-          "language": "plaintext",
-          "code": "Listar exemplos e contraexemplos em cada estudo de caso trabalhado."
-        },
-        {
-          "title": "Fronteiras",
-          "content": "Checar delimitações do sistema, atores e fluxos externos relevantes.",
-          "language": "plaintext",
-          "code": "Checar delimitações do sistema, atores e fluxos externos relevantes."
-        },
-        {
-          "title": "Riscos & mitigação",
-          "content": "Registrar hipóteses de ruptura e contramedidas no quadro colaborativo.",
-          "language": "plaintext",
-          "code": "Registrar hipóteses de ruptura e contramedidas no quadro colaborativo."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Estrutura da prova",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "title": "Questão 1 — Análise de contexto",
-              "text": "Leia o caso apresentado, identifique fronteiras, atores e indicadores de saúde do sistema."
-            },
-            {
-              "title": "Questão 2 — Loop de feedback",
-              "text": "Construa um diagrama apontando loops reforçadores e balanceadores, sugerindo métricas de monitoramento."
-            },
-            {
-              "title": "Questão 3 — Plano de ação",
-              "text": "Descreva intervenções possíveis, justificando impactos esperados a curto e médio prazo."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Cada resposta deve combinar conceitos teóricos, exemplos práticos e linguagem clara. Utilize o tempo inicial para planejar a estrutura antes de escrever."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Oficina de revisão (véspera da NP2)",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Bloco 1 — Diagnóstico – 15 min para avaliar rubric score da aula 25-27 e definir lacunas prioritárias."
-            },
-            {
-              "text": "Bloco 2 — Troca entre duplas – 20 min de revisão cruzada utilizando o board de pares para comentar mapas sistêmicos."
-            },
-            {
-              "text": "Bloco 3 — Mini-simulado – 30 min respondendo questão inédita e comparando com gabarito comentado."
-            },
-            {
-              "text": "Bloco 4 — Ações preventivas – 15 min para atualizar backlog preventivo, definir métricas de acompanhamento e próximos passos."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Critérios de correção",
-      "content": [
-        {
-          "type": "subBlock",
-          "title": "Rubrica resumida",
-          "items": [
-            "Compreensão sistêmica (40%): capacidade de mapear elementos, interações e contextos.",
-            "Aplicação conceitual (35%): uso adequado de termos como homeostase, entropia, sinergia.",
-            "Clareza e argumentação (15%): estrutura lógica, coesão textual e referências a evidências.",
-            "Inovação (10%): propostas criativas viáveis e alinhadas à realidade apresentada."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Métricas a monitorar durante a NP2",
-      "content": [
-        {
-          "type": "list",
-          "ordered": false,
-          "items": [
-            "Tempo de resposta por questão para evitar correria final.",
-            "Cobertura de conceitos (loops, homeostase, fronteiras) em cada resposta.",
-            "Clareza de evidências utilizadas: citar dados do caso, indicadores e stakeholders.",
-            "Consistência terminológica: evitar contradições entre diagnósticos e propostas."
-          ]
-        }
-      ]
-    },
-    {
       "type": "callout",
       "variant": "info",
-      "title": "Checklist de preparação",
+      "title": "Preparação pré-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise mapas produzidos em sala, refaça ao menos um exercício de loops de feedback e organize um resumo dos conceitos-chave."
+          "text": "Releia seu caderno, resumos e entregas anteriores. Traga anotadas dúvidas pontuais para esclarecer antes da avaliação."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Chegue com antecedência para organizar materiais permitidos."
+            },
+            {
+              "text": "Revise conceitos-chave: categorias de sistemas, integrações, governança de dados."
+            },
+            {
+              "text": "Traga água e documentos necessários para identificação."
+            }
+          ]
         }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Orientações",
+          "content": "Explicar formato, critérios e tempo da avaliação."
+        },
+        {
+          "icon": "clock",
+          "title": "Gestão do tempo",
+          "content": "Distribuir resolução entre partes teórica e prática."
+        },
+        {
+          "icon": "target",
+          "title": "Integridade",
+          "content": "Reforçar regras de conduta e materiais permitidos."
+        },
+        {
+          "icon": "tasks",
+          "title": "Pós-prova",
+          "content": "Orientar registro de aprendizados e plano de melhoria."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Acolhimento, esclarecimento de dúvidas finais e leitura das instruções.",
+        "(15 min) Revisão guiada de critérios de avaliação e rubrica.",
+        "(70 min) Realização da avaliação NP2 (parte situacional + análise de caso).",
+        "(10 min) Revisão individual das respostas e checklist de entrega.",
+        "(15 min) Encerramento com coleta de percepções e orientações pós-prova."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A NP2 integra conteúdos de sistemas empresariais, integração, CRM e ERP. A prova combina análise situacional e questões práticas sobre processos, indicadores e governança."
+        },
+        {
+          "type": "paragraph",
+          "text": "Use evidências de aulas, estudos de caso e exercícios para justificar respostas. Demonstre raciocínio sistêmico e clareza na comunicação."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/como-estudar-np2",
+          "title": "Como revisar para a NP2",
+          "caption": "Dicas de estudo focadas nos temas avaliados."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/gestao-tempo-provas",
+          "title": "Gestão do tempo na avaliação",
+          "caption": "Estratégias para dividir o tempo entre análise e escrita."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Checklist pré-prova",
+              "text": "Confirme se compreende formato, critérios e materiais permitidos."
+            },
+            {
+              "title": "Planejamento",
+              "text": "Defina quanto tempo destinará a cada seção da avaliação."
+            },
+            {
+              "title": "Reflexão pós",
+              "text": "Reserve 10 minutos após a prova para registrar aprendizados e dúvidas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para revisar conteúdos da NP2",
+      "description": "Use como guia de estudos antes da avaliação.",
+      "prompt": "Atue como tutor da disciplina de TGS. Monte um plano de revisão para a avaliação NP2 cobrindo sistemas empresariais, integração, CRM e ERP. Inclua conceitos-chave, exercícios recomendados e perguntas de reflexão. Perfil do estudante: [descreva suas dificuldades].",
+      "tips": [
+        "Informe temas que considera mais desafiadores.",
+        "Peça questões situacionais para praticar.",
+        "Solicite sugestões de tempo de estudo por tópico."
+      ],
+      "tags": ["avaliacao", "revisao"],
+      "audience": "student"
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Após receber o feedback da NP2, registre em até 24 horas um plano de melhoria pessoal com pontos fortes, lacunas e ações para a reta final da disciplina."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Leu todas as instruções da avaliação com atenção.",
+        "Organizou o tempo para responder todas as partes.",
+        "Registrou percepções pós-prova para orientar estudos futuros."
       ]
     }
   ],

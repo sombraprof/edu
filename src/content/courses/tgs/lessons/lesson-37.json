@@ -4,312 +4,153 @@
   "objective": "Aplicar técnicas de foresight para projetar futuros possíveis e implicações para o PESI.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise tendências macroeconômicas, regulatórias e tecnológicas que podem afetar o case nos próximos 3-5 anos."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Pesquise relatórios de mercado e tendências regulatórias."
+            },
+            {
+              "text": "Identifique riscos extremos e oportunidades emergentes."
+            },
+            {
+              "text": "Traga hipóteses sobre comportamento de clientes e concorrentes."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
+          "icon": "target",
+          "title": "Sinais",
+          "content": "Identificar sinais fracos e drivers de mudança."
+        },
+        {
+          "icon": "code",
+          "title": "Cenários",
+          "content": "Construir narrativas de futuros plausíveis."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Respostas",
+          "content": "Planejar respostas estratégicas e gatilhos."
+        },
+        {
           "icon": "monitor",
-          "title": "Exploração",
-          "content": "Revisão de sinais fracos e drivers de mudança (20 min)."
-        },
-        {
-          "icon": "bullseye",
-          "title": "Cocriação",
-          "content": "Construção colaborativa de matrizes 2×2 e narrativas (35 min)."
-        },
-        {
-          "icon": "gears",
-          "title": "Modelagem",
-          "content": "Mapeamento de gatilhos, respostas e métricas críticas (25 min)."
-        },
-        {
-          "icon": "calendar-days",
-          "title": "Simulação",
-          "content": "Testes de resposta rápida com pipeline adaptativo (20 min)."
-        },
-        {
-          "icon": "tasks",
-          "title": "TED",
-          "content": "Checklist e orientações para narrativa 2030 (10 min)."
+          "title": "Monitoramento",
+          "content": "Definir indicadores de vigília e cadência de revisão."
         }
       ]
     },
     {
-      "type": "representations",
-      "title": "Elementos do foresight",
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Sinais fracos",
-          "content": "Indícios emergentes que sugerem mudanças futuras.",
-          "language": "plaintext",
-          "code": "Indícios emergentes que sugerem mudanças futuras."
-        },
-        {
-          "title": "Forças motrizes",
-          "content": "Tendências macroeconômicas, tecnológicas e sociais.",
-          "language": "plaintext",
-          "code": "Tendências macroeconômicas, tecnológicas e sociais."
-        },
-        {
-          "title": "Incertezas críticas",
-          "content": "Variáveis de alto impacto e difícil previsão.",
-          "language": "plaintext",
-          "code": "Variáveis de alto impacto e difícil previsão."
-        },
-        {
-          "title": "Narrativas",
-          "content": "Histórias que conectam eventos e guiam decisões estratégicas.",
-          "language": "plaintext",
-          "code": "Histórias que conectam eventos e guiam decisões estratégicas."
-        }
+        "(10 min) Check-in com sinais identificados pelos squads.",
+        "(20 min) Exposição sobre metodologia de cenários (PESTEL, matriz impacto x incerteza).",
+        "(15 min) Seleção dos eixos críticos para o case.",
+        "(20 min) Oficina: construir 3 cenários narrativos (otimista, tendência, adverso).",
+        "(15 min) Planejamento de respostas estratégicas e iniciativas contingenciais.",
+        "(15 min) Definição de indicadores de alerta e responsáveis.",
+        "(15 min) Síntese e integração ao PESI."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Fluxo de construção de cenários",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Início – tipo: start"
-            },
-            {
-              "text": "Coletar sinais e dados – tipo: process"
-            },
-            {
-              "text": "Identificar forças motrizes – tipo: process"
-            },
-            {
-              "text": "Incerteza crítica? – tipo: decision"
-            },
-            {
-              "text": "Montar matriz 2×2 – tipo: process"
-            },
-            {
-              "text": "Criar narrativa e storyline – tipo: process"
-            },
-            {
-              "text": "Derivar implicações para SI – tipo: process"
-            },
-            {
-              "text": "Definir sinais de alerta – tipo: process"
-            },
-            {
-              "text": "Cenário pronto – tipo: end"
-            }
-          ]
-        },
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "start → dados"
-            },
-            {
-              "text": "dados → drivers"
-            },
-            {
-              "text": "drivers → incertezas"
-            },
-            {
-              "text": "incertezas → matriz – sim"
-            },
-            {
-              "text": "incertezas → drivers – não"
-            },
-            {
-              "text": "matriz → narrativa"
-            },
-            {
-              "text": "narrativa → implicacoes"
-            },
-            {
-              "text": "implicacoes → sinais"
-            },
-            {
-              "text": "sinais → end"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Matriz 2x2 de cenários",
-      "content": [
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Cenário: Regulado & Estável | Descrição: Mercado com regulação forte e baixa disrupção | Implicações para SI: Foco em compliance e eficiência | Alertas precoces: Novas normas, auditorias frequentes"
-            },
-            {
-              "text": "Cenário: Regulado & Disruptivo | Descrição: Regulação rígida e mudanças tecnológicas rápidas | Implicações para SI: Necessidade de inovação segura | Alertas precoces: Sandbox regulatórios, startups licenciadas"
-            },
-            {
-              "text": "Cenário: Livre & Estável | Descrição: Ambiente competitivo com poucas barreiras | Implicações para SI: Escala de produtos digitais | Alertas precoces: Entrada de players globais"
-            },
-            {
-              "text": "Cenário: Livre & Disruptivo | Descrição: Mercado aberto e alta velocidade de inovação | Implicações para SI: Portfólio flexível e parcerias | Alertas precoces: Investimentos massivos em IA e dados"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Pipeline de respostas a cenários",
+      "title": "Conceitos essenciais",
       "content": [
         {
           "type": "paragraph",
-          "text": "Fluxo para monitorar gatilhos e acionar planos adaptativos."
+          "text": "Cenários ajudam a lidar com incerteza e preparar decisões mais resilientes. A combinação de drivers externos e internos gera narrativas plausíveis que orientam escolhas."
         },
         {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Monitorar | Coletar sinais de alerta e validar hipóteses. | Responsáveis: PMO, Analista de riscos | Duração: 6h | Atividades: Dashboard de sinais; Auditar logs | Entregáveis: Log consolidado de gatilhos | Riscos: Latência de dados (Automatizar ingestão e alertas.) | Checkpoints: Sinais atualizados no painel"
-            },
-            {
-              "text": "Responder | Executar scripts e planos de mitigação. | Responsáveis: Squad de contingência | Duração: 16h | Atividades: Rodar scripts; Testar mudanças | Entregáveis: Scripts executados; Relatório de testes | Riscos: Falha em rollback (Definir plano B e monitoramento contínuo.) | Checkpoints: Testes aprovados"
-            },
-            {
-              "text": "Replanejar | Atualizar roadmap e comunicar stakeholders. | Responsáveis: Comitê de estratégia, Product manager | Duração: 8h | Atividades: Repriorizar portfólio; Comunicar mudanças | Entregáveis: Roadmap revisado | Riscos: Falta de adesão (Envolver sponsors em simulações.) | Checkpoints: Roadmap publicado"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Matriz de respostas estratégicas",
-      "summary": "Mapeia gatilhos de mudança e planos de resposta do PESI.",
-      "factors": [
-        {
-          "id": "gatilhos",
-          "name": "Gatilhos",
-          "summary": "Eventos monitorados",
-          "kind": "constraint",
-          "indicators": ["alertas_ativos"]
-        },
-        {
-          "id": "portfolio",
-          "name": "Portfólio adaptativo",
-          "summary": "Backlog flexível",
-          "kind": "flow",
-          "indicators": ["iniciativas_repriorizadas"]
-        },
-        {
-          "id": "investimentos",
-          "name": "Investimentos",
-          "summary": "Capex e Opex",
-          "kind": "resource",
-          "indicators": ["budget_disponivel"]
-        },
-        {
-          "id": "competencias",
-          "name": "Competências futuras",
-          "summary": "Upskilling e talento",
-          "kind": "capability",
-          "indicators": ["talentos_formados"]
-        }
-      ],
-      "connections": [
-        {
-          "from": "gatilhos",
-          "to": "portfolio",
-          "description": "Gatilhos acionam repriorização do backlog."
-        },
-        {
-          "from": "investimentos",
-          "to": "portfolio",
-          "description": "Realocação de orçamento viabiliza respostas."
-        },
-        {
-          "from": "competencias",
-          "to": "portfolio",
-          "description": "Competências futuras permitem executar novos planos."
-        },
-        {
-          "from": "portfolio",
-          "to": "investimentos",
-          "description": "Novas prioridades demandam redistribuição de budget."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Sequência de construção de cenários",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Etapa 1 – Coleta sinais e tendências com especialistas."
-            },
-            {
-              "text": "Etapa 2 – Define forças motrizes e incertezas críticas."
-            },
-            {
-              "text": "Etapa 3 – Constrói matrizes de cenários e narrativas."
-            },
-            {
-              "text": "Etapa 4 – Extrai implicações para portfólio e riscos."
-            }
-          ]
+          "type": "paragraph",
+          "text": "Planos de resposta e indicadores de vigília permitem ajustar o PESI conforme o ambiente evolui."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Futuros de SI",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://www.youtube.com/watch?v=FzT9I3J7P1s",
-          "title": "Curso em Vídeo — Como construir cenários futuros",
-          "caption": "Passo a passo para estruturar cenários estratégicos."
+          "url": "https://example.edu/tgs/videos/planejamento-cenarios",
+          "title": "Planejamento por cenários",
+          "caption": "Metodologia passo a passo."
         },
         {
-          "url": "https://www.youtube.com/watch?v=VYOq-Jxk_3g",
-          "title": "freeCodeCamp — Foresight for Technology Leaders",
-          "caption": "Ferramentas para antecipar impactos tecnológicos."
+          "url": "https://example.edu/tgs/videos/futuros-si",
+          "title": "Futuros de SI",
+          "caption": "Como preparar SI para diferentes futuros."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Drivers",
+              "text": "Liste drivers e avalie impacto x incerteza."
+            },
+            {
+              "title": "Cenários",
+              "text": "Crie narrativas curtas para três cenários."
+            },
+            {
+              "title": "Planos",
+              "text": "Defina respostas estratégicas e indicadores de gatilho."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para cenários de SI",
+      "description": "Cole drivers e hipóteses escolhidos.",
+      "prompt": "Você é futurista corporativo. Analise os drivers abaixo e elabore três cenários (otimista, base, adverso) com implicações para SI, indicadores de gatilho e ações prioritárias. Drivers: [liste seus drivers].",
+      "tips": [
+        "Inclua horizonte temporal e impacto desejado.",
+        "Peça recomendações de portfólio adaptativo.",
+        "Solicite alertas que indiquem mudança de cenário."
+      ],
+      "tags": ["cenarios", "futuros"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 37 — Narrativa 2030",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Escreva uma narrativa de cenário para 2030 considerando incertezas críticas do seu setor. Anexe script de simulação, relatório de testes das respostas e log de auditoria dos gatilhos monitorados."
-        },
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Script de simulação com parametrizações dos cenários."
-            },
-            {
-              "text": "Relatório de testes validando respostas e riscos residuais."
-            },
-            {
-              "text": "Log de auditoria com gatilhos e decisões tomadas."
-            }
-          ]
-        },
-        {
-          "type": "checklist",
-          "title": "Checklist de submissão",
-          "items": [
-            "Narrativa 2030 em PDF com storyline e implicações.",
-            "Script versionado com instruções de execução.",
-            "Relatório de testes com métricas de cobertura.",
-            "Log de auditoria (CSV/JSON) assinado digitalmente."
-          ]
+          "text": "Produza relatório de cenários com drivers, narrativas, planos de resposta e indicadores de vigília conectados ao PESI."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Identificou drivers e incertezas críticas.",
+        "Construiu narrativas plausíveis de futuro.",
+        "Planejou respostas e indicadores de monitoramento."
       ]
     }
   ],

@@ -4,166 +4,153 @@
   "objective": "Avaliar capacidades internas de SI para orientar decisões do portfólio estratégico.",
   "content": [
     {
-      "type": "representations",
-      "title": "Dimensões da capacidade digital",
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Atualize o mapa de processos do case e identifique capacidades digitais que já existem e que precisam ser desenvolvidas."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Revise frameworks de capacidades digitais compartilhados no material extra."
+            },
+            {
+              "text": "Traga métricas de desempenho dos processos atuais."
+            },
+            {
+              "text": "Identifique capacidades que diferenciam a organização no mercado."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "Capacidades",
+          "content": "Definir capacidades digitais essenciais."
+        },
+        {
+          "icon": "target",
+          "title": "Portfólio",
+          "content": "Relacionar processos estratégicos e suas dependências."
+        },
+        {
+          "icon": "target",
+          "title": "Valor",
+          "content": "Avaliar impacto e esforço das capacidades."
+        },
+        {
+          "icon": "users",
+          "title": "Alinhamento",
+          "content": "Conectar capacidades a iniciativas do PESI."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Arquitetura",
-          "content": "Sistemas, integrações, dados e padrões que sustentam entregas.",
-          "language": "plaintext",
-          "code": "Sistemas, integrações, dados e padrões que sustentam entregas."
-        },
-        {
-          "title": "Talentos",
-          "content": "Competências técnicas, soft skills e estruturas de squads.",
-          "language": "plaintext",
-          "code": "Competências técnicas, soft skills e estruturas de squads."
-        },
-        {
-          "title": "Processos",
-          "content": "Ritos, governança de mudanças e automação de fluxos.",
-          "language": "plaintext",
-          "code": "Ritos, governança de mudanças e automação de fluxos."
-        },
-        {
-          "title": "Cultura",
-          "content": "Abertura à experimentação, colaboração e aprendizado contínuo.",
-          "language": "plaintext",
-          "code": "Abertura à experimentação, colaboração e aprendizado contínuo."
-        }
+        "(10 min) Check-in: quais capacidades digitais são críticas hoje?",
+        "(20 min) Exposição sobre frameworks de capacidades (MIT CISR, Gartner).",
+        "(15 min) Exercício guiado para catalogar processos prioritários.",
+        "(20 min) Oficina: mapear capacidades versus processos no case.",
+        "(15 min) Debate sobre gaps e investimentos necessários.",
+        "(15 min) Definição de critérios para priorizar capacidades.",
+        "(15 min) Síntese e orientações para documentação do portfólio."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Matriz de criticidade dos processos",
+      "title": "Conceitos essenciais",
       "content": [
         {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Processo: Onboarding de clientes | Impacto no negócio: Alta | Saúde atual: Baixa | Observações: Integrações manuais geram atrasos de 48h"
-            },
-            {
-              "text": "Processo: Fechamento financeiro | Impacto no negócio: Alta | Saúde atual: Média | Observações: Dependência de planilhas fora do ERP"
-            },
-            {
-              "text": "Processo: Gestão de estoque | Impacto no negócio: Média | Saúde atual: Alta | Observações: Automação consolidada com IoT e WMS"
-            },
-            {
-              "text": "Processo: Suporte ao cliente | Impacto no negócio: Alta | Saúde atual: Baixa | Observações: Falta visão 360° e base de conhecimento unificada"
-            },
-            {
-              "text": "Processo: Gestão de campanhas | Impacto no negócio: Média | Saúde atual: Média | Observações: Ferramentas diversas sem governança comum"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Mapa de valor da SI",
-      "summary": "Relaciona capacidades internas com benefícios percebidos pelo negócio.",
-      "factors": [
-        {
-          "id": "dados",
-          "name": "Dados confiáveis",
-          "summary": "Governança e qualidade de dados",
-          "kind": "resource",
-          "indicators": ["qualidade_dados", "tempo_disponibilidade"]
+          "type": "paragraph",
+          "text": "Capacidades digitais são combinações de tecnologia, processos e pessoas que habilitam modelos de negócio. Catalogá-las permite priorizar investimentos e alinhar SI ao negócio."
         },
         {
-          "id": "experiencia",
-          "name": "Experiência do cliente",
-          "summary": "Omnicanalidade e personalização",
-          "kind": "outcome",
-          "indicators": ["nps", "taxa_conversao"]
-        },
-        {
-          "id": "eficiencia",
-          "name": "Eficiência operacional",
-          "summary": "Automação e redução de retrabalho",
-          "kind": "outcome",
-          "indicators": ["custo_operacional", "tempo_ciclo"]
-        },
-        {
-          "id": "inovacao",
-          "name": "Inovação contínua",
-          "summary": "Capacidade de experimentar e escalar",
-          "kind": "capability",
-          "indicators": ["experimentos_trimestre", "time_to_market"]
-        }
-      ],
-      "connections": [
-        {
-          "from": "dados",
-          "to": "experiencia",
-          "description": "Dados confiáveis habilitam personalização em escala."
-        },
-        {
-          "from": "dados",
-          "to": "eficiencia",
-          "description": "Padronização de dados reduz retrabalho e auditorias."
-        },
-        {
-          "from": "inovacao",
-          "to": "experiencia",
-          "description": "Experimentação gera novas jornadas digitais."
-        },
-        {
-          "from": "inovacao",
-          "to": "eficiencia",
-          "description": "Pilotos de automação são escalados para backoffice."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Sprint de imersão nas capacidades",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Dia 1 – Workshop com líderes de negócio para mapear processos críticos."
-            },
-            {
-              "text": "Dia 2 – Avaliação técnica de sistemas e integrações prioritárias."
-            },
-            {
-              "text": "Dia 3 – Análise de competências e dimensionamento de equipes."
-            },
-            {
-              "text": "Dia 4 – Consolidação dos gaps e oportunidades em relatório executivo."
-            }
-          ]
+          "type": "paragraph",
+          "text": "O portfólio de processos conecta capacidades aos fluxos críticos. Avaliar maturidade e impacto orienta decisões de onde investir primeiro."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Casos para estudo",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/capacidades-digitais-industria",
-          "title": "Capacidades digitais em manufatura",
-          "caption": "Diagnóstico de TI que priorizou automação e analytics na linha de produção."
+          "url": "https://example.edu/tgs/videos/capacidades-digitais",
+          "title": "O que são capacidades digitais",
+          "caption": "Frameworks e exemplos práticos."
         },
         {
-          "url": "https://example.edu/tgs/videos/portfolio-processos-servicos",
-          "title": "Rebalanceamento de portfólio em serviços",
-          "caption": "Como uma empresa de saúde digital reposicionou investimentos de TI."
+          "url": "https://example.edu/tgs/videos/portfolio-processos",
+          "title": "Portfólio de processos",
+          "caption": "Como priorizar processos e capacidades."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapa de capacidades",
+              "text": "Liste capacidades existentes e desejadas."
+            },
+            {
+              "title": "Matriz",
+              "text": "Relacione capacidades a processos críticos do case."
+            },
+            {
+              "title": "Priorização",
+              "text": "Classifique cada capacidade por impacto e esforço."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para avaliar capacidades",
+      "description": "Cole sua matriz de capacidades e processos.",
+      "prompt": "Você é arquiteto corporativo. Analise a matriz de capacidades x processos abaixo e sugira prioridades de investimento, indicadores de maturidade e riscos associados. Matriz: [descreva sua relação].",
+      "tips": [
+        "Informe maturidade atual (baixa/média/alta).",
+        "Peça recomendações de quick wins.",
+        "Solicite indicadores para medir evolução."
+      ],
+      "tags": ["capacidades", "portfólio"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 31 — Inventário comentado",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Atualize o inventário de processos e sistemas priorizados, incluindo nível de criticidade e riscos associados. Publique no fórum até 72h e comente em pelo menos um trabalho de colega."
+          "text": "Entregue um catálogo de capacidades digitais com classificação de maturidade, impacto e iniciativas associadas aos processos prioritários."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Catalogou capacidades existentes e desejadas.",
+        "Relacionou capacidades a processos estratégicos.",
+        "Priorizou investimentos com base em impacto e esforço."
       ]
     }
   ],

@@ -4,236 +4,153 @@
   "objective": "Explorar os módulos centrais de um ERP e compreender como eles suportam processos ponta a ponta.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o resultado da aula anterior e selecione dois processos críticos que exigem integração entre módulos do ERP."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Traga exemplos de campos obrigatórios para cada módulo."
+            },
+            {
+              "text": "Revise políticas fiscais e contábeis do estudo de caso."
+            },
+            {
+              "text": "Liste situações de exceção que ocorreram recentemente na empresa analisada."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "gears",
-          "title": "CONTEÚDO",
-          "content": "Módulos Financeiro, Controladoria, Suprimentos, Vendas, Produção e RH, além de integrações de dados mestres."
+          "icon": "target",
+          "title": "Cadeias de valor",
+          "content": "Relacionar processos ponta a ponta ao ERP."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Relacionar módulos às macroetapas do negócio.\n- Identificar dependências de dados e eventos entre áreas.\n- Avaliar impactos da configuração inadequada de módulos."
+          "icon": "book-open",
+          "title": "Módulos-chave",
+          "content": "Explorar FI, MM, SD, PP, HR e suas dependências."
         },
         {
-          "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Aula dialogada com análise de processos reais, dinâmica em grupos e fórum mediado no AVA."
+          "icon": "settings",
+          "title": "Configuração",
+          "content": "Discernir parâmetros e dados mestres que habilitam o fluxo."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Validação",
+          "content": "Planejar testes integrados e controles."
         }
       ]
     },
     {
-      "type": "md3Table",
-      "title": "Módulos e macroprocessos",
-      "headers": ["Módulo", "Processo suportado", "Indicadores críticos", "Stakeholders"],
-      "rows": [
-        [
-          "Financeiro",
-          "Contas a pagar e receber, fluxo de caixa",
-          "DSO, liquidez corrente",
-          "Tesouraria, diretoria"
-        ],
-        [
-          "Controladoria",
-          "Fechamento contábil, consolidação",
-          "Tempo de fechamento, compliance fiscal",
-          "Controladoria, auditoria"
-        ],
-        [
-          "Suprimentos",
-          "Compras, contratos, gestão de estoque",
-          "Lead time de compras, giro de estoque",
-          "Compradores, almoxarifado"
-        ],
-        [
-          "Vendas",
-          "Pedidos, faturamento, faturamento recorrente",
-          "Conversão, ticket médio",
-          "Comercial, faturamento"
-        ],
-        [
-          "Produção",
-          "Planejamento e execução",
-          "Eficiência global, desperdício",
-          "PCP, manufatura"
-        ],
-        ["RH", "Folha, benefícios, performance", "Turnover, absenteísmo", "RH, líderes de equipe"]
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Alinhamento inicial com mapa geral dos processos.",
+        "(20 min) Exposição: relação entre módulos e ciclos procure-to-pay e order-to-cash.",
+        "(15 min) Debate sobre impactos de cadastros incorretos.",
+        "(20 min) Oficina: simular fluxo integrado com eventos e autorizações.",
+        "(15 min) Discussão de cenários de exceção (devoluções, cancelamentos).",
+        "(15 min) Construção de plano de testes integrados.",
+        "(15 min) Síntese com próximos passos para blueprint."
       ]
     },
     {
-      "type": "timeline",
-      "title": "Sequência recomendada de ativação",
-      "steps": [
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
         {
-          "title": "Dados mestres",
-          "content": "Revisar cadastros de materiais, clientes e fornecedores antes da ativação."
+          "type": "paragraph",
+          "text": "Processos integrados dependem da consistência de dados mestres (clientes, fornecedores, materiais) e da parametrização correta de impostos, contas contábeis e regras de negócio. Cada módulo contribui com parte da cadeia, mas o valor surge quando transações fluem sem fricção."
         },
         {
-          "title": "Financeiro + Suprimentos",
-          "content": "Garantir conformidade fiscal e capacidade de reposição de estoque."
-        },
-        {
-          "title": "Vendas",
-          "content": "Sincronizar catálogo e políticas comerciais com estoques disponíveis."
-        },
-        {
-          "title": "Produção",
-          "content": "Planejar ordens de produção conectadas ao planejamento de materiais."
-        },
-        {
-          "title": "RH e controladoria",
-          "content": "Fechar ciclo de informações e entregar relatórios gerenciais integrados."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Dinâmica: pontos de atenção",
-      "cards": [
-        {
-          "title": "Dependências",
-          "content": "Quais módulos precisam estar sincronizados para liberar a emissão de notas fiscais?"
-        },
-        {
-          "title": "Alertas",
-          "content": "Que eventos devem gerar notificações automáticas (ex.: estoque mínimo, pedido bloqueado)?"
-        },
-        {
-          "title": "Escalonamento",
-          "content": "Como a TI deve ser acionada quando um módulo crítico fica indisponível?"
-        },
-        {
-          "title": "Backups",
-          "content": "Que cadastros necessitam de versão histórica para auditoria?"
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Fluxo Procure-to-Pay",
-      "summary": "Interações entre módulos do ERP para compras e pagamentos.",
-      "factors": [
-        {
-          "id": "requisicao",
-          "name": "Requisição",
-          "summary": "Pedido interno de compra.",
-          "kind": "flow",
-          "indicators": ["tempo_aprovacao"]
-        },
-        {
-          "id": "pedido",
-          "name": "Pedido de compra",
-          "summary": "Documento formal enviado ao fornecedor.",
-          "kind": "flow",
-          "indicators": ["pedidos_em_aberto"]
-        },
-        {
-          "id": "recebimento",
-          "name": "Recebimento",
-          "summary": "Entrada física e fiscal de materiais.",
-          "kind": "flow",
-          "indicators": ["divergencias_recebimento"]
-        },
-        {
-          "id": "financeiro",
-          "name": "Liquidação financeira",
-          "summary": "Pagamento conforme condições negociadas.",
-          "kind": "flow",
-          "indicators": ["antecipacoes", "descontos_perdidos"]
-        },
-        {
-          "id": "relatorio",
-          "name": "Relatórios de controle",
-          "summary": "Visão consolidada para gestão.",
-          "kind": "outcome",
-          "indicators": ["economia_negociacao", "conformidade_fiscal"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "controle",
-          "name": "Loop de controle de gastos",
-          "polarity": "balancing",
-          "summary": "Limites aprovados evitam estouro orçamentário e alimentam decisões futuras.",
-          "steps": [
-            {
-              "id": "c-step-1",
-              "from": "requisicao",
-              "to": "pedido",
-              "effect": "reinforces",
-              "description": "Requisições aprovadas convertem-se em pedidos alinhados à política de compras."
-            },
-            {
-              "id": "c-step-2",
-              "from": "pedido",
-              "to": "recebimento",
-              "effect": "reinforces",
-              "description": "Pedidos corretos reduzem divergências de recebimento."
-            },
-            {
-              "id": "c-step-3",
-              "from": "recebimento",
-              "to": "financeiro",
-              "effect": "reinforces",
-              "description": "Notas fiscais sem erro aceleram pagamentos."
-            },
-            {
-              "id": "c-step-4",
-              "from": "financeiro",
-              "to": "relatorio",
-              "effect": "reinforces",
-              "description": "Pagamentos rastreáveis produzem relatórios confiáveis."
-            },
-            {
-              "id": "c-step-5",
-              "from": "relatorio",
-              "to": "requisicao",
-              "effect": "balances",
-              "description": "Indicadores de gastos alimentam ajustes em limites e políticas."
-            }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "id": "insight-a",
-          "label": "Auditoria contínua",
-          "description": "Cada etapa registra evidências usadas para fiscalizações."
-        },
-        {
-          "id": "insight-b",
-          "label": "Papéis claros",
-          "description": "Perfis de aprovação bem definidos evitam gargalos."
+          "type": "paragraph",
+          "text": "Testes integrados e validação cruzada entre áreas evitam retrabalho na entrada em produção. Documentar exceções e aprovações especiais garante rastreabilidade."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Demonstrações recomendadas",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/sap-procure-to-pay",
-          "title": "SAP S/4HANA: fluxo procure-to-pay",
-          "caption": "Demonstração da criação da requisição até o pagamento com monitor de conformidade."
+          "url": "https://example.edu/tgs/videos/erp-processos-integrados",
+          "title": "Processos integrados no ERP",
+          "caption": "Demonstração prática do ciclo procure-to-pay conectando módulos."
         },
         {
-          "url": "https://example.edu/tgs/videos/totvs-compras-integradas",
-          "title": "TOTVS Protheus: compras integradas",
-          "caption": "Apresenta parametrização de aprovação múltipla e integração com estoque."
+          "url": "https://example.edu/tgs/videos/testes-integrados",
+          "title": "Testes integrados no ERP",
+          "caption": "Boas práticas para garantir qualidade na virada de chave."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Fluxo detalhado",
+              "text": "Desenhe as etapas e módulos envolvidos no processo escolhido."
+            },
+            {
+              "title": "Dependências",
+              "text": "Liste cadastros e parâmetros que devem estar corretos para o fluxo funcionar."
+            },
+            {
+              "title": "Cenário de exceção",
+              "text": "Escolha uma exceção e descreva como o ERP deve tratá-la."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar fluxo integrado",
+      "description": "Cole o processo escolhido e variáveis críticas.",
+      "prompt": "Você é analista de processos em implantação ERP. Analise o fluxo descrito abaixo e sugira como configurar módulos, cadastros mestres e regras de negócio para garantir integração ponta a ponta. Inclua testes necessários e alertas para exceções. Fluxo: [detalhe seu processo].",
+      "tips": [
+        "Informe impostos relevantes e SLAs entre áreas.",
+        "Peça recomendações de controles de acesso.",
+        "Solicite ideias de automações para reduzir input manual."
+      ],
+      "tags": ["erp", "processos"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 20 — Fórum moderado",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Publique no fórum \"Integração Procure-to-Pay\" até às 20h de dois dias após a aula: descreva um gargalo vivido ou observado em processos de compras e indique qual módulo do ERP poderia mitigar o problema. Responda a pelo menos um colega com uma sugestão adicional."
+          "text": "Documente o fluxo integrado escolhido com diagramas, cadastros necessários e roteiro de testes. Publique no AVA com justificativa das decisões."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Identificou módulos e responsáveis em cada etapa.",
+        "Relacionou cadastros e parâmetros críticos.",
+        "Planejou testes e ações para exceções."
       ]
     }
   ],

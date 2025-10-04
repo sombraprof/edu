@@ -4,179 +4,153 @@
   "objective": "Aplicar ferramentas de diagnóstico para mapear forças, fraquezas, oportunidades e ameaças do ambiente de SI.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Traga dados coletados nas entrevistas e pesquisas do case para alimentar a matriz SWOT de SI."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Organize evidências (indicadores, relatos, benchmark)."
+            },
+            {
+              "text": "Revise tendências tecnológicas relevantes ao setor."
+            },
+            {
+              "text": "Identifique riscos regulatórios e competitivos que afetam SI."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
-      "title": "Agenda",
+      "title": "Plano da aula",
       "cards": [
         {
-          "icon": "check-circle",
-          "title": "Revisão de fontes de dados para diagnóstico interno e ext...",
-          "content": "Revisão de fontes de dados para diagnóstico interno e externo."
+          "icon": "target",
+          "title": "Diagnóstico",
+          "content": "Consolidar informações internas e externas."
         },
         {
-          "icon": "check-circle",
-          "title": "Construção colaborativa da matriz SWOT específica para SI.",
-          "content": "Construção colaborativa da matriz SWOT específica para SI."
+          "icon": "target",
+          "title": "Matriz SWOT",
+          "content": "Estruturar forças, fraquezas, oportunidades e ameaças."
         },
         {
-          "icon": "check-circle",
-          "title": "Priorização de riscos e vantagens competitivas.",
-          "content": "Priorização de riscos e vantagens competitivas."
+          "icon": "gears",
+          "title": "Prioridades",
+          "content": "Identificar alavancas estratégicas a partir da análise."
+        },
+        {
+          "icon": "target",
+          "title": "Alinhamento",
+          "content": "Preparar narrativa para apresentar achados."
         }
       ]
     },
     {
-      "type": "representations",
-      "title": "Fontes essenciais do diagnóstico",
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Inventário de ativos",
-          "content": "Lista de sistemas, contratos, integrações e custos associados.",
-          "language": "plaintext",
-          "code": "Lista de sistemas, contratos, integrações e custos associados."
-        },
-        {
-          "title": "Mapa de processos",
-          "content": "Fluxos ponta a ponta com indicadores de desempenho e gargalos.",
-          "language": "plaintext",
-          "code": "Fluxos ponta a ponta com indicadores de desempenho e gargalos."
-        },
-        {
-          "title": "Pesquisa com stakeholders",
-          "content": "Entrevistas, workshops e NPS de áreas usuárias para captar expectativas.",
-          "language": "plaintext",
-          "code": "Entrevistas, workshops e NPS de áreas usuárias para captar expectativas."
-        },
-        {
-          "title": "Análise de tendências",
-          "content": "Relatórios de mercado, concorrentes e benchmarks regulatórios.",
-          "language": "plaintext",
-          "code": "Relatórios de mercado, concorrentes e benchmarks regulatórios."
-        }
+        "(10 min) Check-in e revisão das fontes de evidências coletadas.",
+        "(20 min) Exposição sobre boas práticas de diagnóstico e SWOT em SI.",
+        "(15 min) Agrupamento de insights coletados pelos squads.",
+        "(20 min) Oficina: preencher matriz SWOT colaborativa.",
+        "(15 min) Debate sobre implicações estratégicas dos quadrantes.",
+        "(15 min) Preparação de pitch dos principais achados.",
+        "(15 min) Síntese e orientações para documentação."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Matriz SWOT orientada a SI",
+      "title": "Conceitos essenciais",
       "content": [
         {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Quadrante: Forças | Perguntas de apoio: Quais capacidades tecnológicas já diferenciam o negócio? | Exemplos de achados: Time ágil maduro, arquitetura em microserviços, governança de dados consolidada"
-            },
-            {
-              "text": "Quadrante: Fraquezas | Perguntas de apoio: Onde estão os principais gargalos internos? | Exemplos de achados: Backlog represado, dependência de fornecedor único, automação limitada"
-            },
-            {
-              "text": "Quadrante: Oportunidades | Perguntas de apoio: Que movimentos de mercado podem ser acelerados com SI? | Exemplos de achados: Open finance, parcerias com startups, analytics avançado"
-            },
-            {
-              "text": "Quadrante: Ameaças | Perguntas de apoio: Que riscos externos podem comprometer resultados? | Exemplos de achados: Novos entrantes digitais, ataques cibernéticos, mudanças regulatórias"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Conexões do diagnóstico",
-      "summary": "Relaciona fatores internos e externos que influenciam decisões do PESI.",
-      "factors": [
-        {
-          "id": "capabilidades",
-          "name": "Capacidades de TI",
-          "summary": "Competências e ativos internos",
-          "kind": "resource",
-          "indicators": ["maturidade_devops", "cobertura_automacoes"]
+          "type": "paragraph",
+          "text": "A análise SWOT de SI permite conectar capacidades tecnológicas a estratégias do negócio. Forças e fraquezas refletem o ambiente interno; oportunidades e ameaças olham para tendências externas e riscos."
         },
         {
-          "id": "demandas",
-          "name": "Demandas do negócio",
-          "summary": "Iniciativas estratégicas e OKRs",
-          "kind": "flow",
-          "indicators": ["okr_entregues", "nps_stakeholders"]
-        },
-        {
-          "id": "mercado",
-          "name": "Movimentos de mercado",
-          "summary": "Tendências e benchmark",
-          "kind": "external",
-          "indicators": ["participacao_digital", "indice_inovacao"]
-        },
-        {
-          "id": "riscos",
-          "name": "Riscos críticos",
-          "summary": "Ameaças regulatórias e cibernéticas",
-          "kind": "constraint",
-          "indicators": ["incidentes_criticos", "pendencias_auditoria"]
-        }
-      ],
-      "connections": [
-        {
-          "from": "capabilidades",
-          "to": "demandas",
-          "description": "Capacidades existentes viabilizam entregas prioritárias."
-        },
-        {
-          "from": "mercado",
-          "to": "demandas",
-          "description": "Movimentos externos redefinem prioridades de produto."
-        },
-        {
-          "from": "riscos",
-          "to": "capabilidades",
-          "description": "Fragilidades de segurança exigem investimentos estruturantes."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Roteiro de diagnóstico em 4 semanas",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Semana 1 – Coleta dados internos: inventários, custos e indicadores."
-            },
-            {
-              "text": "Semana 2 – Realiza entrevistas e jornadas com áreas de negócio."
-            },
-            {
-              "text": "Semana 3 – Analisa tendências, concorrentes e riscos externos."
-            },
-            {
-              "text": "Semana 4 – Consolida SWOT, prioriza achados e prepara workshop de validação."
-            }
-          ]
+          "type": "paragraph",
+          "text": "O diagnóstico deve ser fundamentado em dados, entrevistas e indicadores, evitando generalizações. O resultado alimenta decisões do PESI e priorização de iniciativas."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Estudos recomendados",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/case-diagnostico-pesi",
-          "title": "Diagnóstico PESI em varejo",
-          "caption": "Como um varejista redesenhou seu portfólio após análise SWOT de TI."
+          "url": "https://example.edu/tgs/videos/diagnostico-si",
+          "title": "Diagnóstico de SI",
+          "caption": "Como coletar evidências para SWOT e roadmap."
         },
         {
-          "url": "https://example.edu/tgs/videos/trends-ti-2025",
-          "title": "Tendências de tecnologia 2025",
-          "caption": "Painel Gartner sobre ameaças e oportunidades para CIOs."
+          "url": "https://example.edu/tgs/videos/swot-exemplo",
+          "title": "Exemplo de SWOT",
+          "caption": "Construção passo a passo de matriz SWOT para SI."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Coleta",
+              "text": "Liste dados e fontes que sustentam cada item da SWOT."
+            },
+            {
+              "title": "Análise",
+              "text": "Relacione cruzamentos FO, FA, DO, DA com decisões estratégicas."
+            },
+            {
+              "title": "Pitch",
+              "text": "Prepare narrativa de 3 minutos com principais achados."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para revisar a SWOT",
+      "description": "Cole a matriz preenchida para receber feedback.",
+      "prompt": "Você é consultor estratégico. Analise a matriz SWOT de SI abaixo e sugira ajustes, riscos ignorados e oportunidades emergentes. Indique quais cruzamentos devem virar iniciativas prioritárias. Matriz: [descreva sua SWOT].",
+      "tips": [
+        "Informe métricas ou exemplos que sustentem cada item.",
+        "Peça recomendações de indicadores para monitorar riscos.",
+        "Solicite ideias de iniciativas rápidas para aproveitar oportunidades."
+      ],
+      "tags": ["diagnostico", "swot"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 30 — SWOT individual",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Produza uma SWOT da área de SI da sua empresa ou de um estudo de caso, classificando ao menos três itens por quadrante e justificando cada evidência com dados coletados. Submeta até 48h após a aula."
+          "text": "Entregue a matriz SWOT validada com evidências e um resumo executivo destacando três prioridades estratégicas para o PESI."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Preencheu a matriz com evidências concretas.",
+        "Relacionou cruzamentos SWOT a decisões estratégicas.",
+        "Preparou narrativa clara para stakeholders."
       ]
     }
   ],

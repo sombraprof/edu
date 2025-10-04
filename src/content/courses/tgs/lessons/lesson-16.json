@@ -4,145 +4,153 @@
   "objective": "Discutir estratégias de integração e interoperabilidade entre sistemas empresariais.",
   "content": [
     {
-      "type": "lessonPlan",
-      "title": "Plano da Aula",
-      "cards": [
-        {
-          "icon": "gears",
-          "title": "CONTEÚDO",
-          "content": "Arquiteturas de integração, padrões (ETL, APIs, eventos) e governança de dados."
-        },
-        {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Compreender desafios de interoperabilidade.\n- Avaliar modelos de integração adequados a diferentes cenários.\n- Planejar ações de governança e monitoramento."
-        },
-        {
-          "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Demonstração técnica guiada, estudo de caso crítico e debate estruturado sobre impactos organizacionais."
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "title": "Jornada de integração",
-      "steps": [
-        {
-          "title": "Diagnóstico",
-          "content": "Mapear fluxos de dados, sistemas origem e destino, bem como requisitos de tempo real vs. batelada."
-        },
-        {
-          "title": "Desenho",
-          "content": "Selecionar padrões (API, mensageria, ETL, iPaaS) considerando acoplamento e governança."
-        },
-        {
-          "title": "Implementação",
-          "content": "Configurar conectores, orquestrar transformações e validar qualidade dos dados."
-        },
-        {
-          "title": "Monitoramento",
-          "content": "Estabelecer observabilidade, SLAs e mecanismos de reação a falhas."
-        },
-        {
-          "title": "Evolução",
-          "content": "Revisar arquitetura periodicamente frente a novas demandas ou sistemas adicionados."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Padrões de integração",
-      "cards": [
-        {
-          "title": "API REST",
-          "content": "Integração síncrona e padronizada. Ideal para necessidades em tempo quase real com baixo volume."
-        },
-        {
-          "title": "Event Streaming",
-          "content": "Publicação/assinatura para eventos de negócio (Kafka, Pulsar). Suporta escalabilidade e desacoplamento."
-        },
-        {
-          "title": "ETL/ELT",
-          "content": "Bateladas para consolidar dados em data warehouses e lakes. Útil para BI e compliance."
-        },
-        {
-          "title": "ESB/iPaaS",
-          "content": "Plataformas que orquestram integrações complexas, tratam protocolos heterogêneos e monitoram fluxos."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Estudo de caso crítico",
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Uma rede hospitalar precisa sincronizar prontuários, faturamento e logística farmacêutica. Quais riscos surgem com integrações ponto a ponto?"
+          "text": "Levante os sistemas atuais do estudo de caso e identifique quais dados precisam trafegar entre eles em tempo real e em batelada."
         },
         {
           "type": "list",
-          "ordered": false,
-          "items": [
-            "Inconsistência de dados entre sistemas clínicos e financeiros.",
-            "Dificuldade de rastrear falhas ou mensagens perdidas.",
-            "Aumento de custo de manutenção quando novos sistemas entram em operação."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "good-practice",
-      "title": "Demonstração hands-on",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "O docente demonstra, em uma plataforma iPaaS, como construir um fluxo que integra ERP → CRM → BI usando conectores, transformações e validações. Observe logs, métricas e alertas configurados."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Debate estruturado",
-      "content": [
-        {
-          "type": "orderedList",
           "items": [
             {
-              "title": "Governança",
-              "text": "Como definir proprietários de dados e responsabilidades por integrações?"
+              "text": "Liste integrações atuais que falham com frequência e o impacto gerado."
             },
             {
-              "title": "Segurança",
-              "text": "Que controles (criptografia, máscaras, RBAC) são essenciais em fluxos sensíveis?"
+              "text": "Pesquise qual padrão de integração a empresa já domina internamente."
             },
             {
-              "title": "Escalabilidade",
-              "text": "O que muda quando eventos em tempo real passam a representar 80% do tráfego?"
+              "text": "Traga dúvidas sobre LGPD e compliance relacionadas a compartilhamento de dados."
             }
           ]
         }
       ]
     },
     {
-      "type": "checklist",
-      "title": "Diagnóstico relâmpago",
-      "items": [
-        "Identificar três integrações críticas da organização estudada.",
-        "Avaliar riscos de indisponibilidade e redundância de dados.",
-        "Elencar indicadores para acompanhar saúde das integrações."
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "settings",
+          "title": "Arquiteturas",
+          "content": "Comparar padrões de integração (APIs, eventos, ETL, iPaaS)."
+        },
+        {
+          "icon": "settings",
+          "title": "Governança",
+          "content": "Mapear políticas de dados, segurança e monitoramento."
+        },
+        {
+          "icon": "gears",
+          "title": "Hands-on",
+          "content": "Simular desenho de fluxos no estudo de caso da turma."
+        },
+        {
+          "icon": "monitor",
+          "title": "Compartilhamento",
+          "content": "Apresentar decisões e trade-offs para o coletivo."
+        }
       ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Aquecimento: revisar problemas de integração reportados pelos squads.",
+        "(20 min) Mini aula: visão geral de padrões e quando aplicar cada um.",
+        "(15 min) Dinâmica: mapear eventos críticos e fontes confiáveis de dados.",
+        "(20 min) Oficina: desenhar um fluxo ponta a ponta com APIs e filas.",
+        "(15 min) Rodada de checkpoints para revisar segurança e observabilidade.",
+        "(15 min) Pitch dos grupos com feedback estruturado.",
+        "(15 min) Síntese e próximos passos para o trabalho assíncrono."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Integração é o tecido que conecta processos distribuídos. APIs oferecem comunicação síncrona e granular; mensageria por eventos desacopla produtores e consumidores, permitindo escalabilidade; ETL e ELT consolidam dados em lotes para analytics; plataformas iPaaS aceleram integrações com conectores prontos e governança centralizada."
+        },
+        {
+          "type": "paragraph",
+          "text": "A escolha passa pela criticidade do processo, volume de dados, tolerância a latência e requisitos de auditoria. Políticas de monitoramento, tratamento de falhas e segurança devem nascer junto com o desenho técnico."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/padroes-integracao",
+          "title": "Padrões de integração em 20 minutos",
+          "caption": "Comparação objetiva entre API, filas e ETL com exemplos do mercado."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/case-ipaaS",
+          "title": "Case iPaaS em serviços financeiros",
+          "caption": "Como uma fintech reorganizou integrações usando iPaaS e observabilidade."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapa atual",
+              "text": "Desenhe o fluxo atual de um processo crítico indicando origem, destino e formato dos dados."
+            },
+            {
+              "title": "Padrão proposto",
+              "text": "Escolha um padrão e explique como mitigará gargalos ou falhas."
+            },
+            {
+              "title": "Monitoramento",
+              "text": "Defina indicadores e alertas para garantir confiabilidade do novo fluxo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para arquitetar integrações",
+      "description": "Utilize com o contexto real do cliente fictício da disciplina.",
+      "prompt": "Você é arquiteto de integrações. Recebe o cenário a seguir com sistemas legados, APIs recém-criadas e necessidades analíticas. Sugira uma arquitetura híbrida com APIs, eventos e cargas em lote, destacando requisitos de governança, segurança e monitoramento. Cenário: [descreva processos e sistemas].",
+      "tips": [
+        "Solicite recomendações de ferramentas de observabilidade.",
+        "Peça plano de contingência para quando uma integração falhar.",
+        "Inclua volumes estimados e janelas de processamento."
+      ],
+      "tags": ["arquitetura", "integração"],
+      "audience": "teacher"
     },
     {
       "type": "callout",
       "variant": "task",
-      "title": "TED",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Registre no AVA, até às 23h de amanhã, um diagnóstico das integrações do estudo de caso: (1) mapa do fluxo atual, (2) proposta de melhoria com justificativa e (3) métricas para monitoramento. Anexe o checklist preenchido em sala."
+          "text": "Entregue no AVA um diagrama atualizado da arquitetura alvo acompanhado de uma página com decisões técnicas e indicadores de monitoramento."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Classificou integrações por criticidade e tempo de resposta.",
+        "Justificou o padrão escolhido para cada fluxo.",
+        "Definiu métricas e responsáveis pela governança."
       ]
     }
   ],

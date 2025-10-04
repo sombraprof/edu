@@ -4,219 +4,153 @@
   "objective": "Analisar implantação de TOTVS em uma empresa de serviços e identificar lições de integração financeira e operacional.",
   "content": [
     {
-      "type": "lessonPlan",
-      "title": "Roteiro motivação → laboratório",
-      "cards": [
-        {
-          "icon": "bullseye",
-          "title": "Motivação",
-          "content": "Abrimos com vídeo de bastidor sobre a virada de atendimento da Totus Service para contextualizar dor do cliente."
-        },
-        {
-          "icon": "monitor",
-          "title": "Análise guiada",
-          "content": "Grupos interpretam indicadores antes/depois e registram hipóteses no quadro colaborativo."
-        },
-        {
-          "icon": "users",
-          "title": "Debate estruturado",
-          "content": "Moderamos perguntas sobre integrações, apontando impactos em finanças, contratos e BI."
-        },
-        {
-          "icon": "gears",
-          "title": "Laboratório",
-          "content": "Laboratório de simulação: squads ajustam parâmetros no sandbox TOTVS e observam repercussões nos módulos."
-        }
-      ]
-    },
-    {
       "type": "callout",
       "variant": "info",
-      "title": "Rubrica da atividade de laboratório",
+      "title": "Preparação pré-aula",
       "content": [
         {
+          "type": "paragraph",
+          "text": "Leia o case TOTVS em serviços e identifique desafios enfrentados na digitalização do atendimento e da gestão financeira."
+        },
+        {
           "type": "list",
-          "ordered": false,
           "items": [
-            "Diagnóstico (30%): leitura crítica dos indicadores fornecidos e identificação de gargalos.",
-            "Integração sistêmica (30%): coerência ao relacionar módulos e dependências de dados.",
-            "Plano de ação (25%): clareza das recomendações, prazos e responsáveis.",
-            "Documentação (15%): registro no template compartilhado, com evidências do sandbox."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Resultados pós-implantação",
-      "headers": ["Indicador", "Antes", "Depois", "Fonte"],
-      "rows": [
-        ["Prazo médio de faturamento", "12 dias", "4 dias", "ERP TOTVS + automação fiscal"],
-        ["Taxa de retrabalho", "15%", "4%", "Workflow TOTVS de ordens de serviço"],
-        ["Satisfação do cliente", "72 NPS", "84 NPS", "Pesquisa trimestral"],
-        ["Tempo de fechamento", "8 dias úteis", "3 dias úteis", "Financeiro integrado"],
-        ["Receita recorrente", "R$ 1,2M/mês", "R$ 1,6M/mês", "Dashboard BI"]
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Assinaturas necessárias para o rollout",
-      "cards": [
-        {
-          "title": "Diretoria de Operações",
-          "content": "Valida SLAs de campo e aderência do módulo de Serviços à jornada real."
-        },
-        {
-          "title": "Financeiro & Controladoria",
-          "content": "Aprova integrações fiscais, conciliações e segregação de funções."
-        },
-        {
-          "title": "Jurídico & Compliance",
-          "content": "Analisa contratos, LGPD e termos com marketplaces/parceiros."
-        },
-        {
-          "title": "Customer Success",
-          "content": "Confirma scripts de atendimento, playbooks de hiper-care e feedback loop."
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Módulos TOTVS e interdependências",
-      "summary": "Mapa das relações entre CRM, Serviços, Financeiro, Faturamento e Analytics no estudo de caso.",
-      "factors": [
-        {
-          "id": "crm",
-          "name": "CRM",
-          "summary": "Registro de contratos, SLAs e preferências do cliente.",
-          "kind": "driver",
-          "indicators": ["taxa_renovacao", "lead_time_onboarding"]
-        },
-        {
-          "id": "servicos",
-          "name": "Serviços de Campo",
-          "summary": "Agenda técnicos, captura checklists e sincroniza status em tempo real.",
-          "kind": "flow",
-          "indicators": ["sla_execucao", "first_time_fix"]
-        },
-        {
-          "id": "faturamento",
-          "name": "Faturamento",
-          "summary": "Gera notas, boletos e integra gateways, aplicando regras tributárias.",
-          "kind": "flow",
-          "indicators": ["tempo_faturamento", "erros_fiscais"]
-        },
-        {
-          "id": "financeiro",
-          "name": "Financeiro",
-          "summary": "Controla contas a receber, reconciliação bancária e projeções de caixa.",
-          "kind": "stock",
-          "indicators": ["inadimplencia", "previsibilidade_caixa"]
-        },
-        {
-          "id": "analytics",
-          "name": "Analytics/BI",
-          "summary": "Unifica indicadores de atendimento, receita e NPS para decisões.",
-          "kind": "outcome",
-          "indicators": ["churn", "nps_servico"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "loop-excelencia",
-          "name": "Excelência em serviço",
-          "polarity": "reinforcing",
-          "summary": "Melhorias em CRM e Serviços elevam satisfação, geram receita previsível e alimentam analytics para novos ajustes.",
-          "steps": [
             {
-              "id": "mod-1",
-              "from": "crm",
-              "to": "servicos",
-              "effect": "reinforces",
-              "description": "Contratos atualizados direcionam ordens corretas."
+              "text": "Observe como o case tratou personalização x padronização."
             },
             {
-              "id": "mod-2",
-              "from": "servicos",
-              "to": "faturamento",
-              "effect": "reinforces",
-              "description": "Execução registrada dispara faturamento automático."
+              "text": "Anote integrações com plataformas externas (chat, assinatura digital, gateways)."
             },
             {
-              "id": "mod-3",
-              "from": "faturamento",
-              "to": "financeiro",
-              "effect": "reinforces",
-              "description": "Recebimentos alimentam projeções e alocação de recursos."
-            },
-            {
-              "id": "mod-4",
-              "from": "financeiro",
-              "to": "analytics",
-              "effect": "reinforces",
-              "description": "Dados consolidados qualificam análises de margem."
-            },
-            {
-              "id": "mod-5",
-              "from": "analytics",
-              "to": "crm",
-              "effect": "reinforces",
-              "description": "Insights orientam renovações e upsell no CRM."
+              "text": "Compare indicadores antes e depois da implantação."
             }
           ]
         }
-      ],
-      "insights": [
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
         {
-          "id": "insight-modulos-1",
-          "label": "Playbook unificado",
-          "description": "Scripts de atendimento conectam dados do CRM ao app de campo."
+          "icon": "gears",
+          "title": "Cenário",
+          "content": "Mapear desafios do segmento de serviços abordado."
         },
         {
-          "id": "insight-modulos-2",
-          "label": "Painéis compartilhados",
-          "description": "Financeiro e operações tomam decisões com o mesmo conjunto de indicadores."
+          "icon": "desktop",
+          "title": "Demonstração",
+          "content": "Analisar módulos TOTVS relevantes para o case."
+        },
+        {
+          "icon": "gears",
+          "title": "Processos",
+          "content": "Relacionar melhorias de atendimento, faturamento e compliance."
+        },
+        {
+          "icon": "target",
+          "title": "Aplicação",
+          "content": "Transportar aprendizados para o case da turma."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Abertura e revisão dos objetivos do estudo de caso.",
+        "(20 min) Apresentação do contexto TOTVS e desafios iniciais.",
+        "(20 min) Vídeo/demonstração dos módulos utilizados no projeto.",
+        "(20 min) Trabalho em grupos: analisar decisões e indicadores.",
+        "(15 min) Discussão sobre integração com plataformas de atendimento.",
+        "(15 min) Conexão com o estudo de caso dos squads.",
+        "(10 min) Encaminhamentos para a TED."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O case destaca como padronização de processos, integração com canais digitais e automação de faturamento elevaram a qualidade do serviço."
+        },
+        {
+          "type": "paragraph",
+          "text": "Métricas de atendimento (SLA, CSAT) e financeiras (inadimplência, tempo de faturamento) foram acompanhadas para garantir sustentação das melhorias."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/totvs-case-demo",
+          "title": "Tour TOTVS serviços",
+          "caption": "Demonstração dos módulos atendidos no case."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/totvs-lessons",
+          "title": "Lições em serviços",
+          "caption": "Time relata ganhos e desafios após 6 meses."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapa de melhorias",
+              "text": "Elabore quadro comparando processos antes/depois."
+            },
+            {
+              "title": "Indicadores",
+              "text": "Liste indicadores monitorados e relacioná-los aos objetivos."
+            },
+            {
+              "title": "Transferência",
+              "text": "Aponte adaptações necessárias para aplicar lições no seu case."
+            }
+          ]
         }
       ]
     },
     {
       "type": "promptTip",
-      "title": "Prompt para conduzir o laboratório no sandbox",
-      "description": "Use com o assistente para desenhar experimentos alinhados aos indicadores e riscos regulatórios do case.",
-      "audience": "facilitadores",
-      "prompt": "Você é consultor TOTVS responsável pelo laboratório em sandbox. Monte um roteiro de experimentos em três ondas: (1) validar integrações CRM ↔ Serviços, (2) testar automações de faturamento com cenários tributários críticos, (3) medir impacto financeiro e riscos de compliance. Para cada onda, descreva objetivo, dados necessários, alertas de risco e entregáveis para o squad.",
-      "tags": ["sandbox TOTVS", "laboratório guiado", "experimentos"],
+      "title": "Prompt para adaptar o case TOTVS",
+      "description": "Cole resumo do case e informações da sua empresa fictícia.",
+      "prompt": "Você é consultor que precisa adaptar as lições do case TOTVS para outra empresa de serviços. Analise o contexto abaixo e indique quais funcionalidades, integrações e indicadores devem ser priorizados. Contexto: [descreva sua empresa].",
       "tips": [
-        "Peça uma versão focada apenas na visão financeira com ênfase em reconciliação e projeções de caixa.",
-        "Solicite follow-ups em formato de checklist para cada squad ao final de cada onda.",
-        "Gere um resumo executivo de uma página para apresentar ao sponsor do programa."
-      ]
-    },
-    {
-      "type": "videos",
-      "title": "Vídeos indicados",
-      "videos": [
-        {
-          "url": "https://example.edu/tgs/videos/totvs-servicos-demo",
-          "title": "Demonstração TOTVS Serviços",
-          "caption": "Fluxo completo do atendimento ao faturamento."
-        },
-        {
-          "url": "https://example.edu/tgs/videos/case-servicos-erp",
-          "title": "Case cliente TOTVS",
-          "caption": "Relato de CFO sobre ganhos em previsibilidade."
-        }
-      ]
+        "Inclua canais de atendimento e volume de clientes.",
+        "Peça alertas sobre riscos de personalização excessiva.",
+        "Solicite plano de capacitação da equipe de atendimento."
+      ],
+      "tags": ["totvs", "serviços"],
+      "audience": "teacher"
     },
     {
       "type": "callout",
       "variant": "task",
-      "title": "TED 25 — Relatório executivo",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Elabore um relatório executivo (máx. 6 slides) com diagnóstico e três recomendações para evolução do caso TOTVS. Entregue no AVA até às 23h do dia seguinte."
+          "text": "Produza um comparativo entre o case TOTVS estudado e o contexto do seu squad, listando adaptações necessárias e indicadores a monitorar."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Identificou decisões do case TOTVS relevantes ao seu contexto.",
+        "Relacionou indicadores de atendimento e financeiros.",
+        "Planejou adaptações para replicar as boas práticas."
       ]
     }
   ],

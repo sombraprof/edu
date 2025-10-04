@@ -4,229 +4,153 @@
   "objective": "Avaliar abordagens de implantação, gestão da mudança e critérios de sucesso em projetos ERP.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o cronograma macro do estudo de caso e identifique stakeholders críticos para a implantação do ERP."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Traga prazos críticos do estudo de caso (go-live, fiscal, contratos)."
+            },
+            {
+              "text": "Liste stakeholders e expectativas mapeadas."
+            },
+            {
+              "text": "Pesquise lições aprendidas de implantações recentes na sua rede."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "check-circle",
-          "title": "CONTEÚDO",
-          "content": "Fases de projeto, abordagens big bang vs. ondas, gestão da mudança, indicadores de prontidão."
-        },
-        {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Comparar metodologias de implantação.\n- Identificar artefatos críticos (BPML, testes, cutover).\n- Planejar ações de gestão da mudança."
+          "icon": "target",
+          "title": "Metodologias",
+          "content": "Comparar ASAP, Activate, Agile e híbridos."
         },
         {
           "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Discussão de casos, análise de linha do tempo e dinâmica de priorização de riscos."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Fases de implantação",
-      "content": [
+          "title": "Governança",
+          "content": "Definir papéis do projeto e fóruns de decisão."
+        },
         {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Descoberta – Alinhamento estratégico, levantamento de processos atuais."
-            },
-            {
-              "text": "Desenho – To-be, configurações, integrações planejadas."
-            },
-            {
-              "text": "Construção – Parametrização, desenvolvimentos complementares, testes unitários."
-            },
-            {
-              "text": "Validação – Testes integrados, migração piloto, treinamento."
-            },
-            {
-              "text": "Cutover – Plano de virada, estabilização, suporte hiper-care."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Comparativo de abordagens",
-      "content": [
+          "icon": "check-circle",
+          "title": "Riscos",
+          "content": "Mapear pontos de atenção e estratégias de mitigação."
+        },
         {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Abordagem: Big bang | Vantagens: Transição única, simplifica interfaces temporárias | Riscos: Maior impacto caso ocorra falha | Quando usar: Organizações com alta disciplina e forte patrocínio"
-            },
-            {
-              "text": "Abordagem: Ondas | Vantagens: Permite aprendizado incremental | Riscos: Integrações temporárias e custo prolongado | Quando usar: Empresas multinegócio ou com alta complexidade"
-            },
-            {
-              "text": "Abordagem: Greenfield | Vantagens: Revisão completa de processos | Riscos: Esforço elevado de gestão da mudança | Quando usar: Cenários com legado obsoleto"
-            },
-            {
-              "text": "Abordagem: Brownfield | Vantagens: Aproveita configurações existentes | Riscos: Risco de carregar problemas antigos | Quando usar: Quando há boa aderência ao template global"
-            }
-          ]
+          "icon": "book-open",
+          "title": "Entregáveis",
+          "content": "Planejar artefatos por fase e controles."
         }
       ]
     },
     {
-      "type": "representations",
-      "title": "Riscos prioritários",
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Dados",
-          "content": "Migração incompleta pode interromper faturamento.",
-          "language": "plaintext",
-          "code": "Migração incompleta pode interromper faturamento."
-        },
-        {
-          "title": "Processos",
-          "content": "Workflows não testados geram filas e retrabalho.",
-          "language": "plaintext",
-          "code": "Workflows não testados geram filas e retrabalho."
-        },
-        {
-          "title": "Pessoas",
-          "content": "Usuários resistentes atrasam adoção.",
-          "language": "plaintext",
-          "code": "Usuários resistentes atrasam adoção."
-        },
-        {
-          "title": "Tecnologia",
-          "content": "Infraestrutura insuficiente afeta performance.",
-          "language": "plaintext",
-          "code": "Infraestrutura insuficiente afeta performance."
-        }
+        "(10 min) Check-in com aprendizados de implantações vivenciadas pela turma.",
+        "(20 min) Exposição: fases típicas de projetos ERP e suas entregas.",
+        "(15 min) Comparação de metodologias e critérios de escolha.",
+        "(20 min) Oficina: montar plano de implantação para o case.",
+        "(15 min) Debate sobre gestão de mudança e comunicação.",
+        "(15 min) Construção de matriz de riscos e respostas.",
+        "(15 min) Síntese e preparação para a TED."
       ]
     },
     {
-      "type": "systemMapper",
-      "title": "Rede de patrocínio",
-      "summary": "Stakeholders que sustentam um projeto de implantação.",
-      "factors": [
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
         {
-          "id": "patrocinador",
-          "name": "Patrocinador executivo",
-          "summary": "Define prioridades e aprova orçamento.",
-          "kind": "driver",
-          "indicators": ["decisoes_tomadas"]
+          "type": "paragraph",
+          "text": "Metodologias de implantação orientam planejamento, execução e governança. Modelos tradicionais (como SAP ASAP) enfatizam fases sequenciais; abordagens mais recentes incorporam práticas ágeis para ciclos iterativos."
         },
         {
-          "id": "pm",
-          "name": "PMO / gerente de projeto",
-          "summary": "Coordena cronograma, riscos e comunicação.",
-          "kind": "flow",
-          "indicators": ["status_semanais"]
-        },
-        {
-          "id": "processo",
-          "name": "Líderes de processo",
-          "summary": "Validam desenhos e testes.",
-          "kind": "flow",
-          "indicators": ["roteiros_aprovados"]
-        },
-        {
-          "id": "ti",
-          "name": "TI e integração",
-          "summary": "Garante infraestrutura, interfaces e segurança.",
-          "kind": "flow",
-          "indicators": ["defeitos_resolvidos"]
-        },
-        {
-          "id": "usuarios-finais",
-          "name": "Usuários finais",
-          "summary": "Adotam o sistema e executam processos.",
-          "kind": "outcome",
-          "indicators": ["adesao_treinamento", "satisfacao_lancamento"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "patrocinio",
-          "name": "Loop de patrocínio",
-          "polarity": "reinforcing",
-          "summary": "Engajamento executivo garante recursos e remove impedimentos.",
-          "steps": [
-            {
-              "id": "s-1",
-              "from": "patrocinador",
-              "to": "pm",
-              "effect": "reinforces",
-              "description": "Direcionamentos claros aceleram decisões."
-            },
-            {
-              "id": "s-2",
-              "from": "pm",
-              "to": "processo",
-              "effect": "reinforces",
-              "description": "Coordenação eficiente garante entregas em tempo."
-            },
-            {
-              "id": "s-3",
-              "from": "processo",
-              "to": "ti",
-              "effect": "reinforces",
-              "description": "Requisitos consolidados orientam integrações."
-            },
-            {
-              "id": "s-4",
-              "from": "ti",
-              "to": "usuarios-finais",
-              "effect": "reinforces",
-              "description": "Soluções estáveis elevam confiança dos usuários."
-            },
-            {
-              "id": "s-5",
-              "from": "usuarios-finais",
-              "to": "patrocinador",
-              "effect": "reinforces",
-              "description": "Adoção positiva gera relatos de sucesso ao patrocinador."
-            }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "id": "insight-impl-1",
-          "label": "Comunicação",
-          "description": "Newsletters semanais evitam ruídos e boatos."
-        },
-        {
-          "id": "insight-impl-2",
-          "label": "Treinamento aplicado",
-          "description": "Treinar usando dados reais acelera transferência de conhecimento."
+          "type": "paragraph",
+          "text": "Independentemente da metodologia, é essencial definir papéis (sponsor, PMO, key users), cadências de decisão, critérios de aceitação e plano de gestão de mudança para adoção efetiva."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Estudos de caso",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/case-implantacao-sap",
-          "title": "Implantação SAP em indústria farmacêutica",
-          "caption": "Aborda estratégia em ondas com foco em validação regulatória."
+          "url": "https://example.edu/tgs/videos/metodologias-erp",
+          "title": "Metodologias de implantação",
+          "caption": "Comparativo rápido entre abordagens tradicionais e ágeis."
         },
         {
-          "url": "https://example.edu/tgs/videos/case-implantacao-totvs",
-          "title": "TOTVS em empresa de serviços",
-          "caption": "Explora abordagem big bang com squad de hiper-care."
+          "url": "https://example.edu/tgs/videos/case-implantacao",
+          "title": "Case de implantação ERP",
+          "caption": "Como uma empresa mitigou riscos combinando fases em cascata com sprints ágeis."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Linha do tempo",
+              "text": "Desenhe fases principais e entregáveis associados."
+            },
+            {
+              "title": "Governança",
+              "text": "Defina papéis, fóruns e cadência de comunicação."
+            },
+            {
+              "title": "Riscos",
+              "text": "Construa lista de riscos e estratégias de mitigação."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para orquestrar implantação",
+      "description": "Cole o contexto do projeto e restrições.",
+      "prompt": "Você é gerente de projetos ERP. Com base no contexto abaixo, escolha a metodologia adequada, detalhe fases, entregáveis, governance model, plano de comunicação e principais riscos. Contexto: [descreva o projeto].",
+      "tips": [
+        "Inclua orçamento disponível e restrições legais.",
+        "Solicite sugestões de métricas de acompanhamento.",
+        "Peça estratégias de engajamento dos key users."
+      ],
+      "tags": ["implantacao", "projetos"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 23 — Briefing de riscos",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregue até às 21h de dois dias após a aula um briefing (máx. 1 página) listando cinco riscos para um projeto ERP e respectivas respostas. Publique em PDF no AVA identificando responsáveis por cada ação."
+          "text": "Entregue um plano de implantação contendo cronograma macro, metodologia escolhida, papéis, matriz de riscos e plano de comunicação."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Definiu fases, entregáveis e responsáveis.",
+        "Apontou riscos críticos com estratégia de mitigação.",
+        "Incluiu plano de comunicação e gestão de mudança."
       ]
     }
   ],

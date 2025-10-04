@@ -4,165 +4,153 @@
   "objective": "Estabelecer visão sistêmica sobre o ciclo de planejamento estratégico de sistemas de informação.",
   "content": [
     {
-      "type": "flightPlan",
-      "title": "Itinerário da aula",
-      "items": [
-        "Panorama das pressões externas e internas que demandam planejamento de SI.",
-        "Modelo de governança para condução do Plano Diretor de Tecnologia (PDTI/PESI).",
-        "Exercício colaborativo de definição de perguntas norteadoras para a etapa de diagnóstico."
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Motores do planejamento",
-      "cards": [
-        {
-          "title": "Estratégia do negócio",
-          "content": "Metas corporativas, proposta de valor e diferenciais competitivos definem prioridades de SI."
-        },
-        {
-          "title": "Regulação e compliance",
-          "content": "Normas como LGPD, Bacen e Susep exigem controles, trilhas de auditoria e planos de continuidade."
-        },
-        {
-          "title": "Transformação digital",
-          "content": "Inovação em produtos, canais e operações demanda investimentos coordenados em tecnologia."
-        },
-        {
-          "title": "Capacidades internas",
-          "content": "Processos, pessoas e arquitetura existentes condicionam ritmo e abrangência das iniciativas."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Domínios e recursos pré-prova",
-      "cards": [
-        {
-          "title": "Estratégia & Governança",
-          "content": "Revisar mapa estratégico e usar o guia de alinhamento PESI para conectar metas a iniciativas."
-        },
-        {
-          "title": "Processos & Operações",
-          "content": "Mapear processos críticos utilizando o canvas de diagnóstico disponibilizado na pasta da disciplina."
-        },
-        {
-          "title": "Dados & Tecnologia",
-          "content": "Organizar inventário de sistemas com o template de catálogo de aplicações e integrações."
-        },
-        {
-          "title": "Pessoas & Cultura",
-          "content": "Planejar entrevistas com stakeholders apoiando-se no roteiro de mudança organizacional."
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "title": "Evolução do planejamento de TI",
-      "steps": [
-        {
-          "title": "Anos 1980",
-          "content": "Planos de processamento de dados focados em infraestrutura e automação departamental."
-        },
-        {
-          "title": "Anos 1990",
-          "content": "Integração com reengenharia de processos e surgimento de ERPs corporativos."
-        },
-        {
-          "title": "Anos 2000",
-          "content": "PDTI alinhado à governança corporativa, frameworks como COBIT e ITIL."
-        },
-        {
-          "title": "Anos 2010",
-          "content": "Digitalização de jornadas, analytics e integração omnicanal."
-        },
-        {
-          "title": "Anos 2020+",
-          "content": "Estratégias data-driven, plataformas, ecossistemas e sustentabilidade digital."
-        }
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Macroetapas do PESI",
-      "headers": ["Fase", "Perguntas-guia", "Principais entregáveis"],
-      "rows": [
-        [
-          "Preparação",
-          "Quem patrocina? Quais fronteiras do plano?",
-          "Termo de abertura, comitê, matriz de stakeholders"
-        ],
-        [
-          "Diagnóstico",
-          "Onde estamos em processos, dados e tecnologia?",
-          "Inventário de ativos, análise de maturidade, mapa de riscos"
-        ],
-        [
-          "Formulação",
-          "Que objetivos e indicadores conectam SI à estratégia?",
-          "Mapa estratégico de SI, metas plurianuais, carteira preliminar"
-        ],
-        [
-          "Execução",
-          "Como priorizar, financiar e governar o portfólio?",
-          "Roadmap, modelo de governança, plano de comunicação"
-        ],
-        [
-          "Monitoramento",
-          "Como medir valor e ajustar continuamente?",
-          "Painéis de indicadores, ritos de revisão, lições aprendidas"
-        ]
-      ]
-    },
-    {
       "type": "callout",
-      "variant": "warning",
-      "title": "Conduta durante atividades avaliativas",
+      "variant": "info",
+      "title": "Preparação pré-aula",
       "content": [
         {
-          "type": "unorderedList",
+          "type": "paragraph",
+          "text": "Revise o diagnóstico organizacional do case e liste principais dores estratégicas relacionadas a SI."
+        },
+        {
+          "type": "list",
           "items": [
             {
-              "text": "Material autorizado apenas o entregue pelo professor; demais dispositivos permanecem guardados."
+              "text": "Releia missão, visão e objetivos estratégicos do case."
             },
             {
-              "text": "Trabalhos em grupo exigem registro de contribuição individual no formulário oficial."
+              "text": "Mapeie stakeholders que precisam participar do PESI."
             },
             {
-              "text": "Referencie fontes externas explicitamente para evitar plágio e reprovação."
-            },
-            {
-              "text": "Solicite apoio em caso de dúvida; combinações paralelas durante prova anulam a entrega."
+              "text": "Traga dados recentes sobre desempenho dos sistemas atuais."
             }
           ]
         }
       ]
     },
     {
-      "type": "videos",
-      "title": "Casos recomendados",
-      "videos": [
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
         {
-          "url": "https://example.edu/tgs/videos/pesi-banco-inovador",
-          "title": "Planejamento de SI no Banco Horizonte",
-          "caption": "Case sobre alinhamento entre diretoria de estratégia e TI para expansão digital."
+          "icon": "target",
+          "title": "Visão",
+          "content": "Apresentar conceito e propósito do PESI."
         },
         {
-          "url": "https://example.edu/tgs/videos/pdti-setor-publico",
-          "title": "PDTI em órgão regulador",
-          "caption": "Relato de implantação do ciclo PDTI com governança compartilhada."
+          "icon": "target",
+          "title": "Modelos",
+          "content": "Comparar frameworks clássicos de planejamento de SI."
+        },
+        {
+          "icon": "settings",
+          "title": "Componentes",
+          "content": "Mapear entregáveis essenciais (diagnóstico, objetivos, roadmap)."
+        },
+        {
+          "icon": "target",
+          "title": "Governança",
+          "content": "Definir stakeholders e ritos de decisão."
         }
       ]
     },
     {
-      "type": "callout",
-      "variant": "task",
-      "title": "TED 29 — Linha do tempo comentada",
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Check-in: expectativas e desafios para iniciar o PESI.",
+        "(20 min) Aula expositiva sobre visão sistêmica e alinhamento estratégico.",
+        "(15 min) Comparação de frameworks (Ward & Peppard, Luftman).",
+        "(20 min) Oficina: identificar forças e fraquezas no case.",
+        "(15 min) Debate sobre papéis e governança do PESI.",
+        "(15 min) Construção de canvas inicial do planejamento.",
+        "(15 min) Síntese e orientações para trabalho assíncrono."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
       "content": [
         {
           "type": "paragraph",
-          "text": "Elabore uma linha do tempo executiva destacando três marcos que influenciaram o planejamento de TI da sua organização ou de um caso pesquisado. Entregue no AVA até 72h após a aula com comentários sobre impactos estratégicos."
+          "text": "O PESI traduz a estratégia corporativa em iniciativas tecnológicas e processos que geram valor. Envolve diagnóstico, definição de objetivos, portfólio de iniciativas, governança e métricas."
+        },
+        {
+          "type": "paragraph",
+          "text": "O alinhamento depende de compreender prioridades do negócio, capacidades atuais de SI, riscos e oportunidades emergentes."
         }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/pesi-fundamentos",
+          "title": "Fundamentos do PESI",
+          "caption": "Conceitos-chave e etapas do planejamento estratégico de SI."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/alinhamento-estrategico",
+          "title": "Alinhamento SI-Negócio",
+          "caption": "Estratégias para aproximar TI e áreas de negócio."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Canvas inicial",
+              "text": "Registre drivers de negócio, dores, oportunidades e capacidades de SI."
+            },
+            {
+              "title": "Stakeholders",
+              "text": "Liste stakeholders-chave e seu papel no PESI."
+            },
+            {
+              "title": "Perguntas críticas",
+              "text": "Formule perguntas que o PESI precisa responder."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para iniciar o PESI",
+      "description": "Use com dados do case para orientar a fase de diagnóstico.",
+      "prompt": "Você é consultor responsável por iniciar o PESI. Analise o contexto abaixo e proponha visão de futuro, objetivos iniciais, stakeholders críticos e principais entregáveis da fase de diagnóstico. Contexto: [descrição do case].",
+      "tips": [
+        "Inclua metas corporativas e desafios atuais de SI.",
+        "Peça recomendações de indicadores estratégicos.",
+        "Solicite mapa de riscos iniciais."
+      ],
+      "tags": ["pesi", "estratégia"],
+      "audience": "teacher"
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Entregue um canvas do PESI contendo drivers de negócio, visão de SI, stakeholders, riscos iniciais e próximos passos para diagnóstico detalhado."
+        }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Conectou a estratégia do negócio ao PESI.",
+        "Identificou stakeholders e papéis no planejamento.",
+        "Listou perguntas e entregáveis da fase de diagnóstico."
       ]
     }
   ],

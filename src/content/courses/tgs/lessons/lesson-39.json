@@ -46,218 +46,42 @@
       ]
     },
     {
-      "type": "balancedScorecard",
-      "title": "Mapa estratégico consolidado",
-      "summary": "Quadro final com objetivos, indicadores e iniciativas que serão discutidos no painel futuro.",
-      "perspectives": [
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
         {
-          "id": "finance",
-          "title": "Financeira",
-          "summary": "ROI do portfólio, funding e economia recorrente.",
-          "tone": "primary",
-          "badge": "Financeira"
+          "icon": "book-open",
+          "title": "Síntese",
+          "content": "Consolidar aprendizados e recomendações."
         },
         {
-          "id": "stakeholders",
-          "title": "Clientes & Stakeholders",
-          "summary": "Patrocínio executivo e percepção de valor do negócio.",
-          "tone": "info",
-          "badge": "Stakeholders"
+          "icon": "desktop",
+          "title": "Painel futuro",
+          "content": "Montar painel visual com próximos passos."
         },
         {
-          "id": "process",
-          "title": "Processos e Governança",
-          "summary": "Execução do roadmap e maturidade das rotinas de governança.",
-          "tone": "warning",
-          "badge": "Processos"
+          "icon": "users",
+          "title": "Engajamento",
+          "content": "Preparar estratégias para envolver stakeholders."
         },
         {
-          "id": "learning",
-          "title": "Aprendizado e Inovação",
-          "summary": "Capacitação analítica e pipeline de inovação.",
-          "tone": "success",
-          "badge": "Aprendizado"
-        }
-      ],
-      "objectives": [
-        {
-          "id": "roi-sustain",
-          "perspectiveId": "finance",
-          "title": "Sustentar ROI do portfólio prioritário",
-          "summary": "Garantir retorno projetado das ondas financiadas.",
-          "owner": "CFO & CIO",
-          "initiatives": [
-            "Concluir revisão de business cases com ROI atualizado.",
-            "Realocar orçamento para iniciativas com alto impacto."
-          ]
-        },
-        {
-          "id": "executive-confidence",
-          "perspectiveId": "stakeholders",
-          "title": "Elevar confiança da diretoria",
-          "summary": "Assegurar alinhamento executivo e comunicação transparente.",
-          "owner": "Patrocinadores do PESI",
-          "initiatives": [
-            "Rodar painéis trimestrais com foco em valor entregue.",
-            "Publicar resumo executivo com indicadores críticos."
-          ]
-        },
-        {
-          "id": "roadmap-delivery",
-          "perspectiveId": "process",
-          "title": "Garantir execução do roadmap crítico",
-          "summary": "Remover gargalos e acelerar entregas priorizadas.",
-          "owner": "PMO Digital",
-          "initiatives": [
-            "Ajustar alocação de squads para iniciativas prioritárias.",
-            "Revisar dependências com áreas de suporte a cada sprint."
-          ]
-        },
-        {
-          "id": "governance-scale",
-          "perspectiveId": "process",
-          "title": "Escalar governança e cadências",
-          "summary": "Formalizar fóruns, responsabilidades e registros decisórios.",
-          "owner": "Escritório de Governança",
-          "initiatives": [
-            "Institucionalizar fóruns pós-painel com agenda definida.",
-            "Documentar decisões e owners por objetivo estratégico."
-          ]
-        },
-        {
-          "id": "data-culture",
-          "perspectiveId": "learning",
-          "title": "Consolidar cultura orientada a dados",
-          "summary": "Disponibilizar competências analíticas nas squads de SI.",
-          "owner": "CoE Analytics",
-          "initiatives": [
-            "Escalar trilhas de dados e mentoria para squads.",
-            "Criar comunidade de dados com indicadores de engajamento."
-          ]
-        },
-        {
-          "id": "innovation-pipeline",
-          "perspectiveId": "learning",
-          "title": "Nutrir pipeline de inovação",
-          "summary": "Gerar pilotos e parcerias conectadas às tendências monitoradas.",
-          "owner": "Lab de Inovação",
-          "initiatives": [
-            "Selecionar pilotos com base no radar de tendências.",
-            "Coordenar parcerias para testes rápidos e avaliação de ROI."
-          ]
-        }
-      ],
-      "indicators": [
-        {
-          "id": "roi-validado",
-          "objectiveId": "roi-sustain",
-          "title": "ROI validado",
-          "summary": "ROI consolidado nos business cases revisados.",
-          "target": "≥ 18%",
-          "current": "19%",
-          "baseline": "2024: 12%",
-          "frequency": "Trimestral",
-          "owner": "Controladoria",
-          "status": "achieved"
-        },
-        {
-          "id": "economia-anual",
-          "perspectiveId": "finance",
-          "title": "Economia anual recorrente",
-          "summary": "Savings estimados após implementação das ondas priorizadas.",
-          "target": "R$ 8,5 mi",
-          "current": "R$ 6,1 mi",
-          "frequency": "Trimestral",
-          "owner": "Finance Business Partner",
-          "status": "on-track"
-        },
-        {
-          "id": "satisfacao-executiva",
-          "objectiveId": "executive-confidence",
-          "title": "Satisfação executiva",
-          "summary": "Pesquisa bimestral com board e áreas demandantes.",
-          "target": "≥ 90%",
-          "current": "88%",
-          "baseline": "2024: 72%",
-          "frequency": "Bimestral",
-          "owner": "PMO Executivo",
-          "status": "at-risk"
-        },
-        {
-          "id": "entregas-prioritarias",
-          "objectiveId": "roadmap-delivery",
-          "title": "Entregas prioritárias",
-          "summary": "Quantidade de marcos concluídos nas ondas críticas.",
-          "target": "10 entregues/ano",
-          "current": "7",
-          "baseline": "2024: 3",
-          "frequency": "Mensal",
-          "owner": "PMO Digital",
-          "status": "at-risk"
-        },
-        {
-          "id": "foruns-instituidos",
-          "objectiveId": "governance-scale",
-          "title": "Fóruns instituídos",
-          "summary": "Fóruns ativos com ata e responsáveis definidos.",
-          "target": "100%",
-          "current": "80%",
-          "baseline": "2024: 40%",
-          "frequency": "Mensal",
-          "owner": "Escritório de Governança",
-          "status": "on-track"
-        },
-        {
-          "id": "equipes-dados",
-          "objectiveId": "data-culture",
-          "title": "Squads com analista de dados",
-          "summary": "Cobertura de squads com especialista dedicado.",
-          "target": "≥ 85%",
-          "current": "78%",
-          "baseline": "2024: 45%",
-          "frequency": "Trimestral",
-          "owner": "RH Tech",
-          "status": "on-track"
-        },
-        {
-          "id": "pilotos-inovacao",
-          "objectiveId": "innovation-pipeline",
-          "title": "Pilotos de inovação concluídos",
-          "summary": "Pilotos com avaliação de ROI e plano de escala.",
-          "target": "≥ 5",
-          "current": "3",
-          "baseline": "2024: 1",
-          "frequency": "Trimestral",
-          "owner": "Lab de Inovação",
-          "status": "off-track"
+          "icon": "calendar-days",
+          "title": "Seguimento",
+          "content": "Definir agenda pós-entrega do PESI."
         }
       ]
     },
     {
-      "type": "md3Table",
-      "title": "Checklist final do PESI",
-      "headers": ["Item", "Perguntas de verificação", "Responsável", "Status"],
-      "rows": [
-        [
-          "Diagnóstico validado",
-          "Stakeholders revisaram e aprovaram?",
-          "Equipe de análise",
-          "Em andamento"
-        ],
-        [
-          "Mapa estratégico",
-          "Objetivos conectam-se aos OKRs corporativos?",
-          "Patrocinador executivo",
-          "Concluído"
-        ],
-        ["Roadmap", "Dependências e riscos têm planos mitigadores?", "PMO de TI", "Em revisão"],
-        [
-          "Governança",
-          "Fóruns e cadências estão comunicados?",
-          "Escritório de governança",
-          "Planejado"
-        ],
-        ["Comunicação", "Mensagens e canais foram testados?", "Equipe de mudança", "Em andamento"]
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Check-in e alinhamento de expectativas para a entrega final.",
+        "(20 min) Exposição sobre boas práticas de síntese executiva e painel futuro.",
+        "(15 min) Oficina: selecionar mensagens principais e evidências.",
+        "(20 min) Construção colaborativa do painel futuro (roadmap, indicadores, iniciativas-chave).",
+        "(15 min) Planejamento de engajamento pós-apresentação.",
+        "(15 min) Definição de próximos marcos e responsáveis.",
+        "(15 min) Síntese e preparativos para a avaliação final."
       ]
     },
     {
@@ -298,87 +122,66 @@
           "content": "Ensaiar pitch executivo e revisar indicadores críticos."
         },
         {
-          "title": "Semana 0",
-          "content": "Conduzir painel com banca externa e registrar deliberações."
+          "type": "paragraph",
+          "text": "A síntese estratégica transforma o PESI em narrativa clara: contexto, decisões tomadas e próximos passos. O painel futuro oferece visão integrada para acompanhar execução e aprendizado."
         },
         {
-          "title": "Semana +1",
-          "content": "Documentar decisões e atualizar backlog pós-painel."
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Painel futuro de SI",
-      "summary": "Relaciona temas que serão discutidos com a banca avaliadora.",
-      "factors": [
-        {
-          "id": "valor_negocio",
-          "name": "Valor para o negócio",
-          "summary": "Resultados esperados",
-          "kind": "outcome",
-          "indicators": ["roi_estimado"]
-        },
-        {
-          "id": "maturidade",
-          "name": "Maturidade de SI",
-          "summary": "Capacidades atuais",
-          "kind": "capability",
-          "indicators": ["nivel_maturidade"]
-        },
-        {
-          "id": "portfolio_futuro",
-          "name": "Portfólio futuro",
-          "summary": "Iniciativas emergentes",
-          "kind": "flow",
-          "indicators": ["iniciativas_pipeline"]
-        },
-        {
-          "id": "riscos_futuros",
-          "name": "Riscos futuros",
-          "summary": "Ameaças e incertezas",
-          "kind": "constraint",
-          "indicators": ["riscos_prioritarios"]
-        }
-      ],
-      "connections": [
-        {
-          "from": "maturidade",
-          "to": "valor_negocio",
-          "description": "Capacidades sustentam resultados projetados."
-        },
-        {
-          "from": "portfolio_futuro",
-          "to": "valor_negocio",
-          "description": "Novas iniciativas amplificam benefícios esperados."
-        },
-        {
-          "from": "riscos_futuros",
-          "to": "valor_negocio",
-          "description": "Ameaças podem comprometer ROI se não mitigadas."
-        },
-        {
-          "from": "maturidade",
-          "to": "portfolio_futuro",
-          "description": "Nível atual define ritmo de novas ondas."
+          "type": "paragraph",
+          "text": "Engajar stakeholders após a entrega é essencial para manter ritmo, revisar prioridades e celebrar conquistas."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Preparação para o painel",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/painel-estrategico-ti",
-          "title": "Pitch executivo de TI",
-          "caption": "Boas práticas para apresentar roadmap estratégico."
+          "url": "https://example.edu/tgs/videos/sintese-estrategica",
+          "title": "Síntese estratégica",
+          "caption": "Como estruturar mensagem executiva."
         },
         {
-          "url": "https://example.edu/tgs/videos/case-painel-futuro",
-          "title": "Painel futuro em empresa global",
-          "caption": "Como consolidar aprendizados e próximos passos."
+          "url": "https://example.edu/tgs/videos/painel-futuro",
+          "title": "Painel futuro",
+          "caption": "Montando painel para acompanhamento do PESI."
         }
       ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mensagens",
+              "text": "Defina três mensagens-chave que resumem o PESI."
+            },
+            {
+              "title": "Painel",
+              "text": "Monte painel futuro com roadmap, KPIs e riscos."
+            },
+            {
+              "title": "Engajamento",
+              "text": "Planeje ritos e comunicações pós-entrega."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para revisar a síntese",
+      "description": "Cole resumo executivo para receber sugestões.",
+      "prompt": "Você é conselheiro estratégico. Avalie a síntese do PESI abaixo e sugira ajustes nas mensagens-chave, painel futuro e estratégias de engajamento. Indique perguntas críticas que stakeholders farão. Síntese: [descreva suas mensagens].",
+      "tips": [
+        "Informe público e formato da apresentação final.",
+        "Peça recomendações de métricas de acompanhamento.",
+        "Solicite ideias para manter engajamento após 90 dias."
+      ],
+      "tags": ["sintese", "painel"],
+      "audience": "teacher"
     },
     {
       "type": "callout",
@@ -398,6 +201,15 @@
             "Sugira ações de reforço individual com base no feedback 360° do hackathon."
           ]
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Consolidou mensagens-chave com evidências.",
+        "Criou painel futuro com próximos marcos e indicadores.",
+        "Planejou ações de engajamento pós-entrega."
       ]
     }
   ],
