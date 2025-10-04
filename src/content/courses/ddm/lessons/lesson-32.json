@@ -191,15 +191,58 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Briefing com o backend | Entender contratos e limites. | Responsáveis: Grupo | Duração: 1h | Atividades: Reunião com squad backend | Entregáveis: Notas compartilhadas | Riscos: Mudança de contrato (Registrar versão e acompanhar change log do backend.) | Checkpoints: Contratos confirmados"
+              "text": "Briefing com o backend | Entender contratos e limites. | Responsáveis: Grupo | Duração: 1h | Atividades: Reunião com squad backend; Definir vetores para armazenar amostras de dados | Entregáveis: Notas compartilhadas | Riscos: Mudança de contrato (Registrar versão e acompanhar change log do backend.) | Checkpoints: Contratos confirmados, Vetores planejados"
             },
             {
-              "text": "Desenvolvimento | Codificar hooks, componentes e estados. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar hook; Atualizar UI | Entregáveis: Branch `feature/api-integration` | Riscos: Instabilidade da API (Configurar retries exponenciais e mocks locais.) | Checkpoints: Hook funcional, UI atualizada"
+              "text": "Desenvolvimento | Codificar hooks, componentes e estados. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar hook; Atualizar UI; Popular vetores com respostas e tempos de sincronização | Entregáveis: Branch `feature/api-integration` | Riscos: Instabilidade da API (Configurar retries exponenciais e mocks locais.) | Checkpoints: Hook funcional, UI atualizada, Vetores preenchidos"
             },
             {
-              "text": "Qualidade | Testes e documentação. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Rodar testes; Atualizar docs | Entregáveis: Relatório de integração | Riscos: Atraso na documentação (Designar responsável específico para documentação desde o início.) | Checkpoints: Testes rodados, Relatório anexado"
+              "text": "Qualidade | Testes e documentação. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Rodar testes; Atualizar docs; Interpretar métricas agregadas dos vetores (latência, taxa de erro) | Entregáveis: Relatório de integração | Riscos: Atraso na documentação (Designar responsável específico para documentação desde o início.) | Checkpoints: Testes rodados, Relatório anexado, Estatísticas interpretadas"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Dataset para leitura manual",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Simule respostas de API com o dataset abaixo e pratique a criação de vetores para análise offline antes da implementação definitiva."
+        },
+        {
+          "type": "codeBlock",
+          "language": "plaintext",
+          "code": "task_id,status,tempo_sync_ms,retries\n101,completed,420,1\n102,pending,610,2\n103,failed,890,3\n104,completed,530,1"
+        },
+        {
+          "type": "paragraph",
+          "text": "A partir do CSV, preencha vetores como `const temposSync = [420, 610, 890, 530]` e `const tentativas = [1, 2, 3, 1]` para validar cálculos de médias e limites antes de consumir o endpoint real."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício guiado de estatísticas de sincronização",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "1. Monte vetores para `tempo_sync_ms`, `retries` e um vetor booleano indicando sucesso (`status === 'completed'`)."
+            },
+            {
+              "text": "2. Calcule média, mediana simples e maior tempo de sincronização utilizando apenas operações de array."
+            },
+            {
+              "text": "3. Registre percentuais de sucesso e falha para orientar estratégias de retry e cache."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Tarefa complementar: exporte os vetores para uma planilha, crie um gráfico de barras empilhadas com status por tarefa e acrescente uma linha destacando a média de `tempo_sync_ms`."
         }
       ]
     },
