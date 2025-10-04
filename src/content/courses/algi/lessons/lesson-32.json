@@ -168,15 +168,15 @@
     {
       "type": "promptTip",
       "title": "Prompt para planejar Buscas em Vetores",
-      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
-      "audience": "docentes de Algoritmos I",
-      "prompt": "Você é professor(a) de Algoritmos I preparando Buscas em Vetores. Contexto da aula: Introduz algoritmos de busca linear e variantes com sentinela, conectando-os a cenários de catálogo e relatórios. Objetivo central: Selecionar e implementar estratégias de busca apropriadas para localizar elementos em vetores não ordenados. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Buscas em Vetores. Contexto da aula: Introduz algoritmos de busca linear e variantes com sentinela, conectando-os a cenários de catálogo e relatórios. Objetivo central: Selecionar e implementar estratégias de busca apropriadas para localizar elementos em vetores não ordenados. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
       "tags": ["algoritmos", "arrays", "busca", "vetores"],
       "tips": [
-        "Peça variações de atividades que reforcem implementar busca linear tradicional e com sentinela.",
-        "Solicite exemplos adicionais relacionados a vetores, busca.",
-        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
-        "Peça sugestões de avaliação formativa que evidenciem analisar custo temporal das buscas e seu impacto em coleções grandes."
+        "Peça ao assistente variações de exercícios que reforcem implementar busca linear tradicional e com sentinela.",
+        "Solicite exemplos adicionais relacionados a vetores, busca para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a analisar custo temporal das buscas e seu impacto em coleções grandes."
       ]
     },
     {

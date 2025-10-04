@@ -123,15 +123,15 @@
     {
       "type": "promptTip",
       "title": "Prompt para planejar Condições compostas e encadeadas",
-      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
-      "audience": "docentes de Algoritmos I",
-      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 13: Condições compostas e encadeadas. Contexto da aula: Combina operadores lógicos e cadeias else if para tratar cenários complexos sem deixar lacunas ou sobreposições. Objetivo central: Aplicar &&, || e ! em cadeias de decisão planejadas que cobrem todas as regras do problema. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 13: Condições compostas e encadeadas. Contexto da aula: Combina operadores lógicos e cadeias else if para tratar cenários complexos sem deixar lacunas ou sobreposições. Objetivo central: Aplicar &&, || e ! em cadeias de decisão planejadas que cobrem todas as regras do problema. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
       "tags": ["algoritmos", "condicionais", "controle-de-fluxo", "operadores-logicos"],
       "tips": [
-        "Peça variações de atividades que reforcem compor expressões lógicas combinando operadores relacionais e lógicos.",
-        "Solicite exemplos adicionais relacionados a condicionais, operadores-logicos.",
-        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
-        "Peça sugestões de avaliação formativa que evidenciem planejar cadeias else if para atender múltiplos cenários de decisão."
+        "Peça ao assistente variações de exercícios que reforcem compor expressões lógicas combinando operadores relacionais e lógicos.",
+        "Solicite exemplos adicionais relacionados a condicionais, operadores-logicos para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a planejar cadeias else if para atender múltiplos cenários de decisão."
       ]
     },
     {

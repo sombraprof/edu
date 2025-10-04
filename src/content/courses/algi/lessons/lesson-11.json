@@ -132,15 +132,15 @@
     {
       "type": "promptTip",
       "title": "Prompt para planejar Seleção múltipla com switch-case",
-      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
-      "audience": "docentes de Algoritmos I",
-      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 11: Seleção múltipla com switch-case. Contexto da aula: Simplifica decisões com muitas alternativas ao agrupar lógicas repetitivas em rótulos claros de switch-case, mantendo o fluxo organizado. Objetivo central: Selecionar um entre vários blocos de código com base em uma única expressão usando switch-case de forma segura. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 11: Seleção múltipla com switch-case. Contexto da aula: Simplifica decisões com muitas alternativas ao agrupar lógicas repetitivas em rótulos claros de switch-case, mantendo o fluxo organizado. Objetivo central: Selecionar um entre vários blocos de código com base em uma única expressão usando switch-case de forma segura. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
       "tags": ["algoritmos", "condicionais", "controle-de-fluxo", "switch-case"],
       "tips": [
-        "Peça variações de atividades que reforcem identificar quando cadeias longas de if-else podem ser substituídas por switch-case.",
-        "Solicite exemplos adicionais relacionados a condicionais, switch-case.",
-        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
-        "Peça sugestões de avaliação formativa que evidenciem configurar cases, break e default para controlar exatamente quais blocos executam."
+        "Peça ao assistente variações de exercícios que reforcem identificar quando cadeias longas de if-else podem ser substituídas por switch-case.",
+        "Solicite exemplos adicionais relacionados a condicionais, switch-case para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a configurar cases, break e default para controlar exatamente quais blocos executam."
       ]
     },
     {

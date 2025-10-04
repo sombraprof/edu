@@ -65,15 +65,15 @@
     {
       "type": "promptTip",
       "title": "Prompt para planejar Avaliação NP3",
-      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
-      "audience": "docentes de Algoritmos I",
-      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 39: Avaliação NP3. Contexto da aula: Avaliação integradora que cobre todo o percurso da disciplina, exigindo aplicação articulada de lógica, estruturas de dados básicas e modularização. Objetivo central: Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 39: Avaliação NP3. Contexto da aula: Avaliação integradora que cobre todo o percurso da disciplina, exigindo aplicação articulada de lógica, estruturas de dados básicas e modularização. Objetivo central: Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
       "tags": ["algoritmos", "avaliacao", "integrador"],
       "tips": [
-        "Peça variações de atividades que reforcem avaliar domínio de algoritmos sequenciais, condicionais e iterativos.",
-        "Solicite exemplos adicionais relacionados a avaliacao, algoritmos.",
-        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
-        "Peça sugestões de avaliação formativa que evidenciem verificar a manipulação correta de vetores, matrizes e registros."
+        "Peça ao assistente variações de exercícios que reforcem avaliar domínio de algoritmos sequenciais, condicionais e iterativos.",
+        "Solicite exemplos adicionais relacionados a avaliacao, algoritmos para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a verificar a manipulação correta de vetores, matrizes e registros."
       ]
     },
     {
