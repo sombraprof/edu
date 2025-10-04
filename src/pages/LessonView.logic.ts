@@ -107,7 +107,8 @@ export function useLessonViewController(
 
   const lessonIndexes = options.lessonIndexModules ?? defaultLessonIndexes;
   const lessonModules = options.lessonContentModules ?? defaultLessonModules;
-  const highlight = options.highlight ?? createHighlightHandler();
+  const defaultHighlight = createHighlightHandler();
+  const highlight = options.highlight ?? defaultHighlight;
 
   const lessonTitle = ref('');
   const lessonObjective = ref('');
@@ -191,7 +192,23 @@ export function useLessonViewController(
       };
 
       await nextTick();
-      await highlight(lessonData.value);
+
+      try {
+        await highlight(lessonData.value);
+      } catch (highlightError) {
+        console.error('[LessonView] Failed to highlight lesson content:', highlightError);
+
+        if (highlight !== defaultHighlight) {
+          try {
+            await defaultHighlight(lessonData.value);
+          } catch (fallbackError) {
+            console.error(
+              '[LessonView] Failed to apply fallback highlight handler:',
+              fallbackError
+            );
+          }
+        }
+      }
     } catch (error) {
       console.error('[LessonView] Failed to load lesson:', error);
       lessonTitle.value = 'Erro ao carregar aula';
