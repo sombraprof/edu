@@ -23,74 +23,13 @@
   ],
   "prerequisites": ["Compreensão de matrizes 2D (Aula 33).", "Conforto com loops for aninhados."],
   "tags": ["matrizes", "arrays", "multiplicacao"],
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Matrizes de indicadores (JSON)",
-      "type": "dataset",
-      "file": "courses/algi/matriz-multiplicacao-exemplo.json",
-      "url": "https://static.md3.education/courses/algi/matriz-multiplicacao-exemplo.json"
-    },
-    {
-      "label": "Dataset: OWID Energy Data",
-      "type": "dataset",
-      "url": "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv"
-    },
-    {
-      "label": "Capítulo 8 – Matrizes bidimensionais (Forbellone & Eberspächer)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 11 – Arrays multidimensionais (Manzano & Oliveira)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 9 – Matrizes e operações (Backes)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 12 – Processamento matricial em C (Santos)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 8 – Matrizes e validações (Ascencio & Campos)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "CS50 - Short: Matrix Multiplication",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=ykP1t9hYx7A"
-    },
-    {
-      "label": "Khan Academy - Multiplicação de matrizes",
-      "type": "course",
-      "url": "https://pt.khanacademy.org/math/algebra-home/alg-matrices/alg-matrix-multiplication/a/matrix-multiplication"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -101,11 +40,48 @@
     "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 8, Matrizes, testes e relatórios."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "TED: Relatório do painel energético do Campus Vale com transposição, soma e multiplicação das matrizes de demanda e geração, incluindo evidências na planilha de auditoria.",
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior.",
     "rubric": "Pensamento algorítmico (35%): implementa funções conforme Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11). Raciocínio matemático (30%): valida dimensões e interpreta resultados seguindo Backes (Cap. 9) e Santos (Cap. 12). Comunicação técnica (20%): apresenta narrativa do caso do Campus Vale alinhada ao checklist de Ascencio & Campos (Cap. 8). Sustentabilidade e responsabilidade (15%): contextualiza indicadores energéticos e registra decisões na planilha compartilhada."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Manipulações com Matrizes\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Manipulações com Matrizes\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Vídeo recomendado (51CbR1Zv_0k)",
+          "src": "https://www.youtube.com/embed/51CbR1Zv_0k"
+        },
+        {
+          "title": "Definition of Array - YouTube",
+          "src": "https://www.youtube.com/embed/55l-aZ7_F24"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -113,19 +89,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Leia Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11) destacando como estruturam transposição e multiplicação. Registre dúvidas na planilha de preparação para relacioná-las ao estudo de caso do painel energético do Campus Vale."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 34."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -178,36 +151,36 @@
     },
     {
       "type": "lessonPlan",
-      "title": "Plano de voo (2h00)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "8 min",
           "content": "Check-in com quiz sobre matrizes."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "17 min",
           "content": "Código ao vivo da função transpose."
         },
         {
           "icon": "check-circle",
-          "title": "(15 min) Exercício individual",
+          "title": "(13 min) Exercício individual",
           "content": "soma de matrizes."
         },
         {
           "icon": "check-circle",
-          "title": "(35 min) Workshop",
+          "title": "(29 min) Workshop",
           "content": "multiplicação com validação de dimensões."
         },
         {
           "icon": "check-circle",
-          "title": "(25 min) Estudo de caso",
+          "title": "(21 min) Estudo de caso",
           "content": "combinar matrizes de indicadores do JSON."
         },
         {
           "icon": "check-circle",
-          "title": "15 min",
+          "title": "12 min",
           "content": "Apresentação rápida dos resultados por squads."
         }
       ]
@@ -426,43 +399,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 34' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Entregue aula34_matriz_operacoes.c com funções para transpor, somar e multiplicar matrizes."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe relatório descrevendo casos de teste e validação de dimensões."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Implementação: funções seguem Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 11) (35%)."
-            },
-            {
-              "text": "Validação matemática: registros de dimensões e testes conforme Backes (Cap. 9) e Santos (Cap. 12) (30%)."
-            },
-            {
-              "text": "Contextualização: análise do caso energético articulada a Ascencio & Campos (Cap. 8) (20%)."
-            },
-            {
-              "text": "Evidências: anexos e checklist preenchidos na planilha de auditoria do Campus Vale (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle destacando o capítulo consultado para manter a trilha de auditoria pedagógica."
         }
       ]
     },

@@ -27,48 +27,8 @@
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Miro (versão web)",
-      "type": "tool",
-      "url": "https://miro.com"
-    },
-    {
-      "label": "Draw.io (app.diagrams.net)",
-      "type": "tool",
-      "url": "https://app.diagrams.net/"
-    },
-    {
-      "label": "Folha de símbolos de fluxograma para impressão (Lucidchart)",
-      "type": "handout",
-      "url": "https://www.lucidchart.com/pages/pt/download/folha-de-simbolos-de-fluxograma"
-    },
-    {
-      "label": "Guia MD3 de simbologia para fluxogramas",
-      "type": "document",
-      "url": "https://static.md3.education/courses/algi/guias/simbologia-fluxogramas.pdf"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -76,8 +36,8 @@
     "GANE, C.; SARSON, T. Structured Systems Analysis. Pearson, 2019."
   ],
   "assessment": {
-    "type": "peer-review",
-    "description": "Cada dupla apresenta o fluxograma produzido e recebe feedback usando checklist de consistência."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -87,19 +47,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Fluxogramas e Visualização da Lógica. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 05."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -196,6 +153,43 @@
         "(35 min) Oficina em duplas utilizando Md3Flowchart (papel + digital).",
         "(20 min) Rodada de feedback entre duplas e checklist de consistência.",
         "(10 min) Registro da TED no Moodle."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Fluxogramas e Visualização da Lógica\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Fluxogramas e Visualização da Lógica\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Programação C (introdução, pseudocódigo, DevC++)",
+          "src": "https://www.youtube.com/embed/-qlRIH02Hlk"
+        },
+        {
+          "title": "Algoritma Pencarian dan Pengurutan Pada Bahasa Pemprogramman C - Part 1 Pencarian",
+          "src": "https://www.youtube.com/embed/-uGqH0liF_s"
+        }
       ]
     },
     {
@@ -381,43 +375,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 05' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Faça upload do fluxograma final exportado (PDF ou imagem) junto com o arquivo-fonte da ferramenta utilizada."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Preencha o checklist de símbolos (Início/Fim, Entrada/Saída, Processo, Decisão, Conectores) indicando onde aparecem e justifique escolhas em um parágrafo."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },

@@ -31,28 +31,8 @@
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Painel Start/Stop/Continue (Miro)",
-      "type": "board",
-      "url": "https://miro.com/app/board/uXjVKloopsRetro/"
-    },
-    {
-      "label": "Formulário de reflexão final",
-      "type": "form",
-      "url": "https://forms.gle/ReflexaoFinalLoops"
-    },
-    {
-      "label": "Vídeo inspiração: Boas práticas de laços",
-      "type": "playlist",
-      "url": "https://www.youtube.com/watch?v=HnYEm4hXH7s"
-    },
-    {
-      "label": "Planilha de plano de ação (Sebrae)",
-      "type": "spreadsheet",
-      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/planilha-plano-de-acao.xlsx"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -60,10 +40,47 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
   ],
   "assessment": {
-    "type": "reflection",
-    "description": "Entrega de relatório reflexivo com plano de ação pessoal e feedback recebido."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Síntese e Retrospectiva dos Laços\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Síntese e Retrospectiva dos Laços\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Analyzing algorithms in 6 minutes — Intro",
+          "src": "https://www.youtube.com/embed/2_Ud0TESsa0"
+        },
+        {
+          "title": "Como Baixar e Instalar o Visual Studio Code (VSCode) no Windows [Atualizado 2024] - Aula 02",
+          "src": "https://www.youtube.com/embed/2hIFewbdsEg"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -71,19 +88,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Síntese e Retrospectiva dos Laços. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 24."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -377,11 +391,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
-          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+          "items": [
+            {
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+            },
+            {
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+            }
+          ]
         }
       ]
     },

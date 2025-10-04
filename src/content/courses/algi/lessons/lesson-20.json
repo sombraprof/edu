@@ -26,7 +26,7 @@
     "Ter utilizado scanf e printf em exercícios anteriores."
   ],
   "tags": ["loops", "do-while", "menus"],
-  "duration": 110,
+  "duration": 100,
   "modality": "in-person",
   "metadata": {
     "status": "published",
@@ -37,28 +37,8 @@
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Tutorial: Construindo menus com do-while (GeeksforGeeks)",
-      "type": "article",
-      "url": "https://www.geeksforgeeks.org/c-program-for-menu-driven-program-using-do-while-loop/"
-    },
-    {
-      "label": "Checklist de testes do-while",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistDoWhile"
-    },
-    {
-      "label": "Vídeo: Do-while loops (Curso em Vídeo)",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=OB6s06eQGP0"
-    },
-    {
-      "label": "Projeto OnlineGDB – Menu bancário",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1MenuDoWhile"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -66,20 +46,65 @@
     "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Entrega de menu bancário implementado em C com do-while e relatório de testes anexado."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Estrutura de repetição do-while\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Estrutura de repetição do-while\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Programar em C - Funções Recursivas - Aula 35",
+          "src": "https://www.youtube.com/embed/1kBiqUCN888"
+        },
+        {
+          "title": "Lógica do algoritmo busca binária",
+          "src": "https://www.youtube.com/embed/1tGpLS5JH2Y"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "Warm-up (início da aula)",
+      "title": "Warm-up (pré-aula)",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+        },
         {
           "type": "list",
           "items": [
-            "Escreva em 3 minutos: o que você lembra da aula passada?",
-            "Compartilhe com a dupla."
+            {
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+            },
+            {
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+            }
           ]
         }
       ]
@@ -234,13 +259,17 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
-            "Resolver 2 exercícios com laços (um com for e outro com while/do-while).",
-            "Anexar comentários sobre complexidade percebida."
+            {
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+            },
+            {
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+            }
           ]
         }
       ]

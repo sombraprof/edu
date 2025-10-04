@@ -22,33 +22,13 @@
   ],
   "prerequisites": ["Revisar if/else, switch-case e cadeias else if das aulas 10-12."],
   "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Referência: Operadores lógicos em C (Programiz)",
-      "type": "article",
-      "url": "https://www.programiz.com/c-programming/c-operators#logical"
-    },
-    {
-      "label": "Planilha colaborativa de combinações",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGICombosLogicos"
-    },
-    {
-      "label": "Projeto OnlineGDB – Condições compostas",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1CondicoesCompostas"
-    },
-    {
-      "label": "Playlist Condicionais avançadas",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dm6wYOIwxbG5C0s6ydQIJe7"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -57,8 +37,8 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Implementação de um validador de acesso com relatório de testes que justifique cada combinação lógica."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -68,19 +48,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Condições compostas e encadeadas. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 13."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -109,15 +86,38 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Aquecimento: revisão das cadeias else if e diagnóstico de dúvidas da NP1.",
-        "(20 min) Operadores &&, || e ! aplicados a intervalos e exclusões.",
-        "(15 min) Construção colaborativa da tabela verdade do caso de acesso.",
-        "(25 min) Estudo guiado: validador de benefícios com múltiplos critérios.",
-        "(25 min) Oficina em duplas para mapear cenários e implementar cadeias.",
-        "(20 min) Revisão coletiva dos testes criados pelas duplas.",
-        "(15 min) TED e planejamento dos estudos para a NP1."
+        "(8 min) Aquecimento: revisão das cadeias else if e diagnóstico de dúvidas da NP1.",
+        "(15 min) Operadores &&, || e ! aplicados a intervalos e exclusões.",
+        "(12 min) Construção colaborativa da tabela verdade do caso de acesso.",
+        "(19 min) Estudo guiado: validador de benefícios com múltiplos critérios.",
+        "(19 min) Oficina em duplas para mapear cenários e implementar cadeias.",
+        "(15 min) Revisão coletiva dos testes criados pelas duplas.",
+        "(12 min) TED e planejamento dos estudos para a NP1."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Condições compostas e encadeadas\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Condições compostas e encadeadas\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
       ]
     },
     {
@@ -537,23 +537,20 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "TED 13 – Relatório de validação lógica",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Submeta até 23h59 do dia seguinte: código em C, planilha de combinações preenchida e relatório em PDF (1 página) com análise dos casos limites."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Arquivo aula13_validacao.c com condições compostas."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Planilha 'Mapa_Combos.xlsx' exportada ou linkada."
-            },
-            {
-              "text": "Relatório 'TED13_relatorio.pdf' seguindo o template fornecido."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
         }
@@ -562,28 +559,22 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Critérios de avaliação TED 13",
+      "title": "TED pós-aula",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+        },
         {
           "type": "list",
           "items": [
             {
-              "text": "Expressões lógicas corretas e sem redundâncias (35%)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Cobertura dos cenários na tabela verdade e planilha (30%)."
-            },
-            {
-              "text": "Relatório com justificativa textual clara (25%)."
-            },
-            {
-              "text": "Organização dos arquivos e envio no prazo (10%)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Submissões sem justificativa textual no Moodle serão devolvidas para revisão."
         }
       ]
     },
