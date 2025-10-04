@@ -1,31 +1,31 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-33",
-  "title": "Matrizes 2D e Geração de Tabelas",
-  "summary": "Apresenta matrizes bidimensionais em C para organizar dados tabulares e gerar relatórios estruturados.",
-  "description": "Introduz matrizes 2D, loops aninhados e geração de tabelas formatadas com dados de presença.",
-  "objective": "Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar tabelas formatadas.",
+  "title": "Matrizes 2D e Geração de Boletins",
+  "summary": "Apresenta matrizes bidimensionais em C para organizar boletins de uma turma e gerar relatórios evolutivos.",
+  "description": "Introduz matrizes 2D, loops aninhados e geração de tabelas formatadas com notas bimestrais que serão refinadas nas aulas seguintes.",
+  "objective": "Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar o boletim base da turma TechED.",
   "objectives": [
-    "Declarar matrizes estáticas e inicializá-las com dados reais.",
-    "Percorrer linhas e colunas utilizando loops aninhados.",
-    "Gerar tabelas formatadas a partir de matrizes."
+    "Declarar matrizes estáticas representando notas por estudante e disciplina.",
+    "Percorrer linhas e colunas utilizando loops aninhados para consolidar médias.",
+    "Gerar o boletim inicial com cabeçalhos e espaçamento alinhado para leitura rápida."
   ],
   "competencies": ["05", "11"],
   "skills": [
-    "Mapear dados tabulares para estruturas de matrizes em C.",
-    "Construir laços aninhados que preencham e apresentem tabelas formatadas.",
-    "Explicar resultados obtidos conectando-os ao problema de negócio proposto."
+    "Mapear o boletim fornecido pela coordenação pedagógica para uma matriz em C.",
+    "Construir laços aninhados que calculem totais por aluno e disciplina.",
+    "Explicar resultados conectando-os às ações de acompanhamento sugeridas no cenário TechED."
   ],
   "outcomes": [
-    "Entrega programa que gera matriz 2D com cabeçalhos e alinhamento adequado.",
-    "Registra checklist de validação garantindo preenchimento correto por linha e coluna.",
-    "Realiza apresentação breve relacionando a tabela gerada com decisões possíveis no cenário estudado."
+    "Entrega programa que gera o boletim base com cabeçalhos e médias por disciplina.",
+    "Registra checklist validando preenchimento de cada aluno e apontando lacunas de dados.",
+    "Produz relato curto conectando os indicadores do boletim às decisões sugeridas para a turma TechED."
   ],
   "prerequisites": [
     "Domínio de vetores e loops (Aulas 30-31).",
     "Capacidade de formatar saídas com printf."
   ],
-  "tags": ["matrizes", "arrays", "loops-aninhados"],
+  "tags": ["matrizes", "arrays", "loops-aninhados", "boletins"],
   "duration": 100,
   "modality": "in-person",
   "resources": [
@@ -46,18 +46,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+          "text": "Em duplas ou trios, atualizem o boletim da turma TechED seguindo as questões abaixo para reforçar o aprendizado durante a aula."
         },
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Questão teórica",
-              "text": "Explique com suas palavras os principais conceitos abordados em \"Matrizes 2D e Geração de Tabelas\" e destaque por que eles são importantes para a resolução de problemas."
+              "title": "Questão teórica — Boletim em matriz",
+              "text": "Explique com suas palavras como uma matriz 2D representa estudantes e disciplinas no boletim da turma TechED e aponte cuidados ao mapear índices."
             },
             {
-              "title": "Questão prática",
-              "text": "Implemente ou descreva um exemplo curto relacionado a \"Matrizes 2D e Geração de Tabelas\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+              "title": "Questão prática — Linha de acompanhamento",
+              "text": "Implemente, no OnlineGDB ou Dev-C++, um trecho que imprime a linha completa de um estudante incluindo médias parciais e compartilhe com o grupo."
             }
           ]
         }
@@ -84,16 +84,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+          "text": "Revise o boletim parcial enviado pela coordenação TechED e anote quais disciplinas exigem atenção especial antes da aula."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+              "text": "Reserve alguns minutos para estimar mentalmente a média de um estudante usando a matriz do boletim."
             },
             {
-              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+              "text": "Separe o dataset boletim-tech-ed.csv disponibilizado no AVA para usar durante a aula."
             }
           ]
         }
@@ -106,42 +106,42 @@
         {
           "icon": "book-open",
           "title": "Contexto",
-          "content": "Por que representar tabelas como matrizes? (10 min)."
+          "content": "Contextualizar o boletim TechED e metas de acompanhamento (10 min)."
         },
         {
           "icon": "code",
           "title": "Sintaxe",
-          "content": "Declaração e inicialização de matrizes (25 min)."
+          "content": "Modelar matriz notas[ALUNOS][DISCIPLINAS] com cabeçalhos do boletim (25 min)."
         },
         {
           "icon": "gears",
           "title": "Loops aninhados",
-          "content": "Percorrer linhas e colunas (25 min)."
+          "content": "Percorrer linhas para calcular médias por estudante e destacar risco (25 min)."
         },
         {
           "icon": "database",
           "title": "Formatação",
-          "content": "Construir relatório com printf (25 min)."
+          "content": "Formatar saída com colunas alinhadas e legendas do boletim (25 min)."
         },
         {
           "icon": "check-circle",
           "title": "Aplicação",
-          "content": "Mini-projeto com dataset de presença (20 min)."
+          "content": "Mini-projeto: gerar boletim parcial com alertas de recuperação (15 min)."
         }
       ]
     },
     {
       "type": "promptTip",
-      "title": "Prompt para planejar Matrizes 2D e Geração de Tabelas",
+      "title": "Prompt para planejar o Boletim TechED",
       "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
-      "audience": "estudantes de Algoritmos I",
-      "prompt": "Você é estudante de Algoritmos I estudando Matrizes 2D e Geração de Tabelas. Contexto da aula: Apresenta matrizes bidimensionais em C para organizar dados tabulares e gerar relatórios estruturados. Objetivo central: Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar tabelas formatadas. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
-      "tags": ["algoritmos", "arrays", "loops-aninhados", "matrizes"],
+      "audience": "estudantes de Algoritmos I focados em matrizes",
+      "prompt": "Você é estudante de Algoritmos I responsável por gerar o boletim da turma TechED usando matrizes 2D. Contexto da aula: Apresenta matrizes bidimensionais em C para organizar boletins e gerar relatórios evolutivos. Objetivo central: Compreender a representação de matrizes 2D, percorrer linhas e colunas com loops aninhados e montar o boletim base da turma TechED. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando leituras, exercícios em C e perguntas que ajudem a consolidar cálculos de médias e destaques de recuperação. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "arrays", "loops-aninhados", "matrizes", "boletins"],
       "tips": [
-        "Peça ao assistente variações de exercícios que reforcem declarar matrizes estáticas e inicializá-las com dados reais.",
-        "Solicite exemplos adicionais relacionados a matrizes, arrays para praticar.",
-        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
-        "Peça sugestões de autoavaliação que ajudem você a percorrer linhas e colunas utilizando loops aninhados."
+        "Peça ao assistente exercícios que reforcem a leitura de linhas completas do boletim e cálculo de médias.",
+        "Solicite variações com colunas extras para registrar frequência e observações.",
+        "Peça um checklist final para validar cabeçalhos, alinhamento e totais do boletim.",
+        "Peça sugestões de perguntas para orientar feedback aos estudantes em risco."
       ]
     },
     {
@@ -151,32 +151,32 @@
         {
           "icon": "check-circle",
           "title": "9 min",
-          "content": "Warm-up com quiz sobre índices."
+          "content": "Warm-up com quiz sobre índices do boletim TechED."
         },
         {
           "icon": "check-circle",
           "title": "17 min",
-          "content": "Aula expositiva com slides e md3Table de sintaxe."
+          "content": "Aula expositiva com slides apresentando a matriz do boletim e layout de cabeçalhos."
         },
         {
           "icon": "check-circle",
           "title": "22 min",
-          "content": "Demonstração de loops aninhados em C."
+          "content": "Demonstração de loops aninhados calculando médias e status por estudante."
         },
         {
           "icon": "check-circle",
-          "title": "(26 min) Oficina",
-          "content": "gerar tabela de presença a partir do CSV."
+          "title": "(26 min) Oficina colaborativa",
+          "content": "gerar boletim parcial e destacar estudantes com média < 6.0."
         },
         {
           "icon": "check-circle",
           "title": "17 min",
-          "content": "Revisão de código em duplas."
+          "content": "Revisão de código em duplas com checklist do boletim."
         },
         {
           "icon": "check-circle",
           "title": "9 min",
-          "content": "Orientação da prática pós-aula."
+          "content": "Orientação da prática pós-aula conectando com TED sobre boletim."
         }
       ]
     },
@@ -188,16 +188,16 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Elemento: Declaração | Exemplo: int matriz[3][4]; | Descrição: 3 linhas, 4 colunas não inicializadas."
+              "text": "Elemento: Declaração | Exemplo: float boletim[30][5]; | Descrição: 30 estudantes, 5 disciplinas sem notas iniciais."
             },
             {
-              "text": "Elemento: Inicialização | Exemplo: int notas[2][3] = {{7,8,9},{6,5,10}}; | Descrição: Valores linha a linha."
+              "text": "Elemento: Inicialização | Exemplo: float boletim[2][3] = {{7.5,6.0,8.0},{5.0,6.5,7.0}}; | Descrição: Inserção linha a linha com notas bimestrais."
             },
             {
-              "text": "Elemento: Acesso | Exemplo: matriz[i][j] | Descrição: Primeiro índice = linha, segundo = coluna."
+              "text": "Elemento: Acesso | Exemplo: boletim[aluno][disciplina] | Descrição: Linha = estudante, coluna = disciplina."
             },
             {
-              "text": "Elemento: Percurso | Exemplo: for (i) for (j) | Descrição: Loops aninhados para percorrer todos os elementos."
+              "text": "Elemento: Percurso | Exemplo: for (aluno) for (disciplina) | Descrição: Loops aninhados para calcular médias por aluno e por disciplina."
             },
             {
               "text": "Elemento: Constante de coluna | Exemplo: #define COL 4 | Descrição: Facilita manutenção de dimensões."
@@ -334,9 +334,9 @@
         {
           "type": "list",
           "items": [
-            "Adicionar coluna de porcentagem de presença na tabela.",
-            "Criar função que retorna a linha com maior frequência de presenças.",
-            "Postar captura do relatório gerado no fórum da disciplina."
+            "Adicionar coluna com situação (Aprovado/Recuperação) baseada na média >= 6.0.",
+            "Criar função que retorna o estudante com maior evolução entre bimestres.",
+            "Postar captura do boletim formatado e checklist de validação no fórum da disciplina."
           ]
         }
       ]
@@ -348,16 +348,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Reserve um momento após a aula para consolidar o boletim TechED e registrar as conclusões abaixo. A entrega alimenta o dossiê de acompanhamento da turma."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Gere o boletim completo com médias por disciplina e exporte um relatório textual (máx. 2 páginas) destacando três estudantes em risco e as ações sugeridas."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Anote dúvidas sobre cálculos ou alinhamento e registre-as no relatório para discussão na Aula 34."
             }
           ]
         }
@@ -365,17 +365,17 @@
     },
     {
       "type": "md3Table",
-      "headers": ["i", "j", "v[i][j]"],
+      "headers": ["Aluno", "Disciplina", "Nota"],
       "rows": [
         [
           {
             "value": "0"
           },
           {
-            "value": "0"
+            "value": "Matemática"
           },
           {
-            "value": "1"
+            "value": "6.5"
           }
         ],
         [
@@ -383,10 +383,21 @@
             "value": "0"
           },
           {
+            "value": "Ciências"
+          },
+          {
+            "value": "7.0"
+          }
+        ],
+        [
+          {
             "value": "1"
           },
           {
-            "value": "2"
+            "value": "Matemática"
+          },
+          {
+            "value": "5.0"
           }
         ]
       ]
@@ -413,8 +424,25 @@
       "content": [
         {
           "type": "code",
-          "code": "# Matriz 2x2\n[[1,2],[3,4]] -> imprime em tabela",
+          "code": "# Boletim 2x3\n{{7.0, 8.5, 6.0}, {5.0, 6.0, 7.0}} -> imprime tabela com médias e status",
           "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Anexos para slides",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Diagrama de memória do boletim 2D — /courses/algi/memory-diagrama-boletim.md"
+            },
+            {
+              "text": "Cartaz Estação Matriz — /courses/algi/estacao-boletim-matriz.md"
+            }
+          ]
         }
       ]
     },
