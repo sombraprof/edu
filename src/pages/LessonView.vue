@@ -66,13 +66,17 @@
         :lesson-model="lessonEditor.lessonModel"
         :tags-field="lessonEditor.tagsField"
         :create-array-field="lessonEditor.useArrayField"
+        :error-message="lessonAuthoringError"
+        :success-message="lessonAuthoringSuccess"
+        :can-revert="lessonCanRevert"
+        :on-revert="lessonContentSync.revertChanges"
       />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import LessonReadiness from '@/components/lesson/LessonReadiness.vue';
@@ -83,27 +87,69 @@ import LessonAuthoringPanel from '@/components/lesson/LessonAuthoringPanel.vue';
 import { useLessonEditorModel, type LessonEditorModel } from '@/composables/useLessonEditorModel';
 import { useTeacherMode } from '@/composables/useTeacherMode';
 import { useLessonViewController } from './LessonView.logic';
+import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
+import type { LessonBlock } from '@/components/lesson/blockRegistry';
+
+function cloneDeep<T>(value: T): T {
+  try {
+    return structuredClone(value);
+  } catch (_error) {
+    return JSON.parse(JSON.stringify(value)) as T;
+  }
+}
+
+type LessonFilePayload = Record<string, unknown> & { content?: LessonBlock[] };
+
+function toLessonEditorModel(raw: LessonFilePayload): LessonEditorModel {
+  const { content, ...rest } = raw;
+  return {
+    ...(rest as LessonEditorModel),
+    blocks: Array.isArray(content) ? cloneDeep(content) : [],
+  };
+}
+
+function toLessonFilePayload(
+  model: LessonEditorModel,
+  base: LessonFilePayload | null
+): LessonFilePayload {
+  const target = base ? cloneDeep(base) : ({} as LessonFilePayload);
+  const { blocks, ...rest } = model;
+  Object.assign(target, rest);
+  if (Array.isArray(blocks)) {
+    target.content = cloneDeep(blocks);
+  } else {
+    target.content = [];
+  }
+  delete (target as LessonFilePayload & { blocks?: unknown }).blocks;
+  return target;
+}
 
 const controller = useLessonViewController();
 
 const lessonEditor = useLessonEditorModel();
 const { teacherMode } = useTeacherMode();
 
-watch(
-  () => controller.lessonData.value,
-  (data) => {
-    if (!data) {
-      lessonEditor.setLessonModel(null);
-      return;
-    }
-    const { content, ...rest } = data;
-    lessonEditor.setLessonModel({
-      ...(rest as LessonEditorModel),
-      blocks: Array.isArray(content) ? [...content] : [],
-    });
-  },
-  { immediate: true }
+const lessonContentPath = computed(() => {
+  const file = controller.lessonContentFile.value;
+  if (!file) {
+    return null;
+  }
+  return `courses/${controller.courseId.value}/lessons/${file}`;
+});
+
+const lessonContentSync = useTeacherContentEditor<LessonEditorModel, LessonFilePayload>({
+  path: lessonContentPath,
+  model: lessonEditor.lessonModel,
+  setModel: lessonEditor.setLessonModel,
+  fromRaw: (raw) => toLessonEditorModel(raw),
+  toRaw: (model, base) => toLessonFilePayload(model, base ?? null),
+});
+
+const lessonAuthoringError = computed(
+  () => lessonContentSync.loadError.value ?? lessonContentSync.saveError.value
 );
+const lessonAuthoringSuccess = computed(() => lessonContentSync.successMessage.value);
+const lessonCanRevert = computed(() => lessonContentSync.hasPendingChanges.value);
 
 const authoringLesson = computed(() => lessonEditor.lessonModel.value);
 const lessonContent = computed(() => {

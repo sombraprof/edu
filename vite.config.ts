@@ -233,6 +233,13 @@ export default defineConfig(({ command }) => {
     },
     server: {
       port: 5173,
+      proxy: {
+        '^/teacher-api': {
+          target: 'http://127.0.0.1:4178',
+          changeOrigin: true,
+          rewrite: (urlPath) => urlPath.replace(/^\/teacher-api/, ''),
+        },
+      },
     },
     preview: {
       base: '/edu/',

@@ -8,6 +8,7 @@ import { readFile, writeFile, stat } from 'node:fs/promises';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const projectRoot = resolve(__dirname, '..');
+const contentRoot = resolve(projectRoot, 'src/content');
 
 const scriptConfigs = {
   content: {
@@ -49,6 +50,144 @@ const reportFiles = {
   observability: resolve(projectRoot, 'reports/content-observability.json'),
   governance: resolve(projectRoot, 'reports/governance-alert.json'),
 };
+
+function ensureContentPath(requestedPath) {
+  if (typeof requestedPath !== 'string' || !requestedPath.trim()) {
+    throw new Error('Informe o caminho do arquivo JSON através do parâmetro "path".');
+  }
+
+  const normalized = requestedPath.replace(/\\/g, '/').replace(/^\/+/, '');
+  if (!normalized) {
+    throw new Error('O caminho informado é inválido.');
+  }
+
+  if (!normalized.endsWith('.json')) {
+    throw new Error('Apenas arquivos JSON podem ser lidos ou escritos.');
+  }
+
+  if (normalized.includes('\0')) {
+    throw new Error('O caminho informado contém caracteres inválidos.');
+  }
+
+  const absolute = resolve(contentRoot, normalized);
+  const relativePath = relative(contentRoot, absolute);
+  if (!relativePath || relativePath.startsWith('..')) {
+    throw new Error('Acesso negado. Utilize apenas caminhos dentro de src/content.');
+  }
+
+  const segments = relativePath.split(/[/\\]+/);
+  if (segments.some((segment) => segment === '..')) {
+    throw new Error('Acesso negado. Utilize apenas caminhos dentro de src/content.');
+  }
+
+  return { absolute, relative: relativePath.replace(/\\/g, '/') };
+}
+
+function cloneJson(value) {
+  try {
+    return structuredClone(value);
+  } catch (_error) {
+    return JSON.parse(JSON.stringify(value));
+  }
+}
+
+async function serveContentRead(res, url) {
+  const requestedPath = url.searchParams.get('path');
+  let resolved;
+  try {
+    resolved = ensureContentPath(requestedPath);
+  } catch (error) {
+    jsonResponse(res, 400, { error: error.message });
+    return;
+  }
+
+  let raw;
+  try {
+    raw = await readFile(resolved.absolute, 'utf-8');
+  } catch (error) {
+    if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
+      jsonResponse(res, 404, { error: 'Arquivo não encontrado dentro de src/content.' });
+      return;
+    }
+    jsonResponse(res, 500, { error: 'Não foi possível ler o arquivo solicitado.' });
+    return;
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (error) {
+    jsonResponse(res, 500, {
+      error: 'O arquivo existe, mas contém JSON inválido. Corrija antes de continuar.',
+    });
+    return;
+  }
+
+  jsonResponse(res, 200, {
+    path: resolved.relative,
+    content: parsed,
+  });
+}
+
+async function serveContentWrite(req, res) {
+  let body;
+  try {
+    body = await parseRequestBody(req);
+  } catch (error) {
+    jsonResponse(res, 400, { error: error.message });
+    return;
+  }
+
+  const requestedPath = body && typeof body === 'object' ? body.path : undefined;
+  let resolved;
+  try {
+    resolved = ensureContentPath(requestedPath);
+  } catch (error) {
+    jsonResponse(res, 400, { error: error.message });
+    return;
+  }
+
+  let stats;
+  try {
+    stats = await stat(resolved.absolute);
+  } catch (error) {
+    if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
+      jsonResponse(res, 404, {
+        error: 'Arquivo não encontrado. Apenas arquivos existentes podem ser atualizados.',
+      });
+      return;
+    }
+    jsonResponse(res, 500, { error: 'Não foi possível acessar o arquivo solicitado.' });
+    return;
+  }
+
+  if (!stats.isFile()) {
+    jsonResponse(res, 400, { error: 'O caminho informado não aponta para um arquivo.' });
+    return;
+  }
+
+  const content = body && typeof body === 'object' ? body.content : undefined;
+  if (content === undefined) {
+    jsonResponse(res, 400, {
+      error: 'Envie a propriedade "content" com os dados JSON atualizados.',
+    });
+    return;
+  }
+
+  const serialized = JSON.stringify(content, null, 2);
+  try {
+    await writeFile(resolved.absolute, `${serialized}\n`, 'utf-8');
+  } catch (error) {
+    jsonResponse(res, 500, { error: 'Falha ao escrever o arquivo solicitado.' });
+    return;
+  }
+
+  jsonResponse(res, 200, {
+    path: resolved.relative,
+    content: cloneJson(content),
+    savedAt: new Date().toISOString(),
+  });
+}
 
 const historyFile = resolve(projectRoot, 'reports/teacher-script-history.json');
 const parsedHistoryLimit = Number(process.env.TEACHER_SERVICE_HISTORY_LIMIT ?? 50);
@@ -133,7 +272,7 @@ function jsonResponse(res, statusCode, payload) {
   res.writeHead(statusCode, {
     'Content-Type': 'application/json; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+    'Access-Control-Allow-Methods': 'GET,POST,PUT,OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token, X-Teacher-Actor',
   });
   res.end(body);
@@ -142,7 +281,7 @@ function jsonResponse(res, statusCode, payload) {
 function handleOptions(res) {
   res.writeHead(204, {
     'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
+    'Access-Control-Allow-Methods': 'GET,POST,PUT,OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, X-Teacher-Token, X-Teacher-Actor',
   });
   res.end();
@@ -1272,6 +1411,16 @@ const server = createServer(async (req, res) => {
   if (url.pathname === '/api/teacher/scripts/history' && req.method === 'GET') {
     const key = url.searchParams.get('key');
     await serveHistory(res, typeof key === 'string' && key.length > 0 ? key : null);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/content' && req.method === 'GET') {
+    await serveContentRead(res, url);
+    return;
+  }
+
+  if (url.pathname === '/api/teacher/content' && req.method === 'PUT') {
+    await serveContentWrite(req, res);
     return;
   }
 
