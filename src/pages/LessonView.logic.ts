@@ -120,6 +120,7 @@ export function useLessonViewController(
   const lessonOutcomes = ref<string[]>([]);
   const lessonPrerequisites = ref<string[]>([]);
   const lessonData = shallowRef<LessonContent | null>(null);
+  const lessonContentFile = ref('');
 
   async function loadLesson() {
     lessonData.value = null;
@@ -132,6 +133,7 @@ export function useLessonViewController(
     lessonSkills.value = [];
     lessonOutcomes.value = [];
     lessonPrerequisites.value = [];
+    lessonContentFile.value = '';
 
     try {
       const currentCourse = courseId.value;
@@ -152,6 +154,8 @@ export function useLessonViewController(
       const lessonPath = `../content/courses/${currentCourse}/lessons/${entry.file}`;
       const lessonImporter = lessonModules[lessonPath];
       if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
+
+      lessonContentFile.value = entry.file ?? '';
 
       const mod: any = await lessonImporter();
       const data = (mod.default ?? mod) as LessonContent | null;
@@ -216,6 +220,7 @@ export function useLessonViewController(
       lessonSkills.value = [];
       lessonOutcomes.value = [];
       lessonPrerequisites.value = [];
+      lessonContentFile.value = '';
     }
   }
 
@@ -240,6 +245,7 @@ export function useLessonViewController(
     lessonOutcomes,
     lessonPrerequisites,
     lessonData,
+    lessonContentFile,
     loadLesson,
     route,
   };

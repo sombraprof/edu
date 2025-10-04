@@ -9,12 +9,36 @@
             Ajuste metadados, reordene blocos e visualize o conteúdo renderizado em tempo real.
           </p>
         </div>
-        <div class="flex items-center gap-2 text-sm" :class="statusTone">
-          <component :is="statusIcon" class="md-icon md-icon--sm" aria-hidden="true" />
-          <span>{{ statusLabel }}</span>
+        <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 text-sm" :class="statusTone">
+            <component :is="statusIcon" class="md-icon md-icon--sm" aria-hidden="true" />
+            <span>{{ statusLabel }}</span>
+          </div>
+          <Md3Button
+            v-if="showRevertButton"
+            type="button"
+            variant="text"
+            class="text-sm"
+            @click="handleRevert"
+          >
+            Reverter alterações
+          </Md3Button>
         </div>
       </div>
     </header>
+
+    <div
+      v-if="props.errorMessage"
+      class="rounded-lg border border-error/40 bg-error/10 p-3 text-sm text-error"
+    >
+      {{ props.errorMessage }}
+    </div>
+    <div
+      v-else-if="props.successMessage"
+      class="rounded-lg border border-success/40 bg-success/10 p-3 text-sm text-success"
+    >
+      {{ props.successMessage }}
+    </div>
 
     <template v-if="lessonModel.value">
       <section class="md-stack md-stack-3">
@@ -209,6 +233,10 @@ const props = defineProps<{
   lessonModel: ShallowRef<LessonEditorModel | null>;
   tagsField: ComputedRef<string>;
   createArrayField: (field: LessonArrayField) => ComputedRef<string>;
+  errorMessage?: string | null;
+  successMessage?: string | null;
+  canRevert?: boolean;
+  onRevert?: () => void;
 }>();
 
 const tagsFieldProxy = computed({
@@ -227,6 +255,14 @@ const prerequisitesField = props.createArrayField('prerequisites');
 const blocks = computed(() => props.lessonModel.value?.blocks ?? []);
 const selectedBlockIndex = ref(0);
 const newBlockType = ref<string>(supportedBlockTypes[0] ?? 'contentBlock');
+
+const showRevertButton = computed(
+  () => Boolean(props.canRevert) && typeof props.onRevert === 'function'
+);
+
+function handleRevert() {
+  props.onRevert?.();
+}
 
 watch(blocks, (current) => {
   if (!current.length) {
