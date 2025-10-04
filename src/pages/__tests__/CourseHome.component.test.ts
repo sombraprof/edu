@@ -1,18 +1,29 @@
 import { describe, expect, it, beforeEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { ref, computed } from 'vue';
+import type { Ref } from 'vue';
 import CourseHome from '../CourseHome.vue';
 import type { CourseHomeController, CourseHomeItem } from '../CourseHome.logic';
 
-const createController = () => {
+interface ControllerHarness {
+  controller: CourseHomeController;
+  isLoading: Ref<boolean>;
+  displayItemsSource: Ref<CourseHomeItem[]>;
+  resetFiltersMock: ReturnType<typeof vi.fn>;
+}
+
+const createController = (): ControllerHarness => {
   const lessons = ref([]);
   const exercises = ref([]);
   const contentFilter = ref<'all' | 'lesson' | 'exercise'>('all');
   const viewMode = ref<'grid' | 'list'>('grid');
   const isLoading = ref(false);
-  const displayItems = ref<CourseHomeItem[]>([]);
+  const displayItemsSource = ref<CourseHomeItem[]>([]);
+  const refreshCourseContent = vi.fn();
+  const resetFiltersMock = vi.fn();
+  const updateSection = vi.fn();
 
-  return {
+  const controller = {
     lessons,
     exercises,
     contentFilter,
@@ -20,16 +31,24 @@ const createController = () => {
     isLoading,
     rawSearchQuery: computed(() => ''),
     searchTerm: computed(() => ''),
-    combinedItems: computed(() => displayItems.value),
-    displayItems,
-    refreshCourseContent: vi.fn(),
-    resetFilters: vi.fn(),
-    updateSection: vi.fn(),
+    combinedItems: computed(() => displayItemsSource.value),
+    displayItems: computed(() => displayItemsSource.value),
+    refreshCourseContent,
+    resetFilters: resetFiltersMock,
+    updateSection,
     courseId: computed(() => 'demo'),
     route: { params: {}, query: {} } as any,
   } satisfies CourseHomeController;
+
+  return {
+    controller,
+    isLoading,
+    displayItemsSource,
+    resetFiltersMock,
+  };
 };
 
+let controllerHarness: ControllerHarness;
 let controllerMock: CourseHomeController;
 
 vi.mock('../CourseHome.logic', () => ({
@@ -45,11 +64,12 @@ const ButtonStub = {
 
 describe('CourseHome component', () => {
   beforeEach(() => {
-    controllerMock = createController();
+    controllerHarness = createController();
+    controllerMock = controllerHarness.controller;
   });
 
   it('exibe estado de carregamento', () => {
-    controllerMock.isLoading.value = true;
+    controllerHarness.isLoading.value = true;
     const wrapper = mount(CourseHome, {
       global: {
         stubs: {
@@ -66,8 +86,8 @@ describe('CourseHome component', () => {
   });
 
   it('renderiza itens disponíveis com classes corretas', () => {
-    controllerMock.isLoading.value = false;
-    controllerMock.displayItems.value = [
+    controllerHarness.isLoading.value = false;
+    controllerHarness.displayItemsSource.value = [
       {
         key: 'lesson-01',
         type: 'lesson',
@@ -105,9 +125,9 @@ describe('CourseHome component', () => {
   });
 
   it('aciona reset ao clicar em "Limpar filtros"', async () => {
-    controllerMock.isLoading.value = false;
-    controllerMock.displayItems.value = [];
-    controllerMock.resetFilters.mockClear();
+    controllerHarness.isLoading.value = false;
+    controllerHarness.displayItemsSource.value = [];
+    controllerHarness.resetFiltersMock.mockClear();
 
     const wrapper = mount(CourseHome, {
       global: {
