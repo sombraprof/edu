@@ -22,7 +22,7 @@
   ],
   "prerequisites": ["Domínio de condicionais compostas e operadores lógicos."],
   "tags": ["loops", "while", "repeticao"],
-  "duration": 100,
+  "duration": 90,
   "modality": "in-person",
   "resources": [
     {
@@ -93,7 +93,7 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (2 h/a)",
+      "title": "Plano de voo (1 h 30 min)",
       "items": [
         "(5 min) Check-in: relembre motivos para usar while e alinhe a agenda.",
         "(15 min) Diagnóstico guiado: estudantes compartilham cenários reais; professores destacam padrões de repetição.",
@@ -125,22 +125,50 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Utilize while quando não souber quantas iterações serão necessárias e desejar testar a condição antes de executar o bloco."
-        },
-        {
-          "type": "paragraph",
-          "text": "O laço while testa a condição antes de executar o bloco, por isso é indicado quando não sabemos quantas repetições serão necessárias e queremos preservar controle total da saída."
+          "text": "Utilize o laço while quando o número de iterações for desconhecido e a condição de repetição precisar ser validada antes da execução do bloco. Ele é ideal para situações como:"
         },
         {
           "type": "list",
           "ordered": false,
           "items": [
-            "Leitura até receber um valor especial (sentinela).",
-            "Validação de entrada até o usuário fornecer dados corretos.",
-            "Monitoramento de sensores enquanto a leitura estiver dentro do intervalo."
+            "Leitura de dados até encontrar um valor especial (sentinela).",
+            "Validação de entrada, repetindo a solicitação até que o usuário forneça um dado correto.",
+            "Monitoramento de sensores ou processos enquanto uma condição específica for mantida."
           ]
         }
       ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Cola rápida: for vs. while vs. do-while",
+      "headers": ["Situação", "for", "while", "do-while"],
+      "rows": [
+        [
+          { "value": "Contagem conhecida" },
+          { "value": "✅" },
+          { "value": "⚠️" },
+          { "value": "⚠️" }
+        ],
+        [
+          { "value": "Condição avaliada antes" },
+          { "value": "✅" },
+          { "value": "✅" },
+          { "value": "❌" }
+        ],
+        [
+          { "value": "Executar ao menos 1 vez" },
+          { "value": "❌" },
+          { "value": "❌" },
+          { "value": "✅" }
+        ],
+        [
+          { "value": "Leitura com sentinela" },
+          { "value": "⚠️" },
+          { "value": "✅" },
+          { "value": "✅" }
+        ]
+      ],
+      "summary": "(⚠️ = possível, mas não é o mais natural)"
     },
     {
       "type": "contentBlock",
