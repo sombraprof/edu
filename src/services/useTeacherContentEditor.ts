@@ -1,5 +1,5 @@
 import { computed, nextTick, ref, shallowRef, watch, type ComputedRef, type ShallowRef } from 'vue';
-import { teacherAutomationBaseUrl, teacherAutomationToken } from '@/pages/faculty/utils/automation';
+import { teacherAutomationBaseUrl, teacherAutomationToken } from './teacherAutomation';
 
 class TeacherContentServiceError extends Error {
   constructor(

@@ -1,4 +1,5 @@
-import type { ValidationReportKey, ValidationScriptKey } from './validationScripts';
+type ValidationScriptKey = string;
+type ValidationReportKey = string;
 
 const rawBaseUrl = (import.meta.env.VITE_TEACHER_API_URL ?? '').trim();
 export const teacherAutomationBaseUrl = rawBaseUrl.replace(/\/$/, '');

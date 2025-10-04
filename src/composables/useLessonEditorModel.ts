@@ -31,22 +31,22 @@ export interface LessonEditorModel extends Record<string, unknown> {
 }
 
 const MetadataListEditor = defineAsyncComponent(
-  () => import('@/pages/faculty/components/MetadataListEditor.vue')
+  () => import('@/components/authoring/MetadataListEditor.vue')
 );
 const LessonPlanEditor = defineAsyncComponent(
-  () => import('@/pages/faculty/components/blocks/LessonPlanEditor.vue')
+  () => import('@/components/authoring/blocks/LessonPlanEditor.vue')
 );
 const CalloutEditor = defineAsyncComponent(
-  () => import('@/pages/faculty/components/blocks/CalloutEditor.vue')
+  () => import('@/components/authoring/blocks/CalloutEditor.vue')
 );
 const CardGridEditor = defineAsyncComponent(
-  () => import('@/pages/faculty/components/blocks/CardGridEditor.vue')
+  () => import('@/components/authoring/blocks/CardGridEditor.vue')
 );
 const ContentBlockEditor = defineAsyncComponent(
-  () => import('@/pages/faculty/components/blocks/ContentBlockEditor.vue')
+  () => import('@/components/authoring/blocks/ContentBlockEditor.vue')
 );
 const UnsupportedBlockEditor = defineAsyncComponent(
-  () => import('@/pages/faculty/components/blocks/UnsupportedBlockEditor.vue')
+  () => import('@/components/authoring/blocks/UnsupportedBlockEditor.vue')
 );
 
 const blockEditorRegistry = Object.freeze({
