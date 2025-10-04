@@ -106,6 +106,19 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para ativar invariantes e sentinelas",
+      "description": "Use com o assistente para guiar revisões rápidas ou dinâmicas de laboratório sobre loops while.",
+      "audience": "docentes e monitores",
+      "prompt": "Você é tutor de Algoritmos I preparando estudantes para implementar laços while com sentinela. Elabore um roteiro em três etapas: (1) revisar a lógica do while e definir invariantes, (2) propor um exercício de média de notas com sentinela e validação de entrada, (3) montar um checklist de testes cobrindo entradas válidas, inválidas e casos limite. Para cada etapa, indique objetivo, atividades sugeridas e perguntas disparadoras.",
+      "tags": ["algoritmos", "while", "sentinela"],
+      "tips": [
+        "Peça uma versão adaptada para estudantes que ainda confundem condição de parada com atualização de variáveis.",
+        "Solicite exemplos extras de validação de entrada envolvendo valores negativos e limites superiores.",
+        "Gere um resumo final em formato de quadro branco com tópicos-chave para projetar na sala."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Por que laços while importam agora",
       "content": [
