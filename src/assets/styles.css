@@ -555,6 +555,32 @@ html {
     gap: var(--md-sys-spacing-10);
   }
 
+  .layout {
+    display: flex;
+    gap: var(--md-sys-spacing-6);
+    align-items: stretch;
+  }
+
+  .layout--split {
+    flex-direction: column;
+  }
+
+  .layout--split__main {
+    flex: 1 1 auto;
+  }
+
+  .layout--split__aside {
+    flex: 0 0 auto;
+    width: min(100%, 24rem);
+  }
+
+  @media (min-width: 64rem) {
+    .layout--split {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
   .page-breadcrumb {
     display: flex;
     flex-wrap: wrap;
