@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-18",
-  "title": "Aula 18: Estrutura de Repetição for",
+  "title": "Aula 18 - Estrutura de Repetição for",
   "summary": "Explora o laço for para repetir instruções com contadores definidos, destacando inicialização, condição e atualização.",
   "objective": "Planejar e implementar laços for para percorrer intervalos, vetores e produzir tabulações controladas.",
   "objectives": [
@@ -29,6 +29,21 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
+    },
+    {
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
+    },
+    {
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -73,7 +88,7 @@
         {
           "icon": "monitor",
           "title": "Comparativo inicial",
-          "content": "Revisar diferenças entre while e for com exemplos lado a lado (10 min)."
+          "content": "Revisar diferenças entre while (Aula 17) e for com exemplos lado a lado e critérios de escolha registrados (10 min)."
         },
         {
           "icon": "tasks",
@@ -93,7 +108,7 @@
         {
           "icon": "users",
           "title": "Debrief",
-          "content": "Comparar implementação em for versus while e registrar aprendizados (15 min)."
+          "content": "Comparar implementação em for versus while, registrando argumentos e métricas para o TED (15 min)."
         },
         {
           "icon": "tasks",
@@ -110,7 +125,8 @@
         "(17 min) Desmembrar sintaxe e exemplos no quadro.",
         "(31 min) Laboratório: geração de tabuada e somatórios.",
         "(17 min) Debug coletivo: evitar loops infinitos.",
-        "(26 min) Exercícios avaliativos com feedback em tempo real."
+        "(26 min) Exercícios avaliativos com feedback em tempo real.",
+        "(18 min) Coding dojo: monitoramento de sensores com for vs while (ênfase nas justificativas da Aula 17)."
       ]
     },
     {
@@ -385,9 +401,9 @@
       "type": "checklist",
       "title": "Próximos passos",
       "items": [
-        "Implementar exercícios 1, 2 e 3 da worksheet usando for.",
-        "Analisar equivalência com while e registrar diferenças no caderno.",
-        "Preparar dúvidas para a aula 19 (for vs while)."
+        "Implementar exercícios 1, 2 e 3 da worksheet usando for e registrar equivalência com while.",
+        "Comparar clareza entre for e while na planilha colaborativa (link nos recursos).",
+        "Preparar uma síntese escrita sobre quando manter for e quando preferir while para a aula 19."
       ]
     },
     {
@@ -403,10 +419,13 @@
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
         }
@@ -425,10 +444,13 @@
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
         }
@@ -520,6 +542,64 @@
           "type": "code",
           "code": "#include <stdio.h>\nint main(){\n  int n; if (scanf(\"%d\", &n)!=1) return 1;\n  for (int i=1;i<=n;i++){ printf(\"%d%s\", i, i==n?\"\n\":\" \"); }\n  return 0;\n}",
           "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Sensoriamento em laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um laboratório registra leituras de temperatura a cada minuto para comparar variações entre sensores internos e externos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Utilize um laço for para percorrer um vetor de 12 posições (12 minutos) e compare o resultado com uma versão equivalente em while herdada da Aula 17."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Acompanhe máximas e mínimas e registre quando a diferença ultrapassar 2ºC."
+            },
+            {
+              "text": "Teste uma refatoração para while e anote no caderno quando a clareza do código muda."
+            },
+            {
+              "text": "Documente em qual estrutura a equipe identificou mais facilmente o ponto de parada."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Monitoramento de sensores",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Pratique a leitura de lotes de dados coletados por sensores de umidade comparando implementações com for e while."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Rodada 1 (piloto): percorra 8 leituras usando for e comente quando preferiria while."
+            },
+            {
+              "text": "Rodada 2 (co-piloto): refatore para while destacando ajustes em inicialização, condição e atualização."
+            },
+            {
+              "text": "Retrospectiva: escreva na planilha colaborativa qual estrutura comunicou melhor a intenção do loop."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n#define TOTAL 8\n\nvoid registrar_alerta(int indice, float leitura) {\n  printf(\"Alerta em %d: %.2f%%\n\", indice, leitura);\n}\n\nint main(void) {\n  float umidades[TOTAL] = {0};\n  for (int i = 0; i < TOTAL; i++) {\n    printf(\"Leitura %d: \", i + 1);\n    scanf(\"%f\", &umidades[i]);\n    if (umidades[i] < 30.0f) {\n      registrar_alerta(i + 1, umidades[i]);\n    }\n  }\n  return 0;\n}\n// Template base: gere versão equivalente com while e compare comentários."
         }
       ]
     },

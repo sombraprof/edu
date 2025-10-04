@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-20",
-  "title": "Estrutura de repetição do-while",
+  "title": "Aula 20 - Estrutura de repetição do-while",
   "summary": "Apresenta o do-while em C para menus e validações que exigem uma execução inicial garantida.",
   "objective": "Implementar menus que exigem execução inicial obrigatória usando do-while e validar todas as opções com feedback imediato.",
   "description": "A aula destaca quando o do-while simplifica o código, demonstra a construção de menus interativos e orienta sobre validações que precisam rodar pelo menos uma vez.",
@@ -39,6 +39,21 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
+    },
+    {
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
+    },
+    {
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -116,7 +131,7 @@
         {
           "icon": "target",
           "title": "Aplicações imediatas",
-          "content": "Identificar cenários em que a execução inicial é obrigatória (menus, confirmações, validações)."
+          "content": "Identificar cenários de fila/menu em que a execução inicial obrigatória (Aula 17 vs do-while) muda a clareza do fluxo."
         },
         {
           "icon": "code",
@@ -126,7 +141,7 @@
         {
           "icon": "users",
           "title": "Revisão coletiva",
-          "content": "Compartilhar decisões de fluxo e comparar com versões usando while."
+          "content": "Compartilhar decisões de fluxo, comparando versões com while/for e justificando a permanência do do-while."
         }
       ]
     },
@@ -265,10 +280,13 @@
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
         }
@@ -327,6 +345,67 @@
             "Leia o enunciado e valide entradas antes de processar.",
             "Inicialize variáveis; evite estados indefinidos."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Totem de fila inteligente",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um totem de triagem gera senhas enquanto houver pessoas na fila física e precisa exibir o menu pelo menos uma vez."
+        },
+        {
+          "type": "paragraph",
+          "text": "Implemente com do-while garantindo que a primeira senha seja emitida antes de verificar a condição de saída e compare com versões for/while."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Utilize indicadores de capacidade para decidir quando migrar para while."
+            },
+            {
+              "text": "Registre na planilha colaborativa como cada estrutura afeta a experiência do usuário."
+            },
+            {
+              "text": "Valide com testes de mesa cenários com fila vazia e fila cheia."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Menu de triagem com do-while",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Construa em pares um menu que distribui senhas priorizando idosos e pessoas com deficiência."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Sprint 1 (6 min): codar a base com do-while garantindo execução inicial."
+            },
+            {
+              "text": "Sprint 2 (6 min): refatorar para while destacando ajustes de inicialização."
+            },
+            {
+              "text": "Sprint 3 (6 min): avaliar se um for com contador conhecido torna o fluxo mais claro."
+            },
+            {
+              "text": "Retro (5 min): registrar vantagens percebidas de cada estrutura na planilha compartilhada."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\ntypedef struct {\n  int prioridade;\n  char nome[32];\n} Pessoa;\n\nvoid chamar_proximo(Pessoa pessoa) {\n  printf(\"Chamando %s (prioridade %d)\n\", pessoa.nome, pessoa.prioridade);\n}\n\nint main(void) {\n  Pessoa fila[10] = {0};\n  int total = 0;\n  int opcao;\n  do {\n    printf(\"1 - Adicionar pessoa\n2 - Chamar próximo\n0 - Encerrar\nEscolha: \");\n    if (scanf(\"%d\", &opcao) != 1) {\n      opcao = 0;\n    }\n    switch (opcao) {\n      case 1:\n        // TODO: ler pessoa e inserir mantendo prioridade\n        break;\n      case 2:\n        // TODO: chamar_proximo\n        break;\n    }\n  } while (opcao != 0);\n  return 0;\n}\n// Complete o template e gere versões alternativas com while/for."
         }
       ]
     },
