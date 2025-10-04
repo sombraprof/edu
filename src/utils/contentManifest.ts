@@ -1,3 +1,11 @@
+/**
+ * Lightweight counterpart to the Node scripts living under `scripts/utils/manifest.mjs`.
+ *
+ * The runtime does not import this helper yet – Vue pages rely on the
+ * server-side manifest normaliser – but upcoming work will let the client load
+ * indexes directly. Keeping the functions documented (and covered by unit
+ * tests) avoids regressions when we eventually plug them in.
+ */
 export interface ManifestEnvelope<T> {
   entries: T[];
   version?: string;
