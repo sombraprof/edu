@@ -17,7 +17,7 @@ O serviço exposto pelo script `npm run teacher:service` roda um servidor HTTP e
 - registrar commits reutilizando a mensagem configurada no painel de publicação.
 - enviar a branch ativa ao remoto com `git push`, configurando upstream quando necessário.
 
-A configuração padrão atende ao desenvolvimento local. Para expor o serviço em ambientes compartilhados, habilite o token descrito abaixo e acompanhe as diretrizes de governança registradas na [iteração 4](./iteration-04.md#próximos-passos--pendências).
+A configuração padrão atende ao desenvolvimento local. Para expor o serviço em ambientes compartilhados, habilite o token descrito abaixo, restrinja o host com VPN/reverse proxy e acompanhe as diretrizes de governança registradas na [iteração 4](./iteration-04.md#próximos-passos--pendências).
 
 ## Como executar
 
@@ -73,6 +73,28 @@ Disponibiliza o conteúdo JSON mais recente dos relatórios gerados.
 - `validation` → `reports/content-validation-report.json`
 - `observability` → `reports/content-observability.json`
 - `governance` → `reports/governance-alert.json`
+
+### `GET /api/teacher/content`
+
+Recebe `path` via query string (`/api/teacher/content?path=src/content/courses/.../lessons/lesson-01.json`) e retorna o conteúdo estruturado pronto para o painel de autoria. A resposta inclui o JSON em `content` e o caminho normalizado em `path`. Caso o arquivo não exista, o serviço devolve `404`.
+
+Este endpoint alimenta o painel "Editar aula"/"Editar exercício" com o snapshot mais recente antes de habilitar a edição inline.
+
+### `PUT /api/teacher/content`
+
+Permite persistir alterações de aulas/exercícios disparadas pelo autosave. O corpo deve conter:
+
+```json
+{
+  "path": "src/content/courses/algi/lessons/lesson-01.json",
+  "content": { "id": "lesson-01", "title": "..." }
+}
+```
+
+- `path` – obrigatório. Sempre relativo à raiz do repositório e restrito ao workspace do serviço.
+- `content` – obrigatório. Payload JSON que substituirá o arquivo.
+
+Quando a gravação ocorre com sucesso o serviço ecoa `path`, devolve o JSON persistido em `content` e acrescenta `savedAt` com timestamp ISO. Erros de validação (arquivo fora do workspace, JSON inválido) retornam mensagens claras para o painel tratar e reenfileirar o save. O autosave do modo professor depende dessa rota; mantenha o serviço ativo antes de iniciar uma sessão de edição.
 
 ### `GET /api/teacher/scripts/history`
 
@@ -239,6 +261,7 @@ Em caso de falha, o serviço devolve `success: false`, detalhes do erro retornad
 - Ao finalizar a execução com sucesso, os logs são preenchidos automaticamente e o painel busca os relatórios correspondentes.
 - Também é possível acionar manualmente o download via botões **Baixar do backend** em cada card de relatório.
 - O painel exibe uma linha do tempo com as últimas execuções registradas, carregada a partir de `/api/teacher/scripts/history` e atualizada automaticamente a cada nova rodada.
+- As páginas de aula/exercício utilizam `GET/PUT /api/teacher/content` para carregar e salvar JSON diretamente. Sem o serviço ativo, o painel permanece bloqueado e exibe mensagem solicitando `npm run dev:teacher`.
 
 ## Próximas evoluções
 

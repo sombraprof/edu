@@ -2,6 +2,34 @@
 
 This document explains how to produce new lessons and exercises that integrate seamlessly with the EDU application.
 
+## 0. Authoring with Teacher Mode
+
+### Start the local stack
+
+- Run `npm run dev:teacher` to launch Vite and the automation service (`teacher:service`) with the proxy already pointing to `/teacher-api`.
+- Keep the service bound to `127.0.0.1` unless you configure `TEACHER_SERVICE_TOKEN`, VPN/reverse proxy and the allowlists described in [`automation-backend.md`](professor-module/automation-backend.md). The API is designed for local authoring sessions.
+- Access `http://localhost:5173/?teacher=1` or toggle the **Professor** button in the footer to unlock the restricted pages.
+
+### Use the block panel
+
+- Open any lesson/exercise. The sidebar "Editar aula"/"Editar exercício" exposes metadata fields, tag/array helpers and the ordered list of blocks rendered by [`LessonAuthoringPanel.vue`](../src/components/lesson/LessonAuthoringPanel.vue).
+- Use the dropdown at the top of the "Blocos de conteúdo" section to insert new blocks. Reorder items with the arrow buttons, remove entries with the trash icon and select **Editar detalhes** to load the contextual form for the chosen block.
+- The **Reverter alterações** button restores the latest snapshot fetched from disk. It becomes available when the panel detects local edits that are still pending.
+- Status chips report "Sem alterações pendentes", "Salvando alterações…" or "Alterações salvas" based on [`useAuthoringSaveTracker`](../src/composables/useAuthoringSaveTracker.ts).
+
+### Autosave workflow
+
+- When you switch lessons/exercises the panel issues `GET /api/teacher/content?path=…` and hydrates the authoring model with the JSON returned by the service (`useTeacherContentEditor`).
+- Every edit is diffed against the last snapshot. After ~800 ms without additional changes the panel sends a `PUT /api/teacher/content` with the updated payload. Success responses surface a toast-style message (`Alterações salvas às HH:MM:SS`). Errors keep the change in the queue until the service recovers.
+- If the service is offline you will see "Serviço de automação não configurado" and the panel remains disabled. Start `npm run dev:teacher` or define `VITE_TEACHER_API_URL` to restore autosave.
+
+### Block type conventions
+
+- Prefer the canonical block types declared in [`supportedBlockTypes`](../src/components/lesson/blockRegistry.ts) – e.g. `lessonPlan`, `flightPlan`, `contentBlock`, `callout`, `cardGrid`, `timeline`, `videos`, `resourceGallery`, `quiz`, `promptTip`.
+- Keep `callout.variant` within the approved list (`info`, `good-practice`, `academic`, `warning`, `task`, `error`). The same enums apply to authoring in the panel and to JSON produced manually.
+- Use `legacySection` only while migrating sanitised HTML. The panel highlights legacy entries so you can plan refactors into MD3-native blocks.
+- The `component` block type allows reusing the custom registry (e.g. `Md3Table`, `InteractiveDemo`, `RubricDisplay`). Set `component` to the key exposed by [`supportedCustomComponents`](../src/components/lesson/blockRegistry.ts) and provide the expected shape inside `props`.
+
 ## 1. High-Level Architecture
 
 - All renderable content lives under `src/content/courses/<courseId>/`.
