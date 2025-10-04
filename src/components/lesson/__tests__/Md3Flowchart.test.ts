@@ -28,13 +28,15 @@ describe('Md3Flowchart', () => {
       },
     });
 
-    const items = wrapper.findAll('.flowchart__item');
+    const items = wrapper.findAll('.flowchart__step');
     expect(items).toHaveLength(4);
     expect(wrapper.text()).toContain('Fluxo de exemplo');
 
-    const connectors = wrapper.findAll('.flowchart__connector');
+    const connectors = wrapper.findAll('.flowchart__chip');
     expect(connectors).toHaveLength(3);
-    expect(connectors[0].find('.flowchart__connector-label').text()).toContain('Entrada de dados');
+    expect(connectors[0].find('.flowchart__chip-text').text()).toContain(
+      'Segue para: Entrada de dados'
+    );
   });
 
   it('renders decision branches with accessible labels', () => {
@@ -85,11 +87,9 @@ describe('Md3Flowchart', () => {
       },
     });
 
-    const renderedConnections = wrapper.findAll('.flowchart__connector');
+    const renderedConnections = wrapper.findAll('.flowchart__chip');
     expect(renderedConnections).toHaveLength(4);
     expect(renderedConnections[1].attributes()['data-kind']).toBe('loop');
-    expect(renderedConnections[2].find('.flowchart__connector-label').text()).toBe(
-      'Solicita novamente'
-    );
+    expect(renderedConnections[2].find('.flowchart__chip-text').text()).toBe('Solicita novamente');
   });
 });

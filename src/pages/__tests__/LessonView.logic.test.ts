@@ -124,6 +124,8 @@ describe('LessonView logic', () => {
   });
 
   it('define fallback quando manifest não é encontrado', async () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
     const controller = useLessonViewController({
       lessonIndexModules: {},
       lessonContentModules: {},
@@ -134,6 +136,8 @@ describe('LessonView logic', () => {
 
     expect(controller.lessonTitle.value).toBe('Erro ao carregar aula');
     expect(controller.lessonData.value).toBeNull();
+
+    consoleError.mockRestore();
   });
 
   it('registra erro e aplica fallback quando highlight falha', async () => {
