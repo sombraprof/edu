@@ -1,7 +1,18 @@
 <template>
   <article class="prompt-tip card md-stack md-stack-4">
-    <header v-if="hasHeader" class="prompt-tip__header md-stack md-stack-2">
+    <header class="prompt-tip__header md-stack md-stack-2">
+      <div class="prompt-tip__badge" aria-hidden="true">
+        <span class="prompt-tip__badge-icon md-icon md-icon--md">
+          <Sparkles />
+        </span>
+        <span class="prompt-tip__badge-label">Estude com IA</span>
+      </div>
+
       <div class="prompt-tip__header-copy md-stack md-stack-1">
+        <p class="prompt-tip__intro text-body-small">
+          Cole o texto abaixo em uma LLM de sua preferência para revisar o conteúdo da aula e
+          aprofundar seus estudos.
+        </p>
         <p
           v-if="data.audience"
           class="prompt-tip__audience text-label-medium uppercase tracking-[0.18em]"
@@ -24,7 +35,17 @@
 
     <section class="prompt-tip__content md-stack md-stack-3">
       <div class="prompt-tip__prompt">
-        <pre class="prompt-tip__prompt-text" aria-label="Sugestão de prompt">{{ data.prompt }}</pre>
+        <p :id="instructionsId" class="prompt-tip__prompt-instructions text-body-small">
+          Compartilhe este prompt com uma IA generativa (como ChatGPT, Gemini ou Copilot) e siga as
+          orientações sugeridas na resposta.
+        </p>
+        <pre
+          class="prompt-tip__prompt-text"
+          role="textbox"
+          tabindex="0"
+          :aria-labelledby="instructionsId"
+          >{{ promptText }}</pre
+        >
         <Md3Button
           class="prompt-tip__copy-button"
           variant="text"
@@ -67,8 +88,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-import { Copy, Check } from 'lucide-vue-next';
+import { computed, ref, getCurrentInstance } from 'vue';
+import { Copy, Check, Sparkles } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 
 export interface PromptTipBlockData {
@@ -83,14 +104,12 @@ export interface PromptTipBlockData {
 const props = defineProps<{ data: PromptTipBlockData }>();
 
 const copied = ref(false);
+const instance = getCurrentInstance();
+const instructionsId = `prompt-tip-instructions-${instance?.uid ?? Math.random().toString(36).slice(2)}`;
 
+const promptText = computed(() => props.data.prompt?.trimEnd() ?? '');
 const hasTags = computed(() => Boolean(props.data.tags?.length));
 const hasTips = computed(() => Boolean(props.data.tips?.length));
-const hasHeader = computed(() =>
-  Boolean(
-    props.data.title || props.data.description || props.data.tags?.length || props.data.audience
-  )
-);
 
 const audienceLabel = computed(() => {
   if (!props.data.audience) {
@@ -105,13 +124,34 @@ const audienceLabel = computed(() => {
   return label.charAt(0).toUpperCase() + label.slice(1);
 });
 
-const copyPrompt = () => {
-  navigator.clipboard.writeText(props.data.prompt).then(() => {
+const copyPrompt = async () => {
+  const text = props.data.prompt?.trim();
+  if (!text) {
+    return;
+  }
+
+  try {
+    if ('clipboard' in navigator && navigator.clipboard) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+
     copied.value = true;
     window.setTimeout(() => {
       copied.value = false;
     }, 2000);
-  });
+  } catch (error) {
+    console.error('Erro ao copiar prompt', error);
+  }
 };
 </script>
 
@@ -139,6 +179,39 @@ const copyPrompt = () => {
 
 .prompt-tip__header {
   align-items: flex-start;
+}
+
+.prompt-tip__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(16, 163, 127, 0.12);
+  color: rgba(16, 163, 127, 0.95);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+:global(html[data-theme='dark']) :host .prompt-tip__badge {
+  background: rgba(16, 163, 127, 0.22);
+  color: rgba(125, 255, 224, 0.95);
+}
+
+.prompt-tip__badge-icon {
+  display: inline-flex;
+}
+
+.prompt-tip__badge-icon :deep(svg) {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.prompt-tip__intro {
+  margin: 0;
+  color: color-mix(in srgb, currentColor 78%, transparent 22%);
 }
 
 .prompt-tip__audience {
@@ -195,6 +268,11 @@ const copyPrompt = () => {
   border-color: rgba(16, 163, 127, 0.45);
 }
 
+.prompt-tip__prompt-instructions {
+  margin: 0 0 1rem;
+  color: color-mix(in srgb, currentColor 76%, transparent 24%);
+}
+
 .prompt-tip__prompt-text {
   margin: 0;
   font-family: var(
@@ -212,6 +290,7 @@ const copyPrompt = () => {
   font-size: 0.95rem;
   line-height: 1.55;
   white-space: pre-wrap;
+  overflow-x: auto;
 }
 
 .prompt-tip__copy-button {
