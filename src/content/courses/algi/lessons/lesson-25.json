@@ -32,6 +32,11 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Boas práticas de modularização (Moodle)",
+      "type": "guide",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/modularizacao-boas-praticas.md"
     }
   ],
   "bibliography": [
@@ -216,6 +221,12 @@
       "code": "double calcular_media(double soma, int quantidade) {\n  if (quantidade <= 0) {\n    return 0.0;\n  }\n  return soma / quantidade;\n}\n\nint main(void) {\n  double media = calcular_media(42.0, 6);\n  printf(\"Media: %.2f\\n\", media);\n  return 0;\n}\n"
     },
     {
+      "type": "code",
+      "language": "c",
+      "title": "Testando imediatamente com assert.h",
+      "code": "#include <assert.h>\n\ndouble calcular_media(double soma, int quantidade); // protótipo conhecido do módulo\n\nvoid testar_calcular_media(void) {\n  assert(calcular_media(10.0, 2) == 5.0);\n  assert(calcular_media(0.0, 5) == 0.0);\n  assert(calcular_media(10.0, 0) == 0.0);\n}\n\nint main(void) {\n  testar_calcular_media();\n  // implementação segue com o restante do programa\n  return 0;\n}\n"
+    },
+    {
       "type": "checklist",
       "title": "Antes de entregar",
       "items": [
@@ -231,16 +242,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Refatore incrementalmente o exercício da triagem dividindo responsabilidades em funções e registrando os testes com `assert` após cada alteração."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Atualize comentários de propósito nas funções criadas indicando responsabilidade e autor/a do incremento."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Anexe no Moodle o relatório de fluxos da squad destacando os commits e asserts executados."
             }
           ]
         }

@@ -33,6 +33,16 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Template de relatório de fluxos em squad",
+      "type": "template",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/templates/squad-flow-report-template.md"
+    },
+    {
+      "label": "Template de pseudocódigo incremental",
+      "type": "template",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/templates/pseudocode-incremental-template.md"
     }
   ],
   "bibliography": [
@@ -115,12 +125,45 @@
         {
           "icon": "tasks",
           "title": "Entregáveis",
-          "content": "Código C, CSV de saída, relatório de testes, reflexão no fórum."
+          "content": "Código C, CSV de saída, relatório de fluxos da squad, pseudocódigo incremental e reflexão no fórum."
         },
         {
           "icon": "users",
           "title": "Canais",
-          "content": "Fórum da disciplina + plantão remoto de 30 min na quarta-feira."
+          "content": "Fórum da disciplina + plantão remoto de 30 min na quarta-feira. Use para desbloquear squads e validar incrementos."
+        }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Squads e papéis",
+      "cards": [
+        {
+          "title": "Facilitador/a",
+          "content": "Orienta checkpoints, garante uso dos templates e evita gargalos."
+        },
+        {
+          "title": "Responsável por testes",
+          "content": "Executa casos automatizados, registra asserts e evidências no relatório de fluxos."
+        },
+        {
+          "title": "Relator/a de pseudocódigo",
+          "content": "Atualiza o pseudocódigo incremental e comenta responsabilidades de cada função."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Como organizar os incrementos",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Divida o backlog em incrementos de até 30 minutos registrados no template de fluxos.",
+            "Após cada incremento, valide a função tocada com `assert` e registre evidências.",
+            "Use o pseudocódigo incremental para planejar refatorações antes de alterar o C."
+          ]
         }
       ]
     },
@@ -304,19 +347,19 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Compacte código, fluxograma, planilha, relatório e reflexões em ALG1_A23_Nome.zip."
+          "text": "Compacte código, fluxograma, relatório de squad e pseudocódigos em ALG1_A23_SquadNome.zip."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Código em C com logs."
+              "text": "Código em C com commits incrementais e comentários nas funções explicando responsabilidades."
             },
             {
-              "text": "Fluxograma atualizado e checklist de testes."
+              "text": "Fluxograma atualizado utilizando o template de relatório de fluxos com evidências de testes."
             },
             {
-              "text": "Relatório final com métricas e autoavaliação."
+              "text": "Pseudocódigo incremental com histórico de incrementos e asserts executados."
             }
           ]
         }
@@ -359,16 +402,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Planeje com sua squad a próxima rodada de refatoração incremental, registrando responsabilidades das funções e evidências de testes."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Atualize o pseudocódigo incremental com o próximo incremento, responsabilidades e asserts previstos."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Reforce no relatório de fluxos quais funções precisarão de novos comentários de propósito e quem irá executá-los."
             }
           ]
         }

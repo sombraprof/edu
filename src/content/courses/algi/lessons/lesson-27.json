@@ -32,6 +32,11 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Boas práticas de modularização (Moodle)",
+      "type": "guide",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/modularizacao-boas-praticas.md"
     }
   ],
   "bibliography": [
@@ -223,6 +228,12 @@
       ]
     },
     {
+      "type": "code",
+      "language": "c",
+      "title": "Asserts por módulo",
+      "code": "#include <assert.h>\n#include \"dominio.h\"\n#include \"relatorios.h\"\n\nstatic void testar_dominio(void) {\n  Paciente paciente = criar_paciente(\"Ana\", 32, 85);\n  assert(paciente.prioridade == PRIORIDADE_ALTA);\n}\n\nstatic void testar_relatorios(void) {\n  Relatorio rel = gerar_relatorio_resumo();\n  assert(rel.total_processado > 0);\n}\n\nvoid rodar_testes_modulares(void) {\n  testar_dominio();\n  testar_relatorios();\n}\n"
+    },
+    {
       "type": "checklist",
       "title": "Pronto para integrar",
       "items": [
@@ -238,16 +249,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Estruture o mini-sistema em múltiplos arquivos realizando refatoração incremental e descrevendo a responsabilidade de cada função nos comentários e no relatório de squad."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Inclua na entrega um arquivo de testes com asserts agrupados por módulo e explique como executar cada bloco."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Atualize o relatório de fluxos destacando integrações realizadas, responsáveis e próximos incrementos planejados."
             }
           ]
         }

@@ -32,6 +32,11 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Boas práticas de modularização (Moodle)",
+      "type": "guide",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/modularizacao-boas-praticas.md"
     }
   ],
   "bibliography": [
@@ -187,6 +192,12 @@
       ]
     },
     {
+      "type": "code",
+      "language": "c",
+      "title": "Suite rápida de asserts",
+      "code": "#include <assert.h>\n\nint validar_idade(int idade); // protótipo declarado em header\nvoid atualizar_saldo(double *saldo, double deposito);\n\nvoid testar_validacoes(void) {\n  assert(validar_idade(18) == 1);\n  assert(validar_idade(-1) == 0);\n\n  double carteira = 100.0;\n  atualizar_saldo(&carteira, 50.0);\n  assert(carteira == 150.0);\n}\n"
+    },
+    {
       "type": "checklist",
       "title": "Checklist de contratos",
       "items": [
@@ -202,16 +213,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Implemente e refatore incrementalmente funções parametrizadas, documentando responsabilidades e anexando asserts que validem cada incremento."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "No relatório da squad, descreva a sequência de incrementos (dados, processamento, saída) e respectivos responsáveis."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Atualize comentários das funções explicando contratos e cite os asserts usados para confirmar o comportamento."
             }
           ]
         }
