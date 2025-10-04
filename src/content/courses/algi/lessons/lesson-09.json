@@ -395,12 +395,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: preco, desconto -> final\nimport random\nfor _ in range(5):\n    p = round(random.uniform(10, 500), 2)\n    d = random.choice([5, 10, 12.5, 20])\n    final = p - (p*d/100.0)\n    print(f\"{p} {d} -> {final:.2f}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int consumo = rand() % 251 + 150;\n  double tarifa = (double)(rand() % 51 + 30) / 100.0;\n  double bandeira = (double)(rand() % 6) / 10.0;\n\n  double valorConta = consumo * tarifa + bandeira * consumo;\n\n  printf(\"Entrada (kwh_consumidos tarifa_base bandeira_adicional):\\n%d %.2f %.2f\\n\", consumo, tarifa, bandeira);\n  printf(\"Saida esperada (valor_total):\\n%.2f\\n\", valorConta);\n\n  return 0;\n}"
         }
       ]
     }

@@ -444,12 +444,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int pressao;\n  int batimentos;\n  int febre;\n} Paciente;\n\nconst char *classificar(const Paciente *p) {\n  if (p->pressao < 90 || p->batimentos > 130 || p->febre >= 39) {\n    return \"PRIORIDADE IMEDIATA\";\n  } else if (p->pressao < 100 || p->batimentos > 110 || p->febre >= 38) {\n    return \"ATENDIMENTO RAPIDO\";\n  } else if (p->febre >= 37) {\n    return \"OBSERVACAO\";\n  }\n  return \"LIBERADO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int quantidade = rand() % 4 + 3;\n  printf(\"Quantidade de pacientes: %d\\n\", quantidade);\n\n  for (int i = 0; i < quantidade; ++i) {\n    Paciente p = { rand() % 61 + 80, rand() % 71 + 70, rand() % 5 + 36 };\n    printf(\"Caso %d -> pressao=%d batimentos=%d febre=%d => %s\\n\", i + 1, p.pressao, p.batimentos, p.febre, classificar(&p));\n  }\n\n  return 0;\n}"
         }
       ]
     }

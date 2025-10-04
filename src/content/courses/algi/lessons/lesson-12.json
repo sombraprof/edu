@@ -708,12 +708,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: nota -> Aprovado/Reprovado\nimport random\nfor n in [6.9, 7.0, 8.5, 4.0]:\n    print(f\"nota={n} -> {'Aprovado' if n>=7 else 'Reprovado'}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *classificar(float temperatura, int tosse, int saturacao) {\n  if (temperatura >= 39.0f || saturacao < 92) {\n    return \"EMERGENCIA\";\n  } else if ((temperatura >= 37.8f && tosse) || saturacao < 95) {\n    return \"URGENCIA\";\n  } else if (temperatura >= 37.0f) {\n    return \"OBSERVACAO\";\n  }\n  return \"AMBULATORIO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float temperatura = (float)(rand() % 71 + 350) / 10.0f;\n  int tosse = rand() % 2;\n  int saturacao = rand() % 10 + 90;\n\n  printf(\"Entrada (temperatura tosse saturacao):\\n%.1f %d %d\\n\", temperatura, tosse, saturacao);\n  printf(\"Saida esperada: %s\\n\", classificar(temperatura, tosse, saturacao));\n\n  return 0;\n}"
         }
       ]
     }

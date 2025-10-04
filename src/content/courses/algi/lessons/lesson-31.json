@@ -485,12 +485,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera vetores e soma/media/extremos\narrs = [[10,20,30], [5,2,9], [-1,-5,0,2]]\nfor a in arrs:\n    s=sum(a); m=s/len(a); mx=max(a); mn=min(a)\n    print(f\"{a} -> soma={s}, média={m:.2f}, maior={mx}, menor={mn}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tamanho = 8;\n  double vetor[8];\n  double maior = -1e9;\n  double menor = 1e9;\n\n  printf(\"Vetor original:\\n\");\n  for (int i = 0; i < tamanho; ++i) {\n    vetor[i] = (double)(rand() % 401 + 100) / 10.0;\n    if (vetor[i] > maior) maior = vetor[i];\n    if (vetor[i] < menor) menor = vetor[i];\n    printf(\"%.1f \", vetor[i]);\n  }\n\n  printf(\"\\nSaida esperada (vetor normalizado 0-1):\\n\");\n  for (int i = 0; i < tamanho; ++i) {\n    double normalizado = (vetor[i] - menor) / (maior - menor);\n    printf(\"%.3f \", normalizado);\n  }\n  printf(\"\\n\");\n\n  return 0;\n}"
         }
       ]
     },

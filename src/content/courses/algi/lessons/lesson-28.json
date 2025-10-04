@@ -349,12 +349,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nvoid imprimirCaso(int id) {\n  double tempoResposta = (double)(rand() % 401 + 100) / 10.0;\n  int regressivo = rand() % 2;\n  int revisado = rand() % 2;\n  double meta = 24.0;\n\n  double atraso = tempoResposta - meta;\n  const char *status = (tempoResposta <= meta && revisado) ? \"OK\" : \"AJUSTAR\";\n\n  printf(\"Chamado %d -> tempo=%.1f regressivo=%d revisado=%d => atraso=%.1f status=%s\\n\",\n         id, tempoResposta, regressivo, revisado, atraso, status);\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n  int casos = rand() % 4 + 3;\n\n  for (int i = 1; i <= casos; ++i) {\n    imprimirCaso(i);\n  }\n\n  return 0;\n}"
         }
       ]
     }

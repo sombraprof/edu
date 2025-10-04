@@ -428,12 +428,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int clientes = rand() % 11 + 5;\n  int tempoPorCliente = rand() % 6 + 4;\n  int preparoInicial = rand() % 5 + 2;\n  int tempoTotal = preparoInicial + clientes * tempoPorCliente;\n\n  printf(\"Entrada sugerida (clientes tempo_por_cliente tempo_preparo_inicial):\\n\");\n  printf(\"%d %d %d\\n\", clientes, tempoPorCliente, preparoInicial);\n  printf(\"Saida esperada (tempo_total_minutos):\\n%d\\n\", tempoTotal);\n\n  return 0;\n}"
         }
       ]
     },

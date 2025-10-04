@@ -357,12 +357,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ndouble calcularIndiceOcupacao(int pacientes, int leitos) {\n  return (double)pacientes / leitos;\n}\n\nint emitirAlerta(double indice) {\n  if (indice >= 0.9) return 2;\n  if (indice >= 0.75) return 1;\n  return 0;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int leitos = rand() % 21 + 30;\n  int pacientes = rand() % (leitos + 1);\n\n  double indice = calcularIndiceOcupacao(pacientes, leitos);\n  int alerta = emitirAlerta(indice);\n\n  printf(\"Entrada (pacientes leitos):\\n%d %d\\n\", pacientes, leitos);\n  printf(\"Saidas esperadas:\\n- indice_ocupacao = %.2f\\n- nivel_alerta = %d\\n\", indice, alerta);\n\n  return 0;\n}"
         }
       ]
     }

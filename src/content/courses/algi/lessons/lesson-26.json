@@ -352,12 +352,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nvoid atualizarEstatisticas(int valor, int *menor, int *maior, int *soma) {\n  if (valor < *menor) {\n    *menor = valor;\n  }\n  if (valor > *maior) {\n    *maior = valor;\n  }\n  *soma += valor;\n}\n\ndouble calcularMedia(int soma, int quantidade) {\n  return (double)soma / quantidade;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int leituras = rand() % 6 + 5;\n  int menor = 1000;\n  int maior = -1000;\n  int soma = 0;\n\n  printf(\"Leituras de batimentos:\\n\");\n  for (int i = 0; i < leituras; ++i) {\n    int valor = rand() % 61 + 80;\n    atualizarEstatisticas(valor, &menor, &maior, &soma);\n    printf(\"%d \", valor);\n  }\n  printf(\"\\nSaidas esperadas -> menor=%d maior=%d media=%.2f\\n\", menor, maior, calcularMedia(soma, leituras));\n\n  return 0;\n}"
         }
       ]
     }

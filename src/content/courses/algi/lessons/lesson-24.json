@@ -476,12 +476,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int atendidos;\n  int redirecionados;\n} Turno;\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  Turno turnos[3];\n  int totalAtendidos = 0;\n  int totalRedirecionados = 0;\n\n  for (int i = 0; i < 3; ++i) {\n    turnos[i].atendidos = rand() % 41 + 30;\n    turnos[i].redirecionados = rand() % 11;\n    totalAtendidos += turnos[i].atendidos;\n    totalRedirecionados += turnos[i].redirecionados;\n  }\n\n  printf(\"Relatorio consolidado de turnos:\\n\");\n  for (int i = 0; i < 3; ++i) {\n    printf(\"Turno %d -> atendidos=%d redirecionados=%d\\n\", i + 1, turnos[i].atendidos, turnos[i].redirecionados);\n  }\n  printf(\"Total atendidos: %d\\nTotal redirecionados: %d\\n\", totalAtendidos, totalRedirecionados);\n\n  return 0;\n}"
         }
       ]
     }

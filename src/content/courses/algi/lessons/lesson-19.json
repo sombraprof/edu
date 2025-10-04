@@ -351,12 +351,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint somaComFor(int limite) {\n  int acumulador = 0;\n  for (int i = 0; i <= limite; ++i) {\n    acumulador += i;\n  }\n  return acumulador;\n}\n\nint somaComWhile(int limite) {\n  int acumulador = 0;\n  int i = 0;\n  while (i <= limite) {\n    acumulador += i;\n    ++i;\n  }\n  return acumulador;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int limite = rand() % 41 + 10;\n\n  printf(\"Entrada (limite):\\n%d\\n\", limite);\n  printf(\"Saidas esperadas:\\n- soma_com_for = %d\\n- soma_com_while = %d\\n\", somaComFor(limite), somaComWhile(limite));\n\n  return 0;\n}"
         }
       ]
     }

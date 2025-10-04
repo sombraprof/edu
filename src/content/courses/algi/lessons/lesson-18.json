@@ -537,12 +537,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera n e sequência esperada 1..n\nfor n in [3,5,7]:\n    print(f\"n={n} -> \", ' '.join(str(i) for i in range(1, n+1)))",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int inicio = rand() % 6 + 1;\n  int fim = inicio + (rand() % 6 + 4);\n\n  int soma = 0;\n  for (int i = inicio; i <= fim; ++i) {\n    soma += i * i;\n  }\n\n  printf(\"Entrada (inicio fim):\\n%d %d\\n\", inicio, fim);\n  printf(\"Saida esperada (soma_dos_quadrados):\\n%d\\n\", soma);\n\n  return 0;\n}"
         }
       ]
     }

@@ -509,12 +509,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int colaboradores = rand() % 6 + 5;\n\n  printf(\"Entrada (quantidade_colaboradores):\\n%d\\n\", colaboradores);\n  printf(\"Saida esperada (relatorio de presenca):\\n\");\n\n  for (int i = 0; i < colaboradores; ++i) {\n    int horas = rand() % 49;\n    int entregas = rand() % 6;\n    const char *status;\n\n    if (horas >= 40 && entregas >= 3) {\n      status = \"EXCELENTE\";\n    } else if (horas >= 30 && entregas >= 2) {\n      status = \"ADEQUADO\";\n    } else if (horas >= 20) {\n      status = \"ATENCAO\";\n    } else {\n      status = \"CRITICO\";\n    }\n\n    printf(\"Colaborador %d -> horas=%d entregas=%d status=%s\\n\", i + 1, horas, entregas, status);\n  }\n\n  return 0;\n}"
         }
       ]
     }

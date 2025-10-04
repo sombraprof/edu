@@ -334,12 +334,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int id;\n  char nome[16];\n  int idade;\n} Paciente;\n\nvoid gerarNome(char destino[], int id) {\n  snprintf(destino, 16, \"Paciente%02d\", id);\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  Paciente p;\n  p.id = rand() % 90 + 10;\n  gerarNome(p.nome, p.id);\n  p.idade = rand() % 60 + 18;\n\n  printf(\"Registro gerado:\\nID: %d\\nNome: %s\\nIdade: %d\\n\", p.id, p.nome, p.idade);\n  printf(\"Saida esperada: atualizar CRUD em memoria com esses campos.\\n\");\n\n  return 0;\n}"
         }
       ]
     }

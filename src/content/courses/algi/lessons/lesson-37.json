@@ -393,12 +393,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int id;\n  int pressao;\n  int ativo;\n} Paciente;\n\nint buscarPaciente(Paciente vetor[], int tamanho, int id) {\n  for (int i = 0; i < tamanho; ++i) {\n    if (vetor[i].id == id) {\n      return i;\n    }\n  }\n  return -1;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tamanho = 6;\n  Paciente pacientes[6];\n\n  for (int i = 0; i < tamanho; ++i) {\n    pacientes[i].id = rand() % 900 + 100;\n    pacientes[i].pressao = rand() % 61 + 90;\n    pacientes[i].ativo = 1;\n  }\n\n  int alvo = pacientes[rand() % tamanho].id;\n\n  printf(\"Pacientes cadastrados:\\n\");\n  for (int i = 0; i < tamanho; ++i) {\n    printf(\"id=%d pressao=%d\\n\", pacientes[i].id, pacientes[i].pressao);\n  }\n\n  int posicao = buscarPaciente(pacientes, tamanho, alvo);\n\n  printf(\"\\nEntrada (id_busca): %d\\nSaida esperada: indice=%d nova_pressao=%d\\n\", alvo, posicao, pacientes[posicao].pressao + 5);\n  printf(\"Simule a atualizacao somando 5 mmHg ao registro encontrado.\\n\");\n\n  return 0;\n}"
         }
       ]
     }

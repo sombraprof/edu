@@ -622,12 +622,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *prioridade(int febre, int saturacao, int dor) {\n  if (febre >= 39 || saturacao < 92 || dor >= 9) {\n    return \"VERMELHO\";\n  } else if (febre >= 38 || saturacao < 95 || dor >= 7) {\n    return \"AMARELO\";\n  } else if (febre >= 37 || dor >= 5) {\n    return \"VERDE\";\n  }\n  return \"AZUL\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int febre = rand() % 5 + 36;\n  int saturacao = rand() % 11 + 90;\n  int dor = rand() % 11;\n\n  printf(\"Entrada (febre saturacao dor):\\n%d %d %d\\n\", febre, saturacao, dor);\n  printf(\"Saida esperada: %s\\n\", prioridade(febre, saturacao, dor));\n\n  return 0;\n}"
         }
       ]
     }
