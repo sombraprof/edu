@@ -47,6 +47,7 @@ import StatCard from '@/components/lesson/StatCard.vue';
 import KnowledgeCheck from '@/components/lesson/KnowledgeCheck.vue';
 import InteractiveDemo from '@/components/lesson/InteractiveDemo.vue';
 import PedagogicalNote from '@/components/lesson/PedagogicalNote.vue';
+import PromptTip from '@/components/lesson/PromptTip.vue';
 import CodeSubmission from '@/components/exercise/CodeSubmission.vue';
 import DragAndDrop from '@/components/exercise/DragAndDrop.vue';
 import ConceptMapper from '@/components/exercise/ConceptMapper.vue';
@@ -107,6 +108,7 @@ const customComponentRegistry: Record<string, Component> = {
   KnowledgeCheck,
   InteractiveDemo,
   PedagogicalNote,
+  PromptTip,
   CodeSubmission,
   DragAndDrop,
   ConceptMapper,
@@ -190,6 +192,7 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   knowledgeCheck: dataBlock(KnowledgeCheck),
   interactiveDemo: dataBlock(InteractiveDemo),
   pedagogicalNote: dataBlock(PedagogicalNote),
+  promptTip: dataBlock(PromptTip),
   codeSubmission: dataBlock(CodeSubmission),
   dragAndDrop: dataBlock(DragAndDrop),
   conceptMapper: dataBlock(ConceptMapper),

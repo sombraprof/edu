@@ -221,6 +221,7 @@
         { "$ref": "#/$defs/knowledgeCheckBlock" },
         { "$ref": "#/$defs/interactiveDemoBlock" },
         { "$ref": "#/$defs/pedagogicalNoteBlock" },
+        { "$ref": "#/$defs/promptTipBlock" },
         { "$ref": "#/$defs/codeSubmissionBlock" },
         { "$ref": "#/$defs/dragAndDropBlock" },
         { "$ref": "#/$defs/conceptMapperBlock" },
@@ -481,6 +482,29 @@
           "title": { "type": "string" },
           "content": { "type": "string", "minLength": 1 },
           "audience": { "type": "string", "enum": ["teacher", "student", "team"] }
+        }
+      }
+    },
+    "promptTipBlock": {
+      "if": {
+        "properties": { "type": { "const": "promptTip" } }
+      },
+      "then": {
+        "required": ["prompt"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "prompt": { "type": "string", "minLength": 1 },
+          "tips": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          },
+          "audience": { "type": "string" }
         }
       }
     },

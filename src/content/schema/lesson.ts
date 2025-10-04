@@ -161,6 +161,16 @@ export interface PedagogicalNoteBlock extends LessonBlock {
   audience?: PedagogicalNoteAudience;
 }
 
+export interface PromptTipBlock extends LessonBlock {
+  type: 'promptTip';
+  prompt: string;
+  title?: string;
+  description?: string;
+  tips?: string[];
+  tags?: string[];
+  audience?: string;
+}
+
 export interface CodeSubmissionTestCase {
   name: string;
   input?: string;
