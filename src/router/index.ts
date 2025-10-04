@@ -11,6 +11,9 @@ const FacultyEditor = () => import('../pages/faculty/EditorWorkbench.vue');
 const FacultyValidation = () => import('../pages/faculty/ValidationWorkbench.vue');
 const FacultyPublication = () => import('../pages/faculty/PublicationWorkbench.vue');
 
+const isAuthoringBuildEnabled =
+  import.meta.env.DEV || import.meta.env.VITE_ENABLE_AUTHORING === 'true';
+
 export const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: Home },
   {
@@ -28,34 +31,41 @@ export const routes: RouteRecordRaw[] = [
     name: 'validation-report',
     component: ValidationReport,
   },
-  {
-    path: '/faculty',
-    name: 'faculty-dashboard',
-    component: FacultyDashboard,
-  },
-  {
-    path: '/faculty/ingestion',
-    name: 'faculty-ingestion',
-    component: FacultyIngestion,
-  },
-  {
-    path: '/faculty/editor',
-    name: 'faculty-editor',
-    component: FacultyEditor,
-  },
-  {
-    path: '/faculty/validation',
-    name: 'faculty-validation',
-    component: FacultyValidation,
-  },
-  {
-    path: '/faculty/publication',
-    name: 'faculty-publication',
-    component: FacultyPublication,
-  },
   // Fallback to home for unknown routes
   { path: '/:pathMatch(.*)*', redirect: '/' },
 ];
+
+if (isAuthoringBuildEnabled) {
+  routes.splice(
+    routes.length - 1,
+    0,
+    {
+      path: '/faculty',
+      name: 'faculty-dashboard',
+      component: FacultyDashboard,
+    },
+    {
+      path: '/faculty/ingestion',
+      name: 'faculty-ingestion',
+      component: FacultyIngestion,
+    },
+    {
+      path: '/faculty/editor',
+      name: 'faculty-editor',
+      component: FacultyEditor,
+    },
+    {
+      path: '/faculty/validation',
+      name: 'faculty-validation',
+      component: FacultyValidation,
+    },
+    {
+      path: '/faculty/publication',
+      name: 'faculty-publication',
+      component: FacultyPublication,
+    }
+  );
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
