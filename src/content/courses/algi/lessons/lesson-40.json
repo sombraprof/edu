@@ -25,56 +25,13 @@
     "Entrega das versões finais do projeto integrador."
   ],
   "tags": ["encerramento", "feedback", "planejamento"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Checklist de feedback final",
-      "type": "checklist",
-      "file": "courses/algi/encerramento-feedback-checklist.md",
-      "url": "https://static.md3.education/courses/algi/encerramento-feedback-checklist.md"
-    },
-    {
-      "label": "Guia de showcase final",
-      "type": "guide",
-      "file": "courses/algi/showcase-final-guia.md",
-      "url": "https://static.md3.education/courses/algi/showcase-final-guia.md"
-    },
-    {
-      "label": "Roadmap pós-Algoritmos I",
-      "type": "roadmap",
-      "file": "courses/algi/roadmap-pos-algi.md",
-      "url": "https://static.md3.education/courses/algi/roadmap-pos-algi.md"
-    },
-    {
-      "label": "Formulário de feedback final",
-      "type": "form",
-      "url": "https://forms.gle/algoritmosI-feedback-final"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -83,8 +40,8 @@
     "CHACON, S.; STRAUB, B. Pro Git. Apress, 2023."
   ],
   "assessment": {
-    "type": "reflection",
-    "description": "Registro individual com lições aprendidas, feedback recebido e plano de ação para o próximo semestre."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -94,19 +51,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Encerramento e Devolutiva. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 40."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -114,14 +68,51 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo do encerramento (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Boas-vindas e retomada dos marcos do semestre.",
-        "(20 min) Devolutiva coletiva das NPs com análise de indicadores.",
-        "(35 min) Showcase de projetos com rodada de perguntas.",
-        "(15 min) Coleta de feedback estruturado via checklist e formulário final.",
-        "(20 min) Painel de próximos passos e definição de compromissos.",
-        "(15 min) Roadmap futuro: Git colaborativo, estruturas de dados avançadas e agenda de monitoria."
+        "(9 min) Boas-vindas e retomada dos marcos do semestre.",
+        "(17 min) Devolutiva coletiva das NPs com análise de indicadores.",
+        "(31 min) Showcase de projetos com rodada de perguntas.",
+        "(13 min) Coleta de feedback estruturado via checklist e formulário final.",
+        "(17 min) Painel de próximos passos e definição de compromissos.",
+        "(13 min) Roadmap futuro: Git colaborativo, estruturas de dados avançadas e agenda de monitoria."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Encerramento e Devolutiva\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Encerramento e Devolutiva\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Arrays in C are easy! 🗃️",
+          "src": "https://www.youtube.com/embed/6Hk2aE_SRzY"
+        },
+        {
+          "title": "Curso de Lógica de Programação e Algoritmos - Aprenda em 4 Horas",
+          "src": "https://www.youtube.com/embed/6OxA9er9VFo"
+        }
       ]
     },
     {
@@ -308,43 +299,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 40' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Submeta checklist de feedback final preenchido com os compromissos assumidos."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe roadmap pessoal de estudos (Git + Estruturas de Dados) com metas dos próximos três meses."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },

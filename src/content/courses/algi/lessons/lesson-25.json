@@ -25,50 +25,13 @@
     "Trazer compilador configurado com flags -Wall -Wextra."
   ],
   "tags": ["funcoes", "modularizacao", "c-basico"],
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Rubrica de modularização",
-      "type": "rubric",
-      "file": "courses/algi/modularizacao-rubrica.md",
-      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
-    },
-    {
-      "label": "Suíte de testes base para funções",
-      "type": "code",
-      "file": "courses/algi/funcoes-unit-tests.c",
-      "url": "https://static.md3.education/courses/algi/funcoes-unit-tests.c"
-    },
-    {
-      "label": "Playlist: Funções em C (Programação Descomplicada)",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PL8iN9FQ7_jt6t-6eJX0sUqIxon1H2mS2I"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -77,8 +40,8 @@
     "KERNIGHAN, B.; RITCHIE, D. A Linguagem de Programação C. Prentice Hall, 2020."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Miniatividade individual: refatorar um algoritmo sequencial em funções com protótipo documentado."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -88,19 +51,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Funções e Modularização. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 25."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -129,15 +89,52 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (2h00)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Check-in: dores de manutenção em códigos monolíticos.",
-        "(20 min) Anatomia de uma função: protótipo, assinatura e escopo.",
-        "(25 min) Live coding: separando cálculos e impressões.",
-        "(30 min) Oficina em duplas: refatorar algoritmo de triagem médica.",
-        "(20 min) Revisão cruzada usando a rubrica de modularização.",
-        "(10 min) Configuração da suíte de testes base.",
+        "(8 min) Check-in: dores de manutenção em códigos monolíticos.",
+        "(17 min) Anatomia de uma função: protótipo, assinatura e escopo.",
+        "(21 min) Live coding: separando cálculos e impressões.",
+        "(25 min) Oficina em duplas: refatorar algoritmo de triagem médica.",
+        "(16 min) Revisão cruzada usando a rubrica de modularização.",
+        "(8 min) Configuração da suíte de testes base.",
         "(5 min) TED com compromissos para a próxima aula."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Introdução a Funções e Modularização\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Introdução a Funções e Modularização\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "C Language - Starting from Absolute Zero - Free (2022)",
+          "src": "https://www.youtube.com/embed/2w8GYzBjNj8"
+        },
+        {
+          "title": "Turma do Cristãozinho MIMO - A sentinela",
+          "src": "https://www.youtube.com/embed/2wA0ErtmqxQ"
+        }
       ]
     },
     {
@@ -234,43 +231,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 25' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente aula25_funcoes.c extraindo ao menos três funções puras do exercício trabalhado."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe planilha com parâmetros de teste e resultados obtidos por função."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },

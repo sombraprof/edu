@@ -21,7 +21,7 @@
       "description": "Aprofunda o pensamento computacional com operadores lógicos, tabelas-verdade e atividades colaborativas.",
       "summary": "Decomposição de problemas, operadores AND/OR/NOT e validação com tabelas-verdade.",
       "tags": ["logica", "operadores", "tabela-verdade"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -32,7 +32,7 @@
       "description": "Organiza passos de algoritmos, promove revisão colaborativa e prepara a tradução para pseudocódigo.",
       "summary": "Sequenciamento de instruções, dinâmica Fishbowl e produção de pseudocódigo padronizado.",
       "tags": ["algoritmos", "pseudocodigo", "colaboracao"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -43,7 +43,7 @@
       "description": "Traduz algoritmos em Portugol para o primeiro programa em C com foco em sintaxe, compilação e testes.",
       "summary": "Estrutura mínima de um programa C, comparação lado a lado com Portugol e laboratório guiado.",
       "tags": ["linguagem-c", "pseudocodigo", "implementacao"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -65,7 +65,7 @@
       "description": "Explora tipos primitivos, declaração de variáveis/constantes e formatação de entradas e saídas em C.",
       "summary": "Declaração de variáveis, uso de constantes e exercícios de cadastro com validação.",
       "tags": ["variaveis", "tipos", "linguagem-c"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -76,7 +76,7 @@
       "description": "Explora operadores aritméticos, relacionais e lógicos com foco em precedência e clareza de expressões.",
       "summary": "Famílias de operadores em C, precedência, tabelas-verdade e laboratório de indicadores acadêmicos.",
       "tags": ["operadores", "expressoes", "linguagem-c"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -87,7 +87,7 @@
       "description": "Consolida o fluxo sequencial usando scanf encadeado, variáveis intermediárias e printf formatado.",
       "summary": "Leitura múltipla, cálculos passo a passo e recibos formatados com máscaras printf.",
       "tags": ["sequencial", "scanf", "printf"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -98,7 +98,7 @@
       "description": "Aplica Entrada → Processamento → Saída em estudos de caso (salário, IMC, descontos) com comunicação clara.",
       "summary": "Estudos de caso sequenciais, oficina em duplas e TED para consolidar padrões de solução.",
       "tags": ["sequencial", "problemas", "pratica"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -109,7 +109,7 @@
       "description": "Escreve decisões binárias claras em C usando if e if-else, com testes para cada caminho.",
       "summary": "Introduz condicionais com if/else para redirecionar o fluxo conforme regras de negócio bem definidas.",
       "tags": ["condicionais", "if-else", "controle-de-fluxo"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -120,7 +120,7 @@
       "description": "Organiza menus e listas de opções com switch-case, evitando cadeias extensas de if-else.",
       "summary": "Refatora cadeias de if-else para switch-case, documentando opções, fall-through e casos inválidos.",
       "tags": ["condicionais", "switch-case", "controle-de-fluxo"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -131,7 +131,7 @@
       "description": "Projeta cadeias de else if e combinações lógicas para classificar faixas exclusivas.",
       "summary": "Modela faixas e combinações lógicas com else if para garantir que cada cenário tenha um único resultado.",
       "tags": ["condicionais", "else-if", "regras"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -142,7 +142,7 @@
       "description": "Combina operadores lógicos e cadeias else if para validar regras com múltiplos critérios sem deixar lacunas.",
       "summary": "Planeja decisões compostas com &&, || e ! garantindo que cada cenário execute um único caminho documentado.",
       "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -153,7 +153,7 @@
       "description": "Aplica a primeira avaliação formal para mensurar domínio de lógica, fluxogramas e condicionais.",
       "summary": "Avaliação presencial manuscrita cobrindo fundamentos de algoritmos e decisões condicionais estudados até a Aula 13.",
       "tags": ["avaliacao", "np1", "diagnostico"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -164,7 +164,7 @@
       "description": "Analisa resultados da NP1, corrige erros recorrentes e reforça condicionais compostas com prática guiada.",
       "summary": "Transforma o feedback da NP1 em plano de melhoria com reescrita de decisões e planejamento de testes adicionais.",
       "tags": ["condicionais", "revisao", "avaliacao"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -175,7 +175,7 @@
       "description": "Conduz atividade autônoma de triagem clínica utilizando condicionais compostas, fluxogramas e testes.",
       "summary": "Aplica decisões encadeadas em um cenário realista, produzindo fluxograma, pseudocódigo e relatório de testes com evidências.",
       "tags": ["condicionais", "atividade", "assinc"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -186,7 +186,7 @@
       "description": "Apresenta laços while com foco em sentinelas, validações de entrada e planejamento de testes.",
       "summary": "Constrói algoritmos com while para coletar dados até uma condição ser satisfeita, incluindo tabela de testes com casos limites.",
       "tags": ["loops", "while", "sentinela"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -197,7 +197,7 @@
       "description": "Explora o laço for para percorrer intervalos e coleções com controle explícito de contadores.",
       "summary": "Descompõe o for em inicialização, condição e atualização, aplicando-o em tabuadas, somatórios e percursos sobre vetores.",
       "tags": ["loops", "for", "controle-de-fluxo"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -208,7 +208,7 @@
       "description": "A aula conduz a análise de problemas que podem ser resolvidos com for ou while, destacando critérios de escolha, refatoração cruzada e registro de evidências de teste.",
       "summary": "Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados.",
       "tags": ["loops", "comparacao", "boas-praticas"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -219,7 +219,7 @@
       "description": "A aula destaca quando o do-while simplifica o código, demonstra a construção de menus interativos e orienta sobre validações que precisam rodar pelo menos uma vez.",
       "summary": "Apresenta o do-while em C para menus e validações que exigem uma execução inicial garantida.",
       "tags": ["loops", "do-while", "menus"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -230,7 +230,7 @@
       "description": "Os estudantes exploram como organizar laços aninhados para percorrer estruturas 2D, representar o fluxo em diferentes formatos e depurar erros comuns.",
       "summary": "Integra laços aninhados para resolver problemas bidimensionais, produzindo tabelas e padrões em C.",
       "tags": ["loops", "aninhamento", "padroes"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -241,7 +241,7 @@
       "description": "Integra validação, processamento iterativo e relatórios usando laços combinados com condicionais.",
       "summary": "Construção de pipelines completos de processamento com métricas e logs.",
       "tags": ["loops", "condicionais", "integracao"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -252,7 +252,7 @@
       "description": "Atividade assíncrona de triagem clínica integrando laços, condicionais e documentação de testes.",
       "summary": "Projeto remoto de triagem com entregas de código, CSV e relatório reflexivo.",
       "tags": ["assincrona", "projeto", "triagem"],
-      "duration": 180,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -274,7 +274,7 @@
       "description": "Introduz funções em C destacando protótipos, escopo e os ganhos de modularizar programas sequenciais.",
       "summary": "Motivação para modularizar, criação de protótipos e laboratório guiado com testes base.",
       "tags": ["funcoes", "modularizacao", "qualidade"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -285,7 +285,7 @@
       "description": "Aprofunda o uso de parâmetros, ponteiros e contratos de funções com apoio de laboratório e testes.",
       "summary": "Passagem por valor e referência, escrita de contratos e adaptação da suíte de testes.",
       "tags": ["funcoes", "parametros", "ponteiros"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -296,7 +296,7 @@
       "description": "Orienta squads na construção de projeto modular com headers dedicados, Makefile e responsabilidades claras.",
       "summary": "Blueprint modular, criação de headers e build incremental com testes por módulo.",
       "tags": ["modularizacao", "headers", "makefile"],
-      "duration": 125,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -307,7 +307,7 @@
       "description": "Consolida padrões de revisão, métricas e manutenção preventiva para código modular em C.",
       "summary": "Revisão cruzada com checklist, coleta de métricas e planejamento de manutenção preventiva.",
       "tags": ["boas-praticas", "qualidade", "testes"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -318,7 +318,7 @@
       "description": "Avaliar a capacidade de aplicar if/else encadeados, operadores lógicos e estruturas de repetição (while, for, do-while), bem como a modularização com funções (parâmetros, retorno e boas práticas de escopo/protótipos) em problemas práticos de pequena escala.",
       "summary": "Avaliação presencial manuscrita sintetizando condicionais, laços e modularização com funções em problemas de negócios.",
       "tags": ["avaliacao", "np2", "estruturas-de-controle"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -329,7 +329,7 @@
       "description": "Apresenta vetores como coleções homogêneas, destacando sintaxe em C e cálculo de estatísticas básicas.",
       "summary": "Declaração, inicialização e percurso de vetores para média, mínimo e máximo usando datasets reais.",
       "tags": ["vetores", "arrays", "estatistica"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -340,7 +340,7 @@
       "description": "Explora operações de somatório, normalização e geração de tabelas de frequência com vetores.",
       "summary": "Funções reutilizáveis para manipular vetores e produzir tabelas e indicadores percentuais.",
       "tags": ["vetores", "arrays", "manipulacao"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -351,7 +351,7 @@
       "description": "Discute algoritmos de busca linear e variações com sentinela aplicados a catálogos e inventários.",
       "summary": "Implementação de busca linear, análise de comparações e boas práticas de relatórios de resultado.",
       "tags": ["vetores", "busca", "arrays"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -362,7 +362,7 @@
       "description": "Introduz matrizes 2D, loops aninhados e geração de tabelas formatadas com dados de presença.",
       "summary": "Declaração de matrizes, percursos linha/coluna e relatório tabular completo a partir de dataset real.",
       "tags": ["matrizes", "arrays", "loops-aninhados"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -373,7 +373,7 @@
       "description": "Aprofunda manipulações matriciais com transposição, somas e multiplicação aplicada a indicadores.",
       "summary": "Implementação de operações matriciais clássicas e estudo de caso combinando matrizes de indicadores.",
       "tags": ["matrizes", "arrays", "multiplicacao"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -384,7 +384,7 @@
       "description": "Apresenta structs em C como registros compostos e organiza um CRUD inicial para consolidar o modelo de dados.",
       "summary": "Declaração de structs, acesso a campos e mini-CRUD em memória inspirado em dados do SEBRAE.",
       "tags": ["structs", "crud", "revisao"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -395,7 +395,7 @@
       "description": "Organiza coleções de registros com structs em vetor, adicionando ordenação e relatórios.",
       "summary": "Vetores de structs com contagem ativa, integração do CRUD e ordenação baseada em dados do SEBRAE.",
       "tags": ["structs", "crud", "revisao"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -406,7 +406,7 @@
       "description": "Aprofunda operações de busca, atualização e remoção em vetores de structs com foco em integridade.",
       "summary": "Busca por múltiplos critérios, atualização validada e remoção com logs usando dados IBGE/SEBRAE.",
       "tags": ["structs", "crud", "revisao"],
-      "duration": 125,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -417,7 +417,7 @@
       "description": "Revisa o semestre com dinâmica gamificada envolvendo Jeopardy, ranking colaborativo e feedbacks.",
       "summary": "Revisão gamificada com quizzes de structs/CRUD, desafios relâmpago e mural de aprendizados.",
       "tags": ["structs", "crud", "revisao"],
-      "duration": 130,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -428,7 +428,7 @@
       "description": "Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas.",
       "summary": "Prova integradora que abrange lógica, estruturas de controle, funções, vetores, matrizes e structs.",
       "tags": ["avaliacao", "np3", "integrador"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -439,7 +439,7 @@
       "description": "Encerrar o semestre com devolutivas das NPs, showcase de projetos e definição de roadmap futuro focado em Git e estruturas de dados.",
       "summary": "Sessão de fechamento com devolutivas personalizadas, celebração de projetos e planejamento de estudos autônomos (Git e estruturas de dados).",
       "tags": ["encerramento", "feedback", "planejamento"],
-      "duration": 115,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     }
   ]

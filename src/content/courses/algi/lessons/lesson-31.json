@@ -26,54 +26,13 @@
     "Conhecimento de funções básicas em C."
   ],
   "tags": ["vetores", "arrays", "operacoes"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Dataset de vendas diárias (CSV)",
-      "type": "dataset",
-      "file": "courses/algi/vetores-vendas.csv",
-      "url": "https://static.md3.education/courses/algi/vetores-vendas.csv"
-    },
-    {
-      "label": "CS50 - PSet Arrays Walkthrough",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=4QhF9FvX0jY"
-    },
-    {
-      "label": "Khan Academy - Tabelas de frequência",
-      "type": "course",
-      "url": "https://pt.khanacademy.org/math/statistics-probability/data-distributions-a1/summarizing-center-distributions/v/constructing-a-frequency-table"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
-    },
-    {
-      "label": "Capítulo 9 – Vetores e estatística (Manzano & Oliveira)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Dataset: Geração solar diária (Plotly)",
-      "type": "dataset",
-      "url": "https://raw.githubusercontent.com/plotly/datasets/master/solar.csv"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -84,11 +43,48 @@
     "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 7, Vetores e matrizes em estudos de caso."
   ],
   "assessment": {
-    "type": "project",
-    "description": "Mini-projeto de análise de dados renováveis: aplicar operações de somatório, normalização e geração de ranking sobre o estudo de caso do painel de energia, registrando evidências na planilha compartilhada.",
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior.",
     "rubric": "Pensamento crítico (45%): interpreta tendências energéticas ao aplicar o roteiro de tabelas de Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9). Análise de dados (35%): normaliza e compara faixas respeitando as validações de Backes (Cap. 7) e Santos (Cap. 8). Comunicação técnica (20%): documenta resultados e limitações seguindo o formato de estudos de caso de Ascencio & Campos (Cap. 7)."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Operações e Transformações com Vetores\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Operações e Transformações com Vetores\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Vídeo recomendado (41ubXTEPFO0)",
+          "src": "https://www.youtube.com/embed/41ubXTEPFO0"
+        },
+        {
+          "title": "- YouTube",
+          "src": "https://www.youtube.com/embed/4A2f0ZuLQ1Q"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -96,19 +92,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Operações e Transformações com Vetores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 31."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -161,36 +154,36 @@
     },
     {
       "type": "lessonPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "9 min",
           "content": "Perguntas diagnósticas sobre Aula 30."
         },
         {
           "icon": "check-circle",
-          "title": "(20 min) Live coding",
+          "title": "(17 min) Live coding",
           "content": "funções soma e média."
         },
         {
           "icon": "check-circle",
-          "title": "(25 min) Mini-projeto",
+          "title": "(22 min) Mini-projeto",
           "content": "normalizar vendas para percentual."
         },
         {
           "icon": "check-circle",
-          "title": "30 min",
+          "title": "26 min",
           "content": "Geração de tabela de frequência em MD3 Table."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "17 min",
           "content": "Rodada de revisão por pares."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "9 min",
           "content": "Atividade pós-aula guiada em sala virtual."
         }
       ]
@@ -374,43 +367,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 31' para anexar o artefato solicitado, relatando o painel de energia e as vendas cruzadas conforme o roteiro de Forbellone & Eberspächer (Cap. 5)."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Entregue aula31_operacoes_vetores.c com rotinas de soma acumulada, normalização e geração de tabela seguindo Manzano & Oliveira (Cap. 9)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Inclua relatório mostrando tabela antes/depois das operações, análise de consistência e evidências na planilha do estudo de caso, como propõem Backes (Cap. 7) e Santos (Cap. 8)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Pensamento crítico (45%): interpretação das tendências ao aplicar somatórios e rankings inspirados em Forbellone & Eberspächer (Cap. 5) e Manzano & Oliveira (Cap. 9)."
-            },
-            {
-              "text": "Análise de dados (35%): código atende ao enunciado, normaliza vetores e valida faixas conforme Backes (Cap. 7) e Santos (Cap. 8)."
-            },
-            {
-              "text": "Documentação técnica (20%): relatório e planilha descrevem decisões alinhadas às boas práticas de Ascencio & Campos (Cap. 7)."
-            },
-            {
-              "text": "Integração com competências: explicite na entrega como cada resultado consolida Pensamento crítico e Análise de dados dentro do cenário do painel de energia."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e cite o trecho dos autores utilizado para fundamentar a questão."
         }
       ]
     },

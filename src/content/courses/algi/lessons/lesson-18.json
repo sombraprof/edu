@@ -22,38 +22,13 @@
   ],
   "prerequisites": ["Conhecer laços while e operadores aritméticos."],
   "tags": ["loops", "for", "repeticao"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Artigo: Diferenças entre os laços for e while em C",
-      "type": "article",
-      "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop-in-c/"
-    },
-    {
-      "label": "Planilha de contagem incremental",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIPatternsFor"
-    },
-    {
-      "label": "Vídeo: For loops em C (freeCodeCamp)",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=1Lfd8F7U3eE"
-    },
-    {
-      "label": "Projeto OnlineGDB – Tabuada parametrizada",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1ForTabuada"
-    },
-    {
-      "label": "Capítulo 4 – Estruturas de repetição (Forbellone & Eberspächer)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Planilha de controle de estoque (Sebrae SC)",
-      "type": "spreadsheet",
-      "url": "https://www.sebrae-sc.com.br/arquivos_site/download/planilha-controle-estoque.xlsx"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -64,8 +39,8 @@
     "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 6, Estruturas de repetição e testes."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Checklist de exercícios práticos com tabuada, somatórios e percorrimento de vetores contextualizados na auditoria de produção da Farmácia Escola.",
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior.",
     "rubric": "Pensamento computacional (40%): estrutura os laços conforme o método de decomposição apresentado por Forbellone & Eberspächer (Cap. 4). Organização algorítmica (35%): documenta inicialização, condição e atualização de acordo com Manzano & Oliveira (Cap. 6) e Backes (Cap. 5). Raciocínio matemático (25%): valida limites numéricos e registra evidências na planilha de auditoria conforme Santos (Cap. 7) e Ascencio & Campos (Cap. 6)."
   },
   "content": [
@@ -76,19 +51,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Estrutura de Repetição for. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 18."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -132,13 +104,50 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Recap do while e introdução ao for.",
-        "(20 min) Desmembrar sintaxe e exemplos no quadro.",
-        "(35 min) Laboratório: geração de tabuada e somatórios.",
-        "(20 min) Debug coletivo: evitar loops infinitos.",
-        "(30 min) Exercícios avaliativos com feedback em tempo real."
+        "(9 min) Recap do while e introdução ao for.",
+        "(17 min) Desmembrar sintaxe e exemplos no quadro.",
+        "(31 min) Laboratório: geração de tabuada e somatórios.",
+        "(17 min) Debug coletivo: evitar loops infinitos.",
+        "(26 min) Exercícios avaliativos com feedback em tempo real."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Estrutura de Repetição for\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Estrutura de Repetição for\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "C sharp - [ Biblioteca Linq ] - SelectMany no lugar de loops aninhados",
+          "src": "https://www.youtube.com/embed/17WLJ6QTFd4"
+        },
+        {
+          "title": "Learn C++ With Me #9 - Arrays",
+          "src": "https://www.youtube.com/embed/1FVBeLD_FdE"
+        }
       ]
     },
     {
@@ -384,57 +393,44 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "TED 18 – Tabuada parametrizada",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Submeta até 23h59: código em C gerando tabuadas configuráveis para o caso da Farmácia Escola, captura do console e planilha com cenários testados seguindo o checklist de Ascencio & Campos (Cap. 6)."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Arquivo aula18_tabuada.c organizado conforme as recomendações de Forbellone & Eberspächer (Cap. 4)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Imagem ou PDF com saída para diferentes parâmetros, destacando incrementos inspirados em Backes (Cap. 5)."
-            },
-            {
-              "text": "Planilha 'TED18_contagens.xlsx' com incrementos variados e análises alinhadas a Santos (Cap. 7) e Manzano & Oliveira (Cap. 6)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Explique como o algoritmo mantém rastreabilidade dos lotes auditados, relacionando cada etapa aos autores estudados."
         }
       ]
     },
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Critérios de avaliação TED 18",
+      "title": "TED pós-aula",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+        },
         {
           "type": "list",
           "items": [
             {
-              "text": "Pensamento computacional (40%): uso correto do for com inicialização, condição e atualização claros conforme Forbellone & Eberspächer (Cap. 4)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Organização algorítmica (35%): suporte a diferentes incrementos e faixas sem ajustes manuais seguindo Manzano & Oliveira (Cap. 6) e Backes (Cap. 5)."
-            },
-            {
-              "text": "Raciocínio matemático (15%): registros de testes completos com evidências e validação de limites conforme Santos (Cap. 7)."
-            },
-            {
-              "text": "Comunicação técnica (10%): organização dos arquivos, comentários explicativos e síntese conectando o estudo de caso às recomendações de Ascencio & Campos (Cap. 6)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "A pontuação compõe a mesma rubrica registrada no campo Assessment desta aula para garantir alinhamento entre competências e entregáveis."
         }
       ]
     },

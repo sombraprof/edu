@@ -26,50 +26,13 @@
     "Trazer testes atualizados executados localmente."
   ],
   "tags": ["boas-praticas", "qualidade", "testes"],
-  "duration": 110,
+  "duration": 100,
   "modality": "hybrid",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Checklist de boas práticas em funções",
-      "type": "checklist",
-      "file": "courses/algi/boas-praticas-funcoes-checklist.md",
-      "url": "https://static.md3.education/courses/algi/boas-praticas-funcoes-checklist.md"
-    },
-    {
-      "label": "Rubrica de modularização",
-      "type": "rubric",
-      "file": "courses/algi/modularizacao-rubrica.md",
-      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
-    },
-    {
-      "label": "Playlist: Clean Code em C",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PLbIBj8vQhvm32N8DXJ5Z-zsU5sXJ8h_zu"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -78,10 +41,47 @@
     "SPOLSKY, J. Joel on Software. Apress, 2010."
   ],
   "assessment": {
-    "type": "reflection",
-    "description": "Entrega individual de relatório de revisão cruzada com plano de manutenção de curto prazo."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Boas Práticas e Manutenção de Funções\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Boas Práticas e Manutenção de Funções\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Estrutura de Dados - Recursividade",
+          "src": "https://www.youtube.com/embed/3RTIzLCpJo0"
+        },
+        {
+          "title": "Arrays & Structs, Video 2: Multi-dimensional arrays in C",
+          "src": "https://www.youtube.com/embed/3Rm3wCfBurc"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -89,19 +89,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Boas Práticas e Manutenção de Funções. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 28."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -144,36 +141,36 @@
     },
     {
       "type": "lessonPlan",
-      "title": "Plano de voo (1h50)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "(10 min) Abertura",
+          "title": "(9 min) Abertura",
           "content": "valor de manter funções pequenas e testáveis."
         },
         {
           "icon": "check-circle",
-          "title": "(20 min) Revisão demonstrativa",
+          "title": "(18 min) Revisão demonstrativa",
           "content": "comparar função verbosa vs. refatorada."
         },
         {
           "icon": "check-circle",
-          "title": "30 min",
+          "title": "28 min",
           "content": "Rodada 1 de revisão cruzada com checklist."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "18 min",
           "content": "Coleta de métricas de cobertura/logs."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "18 min",
           "content": "Rodada 2 focada em naming e contratos."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "9 min",
           "content": "Síntese e definição de backlog preventivo."
         }
       ]
@@ -249,43 +246,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 28' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Carregue relatório de revisão por pares destacando métricas calculadas (complexidade, cobertura)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe código anotado com melhorias sugeridas e aplicadas após a revisão."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },

@@ -22,38 +22,13 @@
   ],
   "prerequisites": ["Revisar aulas 01-13, incluindo operadores, fluxogramas e cadeias de decisão."],
   "tags": ["avaliacao", "np1", "diagnostico"],
-  "duration": 110,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Rubrica de lógica de programação (UFSM)",
-      "type": "handout",
-      "url": "https://www.ufsm.br/app/uploads/sites/346/2019/06/Rubrica_Logica_de_Programacao.pdf"
-    },
-    {
-      "label": "Folha de respostas objetiva (Centro Paula Souza)",
-      "type": "handout",
-      "url": "https://www.cps.sp.gov.br/wp-content/uploads/sites/4/2021/07/FOLHA-DE-RESPOSTAS.pdf"
-    },
-    {
-      "label": "Checklist de preparação para a NP1",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIPreparacaoNP1"
-    },
-    {
-      "label": "Formulário de percepção pós-prova",
-      "type": "form",
-      "url": "https://forms.gle/NP1PercepcaoAluno"
-    },
-    {
-      "label": "Artigo: Como se preparar para provas (Descomplica)",
-      "type": "article",
-      "url": "https://descomplica.com.br/blog/estudar/como-se-preparar-para-provas/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -63,8 +38,8 @@
     "SANTOS, M. G. Linguagem de Programação. Novatec, 2021."
   ],
   "assessment": {
-    "type": "exam",
-    "description": "Avaliação presencial manuscrita com 10 minutos de orientação, 90 minutos de resolução individual e 10 minutos de coleta, cobrindo lógica sequencial, fluxogramas e condicionais.",
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior.",
     "phases": [
       {
         "title": "Orientação (10%)",
@@ -88,19 +63,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Avaliação NP1. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 14."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -129,12 +101,49 @@
     },
     {
       "type": "flightPlan",
-      "title": "Roteiro da aula",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Orientações gerais, distribuição das provas e preenchimento dos dados.",
-        "(80 min) Resolução individual da avaliação com acompanhamento do professor.",
-        "(10 min) Revisão final das respostas e entrega das folhas.",
-        "(10 min) Registro de percepções rápidas para a aula de devolutiva."
+        "(9 min) Orientações gerais, distribuição das provas e preenchimento dos dados.",
+        "(73 min) Resolução individual da avaliação com acompanhamento do professor.",
+        "(9 min) Revisão final das respostas e entrega das folhas.",
+        "(9 min) Registro de percepções rápidas para a aula de devolutiva."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Avaliação NP1\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Avaliação NP1\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Sentinela - YouTube",
+          "src": "https://www.youtube.com/embed/0AI41lEQkcg"
+        },
+        {
+          "title": "Vídeo recomendado (0U0EvPQl26k)",
+          "src": "https://www.youtube.com/embed/0U0EvPQl26k"
+        }
       ]
     },
     {
@@ -392,19 +401,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Esta aula substitui a TED por atividades avaliativas presenciais. Utilize o tempo pós-aula para registrar percepções e organizar as evidências."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Preencha o formulário de percepção pós-avaliação disponível no Moodle até 23h59."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Arquive digitalmente a prova escaneada ou registrada conforme orientação institucional."
-            },
-            {
-              "text": "Anote dúvidas específicas para a devolutiva coletiva."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
         }
