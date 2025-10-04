@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-19",
-  "title": "Comparação entre for e while",
+  "title": "Aula 19 - Comparação entre for e while",
   "summary": "Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados.",
   "objective": "Decidir com segurança entre for e while e justificar a refatoração escolhida para cada problema.",
   "description": "A aula conduz a análise de problemas que podem ser resolvidos com for ou while, destacando critérios de escolha, refatoração cruzada e registro de evidências de teste.",
@@ -33,6 +33,21 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
+    },
+    {
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
+    },
+    {
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -110,12 +125,12 @@
         {
           "icon": "target",
           "title": "Critérios de escolha",
-          "content": "Investigar quando um laço controlado por contador é mais claro do que um laço por sentinela."
+          "content": "Investigar quando contador, condição ou execução garantida se alinham melhor às situações mapeadas desde a Aula 17."
         },
         {
           "icon": "code",
           "title": "Refatoração guiada",
-          "content": "Converter um exemplo base escrito com for para while e o inverso, preservando invariantes."
+          "content": "Converter exemplo base entre for e while explicitando invariantes herdadas da Aula 17."
         },
         {
           "icon": "users",
@@ -287,10 +302,13 @@
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
         }
@@ -334,6 +352,67 @@
             "Leia o enunciado e valide entradas antes de processar.",
             "Inicialize variáveis; evite estados indefinidos."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso — Fila de atendimento acadêmico",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O setor de atendimento precisa estimar o tempo total de espera para uma fila que recebe estudantes ao longo do dia."
+        },
+        {
+          "type": "paragraph",
+          "text": "Implemente uma versão com for percorrendo uma lista fixa de chegadas e outra com while que encerra quando o relógio atinge o horário limite."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Meça qual estrutura facilitou o cálculo do tempo médio de espera."
+            },
+            {
+              "text": "Registre na planilha colaborativa evidências de testes e a justificativa da escolha final."
+            },
+            {
+              "text": "Inclua no relatório TED um trecho comparando clareza e riscos percebidos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Gestão de filas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Simule uma fila de atendimento alternando entre for e while para reforçar critérios de escolha."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Setup (5 min): alinhar invariantes herdadas da Aula 17 (condição de parada e sentinela)."
+            },
+            {
+              "text": "Piloto (7 min): implementar com while consumindo clientes até fila vazia."
+            },
+            {
+              "text": "Co-piloto (7 min): refatorar para for com contador conhecido (capacidade máxima)."
+            },
+            {
+              "text": "Debrief (5 min): registrar no quadro comparativo quais métricas mudaram."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "typedef struct {\n  int chegadaMin;\n  int tempoAtendimento;\n} Cliente;\n\nint processar_fila_while(Cliente *fila, int maxTempo) {\n  int tempoAtual = 0;\n  int atendidos = 0;\n  int i = 0;\n  while (fila[i].chegadaMin >= 0 && tempoAtual <= maxTempo) {\n    if (tempoAtual < fila[i].chegadaMin) tempoAtual = fila[i].chegadaMin;\n    tempoAtual += fila[i].tempoAtendimento;\n    atendidos++;\n    i++;\n  }\n  return atendidos;\n}\n\nint processar_fila_for(Cliente *fila, int quantidade) {\n  int tempoAtual = 0;\n  for (int i = 0; i < quantidade; i++) {\n    if (tempoAtual < fila[i].chegadaMin) tempoAtual = fila[i].chegadaMin;\n    tempoAtual += fila[i].tempoAtendimento;\n  }\n  return quantidade;\n}\n// Use este template para comparar critérios de parada e clareza."
         }
       ]
     },

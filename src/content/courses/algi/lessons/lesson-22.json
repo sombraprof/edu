@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-22",
-  "title": "Integrando Laços e Condicionais",
+  "title": "Aula 22 - Integrando Laços e Condicionais",
   "summary": "Integra estruturas de repetição com decisões complexas para tratar fluxos completos de processamento.",
   "description": "Integra validação, processamento iterativo e relatórios usando laços combinados com condicionais.",
   "objective": "Construir rotinas robustas que combinem laços e condicionais com validação e relatórios de execução.",
@@ -30,6 +30,21 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
+    },
+    {
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
+    },
+    {
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -107,12 +122,12 @@
         {
           "icon": "settings",
           "title": "Construção em camadas",
-          "content": "Separar fases: validação → processamento → resumo."
+          "content": "Separar fases: validação → processamento → resumo, definindo qual laço (while/for/do-while) melhor atende cada etapa."
         },
         {
           "icon": "gears",
           "title": "Fluxo",
-          "content": "Mapear decisões dentro de laços e tratar exceções."
+          "content": "Mapear decisões dentro de laços justificando escolhas com base nas comparações desenvolvidas da Aula 17 à 21."
         },
         {
           "icon": "check-circle",
@@ -303,9 +318,9 @@
       "type": "checklist",
       "title": "Checklist do relatório",
       "items": [
-        "Validei entradas fora do laço e tratei retornos inválidos.",
-        "Documentei cada regra condicional com comentários claros.",
-        "Registrei métricas e gerei resumo final com mensagens amigáveis."
+        "Validei entradas fora do laço e tratei retornos inválidos comparando alternativas de repetição.",
+        "Documentei cada regra condicional com comentários claros e referenciei o laço adotado.",
+        "Registrei métricas e gerei resumo final justificando a escolha entre while, for ou do-while."
       ]
     },
     {
@@ -430,10 +445,13 @@
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
         }
@@ -492,6 +510,64 @@
             "Leia o enunciado e valide entradas antes de processar.",
             "Inicialize variáveis; evite estados indefinidos."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Central integrada de monitoramento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Combine a leitura periódica de sensores e a gestão de uma fila de ordens de serviço usando diferentes estruturas de repetição."
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje qual laço gerencia a captura contínua (while/sentinela) e qual organiza a fila de atendimento (for contável ou do-while para menus)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Mapeie no quadro de decisão qual parte do fluxo herda padrões da Aula 17."
+            },
+            {
+              "text": "Teste substituições e registre o impacto em logs e métricas."
+            },
+            {
+              "text": "Prepare uma síntese para o TED destacando como a escolha de laço sustentou a confiabilidade do sistema."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Central de monitoramento integrada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organize a turma em trios para implementar um fluxo completo que integra sensores e fila de atendimento."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Bloco 1 (7 min): definir qual laço controla a coleta contínua (while com sentinela)."
+            },
+            {
+              "text": "Bloco 2 (7 min): escolher estrutura para distribuir tarefas na fila (for ou do-while) justificando em relação à Aula 17."
+            },
+            {
+              "text": "Bloco 3 (7 min): revisar logs e preparar resumo de métricas na planilha colaborativa."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "typedef struct {\n  int id;\n  int prioridade;\n} Ordem;\n\nvoid coletar_sensores(int limite) {\n  int leitura = 0;\n  int ciclos = 0;\n  while (ciclos < limite && scanf(\"%d\", &leitura) == 1) {\n    // TODO: validar e registrar leitura\n    ciclos++;\n  }\n}\n\nvoid distribuir_ordens(Ordem *fila, int quantidade) {\n  for (int i = 0; i < quantidade; i++) {\n    // TODO: processar ordem considerando prioridade\n  }\n}\n\nint main(void) {\n  // Complete conforme as escolhas discutidas no dojo\n  return 0;\n}"
         }
       ]
     },

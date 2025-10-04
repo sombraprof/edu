@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-21",
-  "title": "Problemas com laços aninhados simples",
+  "title": "Aula 21 - Problemas com laços aninhados simples",
   "summary": "Integra laços aninhados para resolver problemas bidimensionais, produzindo tabelas e padrões em C.",
   "objective": "Modelar e implementar laços aninhados que gerem estruturas 2D consistentes, avaliando custos e depurando erros comuns.",
   "description": "Os estudantes exploram como organizar laços aninhados para percorrer estruturas 2D, representar o fluxo em diferentes formatos e depurar erros comuns.",
@@ -36,6 +36,21 @@
       "label": "Moodle — AVA (Unichristus)",
       "type": "plataforma",
       "url": "https://ava.unichristus.edu.br/"
+    },
+    {
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
+    },
+    {
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
+    },
+    {
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -113,12 +128,12 @@
         {
           "icon": "target",
           "title": "Mapeamento 2D",
-          "content": "Relembrar como problemas tabulares exigem dois índices coordenados."
+          "content": "Relembrar padrões da Aula 17 para decidir qual laço controla linhas e colunas ao comparar abordagens."
         },
         {
           "icon": "code",
           "title": "Laboratório aninhado",
-          "content": "Construir padrões de asteriscos e tabelas usando laços for e while combinados."
+          "content": "Construir padrões usando for, while e do-while combinados, documentando motivos da escolha de cada nível."
         },
         {
           "icon": "users",
@@ -316,10 +331,13 @@
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
         }
@@ -378,6 +396,67 @@
             "Leia o enunciado e valide entradas antes de processar.",
             "Inicialize variáveis; evite estados indefinidos."
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Malha de sensores ambientais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma central monitora sensores distribuídos em uma matriz 4x4 e precisa identificar leituras críticas por região."
+        },
+        {
+          "type": "paragraph",
+          "text": "Combine for/while para percorrer linhas e colunas, registrando em qual laço a condição de parada fica mais clara."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Experimente inverter os laços (externo = colunas) e discuta o impacto na leitura do código."
+            },
+            {
+              "text": "Anote na planilha colaborativa qual estrutura ajudou a explicar o raciocínio à dupla."
+            },
+            {
+              "text": "Compare com uma abordagem usando while externo e for interno, destacando invariantes da Aula 17."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Monitor de sensores 2D",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Coordene o preenchimento e a varredura de uma matriz de sensores analisando trocas de laço."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Pair 1 (5 min): preencher a matriz com for externo (linhas) e for interno (colunas)."
+            },
+            {
+              "text": "Pair 2 (5 min): refatorar para while externo e for interno, preservando as invariantes."
+            },
+            {
+              "text": "Pair 3 (5 min): incluir fila de alertas processada após cada linha, avaliando necessidade de do-while."
+            },
+            {
+              "text": "Debrief (5 min): registrar na planilha colaborativa qual combinação trouxe mais clareza."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#define LINHAS 4\n#define COLUNAS 4\nint leituras[LINHAS][COLUNAS];\n\nvoid inicializar(void) {\n  for (int i = 0; i < LINHAS; i++) {\n    for (int j = 0; j < COLUNAS; j++) {\n      leituras[i][j] = 0;\n    }\n  }\n}\n\nvoid processar_alertas(int linha) {\n  // TODO: inserir lógica de fila por linha\n}\n\nint main(void) {\n  inicializar();\n  // Complete com a estratégia escolhida durante o dojo\n  return 0;\n}"
         }
       ]
     },
