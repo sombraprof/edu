@@ -180,6 +180,19 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para conduzir o laboratório no sandbox",
+      "description": "Use com o assistente para desenhar experimentos alinhados aos indicadores e riscos regulatórios do case.",
+      "audience": "facilitadores",
+      "prompt": "Você é consultor TOTVS responsável pelo laboratório em sandbox. Monte um roteiro de experimentos em três ondas: (1) validar integrações CRM ↔ Serviços, (2) testar automações de faturamento com cenários tributários críticos, (3) medir impacto financeiro e riscos de compliance. Para cada onda, descreva objetivo, dados necessários, alertas de risco e entregáveis para o squad.",
+      "tags": ["sandbox TOTVS", "laboratório guiado", "experimentos"],
+      "tips": [
+        "Peça uma versão focada apenas na visão financeira com ênfase em reconciliação e projeções de caixa.",
+        "Solicite follow-ups em formato de checklist para cada squad ao final de cada onda.",
+        "Gere um resumo executivo de uma página para apresentar ao sponsor do programa."
+      ]
+    },
+    {
       "type": "videos",
       "title": "Vídeos indicados",
       "videos": [
