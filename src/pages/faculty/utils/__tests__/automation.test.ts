@@ -58,7 +58,7 @@ describe('teacher automation utils', () => {
     }));
     vi.stubGlobal('fetch', fetchMock);
 
-    const { runTeacherScript, TeacherAutomationError } = await importAutomationModule();
+    const { runTeacherScript } = await importAutomationModule();
 
     await expect(runTeacherScript('observability')).rejects.toMatchObject({
       name: 'TeacherAutomationError',
@@ -79,7 +79,7 @@ describe('teacher automation utils', () => {
     }));
     vi.stubGlobal('fetch', fetchMock);
 
-    const { fetchTeacherReport, TeacherAutomationError } = await importAutomationModule();
+    const { fetchTeacherReport } = await importAutomationModule();
 
     await expect(fetchTeacherReport<'any'>('validation')).rejects.toMatchObject({
       name: 'TeacherAutomationError',

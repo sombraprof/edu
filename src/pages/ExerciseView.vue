@@ -45,89 +45,16 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineAsyncComponent, onMounted, ref, shallowRef, watch } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
+import { computed } from 'vue';
+import { RouterLink } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
-import { normalizeManifest } from '@/content/loaders';
+import { useExerciseViewController } from './ExerciseView.logic';
 
-interface GenerationMetadata {
-  generatedBy: string;
-  model: string;
-  timestamp: string;
-}
+const controller = useExerciseViewController();
 
-interface ExerciseRef {
-  id: string;
-  title: string;
-  file?: string;
-  link?: string;
-  available?: boolean;
-  description?: string;
-  summary?: string;
-  metadata?: GenerationMetadata;
-  type?: string;
-}
-
-const exerciseIndexModules = import.meta.glob('../content/courses/*/exercises.json');
-const exerciseModules = import.meta.glob('../content/courses/*/exercises/*.vue');
-
-const route = useRoute();
-const courseId = computed(() => String(route.params.courseId));
-const exerciseId = computed(() => String(route.params.exerciseId));
-
-const exerciseTitle = ref<string>('');
-const exerciseSummary = ref<string>('');
-const exerciseComponent = shallowRef<any | null>(null);
-
-async function loadExercise() {
-  exerciseComponent.value = null;
-  exerciseTitle.value = '';
-  exerciseSummary.value = '';
-
-  try {
-    const currentCourse = courseId.value;
-    const currentExercise = exerciseId.value;
-
-    const indexPath = `../content/courses/${currentCourse}/exercises.json`;
-    const indexImporter = exerciseIndexModules[indexPath];
-    if (!indexImporter) throw new Error(`Exercise index not found for path: ${indexPath}`);
-
-    const indexModule = await indexImporter();
-    const { entries: index } = normalizeManifest<ExerciseRef>(indexModule, {
-      context: `ExerciseView:index:${currentCourse}`,
-    });
-    const entry = index.find((item) => item.id === currentExercise);
-    if (!entry) throw new Error(`Exercise ${currentExercise} not found`);
-
-    exerciseTitle.value = entry.title;
-    exerciseSummary.value = entry.summary ?? entry.description ?? '';
-
-    if (entry.file) {
-      const exercisePath = `../content/courses/${currentCourse}/exercises/${entry.file}`;
-      const exerciseImporter = exerciseModules[exercisePath];
-      if (!exerciseImporter) throw new Error(`Exercise module not found for path: ${exercisePath}`);
-
-      const loader = async () => {
-        const mod: any = await exerciseImporter();
-        const meta = mod.meta ?? {};
-        exerciseTitle.value = meta.title ?? entry.title;
-        exerciseSummary.value =
-          meta.summary ?? meta.description ?? entry.summary ?? entry.description ?? '';
-        return mod.default;
-      };
-
-      exerciseComponent.value = defineAsyncComponent(loader);
-    } else if (entry.link) {
-      window.location.href = entry.link;
-    }
-  } catch (error) {
-    console.error('[ExerciseView] Failed to load exercise:', error);
-    exerciseTitle.value = 'Erro ao carregar exercício';
-    exerciseSummary.value = 'Não foi possível localizar o material solicitado.';
-  }
-}
-
-onMounted(loadExercise);
-watch([courseId, exerciseId], loadExercise);
+const courseId = computed(() => controller.courseId.value);
+const exerciseTitle = computed(() => controller.exerciseTitle.value);
+const exerciseSummary = computed(() => controller.exerciseSummary.value);
+const exerciseComponent = computed(() => controller.exerciseComponent.value);
 </script>
