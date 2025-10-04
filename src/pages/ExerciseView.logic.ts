@@ -30,6 +30,7 @@ export interface ExerciseViewController {
   exerciseTitle: ReturnType<typeof ref<string>>;
   exerciseSummary: ReturnType<typeof ref<string>>;
   exerciseComponent: ReturnType<typeof shallowRef<any | null>>;
+  exerciseFile: ReturnType<typeof ref<string>>;
   loadExercise: () => Promise<void>;
   route: RouteLocationNormalizedLoaded;
 }
@@ -63,11 +64,13 @@ export function useExerciseViewController(
   const exerciseTitle = ref('');
   const exerciseSummary = ref('');
   const exerciseComponent = shallowRef<any | null>(null);
+  const exerciseFile = ref('');
 
   async function loadExercise() {
     exerciseComponent.value = null;
     exerciseTitle.value = '';
     exerciseSummary.value = '';
+    exerciseFile.value = '';
 
     try {
       const currentCourse = courseId.value;
@@ -86,6 +89,7 @@ export function useExerciseViewController(
 
       exerciseTitle.value = entry.title;
       exerciseSummary.value = entry.summary ?? entry.description ?? '';
+      exerciseFile.value = entry.file ?? '';
 
       if (entry.file) {
         const exercisePath = `../content/courses/${currentCourse}/exercises/${entry.file}`;
@@ -109,6 +113,7 @@ export function useExerciseViewController(
       console.error('[ExerciseView] Failed to load exercise:', error);
       exerciseTitle.value = 'Erro ao carregar exercício';
       exerciseSummary.value = 'Não foi possível localizar o material solicitado.';
+      exerciseFile.value = '';
     }
   }
 
@@ -126,6 +131,7 @@ export function useExerciseViewController(
     exerciseTitle,
     exerciseSummary,
     exerciseComponent,
+    exerciseFile,
     loadExercise,
     route,
   };

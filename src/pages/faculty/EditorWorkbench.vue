@@ -398,7 +398,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineAsyncComponent, ref, shallowRef } from 'vue';
+import { computed, ref } from 'vue';
 import {
   AlertTriangle,
   CheckCircle2,
@@ -420,6 +420,13 @@ import {
 import { validationScriptsList } from './utils/validationScripts';
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
 import Md3Button from '@/components/Md3Button.vue';
+import {
+  MetadataListEditor,
+  resolveLessonBlockEditor,
+  useLessonEditorModel,
+  type LessonEditorModel,
+} from '@/composables/useLessonEditorModel';
+import type { LessonBlock } from '@/components/lesson/blockRegistry';
 
 interface LessonPlanCard {
   icon?: string;
@@ -480,41 +487,11 @@ type KnownBlock =
   | ContentBlock
   | Record<string, unknown>;
 
-interface LessonEditorModel {
-  [key: string]: any;
-  title?: string;
-  summary?: string;
-  objective?: string;
-  modality?: string;
-  duration?: number | null;
-  tags?: string[];
-  objectives?: string[];
-  competencies?: string[];
-  skills?: string[];
-  outcomes?: string[];
-  prerequisites?: string[];
-  blocks?: KnownBlock[];
-}
-
-type LessonArrayField = 'objectives' | 'competencies' | 'skills' | 'outcomes' | 'prerequisites';
-
-const MetadataListEditor = defineAsyncComponent(
-  () => import('./components/MetadataListEditor.vue')
-);
-const LessonPlanEditor = defineAsyncComponent(
-  () => import('./components/blocks/LessonPlanEditor.vue')
-);
-const CalloutEditor = defineAsyncComponent(() => import('./components/blocks/CalloutEditor.vue'));
-const CardGridEditor = defineAsyncComponent(() => import('./components/blocks/CardGridEditor.vue'));
-const ContentBlockEditor = defineAsyncComponent(
-  () => import('./components/blocks/ContentBlockEditor.vue')
-);
-
 const rawInput = ref('');
 const parseError = ref('');
 const lastFileName = ref('');
 const lastUploadedAt = ref('');
-const lessonModel = shallowRef<LessonEditorModel | null>(null);
+const { lessonModel, setLessonModel, tagsField, useArrayField } = useLessonEditorModel();
 const selectedBlockIndex = ref(0);
 const copyLabel = ref('Copiar JSON');
 
@@ -530,56 +507,24 @@ const automationStatusMeta: Record<
 
 const remoteValidationStatuses = useValidationStatuses();
 
-const tagsField = computed({
-  get() {
-    if (!lessonModel.value?.tags) return '';
-    return lessonModel.value.tags.join('\n');
-  },
-  set(value: string) {
-    if (!lessonModel.value) return;
-    const tags = value
-      .split('\n')
-      .map((line) => line.trim())
-      .filter(Boolean);
-    lessonModel.value.tags = tags;
-  },
-});
-
 const objectivesField = useArrayField('objectives');
 const competenciesField = useArrayField('competencies');
 const skillsField = useArrayField('skills');
 const outcomesField = useArrayField('outcomes');
 const prerequisitesField = useArrayField('prerequisites');
 
-const UnsupportedBlockEditor = defineAsyncComponent(
-  () => import('./components/blocks/UnsupportedBlockEditor.vue')
-);
-
 const ajv = createAjvInstance();
 const lessonValidator = ajv.compile(lessonSchema as Record<string, unknown>);
 
 const selectedBlock = computed<KnownBlock | null>(() => {
-  if (!lessonModel.value?.blocks) return null;
-  return lessonModel.value.blocks[selectedBlockIndex.value] ?? null;
+  const blocks = lessonModel.value?.blocks as (KnownBlock & LessonBlock)[] | undefined;
+  if (!blocks) return null;
+  return blocks[selectedBlockIndex.value] ?? null;
 });
 
-const blockEditorComponent = computed(() => {
-  if (!selectedBlock.value || typeof selectedBlock.value !== 'object') {
-    return UnsupportedBlockEditor;
-  }
-  switch (selectedBlock.value.type) {
-    case 'lessonPlan':
-      return LessonPlanEditor;
-    case 'callout':
-      return CalloutEditor;
-    case 'cardGrid':
-      return CardGridEditor;
-    case 'contentBlock':
-      return ContentBlockEditor;
-    default:
-      return UnsupportedBlockEditor;
-  }
-});
+const blockEditorComponent = computed(() =>
+  resolveLessonBlockEditor(selectedBlock.value as LessonBlock | null)
+);
 
 const validationStatusItems = computed(() =>
   validationScriptsList.map((script) => {
@@ -666,24 +611,6 @@ const hasRemoteWarnings = computed(() =>
   validationStatusItems.value.some((item) => item.status === 'warning')
 );
 
-function useArrayField(field: LessonArrayField) {
-  return computed({
-    get() {
-      const list = lessonModel.value?.[field];
-      if (!Array.isArray(list)) return '';
-      return list.join('\n');
-    },
-    set(value: string) {
-      if (!lessonModel.value) return;
-      const items = value
-        .split('\n')
-        .map((line) => line.trim())
-        .filter(Boolean);
-      lessonModel.value[field] = items;
-    },
-  });
-}
-
 function formatRaw() {
   try {
     if (!rawInput.value) return;
@@ -711,7 +638,7 @@ function loadForEditing() {
   if (!rawInput.value) return;
   try {
     const parsed = JSON.parse(rawInput.value) as LessonEditorModel;
-    lessonModel.value = parsed;
+    setLessonModel(parsed);
     parseError.value = '';
     selectedBlockIndex.value = 0;
     copyLabel.value = 'Copiar JSON';
