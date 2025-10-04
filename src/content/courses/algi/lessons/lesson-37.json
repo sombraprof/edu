@@ -1,31 +1,31 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-37",
-  "title": "Busca e Atualização em Vetores de Structs",
-  "summary": "Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria.",
-  "description": "Aprofunda operações de busca, atualização e remoção em vetores de structs com foco em integridade.",
-  "objective": "Desenvolver habilidades para localizar, atualizar e remover registros em vetores de structs, garantindo integridade dos dados.",
+  "title": "Busca e Atualização — Estoque TechParts",
+  "summary": "Refina o CRUD do estoque TechParts com buscas flexíveis, atualizações de preço e controle de auditoria.",
+  "description": "Aprofunda operações de busca, atualização e remoção no vetor de produtos TechParts garantindo integridade e rastreabilidade.",
+  "objective": "Desenvolver habilidades para localizar, atualizar e remover produtos no vetor de estoque TechParts garantindo integridade dos dados e histórico.",
   "objectives": [
-    "Implementar buscas lineares e por chave composta.",
-    "Atualizar campos selecionados mantendo histórico mínimo.",
-    "Realizar remoção lógica e física comparando abordagens."
+    "Implementar buscas lineares e por chave composta em produtos do estoque.",
+    "Atualizar campos selecionados (preço, estoque mínimo, status) mantendo histórico.",
+    "Realizar remoção lógica e física comparando impactos no relatório da TechParts."
   ],
   "competencies": ["05", "12"],
   "skills": [
-    "Implementar buscas flexíveis em vetores de structs utilizando filtros variados.",
-    "Aplicar auditoria registrando histórico de alterações e validações.",
-    "Facilitar revisão coletiva alinhando critérios de atualização e rollback."
+    "Implementar buscas flexíveis com filtros por SKU, categoria e status de reposição.",
+    "Aplicar auditoria registrando histórico de alterações, inclusive ajustes de preço.",
+    "Facilitar revisão coletiva alinhando critérios de atualização, rollback e políticas da TechParts."
   ],
   "outcomes": [
-    "Disponibiliza módulo que localiza e atualiza registros com base em múltiplos campos.",
-    "Entrega log de auditoria descrevendo cada alteração realizada e testes associados.",
-    "Coordena reunião de alinhamento documentando decisões sobre políticas de atualização."
+    "Disponibiliza módulo que localiza e atualiza produtos com base em múltiplos campos.",
+    "Entrega log de auditoria descrevendo cada alteração e testes associados.",
+    "Coordena reunião de alinhamento documentando decisões sobre políticas de atualização do estoque."
   ],
   "prerequisites": [
     "Vetores de structs com ordenação básica (Aula 36).",
     "Entendimento de CRUD sequencial."
   ],
-  "tags": ["structs", "crud", "revisao"],
+  "tags": ["structs", "crud", "revisao", "estoque"],
   "duration": 100,
   "modality": "in-person",
   "resources": [
@@ -54,18 +54,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+          "text": "Em duplas ou trios, finalize o módulo de estoque TechParts com as buscas e atualizações abaixo."
         },
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Questão teórica",
-              "text": "Explique com suas palavras os principais conceitos abordados em \"Busca e Atualização em Vetores de Structs\" e destaque por que eles são importantes para a resolução de problemas."
+              "title": "Questão teórica — Políticas de atualização",
+              "text": "Explique como chaves compostas (SKU + lote) evitam inconsistências no estoque TechParts e como registrar histórico de alterações."
             },
             {
-              "title": "Questão prática",
-              "text": "Implemente ou descreva um exemplo curto relacionado a \"Busca e Atualização em Vetores de Structs\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+              "title": "Questão prática — Atualização guiada",
+              "text": "Implemente uma função que atualiza preço e estoque mínimo de um produto encontrado por SKU, registrando o log correspondente."
             }
           ]
         }
@@ -92,16 +92,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+          "text": "Revise o relatório da Aula 36 e identifique produtos que exigem atualização imediata (preço ou estoque mínimo)."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+              "text": "Liste os campos que precisarão de validação cruzada antes da atualização (ex.: SKU, lote, fornecedor)."
             },
             {
-              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+              "text": "Sincronize o log de auditoria iniciado na Aula 36 para continuar registrando alterações."
             }
           ]
         }
@@ -114,42 +114,42 @@
         {
           "icon": "clock",
           "title": "Kick-off",
-          "content": "Desafio relâmpago com buscas sobre vetor já ordenado (10 min)."
+          "content": "Kick-off: revisar métricas da Aula 36 e mapear necessidades de atualização (10 min)."
         },
         {
           "icon": "target",
           "title": "Estratégias de busca",
-          "content": "Busca linear, sentinela e comparação com busca binária (30 min)."
+          "content": "Explorar estratégias de busca (linear, sentinela, filtros compostos) para localizar produtos (30 min)."
         },
         {
           "icon": "code",
           "title": "Atualizações seguras",
-          "content": "Validação de domínio e campos derivados (30 min)."
+          "content": "Atualizar campos críticos (preço, estoque mínimo) com validações e logs (30 min)."
         },
         {
           "icon": "tasks",
           "title": "Remoções",
-          "content": "Remoção lógica vs física e implicações no ranking (25 min)."
+          "content": "Comparar remoção lógica e física simulando impactos no relatório TechParts (25 min)."
         },
         {
           "icon": "check-circle",
           "title": "Debriefing",
-          "content": "Retro coletiva com métricas de cobertura das operações (20 min)."
+          "content": "Debriefing: consolidar plano de monitoramento contínuo e checklist de auditoria (20 min)."
         }
       ]
     },
     {
       "type": "promptTip",
-      "title": "Prompt para planejar Busca e Atualização em Vetores de Structs",
+      "title": "Prompt para planejar buscas e atualizações do estoque",
       "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
-      "audience": "estudantes de Algoritmos I",
-      "prompt": "Você é estudante de Algoritmos I estudando Busca e Atualização em Vetores de Structs. Contexto da aula: Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria. Objetivo central: Desenvolver habilidades para localizar, atualizar e remover registros em vetores de structs, garantindo integridade dos dados. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
-      "tags": ["algoritmos", "crud", "revisao", "structs"],
+      "audience": "estudantes de Algoritmos I finalizando módulo de structs",
+      "prompt": "Você é estudante de Algoritmos I responsável por finalizar o módulo de estoque da TechParts com buscas flexíveis, atualizações e auditoria. Contexto da aula: Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria. Objetivo central: Desenvolver habilidades para localizar, atualizar e remover produtos no vetor de structs garantindo integridade. Monte um plano de estudo com revisão teórica, prática guiada e autoavaliação incluindo exercícios em C, registros de auditoria e perguntas para validação de políticas.",
+      "tags": ["algoritmos", "crud", "structs", "estoque"],
       "tips": [
-        "Peça ao assistente variações de exercícios que reforcem implementar buscas lineares e por chave composta.",
-        "Solicite exemplos adicionais relacionados a structs, crud para praticar.",
-        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
-        "Peça sugestões de autoavaliação que ajudem você a atualizar campos selecionados mantendo histórico mínimo."
+        "Peça ao assistente exemplos de logs de auditoria detalhados para atualizações de estoque.",
+        "Solicite checklists para testar buscas com múltiplos filtros (SKU, categoria, status).",
+        "Peça sugestões de perguntas para a reunião de alinhamento com a gerência TechParts.",
+        "Peça estratégias para organizar rollback e versionamento das alterações."
       ]
     },
     {
@@ -159,32 +159,32 @@
         {
           "icon": "check-circle",
           "title": "(12 min) Estudo de caso",
-          "content": "empresas que cresceram segundo IBGE."
+          "content": "(12 min) Estudo de caso — produtos com reajuste urgente."
         },
         {
           "icon": "check-circle",
           "title": "(20 min) Live coding",
-          "content": "busca por id com retorno de ponteiro."
+          "content": "(20 min) Live coding — busca por SKU retornando ponteiro para Produto."
         },
         {
           "icon": "check-circle",
           "title": "(24 min) Oficina",
-          "content": "atualização de faturamento com logs de alterações."
+          "content": "(24 min) Oficina — atualização de preço/estoque mínimo com logs detalhados."
         },
         {
           "icon": "check-circle",
           "title": "(20 min) Laboratório",
-          "content": "remoção e compactação do vetor com relatório automático."
+          "content": "(20 min) Laboratório — remoção lógica, compactação e relatório automático do estoque."
         },
         {
           "icon": "check-circle",
           "title": "16 min",
-          "content": "Testes cruzados entre squads (pair review)."
+          "content": "16 min — Testes cruzados entre squads avaliando consistência das operações."
         },
         {
           "icon": "check-circle",
           "title": "8 min",
-          "content": "Reflexão escrita sobre integridade e auditoria."
+          "content": "8 min — Reflexão escrita sobre integridade, auditoria e próximos passos."
         }
       ]
     },
@@ -224,19 +224,19 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Operação: create | Retorno sugerido: int (novo tamanho) | Descrição: Incrementa contador e retorna total de registros. | Quando aplicar: Ao inserir no fim do vetor."
+              "text": "Operação: create | Retorno sugerido: int (novo tamanho) | Descrição: Incrementa contador de produtos e retorna total. | Quando aplicar: Ao inserir novo SKU no fim do vetor."
             },
             {
-              "text": "Operação: read | Retorno sugerido: int (índice) ou ponteiro | Descrição: Localiza registro e permite inspeção. | Quando aplicar: Quando busca por id ou prefixo."
+              "text": "Operação: read | Retorno sugerido: int (índice) ou ponteiro | Descrição: Localiza produto e permite inspeção. | Quando aplicar: Busca por SKU ou categoria."
             },
             {
-              "text": "Operação: update | Retorno sugerido: bool | Descrição: Indica sucesso/falha após validações. | Quando aplicar: Atualização de campos sensíveis."
+              "text": "Operação: update | Retorno sugerido: bool | Descrição: Indica sucesso/falha após validar preço e estoque mínimo. | Quando aplicar: Ajuste de políticas de reposição."
             },
             {
-              "text": "Operação: delete | Retorno sugerido: bool | Descrição: Retorna sucesso após compactação. | Quando aplicar: Remoção física movendo elementos."
+              "text": "Operação: delete | Retorno sugerido: bool | Descrição: Retorna sucesso após compactação do vetor. | Quando aplicar: Remover SKU descontinuado."
             },
             {
-              "text": "Operação: auditLog | Retorno sugerido: void | Descrição: Gera linha de log com contexto da alteração. | Quando aplicar: Chamar após operações críticas."
+              "text": "Operação: auditLog | Retorno sugerido: void | Descrição: Gera linha de log com contexto da alteração (SKU, campo, usuário). | Quando aplicar: Após atualizações críticas."
             }
           ]
         }
@@ -245,23 +245,40 @@
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "Estudo de caso: Atendimento SEBRAE",
+      "title": "Estudo de caso: Auditoria TechParts",
       "content": [
         {
           "type": "paragraph",
-          "text": "Use o dataset do Cadastro Central de Empresas e a planilha de logs para simular a triagem de atendimentos. Forbellone & Eberspächer (Cap. 8) recomendam registrar motivo de cada alteração antes de persistir os dados."
+          "text": "Use o dataset do estoque TechParts e a planilha de logs para simular auditoria de alterações. Forbellone & Eberspächer (Cap. 8) recomendam registrar motivo de cada alteração antes de persistir os dados."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente atualizações condicionais com validações de domínio inspiradas em Santos (Cap. 11)."
+              "text": "Implemente atualizações condicionais com validações de domínio inspiradas em Santos (Cap. 11) para preços e estoques."
             },
             {
-              "text": "Gere logs estruturados destacando id, campo alterado e responsável conforme Backes (Cap. 12)."
+              "text": "Gere logs estruturados destacando SKU, campo alterado e responsável conforme Backes (Cap. 12)."
             },
             {
-              "text": "Explique na retro como as métricas de atendimento se conectam ao modelo de Ascencio & Campos (Cap. 10)."
+              "text": "Explique na retro como os indicadores de reposição se conectam ao modelo de Ascencio & Campos (Cap. 10)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Materiais para estações e slides",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cartaz Estação Auditoria TechParts — /courses/algi/estacao-estoque-auditoria.md"
+            },
+            {
+              "text": "Diagrama de memória — vetor pós-atualização — /courses/algi/memory-diagrama-estoque.md"
             }
           ]
         }
@@ -275,9 +292,9 @@
         {
           "type": "list",
           "items": [
-            "Busca inexistente retorna NULL/índice -1?",
-            "Atualização rejeita valores negativos?",
-            "Remoção mantém coleção ordenada após compactação?"
+            "Busca por SKU inexistente retorna NULL/índice -1?",
+            "Atualização rejeita valores negativos e registra log?",
+            "Remoção mantém coleção ordenada e atualiza contador de estoque?"
           ]
         }
       ]
@@ -289,16 +306,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Finalize o módulo de estoque entregando a narrativa textual exigida pela gerência TechParts."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Elabore relatório (3-4 páginas) contendo logs de atualização, políticas adotadas (preço, estoque mínimo) e próximos passos para automação."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Liste dúvidas ou riscos pendentes e indique como serão acompanhados no pós-aula."
             }
           ]
         }
@@ -306,16 +323,16 @@
     },
     {
       "type": "tabs",
-      "title": "Atualização de registros",
+      "title": "Atualização de produto",
       "tabs": [
         {
           "label": "Buscar",
-          "code": "int idx = buscaCPF(clientes, n, cpf);",
+          "code": "int idx = buscarProdutoPorSku(estoque, total, sku);",
           "language": "c"
         },
         {
           "label": "Atualizar",
-          "code": "clientes[idx].saldo += valor;",
+          "code": "if (idx >= 0) {\n  estoque[idx].preco += ajuste;\n  registrarLog(estoque[idx], \"preco\");\n}",
           "language": "c"
         }
       ]
@@ -342,7 +359,7 @@
       "content": [
         {
           "type": "code",
-          "code": "# Busca/atualização\nCPF=123 atualiza saldo +100 -> novo saldo esperado",
+          "code": "# Busca/atualização\nSKU=5001 atualiza preço +10% e estoque mínimo 20 -> verificar log e valores.",
           "language": "plaintext"
         }
       ]

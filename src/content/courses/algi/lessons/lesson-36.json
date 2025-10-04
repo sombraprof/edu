@@ -1,31 +1,31 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-36",
-  "title": "Vetores de Structs",
-  "summary": "Constrói coleções de registros com structs em vetor e prepara o terreno para operações CRUD completas.",
-  "description": "Organiza coleções de registros com structs em vetor, adicionando ordenação e relatórios.",
-  "objective": "Estruturar vetores de structs para representar catálogos de dados e aplicar operações coletivas de ordenação e agregação.",
+  "title": "Vetores de Structs — Operações de Estoque",
+  "summary": "Expande o catálogo TechParts para vetores de structs com ordenação e relatórios de estoque.",
+  "description": "Organiza coleções de produtos TechParts em vetores de structs, adicionando ordenação, reabastecimento e relatórios que serão usados na Aula 37.",
+  "objective": "Estruturar vetores de structs para representar o estoque completo da TechParts e aplicar operações coletivas de ordenação, reposição e auditoria.",
   "objectives": [
-    "Armazenar múltiplos registros em vetores de structs com limites configuráveis.",
-    "Aplicar ordenação simples para organizar a coleção.",
-    "Documentar o estado da coleção com relatórios resumidos."
+    "Armazenar múltiplos produtos em vetores de structs com limites configuráveis e status de reposição.",
+    "Aplicar ordenação simples para priorizar reposição e análise de giro.",
+    "Documentar o estado da coleção com relatórios resumidos enviados à gerência."
   ],
   "competencies": ["05", "12"],
   "skills": [
-    "Organizar vetores de structs definindo estratégias de inserção e busca.",
-    "Garantir consistência dos dados ao realizar atualizações em lote.",
-    "Conduzir revisão em pares verificando aderência a padrões de dados da turma."
+    "Organizar vetores de structs definindo estratégias de inserção, busca e atualização de estoque.",
+    "Garantir consistência dos dados ao realizar ordenações e atualizações em lote.",
+    "Conduzir revisão em pares verificando aderência às políticas de estoque da TechParts."
   ],
   "outcomes": [
-    "Entrega repositório em memória com operações de listagem e inserção validadas.",
-    "Registra testes que comprovam manutenção da integridade após múltiplas atualizações.",
-    "Documenta feedback trocado com o par e ajustes implementados na estrutura de dados."
+    "Entrega repositório em memória com operações de listagem, inserção e ordenação validadas.",
+    "Registra testes que comprovam manutenção da integridade após múltiplas atualizações de estoque.",
+    "Documenta feedback trocado com o par e ajustes implementados na estrutura de dados do estoque."
   ],
   "prerequisites": [
     "Domínio da declaração e uso de structs (Aula 35).",
     "Conhecimento prévio de ordenação básica."
   ],
-  "tags": ["structs", "crud", "revisao"],
+  "tags": ["structs", "crud", "revisao", "estoque"],
   "duration": 100,
   "modality": "in-person",
   "resources": [
@@ -54,18 +54,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+          "text": "Em duplas ou trios, ampliem o catálogo TechParts criado na Aula 35 para suportar as operações de ordenação e auditoria abaixo."
         },
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Questão teórica",
-              "text": "Explique com suas palavras os principais conceitos abordados em \"Vetores de Structs\" e destaque por que eles são importantes para a resolução de problemas."
+              "title": "Questão teórica — Vetores de produtos",
+              "text": "Explique como armazenar múltiplos Produtos em vetor garante rastreabilidade e como isso será usado na Aula 37."
             },
             {
-              "title": "Questão prática",
-              "text": "Implemente ou descreva um exemplo curto relacionado a \"Vetores de Structs\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+              "title": "Questão prática — Ordenação por estoque crítico",
+              "text": "Implemente uma rotina que ordena o vetor de produtos pelo nível de estoque crescente destacando itens críticos."
             }
           ]
         }
@@ -92,16 +92,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+          "text": "Revise o relatório textual da Aula 35 e traga o vetor inicial com os produtos cadastrados para evoluirmos as operações."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+              "text": "Verifique se o vetor possui capacidade e contador separados para facilitar inserções."
             },
             {
-              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+              "text": "Atualize o arquivo estoque-techparts.csv com novos campos (estoque mínimo, status) para uso na aula."
             }
           ]
         }
@@ -114,42 +114,42 @@
         {
           "icon": "clock",
           "title": "Check-in",
-          "content": "Revisão relâmpago sobre structs individuais (10 min)."
+          "content": "Check-in: validar catálogo da Aula 35 e definir metas de reposição (10 min)."
         },
         {
           "icon": "database",
           "title": "Coleções",
-          "content": "Configuração de vetores de structs e contadores de uso (25 min)."
+          "content": "Configurar vetor de Produto com limites, contadores e status (25 min)."
         },
         {
           "icon": "settings",
           "title": "Ordenação",
-          "content": "Comparadores personalizados com Bubble/Insertion Sort (30 min)."
+          "content": "Implementar ordenação por estoque e giro (30 min)."
         },
         {
           "icon": "database",
           "title": "Relatórios",
-          "content": "Geração de ranking de faturamento e segmentação por setor (25 min)."
+          "content": "Gerar relatórios de ranking, reabastecimento e indicadores (25 min)."
         },
         {
           "icon": "check-circle",
           "title": "Wrap-up",
-          "content": "Debate sobre limitações de armazenamento estático (20 min)."
+          "content": "Wrap-up: preparar backlog de buscas e atualizações para a Aula 37 (20 min)."
         }
       ]
     },
     {
       "type": "promptTip",
-      "title": "Prompt para planejar Vetores de Structs",
+      "title": "Prompt para planejar operações de estoque",
       "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
-      "audience": "estudantes de Algoritmos I",
-      "prompt": "Você é estudante de Algoritmos I estudando Vetores de Structs. Contexto da aula: Constrói coleções de registros com structs em vetor e prepara o terreno para operações CRUD completas. Objetivo central: Estruturar vetores de structs para representar catálogos de dados e aplicar operações coletivas de ordenação e agregação. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
-      "tags": ["algoritmos", "crud", "revisao", "structs"],
+      "audience": "estudantes de Algoritmos I evoluindo structs",
+      "prompt": "Você é estudante de Algoritmos I responsável por ampliar o catálogo da TechParts para um vetor de structs com ordenação e relatórios. Contexto da aula: Constrói coleções de registros com structs em vetor, adicionando ordenação e relatórios. Objetivo central: Estruturar vetores de structs para representar o estoque completo da TechParts e aplicar operações coletivas de ordenação e agregação. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação com exercícios em C, casos de teste e perguntas para validar consistência após ordenações.",
+      "tags": ["algoritmos", "crud", "structs", "estoque"],
       "tips": [
-        "Peça ao assistente variações de exercícios que reforcem armazenar múltiplos registros em vetores de structs com limites configuráveis.",
-        "Solicite exemplos adicionais relacionados a structs, crud para praticar.",
-        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
-        "Peça sugestões de autoavaliação que ajudem você a aplicar ordenação simples para organizar a coleção."
+        "Peça ao assistente roteiros para ordenar produtos por estoque e preço.",
+        "Solicite exemplos de relatórios em texto para comunicar resultados à diretoria.",
+        "Peça checklists para garantir que contadores de itens e estoques mínimos sejam atualizados corretamente.",
+        "Peça perguntas para revisar com o par eventuais inconsistências antes da Aula 37."
       ]
     },
     {
@@ -159,32 +159,32 @@
         {
           "icon": "check-circle",
           "title": "12 min",
-          "content": "Icebreaker com cards de dados reais SEBRAE."
+          "content": "Icebreaker com cards de demanda TechParts."
         },
         {
           "icon": "check-circle",
           "title": "(17 min) Live coding",
-          "content": "carga inicial do vetor com dados fictícios."
+          "content": "(17 min) Live coding — carga inicial do vetor com produtos e estoques."
         },
         {
           "icon": "check-circle",
           "title": "(21 min) Oficina",
-          "content": "implementar função de ordenação crescente por faturamento."
+          "content": "(21 min) Oficina — implementar ordenação crescente por estoque atual."
         },
         {
           "icon": "check-circle",
           "title": "(25 min) Laboratório orientado",
-          "content": "integrar ordenação ao menu CRUD."
+          "content": "(25 min) Laboratório orientado — integrar ordenação e cálculo de reposição mínima."
         },
         {
           "icon": "check-circle",
           "title": "(17 min) Relato rápido por squads",
-          "content": "métricas derivadas do vetor."
+          "content": "(17 min) Relato rápido — métricas derivadas do vetor para a diretoria."
         },
         {
           "icon": "check-circle",
           "title": "8 min",
-          "content": "Quiz interativo sobre complexidade e estabilidade de ordenações."
+          "content": "8 min — Quiz interativo sobre complexidade e políticas de estoque."
         }
       ]
     },
@@ -196,19 +196,19 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Algoritmo: Bubble Sort | Quando usar: Listas pequenas e necessidade de implementação rápida | Custo: O(n^2) | Observações: Fácil de adaptar para ordenação decrescente."
+              "text": "Algoritmo: Bubble Sort | Contexto: ordenar produtos por estoque para identificar reposição imediata | Custo: O(n^2) | Observações: Fácil de adaptar para ordenar por preço."
             },
             {
-              "text": "Algoritmo: Insertion Sort | Quando usar: Coleções quase ordenadas | Custo: O(n^2) | Observações: Bom para inserir novos registros mantendo a ordem."
+              "text": "Algoritmo: Insertion Sort | Contexto: ajustar vetor quase ordenado após importação de poucos SKUs | Custo: O(n^2) | Observações: Mantém vetor estável para relatórios diários."
             },
             {
-              "text": "Algoritmo: qsort (stdlib) | Quando usar: Quando o custo de implementação importa | Custo: O(n log n) | Observações: Exige comparador consistente e inclui ponteiros void."
+              "text": "Algoritmo: qsort (stdlib) | Contexto: gerar relatórios de grande volume para a diretoria | Custo: O(n log n) | Observações: Exige comparador consistente (estoque, SKU)."
             },
             {
-              "text": "Algoritmo: Selection Sort | Quando usar: Situações de memória crítica | Custo: O(n^2) | Observações: Poucas trocas, útil para dados estáticos."
+              "text": "Algoritmo: Selection Sort | Contexto: ambiente com memória limitada para kits legados | Custo: O(n^2) | Observações: Poucas trocas, útil para inventários estáticos."
             },
             {
-              "text": "Algoritmo: Counting Sort | Quando usar: Campos inteiros com domínio pequeno | Custo: O(n + k) | Observações: Requer estrutura auxiliar e limites bem definidos."
+              "text": "Algoritmo: Counting Sort | Contexto: classificar produtos por faixa de estoque mínimo | Custo: O(n + k) | Observações: Requer conhecer limites de estoque mínimo previamente."
             }
           ]
         }
@@ -216,23 +216,23 @@
     },
     {
       "type": "contentBlock",
-      "title": "Estudo de caso: Cooperativa TechSul",
+      "title": "Estudo de caso: TechParts em expansão",
       "content": [
         {
           "type": "paragraph",
-          "text": "A Cooperativa TechSul atende pequenos negócios de tecnologia e precisa auditar contratos trimestrais. Forbellone & Eberspächer (Cap. 12) defendem separar contadores ativos, enquanto Santos (Cap. 14) recomenda registrar logs das operações CRUD."
+          "text": "A TechParts expandiu para vendas on-line e precisa auditar o giro trimestral do estoque. Forbellone & Eberspächer (Cap. 12) recomendam separar contadores ativos, enquanto Santos (Cap. 14) reforça logs das operações CRUD."
         },
         {
           "type": "unorderedList",
           "items": [
             {
-              "text": "Implemente funções de ordenação conforme Backes (Cap. 12) para classificar por faturamento e nível de risco."
+              "text": "Implemente funções de ordenação conforme Backes (Cap. 12) para priorizar reposição por estoque e giro."
             },
             {
-              "text": "Relacione cada atualização ao checklist de auditoria de Ascencio & Campos (Cap. 9), anexando evidências."
+              "text": "Relacione cada atualização ao checklist de auditoria e registre motivo da reposição no relatório enviado à gerência."
             },
             {
-              "text": "Documente métricas de tempo e trocas na planilha do case, inspirando-se em Manzano & Oliveira (Cap. 13) para análise crítica."
+              "text": "Documente métricas de tempo e trocas inspiradas em Manzano & Oliveira (Cap. 13) para justificar investimentos em automação."
             }
           ]
         }
@@ -245,7 +245,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Ascencio & Campos (Cap. 9) orientam anonimizar campos sensíveis. Registre na planilha de auditoria o protocolo seguido, alinhando-se às recomendações de Santos (Cap. 14) sobre logs."
+          "text": "Ascencio & Campos (Cap. 9) orientam anonimizar campos sensíveis (margem, custo). Registre no relatório de auditoria da TechParts o protocolo seguido, alinhando-se às recomendações de Santos (Cap. 14) sobre logs."
         }
       ]
     },
@@ -256,16 +256,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Consolide o vetor de produtos com ordenação e produza o relatório textual solicitado pela diretoria TechParts."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Entregue relatório (até 3 páginas) com ranking de produtos críticos, totais de reposição e metodologia utilizada no código."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Registre dúvidas sobre performance ou consistência e leve-as para a Aula 37 (buscas e atualizações)."
             }
           ]
         }
@@ -273,19 +273,19 @@
     },
     {
       "type": "stepper",
-      "title": "Vetor de structs",
+      "title": "Vetor de Produto TechParts",
       "steps": [
         {
           "title": "Declaração",
-          "description": "Pessoa turma[50];"
+          "description": "Produto estoque[MAX_ITENS]; contador = 0;"
         },
         {
           "title": "Preenchimento",
-          "description": "for ... scanf(...)"
+          "description": "for (...) carregar dados do CSV estoque-techparts.csv"
         },
         {
           "title": "Consulta",
-          "description": "Buscar por matrícula"
+          "description": "Buscar por SKU e gerar relatório de reposição"
         }
       ]
     },
@@ -311,8 +311,25 @@
       "content": [
         {
           "type": "code",
-          "code": "# Vetor de produtos (3) -> lista formatada",
+          "code": "# Ordenação por estoque\nEntrada: {Produto{sku=101, qtd=5}, Produto{sku=102, qtd=12}} -> ordenar crescente e sinalizar reposição.",
           "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Materiais para estações e slides",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cartaz Estação Operações de Estoque — /courses/algi/estacao-estoque-operacoes.md"
+            },
+            {
+              "text": "Diagrama de memória — vetor ordenado — /courses/algi/memory-diagrama-estoque.md"
+            }
+          ]
         }
       ]
     },

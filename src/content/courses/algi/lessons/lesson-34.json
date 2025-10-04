@@ -1,28 +1,28 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-34",
-  "title": "Manipulações com Matrizes",
-  "summary": "Aprofunda o trabalho com matrizes 2D realizando transposição, somas e multiplicação para resolver problemas de relatórios e transformações.",
-  "description": "Aprofunda manipulações matriciais com transposição, somas e multiplicação aplicada a indicadores.",
-  "objective": "Aplicar operações clássicas de matrizes para gerar indicadores combinados e preparar o terreno para algoritmos de processamento de imagens e dados.",
+  "title": "Manipulações com Matrizes — Boletim Evolutivo",
+  "summary": "Aprofunda o boletim TechED com transposição, agregações e análises comparativas a partir de matrizes 2D.",
+  "description": "Estende a matriz do boletim da Aula 33 aplicando transposição, somas e multiplicação para gerar indicadores por disciplina, bimestre e turma.",
+  "objective": "Transformar o boletim TechED em um painel analítico, combinando operações matriciais para revelar padrões e priorizar intervenções pedagógicas.",
   "objectives": [
-    "Implementar funções para transpor e somar matrizes.",
-    "Executar multiplicação matricial com três loops.",
-    "Validar dimensões e tratar entradas inválidas."
+    "Implementar funções para transpor o boletim e destacar notas por disciplina.",
+    "Somar matrizes para consolidar médias por bimestre e turmas paralelas.",
+    "Multiplicar matriz de notas por pesos para calcular índices de desempenho."
   ],
   "competencies": ["05", "08"],
   "skills": [
-    "Implementar transposição, somas e multiplicação de matrizes controlando dimensões.",
-    "Testar compatibilidade entre matrizes antes de executar operações.",
-    "Comparar desempenho e precisão das operações realizadas em cenários distintos."
+    "Aplicar transposição no boletim para comparar turmas e disciplinas.",
+    "Executar agregações que combinam notas e pesos pedagógicos.",
+    "Interpretar indicadores gerados e propor ações para cada estudante."
   ],
   "outcomes": [
-    "Disponibiliza funções que executam operações matriciais retornando resultados corretos.",
-    "Entrega conjunto de testes automatizados ou planilhas que validam dimensões e saídas.",
-    "Documenta análise descrevendo tempo de execução e limitações observadas."
+    "Disponibiliza módulo que gera boletins transpostos e agregados com pesos.",
+    "Entrega planilha ou testes que validam dimensões e resultados das operações.",
+    "Documenta análise destacando prioridades de intervenção para a turma TechED."
   ],
   "prerequisites": ["Compreensão de matrizes 2D (Aula 33).", "Conforto com loops for aninhados."],
-  "tags": ["matrizes", "arrays", "multiplicacao"],
+  "tags": ["matrizes", "arrays", "multiplicacao", "boletins"],
   "duration": 100,
   "modality": "in-person",
   "resources": [
@@ -51,18 +51,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+          "text": "Em duplas ou trios, transformem o boletim da Aula 33 nos indicadores solicitados a seguir."
         },
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Questão teórica",
-              "text": "Explique com suas palavras os principais conceitos abordados em \"Manipulações com Matrizes\" e destaque por que eles são importantes para a resolução de problemas."
+              "title": "Questão teórica — Indicadores do boletim",
+              "text": "Explique como transposição, soma e multiplicação matricial ajudam a revelar padrões no boletim TechED."
             },
             {
-              "title": "Questão prática",
-              "text": "Implemente ou descreva um exemplo curto relacionado a \"Manipulações com Matrizes\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+              "title": "Questão prática — Painel por disciplina",
+              "text": "Implemente uma função que transponha o boletim e gere médias por disciplina para compartilhar com o grupo."
             }
           ]
         }
@@ -89,16 +89,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+          "text": "Revise os apontamentos produzidos no relatório do boletim TechED (Aula 33) e identifique quais indicadores precisam ser recalculados."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+              "text": "Projete como ficará a matriz transposta (disciplinas x estudantes) e traga dúvidas sobre dimensões."
             },
             {
-              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+              "text": "Garanta acesso aos datasets boletim-tech-ed.csv e pesos-bimestres.csv para cruzar informações durante a aula."
             }
           ]
         }
@@ -111,42 +111,42 @@
         {
           "icon": "clock",
           "title": "Revisão",
-          "content": "Recapitular declaração de matrizes e loops (10 min)."
+          "content": "Revisar boletim base e relatório entregue na Aula 33 (10 min)."
         },
         {
           "icon": "settings",
           "title": "Transposição",
-          "content": "Converter linhas em colunas com matriz auxiliar (25 min)."
+          "content": "Transpor boletim para visualizar disciplinas por estudante (25 min)."
         },
         {
           "icon": "database",
           "title": "Soma e diferença",
-          "content": "Construir funções elementwise (20 min)."
+          "content": "Construir funções de soma para comparar turmas e bimestres (20 min)."
         },
         {
           "icon": "cpu",
           "title": "Multiplicação",
-          "content": "Multiplicar matrizes A(m x n) e B(n x p) (35 min)."
+          "content": "Multiplicar boletim por pesos dos projetos integradores (35 min)."
         },
         {
           "icon": "check-circle",
           "title": "Aplicação guiada",
-          "content": "Usar dataset para combinar indicadores e gerar insights (30 min)."
+          "content": "Aplicar indicadores para priorizar intervenções e montar plano de ação (30 min)."
         }
       ]
     },
     {
       "type": "promptTip",
-      "title": "Prompt para planejar Manipulações com Matrizes",
+      "title": "Prompt para planejar o Boletim Evolutivo",
       "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
-      "audience": "estudantes de Algoritmos I",
-      "prompt": "Você é estudante de Algoritmos I estudando Manipulações com Matrizes. Contexto da aula: Aprofunda o trabalho com matrizes 2D realizando transposição, somas e multiplicação para resolver problemas de relatórios e transformações. Objetivo central: Aplicar operações clássicas de matrizes para gerar indicadores combinados e preparar o terreno para algoritmos de processamento de imagens e dados. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
-      "tags": ["algoritmos", "arrays", "matrizes", "multiplicacao"],
+      "audience": "estudantes de Algoritmos I aprofundando matrizes",
+      "prompt": "Você é estudante de Algoritmos I responsável por transformar o boletim TechED em um painel analítico. Contexto da aula: Aprofunda o boletim com transposição, agregações e multiplicação por pesos. Objetivo central: Transformar o boletim TechED em um painel analítico combinando operações matriciais para revelar padrões e priorizar intervenções pedagógicas. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando leituras, exercícios em C e perguntas que ajudem a validar dimensões e resultados. Sugira estratégias para interpretar indicadores e propor ações pedagógicas.",
+      "tags": ["algoritmos", "arrays", "matrizes", "multiplicacao", "boletins"],
       "tips": [
-        "Peça ao assistente variações de exercícios que reforcem implementar funções para transpor e somar matrizes.",
-        "Solicite exemplos adicionais relacionados a matrizes, arrays para praticar.",
-        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
-        "Peça sugestões de autoavaliação que ajudem você a executar multiplicação matricial com três loops."
+        "Peça ao assistente variações de exercícios que reforcem a transposição do boletim e verificação de dimensões.",
+        "Solicite exemplos de multiplicação por pesos para calcular índices de desempenho.",
+        "Peça checklists para validar se as somas preservam médias corretas por bimestre.",
+        "Peça sugestões de perguntas para comunicar os resultados às coordenações."
       ]
     },
     {
@@ -156,32 +156,32 @@
         {
           "icon": "check-circle",
           "title": "8 min",
-          "content": "Check-in com quiz sobre matrizes."
+          "content": "Check-in com quiz sobre compatibilidade de dimensões no boletim."
         },
         {
           "icon": "check-circle",
           "title": "17 min",
-          "content": "Código ao vivo da função transpose."
+          "content": "Código ao vivo das funções transpose_boletim e soma_bimestres."
         },
         {
           "icon": "check-circle",
           "title": "(13 min) Exercício individual",
-          "content": "soma de matrizes."
+          "content": "(13 min) Exercício individual — gerar quadro comparativo por disciplina."
         },
         {
           "icon": "check-circle",
           "title": "(29 min) Workshop",
-          "content": "multiplicação com validação de dimensões."
+          "content": "(29 min) Workshop — aplicar pesos e consolidar índice de desempenho."
         },
         {
           "icon": "check-circle",
           "title": "(21 min) Estudo de caso",
-          "content": "combinar matrizes de indicadores do JSON."
+          "content": "(21 min) Estudo de caso — redigir recomendações com base nos indicadores."
         },
         {
           "icon": "check-circle",
           "title": "12 min",
-          "content": "Apresentação rápida dos resultados por squads."
+          "content": "12 min — Apresentação rápida dos insights por squads para o boletim."
         }
       ]
     },
@@ -193,16 +193,16 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Operação: Transposição | Pré-condição: Matriz m x n | Assinatura sugerida: void transpose(int src[m][n], int dst[n][m]) | Observações: Usar matrizes distintas para evitar sobrescrita."
+              "text": "Operação: Transposição | Contexto: boletim disciplinas x estudantes | Assinatura sugerida: void transpose_boletim(float origem[ALUNOS][DISCIPLINAS], float destino[DISCIPLINAS][ALUNOS]) | Observações: Reaproveite cabeçalhos das disciplinas."
             },
             {
-              "text": "Operação: Soma | Pré-condição: Mesmas dimensões | Assinatura sugerida: void add(int A[m][n], int B[m][n], int C[m][n]) | Observações: Executar operação elemento a elemento."
+              "text": "Operação: Soma | Contexto: combinar boletins de turmas paralelas | Assinatura sugerida: void somar_boletins(float A[ALUNOS][DISCIPLINAS], float B[ALUNOS][DISCIPLINAS], float R[ALUNOS][DISCIPLINAS]) | Observações: Normalize por quantidade de turmas."
             },
             {
-              "text": "Operação: Subtração | Pré-condição: Mesmas dimensões | Assinatura sugerida: void subtract(int A[m][n], int B[m][n], int C[m][n]) | Observações: Útil para variação entre indicadores."
+              "text": "Operação: Multiplicação | Contexto: aplicar pesos de avaliações | Assinatura sugerida: void aplicar_pesos(float boletim[ALUNOS][DISCIPLINAS], float pesos[DISCIPLINAS][AVALIACOES], float indice[ALUNOS][AVALIACOES]) | Observações: Conferir compatibilidade antes do cálculo."
             },
             {
-              "text": "Operação: Multiplicação | Pré-condição: A m x n, B n x p | Assinatura sugerida: void multiply(int A[m][n], int B[n][p], int C[m][p]) | Observações: Três loops e acumulador local."
+              "text": "Operação: Validação | Contexto: relatório final do boletim | Assinatura sugerida: int validar_dimensoes(int linhasA, int colunasA, int linhasB, int colunasB) | Observações: Documente mensagens claras para o time pedagógico."
             },
             {
               "text": "Operação: Escalonamento | Pré-condição: Qualquer dimensão | Assinatura sugerida: void scale(float A[m][n], float fator) | Observações: Multiplica cada elemento pelo fator."
@@ -380,7 +380,12 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Utilize a planilha do Campus Vale para justificar cada decisão técnica com base na bibliografia."
+          "text": "Utilize a planilha do Campus Vale para justificar cada decisão técnica com base na bibliografia.",
+          "items": [
+            "Gerar relatório comparando médias de cada disciplina entre as turmas A e B.",
+            "Construir função que identifica disciplinas com maior variação entre bimestres.",
+            "Compartilhar gráfico ou tabela com os indicadores no fórum do boletim."
+          ]
         },
         {
           "type": "list",
@@ -399,16 +404,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+          "text": "Finalize os indicadores do boletim TechED e registre um relatório textual que dê continuidade ao envio da Aula 33."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+              "text": "Compile um relatório (máx. 3 páginas) com tabelas transpostas, médias por bimestre e ranking de estudantes, justificando prioridades."
             },
             {
-              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+              "text": "Liste dúvidas sobre pesos ou interpretação e proponha perguntas para validação na Aula 35."
             }
           ]
         }
@@ -464,8 +469,25 @@
       "content": [
         {
           "type": "code",
-          "code": "# Soma por linha\n[[1,2],[3,4]] -> L1=3, L2=7",
+          "code": "# Transposição boletim 3x2\n{ {7.0, 6.0}, {8.5, 7.5}, {6.5, 5.5} } -> gera disciplinas x estudantes com médias.",
           "language": "plaintext"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Materiais para estações e slides",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cartaz Estação Indicadores do Boletim — /courses/algi/estacao-boletim-analises.md"
+            },
+            {
+              "text": "Diagrama de memória — matrizes com pesos — /courses/algi/memory-diagrama-boletim.md"
+            }
+          ]
         }
       ]
     },
