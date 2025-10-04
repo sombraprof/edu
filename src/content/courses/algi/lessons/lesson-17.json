@@ -22,33 +22,13 @@
   ],
   "prerequisites": ["Domínio de condicionais compostas e operadores lógicos."],
   "tags": ["loops", "while", "repeticao"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
       "type": "platform",
       "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Vídeo: Laços while em C (Curso em Vídeo)",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=HfX5ZtsdS0c"
-    },
-    {
-      "label": "Planilha de testes para while",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIWhileTestSuite"
-    },
-    {
-      "label": "Projeto OnlineGDB – Média com sentinela",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1WhileSentinela"
-    },
-    {
-      "label": "Tutorial: Laços while em C (TutorialsPoint)",
-      "type": "article",
-      "url": "https://www.tutorialspoint.com/cprogramming/c_while_loop.htm"
     }
   ],
   "bibliography": [
@@ -87,49 +67,56 @@
     },
     {
       "type": "lessonPlan",
-      "title": "Plano da aula",
+      "title": "Plano da Aula",
       "cards": [
         {
           "icon": "book-open",
           "title": "Diagnóstico",
-          "content": "Retomar situações que exigem repetição com verificação antes da execução (10 min)."
+          "content": "Mapear rapidamente problemas reais dos estudantes que exigem repetição controlada antes de codificar."
         },
         {
-          "icon": "target",
-          "title": "Desenho do fluxo",
-          "content": "Converter briefing em fluxograma com sentinela destacado (15 min)."
+          "icon": "gears",
+          "title": "Fluxo e invariantes",
+          "content": "Construir fluxograma e pseudocódigo destacando condição de parada, invariantes e sentinelas."
         },
         {
           "icon": "code",
-          "title": "Laboratório guiado",
-          "content": "Implementar média até sentinela usando OnlineGDB (30 min)."
+          "title": "Laboratório em duplas",
+          "content": "Implementar em C um while com validação incremental, comentando cada etapa em pares."
         },
         {
           "icon": "check-circle",
-          "title": "Testes orientados",
-          "content": "Preencher planilha com entradas válidas, inválidas e sentinelas (25 min)."
-        },
-        {
-          "icon": "users",
-          "title": "Retro",
-          "content": "Compartilhar armadilhas encontradas e ajustes realizados (20 min)."
-        },
-        {
-          "icon": "tasks",
-          "title": "TED",
-          "content": "Detalhar entrega com código, planilha e relato das validações (15 min)."
+          "title": "Validação e TED",
+          "content": "Rodar a planilha de testes, consolidar aprendizados e detalhar a entrega com critérios claros."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (2 h/a)",
       "items": [
-        "(15 min) Aquecimento: identificar padrões que exigem repetição.",
-        "(25 min) Aula expositiva: sintaxe e fluxo do while.",
-        "(35 min) Laboratório guiado: cálculo de média até sentinela.",
-        "(20 min) Discussão de testes e edge cases.",
-        "(20 min) Exercício prático em dupla com feedback imediato."
+        "(5 min) Check-in: relembre motivos para usar while e alinhe a agenda.",
+        "(15 min) Diagnóstico guiado: estudantes compartilham cenários reais; professores destacam padrões de repetição.",
+        "(15 min) Modelagem comentada: elaborar fluxograma/pseudocódigo com foco em invariantes e condição de parada.",
+        "(15 min) Oficina 1: simulação no papel criando tabela de rastreamento e debatendo saídas esperadas.",
+        "(5 min) Intervalo rápido e reorganização das duplas.",
+        "(15 min) Oficina 2: implementação orientada no C com atenção à validação de entrada.",
+        "(15 min) Testes orientados: preencher planilha com valores típicos, inválidos e sentinelas e registrar achados.",
+        "(5 min) Retrospectiva: sintetizar armadilhas descobertas e apresentar os itens da TED."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Por que laços while importam agora",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Nesta etapa do curso os estudantes já dominam condicionais e estruturas com contagem fixa. O while surge para resolver situações em que a quantidade de repetições depende dos dados que chegam."
+        },
+        {
+          "type": "paragraph",
+          "text": "Além de habilitar o tratamento de sentinelas e validação de entrada, compreender o while é pré-requisito para lidar com leituras de arquivos, integrações em tempo real e menus interativos."
+        }
       ]
     },
     {
@@ -139,6 +126,10 @@
         {
           "type": "paragraph",
           "text": "Utilize while quando não souber quantas iterações serão necessárias e desejar testar a condição antes de executar o bloco."
+        },
+        {
+          "type": "paragraph",
+          "text": "O laço while testa a condição antes de executar o bloco, por isso é indicado quando não sabemos quantas repetições serão necessárias e queremos preservar controle total da saída."
         },
         {
           "type": "list",
@@ -152,20 +143,18 @@
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Erros comuns em while",
-      "cards": [
+      "type": "contentBlock",
+      "title": "Componentes do laço while",
+      "content": [
         {
-          "title": "Loop infinito",
-          "content": "Condição nunca atualizada ou sentinela não lida corretamente."
-        },
-        {
-          "title": "Sentinela somada",
-          "content": "Somar o valor de saída distorce média e contadores."
-        },
-        {
-          "title": "Validação tardia",
-          "content": "Checar entrada após acumular exige desfazer operações."
+          "type": "orderedList",
+          "items": [
+            "Inicialização: definir variáveis de controle e valores acumuladores.",
+            "Condição: expressar claramente a regra que mantém o laço executando.",
+            "Corpo do laço: atualizar acumuladores, processar entradas e fornecer feedback.",
+            "Avanço de estado: alterar variáveis monitoradas para progredir rumo à condição de parada.",
+            "Validação: tratar dados inválidos antes de voltar ao início, evitando contaminação do estado."
+          ]
         }
       ]
     },
@@ -254,6 +243,24 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Lendo o fluxograma passo a passo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Iniciamos consultando a entrada do usuário e, antes de qualquer cálculo, verificamos se ela corresponde ao sentinela. Essa checagem precoce evita adicionar valores que deveriam apenas encerrar o ciclo."
+        },
+        {
+          "type": "paragraph",
+          "text": "Quando a nota é válida, acumulamos e incrementamos o contador. Em seguida retornamos ao nó de leitura, garantindo que sempre exista uma atualização de estado antes da próxima verificação."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ao sair do laço, lidamos com dois cenários: se ao menos uma nota válida foi processada, calculamos a média; caso contrário, exibimos uma mensagem clara para não confundir a pessoa usuária."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Validação de entradas obrigatória",
@@ -275,144 +282,128 @@
       ]
     },
     {
-      "type": "code",
-      "language": "c",
-      "code": "int nota = 0;\nint soma = 0;\nint quantidade = 0;\n\nprintf(\"Digite uma nota ou -1 para encerrar: \");\nscanf(\"%d\", &nota);\nwhile (nota != -1) {\n  soma += nota;\n  quantidade++;\n  printf(\"Digite uma nota ou -1 para encerrar: \");\n  scanf(\"%d\", &nota);\n}\nif (quantidade > 0) {\n  printf(\"Média: %.2f\\n\", (float)soma / quantidade);\n} else {\n  printf(\"Nenhuma nota válida informada\\n\");\n}\n"
-    },
-    {
-      "type": "md3Table",
-      "title": "Comparação de padrões de repetição",
-      "headers": ["Padrão", "Quando usar", "Exemplo"],
-      "rows": [
-        [
-          {
-            "value": "while"
-          },
-          {
-            "value": "Condição checada antes"
-          },
-          {
-            "value": "Leitura até sentinela"
-          }
-        ],
-        [
-          {
-            "value": "do-while"
-          },
-          {
-            "value": "Executa ao menos uma vez"
-          },
-          {
-            "value": "Menu interativo"
-          }
-        ],
-        [
-          {
-            "value": "for"
-          },
-          {
-            "value": "Número conhecido de repetições"
-          },
-          {
-            "value": "Percorrer vetor de tamanho fixo"
-          }
-        ]
+      "type": "videos",
+      "title": "Reforço multimídia",
+      "videos": [
+        {
+          "title": "Comandos do while (Curso em Vídeo, 2022)",
+          "src": "https://www.youtube.com/embed/GGHR93PKsXc"
+        },
+        {
+          "title": "Domine o while passo a passo (Guanabara)",
+          "src": "https://www.youtube.com/embed/FhM-rXPALL8"
+        }
       ]
     },
     {
-      "type": "checklist",
-      "title": "Ao final, garanta que você",
-      "items": [
-        "Definiu sentinelas e condições de parada claramente.",
-        "Registrou o comportamento esperado quando nenhuma nota válida é informada.",
-        "Validou entradas negativas fora do sentinela."
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "TED 17 – Média até sentinela",
+      "type": "contentBlock",
+      "title": "Exemplo comentado: média até sentinela",
       "content": [
         {
           "type": "paragraph",
-          "text": "Envie até 23h59 do dia seguinte: código em C, planilha de testes e breve relato explicando a lógica de saída."
+          "text": "O trecho abaixo apresenta uma implementação minimalista em C. Observe como cada etapa está alinhada aos componentes do laço while descritos anteriormente."
         },
         {
-          "type": "list",
-          "items": [
-            {
-              "text": "Arquivo aula17_media_while.c."
-            },
-            {
-              "text": "Planilha 'TED17_while.xlsx' com casos válidos, inválidos e sentinela."
-            },
-            {
-              "text": "Parágrafo no Moodle descrevendo como evita loops infinitos."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Critérios de avaliação TED 17",
-      "content": [
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n  int nota = 0;\n  int soma = 0;\n  int quantidade = 0;\n\n  printf(\"Digite uma nota entre 0 e 10 ou -1 para encerrar: \");\n  while (scanf(\"%d\", &nota) == 1 && nota != -1) {\n    if (nota < 0 || nota > 10) {\n      printf(\"Valor invalido. Tente novamente: \");\n      continue;\n    }\n\n    soma += nota;\n    quantidade++;\n    printf(\"Digite outra nota ou -1 para encerrar: \");\n  }\n\n  if (quantidade > 0) {\n    printf(\"Media final: %.2f\\n\", (float)soma / quantidade);\n  } else {\n    printf(\"Nenhuma nota valida informada.\\n\");\n  }\n\n  return 0;\n}\n"
+        },
         {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega no prazo com todos os arquivos (20%)."
-            },
-            {
-              "text": "Controle correto do sentinela e validação das entradas (35%)."
-            },
-            {
-              "text": "Planilha de testes completa com resultados conferidos (25%)."
-            },
-            {
-              "text": "Relato claro das decisões tomadas e riscos observados (20%)."
-            }
-          ]
+          "type": "paragraph",
+          "text": "A validação é feita imediatamente após a leitura, garantindo que valores fora da faixa não impactem os acumuladores. Também garantimos que a mensagem final trate adequadamente os casos sem entrada válida."
         }
       ]
     },
     {
-      "type": "parsons",
-      "title": "While — somatório até zero",
-      "instructions": "Reordene para somar números até digitar 0.",
-      "lines": [
-        "int x = 0;",
-        "scanf(\"%d\", &x);",
-        "while (x != 0) {",
-        "  soma += x;",
-        "  scanf(\"%d\", &x);",
-        "}",
-        "printf(\"%d\", soma);"
-      ],
-      "solution": [
-        "int x = 0;",
-        "scanf(\"%d\", &x);",
-        "while (x != 0) {",
-        "  soma += x;",
-        "  scanf(\"%d\", &x);",
-        "}",
-        "printf(\"%d\", soma);"
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "academic",
-      "title": "Leitura recomendada",
-      "content": [
-        {
-          "type": "list",
-          "items": [
-            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
-            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
-            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
-          ]
-        }
+      "type": "md3Table",
+      "title": "Rastreamento da média (entrada 8, 7, 11, 6, -1)",
+      "headers": ["Iteração", "Entrada lida", "Acumulador", "Quantidade", "Ação tomada"],
+      "rows": [
+        [
+          {
+            "value": "1"
+          },
+          {
+            "value": "8"
+          },
+          {
+            "value": "8"
+          },
+          {
+            "value": "1"
+          },
+          {
+            "value": "Valor válido somado"
+          }
+        ],
+        [
+          {
+            "value": "2"
+          },
+          {
+            "value": "7"
+          },
+          {
+            "value": "15"
+          },
+          {
+            "value": "2"
+          },
+          {
+            "value": "Valor válido somado"
+          }
+        ],
+        [
+          {
+            "value": "3"
+          },
+          {
+            "value": "11"
+          },
+          {
+            "value": "15"
+          },
+          {
+            "value": "2"
+          },
+          {
+            "value": "Entrada rejeitada (fora da faixa)"
+          }
+        ],
+        [
+          {
+            "value": "4"
+          },
+          {
+            "value": "6"
+          },
+          {
+            "value": "21"
+          },
+          {
+            "value": "3"
+          },
+          {
+            "value": "Valor válido somado"
+          }
+        ],
+        [
+          {
+            "value": "5"
+          },
+          {
+            "value": "-1"
+          },
+          {
+            "value": "21"
+          },
+          {
+            "value": "3"
+          },
+          {
+            "value": "Sentinela detectado, encerra laço"
+          }
+        ]
       ]
     },
     {
@@ -421,9 +412,22 @@
       "title": "Casos de teste sugeridos",
       "content": [
         {
-          "type": "code",
-          "code": "# Sequência de leituras (termina com 0)\n3 5 0 -> soma=8\n10 -2 2 0 -> soma=10",
-          "language": "plaintext"
+          "type": "paragraph",
+          "text": "Use os cenários abaixo para complementar a tabela de rastreamento e verificar se o while responde corretamente a entradas desafiadoras."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Notas: 7 8 9 -1 → média 8.0 (caminho feliz)."
+            },
+            {
+              "text": "Notas: 10 11 5 -1 → rejeita 11, recalcula média com válidas (8.3)."
+            },
+            {
+              "text": "Notas: -1 → nenhuma nota válida, informar mensagem de ausência."
+            }
+          ]
         }
       ]
     },
@@ -452,7 +456,8 @@
           "type": "list",
           "items": [
             "Leia o enunciado e valide entradas antes de processar.",
-            "Inicialize variáveis; evite estados indefinidos."
+            "Inicialize variáveis; evite estados indefinidos.",
+            "Documente invariantes e atualizações de variáveis dentro do laço."
           ]
         },
         {
@@ -476,26 +481,91 @@
       ]
     },
     {
+      "type": "parsons",
+      "title": "While — somatório até zero",
+      "instructions": "Reordene para somar números até digitar 0.",
+      "lines": [
+        "int x = 0;",
+        "scanf(\"%d\", &x);",
+        "while (x != 0) {",
+        "  soma += x;",
+        "  scanf(\"%d\", &x);",
+        "}",
+        "printf(\"%d\", soma);"
+      ],
+      "solution": [
+        "int x = 0;",
+        "scanf(\"%d\", &x);",
+        "while (x != 0) {",
+        "  soma += x;",
+        "  scanf(\"%d\", &x);",
+        "}",
+        "printf(\"%d\", soma);"
+      ]
+    },
+    {
       "type": "callout",
-      "variant": "task",
-      "title": "Check-out (fechamento rápido)",
+      "variant": "info",
+      "title": "Gerador de casos de teste (C)",
+      "content": [
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nstatic int gerar_nota(void) {\n  return (rand() % 120) - 10;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  for (int caso = 1; caso <= 5; ++caso) {\n    int soma = 0;\n    int count = 0;\n\n    printf(\"Caso %d: \", caso);\n    while (1) {\n      int nota = gerar_nota();\n      if (nota > 100) {\n        nota = -1;\n      }\n      printf(\"%d \", nota);\n      if (nota == -1) {\n        break;\n      }\n      if (nota >= 0 && nota <= 10) {\n        soma += nota;\n        count++;\n      }\n    }\n\n    if (count > 0) {\n      printf(\"-> media esperada %.2f\\n\", (float)soma / count);\n    } else {\n      printf(\"-> nenhuma nota valida\\n\");\n    }\n  }\n\n  return 0;\n}\n"
+        },
+        {
+          "type": "paragraph",
+          "text": "Utilize os casos gerados para completar a planilha de testes antes de rodar o programa final."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "academic",
+      "title": "Leitura recomendada",
       "content": [
         {
           "type": "list",
-          "items": ["Registre 1 aprendizado e 1 dúvida.", "Entregue no AVA (campo de texto)."]
+          "items": [
+            "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos: Lógica para Desenvolvimento de Programas. Prentice Hall.",
+            "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos: lógica para desenvolvimento de programação. Érica.",
+            "BACKES, A. Linguagem C: completa e descomplicada. Elsevier."
+          ]
         }
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "TED 17 – Média até sentinela",
       "content": [
         {
-          "type": "code",
-          "code": "# Gera sequências que terminam em 0 e soma esperada\nimport random\nfor _ in range(3):\n    seq = [random.randint(-5, 10) for __ in range(3)] + [0]\n    s = sum(x for x in seq if x!=0)\n    print(*seq, sep=' ', end=' -> ')\n    print(f\"soma={s}\")",
-          "language": "python"
+          "type": "paragraph",
+          "text": "Envie até 23h59 do dia seguinte: código em C, planilha de testes e breve relato explicando a lógica de saída."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Arquivo aula17_media_while.c."
+            },
+            {
+              "text": "Planilha 'TED17_while.xlsx' com casos válidos, inválidos e sentinela."
+            },
+            {
+              "text": "Parágrafo no Moodle descrevendo como evita loops infinitos."
+            }
+          ]
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, garanta que você",
+      "items": [
+        "Definiu sentinelas e condições de parada claramente.",
+        "Registrou o comportamento esperado quando nenhuma nota válida é informada.",
+        "Validou entradas negativas fora do sentinela."
       ]
     }
   ],
