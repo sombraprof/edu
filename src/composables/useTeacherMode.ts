@@ -1,6 +1,6 @@
 import { computed, readonly, ref } from 'vue';
 
-const authoringForced = import.meta.env.DEV;
+const authoringForced = import.meta.env.DEV && Boolean(import.meta.env.VITE_TEACHER_API_URL);
 
 const teacherMode = ref(authoringForced);
 const ready = ref(authoringForced);
