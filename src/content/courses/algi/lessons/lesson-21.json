@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-21",
-  "title": "Problemas com laços aninhados simples",
+  "title": "Aula 21 - Problemas com laços aninhados simples",
   "summary": "Integra laços aninhados para resolver problemas bidimensionais, produzindo tabelas e padrões em C.",
   "objective": "Modelar e implementar laços aninhados que gerem estruturas 2D consistentes, avaliando custos e depurando erros comuns.",
   "description": "Os estudantes exploram como organizar laços aninhados para percorrer estruturas 2D, representar o fluxo em diferentes formatos e depurar erros comuns.",
@@ -23,7 +23,7 @@
   ],
   "prerequisites": ["Dominar laços simples (for, while).", "Conhecer condicionais básicas."],
   "tags": ["loops", "aninhamento", "padroes"],
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "metadata": {
     "status": "published",
@@ -34,23 +34,23 @@
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Tutorial: Gerando padrões com laços aninhados (GeeksforGeeks)",
-      "type": "article",
-      "url": "https://www.geeksforgeeks.org/c-programs-printing-patterns/"
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
     },
     {
-      "label": "Editor ASCII online",
-      "type": "tool",
-      "url": "https://asciiflow.com/"
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
     },
     {
-      "label": "Checklist de revisão para laços aninhados (UFPR)",
-      "type": "handout",
-      "url": "https://www.inf.ufpr.br/ci055/MaterialDidatico/checklist_lacos_aninhados.pdf"
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -58,20 +58,65 @@
     "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019."
   ],
   "assessment": {
-    "type": "project",
-    "description": "Entrega de mini-simulador de ocupação de auditório com relatórios gerados via laços aninhados."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Problemas com laços aninhados simples\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Problemas com laços aninhados simples\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Loops in C (while, do-while, for)",
+          "src": "https://www.youtube.com/embed/1vGfkBwIOXw"
+        },
+        {
+          "title": "AULA 2 - APRENDENDO A PROGRAMAR - ESTRUTURA DE DECISÃO \"SE\" NO VISUALG",
+          "src": "https://www.youtube.com/embed/22i3XdUDs00"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "Warm-up (início da aula)",
+      "title": "Warm-up (pré-aula)",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+        },
         {
           "type": "list",
           "items": [
-            "Escreva em 3 minutos: o que você lembra da aula passada?",
-            "Compartilhe com a dupla."
+            {
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+            },
+            {
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+            }
           ]
         }
       ]
@@ -83,18 +128,32 @@
         {
           "icon": "target",
           "title": "Mapeamento 2D",
-          "content": "Relembrar como problemas tabulares exigem dois índices coordenados."
+          "content": "Relembrar padrões da Aula 17 para decidir qual laço controla linhas e colunas ao comparar abordagens."
         },
         {
           "icon": "code",
           "title": "Laboratório aninhado",
-          "content": "Construir padrões de asteriscos e tabelas usando laços for e while combinados."
+          "content": "Construir padrões usando for, while e do-while combinados, documentando motivos da escolha de cada nível."
         },
         {
           "icon": "users",
           "title": "Depuração coletiva",
           "content": "Investigar erros comuns apresentando rastreamento linha a linha."
         }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Problemas com laços aninhados simples",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Problemas com laços aninhados simples. Contexto da aula: Integra laços aninhados para resolver problemas bidimensionais, produzindo tabelas e padrões em C. Objetivo central: Modelar e implementar laços aninhados que gerem estruturas 2D consistentes, avaliando custos e depurando erros comuns. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "aninhamento", "loops", "padroes"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem planejar estruturas de dados bidimensionais que dependem de laços aninhados.",
+        "Solicite exemplos adicionais relacionados a loops, aninhamento para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a implementar algoritmos com laços aninhados simples para tabulações e padrões visuais."
       ]
     },
     {
@@ -266,13 +325,20 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
-            "Resolver 2 exercícios com laços (um com for e outro com while/do-while).",
-            "Anexar comentários sobre complexidade percebida."
+            {
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
+            },
+            {
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
+            }
           ]
         }
       ]
@@ -334,6 +400,67 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Malha de sensores ambientais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma central monitora sensores distribuídos em uma matriz 4x4 e precisa identificar leituras críticas por região."
+        },
+        {
+          "type": "paragraph",
+          "text": "Combine for/while para percorrer linhas e colunas, registrando em qual laço a condição de parada fica mais clara."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Experimente inverter os laços (externo = colunas) e discuta o impacto na leitura do código."
+            },
+            {
+              "text": "Anote na planilha colaborativa qual estrutura ajudou a explicar o raciocínio à dupla."
+            },
+            {
+              "text": "Compare com uma abordagem usando while externo e for interno, destacando invariantes da Aula 17."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Monitor de sensores 2D",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Coordene o preenchimento e a varredura de uma matriz de sensores analisando trocas de laço."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Pair 1 (5 min): preencher a matriz com for externo (linhas) e for interno (colunas)."
+            },
+            {
+              "text": "Pair 2 (5 min): refatorar para while externo e for interno, preservando as invariantes."
+            },
+            {
+              "text": "Pair 3 (5 min): incluir fila de alertas processada após cada linha, avaliando necessidade de do-while."
+            },
+            {
+              "text": "Debrief (5 min): registrar na planilha colaborativa qual combinação trouxe mais clareza."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#define LINHAS 4\n#define COLUNAS 4\nint leituras[LINHAS][COLUNAS];\n\nvoid inicializar(void) {\n  for (int i = 0; i < LINHAS; i++) {\n    for (int j = 0; j < COLUNAS; j++) {\n      leituras[i][j] = 0;\n    }\n  }\n}\n\nvoid processar_alertas(int linha) {\n  // TODO: inserir lógica de fila por linha\n}\n\nint main(void) {\n  inicializar();\n  // Complete com a estratégia escolhida durante o dojo\n  return 0;\n}"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
       "title": "Check-out (fechamento rápido)",
@@ -347,12 +474,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int linhas = rand() % 4 + 3;\n  int colunas = rand() % 4 + 3;\n\n  printf(\"Entrada (linhas colunas):\\n%d %d\\n\", linhas, colunas);\n  printf(\"Saida esperada (tabela de multiplicacao):\\n\");\n  for (int i = 1; i <= linhas; ++i) {\n    for (int j = 1; j <= colunas; ++j) {\n      printf(\"%3d \", i * j);\n    }\n    printf(\"\\n\");\n  }\n\n  return 0;\n}"
         }
       ]
     }

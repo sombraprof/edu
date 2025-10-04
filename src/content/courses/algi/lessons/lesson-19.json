@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-19",
-  "title": "Comparação entre for e while",
+  "title": "Aula 19 - Comparação entre for e while",
   "summary": "Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados.",
   "objective": "Decidir com segurança entre for e while e justificar a refatoração escolhida para cada problema.",
   "description": "A aula conduz a análise de problemas que podem ser resolvidos com for ou while, destacando critérios de escolha, refatoração cruzada e registro de evidências de teste.",
@@ -26,33 +26,28 @@
     "Dominar operadores relacionais e aritméticos."
   ],
   "tags": ["loops", "comparacao", "boas-praticas"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Artigo comparativo: for vs while (GeeksforGeeks)",
-      "type": "article",
-      "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop/"
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
     },
     {
-      "label": "Planilha de refatoração",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIComparativoLoops"
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
     },
     {
-      "label": "Repositório de exemplos equivalentes",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-loops-comparativos"
-    },
-    {
-      "label": "Vídeo: Debate CS50 sobre loops",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=3WrJj90OBZU"
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -60,20 +55,65 @@
     "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019."
   ],
   "assessment": {
-    "type": "exit-ticket",
-    "description": "Mini-relato escrito justificando a escolha de laço em um caso de uso enviado ao AVA."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Comparação entre for e while\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Comparação entre for e while\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "PONTEIROS EM C: SE NÃO APRENDER COM ESSE VÍDEO, ESQUECE!",
+          "src": "https://www.youtube.com/embed/1Hgl4TU8CB0"
+        },
+        {
+          "title": "Structs and Pointers to Structs in C -- Engineer Man",
+          "src": "https://www.youtube.com/embed/1fi2CPGcdA8"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "Warm-up (início da aula)",
+      "title": "Warm-up (pré-aula)",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+        },
         {
           "type": "list",
           "items": [
-            "Escreva em 3 minutos: o que você lembra da aula passada?",
-            "Compartilhe com a dupla."
+            {
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+            },
+            {
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+            }
           ]
         }
       ]
@@ -85,18 +125,32 @@
         {
           "icon": "target",
           "title": "Critérios de escolha",
-          "content": "Investigar quando um laço controlado por contador é mais claro do que um laço por sentinela."
+          "content": "Investigar quando contador, condição ou execução garantida se alinham melhor às situações mapeadas desde a Aula 17."
         },
         {
           "icon": "code",
           "title": "Refatoração guiada",
-          "content": "Converter um exemplo base escrito com for para while e o inverso, preservando invariantes."
+          "content": "Converter exemplo base entre for e while explicitando invariantes herdadas da Aula 17."
         },
         {
           "icon": "users",
           "title": "Debate rápido",
           "content": "Compartilhar evidências de testes e riscos percebidos em cada estrutura."
         }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Comparação entre for e while",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Comparação entre for e while. Contexto da aula: Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados. Objetivo central: Decidir com segurança entre for e while e justificar a refatoração escolhida para cada problema. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "boas-praticas", "comparacao", "loops"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem distinguir cenários ideais para laços controlados por contador e por condição.",
+        "Solicite exemplos adicionais relacionados a loops, comparacao para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a refatorar algoritmos simples convertendo entre for e while sem alterar resultados."
       ]
     },
     {
@@ -242,13 +296,20 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
-            "Resolver 2 exercícios com laços (um com for e outro com while/do-while).",
-            "Anexar comentários sobre complexidade percebida."
+            {
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
+            },
+            {
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
+            }
           ]
         }
       ]
@@ -295,6 +356,67 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Estudo de caso — Fila de atendimento acadêmico",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O setor de atendimento precisa estimar o tempo total de espera para uma fila que recebe estudantes ao longo do dia."
+        },
+        {
+          "type": "paragraph",
+          "text": "Implemente uma versão com for percorrendo uma lista fixa de chegadas e outra com while que encerra quando o relógio atinge o horário limite."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Meça qual estrutura facilitou o cálculo do tempo médio de espera."
+            },
+            {
+              "text": "Registre na planilha colaborativa evidências de testes e a justificativa da escolha final."
+            },
+            {
+              "text": "Inclua no relatório TED um trecho comparando clareza e riscos percebidos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Gestão de filas",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Simule uma fila de atendimento alternando entre for e while para reforçar critérios de escolha."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Setup (5 min): alinhar invariantes herdadas da Aula 17 (condição de parada e sentinela)."
+            },
+            {
+              "text": "Piloto (7 min): implementar com while consumindo clientes até fila vazia."
+            },
+            {
+              "text": "Co-piloto (7 min): refatorar para for com contador conhecido (capacidade máxima)."
+            },
+            {
+              "text": "Debrief (5 min): registrar no quadro comparativo quais métricas mudaram."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "typedef struct {\n  int chegadaMin;\n  int tempoAtendimento;\n} Cliente;\n\nint processar_fila_while(Cliente *fila, int maxTempo) {\n  int tempoAtual = 0;\n  int atendidos = 0;\n  int i = 0;\n  while (fila[i].chegadaMin >= 0 && tempoAtual <= maxTempo) {\n    if (tempoAtual < fila[i].chegadaMin) tempoAtual = fila[i].chegadaMin;\n    tempoAtual += fila[i].tempoAtendimento;\n    atendidos++;\n    i++;\n  }\n  return atendidos;\n}\n\nint processar_fila_for(Cliente *fila, int quantidade) {\n  int tempoAtual = 0;\n  for (int i = 0; i < quantidade; i++) {\n    if (tempoAtual < fila[i].chegadaMin) tempoAtual = fila[i].chegadaMin;\n    tempoAtual += fila[i].tempoAtendimento;\n  }\n  return quantidade;\n}\n// Use este template para comparar critérios de parada e clareza."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
       "title": "Check-out (fechamento rápido)",
@@ -308,12 +430,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint somaComFor(int limite) {\n  int acumulador = 0;\n  for (int i = 0; i <= limite; ++i) {\n    acumulador += i;\n  }\n  return acumulador;\n}\n\nint somaComWhile(int limite) {\n  int acumulador = 0;\n  int i = 0;\n  while (i <= limite) {\n    acumulador += i;\n    ++i;\n  }\n  return acumulador;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int limite = rand() % 41 + 10;\n\n  printf(\"Entrada (limite):\\n%d\\n\", limite);\n  printf(\"Saidas esperadas:\\n- soma_com_for = %d\\n- soma_com_while = %d\\n\", somaComFor(limite), somaComWhile(limite));\n\n  return 0;\n}"
         }
       ]
     }

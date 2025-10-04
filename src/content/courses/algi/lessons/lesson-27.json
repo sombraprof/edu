@@ -25,50 +25,18 @@
     "Familiaridade com linha de comando para compilação."
   ],
   "tags": ["modularizacao", "headers", "makefile"],
-  "duration": 125,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Canvas de design modular",
-      "type": "worksheet",
-      "file": "courses/algi/modular-design-canvas.md",
-      "url": "https://static.md3.education/courses/algi/modular-design-canvas.md"
-    },
-    {
-      "label": "Rubrica de modularização",
-      "type": "rubric",
-      "file": "courses/algi/modularizacao-rubrica.md",
-      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
-    },
-    {
-      "label": "Playlist: Modularização em projetos C",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PL85ITvJ7FLoiLzI0ul9nrSfoU4l-Ve4dP"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Boas práticas de modularização (Moodle)",
+      "type": "guide",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/modularizacao-boas-praticas.md"
     }
   ],
   "bibliography": [
@@ -77,8 +45,8 @@
     "ROBILLARD, M. D. What Makes API Documentation Good?. IEEE Software, 2018."
   ],
   "assessment": {
-    "type": "project",
-    "description": "Projeto em squads: construir mini-sistema de triagem modular com build automatizado e relatório de integração."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -88,19 +56,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Programas Modulares com Múltiplas Funções. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 27."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -129,14 +94,65 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (2h05)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(15 min) Inspiração: padrões de modularização em projetos reais.",
-        "(20 min) Preenchimento do canvas modular.",
-        "(30 min) Mão na massa: criação de headers e implementação inicial.",
-        "(30 min) Integração incremental com compilação modular.",
-        "(15 min) Configuração de testes automáticos rodando por módulo.",
-        "(15 min) Debrief coletivo com rubrica e próximos passos."
+        "(12 min) Inspiração: padrões de modularização em projetos reais.",
+        "(16 min) Preenchimento do canvas modular.",
+        "(24 min) Mão na massa: criação de headers e implementação inicial.",
+        "(24 min) Integração incremental com compilação modular.",
+        "(12 min) Configuração de testes automáticos rodando por módulo.",
+        "(12 min) Debrief coletivo com rubrica e próximos passos."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Programas Modulares com Múltiplas Funções\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Programas Modulares com Múltiplas Funções\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "you will never ask about pointers again after watching this video",
+          "src": "https://www.youtube.com/embed/2ybLD6_2gKM"
+        },
+        {
+          "title": "Aula 2 - Estruturas de Decisão em C",
+          "src": "https://www.youtube.com/embed/3QbDOBb6BFk"
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Programas Modulares com Múltiplas Funções",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 27: Programas Modulares com Múltiplas Funções. Contexto da aula: Integra funções em arquitetura modular com arquivos separados, headers e fluxo de compilação incremental. Objetivo central: Projetar um mini-sistema em C dividindo responsabilidades entre múltiplas funções e arquivos com headers dedicados. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "headers", "makefile", "modularizacao"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem planejar módulos e dependências utilizando canvas de design.",
+        "Solicite exemplos adicionais relacionados a modularizacao, headers para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a criar e incluir arquivos header com protótipos organizados."
       ]
     },
     {
@@ -212,6 +228,12 @@
       ]
     },
     {
+      "type": "code",
+      "language": "c",
+      "title": "Asserts por módulo",
+      "code": "#include <assert.h>\n#include \"dominio.h\"\n#include \"relatorios.h\"\n\nstatic void testar_dominio(void) {\n  Paciente paciente = criar_paciente(\"Ana\", 32, 85);\n  assert(paciente.prioridade == PRIORIDADE_ALTA);\n}\n\nstatic void testar_relatorios(void) {\n  Relatorio rel = gerar_relatorio_resumo();\n  assert(rel.total_processado > 0);\n}\n\nvoid rodar_testes_modulares(void) {\n  testar_dominio();\n  testar_relatorios();\n}\n"
+    },
+    {
       "type": "checklist",
       "title": "Pronto para integrar",
       "items": [
@@ -227,43 +249,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 27' para anexar o artefato solicitado."
+          "text": "Estruture o mini-sistema em múltiplos arquivos realizando refatoração incremental e descrevendo a responsabilidade de cada função nos comentários e no relatório de squad."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Submeta repositório ZIP com estrutura modular (src, include, tests) e Makefile gerado em sala."
+              "text": "Inclua na entrega um arquivo de testes com asserts agrupados por módulo e explique como executar cada bloco."
             },
             {
-              "text": "Inclua quadro de responsabilidades do squad e checklist de integração contínua."
+              "text": "Atualize o relatório de fluxos destacando integrações realizadas, responsáveis e próximos incrementos planejados."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
@@ -371,12 +368,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ndouble calcularIndiceOcupacao(int pacientes, int leitos) {\n  return (double)pacientes / leitos;\n}\n\nint emitirAlerta(double indice) {\n  if (indice >= 0.9) return 2;\n  if (indice >= 0.75) return 1;\n  return 0;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int leitos = rand() % 21 + 30;\n  int pacientes = rand() % (leitos + 1);\n\n  double indice = calcularIndiceOcupacao(pacientes, leitos);\n  int alerta = emitirAlerta(indice);\n\n  printf(\"Entrada (pacientes leitos):\\n%d %d\\n\", pacientes, leitos);\n  printf(\"Saidas esperadas:\\n- indice_ocupacao = %.2f\\n- nivel_alerta = %d\\n\", indice, alerta);\n\n  return 0;\n}"
         }
       ]
     }

@@ -25,50 +25,18 @@
     "Trazer compilador configurado com flags -Wall -Wextra."
   ],
   "tags": ["funcoes", "modularizacao", "c-basico"],
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Rubrica de modularização",
-      "type": "rubric",
-      "file": "courses/algi/modularizacao-rubrica.md",
-      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
-    },
-    {
-      "label": "Suíte de testes base para funções",
-      "type": "code",
-      "file": "courses/algi/funcoes-unit-tests.c",
-      "url": "https://static.md3.education/courses/algi/funcoes-unit-tests.c"
-    },
-    {
-      "label": "Playlist: Funções em C (Programação Descomplicada)",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PL8iN9FQ7_jt6t-6eJX0sUqIxon1H2mS2I"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Boas práticas de modularização (Moodle)",
+      "type": "guide",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/modularizacao-boas-praticas.md"
     }
   ],
   "bibliography": [
@@ -77,8 +45,8 @@
     "KERNIGHAN, B.; RITCHIE, D. A Linguagem de Programação C. Prentice Hall, 2020."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Miniatividade individual: refatorar um algoritmo sequencial em funções com protótipo documentado."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -88,19 +56,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Funções e Modularização. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 25."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -129,15 +94,66 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (2h00)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Check-in: dores de manutenção em códigos monolíticos.",
-        "(20 min) Anatomia de uma função: protótipo, assinatura e escopo.",
-        "(25 min) Live coding: separando cálculos e impressões.",
-        "(30 min) Oficina em duplas: refatorar algoritmo de triagem médica.",
-        "(20 min) Revisão cruzada usando a rubrica de modularização.",
-        "(10 min) Configuração da suíte de testes base.",
+        "(8 min) Check-in: dores de manutenção em códigos monolíticos.",
+        "(17 min) Anatomia de uma função: protótipo, assinatura e escopo.",
+        "(21 min) Live coding: separando cálculos e impressões.",
+        "(25 min) Oficina em duplas: refatorar algoritmo de triagem médica.",
+        "(16 min) Revisão cruzada usando a rubrica de modularização.",
+        "(8 min) Configuração da suíte de testes base.",
         "(5 min) TED com compromissos para a próxima aula."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Introdução a Funções e Modularização\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Introdução a Funções e Modularização\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "C Language - Starting from Absolute Zero - Free (2022)",
+          "src": "https://www.youtube.com/embed/2w8GYzBjNj8"
+        },
+        {
+          "title": "Turma do Cristãozinho MIMO - A sentinela",
+          "src": "https://www.youtube.com/embed/2wA0ErtmqxQ"
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Introdução a Funções e Modularização",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 25: Introdução a Funções e Modularização. Contexto da aula: Motiva a decomposição de programas em funções, introduzindo protótipos, escopo e primeiros padrões de modularização. Objetivo central: Compreender por que dividir o código em funções torna programas mais legíveis, testáveis e sustentáveis. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "c-basico", "funcoes", "modularizacao"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem identificar sinais de que um algoritmo deve ser quebrado em funções.",
+        "Solicite exemplos adicionais relacionados a funcoes, modularizacao para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a escrever protótipos simples com parâmetros e retorno."
       ]
     },
     {
@@ -205,6 +221,12 @@
       "code": "double calcular_media(double soma, int quantidade) {\n  if (quantidade <= 0) {\n    return 0.0;\n  }\n  return soma / quantidade;\n}\n\nint main(void) {\n  double media = calcular_media(42.0, 6);\n  printf(\"Media: %.2f\\n\", media);\n  return 0;\n}\n"
     },
     {
+      "type": "code",
+      "language": "c",
+      "title": "Testando imediatamente com assert.h",
+      "code": "#include <assert.h>\n\ndouble calcular_media(double soma, int quantidade); // protótipo conhecido do módulo\n\nvoid testar_calcular_media(void) {\n  assert(calcular_media(10.0, 2) == 5.0);\n  assert(calcular_media(0.0, 5) == 0.0);\n  assert(calcular_media(10.0, 0) == 0.0);\n}\n\nint main(void) {\n  testar_calcular_media();\n  // implementação segue com o restante do programa\n  return 0;\n}\n"
+    },
+    {
       "type": "checklist",
       "title": "Antes de entregar",
       "items": [
@@ -220,43 +242,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 25' para anexar o artefato solicitado."
+          "text": "Refatore incrementalmente o exercício da triagem dividindo responsabilidades em funções e registrando os testes com `assert` após cada alteração."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente aula25_funcoes.c extraindo ao menos três funções puras do exercício trabalhado."
+              "text": "Atualize comentários de propósito nas funções criadas indicando responsabilidade e autor/a do incremento."
             },
             {
-              "text": "Anexe planilha com parâmetros de teste e resultados obtidos por função."
+              "text": "Anexe no Moodle o relatório de fluxos da squad destacando os commits e asserts executados."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
@@ -383,12 +380,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ndouble calcularMedia(double valores[], int tamanho) {\n  double soma = 0.0;\n  for (int i = 0; i < tamanho; ++i) {\n    soma += valores[i];\n  }\n  return soma / tamanho;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int quantidade = 5;\n  double notas[5];\n  for (int i = 0; i < quantidade; ++i) {\n    notas[i] = (double)(rand() % 401 + 300) / 100.0;\n  }\n\n  printf(\"Notas geradas:\\n\");\n  for (int i = 0; i < quantidade; ++i) {\n    printf(\"%.2f \", notas[i]);\n  }\n  printf(\"\\nSaida esperada (media): %.2f\\n\", calcularMedia(notas, quantidade));\n\n  return 0;\n}"
         }
       ]
     }

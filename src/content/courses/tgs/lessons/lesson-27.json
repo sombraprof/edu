@@ -4,395 +4,153 @@
   "objective": "Consolidar aprendizados sobre ERP destacando fatores críticos de sucesso, indicadores e mecanismos de melhoria contínua.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Liste fatores críticos de sucesso que já apareceram no estudo de caso da turma e avalie seu status atual (verde, amarelo, vermelho)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Revise relatórios de consultorias (Gartner, Panorama Consulting) sobre fatores críticos."
+            },
+            {
+              "text": "Traga exemplos de sucesso e fracasso vivenciados ou pesquisados."
+            },
+            {
+              "text": "Atualize a matriz de stakeholders do seu squad."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "check-circle",
-          "title": "CONTEÚDO",
-          "content": "Fatores críticos de sucesso (FCS), indicadores de maturidade, governança pós-implantação e roadmap evolutivo."
+          "icon": "target",
+          "title": "Fatores críticos",
+          "content": "Identificar pilares para projetos ERP bem-sucedidos."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Sintetizar aprendizados das aulas 19-26.\n- Classificar FCS por dimensão (processos, pessoas, tecnologia, dados).\n- Construir plano de ação incremental."
+          "icon": "graduation-cap",
+          "title": "Pessoas",
+          "content": "Discutir patrocínio, comunicação e capacitação."
         },
         {
-          "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "World café, construção colaborativa de tabela de FCS e priorização via matriz impacto × esforço."
+          "icon": "gears",
+          "title": "Processos",
+          "content": "Alinhar governança, gestão de mudança e gestão de riscos."
+        },
+        {
+          "icon": "target",
+          "title": "Resultados",
+          "content": "Definir indicadores de sucesso e mecanismos de monitoramento."
         }
       ]
     },
     {
-      "type": "callout",
-      "variant": "info",
-      "title": "Squads e papéis na oficina",
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Check-in e priorização dos fatores críticos pela turma.",
+        "(20 min) Exposição: pesquisas de mercado e fatores recorrentes.",
+        "(15 min) Debate sobre patrocínio executivo e engajamento dos key users.",
+        "(20 min) Oficina: avaliar maturidade de cada fator no case.",
+        "(15 min) Discussão sobre gestão de mudança e comunicação contínua.",
+        "(15 min) Construção de painel de indicadores de sucesso.",
+        "(15 min) Síntese com compromissos dos squads."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
       "content": [
         {
-          "type": "unorderedList",
-          "items": [
-            { "text": "Líder de integração: mantém visão do backlog e prioriza riscos." },
-            {
-              "text": "Dono de processo: garante aderência às rotinas de negócio e valida indicadores."
-            },
-            {
-              "text": "Tech lead: avalia viabilidade técnica, dependências de middleware e testes."
-            },
-            {
-              "text": "Analista de dados: verifica governança de mestres, qualidade e plano de monitoramento."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "pipelineCanvas",
-      "title": "Pipeline de integração pós-go-live",
-      "summary": "Etapas para consolidar entregas de ERP em squads multidisciplinares.",
-      "stages": [
-        {
-          "id": "discovery",
-          "title": "Discovery + Diagnóstico",
-          "summary": "Revisitar dores, priorizar FCS e definir backlog imediato.",
-          "owners": ["Líder de integração", "Dono de processo"],
-          "durationHours": 6,
-          "activities": [
-            {
-              "id": "workshop",
-              "label": "Workshop de lições aprendidas",
-              "description": "Consolidar insights da implantação."
-            },
-            {
-              "id": "mapa-risco",
-              "label": "Mapa de riscos",
-              "description": "Classificar riscos por probabilidade × impacto."
-            }
-          ],
-          "deliverables": [{ "id": "canvas-fcs", "label": "Canvas de fatores críticos" }],
-          "risks": [
-            {
-              "id": "agenda",
-              "label": "Agenda dos sponsors",
-              "severity": "medium",
-              "mitigation": "Planejar sessões curtas."
-            }
-          ],
-          "checkpoints": ["Backlog priorizado"]
+          "type": "paragraph",
+          "text": "Estudos apontam que patrocínio executivo, participação ativa dos usuários-chave, clareza de escopo e gestão de mudanças são determinantes para o sucesso de projetos ERP."
         },
         {
-          "id": "blueprint",
-          "title": "Blueprint de melhoria",
-          "summary": "Detalhar integrações, dados e KPIs alvo.",
-          "owners": ["Tech lead", "Analista de dados"],
-          "durationHours": 10,
-          "activities": [
-            {
-              "id": "mapeamento",
-              "label": "Mapear integrações",
-              "description": "Identificar pontos de acoplamento e fallback."
-            },
-            {
-              "id": "design-dados",
-              "label": "Rever mestres",
-              "description": "Revisar políticas de dados críticos."
-            }
-          ],
-          "deliverables": [
-            { "id": "modelo", "label": "Modelo de dados revisado" },
-            { "id": "sla", "label": "SLA negociado" }
-          ],
-          "risks": [
-            {
-              "id": "tecnico",
-              "label": "Limitação do legado",
-              "severity": "high",
-              "mitigation": "Plano de feature toggle."
-            }
-          ],
-          "checkpoints": ["Blueprint aprovado"]
-        },
-        {
-          "id": "sprint",
-          "title": "Sprints de estabilização",
-          "summary": "Executar melhorias incrementais e medir resultados.",
-          "owners": ["Squad"],
-          "durationHours": 40,
-          "activities": [
-            {
-              "id": "devops",
-              "label": "Pipeline DevOps",
-              "description": "Automatizar deploy e testes."
-            },
-            {
-              "id": "treinamento",
-              "label": "Treinamento contínuo",
-              "description": "Preparar superusuários para novas rotinas."
-            }
-          ],
-          "deliverables": [{ "id": "release", "label": "Release validado" }],
-          "risks": [
-            {
-              "id": "adoção",
-              "label": "Baixa adesão",
-              "severity": "medium",
-              "mitigation": "Campanhas e coaching."
-            }
-          ],
-          "checkpoints": ["KPIs revisados"]
-        },
-        {
-          "id": "hypercare",
-          "title": "Hypercare + Sustentação",
-          "summary": "Monitorar indicadores e alimentar ciclo de melhoria.",
-          "owners": ["Suporte", "Comitê executivo"],
-          "durationHours": 12,
-          "activities": [
-            {
-              "id": "monitoracao",
-              "label": "Monitorar KPIs",
-              "description": "Rodar rotinas de saúde e alertas."
-            },
-            {
-              "id": "retro",
-              "label": "Retrospectiva",
-              "description": "Atualizar backlog preventivo."
-            }
-          ],
-          "deliverables": [{ "id": "relatorio", "label": "Relatório de saúde" }],
-          "risks": [
-            {
-              "id": "sustentacao",
-              "label": "Perda de conhecimento",
-              "severity": "low",
-              "mitigation": "Documentação viva."
-            }
-          ],
-          "checkpoints": ["Plano de evolução"]
-        }
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "Fatores críticos por dimensão",
-      "headers": ["Dimensão", "Fator", "Indicadores de sucesso", "Riscos se negligenciado"],
-      "rows": [
-        [
-          "Processos",
-          "Mapeamento e padronização",
-          "Tempo de ciclo, % automação",
-          "Retrabalho, desvios fiscais"
-        ],
-        [
-          "Pessoas",
-          "Patrocínio executivo e change management",
-          "Participação em treinamentos, NPS interno",
-          "Resistência, baixa adoção"
-        ],
-        [
-          "Tecnologia",
-          "Arquitetura integrada e monitorada",
-          "Disponibilidade, incidentes críticos",
-          "Paradas não planejadas"
-        ],
-        [
-          "Dados",
-          "Governança de dados mestres",
-          "Score de qualidade, conformidade LGPD",
-          "Dados inconsistentes"
-        ],
-        ["Valor", "KPIs de negócio acompanhados", "Margem, OTIF, churn", "Perda de credibilidade"]
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Checklist de integração contínua",
-      "cards": [
-        {
-          "title": "Dados mestres",
-          "content": "Executar reconciliação semanal entre cadastros de clientes, produtos e fornecedores."
-        },
-        {
-          "title": "Testes fiscais",
-          "content": "Validar notas em ambiente de homologação a cada release e revisar regras de tributação."
-        },
-        {
-          "title": "Observabilidade",
-          "content": "Monitorar filas, erros de integração e alertas de performance com dashboard único."
-        },
-        {
-          "title": "Change management",
-          "content": "Atualizar playbooks, realizar sessões de coaching e coletar feedback dos squads."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Indicadores para o dashboard de governança",
-      "cards": [
-        {
-          "title": "People",
-          "content": "Adesão a treinamentos, engajamento no AVA e taxa de uso de funcionalidades."
-        },
-        {
-          "title": "Process",
-          "content": "Tempo médio de processos críticos e % de tarefas automatizadas."
-        },
-        { "title": "Data", "content": "Score de qualidade de dados, incidentes de LGPD." },
-        {
-          "title": "Tech",
-          "content": "Disponibilidade do ERP, tempo médio de resposta a incidentes."
-        },
-        { "title": "Value", "content": "KPIs de negócio (margem, OTIF, NPS) vinculados ao ERP." }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Ciclo de maturidade ERP",
-      "summary": "Como ações contínuas sustentam benefícios do ERP.",
-      "factors": [
-        {
-          "id": "estrategia",
-          "name": "Estratégia",
-          "summary": "Visão de longo prazo alinhada ao negócio.",
-          "kind": "driver",
-          "indicators": ["roadmap_atualizado"]
-        },
-        {
-          "id": "capacitacao",
-          "name": "Capacitação",
-          "summary": "Programas de treinamento e comunidade de prática.",
-          "kind": "flow",
-          "indicators": ["horas_treinamento"]
-        },
-        {
-          "id": "operacao",
-          "name": "Operação",
-          "summary": "Execução diária e suporte.",
-          "kind": "flow",
-          "indicators": ["tickets_resolvidos", "sla_suporte"]
-        },
-        {
-          "id": "dados",
-          "name": "Dados",
-          "summary": "Qualidade e governança contínua.",
-          "kind": "flow",
-          "indicators": ["score_dados"]
-        },
-        {
-          "id": "valor",
-          "name": "Valor de negócio",
-          "summary": "Resultados tangíveis.",
-          "kind": "outcome",
-          "indicators": ["roi_erp", "margem"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "melhoria",
-          "name": "Melhoria contínua",
-          "polarity": "reinforcing",
-          "summary": "Capacitação e monitoramento sustentam geração de valor.",
-          "steps": [
-            {
-              "id": "mat-1",
-              "from": "estrategia",
-              "to": "capacitacao",
-              "effect": "reinforces",
-              "description": "Roadmap define trilhas de capacitação."
-            },
-            {
-              "id": "mat-2",
-              "from": "capacitacao",
-              "to": "operacao",
-              "effect": "reinforces",
-              "description": "Usuários treinados executam processos com precisão."
-            },
-            {
-              "id": "mat-3",
-              "from": "operacao",
-              "to": "dados",
-              "effect": "reinforces",
-              "description": "Execução correta gera dados confiáveis."
-            },
-            {
-              "id": "mat-4",
-              "from": "dados",
-              "to": "valor",
-              "effect": "reinforces",
-              "description": "Dados de qualidade suportam decisões e medição de benefícios."
-            },
-            {
-              "id": "mat-5",
-              "from": "valor",
-              "to": "estrategia",
-              "effect": "reinforces",
-              "description": "Resultados alimentam revisão de metas e investimentos."
-            }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "id": "insight-maturidade-1",
-          "label": "Comitê de governança",
-          "description": "Reuniões mensais mantêm alinhamento entre TI e negócio."
-        },
-        {
-          "id": "insight-maturidade-2",
-          "label": "Academia ERP",
-          "description": "Plano contínuo de capacitação evita perda de conhecimento."
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "title": "Roadmap de evolução (12 meses)",
-      "steps": [
-        { "title": "Mês 1-2", "content": "Consolidar KPIs e instalar dashboard de governança." },
-        {
-          "title": "Mês 3-5",
-          "content": "Executar sprints de melhoria de dados e automações prioritárias."
-        },
-        {
-          "title": "Mês 6-8",
-          "content": "Expandir integrações digitais e revisar processos críticos."
-        },
-        {
-          "title": "Mês 9-10",
-          "content": "Rodar avaliação de maturidade e ajustar trilhas de capacitação."
-        },
-        {
-          "title": "Mês 11-12",
-          "content": "Planejar nova onda de projetos (analytics avançado, IA aplicada)."
+          "type": "paragraph",
+          "text": "Mecanismos de acompanhamento contínuo, indicadores alinhados à estratégia e ciclos de feedback ajudam a antecipar desvios e garantir valor percebido."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Inspirações",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/case-sap-maturidade",
-          "title": "Case SAP: governança contínua",
-          "caption": "Empresa de varejo apresenta roadmap evolutivo."
+          "url": "https://example.edu/tgs/videos/fatores-criticos-erp",
+          "title": "Fatores críticos em ERP",
+          "caption": "Principais fatores de sucesso segundo estudos recentes."
         },
         {
-          "url": "https://example.edu/tgs/videos/case-totvs-melhoria",
-          "title": "Case TOTVS: programa de melhoria",
-          "caption": "Companhia de serviços mostra academia ERP e indicadores."
+          "url": "https://example.edu/tgs/videos/change-management-erp",
+          "title": "Gestão de mudança",
+          "caption": "Como apoiar pessoas durante a implantação de ERP."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Radar de maturidade",
+              "text": "Avalie cada fator de sucesso em escala 1-5."
+            },
+            {
+              "title": "Planos",
+              "text": "Defina ações imediatas para fatores com baixa maturidade."
+            },
+            {
+              "title": "Indicadores",
+              "text": "Escolha métricas para acompanhar evolução dos fatores."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para acompanhar fatores críticos",
+      "description": "Cole resultados da avaliação do seu squad.",
+      "prompt": "Você é consultor PMO. Analise o radar de fatores críticos abaixo e proponha ações priorizadas, indicadores e cadência de acompanhamento para elevar a maturidade do projeto ERP. Radar: [descreva o status atual].",
+      "tips": [
+        "Informe prazos de go-live e recursos disponíveis.",
+        "Peça sugestões de rituais de governança.",
+        "Solicite planos de engajamento para usuários-chave."
+      ],
+      "tags": ["pmo", "fatores-criticos"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 27 — Plano 30-60-90",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Crie um plano 30-60-90 dias com ações, responsáveis e indicadores para elevar a maturidade ERP do estudo de caso escolhido (SAP ou TOTVS). Entregue no AVA até às 23h de três dias após a aula."
+          "text": "Documente o radar de fatores críticos do seu squad e elabore plano de ação com responsáveis, prazos e métricas para cada ponto vermelho ou amarelo."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Identificou fatores críticos relevantes ao projeto.",
+        "Avaliou maturidade atual com evidências.",
+        "Definiu ações concretas e indicadores de acompanhamento."
       ]
     }
   ],

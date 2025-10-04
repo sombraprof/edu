@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-18",
-  "title": "Aula 18: Estrutura de Repetição for",
+  "title": "Aula 18 - Estrutura de Repetição for",
   "summary": "Explora o laço for para repetir instruções com contadores definidos, destacando inicialização, condição e atualização.",
   "objective": "Planejar e implementar laços for para percorrer intervalos, vetores e produzir tabulações controladas.",
   "objectives": [
@@ -22,38 +22,28 @@
   ],
   "prerequisites": ["Conhecer laços while e operadores aritméticos."],
   "tags": ["loops", "for", "repeticao"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Artigo: Diferenças entre os laços for e while em C",
-      "type": "article",
-      "url": "https://www.geeksforgeeks.org/difference-between-for-and-while-loop-in-c/"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Planilha de contagem incremental",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIPatternsFor"
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
     },
     {
-      "label": "Vídeo: For loops em C (freeCodeCamp)",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=1Lfd8F7U3eE"
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
     },
     {
-      "label": "Projeto OnlineGDB – Tabuada parametrizada",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1ForTabuada"
-    },
-    {
-      "label": "Capítulo 4 – Estruturas de repetição (Forbellone & Eberspächer)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Planilha de controle de estoque (Sebrae SC)",
-      "type": "spreadsheet",
-      "url": "https://www.sebrae-sc.com.br/arquivos_site/download/planilha-controle-estoque.xlsx"
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -64,8 +54,8 @@
     "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 6, Estruturas de repetição e testes."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Checklist de exercícios práticos com tabuada, somatórios e percorrimento de vetores contextualizados na auditoria de produção da Farmácia Escola.",
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior.",
     "rubric": "Pensamento computacional (40%): estrutura os laços conforme o método de decomposição apresentado por Forbellone & Eberspächer (Cap. 4). Organização algorítmica (35%): documenta inicialização, condição e atualização de acordo com Manzano & Oliveira (Cap. 6) e Backes (Cap. 5). Raciocínio matemático (25%): valida limites numéricos e registra evidências na planilha de auditoria conforme Santos (Cap. 7) e Ascencio & Campos (Cap. 6)."
   },
   "content": [
@@ -76,19 +66,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Estrutura de Repetição for. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 18."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -101,7 +88,7 @@
         {
           "icon": "monitor",
           "title": "Comparativo inicial",
-          "content": "Revisar diferenças entre while e for com exemplos lado a lado (10 min)."
+          "content": "Revisar diferenças entre while (Aula 17) e for com exemplos lado a lado e critérios de escolha registrados (10 min)."
         },
         {
           "icon": "tasks",
@@ -121,7 +108,7 @@
         {
           "icon": "users",
           "title": "Debrief",
-          "content": "Comparar implementação em for versus while e registrar aprendizados (15 min)."
+          "content": "Comparar implementação em for versus while, registrando argumentos e métricas para o TED (15 min)."
         },
         {
           "icon": "tasks",
@@ -132,13 +119,65 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Recap do while e introdução ao for.",
-        "(20 min) Desmembrar sintaxe e exemplos no quadro.",
-        "(35 min) Laboratório: geração de tabuada e somatórios.",
-        "(20 min) Debug coletivo: evitar loops infinitos.",
-        "(30 min) Exercícios avaliativos com feedback em tempo real."
+        "(9 min) Recap do while e introdução ao for.",
+        "(17 min) Desmembrar sintaxe e exemplos no quadro.",
+        "(31 min) Laboratório: geração de tabuada e somatórios.",
+        "(17 min) Debug coletivo: evitar loops infinitos.",
+        "(26 min) Exercícios avaliativos com feedback em tempo real.",
+        "(18 min) Coding dojo: monitoramento de sensores com for vs while (ênfase nas justificativas da Aula 17)."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Estrutura de Repetição for\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Estrutura de Repetição for\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "C sharp - [ Biblioteca Linq ] - SelectMany no lugar de loops aninhados",
+          "src": "https://www.youtube.com/embed/17WLJ6QTFd4"
+        },
+        {
+          "title": "Learn C++ With Me #9 - Arrays",
+          "src": "https://www.youtube.com/embed/1FVBeLD_FdE"
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Estrutura de Repetição for",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 18: Estrutura de Repetição for. Contexto da aula: Explora o laço for para repetir instruções com contadores definidos, destacando inicialização, condição e atualização. Objetivo central: Planejar e implementar laços for para percorrer intervalos, vetores e produzir tabulações controladas. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "for", "loops", "repeticao"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem mapear os três componentes do for (inicialização, condição, atualização).",
+        "Solicite exemplos adicionais relacionados a loops, for para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a comparar equivalências entre for e while em exemplos reais."
       ]
     },
     {
@@ -362,65 +401,58 @@
       "type": "checklist",
       "title": "Próximos passos",
       "items": [
-        "Implementar exercícios 1, 2 e 3 da worksheet usando for.",
-        "Analisar equivalência com while e registrar diferenças no caderno.",
-        "Preparar dúvidas para a aula 19 (for vs while)."
+        "Implementar exercícios 1, 2 e 3 da worksheet usando for e registrar equivalência com while.",
+        "Comparar clareza entre for e while na planilha colaborativa (link nos recursos).",
+        "Preparar uma síntese escrita sobre quando manter for e quando preferir while para a aula 19."
       ]
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "TED 18 – Tabuada parametrizada",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Submeta até 23h59: código em C gerando tabuadas configuráveis para o caso da Farmácia Escola, captura do console e planilha com cenários testados seguindo o checklist de Ascencio & Campos (Cap. 6)."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Arquivo aula18_tabuada.c organizado conforme as recomendações de Forbellone & Eberspächer (Cap. 4)."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Imagem ou PDF com saída para diferentes parâmetros, destacando incrementos inspirados em Backes (Cap. 5)."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
             },
             {
-              "text": "Planilha 'TED18_contagens.xlsx' com incrementos variados e análises alinhadas a Santos (Cap. 7) e Manzano & Oliveira (Cap. 6)."
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Explique como o algoritmo mantém rastreabilidade dos lotes auditados, relacionando cada etapa aos autores estudados."
         }
       ]
     },
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Critérios de avaliação TED 18",
+      "title": "TED pós-aula",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+        },
         {
           "type": "list",
           "items": [
             {
-              "text": "Pensamento computacional (40%): uso correto do for com inicialização, condição e atualização claros conforme Forbellone & Eberspächer (Cap. 4)."
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
             },
             {
-              "text": "Organização algorítmica (35%): suporte a diferentes incrementos e faixas sem ajustes manuais seguindo Manzano & Oliveira (Cap. 6) e Backes (Cap. 5)."
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
             },
             {
-              "text": "Raciocínio matemático (15%): registros de testes completos com evidências e validação de limites conforme Santos (Cap. 7)."
-            },
-            {
-              "text": "Comunicação técnica (10%): organização dos arquivos, comentários explicativos e síntese conectando o estudo de caso às recomendações de Ascencio & Campos (Cap. 6)."
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "A pontuação compõe a mesma rubrica registrada no campo Assessment desta aula para garantir alinhamento entre competências e entregáveis."
         }
       ]
     },
@@ -514,6 +546,64 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Sensoriamento em laboratório",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um laboratório registra leituras de temperatura a cada minuto para comparar variações entre sensores internos e externos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Utilize um laço for para percorrer um vetor de 12 posições (12 minutos) e compare o resultado com uma versão equivalente em while herdada da Aula 17."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Acompanhe máximas e mínimas e registre quando a diferença ultrapassar 2ºC."
+            },
+            {
+              "text": "Teste uma refatoração para while e anote no caderno quando a clareza do código muda."
+            },
+            {
+              "text": "Documente em qual estrutura a equipe identificou mais facilmente o ponto de parada."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Monitoramento de sensores",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Pratique a leitura de lotes de dados coletados por sensores de umidade comparando implementações com for e while."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Rodada 1 (piloto): percorra 8 leituras usando for e comente quando preferiria while."
+            },
+            {
+              "text": "Rodada 2 (co-piloto): refatore para while destacando ajustes em inicialização, condição e atualização."
+            },
+            {
+              "text": "Retrospectiva: escreva na planilha colaborativa qual estrutura comunicou melhor a intenção do loop."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n#define TOTAL 8\n\nvoid registrar_alerta(int indice, float leitura) {\n  printf(\"Alerta em %d: %.2f%%\n\", indice, leitura);\n}\n\nint main(void) {\n  float umidades[TOTAL] = {0};\n  for (int i = 0; i < TOTAL; i++) {\n    printf(\"Leitura %d: \", i + 1);\n    scanf(\"%f\", &umidades[i]);\n    if (umidades[i] < 30.0f) {\n      registrar_alerta(i + 1, umidades[i]);\n    }\n  }\n  return 0;\n}\n// Template base: gere versão equivalente com while e compare comentários."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
       "title": "Check-out (fechamento rápido)",
@@ -527,12 +617,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera n e sequência esperada 1..n\nfor n in [3,5,7]:\n    print(f\"n={n} -> \", ' '.join(str(i) for i in range(1, n+1)))",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int inicio = rand() % 6 + 1;\n  int fim = inicio + (rand() % 6 + 4);\n\n  int soma = 0;\n  for (int i = inicio; i <= fim; ++i) {\n    soma += i * i;\n  }\n\n  printf(\"Entrada (inicio fim):\\n%d %d\\n\", inicio, fim);\n  printf(\"Saida esperada (soma_dos_quadrados):\\n%d\\n\", soma);\n\n  return 0;\n}"
         }
       ]
     }

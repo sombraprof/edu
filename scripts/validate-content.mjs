@@ -68,6 +68,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'spriteSheet',
   'crcCards',
   'apiEndpoints',
+  'promptTip',
 ];
 
 const LEGACY_BLOCK_TYPES = ['dragAndDrop', 'fileTree', 'quiz'];
@@ -99,6 +100,7 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'SpriteSheetViewer',
   'CRCCards',
   'ApiEndpoints',
+  'PromptTip',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([
@@ -414,6 +416,69 @@ const blockValidators = {
       block,
       context
     );
+  },
+  promptTip(block, context) {
+    requireStringField('prompt', 'Bloco "promptTip" requer o campo "prompt" com texto.')(
+      block,
+      context
+    );
+
+    if (block.title !== undefined && typeof block.title !== 'string') {
+      pushBlockProblem(
+        context,
+        'Campo "title" do bloco "promptTip" deve ser string quando presente.'
+      );
+    }
+
+    if (block.description !== undefined && typeof block.description !== 'string') {
+      pushBlockProblem(
+        context,
+        'Campo "description" do bloco "promptTip" deve ser string quando presente.'
+      );
+    }
+
+    if (block.audience !== undefined && typeof block.audience !== 'string') {
+      pushBlockProblem(
+        context,
+        'Campo "audience" do bloco "promptTip" deve ser string quando presente.'
+      );
+    }
+
+    if (block.tags !== undefined) {
+      if (!Array.isArray(block.tags)) {
+        pushBlockProblem(
+          context,
+          'Campo "tags" do bloco "promptTip" deve ser um array de strings.'
+        );
+      } else {
+        block.tags.forEach((tag, index) => {
+          if (!isNonEmptyString(tag)) {
+            pushBlockProblem(
+              context,
+              `tags[${index}]: valores do bloco "promptTip" devem ser strings não vazias.`
+            );
+          }
+        });
+      }
+    }
+
+    if (block.tips !== undefined) {
+      if (!Array.isArray(block.tips)) {
+        pushBlockProblem(
+          context,
+          'Campo "tips" do bloco "promptTip" deve ser um array de strings.'
+        );
+      } else {
+        block.tips.forEach((tip, index) => {
+          if (!isNonEmptyString(tip)) {
+            pushBlockProblem(
+              context,
+              `tips[${index}]: valores do bloco "promptTip" devem ser strings não vazias.`
+            );
+          }
+        });
+      }
+    }
   },
 };
 

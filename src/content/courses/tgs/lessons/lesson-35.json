@@ -4,166 +4,153 @@
   "objective": "Definir métricas e ritos de monitoramento que assegurem a execução do planejamento estratégico de SI.",
   "content": [
     {
-      "type": "representations",
-      "title": "Painéis essenciais",
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reúna indicadores já utilizados na organização e metas propostas no mapa estratégico para construir o sistema de monitoramento."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Liste indicadores existentes e sua frequência de atualização."
+            },
+            {
+              "text": "Identifique lacunas de dados para medir objetivos estratégicos."
+            },
+            {
+              "text": "Traga sugestões de ritos que já funcionam na organização."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "KPIs",
+          "content": "Selecionar indicadores estratégicos e operacionais."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OKRs",
+          "content": "Transformar objetivos em OKRs trimestrais."
+        },
+        {
+          "icon": "target",
+          "title": "Monitoramento",
+          "content": "Definir ritos e dashboards de acompanhamento."
+        },
+        {
+          "icon": "gears",
+          "title": "Aprendizado",
+          "content": "Estabelecer ciclos de revisão e ajuste."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Valor entregue",
-          "content": "Indicadores de benefícios, adoção e satisfação.",
-          "language": "plaintext",
-          "code": "Indicadores de benefícios, adoção e satisfação."
-        },
-        {
-          "title": "Saúde operacional",
-          "content": "SLA, disponibilidade, backlog e incidentes.",
-          "language": "plaintext",
-          "code": "SLA, disponibilidade, backlog e incidentes."
-        },
-        {
-          "title": "Capacidade",
-          "content": "Velocidade das equipes, alocação e burn-down.",
-          "language": "plaintext",
-          "code": "Velocidade das equipes, alocação e burn-down."
-        },
-        {
-          "title": "Inovação",
-          "content": "Experimentos, pilotos em andamento e taxa de sucesso.",
-          "language": "plaintext",
-          "code": "Experimentos, pilotos em andamento e taxa de sucesso."
-        }
+        "(10 min) Check-in com dificuldades para medir impacto do PESI.",
+        "(20 min) Exposição: diferenciação entre KPI, OKR e iniciativas.",
+        "(15 min) Exercício guiado para definir key results mensuráveis.",
+        "(20 min) Oficina: montar painel de indicadores e OKRs do trimestre.",
+        "(15 min) Discussão sobre coleta de dados e responsáveis.",
+        "(15 min) Planejamento dos ritos de acompanhamento (review, retro).",
+        "(15 min) Síntese e orientações para documentação."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "OKRs exemplo",
+      "title": "Conceitos essenciais",
       "content": [
         {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Objetivo: Maximizar valor das soluções digitais | Resultado-chave: Aumentar NPS digital de 58 para 70 | Indicador: NPS | Frequência: Mensal"
-            },
-            {
-              "text": "Objetivo: Maximizar valor das soluções digitais | Resultado-chave: Elevar adoção ativa para 80% dos clientes | Indicador: % clientes ativos | Frequência: Mensal"
-            },
-            {
-              "text": "Objetivo: Garantir estabilidade crítica | Resultado-chave: Reduzir incidentes severos de 12 para 4 | Indicador: Incidentes críticos | Frequência: Semanal"
-            },
-            {
-              "text": "Objetivo: Acelerar entregas | Resultado-chave: Reduzir lead time médio de 16 para 12 dias | Indicador: Lead time | Frequência: Quinzenal"
-            },
-            {
-              "text": "Objetivo: Fortalecer inovação | Resultado-chave: Executar 8 pilotos com ROI validado | Indicador: Pilotos concluídos | Frequência: Trimestral"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Cadeia de dados para monitoramento",
-      "summary": "Fluxo de dados do registro à decisão executiva.",
-      "factors": [
-        {
-          "id": "coleta",
-          "name": "Coleta",
-          "summary": "Eventos e logs operacionais",
-          "kind": "flow",
-          "indicators": ["latencia_dados"]
+          "type": "paragraph",
+          "text": "KPIs mostram performance contínua; OKRs direcionam foco e aprendizado trimestral. Monitoramento efetivo combina indicadores leading e lagging, com responsáveis claros."
         },
         {
-          "id": "qualidade",
-          "name": "Qualidade",
-          "summary": "Tratamento, deduplicação e catalogação",
-          "kind": "constraint",
-          "indicators": ["dados_conformes"]
-        },
-        {
-          "id": "visualizacao",
-          "name": "Visualização",
-          "summary": "Dashboards e alertas",
-          "kind": "resource",
-          "indicators": ["dashboards_publicados"]
-        },
-        {
-          "id": "decisao",
-          "name": "Decisão",
-          "summary": "Comitês e OKRs",
-          "kind": "outcome",
-          "indicators": ["acoes_derivadas"]
-        }
-      ],
-      "connections": [
-        {
-          "from": "coleta",
-          "to": "qualidade",
-          "description": "Dados coletados passam por esteiras de validação."
-        },
-        {
-          "from": "qualidade",
-          "to": "visualizacao",
-          "description": "Somente dados conformes alimentam painéis oficiais."
-        },
-        {
-          "from": "visualizacao",
-          "to": "decisao",
-          "description": "Painéis atualizados geram decisões e planos de ação."
-        },
-        {
-          "from": "decisao",
-          "to": "coleta",
-          "description": "Novas decisões ajustam eventos monitorados."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Ritos de acompanhamento",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Semanal – Squads atualizam progresso dos resultados-chave."
-            },
-            {
-              "text": "Quinzenal – Review de portfólio verifica capacidade e riscos."
-            },
-            {
-              "text": "Mensal – Comitê executivo avalia desvios e aprova ajustes de roadmap."
-            },
-            {
-              "text": "Trimestral – Replanejamento de OKRs e lições aprendidas."
-            }
-          ]
+          "type": "paragraph",
+          "text": "Ritos regulares (check-ins, reviews) transformam dados em decisões e ajustes ao roadmap."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Medição em destaque",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/okr-ti-case",
-          "title": "OKRs em organização pública",
-          "caption": "Como conectar indicadores de TI a metas de governo digital."
+          "url": "https://example.edu/tgs/videos/okr-si",
+          "title": "OKRs para SI",
+          "caption": "Como conectar objetivos estratégicos a resultados mensuráveis."
         },
         {
-          "url": "https://example.edu/tgs/videos/observabilidade-produto",
-          "title": "Observabilidade orientada a produto",
-          "caption": "Uso de telemetria para decisões estratégicas."
+          "url": "https://example.edu/tgs/videos/monitoramento-pesi",
+          "title": "Monitoramento do PESI",
+          "caption": "Exemplo de dashboard e ritos de acompanhamento."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "KPIs",
+              "text": "Selecione indicadores para cada objetivo do mapa."
+            },
+            {
+              "title": "OKRs",
+              "text": "Escreva OKRs trimestrais alinhados aos objetivos."
+            },
+            {
+              "title": "Ritos",
+              "text": "Planeje calendário de monitoramento e responsáveis."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para calibrar indicadores",
+      "description": "Cole seus KPIs e OKRs propostos.",
+      "prompt": "Você é líder de performance de SI. Avalie os indicadores e OKRs abaixo e sugira ajustes em metas, periodicidade e responsáveis. Indique alertas quando resultados saírem do esperado. KPIs/OKRs: [liste suas propostas].",
+      "tips": [
+        "Inclua baseline e meta para cada indicador.",
+        "Peça recomendações de ferramentas de monitoramento.",
+        "Solicite planos de ação quando houver desvios."
+      ],
+      "tags": ["indicadores", "okr"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 35 — Painel executivo",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Desenhe um painel executivo com três indicadores críticos para acompanhar o PESI. Detalhe fonte de dados, periodicidade e responsável pela atualização."
+          "text": "Entregue o pacote de monitoramento com KPIs, OKRs trimestrais, dashboards propostos e calendário de ritos."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Selecionou indicadores relevantes e mensuráveis.",
+        "Escreveu OKRs claros com key results verificáveis.",
+        "Planejou ritos de acompanhamento e responsáveis."
       ]
     }
   ],

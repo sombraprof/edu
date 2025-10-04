@@ -10,19 +10,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Avaliação NP2. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 29."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -30,13 +27,64 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo da avaliação",
+      "title": "Plano de voo (1h40)",
       "items": [
         "Contexto: Prova presencial aplicada em 10/11/2025, abrangendo conteúdos das Unidades IV e V.",
         "Foco conceitual: Condicionais encadeadas, operadores lógicos, laços de repetição (while, for, do-while) e modularização com funções.",
         "Formato da entrega: Resolução individual, em papel, com questões discursivas e problemas práticos.",
         "Preparação recomendada: Revisar listas anteriores, mapas mentais e exercícios comentados durante as monitorias.",
         "Critérios de aprovação: Clareza do raciocínio algorítmico, correção dos resultados e aderência às boas práticas de código."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Avaliação NP2\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Avaliação NP2\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Linguagem C | Aula 26 - Array / Matriz",
+          "src": "https://www.youtube.com/embed/3TP0e-bfdfw"
+        },
+        {
+          "title": "Linguagem C | Aula 18 - Comando while",
+          "src": "https://www.youtube.com/embed/3pftIJjsk30"
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Avaliação NP2",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 29: Avaliação NP2. Contexto da aula: Avaliação escrita que sintetiza estruturas condicionais, laços de repetição e modularização com funções em problemas contextualizados. Objetivo central: Avaliar a capacidade de aplicar if/else encadeados, operadores lógicos e estruturas de repetição (while, for, do-while), bem como a modularização com funções (parâmetros, retorno e boas práticas de escopo/protótipos) em problemas práticos de pequena escala. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "avaliacao", "estruturas-de-controle"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem aplicar condicionais encadeadas em algoritmos de tomada de decisão.",
+        "Solicite exemplos adicionais relacionados a avaliacao, algoritmos para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a combinar laços de repetição com contadores e acumuladores."
       ]
     },
     {
@@ -137,19 +185,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Esta aula substitui a TED por atividades avaliativas presenciais. Utilize o tempo pós-aula para registrar percepções e organizar as evidências."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Preencha o formulário de percepção pós-avaliação disponível no Moodle até 23h59."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Arquive digitalmente a prova escaneada ou registrada conforme orientação institucional."
-            },
-            {
-              "text": "Anote dúvidas específicas para a devolutiva coletiva."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
         }
@@ -259,38 +304,8 @@
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Guia: Revisão de lógica de programação (DevMedia)",
-      "url": "https://www.devmedia.com.br/guia/logica-de-programacao/38324",
-      "type": "guide"
-    },
-    {
-      "label": "Rubrica de lógica de programação (UFSM)",
-      "url": "https://www.ufsm.br/app/uploads/sites/346/2019/06/Rubrica_Logica_de_Programacao.pdf",
-      "type": "rubric"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -298,7 +313,7 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos. Prentice Hall, 2021."
   ],
   "assessment": {
-    "type": "summative",
-    "description": "Prova escrita presencial contemplando cenários práticos das Unidades IV e V."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   }
 }

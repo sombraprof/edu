@@ -36,6 +36,6 @@ Utilize este modelo para registrar as bancas de apresentação do projeto bancá
 
 **Assinaturas:**
 
-- ******************\_****************** (Avaliador 1)
-- ******************\_****************** (Avaliador 2)
-- ******************\_****************** (Representante da equipe)
+- **\*\*\*\***\*\***\*\*\*\***\_**\*\*\*\***\*\***\*\*\*\*** (Avaliador 1)
+- **\*\*\*\***\*\***\*\*\*\***\_**\*\*\*\***\*\***\*\*\*\*** (Avaliador 2)
+- **\*\*\*\***\*\***\*\*\*\***\_**\*\*\*\***\*\***\*\*\*\*** (Representante da equipe)

@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-22",
-  "title": "Integrando Laços e Condicionais",
+  "title": "Aula 22 - Integrando Laços e Condicionais",
   "summary": "Integra estruturas de repetição com decisões complexas para tratar fluxos completos de processamento.",
   "description": "Integra validação, processamento iterativo e relatórios usando laços combinados com condicionais.",
   "objective": "Construir rotinas robustas que combinem laços e condicionais com validação e relatórios de execução.",
@@ -23,33 +23,28 @@
   ],
   "prerequisites": ["Dominar for/while/do-while.", "Conhecer if/else if/else e switch."],
   "tags": ["loops", "condicionais", "integracao"],
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Guia: Como escrever um project brief (Atlassian)",
-      "type": "article",
-      "url": "https://www.atlassian.com/br/agile/project-management/project-brief"
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
     },
     {
-      "label": "Planilha de métricas de execução",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIMetricasLoops"
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
     },
     {
-      "label": "Guia: Como escrever relatórios técnicos (UFSC)",
-      "type": "handout",
-      "url": "https://www.inf.ufsc.br/~visonho/ComoEscreverRelatorios.pdf"
-    },
-    {
-      "label": "Vídeo: Integrando menus e laços",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=G4q1WmtiSPQ"
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -57,10 +52,47 @@
     "SEBESTA, R. W. Conceitos de Linguagens de Programação. Pearson, 2018."
   ],
   "assessment": {
-    "type": "portfolio",
-    "description": "Entrega de rotina de processamento de pedidos com relatório de métricas e justificativa técnica."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Integrando Laços e Condicionais\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Integrando Laços e Condicionais\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Sentinela - YouTube",
+          "src": "https://www.youtube.com/embed/2BjmHMvuizc"
+        },
+        {
+          "title": "Vetores - recebendo dados com scanf para um array - Linguagem C",
+          "src": "https://www.youtube.com/embed/2CYms43vrGk"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -68,19 +100,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Integrando Laços e Condicionais. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 22."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -93,18 +122,32 @@
         {
           "icon": "settings",
           "title": "Construção em camadas",
-          "content": "Separar fases: validação → processamento → resumo."
+          "content": "Separar fases: validação → processamento → resumo, definindo qual laço (while/for/do-while) melhor atende cada etapa."
         },
         {
           "icon": "gears",
           "title": "Fluxo",
-          "content": "Mapear decisões dentro de laços e tratar exceções."
+          "content": "Mapear decisões dentro de laços justificando escolhas com base nas comparações desenvolvidas da Aula 17 à 21."
         },
         {
           "icon": "check-circle",
           "title": "Entrega",
           "content": "Métricas + código comentado + quadro de decisão."
         }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Integrando Laços e Condicionais",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Integrando Laços e Condicionais. Contexto da aula: Integra estruturas de repetição com decisões complexas para tratar fluxos completos de processamento. Objetivo central: Construir rotinas robustas que combinem laços e condicionais com validação e relatórios de execução. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "condicionais", "integracao", "loops"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem mapear pontos de decisão dentro e fora de laços.",
+        "Solicite exemplos adicionais relacionados a loops, condicionais para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a implementar validações de entrada antes de iniciar ciclos."
       ]
     },
     {
@@ -158,46 +201,46 @@
     },
     {
       "type": "lessonPlan",
-      "title": "Plano de voo (2h00)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "15 min",
+          "title": "12 min",
           "content": "Revisão do ciclo completo de processamento."
         },
         {
           "icon": "check-circle",
-          "title": "(20 min) Workshop",
+          "title": "(15 min) Workshop",
           "content": "validar entrada antes do laço."
         },
         {
           "icon": "check-circle",
-          "title": "(30 min) Coding dojo",
+          "title": "(23 min) Coding dojo",
           "content": "processamento de pedidos com regras condicionais."
         },
         {
           "icon": "check-circle",
-          "title": "(20 min) Laboratório em trios",
+          "title": "(15 min) Laboratório em trios",
           "content": "tratamento de exceções e logs."
         },
         {
           "icon": "check-circle",
-          "title": "15 min",
+          "title": "11 min",
           "content": "Construção do relatório de métricas."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "8 min",
           "content": "Pausa ativa e dúvidas rápidas."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "8 min",
           "content": "Socialização das soluções."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "8 min",
           "content": "Briefing da tarefa avaliativa."
         }
       ]
@@ -275,9 +318,9 @@
       "type": "checklist",
       "title": "Checklist do relatório",
       "items": [
-        "Validei entradas fora do laço e tratei retornos inválidos.",
-        "Documentei cada regra condicional com comentários claros.",
-        "Registrei métricas e gerei resumo final com mensagens amigáveis."
+        "Validei entradas fora do laço e tratei retornos inválidos comparando alternativas de repetição.",
+        "Documentei cada regra condicional com comentários claros e referenciei o laço adotado.",
+        "Registrei métricas e gerei resumo final justificando a escolha entre while, for ou do-while."
       ]
     },
     {
@@ -396,11 +439,21 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
-          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+          "items": [
+            {
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
+            },
+            {
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
+            }
+          ]
         }
       ]
     },
@@ -461,6 +514,64 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Central integrada de monitoramento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Combine a leitura periódica de sensores e a gestão de uma fila de ordens de serviço usando diferentes estruturas de repetição."
+        },
+        {
+          "type": "paragraph",
+          "text": "Planeje qual laço gerencia a captura contínua (while/sentinela) e qual organiza a fila de atendimento (for contável ou do-while para menus)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Mapeie no quadro de decisão qual parte do fluxo herda padrões da Aula 17."
+            },
+            {
+              "text": "Teste substituições e registre o impacto em logs e métricas."
+            },
+            {
+              "text": "Prepare uma síntese para o TED destacando como a escolha de laço sustentou a confiabilidade do sistema."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Central de monitoramento integrada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organize a turma em trios para implementar um fluxo completo que integra sensores e fila de atendimento."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Bloco 1 (7 min): definir qual laço controla a coleta contínua (while com sentinela)."
+            },
+            {
+              "text": "Bloco 2 (7 min): escolher estrutura para distribuir tarefas na fila (for ou do-while) justificando em relação à Aula 17."
+            },
+            {
+              "text": "Bloco 3 (7 min): revisar logs e preparar resumo de métricas na planilha colaborativa."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "typedef struct {\n  int id;\n  int prioridade;\n} Ordem;\n\nvoid coletar_sensores(int limite) {\n  int leitura = 0;\n  int ciclos = 0;\n  while (ciclos < limite && scanf(\"%d\", &leitura) == 1) {\n    // TODO: validar e registrar leitura\n    ciclos++;\n  }\n}\n\nvoid distribuir_ordens(Ordem *fila, int quantidade) {\n  for (int i = 0; i < quantidade; i++) {\n    // TODO: processar ordem considerando prioridade\n  }\n}\n\nint main(void) {\n  // Complete conforme as escolhas discutidas no dojo\n  return 0;\n}"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
       "title": "Check-out (fechamento rápido)",
@@ -474,12 +585,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int colaboradores = rand() % 6 + 5;\n\n  printf(\"Entrada (quantidade_colaboradores):\\n%d\\n\", colaboradores);\n  printf(\"Saida esperada (relatorio de presenca):\\n\");\n\n  for (int i = 0; i < colaboradores; ++i) {\n    int horas = rand() % 49;\n    int entregas = rand() % 6;\n    const char *status;\n\n    if (horas >= 40 && entregas >= 3) {\n      status = \"EXCELENTE\";\n    } else if (horas >= 30 && entregas >= 2) {\n      status = \"ADEQUADO\";\n    } else if (horas >= 20) {\n      status = \"ATENCAO\";\n    } else {\n      status = \"CRITICO\";\n    }\n\n    printf(\"Colaborador %d -> horas=%d entregas=%d status=%s\\n\", i + 1, horas, entregas, status);\n  }\n\n  return 0;\n}"
         }
       ]
     }

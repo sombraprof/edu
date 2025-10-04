@@ -107,6 +107,38 @@ This document explains how to produce new lessons and exercises that integrate s
 
 > Prefer declarative blocks (`lessonPlan`, `contentBlock`, `callout`, etc.) over `legacySection`. Use `legacySection` only as a temporary bridge when automatic conversion is not feasible.
 
+#### Dual assessment em prática
+
+Use `dualAssessment` quando quiser propor uma checagem teórica seguida de uma entrega prática curta no mesmo bloco. Os sub-objetos `theory` e `practice` reaproveitam exatamente os schemas de `knowledgeCheck` e `codeSubmission`:
+
+```jsonc
+{
+  "type": "dualAssessment",
+  "title": "Consolidando vetores",
+  "summary": "Revise conceitos e pratique a implementação de uma função de soma.",
+  "theory": {
+    "type": "knowledgeCheck",
+    "prompt": "Qual estrutura percorre todos os elementos de um array em JavaScript?",
+    "options": [
+      { "id": "a", "text": "for ... of" },
+      { "id": "b", "text": "if ... else" },
+      { "id": "c", "text": "switch" },
+    ],
+    "explanation": "`for ... of` itera cada item sequencialmente, o que é ideal para revisar vetores.",
+  },
+  "practice": {
+    "type": "codeSubmission",
+    "prompt": "Implemente a função `sumArray(numbers)` retornando a soma dos valores.",
+    "language": "javascript",
+    "boilerplate": "export function sumArray(numbers) {\n  // seu código aqui\n}\n",
+    "tests": [{ "name": "soma elementos", "input": "[1,2,3]", "expectedOutput": "6" }],
+    "tips": ["Inicialize um acumulador e some cada item do array."],
+  },
+}
+```
+
+Aplique o mesmo padrão para qualquer combinação teoria + prática: mantenha os campos obrigatórios (`prompt` e `options` na teoria, `prompt` na prática) e somente acrescente opcionais que façam sentido para o contexto.
+
 ### Card grids sem surpresas
 
 - Prefira o array `cards` para novos conteúdos (cada item aceita `title`, `subtitle`, `body` ou `content`, além de `actions`).

@@ -12,5 +12,17 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
+    testTimeout: 10000,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html', 'json-summary'],
+      reportsDirectory: 'coverage',
+      thresholds: {
+        lines: 30,
+        statements: 30,
+        branches: 20,
+        functions: 20,
+      },
+    },
   },
 });

@@ -161,6 +161,16 @@ export interface PedagogicalNoteBlock extends LessonBlock {
   audience?: PedagogicalNoteAudience;
 }
 
+export interface PromptTipBlock extends LessonBlock {
+  type: 'promptTip';
+  prompt: string;
+  title?: string;
+  description?: string;
+  tips?: string[];
+  tags?: string[];
+  audience?: string;
+}
+
 export interface CodeSubmissionTestCase {
   name: string;
   input?: string;
@@ -175,6 +185,18 @@ export interface CodeSubmissionBlock extends LessonBlock {
   boilerplate?: string;
   tests?: CodeSubmissionTestCase[];
   tips?: string[];
+}
+
+export interface DualAssessmentBlock extends LessonBlock {
+  type: 'dualAssessment';
+  title?: string;
+  summary?: string;
+  theory: Omit<KnowledgeCheckBlock, keyof LessonBlock> & {
+    type?: 'knowledgeCheck';
+  };
+  practice: Omit<CodeSubmissionBlock, keyof LessonBlock> & {
+    type?: 'codeSubmission';
+  };
 }
 
 export interface DragAndDropStep {

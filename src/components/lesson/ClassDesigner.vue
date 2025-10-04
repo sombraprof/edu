@@ -321,7 +321,6 @@ const normalizedClasses = computed<NormalizedClass[]>(() =>
         summary || responsibilities.length || notes.length
           ? `${umlClass.id}-description`
           : undefined;
-      const type = umlClass.type ?? 'class';
       return {
         id: umlClass.id,
         name: umlClass.name,

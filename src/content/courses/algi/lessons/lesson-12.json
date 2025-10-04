@@ -22,38 +22,13 @@
   ],
   "prerequisites": ["Revisar if-else e switch-case trabalhados nas aulas 10 e 11."],
   "tags": ["condicionais", "else-if", "regras"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Playlist Estruturas Condicionais – Curso em Vídeo",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dk_nZHmxxf_J0WRAqy5Cz9"
-    },
-    {
-      "label": "Planilha de testes - Cadeias else if",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGICadeiasElseIfTests"
-    },
-    {
-      "label": "Checklist de validação manual",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistElseIf"
-    },
-    {
-      "label": "Template OnlineGDB - Cadeias de decisão",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1ElseIfTemplate"
-    },
-    {
-      "label": "Repositório modelo C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -62,8 +37,8 @@
     "FORBELLONE, A.; EBERSPÄCHER, H. Lógica de Programação. Pearson, 2020."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Implementação de um classificador de faixas com relatório de testes incluindo limites e casos extremos."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -73,19 +48,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Cadeias de decisão com else if. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 12."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -129,14 +101,51 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Aquecimento: revisão das decisões simples e múltiplas.",
-        "(20 min) Planejando cadeias else if sem sobreposição.",
-        "(25 min) Combinação de condições com operadores lógicos.",
-        "(25 min) Estudo de caso guiado: classificação de faixa etária e renda.",
-        "(20 min) Oficina em duplas com feedback cruzado.",
-        "(15 min) TED e checklist de testes obrigatórios."
+        "(9 min) Aquecimento: revisão das decisões simples e múltiplas.",
+        "(17 min) Planejando cadeias else if sem sobreposição.",
+        "(22 min) Combinação de condições com operadores lógicos.",
+        "(22 min) Estudo de caso guiado: classificação de faixa etária e renda.",
+        "(17 min) Oficina em duplas com feedback cruzado.",
+        "(13 min) TED e checklist de testes obrigatórios."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Cadeias de decisão com else if\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Cadeias de decisão com else if\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Cadeias de decisão com else if",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 12: Cadeias de decisão com else if. Contexto da aula: Organiza múltiplas regras exclusivas priorizando faixas e combinações lógicas, garantindo que cada entrada encontre exatamente um caminho. Objetivo central: Modelar cadeias de else if que cobrem todos os cenários possíveis com clareza e sem lacunas. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "condicionais", "else-if", "regras"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem planejar a ordem das condições para evitar sobreposição entre faixas.",
+        "Solicite exemplos adicionais relacionados a condicionais, else-if para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a combinar operadores lógicos para refinar regras com múltiplos critérios."
       ]
     },
     {
@@ -458,23 +467,20 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "TED 12 – Classificador com cobertura total",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Envie no Moodle (atividade TED Aula 12) até 23h59 do dia seguinte: código em C, planilha de testes preenchida e um parágrafo justificando a ordem dos ramos."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Arquivo principal: aula12_classificador.c."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Planilha 'TED12_Testes.xlsx' com casos válidos, limites e inválidos."
-            },
-            {
-              "text": "Comentário textual destacando decisões críticas adotadas."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
         }
@@ -483,28 +489,22 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Critérios de avaliação TED 12",
+      "title": "TED pós-aula",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+        },
         {
           "type": "list",
           "items": [
             {
-              "text": "Entrega no prazo registrado no Moodle (20%)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Cobertura total das faixas solicitadas sem lacunas (40%)."
-            },
-            {
-              "text": "Planilha de testes com evidências e resultados conferidos (25%)."
-            },
-            {
-              "text": "Justificativa sobre ordenação das condições e casos críticos (15%)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Envios sem planilha ou sem evidência de testes serão devolvidos para reenvio com desconto."
         }
       ]
     },
@@ -708,12 +708,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: nota -> Aprovado/Reprovado\nimport random\nfor n in [6.9, 7.0, 8.5, 4.0]:\n    print(f\"nota={n} -> {'Aprovado' if n>=7 else 'Reprovado'}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *classificar(float temperatura, int tosse, int saturacao) {\n  if (temperatura >= 39.0f || saturacao < 92) {\n    return \"EMERGENCIA\";\n  } else if ((temperatura >= 37.8f && tosse) || saturacao < 95) {\n    return \"URGENCIA\";\n  } else if (temperatura >= 37.0f) {\n    return \"OBSERVACAO\";\n  }\n  return \"AMBULATORIO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float temperatura = (float)(rand() % 71 + 350) / 10.0f;\n  int tosse = rand() % 2;\n  int saturacao = rand() % 10 + 90;\n\n  printf(\"Entrada (temperatura tosse saturacao):\\n%.1f %d %d\\n\", temperatura, tosse, saturacao);\n  printf(\"Saida esperada: %s\\n\", classificar(temperatura, tosse, saturacao));\n\n  return 0;\n}"
         }
       ]
     }

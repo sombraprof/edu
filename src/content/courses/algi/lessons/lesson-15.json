@@ -22,38 +22,13 @@
   ],
   "prerequisites": ["Trazer a prova NP1 corrigida e os rascunhos utilizados na avaliação."],
   "tags": ["condicionais", "revisao", "avaliacao"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Planilha de reescrita pós-NP1",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIPosNP1Reescrita"
-    },
-    {
-      "label": "Vídeo: Depurando condicionais em C (freeCodeCamp)",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=8pcV9A9kvJ0"
-    },
-    {
-      "label": "Projeto OnlineGDB – Correção NP1",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1CorrecoesNP1"
-    },
-    {
-      "label": "Formulário de upload da prova anotada",
-      "type": "form",
-      "url": "https://forms.gle/UploadProvaNP1"
-    },
-    {
-      "label": "Repositório modelo de refatoração",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-np1-review"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -62,8 +37,8 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
   ],
   "assessment": {
-    "type": "reflection",
-    "description": "Produção de guia de correção individual com plano de estudo e reimplementação de uma questão crítica."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -73,19 +48,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Correção da NP1 e aprofundamento. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 15."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -154,14 +126,51 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(15 min) Panorama de notas, distribuição por questão e critérios da rubrica.",
-        "(25 min) Correção guiada de erros recorrentes com exemplos reais.",
-        "(30 min) Oficina de reescrita: ajustes em condicionais compostas.",
-        "(20 min) Planejamento de testes adicionais e registro em planilha.",
-        "(15 min) Montagem do guia de correção individual.",
-        "(10 min) Orientações para a TED e próximos passos."
+        "(13 min) Panorama de notas, distribuição por questão e critérios da rubrica.",
+        "(22 min) Correção guiada de erros recorrentes com exemplos reais.",
+        "(26 min) Oficina de reescrita: ajustes em condicionais compostas.",
+        "(17 min) Planejamento de testes adicionais e registro em planilha.",
+        "(13 min) Montagem do guia de correção individual.",
+        "(9 min) Orientações para a TED e próximos passos."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Correção da NP1 e aprofundamento\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Correção da NP1 e aprofundamento\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Correção da NP1 e aprofundamento",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 15: Correção da NP1 e aprofundamento. Contexto da aula: Analisa os resultados da NP1, corrige erros recorrentes e reforça decisões compostas com exercícios direcionados. Objetivo central: Transformar o feedback da NP1 em plano de melhoria, revisando condicionais compostas e boas práticas de implementação. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "avaliacao", "condicionais", "revisao"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem apresentar panorama geral das notas e dos critérios avaliados na np1.",
+        "Solicite exemplos adicionais relacionados a condicionais, revisao para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a corrigir coletivamente os erros mais frequentes identificados nas questões."
       ]
     },
     {
@@ -526,23 +535,20 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "TED 15 – Reescrita comentada",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Submeta até 23h59 do dia seguinte: versão corrigida da questão escolhida, guia pessoal de correção e resumo das mudanças aplicadas."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Arquivo aula15_reescrita.c com comentários destacando alterações."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Guia 'Plano_posNP1.pdf' preenchido com metas e próximos estudos."
-            },
-            {
-              "text": "Prints ou planilha de testes demonstrando cobertura dos cenários críticos."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
         }
@@ -551,28 +557,22 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Critérios de avaliação TED 15",
+      "title": "TED pós-aula",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+        },
         {
           "type": "list",
           "items": [
             {
-              "text": "Entrega com prova anotada anexada e reescrita consistente (30%)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Correções justificadas linha a linha no código (30%)."
-            },
-            {
-              "text": "Planilha ou prints evidenciando novos testes executados (25%)."
-            },
-            {
-              "text": "Plano de estudos realista e alinhado ao feedback (15%)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Reenvios sem destaque das alterações poderão ser desconsiderados."
         }
       ]
     },
@@ -661,12 +661,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *diagnosticar(float mediaProva, float mediaLista, int faltas) {\n  if (mediaProva >= 7.0f && mediaLista >= 6.0f && faltas <= 5) {\n    return \"MANTER ESTRATEGIA\";\n  } else if (mediaProva >= 5.0f && faltas <= 10) {\n    return \"FOCAR EM LISTAS\";\n  } else if (mediaLista >= 6.0f) {\n    return \"REVISAR PROVAS\";\n  }\n  return \"PLANO DE RECUPERACAO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float mediaProva = (float)(rand() % 401 + 300) / 100.0f;\n  float mediaLista = (float)(rand() % 401 + 300) / 100.0f;\n  int faltas = rand() % 16;\n\n  printf(\"Entrada (media_provas media_listas faltas):\\n%.2f %.2f %d\\n\", mediaProva, mediaLista, faltas);\n  printf(\"Saida esperada: %s\\n\", diagnosticar(mediaProva, mediaLista, faltas));\n\n  return 0;\n}"
         }
       ]
     }

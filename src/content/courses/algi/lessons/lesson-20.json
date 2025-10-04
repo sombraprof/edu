@@ -1,7 +1,7 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-20",
-  "title": "Estrutura de repetição do-while",
+  "title": "Aula 20 - Estrutura de repetição do-while",
   "summary": "Apresenta o do-while em C para menus e validações que exigem uma execução inicial garantida.",
   "objective": "Implementar menus que exigem execução inicial obrigatória usando do-while e validar todas as opções com feedback imediato.",
   "description": "A aula destaca quando o do-while simplifica o código, demonstra a construção de menus interativos e orienta sobre validações que precisam rodar pelo menos uma vez.",
@@ -26,7 +26,7 @@
     "Ter utilizado scanf e printf em exercícios anteriores."
   ],
   "tags": ["loops", "do-while", "menus"],
-  "duration": 110,
+  "duration": 100,
   "modality": "in-person",
   "metadata": {
     "status": "published",
@@ -37,28 +37,23 @@
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Tutorial: Construindo menus com do-while (GeeksforGeeks)",
-      "type": "article",
-      "url": "https://www.geeksforgeeks.org/c-program-for-menu-driven-program-using-do-while-loop/"
+      "label": "Visual Studio Code + extensão C/C++",
+      "type": "ide",
+      "url": "https://code.visualstudio.com/Download"
     },
     {
-      "label": "Checklist de testes do-while",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistDoWhile"
+      "label": "Extensão C/C++ (Microsoft) para VS Code",
+      "type": "extensao",
+      "url": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools"
     },
     {
-      "label": "Vídeo: Do-while loops (Curso em Vídeo)",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=OB6s06eQGP0"
-    },
-    {
-      "label": "Projeto OnlineGDB – Menu bancário",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1MenuDoWhile"
+      "label": "Planilha colaborativa de testes (Google Sheets)",
+      "type": "planilha",
+      "url": "https://docs.google.com/spreadsheets/"
     }
   ],
   "bibliography": [
@@ -66,20 +61,65 @@
     "PIVA, A. Algoritmos e Estruturas de Dados. Novatec, 2021."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Entrega de menu bancário implementado em C com do-while e relatório de testes anexado."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Estrutura de repetição do-while\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Estrutura de repetição do-while\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Programar em C - Funções Recursivas - Aula 35",
+          "src": "https://www.youtube.com/embed/1kBiqUCN888"
+        },
+        {
+          "title": "Lógica do algoritmo busca binária",
+          "src": "https://www.youtube.com/embed/1tGpLS5JH2Y"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "Warm-up (início da aula)",
+      "title": "Warm-up (pré-aula)",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
+        },
         {
           "type": "list",
           "items": [
-            "Escreva em 3 minutos: o que você lembra da aula passada?",
-            "Compartilhe com a dupla."
+            {
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
+            },
+            {
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
+            }
           ]
         }
       ]
@@ -91,7 +131,7 @@
         {
           "icon": "target",
           "title": "Aplicações imediatas",
-          "content": "Identificar cenários em que a execução inicial é obrigatória (menus, confirmações, validações)."
+          "content": "Identificar cenários de fila/menu em que a execução inicial obrigatória (Aula 17 vs do-while) muda a clareza do fluxo."
         },
         {
           "icon": "code",
@@ -101,8 +141,22 @@
         {
           "icon": "users",
           "title": "Revisão coletiva",
-          "content": "Compartilhar decisões de fluxo e comparar com versões usando while."
+          "content": "Compartilhar decisões de fluxo, comparando versões com while/for e justificando a permanência do do-while."
         }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Estrutura de repetição do-while",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Estrutura de repetição do-while. Contexto da aula: Apresenta o do-while em C para menus e validações que exigem uma execução inicial garantida. Objetivo central: Implementar menus que exigem execução inicial obrigatória usando do-while e validar todas as opções com feedback imediato. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "do-while", "loops", "menus"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem identificar problemas que exigem execução mínima antes da validação.",
+        "Solicite exemplos adicionais relacionados a loops, do-while para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a implementar menus interativos utilizando a estrutura do-while."
       ]
     },
     {
@@ -220,13 +274,20 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
-            "Resolver 2 exercícios com laços (um com for e outro com while/do-while).",
-            "Anexar comentários sobre complexidade percebida."
+            {
+              "text": "Implemente a prática proposta e registre evidências de teste na planilha colaborativa."
+            },
+            {
+              "text": "Escreva uma reflexão curta (5 a 7 linhas) justificando a estrutura de repetição escolhida à luz das comparações iniciadas na Aula 17."
+            },
+            {
+              "text": "Anote dúvidas, alternativas consideradas e argumentos que sustentaram sua decisão para discutirmos na próxima aula."
+            }
           ]
         }
       ]
@@ -288,6 +349,67 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exemplo contextualizado — Totem de fila inteligente",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Um totem de triagem gera senhas enquanto houver pessoas na fila física e precisa exibir o menu pelo menos uma vez."
+        },
+        {
+          "type": "paragraph",
+          "text": "Implemente com do-while garantindo que a primeira senha seja emitida antes de verificar a condição de saída e compare com versões for/while."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Utilize indicadores de capacidade para decidir quando migrar para while."
+            },
+            {
+              "text": "Registre na planilha colaborativa como cada estrutura afeta a experiência do usuário."
+            },
+            {
+              "text": "Valide com testes de mesa cenários com fila vazia e fila cheia."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "Coding dojo — Menu de triagem com do-while",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Construa em pares um menu que distribui senhas priorizando idosos e pessoas com deficiência."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Sprint 1 (6 min): codar a base com do-while garantindo execução inicial."
+            },
+            {
+              "text": "Sprint 2 (6 min): refatorar para while destacando ajustes de inicialização."
+            },
+            {
+              "text": "Sprint 3 (6 min): avaliar se um for com contador conhecido torna o fluxo mais claro."
+            },
+            {
+              "text": "Retro (5 min): registrar vantagens percebidas de cada estrutura na planilha compartilhada."
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "c",
+          "code": "#include <stdio.h>\n\ntypedef struct {\n  int prioridade;\n  char nome[32];\n} Pessoa;\n\nvoid chamar_proximo(Pessoa pessoa) {\n  printf(\"Chamando %s (prioridade %d)\n\", pessoa.nome, pessoa.prioridade);\n}\n\nint main(void) {\n  Pessoa fila[10] = {0};\n  int total = 0;\n  int opcao;\n  do {\n    printf(\"1 - Adicionar pessoa\n2 - Chamar próximo\n0 - Encerrar\nEscolha: \");\n    if (scanf(\"%d\", &opcao) != 1) {\n      opcao = 0;\n    }\n    switch (opcao) {\n      case 1:\n        // TODO: ler pessoa e inserir mantendo prioridade\n        break;\n      case 2:\n        // TODO: chamar_proximo\n        break;\n    }\n  } while (opcao != 0);\n  return 0;\n}\n// Complete o template e gere versões alternativas com while/for."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "task",
       "title": "Check-out (fechamento rápido)",
@@ -301,12 +423,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tentativasMenu = rand() % 4 + 2;\n  int opcaoFinal = rand() % 3 + 1;\n\n  printf(\"Sequencia sugerida de entradas:\\n\");\n  for (int i = 0; i < tentativasMenu - 1; ++i) {\n    printf(\"0 \");\n  }\n  printf(\"%d\\n\", opcaoFinal);\n\n  printf(\"Saida esperada:\\n- O menu deve repetir %d vezes antes de aceitar a opcao %d.\\n\", tentativasMenu - 1, opcaoFinal);\n\n  return 0;\n}"
         }
       ]
     }

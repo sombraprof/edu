@@ -59,7 +59,7 @@ async function request(path: string, init?: RequestInit) {
     } catch (error) {
       try {
         detail = await response.text();
-      } catch (textError) {
+      } catch (_textError) {
         detail = undefined;
       }
     }

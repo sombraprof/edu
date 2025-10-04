@@ -26,43 +26,23 @@
     "Saber manipular arquivos de texto simples em C."
   ],
   "tags": ["assincrona", "projeto", "triagem"],
-  "duration": 180,
+  "duration": 100,
   "modality": "async",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Manual de Classificação de Risco da Secretaria de Saúde do DF",
-      "type": "handout",
-      "url": "https://www.saude.df.gov.br/wp-conteudo/uploads/2018/03/Manual-Classificacao-Risco.pdf"
+      "label": "Template de relatório de fluxos em squad",
+      "type": "template",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/templates/squad-flow-report-template.md"
     },
     {
-      "label": "Dataset: Hospital Emergency Room Triage",
-      "type": "dataset",
-      "url": "https://www.kaggle.com/datasets/biancaferreira/triage-emergency-room"
-    },
-    {
-      "label": "Modelo de relatório técnico para saúde (SUS)",
-      "type": "document",
-      "url": "https://www.gov.br/saude/pt-br/composicao/saps/atencao-primaria/publicacoes/formularios/modelo-de-relatorio-tecnico.pdf"
-    },
-    {
-      "label": "Planilha de acompanhamento (Google Sheets)",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGITrilha23"
-    },
-    {
-      "label": "Formulário de autoavaliação",
-      "type": "form",
-      "url": "https://forms.gle/AutoavaliacaoAula23"
-    },
-    {
-      "label": "Repositório modelo Git",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-triagem-async"
+      "label": "Template de pseudocódigo incremental",
+      "type": "template",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/templates/pseudocode-incremental-template.md"
     }
   ],
   "bibliography": [
@@ -70,10 +50,47 @@
     "MANZANO, J. A. N. G.; OLIVEIRA, J. F. Algoritmos. Érica, 2019."
   ],
   "assessment": {
-    "type": "project",
-    "description": "Entrega no AVA com código, CSV, relatório de testes e reflexão individual."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Atividade Assíncrona de Triagem Clínica\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Atividade Assíncrona de Triagem Clínica\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "- YouTube",
+          "src": "https://www.youtube.com/embed/2RPsS3HhjJM"
+        },
+        {
+          "title": "linguagem C - Estrutura de decisao if",
+          "src": "https://www.youtube.com/embed/2YApWS2QW1o"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -81,19 +98,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Atividade Assíncrona de Triagem Clínica. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 23."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -111,13 +125,60 @@
         {
           "icon": "tasks",
           "title": "Entregáveis",
-          "content": "Código C, CSV de saída, relatório de testes, reflexão no fórum."
+          "content": "Código C, CSV de saída, relatório de fluxos da squad, pseudocódigo incremental e reflexão no fórum."
         },
         {
           "icon": "users",
           "title": "Canais",
-          "content": "Fórum da disciplina + plantão remoto de 30 min na quarta-feira."
+          "content": "Fórum da disciplina + plantão remoto de 30 min na quarta-feira. Use para desbloquear squads e validar incrementos."
         }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Squads e papéis",
+      "cards": [
+        {
+          "title": "Facilitador/a",
+          "content": "Orienta checkpoints, garante uso dos templates e evita gargalos."
+        },
+        {
+          "title": "Responsável por testes",
+          "content": "Executa casos automatizados, registra asserts e evidências no relatório de fluxos."
+        },
+        {
+          "title": "Relator/a de pseudocódigo",
+          "content": "Atualiza o pseudocódigo incremental e comenta responsabilidades de cada função."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Como organizar os incrementos",
+      "content": [
+        {
+          "type": "list",
+          "items": [
+            "Divida o backlog em incrementos de até 30 minutos registrados no template de fluxos.",
+            "Após cada incremento, valide a função tocada com `assert` e registre evidências.",
+            "Use o pseudocódigo incremental para planejar refatorações antes de alterar o C."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Atividade Assíncrona de Triagem Clínica",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Atividade Assíncrona de Triagem Clínica. Contexto da aula: Propõe atividade assíncrona integradora que combina laços, condicionais e registro de testes na simulação de triagem. Objetivo central: Planejar e executar a triagem automatizada cumprindo requisitos funcionais, documentação e entrega assíncrona. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "assincrona", "projeto", "triagem"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem interpretar o briefing de triagem e planejar o fluxo de decisão.",
+        "Solicite exemplos adicionais relacionados a assincrona, projeto para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a implementar algoritmo que percorre formulários e classifica pacientes."
       ]
     },
     {
@@ -163,7 +224,7 @@
     },
     {
       "type": "lessonPlan",
-      "title": "Plano de voo assíncrono (3 dias)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
@@ -177,7 +238,7 @@
         },
         {
           "icon": "check-circle",
-          "title": "Dia 3 (30 min) – Revisar testes, preencher relatório e pu...",
+          "title": "Dia 3 (100 min) – Revisar testes, preencher relatório e pu...",
           "content": "Dia 3 (30 min) – Revisar testes, preencher relatório e publicar reflexão."
         }
       ]
@@ -286,19 +347,19 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Compacte código, fluxograma, planilha, relatório e reflexões em ALG1_A23_Nome.zip."
+          "text": "Compacte código, fluxograma, relatório de squad e pseudocódigos em ALG1_A23_SquadNome.zip."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Código em C com logs."
+              "text": "Código em C com commits incrementais e comentários nas funções explicando responsabilidades."
             },
             {
-              "text": "Fluxograma atualizado e checklist de testes."
+              "text": "Fluxograma atualizado utilizando o template de relatório de fluxos com evidências de testes."
             },
             {
-              "text": "Relatório final com métricas e autoavaliação."
+              "text": "Pseudocódigo incremental com histórico de incrementos e asserts executados."
             }
           ]
         }
@@ -341,11 +402,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Planeje com sua squad a próxima rodada de refatoração incremental, registrando responsabilidades das funções e evidências de testes."
         },
         {
           "type": "list",
-          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+          "items": [
+            {
+              "text": "Atualize o pseudocódigo incremental com o próximo incremento, responsabilidades e asserts previstos."
+            },
+            {
+              "text": "Reforce no relatório de fluxos quais funções precisarão de novos comentários de propósito e quem irá executá-los."
+            }
+          ]
         }
       ]
     },
@@ -419,12 +487,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int pressao;\n  int batimentos;\n  int febre;\n} Paciente;\n\nconst char *classificar(const Paciente *p) {\n  if (p->pressao < 90 || p->batimentos > 130 || p->febre >= 39) {\n    return \"PRIORIDADE IMEDIATA\";\n  } else if (p->pressao < 100 || p->batimentos > 110 || p->febre >= 38) {\n    return \"ATENDIMENTO RAPIDO\";\n  } else if (p->febre >= 37) {\n    return \"OBSERVACAO\";\n  }\n  return \"LIBERADO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int quantidade = rand() % 4 + 3;\n  printf(\"Quantidade de pacientes: %d\\n\", quantidade);\n\n  for (int i = 0; i < quantidade; ++i) {\n    Paciente p = { rand() % 61 + 80, rand() % 71 + 70, rand() % 5 + 36 };\n    printf(\"Caso %d -> pressao=%d batimentos=%d febre=%d => %s\\n\", i + 1, p.pressao, p.batimentos, p.febre, classificar(&p));\n  }\n\n  return 0;\n}"
         }
       ]
     }

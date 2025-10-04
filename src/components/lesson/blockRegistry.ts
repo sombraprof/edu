@@ -45,8 +45,10 @@ import MemoryVisualizer from '@/components/lesson/MemoryVisualizer.vue';
 import CaseStudy from '@/components/lesson/CaseStudy.vue';
 import StatCard from '@/components/lesson/StatCard.vue';
 import KnowledgeCheck from '@/components/lesson/KnowledgeCheck.vue';
+import DualAssessment from '@/components/lesson/DualAssessment.vue';
 import InteractiveDemo from '@/components/lesson/InteractiveDemo.vue';
 import PedagogicalNote from '@/components/lesson/PedagogicalNote.vue';
+import PromptTip from '@/components/lesson/PromptTip.vue';
 import CodeSubmission from '@/components/exercise/CodeSubmission.vue';
 import DragAndDrop from '@/components/exercise/DragAndDrop.vue';
 import ConceptMapper from '@/components/exercise/ConceptMapper.vue';
@@ -105,8 +107,10 @@ const customComponentRegistry: Record<string, Component> = {
   CaseStudy,
   StatCard,
   KnowledgeCheck,
+  DualAssessment,
   InteractiveDemo,
   PedagogicalNote,
+  PromptTip,
   CodeSubmission,
   DragAndDrop,
   ConceptMapper,
@@ -188,8 +192,15 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   caseStudy: dataBlock(CaseStudy),
   statCard: dataBlock(StatCard),
   knowledgeCheck: dataBlock(KnowledgeCheck),
+  dualAssessment(block) {
+    return {
+      component: DualAssessment,
+      props: { data: block },
+    };
+  },
   interactiveDemo: dataBlock(InteractiveDemo),
   pedagogicalNote: dataBlock(PedagogicalNote),
+  promptTip: dataBlock(PromptTip),
   codeSubmission: dataBlock(CodeSubmission),
   dragAndDrop: dataBlock(DragAndDrop),
   conceptMapper: dataBlock(ConceptMapper),

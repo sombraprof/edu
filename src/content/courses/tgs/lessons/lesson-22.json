@@ -4,229 +4,153 @@
   "objective": "Estruturar políticas e processos para garantir qualidade, consistência e segurança dos dados mestres.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Liste quais cadastros mestres causam mais retrabalho no estudo de caso (clientes, fornecedores, materiais, produtos, centros de custo)."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Traga exemplos de campos obrigatórios por cadastro."
+            },
+            {
+              "text": "Verifique quais sistemas externos alimentam ou consomem dados mestres."
+            },
+            {
+              "text": "Anote indicadores de qualidade existentes (completude, duplicidade, atraso)."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "settings",
-          "title": "CONTEÚDO",
-          "content": "Dados mestres, hierarquias, workflows de aprovação, segregação de funções e políticas de segurança."
-        },
-        {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Definir papéis e responsabilidades para gestão de dados mestres.\n- Estabelecer métricas de qualidade.\n- Avaliar impactos de inconsistências na operação."
-        },
-        {
           "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Workshop de desenho de políticas, discussão de incidentes reais e construção colaborativa de mapa mental."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Domínios de dados mestres",
-      "content": [
+          "title": "Domínios de dados",
+          "content": "Identificar cadastros e proprietários."
+        },
         {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Domínio: Produtos | Exemplos: SKU, unidade, impostos | Riscos de baixa qualidade: Tributação incorreta, estoque divergente | Controles sugeridos: Revisão fiscal, validação automática"
-            },
-            {
-              "text": "Domínio: Clientes | Exemplos: CNPJ/CPF, crédito, endereço | Riscos de baixa qualidade: Faturamento rejeitado, inadimplência | Controles sugeridos: Consulta a bureaus, SLA de atualização"
-            },
-            {
-              "text": "Domínio: Fornecedores | Exemplos: Dados bancários, condições | Riscos de baixa qualidade: Pagamentos indevidos, compras bloqueadas | Controles sugeridos: Validação bancária, segregação"
-            },
-            {
-              "text": "Domínio: Localidades | Exemplos: Centros, armazéns | Riscos de baixa qualidade: Logística ineficiente, relatórios errados | Controles sugeridos: Checklist de abertura, auditoria"
-            },
-            {
-              "text": "Domínio: Recursos humanos | Exemplos: Colaboradores, cargos | Riscos de baixa qualidade: Erro em folha, acesso inadequado | Controles sugeridos: Integração com SSO, dupla aprovação"
-            }
-          ]
+          "icon": "calendar-days",
+          "title": "Ciclo de vida",
+          "content": "Mapear criação, aprovação e arquivamento."
+        },
+        {
+          "icon": "settings",
+          "title": "Governança",
+          "content": "Definir papéis, políticas e compliance."
+        },
+        {
+          "icon": "tasks",
+          "title": "Qualidade",
+          "content": "Mensurar impacto de dados inconsistentes."
         }
       ]
     },
     {
-      "type": "representations",
-      "title": "Papéis na governança",
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Data owner",
-          "content": "Responsável por políticas, indicadores e aprovação final.",
-          "language": "plaintext",
-          "code": "Responsável por políticas, indicadores e aprovação final."
-        },
-        {
-          "title": "Data steward",
-          "content": "Orquestra cadastros, conduz limpezas e monitora qualidade.",
-          "language": "plaintext",
-          "code": "Orquestra cadastros, conduz limpezas e monitora qualidade."
-        },
-        {
-          "title": "Usuário chave",
-          "content": "Solicita alterações e valida aderência ao processo.",
-          "language": "plaintext",
-          "code": "Solicita alterações e valida aderência ao processo."
-        },
-        {
-          "title": "TI/Segurança",
-          "content": "Mantém controles de acesso, logs e trilhas de auditoria.",
-          "language": "plaintext",
-          "code": "Mantém controles de acesso, logs e trilhas de auditoria."
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Ciclo de governança",
-      "summary": "Fluxo contínuo de monitoramento e melhoria da qualidade de dados.",
-      "factors": [
-        {
-          "id": "politicas",
-          "name": "Políticas",
-          "summary": "Diretrizes e padrões documentados.",
-          "kind": "constraint",
-          "indicators": ["politicas_publicadas"]
-        },
-        {
-          "id": "cadastro",
-          "name": "Cadastro",
-          "summary": "Processo de criação e alteração de dados.",
-          "kind": "flow",
-          "indicators": ["tempo_cadastro", "erros_detectados"]
-        },
-        {
-          "id": "monitoramento",
-          "name": "Monitoramento",
-          "summary": "Medições de qualidade e auditorias.",
-          "kind": "flow",
-          "indicators": ["score_qualidade"]
-        },
-        {
-          "id": "remediacao",
-          "name": "Remediação",
-          "summary": "Correções e limpezas periódicas.",
-          "kind": "flow",
-          "indicators": ["registros_corrigidos"]
-        },
-        {
-          "id": "valor",
-          "name": "Valor entregue",
-          "summary": "Impacto percebido pelas áreas de negócio.",
-          "kind": "outcome",
-          "indicators": ["redução_retrabalho", "compliance_lgpd"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "qualidade",
-          "name": "Loop de qualidade",
-          "polarity": "reinforcing",
-          "summary": "Melhor qualidade gera confiança e incentiva cumprimento das políticas.",
-          "steps": [
-            {
-              "id": "dq-1",
-              "from": "politicas",
-              "to": "cadastro",
-              "effect": "reinforces",
-              "description": "Políticas claras orientam cadastros corretos."
-            },
-            {
-              "id": "dq-2",
-              "from": "cadastro",
-              "to": "monitoramento",
-              "effect": "reinforces",
-              "description": "Registros completos facilitam medições."
-            },
-            {
-              "id": "dq-3",
-              "from": "monitoramento",
-              "to": "remediacao",
-              "effect": "reinforces",
-              "description": "Indicadores apontam prioridades de correção."
-            },
-            {
-              "id": "dq-4",
-              "from": "remediacao",
-              "to": "valor",
-              "effect": "reinforces",
-              "description": "Dados limpos reduzem retrabalho."
-            },
-            {
-              "id": "dq-5",
-              "from": "valor",
-              "to": "politicas",
-              "effect": "reinforces",
-              "description": "Benefícios percebidos estimulam revisão periódica das políticas."
-            }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "id": "insight-dados-1",
-          "label": "Workflow digital",
-          "description": "Automatizar aprovações reduz tempo de ciclo."
-        },
-        {
-          "id": "insight-dados-2",
-          "label": "Indicadores sociais",
-          "description": "Metas visíveis no cockpit do ERP promovem accountability."
-        }
+        "(10 min) Check-in com relatos de falhas de cadastro.",
+        "(20 min) Exposição: conceitos de Master Data Management (MDM).",
+        "(15 min) Análise de políticas LGPD e segregação de funções.",
+        "(20 min) Oficina: desenhar workflow de criação de dados mestres.",
+        "(15 min) Discussão sobre métricas de qualidade de dados.",
+        "(15 min) Construção de plano de governança para o case.",
+        "(15 min) Síntese e encaminhamento para TED."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Resposta a incidentes de dados",
+      "title": "Conceitos essenciais",
       "content": [
         {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Detecção – Monitor identifica ruptura de qualidade ou violação de acesso."
-            },
-            {
-              "text": "Comunicação – Data steward notifica stakeholders e abre chamado."
-            },
-            {
-              "text": "Correção – Equipe executa plano de remediação priorizando processos críticos."
-            },
-            {
-              "text": "Prevenção – Revisão das políticas e atualização de treinamentos."
-            }
-          ]
+          "type": "paragraph",
+          "text": "Dados mestres sustentam transações e relatórios. Sem governança clara, o ERP perde confiabilidade e processos sofrem com retrabalho. É fundamental definir proprietários, regras de validação e indicadores de qualidade."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fluxos de criação, alteração e bloqueio precisam de segregação de funções e trilhas de auditoria. Integrações devem respeitar políticas de privacidade e compliance fiscal."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Referências audiovisuais",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/sap-master-data-governance",
-          "title": "SAP MDG em ação",
-          "caption": "Demonstra workflow de aprovação e validações automáticas."
+          "url": "https://example.edu/tgs/videos/governanca-dados-mestres",
+          "title": "Governança de dados mestres",
+          "caption": "Boas práticas de MDM aplicado a ERP."
         },
         {
-          "url": "https://example.edu/tgs/videos/totvs-governanca-dados",
-          "title": "TOTVS: governança de cadastros",
-          "caption": "Apresenta políticas de segregação de funções e auditoria."
+          "url": "https://example.edu/tgs/videos/case-mdm",
+          "title": "Case MDM",
+          "caption": "Empresa que reduziu 30% do retrabalho com workflow de cadastros."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Workflow",
+              "text": "Defina etapas, responsáveis e SLAs para criar/alterar dados mestres."
+            },
+            {
+              "title": "Regras",
+              "text": "Liste regras de validação automáticas e manuais necessárias."
+            },
+            {
+              "title": "Indicadores",
+              "text": "Proponha indicadores de qualidade e cadência de monitoramento."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para governança de dados",
+      "description": "Use para validar políticas com apoio de IA.",
+      "prompt": "Você é gestor de governança de dados. Analise o fluxo de dados mestres descrito abaixo e sugira políticas, papéis, indicadores e ferramentas para melhorar qualidade e conformidade. Indique riscos de LGPD e planos de mitigação. Fluxo: [descreva seu processo].",
+      "tips": [
+        "Peça recomendações de KPIs de qualidade.",
+        "Inclua integrações envolvidas e sistemas legados.",
+        "Solicite alertas para cadastros sem revisão periódica."
+      ],
+      "tags": ["dados", "governanca"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 22 — Mapa mental",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Construa um mapa mental digital resumindo papéis, indicadores e controles de governança de dados mestres. Entregue o link ou arquivo no AVA até às 18h do próximo encontro presencial."
+          "text": "Elabore uma política de governança de dados mestres para o case, contendo papéis, workflow, indicadores e plano de melhorias."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Mapeou proprietários de cada domínio de dados.",
+        "Definiu regras de validação e segregação de funções.",
+        "Planejou indicadores e fóruns de monitoramento."
       ]
     }
   ],

@@ -213,6 +213,49 @@
     },
     {
       "type": "contentBlock",
+      "title": "Dataset base para revisão manual",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Antes da avaliação, revise arrays e manipulação de dados utilizando o mini dataset de métricas coletadas na sprint anterior."
+        },
+        {
+          "type": "codeBlock",
+          "language": "plaintext",
+          "code": "tela,tempo_render_ms,erros_ui,feedbacks_positivos\nHome,180,2,14\nCarrinho,240,5,9\nCheckout,310,3,11\nPerfil,150,1,7"
+        },
+        {
+          "type": "paragraph",
+          "text": "Transcreva manualmente os valores para vetores (ex.: `const tempos = [180, 240, 310, 150]`) e confirme se consegue calcular médias e desvios simples sem depender de bibliotecas adicionais."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício guiado de estatísticas resumidas",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "1. Organize os vetores `tempos`, `erros` e `feedbacks` a partir do dataset e valide-os com `console.log`."
+            },
+            {
+              "text": "2. Calcule tempo médio de renderização, taxa de erro por tela e porcentagem de feedbacks positivos usando apenas operações com arrays."
+            },
+            {
+              "text": "3. Registre os resultados em uma tabela no caderno ou editor de texto, identificando telas críticas para refatoração."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Tarefa complementar: replique a tabela em uma planilha, gere um gráfico de colunas com `tempo_render_ms` e uma linha de tendência para `erros_ui`, anexando a visualização na reflexão pós-prova."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Exemplo de código comentado",
       "content": [
         {

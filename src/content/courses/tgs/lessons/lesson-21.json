@@ -4,227 +4,153 @@
   "objective": "Analisar como o ERP conecta fornecedores, estoques e distribuição em processos colaborativos.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Reúna informações sobre fornecedores, logística e indicadores OTIF do estudo de caso. Identifique gargalos recentes na cadeia de suprimentos."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Reúna dados sobre atrasos e devoluções recentes."
+            },
+            {
+              "text": "Identifique sistemas externos que trocam dados com o ERP."
+            },
+            {
+              "text": "Liste indicadores utilizados atualmente e lacunas percebidas."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
+          "icon": "tasks",
+          "title": "Fluxos logísticos",
+          "content": "Mapear order-to-cash e procure-to-pay integrados."
+        },
+        {
+          "icon": "book-open",
+          "title": "Integrações críticas",
+          "content": "Discutir WMS, TMS, portais de fornecedores e EDI."
+        },
+        {
           "icon": "target",
-          "title": "CONTEÚDO",
-          "content": "Processos order-to-cash e plan-to-produce, integrações com WMS, TMS e portais de fornecedores."
+          "title": "Indicadores",
+          "content": "Relacionar métricas logísticas e financeiras."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Visualizar fluxos interorganizacionais suportados pelo ERP.\n- Identificar riscos quando integrações falham.\n- Discutir métricas logísticas e de serviço ao cliente."
-        },
-        {
-          "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Debate guiado com base em estudo de caso, construção de fluxograma e apresentação relâmpago."
+          "icon": "target",
+          "title": "Visibilidade",
+          "content": "Construir plano de monitoramento ponta a ponta."
         }
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Pontos críticos de integração",
-      "cards": [
-        {
-          "title": "Portal do fornecedor",
-          "content": "Como as confirmações de entrega impactam planejamento de produção?"
-        },
-        {
-          "title": "WMS",
-          "content": "Quais dados de localização de estoque retornam ao ERP em tempo real?"
-        },
-        {
-          "title": "TMS",
-          "content": "Que eventos de transporte atualizam promessas ao cliente?"
-        },
-        {
-          "title": "Cliente",
-          "content": "Como status de pedido e faturas sincronizam com CRM e plataformas digitais?"
-        }
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Check-in com mapa da cadeia e SLA negociado.",
+        "(20 min) Exposição: integração ERP + SCM + parceiros externos.",
+        "(15 min) Análise de riscos: ruptura, atrasos e compliance fiscal.",
+        "(20 min) Oficina: desenhar eventos e integrações de um pedido crítico.",
+        "(15 min) Debate sobre dados mestres e sincronismo de estoques.",
+        "(15 min) Construção de painel de indicadores logísticos.",
+        "(15 min) Síntese de ações priorizadas para melhoria."
       ]
     },
     {
-      "type": "systemMapper",
-      "title": "Ciclo order-to-cash",
-      "summary": "Representação dos elos que suportam a entrega ao cliente.",
-      "factors": [
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
         {
-          "id": "pedido-cliente",
-          "name": "Pedido do cliente",
-          "summary": "Entrada de demanda.",
-          "kind": "driver",
-          "indicators": ["sla_prometido"]
+          "type": "paragraph",
+          "text": "A integração do ERP com a cadeia de suprimentos garante visibilidade de ponta a ponta. Portais de fornecedores, WMS e TMS precisam sincronizar eventos de pedido, recebimento, separação, transporte e faturamento."
         },
         {
-          "id": "estoque",
-          "name": "Disponibilidade de estoque",
-          "summary": "Materiais prontos para expedição.",
-          "kind": "stock",
-          "indicators": ["dias_estoque", "otif"]
-        },
-        {
-          "id": "expedicao",
-          "name": "Expedição",
-          "summary": "Separação e despacho de mercadorias.",
-          "kind": "flow",
-          "indicators": ["tempo_separacao"]
-        },
-        {
-          "id": "transporte",
-          "name": "Transporte",
-          "summary": "Entrega ao cliente com rastreamento.",
-          "kind": "flow",
-          "indicators": ["atrasos_transporte"]
-        },
-        {
-          "id": "faturamento",
-          "name": "Faturamento",
-          "summary": "Emissão de nota e cobrança.",
-          "kind": "flow",
-          "indicators": ["tempo_faturamento"]
-        },
-        {
-          "id": "satisfacao",
-          "name": "Satisfação do cliente",
-          "summary": "Percepção de confiabilidade e serviço.",
-          "kind": "outcome",
-          "indicators": ["nps", "taxa_reclamacoes"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "feedback-servico",
-          "name": "Feedback de serviço",
-          "polarity": "reinforcing",
-          "summary": "Clientes satisfeitos tendem a realizar novos pedidos, sustentando a cadeia.",
-          "steps": [
-            {
-              "id": "otc-1",
-              "from": "pedido-cliente",
-              "to": "estoque",
-              "effect": "reinforces",
-              "description": "Planejamento adequado garante disponibilidade."
-            },
-            {
-              "id": "otc-2",
-              "from": "estoque",
-              "to": "expedicao",
-              "effect": "reinforces",
-              "description": "Estoque correto acelera separação."
-            },
-            {
-              "id": "otc-3",
-              "from": "expedicao",
-              "to": "transporte",
-              "effect": "reinforces",
-              "description": "Despachos ágeis reduzem atrasos."
-            },
-            {
-              "id": "otc-4",
-              "from": "transporte",
-              "to": "faturamento",
-              "effect": "reinforces",
-              "description": "Confirmações de entrega disparam faturamento."
-            },
-            {
-              "id": "otc-5",
-              "from": "faturamento",
-              "to": "satisfacao",
-              "effect": "reinforces",
-              "description": "Cobranças corretas melhoram confiança."
-            },
-            {
-              "id": "otc-6",
-              "from": "satisfacao",
-              "to": "pedido-cliente",
-              "effect": "reinforces",
-              "description": "Clientes satisfeitos geram novos pedidos."
-            }
-          ]
-        },
-        {
-          "id": "monitoramento-riscos",
-          "name": "Monitoramento de riscos",
-          "polarity": "balancing",
-          "summary": "Alertas evitam ruptura de estoque e multas por atraso.",
-          "steps": [
-            {
-              "id": "risk-1",
-              "from": "estoque",
-              "to": "pedido-cliente",
-              "effect": "balances",
-              "description": "Sinais de ruptura disparam priorização de pedidos críticos."
-            },
-            {
-              "id": "risk-2",
-              "from": "transporte",
-              "to": "expedicao",
-              "effect": "balances",
-              "description": "Ocorrências logísticas ajustam planos de expedição."
-            }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "id": "insight-otc-1",
-          "label": "Integração com WMS",
-          "description": "Inventário em tempo real evita promessas não cumpridas."
-        },
-        {
-          "id": "insight-otc-2",
-          "label": "Rastreabilidade fiscal",
-          "description": "Notas fiscais alinhadas a eventos logísticos reduzem autuações."
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "title": "Sinalizadores de risco logístico",
-      "steps": [
-        {
-          "title": "Pedido atrasado",
-          "content": "ERP identifica pedido sem confirmação de produção."
-        },
-        { "title": "Estoque crítico", "content": "Alertas do WMS são enviados ao planejamento." },
-        {
-          "title": "Ocorrência de transporte",
-          "content": "TMS registra evento e atualiza promessa ao cliente."
-        },
-        {
-          "title": "Reemissão fiscal",
-          "content": "ERP gera carta de correção ou nota complementar."
+          "type": "paragraph",
+          "text": "Indicadores como OTIF, lead time, nível de estoque e custo logístico dependem de dados confiáveis e tempestivos. Monitorar exceções e automatizar alertas evita multas, rupturas e queda de satisfação."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Casos recomendados",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/case-sap-scm",
-          "title": "Case SAP: integração SCM + ERP",
-          "caption": "Multinacional de bens de consumo reduz 20% dos atrasos com visibilidade ponta a ponta."
+          "url": "https://example.edu/tgs/videos/erp-scm-integration",
+          "title": "Integração ERP + SCM",
+          "caption": "Boas práticas para conectar ERP, WMS e TMS."
         },
         {
-          "url": "https://example.edu/tgs/videos/case-totvs-logistica",
-          "title": "Case TOTVS: logística integrada",
-          "caption": "Rede varejista sincroniza ERP, WMS e TMS e melhora OTIF em 12 pontos."
+          "url": "https://example.edu/tgs/videos/case-logistica",
+          "title": "Case logística integrada",
+          "caption": "Como uma empresa elevou OTIF com monitoramento em tempo real."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapa de eventos",
+              "text": "Liste eventos desde o pedido do cliente até a entrega e sistema responsável."
+            },
+            {
+              "title": "Riscos",
+              "text": "Avalie riscos e controles para cada evento crítico."
+            },
+            {
+              "title": "Indicadores",
+              "text": "Defina indicadores logísticos e financeiros que devem ser monitorados."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para visibilidade logística",
+      "description": "Cole o fluxo atual e dores observadas.",
+      "prompt": "Você é especialista em supply chain. Analise o fluxo descrito abaixo e recomende integrações, indicadores e alertas que aumentem visibilidade e reduzam atrasos. Indique também ações para alinhar parceiros. Fluxo: [detalhe seu processo order-to-cash].",
+      "tips": [
+        "Inclua requisitos fiscais e de compliance.",
+        "Solicite sugestões de SLAs e acordos de nível de serviço.",
+        "Peça indicadores de sustentabilidade ou risco reputacional."
+      ],
+      "tags": ["scm", "integração"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 21 — Fluxograma order-to-cash",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Desenhe um fluxograma Order-to-Cash destacando integrações críticas entre ERP, WMS e TMS. Publique no AVA até às 23h de amanhã em PDF ou imagem, acompanhado de breve descrição (máx. 150 palavras)."
+          "text": "Entregue um relatório com fluxograma integrado, matriz de riscos e plano de indicadores para monitorar a cadeia de suprimentos."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Relacionou eventos logísticos aos sistemas que os suportam.",
+        "Documentou riscos e controles para cada etapa crítica.",
+        "Propôs indicadores acionáveis alinhados ao negócio."
       ]
     }
   ],

@@ -26,74 +26,13 @@
     "Conhecimento de operadores relacionais e condicionais."
   ],
   "tags": ["vetores", "busca", "arrays"],
-  "duration": 110,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Catálogo de produtos (CSV)",
-      "type": "dataset",
-      "file": "courses/algi/busca-catalogo.csv",
-      "url": "https://static.md3.education/courses/algi/busca-catalogo.csv"
-    },
-    {
-      "label": "Planilha de controle de estoque (Sebrae)",
-      "type": "spreadsheet",
-      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/Planilha%20-%20Controle%20de%20Estoque.xlsx"
-    },
-    {
-      "label": "Capítulo 7 – Pesquisa sequencial (Forbellone & Eberspächer)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 9 – Vetores e busca linear (Manzano & Oliveira)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 8 – Arrays e desempenho (Backes)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 10 – Análise de eficiência em C (Santos)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Capítulo 7 – Vetores e registros (Ascencio & Campos)",
-      "type": "bookChapter",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "CS50 Shorts - Linear Search",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=9YddVVsdG5A"
-    },
-    {
-      "label": "Khan Academy - Pesquisa linear",
-      "type": "course",
-      "url": "https://pt.khanacademy.org/computing/computer-science/algorithms#linear-search"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Moodle — AVA (Unichristus)",
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -104,11 +43,48 @@
     "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 7, Vetores e relatórios de auditoria."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "TED: Relatório do inventário do Armazém Popular comparando busca linear tradicional e com sentinela, com evidências coletadas na planilha de auditoria compartilhada.",
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior.",
     "rubric": "Resolução de problemas (35%): implementa e justifica a busca conforme Forbellone & Eberspächer (Cap. 7) e Manzano & Oliveira (Cap. 9). Análise de algoritmos (30%): interpreta métricas de comparações seguindo Backes (Cap. 8) e Santos (Cap. 10). Comunicação técnica (20%): relaciona achados à rotina de auditoria do Armazém Popular de acordo com Ascencio & Campos (Cap. 7). Responsabilidade profissional (15%): registra evidências e limitações na planilha do case conforme orientações da planilha de auditoria pós-módulo."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Buscas em Vetores\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Buscas em Vetores\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Curso de Programação C | Como criar novos tipos de dados em C com TYPEDEF STRUCT? | Aula 167",
+          "src": "https://www.youtube.com/embed/4B6kUBCcUWE"
+        },
+        {
+          "title": "Portugol 3 [ ESTRUTURA PADRÃO ] - Estrutura padrão de todo algoritmo | Lógica de programação",
+          "src": "https://www.youtube.com/embed/4F1uHsDYmuI"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -116,19 +92,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia Forbellone & Eberspächer (Cap. 7) sobre pesquisa sequencial e Manzano & Oliveira (Cap. 9) sobre vetores antes da aula. Registre dúvidas na planilha de preparação para que possamos conectá-las ao estudo de caso do Armazém Popular."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 32."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -166,37 +139,51 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Buscas em Vetores",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Buscas em Vetores. Contexto da aula: Introduz algoritmos de busca linear e variantes com sentinela, conectando-os a cenários de catálogo e relatórios. Objetivo central: Selecionar e implementar estratégias de busca apropriadas para localizar elementos em vetores não ordenados. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "arrays", "busca", "vetores"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem implementar busca linear tradicional e com sentinela.",
+        "Solicite exemplos adicionais relacionados a vetores, busca para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a analisar custo temporal das buscas e seu impacto em coleções grandes."
+      ]
+    },
+    {
       "type": "lessonPlan",
-      "title": "Plano de voo (1h50)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "9 min",
           "content": "Aquecimento com estimativas de busca."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "18 min",
           "content": "Demonstração da função buscaLinear no dataset."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "18 min",
           "content": "Refatoração para versão com sentinela."
         },
         {
           "icon": "check-circle",
-          "title": "(30 min) Laboratório",
+          "title": "(28 min) Laboratório",
           "content": "medir comparações para elementos existentes e ausentes."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "18 min",
           "content": "Discussão guiada sobre eficiência."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "9 min",
           "content": "Briefing da atividade pós-aula."
         }
       ]
@@ -355,43 +342,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 32' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente aula32_busca_linear.c com duas estratégias (padrão e com sentinela)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe planilha comparando número de iterações e resultado encontrado em diferentes cenários."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Implementação: código segue a decomposição proposta por Forbellone & Eberspächer (Cap. 7) e Manzano & Oliveira (Cap. 9) (35%)."
-            },
-            {
-              "text": "Eficiência: relatório compara métricas conforme Backes (Cap. 8) e Santos (Cap. 10) (30%)."
-            },
-            {
-              "text": "Análise crítica: conecta achados ao plano de auditoria do Armazém Popular com base em Ascencio & Campos (Cap. 7) (20%)."
-            },
-            {
-              "text": "Evidências: anexos na planilha de auditoria incluem logs, capturas e checklist de revisão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final e referencie a seção estudada para agilizar o feedback docente."
         }
       ]
     },
@@ -511,12 +473,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera vetores e alvos\nimport random\narr = [3,5,7]\nfor x in [3,5,10]:\n    idx = next((i for i,v in enumerate(arr) if v==x), -1)\n    print(f\"{arr}, x={x} -> {idx}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint buscaLinear(int vetor[], int tamanho, int alvo) {\n  for (int i = 0; i < tamanho; ++i) {\n    if (vetor[i] == alvo) {\n      return i;\n    }\n  }\n  return -1;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tamanho = 12;\n  int vetor[12];\n\n  for (int i = 0; i < tamanho; ++i) {\n    vetor[i] = rand() % 90 + 10;\n  }\n\n  int alvo = vetor[rand() % tamanho];\n\n  printf(\"Vetor:\\n\");\n  for (int i = 0; i < tamanho; ++i) {\n    printf(\"%d \", vetor[i]);\n  }\n  printf(\"\\nEntrada alvo: %d\\n\", alvo);\n  printf(\"Saida esperada (indice): %d\\n\", buscaLinear(vetor, tamanho, alvo));\n\n  return 0;\n}"
         }
       ]
     },

@@ -4,83 +4,148 @@
   "objective": "Verificar a capacidade de síntese e aplicação dos conceitos sistêmicos em cenários complexos.",
   "content": [
     {
-      "type": "flightPlan",
-      "title": "Visão geral da NP3",
-      "items": [
-        "Momento: Avaliação final integradora com duração de 110 minutos.",
-        "Escopo: Síntese de todos os tópicos abordados: sistemas abertos, níveis, vantagem competitiva e tomada de decisão.",
-        "Formato: Estudo de caso extenso com questões dissertativas e elaboração de plano de intervenção.",
-        "Preparação: Revisar mapas conceituais, relatórios do portfólio e simulados anteriores.",
-        "Entrega: Respostas manuscritas organizadas com introdução, análise e recomendações."
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise todos os artefatos do PESI, sínteses e feedbacks recebidos. Traga seu plano de estudo final com tópicos prioritários."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Durma bem e alimente-se antes da prova."
+            },
+            {
+              "text": "Chegue com antecedência portando documento oficial."
+            },
+            {
+              "text": "Organize materiais permitidos conforme orientações da coordenação."
+            }
+          ]
+        }
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Competências em destaque",
+      "type": "lessonPlan",
+      "title": "Plano da aula",
       "cards": [
         {
-          "title": "Diagnóstico sistêmico",
-          "content": "Mapear elementos, fronteiras e fluxos críticos do caso apresentado."
+          "icon": "book-open",
+          "title": "Formato",
+          "content": "Explicar estrutura da avaliação NP3 e critérios."
         },
         {
-          "title": "Leitura estratégica",
-          "content": "Relacionar sistemas de informação às escolhas de posicionamento e vantagem competitiva."
-        },
-        {
+          "icon": "calendar-days",
           "title": "Planejamento",
-          "content": "Propor roadmap de melhorias com indicadores, responsáveis e riscos mapeados."
+          "content": "Organizar tempo entre análise, escrita e revisão."
+        },
+        {
+          "icon": "settings",
+          "title": "Integridade",
+          "content": "Reforçar regras, materiais permitidos e conduta."
+        },
+        {
+          "icon": "tasks",
+          "title": "Encerramento",
+          "content": "Orientar próximos passos pós-avaliação."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Boas-vindas, confirmação de presença e leitura das instruções.",
+        "(15 min) Revisão da rubrica e critérios de correção.",
+        "(80 min) Realização da NP3 integradora (estudo de caso completo + questões reflexivas).",
+        "(10 min) Revisão individual das respostas e checklist de entrega.",
+        "(15 min) Encerramento com orientações sobre revisão de notas e celebração."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "A NP3 consolida o aprendizado do semestre: análise sistêmica, planejamento estratégico de SI, governança e transformação digital. Utilize os artefatos produzidos como referência."
+        },
+        {
+          "type": "paragraph",
+          "text": "Demonstre clareza na argumentação, conexão entre conceitos e capacidade de propor soluções viáveis."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/dicas-np3",
+          "title": "Dicas finais para NP3",
+          "caption": "Como sintetizar argumentos de forma clara."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/controle-ansiedade",
+          "title": "Controle de ansiedade",
+          "caption": "Estratégias para manter foco durante avaliações longas."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Estrutura da prova",
+      "title": "Exercício em sala",
       "content": [
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Parte 1 — Leitura crítica",
-              "text": "Identifique os principais desafios do sistema, atores envolvidos e sinais de desequilíbrio."
+              "title": "Checklist",
+              "text": "Confirme se entende formato, tempo e critérios."
             },
             {
-              "title": "Parte 2 — Análise multiescalar",
-              "text": "Explique como decisões em níveis operacional, tático e estratégico interagem no caso."
+              "title": "Estratégia",
+              "text": "Defina ordem de resolução das partes da prova."
             },
             {
-              "title": "Parte 3 — Plano de ação",
-              "text": "Detalhe intervenções propostas, indicadores de acompanhamento e possíveis efeitos colaterais."
+              "title": "Pós-prova",
+              "text": "Planeje como registrará aprendizados e próximos passos."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Reserve tempo para revisar ortografia, coerência e se todas as perguntas foram respondidas integralmente."
         }
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para revisão final",
+      "description": "Use antes da prova para direcionar estudo.",
+      "prompt": "Você é tutor da disciplina. Monte um plano de revisão de última hora destacando tópicos críticos, perguntas para praticar e dicas de escrita para a NP3. Perfil: [descreva seus pontos fortes/fracos].",
+      "tips": [
+        "Inclua tempo disponível para revisão.",
+        "Peça sugestões de perguntas integradoras.",
+        "Solicite orientações para estruturar respostas longas."
+      ],
+      "tags": ["avaliacao", "encerramento"],
+      "audience": "student"
+    },
+    {
       "type": "contentBlock",
-      "title": "Rubrica de avaliação",
+      "title": "Sessão de feedback e continuidade",
       "content": [
         {
-          "type": "subBlock",
-          "title": "Distribuição de pontos",
+          "type": "orderedList",
           "items": [
-            "Compreensão integrada (35%): amplitude da análise e conexão entre conceitos.",
-            "Argumentação (30%): uso de evidências, clareza lógica e consistência textual.",
-            "Aplicabilidade (25%): viabilidade e alinhamento das recomendações com o contexto.",
-            "Originalidade (10%): perspectivas inovadoras e críticas construtivas."
-          ]
-        },
-        {
-          "type": "callout",
-          "variant": "info",
-          "title": "Autoavaliação",
-          "content": [
             {
-              "type": "paragraph",
-              "text": "Utilize a planilha fornecida para conferir se cada critério foi contemplado antes de entregar."
+              "text": "Preencha a planilha de rubrica e feedback NP3 registrando evidências de cada pilar (roadmap, mudança, comunicação, aprendizagem)."
+            },
+            {
+              "text": "Defina, em squad, duas ações coletivas e duas individuais para as próximas semanas utilizando o modelo de plano de estudo."
+            },
+            {
+              "text": "Agende a atualização do fórum no Moodle com o texto padrão e anexos (planilha preenchida + plano de estudo)."
             }
           ]
         }
@@ -88,22 +153,33 @@
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "Procedimentos",
+      "variant": "task",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Chegue com 15 minutos de antecedência, traga documento com foto e mantenha celulares desligados durante toda a prova."
+          "text": "Após a NP3, complete um diário de aprendizagem registrando conquistas, desafios e planos profissionais para aplicar os conhecimentos de TGS."
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "Checklist pré-prova",
+      "title": "Ao final, valide se você",
       "items": [
-        "Revisar resumos das unidades e exercícios de loops de feedback.",
-        "Organizar referências rápidas de conceitos-chave (glossário pessoal).",
-        "Preparar perguntas para a sessão de devolutiva pós-avaliação."
+        "Leu atentamente as orientações e rubricou dúvidas.",
+        "Gerenciou o tempo para responder todas as partes.",
+        "Registrou reflexões pós-avaliação para crescimento contínuo."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Postagem no Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Após a prova, publique no tópico 'Plano de continuidade pós-NP3' o texto base disponível no repositório, anexando a planilha de feedback e o plano de estudo atualizado."
+        }
       ]
     }
   ],
@@ -143,6 +219,21 @@
       "label": "Planilha de autoavaliação (checklist NP3)",
       "url": "https://static.md3.education/courses/tgs/autoavaliacao-np3.md",
       "type": "template"
+    },
+    {
+      "label": "Planilha de rubrica e feedback NP3",
+      "url": "https://static.md3.education/courses/tgs/planilha-feedback-np3.csv",
+      "type": "template"
+    },
+    {
+      "label": "Modelo de plano de estudo pós-NP3",
+      "url": "https://static.md3.education/courses/tgs/modelo-plano-estudo-pos-np3.md",
+      "type": "guide"
+    },
+    {
+      "label": "Texto base para postagem no Moodle",
+      "url": "https://static.md3.education/courses/tgs/moodle-continuacao-estudos.md",
+      "type": "guide"
     }
   ],
   "bibliography": [

@@ -22,43 +22,13 @@
   ],
   "prerequisites": ["Trazer o pseudocódigo produzido na Aula 3."],
   "tags": ["pseudocodigo", "linguagem-c", "implementacao"],
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Guia: Configurando C/C++ no VS Code (Microsoft)",
-      "type": "documentation",
-      "url": "https://code.visualstudio.com/docs/cpp/config-linux"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Vídeo-guia: Convertendo Portugol em C (MD3)",
-      "type": "video",
-      "url": "https://static.md3.education/videos/algi/portugol-para-c.mp4"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -66,8 +36,8 @@
     "SANTOS, I. Guia rápido de Portugol e C. TechPress, 2021."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Entrega de um programa em C com captura de tela da execução e comentários descrevendo a relação com o pseudocódigo."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -77,19 +47,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Do Pseudocódigo ao Primeiro Programa em C. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 04."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -97,13 +64,64 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (2h)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(15 min) Revisão da estrutura de um algoritmo em Portugol.",
-        "(25 min) Sintaxe mínima de um programa C: diretivas, função main, variáveis.",
-        "(25 min) Tradução guiada de um algoritmo de soma.",
-        "(30 min) Laboratório: implementar variações em dupla (média, desconto, conversões).",
-        "(15 min) Testes, depuração e checklist de entrega."
+        "(14 min) Revisão da estrutura de um algoritmo em Portugol.",
+        "(23 min) Sintaxe mínima de um programa C: diretivas, função main, variáveis.",
+        "(23 min) Tradução guiada de um algoritmo de soma.",
+        "(27 min) Laboratório: implementar variações em dupla (média, desconto, conversões).",
+        "(13 min) Testes, depuração e checklist de entrega."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Do Pseudocódigo ao Primeiro Programa em C\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Do Pseudocódigo ao Primeiro Programa em C\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Linguagem C - Aula 8 - Estude Structs (registros) em C (2022)",
+          "src": "https://www.youtube.com/embed/-SgbvUL2UVc"
+        },
+        {
+          "title": "Curso de Programação C | Estrutura de decisão else if encadeados na linguagem C | aula 49",
+          "src": "https://www.youtube.com/embed/-ZEsh1E25fw"
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Do Pseudocódigo ao Primeiro Programa em C",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 4: Do Pseudocódigo ao Primeiro Programa em C. Contexto da aula: Mostra como traduzir algoritmos escritos em Portugol para um programa funcional em C, destacando sintaxe e boas práticas. Objetivo central: Conectar o planejamento em linguagem natural/pseudocódigo com a implementação inicial em C. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "implementacao", "linguagem-c", "pseudocodigo"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem relembrar a estrutura padrão de um algoritmo em portugol.",
+        "Solicite exemplos adicionais relacionados a pseudocodigo, linguagem-c para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a mapear cada parte do pseudocódigo para a sintaxe equivalente em c."
       ]
     },
     {
@@ -273,45 +291,22 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "TED pós-aula: Programa de Soma",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 04' para anexar um pacote contendo código, checklist e evidências."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Implemente no template do VS Code o algoritmo de soma apresentado (entrada de dois inteiros, processamento da soma e saída formatada).",
-            "Valide o comportamento comparando cada etapa com a tabela \"Comparativo MD3\" e registre os testes executados (mínimo três pares de números).",
-            "Faça upload do arquivo .c, do print da execução e de um checklist assinalando Entrada, Processamento e Saída utilizados."
-          ],
-          "ordered": true
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e mencione a etapa (entrada, processamento ou saída) onde está com dificuldade."
         }
       ]
     },
@@ -385,12 +380,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float temperaturaC = (float)(rand() % 3510) / 10.0f;\n  float temperaturaF = temperaturaC * 9.0f / 5.0f + 32.0f;\n  float temperaturaK = temperaturaC + 273.15f;\n\n  printf(\"Entrada (temperatura_celsius):\\n%.1f\\n\", temperaturaC);\n  printf(\"Saidas esperadas (fahrenheit kelvin):\\n%.2f %.2f\\n\", temperaturaF, temperaturaK);\n\n  return 0;\n}"
         }
       ]
     }

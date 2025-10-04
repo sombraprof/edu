@@ -25,50 +25,18 @@
     "Conhecimentos básicos de ponteiros."
   ],
   "tags": ["funcoes", "parametros", "ponteiros"],
-  "duration": 115,
+  "duration": 100,
   "modality": "hybrid",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Rubrica de modularização",
-      "type": "rubric",
-      "file": "courses/algi/modularizacao-rubrica.md",
-      "url": "https://static.md3.education/courses/algi/modularizacao-rubrica.md"
-    },
-    {
-      "label": "Laboratório de passagem de parâmetros",
-      "type": "lab",
-      "file": "courses/algi/passagem-parametros-lab.md",
-      "url": "https://static.md3.education/courses/algi/passagem-parametros-lab.md"
-    },
-    {
-      "label": "Playlist: Ponteiros e parâmetros em C",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dk_3-mQQ0rzzZF2kp7Y1w_c"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "label": "Boas práticas de modularização (Moodle)",
+      "type": "guide",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/modularizacao-boas-praticas.md"
     }
   ],
   "bibliography": [
@@ -77,8 +45,8 @@
     "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019."
   ],
   "assessment": {
-    "type": "lab",
-    "description": "Entrega em dupla com relatório descrevendo contratos de três funções e evidências de testes unitários."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -88,19 +56,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Funções com Parâmetros e Retorno. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 26."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -129,14 +94,51 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(15 min) Revisão rápida de funções sem parâmetros.",
-        "(25 min) Demonstração: calculadora modular usando parâmetros.",
-        "(25 min) Atividade síncrona: refatorar leitura e validação de dados em ponteiros.",
-        "(20 min) Oficina assíncrona orientada no laboratório (parametrização avançada).",
-        "(15 min) Revisão cruzada usando a rubrica de modularização.",
-        "(15 min) Registro de contratos e métricas de testes no mural digital."
+        "(13 min) Revisão rápida de funções sem parâmetros.",
+        "(22 min) Demonstração: calculadora modular usando parâmetros.",
+        "(22 min) Atividade síncrona: refatorar leitura e validação de dados em ponteiros.",
+        "(17 min) Oficina assíncrona orientada no laboratório (parametrização avançada).",
+        "(13 min) Revisão cruzada usando a rubrica de modularização.",
+        "(13 min) Registro de contratos e métricas de testes no mural digital."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Funções com Parâmetros e Retorno\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Funções com Parâmetros e Retorno\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Funções com Parâmetros e Retorno",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 26: Funções com Parâmetros e Retorno. Contexto da aula: Explora assinatura completa de funções em C, analisando passagem de parâmetros por valor e por referência com foco em testes. Objetivo central: Aplicar parâmetros e valores de retorno para construir funções reutilizáveis que tratam entradas variadas com segurança. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "funcoes", "parametros", "ponteiros"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem comparar passagem por valor e por referência em c.",
+        "Solicite exemplos adicionais relacionados a funcoes, parametros para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a projetar funções que retornam códigos de erro ou resultados numéricos."
       ]
     },
     {
@@ -190,6 +192,12 @@
       ]
     },
     {
+      "type": "code",
+      "language": "c",
+      "title": "Suite rápida de asserts",
+      "code": "#include <assert.h>\n\nint validar_idade(int idade); // protótipo declarado em header\nvoid atualizar_saldo(double *saldo, double deposito);\n\nvoid testar_validacoes(void) {\n  assert(validar_idade(18) == 1);\n  assert(validar_idade(-1) == 0);\n\n  double carteira = 100.0;\n  atualizar_saldo(&carteira, 50.0);\n  assert(carteira == 150.0);\n}\n"
+    },
+    {
       "type": "checklist",
       "title": "Checklist de contratos",
       "items": [
@@ -205,43 +213,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 26' para anexar o artefato solicitado."
+          "text": "Implemente e refatore incrementalmente funções parametrizadas, documentando responsabilidades e anexando asserts que validem cada incremento."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Entregue aula26_parametros.c demonstrando passagem por valor e referência."
+              "text": "No relatório da squad, descreva a sequência de incrementos (dados, processamento, saída) e respectivos responsáveis."
             },
             {
-              "text": "Inclua relatório curto documentando contratos de cada função e cenários de teste."
+              "text": "Atualize comentários das funções explicando contratos e cite os asserts usados para confirmar o comportamento."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
@@ -380,12 +363,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nvoid atualizarEstatisticas(int valor, int *menor, int *maior, int *soma) {\n  if (valor < *menor) {\n    *menor = valor;\n  }\n  if (valor > *maior) {\n    *maior = valor;\n  }\n  *soma += valor;\n}\n\ndouble calcularMedia(int soma, int quantidade) {\n  return (double)soma / quantidade;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int leituras = rand() % 6 + 5;\n  int menor = 1000;\n  int maior = -1000;\n  int soma = 0;\n\n  printf(\"Leituras de batimentos:\\n\");\n  for (int i = 0; i < leituras; ++i) {\n    int valor = rand() % 61 + 80;\n    atualizarEstatisticas(valor, &menor, &maior, &soma);\n    printf(\"%d \", valor);\n  }\n  printf(\"\\nSaidas esperadas -> menor=%d maior=%d media=%.2f\\n\", menor, maior, calcularMedia(soma, leituras));\n\n  return 0;\n}"
         }
       ]
     }

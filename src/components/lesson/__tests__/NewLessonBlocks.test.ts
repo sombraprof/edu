@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import DefinitionCard from '../DefinitionCard.vue';
 import ComparativeTable from '../ComparativeTable.vue';
@@ -10,6 +10,7 @@ import StatCard from '../StatCard.vue';
 import KnowledgeCheck from '../KnowledgeCheck.vue';
 import InteractiveDemo from '../InteractiveDemo.vue';
 import PedagogicalNote from '../PedagogicalNote.vue';
+import PromptTip from '../PromptTip.vue';
 
 beforeEach(() => {
   window.localStorage.clear();
@@ -166,5 +167,39 @@ describe('New lesson content blocks', () => {
 
     expect(wrapper.text()).toContain('Orientação interna');
     expect(wrapper.text()).toContain('Lembrete de alinhamento');
+  });
+
+  it('renders PromptTip and copia o texto do prompt', async () => {
+    const writeText = vi.fn().mockResolvedValue(undefined);
+    Object.defineProperty(window.navigator, 'clipboard', {
+      value: { writeText },
+      configurable: true,
+    });
+
+    const wrapper = mount(PromptTip, {
+      props: {
+        data: {
+          title: 'Briefing para sandbox',
+          description: 'Use como ponto de partida para interações com o modelo.',
+          audience: 'facilitadores',
+          prompt: 'Atue como consultor TOTVS e gere plano de experimentos.',
+          tags: ['laboratório', 'sandbox TOTVS'],
+          tips: [
+            'Peça variações com foco financeiro',
+            'Solicite um checklist de riscos regulatórios',
+          ],
+        },
+      },
+    });
+
+    expect(wrapper.text()).toContain('Briefing para sandbox');
+    expect(wrapper.text()).toContain('Atue como consultor TOTVS');
+    expect(wrapper.text()).toContain('sandbox TOTVS');
+
+    await wrapper.find('button').trigger('click');
+
+    expect(writeText).toHaveBeenCalledWith(
+      'Atue como consultor TOTVS e gere plano de experimentos.'
+    );
   });
 });

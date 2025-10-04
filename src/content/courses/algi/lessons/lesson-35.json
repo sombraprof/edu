@@ -1,75 +1,38 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-35",
-  "title": "Introdução a Structs (Registros)",
-  "summary": "Apresenta structs em C como registros compostos e conduz um CRUD básico em memória para consolidar o modelo de dados.",
-  "description": "Apresenta structs em C como registros compostos e organiza um CRUD inicial para consolidar o modelo de dados.",
-  "objective": "Compreender a declaração, instância e manipulação inicial de structs em C, preparando-se para coleções de registros.",
+  "title": "Introdução a Structs — Catálogo de Estoque",
+  "summary": "Apresenta structs em C para representar produtos do estoque TechParts e prepara o catálogo base para as próximas aulas.",
+  "description": "Constrói o registro Produto do estoque TechParts e estabelece operações iniciais de cadastro e consulta que serão expandidas nas Aulas 36 e 37.",
+  "objective": "Compreender como modelar um produto em C com structs, inicializar registros e preparar um mini-CRUD focado em criação e leitura para o estoque TechParts.",
   "objectives": [
-    "Declarar structs com campos adequados ao domínio proposto.",
-    "Inicializar e acessar membros por ponto e ponteiros.",
-    "Construir um mini-CRUD em memória com ênfase em criação e leitura."
+    "Declarar a struct Produto com campos essenciais para controle de estoque.",
+    "Inicializar registros e acessar membros por ponto e ponteiros em operações de cadastro e consulta.",
+    "Construir um mini-CRUD em memória que registre entradas iniciais de produtos."
   ],
   "competencies": ["05", "11"],
   "skills": [
-    "Definir structs representando registros compostos com campos coerentes.",
-    "Implementar operações CRUD em memória validando entrada e saída de dados.",
-    "Registrar casos de teste que comprovem a integridade do fluxo de operações."
+    "Definir structs coerentes com políticas de estoque e SKU.",
+    "Implementar operações de criação e leitura validando dados obrigatórios.",
+    "Registrar casos de teste que comprovem o cadastro inicial do catálogo TechParts."
   ],
   "outcomes": [
-    "Entrega módulo com definição de struct e funções para criar, ler, atualizar e remover registros.",
-    "Anexa log de testes cobrindo operações bem-sucedidas e tratamento de erros.",
-    "Apresenta documentação resumida orientando como utilizar o CRUD implementado."
+    "Entrega módulo com struct Produto e funções para cadastrar e listar itens do estoque.",
+    "Anexa log de testes cobrindo cenários de cadastro e validação de campos obrigatórios.",
+    "Apresenta documento resumo orientando como o catálogo inicial alimenta o controle de estoque das aulas seguintes."
   ],
   "prerequisites": [
     "Conhecimento de vetores simples (Aula 30).",
     "Noções de funções e passagem de parâmetros."
   ],
-  "tags": ["structs", "crud", "revisao"],
-  "duration": 115,
+  "tags": ["structs", "crud", "revisao", "estoque"],
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Template inicial de struct e impressão",
-      "type": "template",
-      "file": "courses/algi/struct-cadastro-template.c",
-      "url": "https://static.md3.education/courses/algi/struct-cadastro-template.c"
-    },
-    {
-      "label": "Artigo Microsoft Learn - Estruturas em C",
-      "type": "article",
-      "url": "https://learn.microsoft.com/pt-br/cpp/c-language/c-structures"
-    },
-    {
-      "label": "Rubrica CRUD em memória",
-      "type": "rubric",
-      "file": "courses/algi/crud-lab-rubrica.md",
-      "url": "https://static.md3.education/courses/algi/crud-lab-rubrica.md"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -78,25 +41,59 @@
   ],
   "content": [
     {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, elaborem o catálogo inicial da TechParts seguindo as questões abaixo."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica — Modelagem de produto",
+              "text": "Explique como os campos da struct Produto garantem rastreabilidade no estoque TechParts e como isso se conecta às aulas seguintes."
+            },
+            {
+              "title": "Questão prática — Cadastro inicial",
+              "text": "Implemente uma função que recebe dados de um novo SKU e adiciona ao vetor base, exibindo confirmação formatada."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Laço for e laço for aninhado | Linguagem C #009",
+          "src": "https://www.youtube.com/embed/58aAZEUlHqU"
+        },
+        {
+          "title": "Linguagem C | Aula 44 - Parâmetros da função",
+          "src": "https://www.youtube.com/embed/5BBD_IfFUtk"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Warm-up (pré-aula)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Structs (Registros). Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise o inventário parcial enviado pela gerência TechParts com 15 SKUs prioritários e identifique campos obrigatórios."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Liste três atributos que não podem faltar em Produto e traga justificativas."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 35."
+              "text": "Confirme acesso ao arquivo estoque-techparts.csv para importar dados durante a aula."
             }
           ]
         }
@@ -109,63 +106,77 @@
         {
           "icon": "clock",
           "title": "Aquecimento",
-          "content": "Quiz com cinco cenários para identificar campos de dados (10 min)."
+          "content": "Aquecimento com quiz sobre atributos de produtos TechParts (10 min)."
         },
         {
           "icon": "database",
           "title": "Sintaxe de struct",
-          "content": "Declaração, typedef e alinhamento na memória (25 min)."
+          "content": "Sintaxe de struct Produto, typedef e alinhamento para estoque (25 min)."
         },
         {
           "icon": "code",
           "title": "Manipulação",
-          "content": "Atribuições, acesso por ponto/seta e funções auxiliares (20 min)."
+          "content": "Manipulação de campos, leitura e impressão formatada do catálogo (20 min)."
         },
         {
           "icon": "gears",
           "title": "Mini-CRUD",
-          "content": "Criar e listar registros de Empresas em vetor fixo (35 min)."
+          "content": "Mini-CRUD: cadastrar e listar SKUs com vetor local (35 min)."
         },
         {
           "icon": "check-circle",
           "title": "Retrospectiva",
-          "content": "Mapa mental com principais boas práticas (15 min)."
+          "content": "Retrospectiva conectando catálogo inicial às necessidades da Aula 36 (15 min)."
         }
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar o Catálogo TechParts",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I focados em structs",
+      "prompt": "Você é estudante de Algoritmos I encarregado de montar o catálogo de estoque da TechParts usando structs. Contexto da aula: Apresenta structs em C para representar produtos e montar um mini-CRUD inicial. Objetivo central: Compreender a declaração, instância e manipulação inicial de structs em C, preparando o catálogo que será expandido nas Aulas 36 e 37. Monte um plano de estudo com revisão teórica, prática guiada e autoavaliação incluindo exercícios em C, validações de dados e perguntas de checagem para os campos obrigatórios.",
+      "tags": ["algoritmos", "crud", "structs", "estoque"],
+      "tips": [
+        "Peça ao assistente checklists de campos obrigatórios para o produto TechParts.",
+        "Solicite exemplos de funções que retornem ponteiros para Produto cadastrado.",
+        "Peça orientações para documentar o fluxo de cadastro e preparar logs para a Aula 36.",
+        "Peça perguntas para validar com a gerência a qualidade dos dados inseridos."
+      ]
+    },
+    {
       "type": "lessonPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "10 min",
-          "content": "Icebreaker com cartões de atributos empresariais."
+          "title": "9 min",
+          "content": "Icebreaker: cartões com categorias do estoque TechParts."
         },
         {
           "icon": "check-circle",
-          "title": "(20 min) Live coding",
-          "content": "declaração e inicialização de Empresa."
+          "title": "(18 min) Live coding",
+          "content": "(18 min) Live coding — declaração e inicialização da struct Produto."
         },
         {
           "icon": "check-circle",
-          "title": "(15 min) Exercício individual",
-          "content": "função para imprimir struct formatada."
+          "title": "(13 min) Exercício individual",
+          "content": "(13 min) Exercício individual — função para imprimir Produto formatado com status de reposição."
         },
         {
           "icon": "check-circle",
-          "title": "(30 min) Laboratório guiado",
-          "content": "operações create/list com vetor local."
+          "title": "(26 min) Laboratório guiado",
+          "content": "(26 min) Laboratório guiado — cadastrar itens no vetor base e salvar log."
         },
         {
           "icon": "check-circle",
-          "title": "(20 min) Debriefing",
-          "content": "decisões de modelagem e validação de dados."
+          "title": "(17 min) Debriefing",
+          "content": "(17 min) Debriefing — validar campos e preparar plano de reabastecimento."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
-          "content": "Check-out com quiz interativo (Kahoot) sobre sintaxe de structs."
+          "title": "17 min",
+          "content": "17 min — Quiz interativo sobre regras de estoque e sintaxe de structs."
         }
       ]
     },
@@ -226,7 +237,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Utilize dados de perfil do Microempreendedor Individual disponíveis no portal do SEBRAE para sugerir campos realistas e discutir ética no uso de dados."
+          "text": "Utilize o inventário público da TechParts (planilha fornecida) para sugerir campos realistas e discutir ética na atualização de dados de estoque."
         }
       ]
     },
@@ -237,59 +248,51 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 35' para anexar o artefato solicitado."
+          "text": "Finalize o cadastro inicial da TechParts e produza a documentação textual solicitada para alimentar a base do módulo de estoque."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente aula35_structs.c criando struct Aluno e operações básicas de cadastro e listagem."
+              "text": "Cadastre ao menos 10 produtos e entregue um relatório textual (1-2 páginas) descrevendo campos, validações e pendências para o estoque."
             },
             {
-              "text": "Anexe formulário preenchido com pelo menos três registros e observações sobre cada campo."
+              "text": "Liste dúvidas sobre campos complementares ou regras de negócio para discutirmos na Aula 36."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
     {
       "type": "tabs",
-      "title": "Struct — definição × uso",
+      "title": "Struct Produto — definição × uso",
       "tabs": [
         {
           "label": "Definição",
-          "code": "typedef struct { char nome[50]; int idade; } Pessoa;",
+          "code": "typedef struct {\n  int sku;\n  char nome[40];\n  int quantidade;\n  float preco;\n} Produto;",
           "language": "c"
         },
         {
           "label": "Uso",
-          "code": "Pessoa p; scanf(\"%s %d\", p.nome, &p.idade);",
+          "code": "Produto p = {101, \"Kit Sensor\", 12, 189.90f};\nprintProduto(p);",
           "language": "c"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Materiais para estações e slides",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cartaz Estação Catálogo TechParts — /courses/algi/estacao-estoque-struct.md"
+            },
+            {
+              "text": "Diagrama de memória — vetor de structs (base) — /courses/algi/memory-diagrama-estoque.md"
+            }
+          ]
         }
       ]
     },
@@ -315,7 +318,7 @@
       "content": [
         {
           "type": "code",
-          "code": "# Struct Pessoa\nEntrada: Ana 20 -> Pessoa{nome=Ana, idade=20}",
+          "code": "# Produto\nEntrada: SKU 5001, \"Cabo HDMI\", quantidade 20, preço 39.90 -> imprime linha formatada.",
           "language": "plaintext"
         }
       ]
@@ -348,12 +351,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int id;\n  char nome[16];\n  int idade;\n} Paciente;\n\nvoid gerarNome(char destino[], int id) {\n  snprintf(destino, 16, \"Paciente%02d\", id);\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  Paciente p;\n  p.id = rand() % 90 + 10;\n  gerarNome(p.nome, p.id);\n  p.idade = rand() % 60 + 18;\n\n  printf(\"Registro gerado:\\nID: %d\\nNome: %s\\nIdade: %d\\n\", p.id, p.nome, p.idade);\n  printf(\"Saida esperada: atualizar CRUD em memoria com esses campos.\\n\");\n\n  return 0;\n}"
         }
       ]
     }
@@ -363,5 +366,9 @@
     "updatedAt": "2025-10-02T08:28:29.004Z",
     "owners": ["Equipe Algoritmos I", "Prof. Tiago Sombra"],
     "sources": ["Plano de ensino Algoritmos I 2025.2", "Relatórios SEBRAE 2024"]
+  },
+  "assessment": {
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   }
 }

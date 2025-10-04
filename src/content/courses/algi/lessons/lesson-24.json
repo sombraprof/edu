@@ -31,28 +31,18 @@
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     },
     {
-      "label": "Painel Start/Stop/Continue (Miro)",
-      "type": "board",
-      "url": "https://miro.com/app/board/uXjVKloopsRetro/"
+      "label": "Template de relatório de fluxos em squad",
+      "type": "template",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/templates/squad-flow-report-template.md"
     },
     {
-      "label": "Formulário de reflexão final",
-      "type": "form",
-      "url": "https://forms.gle/ReflexaoFinalLoops"
-    },
-    {
-      "label": "Vídeo inspiração: Boas práticas de laços",
-      "type": "playlist",
-      "url": "https://www.youtube.com/watch?v=HnYEm4hXH7s"
-    },
-    {
-      "label": "Planilha de plano de ação (Sebrae)",
-      "type": "spreadsheet",
-      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/planilha-plano-de-acao.xlsx"
+      "label": "Template de pseudocódigo incremental",
+      "type": "template",
+      "url": "https://raw.githubusercontent.com/md3-content/edu/main/docs/didactics/templates/pseudocode-incremental-template.md"
     }
   ],
   "bibliography": [
@@ -60,10 +50,47 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
   ],
   "assessment": {
-    "type": "reflection",
-    "description": "Entrega de relatório reflexivo com plano de ação pessoal e feedback recebido."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Organizem-se em squads (até 4 pessoas) mantendo os papéis definidos na aula 23 e utilizem os templates publicados no repositório para registrar decisões."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Síntese e Retrospectiva dos Laços\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Síntese e Retrospectiva dos Laços\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Analyzing algorithms in 6 minutes — Intro",
+          "src": "https://www.youtube.com/embed/2_Ud0TESsa0"
+        },
+        {
+          "title": "Como Baixar e Instalar o Visual Studio Code (VSCode) no Windows [Atualizado 2024] - Aula 02",
+          "src": "https://www.youtube.com/embed/2hIFewbdsEg"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -71,19 +98,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Síntese e Retrospectiva dos Laços. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 24."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -101,17 +125,17 @@
         {
           "icon": "book-open",
           "title": "Showcase",
-          "content": "Times apresentam artefatos da triagem (20 min)."
+          "content": "Squads apresentam fluxos e pseudocódigos atualizados (20 min)."
         },
         {
           "icon": "users",
           "title": "Feedback cruzado",
-          "content": "Trocar percepções usando Start/Stop/Continue (25 min)."
+          "content": "Trocar percepções usando Start/Stop/Continue com foco nos incrementos e responsabilidades (25 min)."
         },
         {
           "icon": "check-circle",
           "title": "Painel 360°",
-          "content": "Registrar evidências no board colaborativo (20 min)."
+          "content": "Registrar evidências no board colaborativo e anexar links para templates (20 min)."
         },
         {
           "icon": "target",
@@ -123,6 +147,38 @@
           "title": "Encerramento",
           "content": "Orientar entrega no Moodle e próximos passos (10 min)."
         }
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Rotina das squads na retrospectiva",
+      "cards": [
+        {
+          "title": "Antes",
+          "content": "Atualize relatório de fluxos e pseudocódigo incremental com indicadores coletados."
+        },
+        {
+          "title": "Durante",
+          "content": "Apresente incrementos, compartilhe asserts executados e colete feedback 360°."
+        },
+        {
+          "title": "Depois",
+          "content": "Liste ações de refatoração incremental e responsáveis por cada função."
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Síntese e Retrospectiva dos Laços",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Síntese e Retrospectiva dos Laços. Contexto da aula: Consolida aprendizados das aulas 19-23 com showcase da triagem, retroalimentação e plano de melhoria contínua. Objetivo central: Refletir sobre o ciclo de laços, compartilhar entregas da triagem e definir próximos passos de estudo. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "feedback", "planejamento", "retrospectiva"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem apresentar resultados da atividade assíncrona de triagem.",
+        "Solicite exemplos adicionais relacionados a retrospectiva, feedback para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a identificar boas práticas e pontos de melhoria nas soluções."
       ]
     },
     {
@@ -363,11 +419,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Aplique a retrospectiva para planejar a próxima iteração de refatoração incremental registrando responsabilidades de cada função."
         },
         {
           "type": "list",
-          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+          "items": [
+            {
+              "text": "Atualize o relatório de fluxos indicando quais incrementos serão entregues na aula 25 e quem lidera cada um."
+            },
+            {
+              "text": "Revise o pseudocódigo incremental adicionando comentários de responsabilidade por função e testes planejados."
+            }
+          ]
         }
       ]
     },
@@ -441,12 +504,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int atendidos;\n  int redirecionados;\n} Turno;\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  Turno turnos[3];\n  int totalAtendidos = 0;\n  int totalRedirecionados = 0;\n\n  for (int i = 0; i < 3; ++i) {\n    turnos[i].atendidos = rand() % 41 + 30;\n    turnos[i].redirecionados = rand() % 11;\n    totalAtendidos += turnos[i].atendidos;\n    totalRedirecionados += turnos[i].redirecionados;\n  }\n\n  printf(\"Relatorio consolidado de turnos:\\n\");\n  for (int i = 0; i < 3; ++i) {\n    printf(\"Turno %d -> atendidos=%d redirecionados=%d\\n\", i + 1, turnos[i].atendidos, turnos[i].redirecionados);\n  }\n  printf(\"Total atendidos: %d\\nTotal redirecionados: %d\\n\", totalAtendidos, totalRedirecionados);\n\n  return 0;\n}"
         }
       ]
     }

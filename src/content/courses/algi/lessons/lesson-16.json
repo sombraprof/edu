@@ -24,43 +24,13 @@
     "Revisar as aulas 12 a 15 e trazer o ambiente configurado (IDE OnlineGDB ou DevC++)."
   ],
   "tags": ["condicionais", "atividade", "assincrona"],
-  "duration": 120,
+  "duration": 100,
   "modality": "async",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Manual de Classificação de Risco (Ministério da Saúde)",
-      "type": "handout",
-      "url": "https://www.saude.df.gov.br/wp-conteudo/uploads/2018/03/Manual-Classificacao-Risco.pdf"
-    },
-    {
-      "label": "Fluxograma Manchester para acolhimento",
-      "type": "handout",
-      "url": "https://bvsms.saude.gov.br/bvs/publicacoes/protocolo_manchester_classificacao_risco.pdf"
-    },
-    {
-      "label": "Planilha de checklist de testes",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIChecklistTriagem"
-    },
-    {
-      "label": "Formulário de dúvidas",
-      "type": "form",
-      "url": "https://forms.gle/DuvidasAula16"
-    },
-    {
-      "label": "Modelo de relatório técnico (SAPS/MS)",
-      "type": "document",
-      "url": "https://www.gov.br/saude/pt-br/composicao/saps/atencao-primaria/publicacoes/formularios/modelo-de-relatorio-tecnico.pdf"
-    },
-    {
-      "label": "Repositório modelo Git",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-triage-template"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -68,10 +38,47 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Entrega individual com fluxograma, pseudocódigo e planilha de testes enviados no AVA até às 23h59."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Atividade Prática Assíncrona – Condicionais\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Atividade Prática Assíncrona – Condicionais\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "C #7 Operadores Lógicos - YouTube",
+          "src": "https://www.youtube.com/embed/0sltdcUta-g"
+        },
+        {
+          "title": "Switch em C! Aprenda de uma vez a utilizar em seus algoritmos!!!",
+          "src": "https://www.youtube.com/embed/0zNshMBX-iw"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -79,19 +86,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Atividade Prática Assíncrona – Condicionais. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 16."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -141,6 +145,20 @@
           "title": "Gestão do tempo",
           "content": "Reserve 2h: 30 min de análise, 50 min de modelagem, 30 min de testes e 10 min para documentação."
         }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Atividade Prática Assíncrona – Condicionais",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 16: Atividade Prática Assíncrona – Condicionais. Contexto da aula: Aplica condicionais compostas em um miniaplicativo de triagem, documentando decisões, testes e evidências de entrega. Objetivo central: Conduzir uma atividade autônoma que consolide condicionais aninhadas, operadores lógicos e planejamento de testes. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "assincrona", "atividade", "condicionais"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem revisar requisitos funcionais de um fluxo de triagem clínica.",
+        "Solicite exemplos adicionais relacionados a condicionais, atividade para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a desenhar fluxogramas que reflitam decisões exclusivas e caminhos alternativos."
       ]
     },
     {
@@ -519,11 +537,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregar no AVA até 23h59 do dia seguinte."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
-          "items": ["Exercício breve conforme pauta da aula.", "Registrar dúvidas no AVA."]
+          "items": [
+            {
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
+            },
+            {
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
+            }
+          ]
         }
       ]
     },
@@ -597,12 +622,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *prioridade(int febre, int saturacao, int dor) {\n  if (febre >= 39 || saturacao < 92 || dor >= 9) {\n    return \"VERMELHO\";\n  } else if (febre >= 38 || saturacao < 95 || dor >= 7) {\n    return \"AMARELO\";\n  } else if (febre >= 37 || dor >= 5) {\n    return \"VERDE\";\n  }\n  return \"AZUL\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int febre = rand() % 5 + 36;\n  int saturacao = rand() % 11 + 90;\n  int dor = rand() % 11;\n\n  printf(\"Entrada (febre saturacao dor):\\n%d %d %d\\n\", febre, saturacao, dor);\n  printf(\"Saida esperada: %s\\n\", prioridade(febre, saturacao, dor));\n\n  return 0;\n}"
         }
       ]
     }

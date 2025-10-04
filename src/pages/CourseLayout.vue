@@ -1,5 +1,5 @@
 <template>
-  <section class="course-page page-section">
+  <section class="course-page page-section" :aria-busy="!metaLoaded">
     <header class="course-page__hero card md-stack md-stack-5 p-6 md:p-8">
       <nav class="course-page__breadcrumbs page-breadcrumb" aria-label="Navegação">
         <Md3Button
@@ -41,7 +41,7 @@
 
     <main>
       <router-view v-if="metaLoaded" :key="$route.fullPath" />
-      <div v-else class="course-page__loading" role="status">
+      <div v-else class="course-page__loading" role="status" aria-live="polite">
         Carregando informações da disciplina...
       </div>
     </main>
@@ -49,118 +49,18 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
-import { RouterLink, useRoute } from 'vue-router';
+import { computed } from 'vue';
+import { RouterLink } from 'vue-router';
 import { ArrowLeft } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
-import { normalizeManifest } from '@/content/loaders';
+import { useCourseLayoutController } from './CourseLayout.logic';
 
-interface CourseMeta {
-  id: string;
-  title: string;
-  institution: string;
-  description?: string;
-}
+const controller = useCourseLayoutController();
 
-interface LessonSummary {
-  id: string;
-  title: string;
-}
-
-interface ExerciseSummary {
-  id: string;
-  title: string;
-}
-
-const metaModules = import.meta.glob('../content/courses/*/meta.json');
-const lessonIndexModules = import.meta.glob('../content/courses/*/lessons.json');
-const exerciseIndexModules = import.meta.glob('../content/courses/*/exercises.json');
-
-const route = useRoute();
-const courseId = computed(() => String(route.params.courseId ?? ''));
-
-const meta = ref<CourseMeta | null>(null);
-const lessons = ref<LessonSummary[]>([]);
-const exercises = ref<ExerciseSummary[]>([]);
-const metaLoaded = ref(false);
-
-const lessonsCount = computed(() => lessons.value.length);
-const exercisesCount = computed(() => exercises.value.length);
-
-async function loadMeta(id: string) {
-  try {
-    const path = `../content/courses/${id}/meta.json`;
-    const importer = metaModules[path];
-    if (!importer) throw new Error(`Meta manifest not found for ${path}`);
-
-    const module: any = await importer();
-    const payload = module.default ?? module;
-    meta.value = payload as CourseMeta;
-  } catch (error) {
-    console.error('[CourseLayout] Failed to load meta', error);
-    meta.value = null;
-  }
-}
-
-async function loadLessons(id: string) {
-  try {
-    const path = `../content/courses/${id}/lessons.json`;
-    const importer = lessonIndexModules[path];
-    if (!importer) throw new Error(`Lessons manifest not found for ${path}`);
-
-    const module = await importer();
-    const { entries } = normalizeManifest<LessonSummary>(module, {
-      context: `CourseLayout:lessons:${id}`,
-    });
-    lessons.value = entries.map((lesson) => ({
-      id: lesson.id,
-      title: lesson.title,
-    }));
-  } catch (error) {
-    console.error('[CourseLayout] Failed to load lessons.json', error);
-    lessons.value = [];
-  }
-}
-
-async function loadExercises(id: string) {
-  try {
-    const path = `../content/courses/${id}/exercises.json`;
-    const importer = exerciseIndexModules[path];
-    if (!importer) throw new Error(`Exercises manifest not found for ${path}`);
-
-    const module = await importer();
-    const { entries } = normalizeManifest<ExerciseSummary>(module, {
-      context: `CourseLayout:exercises:${id}`,
-    });
-    exercises.value = entries.map((exercise) => ({
-      id: exercise.id,
-      title: exercise.title,
-    }));
-  } catch (error) {
-    exercises.value = [];
-  }
-}
-
-async function refreshCourse(id: string) {
-  metaLoaded.value = false;
-  await Promise.all([loadMeta(id), loadLessons(id), loadExercises(id)]);
-  metaLoaded.value = true;
-}
-
-onMounted(() => {
-  if (courseId.value) {
-    refreshCourse(courseId.value);
-  }
-});
-
-watch(
-  () => courseId.value,
-  (id) => {
-    if (id) {
-      refreshCourse(id);
-    }
-  }
-);
+const meta = computed(() => controller.meta.value);
+const lessonsCount = computed(() => controller.lessonsCount.value);
+const exercisesCount = computed(() => controller.exercisesCount.value);
+const metaLoaded = computed(() => controller.metaLoaded.value);
 </script>
 
 <style scoped>

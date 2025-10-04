@@ -26,61 +26,13 @@
     "Projeto CRUD em memória iniciado."
   ],
   "tags": ["structs", "crud", "revisao"],
-  "duration": 130,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Kit Jeopardy para revisão",
-      "type": "guide",
-      "file": "courses/algi/gamificacao-jeopardy-kit.md",
-      "url": "https://static.md3.education/courses/algi/gamificacao-jeopardy-kit.md"
-    },
-    {
-      "label": "Slides oficiais da dinâmica Jeopardy",
-      "type": "slides",
-      "file": "courses/algi/aula-38-jeopardy-slides.pdf",
-      "url": "https://static.md3.education/courses/algi/aula-38-jeopardy-slides.pdf"
-    },
-    {
-      "label": "Template de ranking gamificado",
-      "type": "template",
-      "file": "courses/algi/gamificacao-ranking-template.csv",
-      "url": "https://static.md3.education/courses/algi/gamificacao-ranking-template.csv"
-    },
-    {
-      "label": "Planilha de pontuação em tempo real",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGJeopardyPontuacao"
-    },
-    {
-      "label": "Artigo Harvard Business Review - Gamification in Education",
-      "type": "article",
-      "url": "https://hbr.org/2020/03/how-gamification-can-boost-learner-engagement"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -89,25 +41,59 @@
   ],
   "content": [
     {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Revisão Gamificada do Semestre\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Revisão Gamificada do Semestre\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "CNU 2025 | Disciplinas Comuns Blocos 1 a 7: Nível Superior | Revisão de Véspera",
+          "src": "https://www.youtube.com/embed/5q4k92BmfUc"
+        },
+        {
+          "title": "LangGraph: Understand Graphs, Nodes, Edges, and State with Python (Lesson 2)",
+          "src": "https://www.youtube.com/embed/5xS_u8u5NQw"
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Warm-up (pré-aula)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Revisão Gamificada do Semestre. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 38."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -150,6 +136,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Revisão Gamificada do Semestre",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Revisão Gamificada do Semestre. Contexto da aula: Consolida conteúdos com dinâmica Jeopardy, ranking colaborativo e síntese dos aprendizados em squads. Objetivo central: Promover revisão abrangente dos conceitos-chave da disciplina por meio de atividades gamificadas e colaborativas. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "crud", "revisao", "structs"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem relembrar tópicos centrais (fluxo sequencial, controle, funções, structs).",
+        "Solicite exemplos adicionais relacionados a structs, crud para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a aplicar conhecimento em desafios práticos e quizzes competitivos."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Kit Jeopardy por squad",
       "content": [
@@ -182,36 +182,36 @@
     },
     {
       "type": "lessonPlan",
-      "title": "Plano de voo (2h10)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "8 min",
           "content": "Icebreaker com quiz flash e revisão das regras nos slides."
         },
         {
           "icon": "check-circle",
-          "title": "(45 min) Rodadas principais",
+          "title": "(35 min) Rodadas principais",
           "content": "squads escolhem casas, respondem e registram tentativas na planilha."
         },
         {
           "icon": "check-circle",
-          "title": "(15 min) Painel do ranking",
+          "title": "(12 min) Painel do ranking",
           "content": "atualização coletiva e registro dos badges conquistados."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
+          "title": "15 min",
           "content": "Desafio relâmpago com perguntas de alta complexidade e possibilidade de aposta."
         },
         {
           "icon": "check-circle",
-          "title": "25 min",
+          "title": "19 min",
           "content": "Círculo de feedback 360° mediado por roteiro de perguntas."
         },
         {
           "icon": "check-circle",
-          "title": "15 min",
+          "title": "11 min",
           "content": "Construção do mural digital com insights e anúncio dos destaques."
         }
       ]
@@ -317,43 +317,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 38' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Publique resumo individual destacando aprendizados e questões que acertou/errou na dinâmica Jeopardy."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe planilha de pontuação da equipe e sugestões para próximos estudos."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
@@ -417,12 +392,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *nomeTopico(int indice) {\n  switch (indice) {\n    case 0: return \"Sequencias\";\n    case 1: return \"Condicionais\";\n    case 2: return \"Repeticoes\";\n    case 3: return \"Funcoes\";\n    case 4: return \"Vetores\";\n    default: return \"Structs\";\n  }\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  for (int i = 1; i <= 5; ++i) {\n    int topico = rand() % 6;\n    int dificuldade = rand() % 3 + 1;\n    printf(\"Pergunta %d -> tema=%s dificuldade=%d\\n\", i, nomeTopico(topico), dificuldade);\n  }\n\n  printf(\"Monte desafios combinando os topicos acima.\\n\");\n\n  return 0;\n}"
         }
       ]
     }
@@ -436,5 +411,9 @@
       "HBR Gamification Strategies 2020",
       "Relatório de monitoria gamificada 2024"
     ]
+  },
+  "assessment": {
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   }
 }

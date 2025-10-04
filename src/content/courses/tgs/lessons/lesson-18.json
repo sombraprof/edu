@@ -4,159 +4,153 @@
   "objective": "Analisar estratégias de CRM para fortalecer o relacionamento com clientes.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise a jornada do cliente definida nas aulas anteriores e liste pontos de contato que ainda não possuem registro estruturado."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Liste campos que hoje são preenchidos manualmente e causam erro."
+            },
+            {
+              "text": "Identifique indicadores chave como LTV, churn, NPS e CAC."
+            },
+            {
+              "text": "Traga dúvidas sobre LGPD relacionadas a campanhas e armazenamento."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
-      "title": "Plano da Aula",
+      "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDOS",
-          "content": "Conceitos de CRM, jornada do cliente, automação de marketing e indicadores de fidelização."
+          "title": "Jornada",
+          "content": "Mapear touchpoints e dores do cliente."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Mapear etapas do relacionamento com clientes.\n- Avaliar funcionalidades essenciais de plataformas CRM.\n- Conectar dados de CRM a estratégias de fidelização."
+          "icon": "database",
+          "title": "Dados",
+          "content": "Identificar campos críticos de captura no CRM."
+        },
+        {
+          "icon": "gears",
+          "title": "Automação",
+          "content": "Explorar gatilhos e campanhas personalizadas."
         },
         {
           "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Estudo de caso, demonstração prática e debate orientado sobre dilemas éticos e estratégicos."
+          "title": "Sucesso do cliente",
+          "content": "Conectar indicadores a estratégias de fidelização."
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Jornada do cliente e pontos de contato",
-      "steps": [
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Check-in com exemplos reais de experiências boas e ruins.",
+        "(20 min) Revisão dos componentes de um CRM moderno e seus módulos.",
+        "(15 min) Análise de dados: quais campos são indispensáveis para personalização?",
+        "(20 min) Oficina: desenhar funil e ciclos de relacionamento para o case.",
+        "(15 min) Debates rápidos sobre governança e LGPD.",
+        "(15 min) Simulação de automações e gatilhos por squad.",
+        "(15 min) Síntese coletiva e encaminhamento da TED."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
         {
-          "title": "Aquisição",
-          "content": "Leads chegam via campanhas digitais. Como o CRM captura a origem e segmenta automaticamente?"
+          "type": "paragraph",
+          "text": "Um CRM eficaz centraliza dados de marketing, vendas e atendimento, permitindo visão 360º do cliente. É preciso definir claramente o funil (prospects, oportunidades, clientes ativos) e registrar interações de forma consistente."
         },
         {
-          "title": "Conversão",
-          "content": "Equipe comercial acompanha pipeline, define tarefas e nutre oportunidades com conteúdos personalizados."
-        },
-        {
-          "title": "Entrega",
-          "content": "Integração com ERP garante emissão de pedidos, faturamento e onboarding consistente."
-        },
-        {
-          "title": "Retenção",
-          "content": "Dashboards de NPS, tickets e churn alimentam squads de sucesso do cliente."
-        },
-        {
-          "title": "Evangelização",
-          "content": "Programas de indicação e comunidades fortalecem advocacy e feedback contínuo."
+          "type": "paragraph",
+          "text": "Personalização depende de dados limpos, consentimento e regras de negócio. Integrar CRM com ERP, plataformas digitais e ferramentas de atendimento garante promessas cumpridas e aumenta retenção."
         }
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Componentes essenciais de um CRM",
-      "cards": [
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
         {
-          "title": "360º do cliente",
-          "content": "Histórico consolidado de interações, compras, tickets e preferências."
+          "url": "https://example.edu/tgs/videos/crm-jornada",
+          "title": "Jornada de relacionamento",
+          "caption": "Exemplos de como estruturar funis e cadências de contato."
         },
         {
-          "title": "Automação",
-          "content": "Fluxos de e-mail, scoring de leads, campanhas omnichannel com base em gatilhos."
-        },
-        {
-          "title": "Inteligência",
-          "content": "Dashboards de funil, previsão de vendas e análises de churn."
-        },
-        {
-          "title": "Integrações",
-          "content": "Conexões com ERP, plataformas de marketing, centrais de atendimento e ferramentas de BI."
+          "url": "https://example.edu/tgs/videos/case-crm-servicos",
+          "title": "Case CRM em serviços",
+          "caption": "Como uma empresa de serviços reduziu churn com automações personalizadas."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Estudo de caso: Startup SaaS",
+      "title": "Exercício em sala",
       "content": [
-        {
-          "type": "paragraph",
-          "text": "Uma startup cresce 20% ao mês, mas enfrenta churn alto após 90 dias. Analise como o CRM pode apoiar ações de sucesso do cliente."
-        },
         {
           "type": "orderedList",
           "items": [
             {
-              "title": "Dados necessários",
-              "text": "Que informações devem ser monitoradas para identificar sinais de abandono?"
+              "title": "Mapa 360º",
+              "text": "Construa visão integrada com dados coletados em marketing, vendas e suporte."
             },
             {
-              "title": "Fluxos automáticos",
-              "text": "Quais gatilhos podem gerar contatos proativos da equipe de sucesso?"
+              "title": "Playbook",
+              "text": "Elabore gatilhos para onboarding, retenção e reativação."
             },
             {
-              "title": "Debate",
-              "text": "Quando insistir em retenção pode ser invasivo ou antiético?"
+              "title": "Indicadores",
+              "text": "Defina 3 métricas de relacionamento e explique por que são relevantes."
             }
           ]
         }
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para personalização",
+      "description": "Use quando estiver definindo fluxos automatizados.",
+      "prompt": "Você é estrategista de CRM. Analise a jornada descrita abaixo e proponha segmentações, campanhas e indicadores para reduzir churn e aumentar LTV. Sugira também dados adicionais a coletar e cuidados com LGPD. Jornada: [descreva seu funil].",
+      "tips": [
+        "Informe o ticket médio e ciclo de venda.",
+        "Peça recomendações de conteúdo para cada estágio.",
+        "Solicite alertas quando indicadores passarem de determinados limites."
+      ],
+      "tags": ["crm", "relacionamento"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
-      "variant": "good-practice",
-      "title": "Demonstração prática",
+      "variant": "task",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "A docente percorre um pipeline em uma ferramenta CRM (ex.: RD Station), mostrando criação de persona, configuração de gatilhos e painel de NPS. Registre telas que evidenciem métricas críticas."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Debate orientado",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "title": "Privacidade",
-              "text": "Como equilibrar personalização e respeito à LGPD?"
-            },
-            {
-              "title": "Cultura",
-              "text": "Como engajar equipe de vendas e pós-venda no uso do CRM?"
-            },
-            {
-              "title": "Valor",
-              "text": "Quais métricas comprovam o ROI de iniciativas de fidelização?"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "info",
-      "title": "Indicadores para monitorar",
-      "content": [
-        {
-          "type": "list",
-          "ordered": false,
-          "items": [
-            "Taxa de conversão por etapa do funil.",
-            "Tempo médio de resposta (SLA).",
-            "Net Promoter Score (NPS).",
-            "Customer Lifetime Value (CLV)."
-          ]
+          "text": "Entregue um plano de relacionamento com segmentos, cadências, conteúdo e indicadores, anexando captura dos fluxos automatizados desenhados."
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "TED",
+      "title": "Ao final, valide se você",
       "items": [
-        "Registrar no AVA, até às 22h de amanhã, um plano de ação de CRM com três iniciativas priorizadas.",
-        "Anexar evidências da demonstração (print ou descrição) que embasam as escolhas.",
-        "Indicar como cada iniciativa será medida (indicador, meta e frequência)."
+        "Mapeou todos os pontos de contato relevantes.",
+        "Documentou dados obrigatórios e mecanismos de consentimento.",
+        "Relacionou indicadores a ações táticas específicas."
       ]
     }
   ],

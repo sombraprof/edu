@@ -4,141 +4,153 @@
   "objective": "Explorar conceitos de BI e avaliar dashboards como apoio à decisão.",
   "content": [
     {
-      "type": "lessonPlan",
-      "title": "Plano da Aula",
-      "cards": [
-        {
-          "icon": "monitor",
-          "title": "CONTEÚDO",
-          "content": "Cadeia de BI, storytelling com dados e avaliação crítica de dashboards."
-        },
-        {
-          "icon": "target",
-          "title": "OBJETIVOS",
-          "content": "- Diferenciar componentes do ecossistema de BI.\n- Identificar boas práticas de visualização.\n- Interpretar indicadores para tomada de decisão."
-        },
-        {
-          "icon": "desktop",
-          "title": "METODOLOGIA",
-          "content": "Demonstração guiada em ferramenta BI, estudo de caso comparativo e debate orientado sobre decisões suportadas pelos dashboards."
-        }
-      ]
-    },
-    {
-      "type": "timeline",
-      "title": "Do dado ao insight",
-      "steps": [
-        {
-          "title": "Coleta",
-          "content": "Identificar fontes confiáveis e garantir governança dos dados que alimentarão o dashboard."
-        },
-        {
-          "title": "Transformação",
-          "content": "Modelar tabelas, calcular indicadores e tratar exceções."
-        },
-        {
-          "title": "Visualização",
-          "content": "Escolher gráficos adequados, destacar alertas e construir narrativas."
-        },
-        {
-          "title": "Ação",
-          "content": "Definir planos de ação com base nas variações observadas e monitorar impactos."
-        }
-      ]
-    },
-    {
-      "type": "cardGrid",
-      "title": "Checklist de design de dashboard",
-      "cards": [
-        {
-          "title": "Propósito",
-          "content": "O painel responde a perguntas de negócio específicas?"
-        },
-        {
-          "title": "Contexto",
-          "content": "Existem benchmarks, metas e filtros claros para leitura?"
-        },
-        {
-          "title": "Interação",
-          "content": "O usuário pode explorar detalhes sem perder a visão geral?"
-        },
-        {
-          "title": "Acessibilidade",
-          "content": "Cores, tipografia e legendas atendem pessoas com diferentes necessidades?"
-        }
-      ]
-    },
-    {
-      "type": "videos",
-      "title": "Demonstração guiada",
-      "videos": [
-        {
-          "url": "https://example.edu/tgs/videos/bi-demo",
-          "title": "Construindo um dashboard em 10 minutos",
-          "caption": "Trecho gravado pela docente mostrando conexão de dados, criação de KPIs e publicação segura."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Estudo de caso comparativo",
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Compare dois dashboards: um de vendas regionais e outro de suporte ao cliente. Em grupos, identifiquem quais decisões cada painel facilita e quais dados adicionais seriam necessários."
+          "text": "Revise os indicadores estratégicos da empresa fictícia e fotografe dashboards reais que você utiliza para inspirar o design."
         },
         {
           "type": "list",
-          "ordered": false,
-          "items": [
-            "Quais KPIs aparecem e o que eles significam?",
-            "O layout direciona a atenção corretamente?",
-            "Há alertas para desvios críticos?"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Debate orientado",
-      "content": [
-        {
-          "type": "orderedList",
           "items": [
             {
-              "title": "Confiança nos dados",
-              "text": "Como garantir que decisões não sejam tomadas com dados desatualizados ou enviesados?"
+              "text": "Traga duas referências visuais que considere exemplares."
             },
             {
-              "title": "Ação versus observação",
-              "text": "Quando um dashboard deve disparar processos automáticos e quando apenas informar gestores?"
+              "text": "Revise definicões de KPI, métrica e metadado no material de apoio."
             },
             {
-              "title": "Mensuração de impacto",
-              "text": "Como avaliar se o dashboard realmente mudou o comportamento da equipe?"
+              "text": "Atualize os dados do case da disciplina para usar na oficina."
             }
           ]
         }
       ]
     },
     {
-      "type": "callout",
-      "variant": "good-practice",
-      "title": "Boas práticas destacadas",
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Indicadores",
+          "content": "Relembrar conceitos de métricas, dimensões e granularidade."
+        },
+        {
+          "icon": "book-open",
+          "title": "Storytelling",
+          "content": "Explorar boas práticas visuais para dashboards executivos."
+        },
+        {
+          "icon": "tasks",
+          "title": "Demonstração",
+          "content": "Construir visualizações ao vivo na ferramenta BI sugerida."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Feedback",
+          "content": "Coletar contribuições cruzadas entre squads."
+        }
+      ]
+    },
+    {
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Check-in: quais decisões dependem dos indicadores priorizados?",
+        "(20 min) Explainer: arquitetura BI, data warehouse, dashboards e governança.",
+        "(15 min) Crítica guiada: analisar exemplos ruins e bons de painéis.",
+        "(20 min) Oficina: montar visualizações iniciais a partir do dataset da disciplina.",
+        "(15 min) Rodadas de feedback focadas em clareza e ação.",
+        "(15 min) Ajustes finais com recomendações do professor.",
+        "(15 min) Síntese e plano para finalizar o dashboard assíncrono."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
       "content": [
         {
           "type": "paragraph",
-          "text": "Registre os princípios de design que emergirem da demonstração: hierarquia visual, contextualização, storytelling e atualização contínua."
+          "text": "O ciclo de Business Intelligence envolve coleta, modelagem, transformação e apresentação dos dados. Sem uma camada semântica consistente, dashboards viram mosaicos desconexos. Métricas devem responder perguntas de negócio claras e conectar-se aos objetivos estratégicos."
+        },
+        {
+          "type": "paragraph",
+          "text": "Storytelling com dados depende de hierarquia visual, cores com propósito, contexto e chamadas à ação. Dashboards eficazes permitem investigar desvios rapidamente, oferecem filtros úteis e deixam claro quem é responsável pelas ações."
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
+        {
+          "url": "https://example.edu/tgs/videos/bi-fundamentos",
+          "title": "Fundamentos de BI e storytelling",
+          "caption": "Aula rápida sobre como conectar indicadores a narrativas de decisão."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/powerbi-dashboard",
+          "title": "Construindo dashboard executivo",
+          "caption": "Demonstração de boas práticas em Power BI aplicadas ao caso."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Pergunta norteadora",
+              "text": "Defina a pergunta de negócio principal e métricas associadas."
+            },
+            {
+              "title": "Protótipo",
+              "text": "Esboce layout do dashboard no papel destacando filtros e alertas."
+            },
+            {
+              "title": "Iteração",
+              "text": "Colete feedback de outro grupo e registre ajustes necessários."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para revisar o dashboard",
+      "description": "Utilize quando tiver uma primeira versão dos gráficos.",
+      "prompt": "Você é especialista em storytelling com dados. Analise a descrição do dashboard abaixo e sugira melhorias visuais, indicadores complementares e alertas automáticos. Informe também riscos de interpretação e como mitigá-los. Descrição: [resuma seu dashboard].",
+      "tips": [
+        "Peça sugestões de títulos acionáveis e textos de apoio.",
+        "Solicite alertas baseados em limites de KPI.",
+        "Inclua público-alvo e cadência de uso do painel."
+      ],
+      "tags": ["bi", "dashboards"],
+      "audience": "teacher"
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED pós-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Finalize o dashboard iniciado em sala e publique no AVA um vídeo curto (até 3 minutos) demonstrando como responder às três perguntas de negócio prioritárias."
         }
       ]
     },
     {
       "type": "checklist",
-      "title": "TED",
+      "title": "Ao final, valide se você",
       "items": [
-        "Publicar no AVA, até às 21h de amanhã, uma captura do dashboard analisado.",
-        "Descrever duas decisões que podem ser tomadas a partir dele.",
-        "Apontar um indicador adicional ou ajuste visual que aumentaria o valor do painel."
+        "Validou métricas e fontes de dados com o time responsável.",
+        "As visualizações possuem títulos descritivos e escala adequada.",
+        "Definiu próximos passos para operacionalizar alertas e revisão periódica."
       ]
     }
   ],

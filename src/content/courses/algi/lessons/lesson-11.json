@@ -22,43 +22,13 @@
   ],
   "prerequisites": ["Revisar if-else e testes de condição apresentados na Aula 10."],
   "tags": ["condicionais", "switch-case", "controle-de-fluxo"],
-  "duration": 110,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Tutorial: Estrutura switch-case em C (Programiz)",
-      "type": "article",
-      "url": "https://www.programiz.com/c-programming/c-switch-case"
-    },
-    {
-      "label": "Compilador OnlineGDB",
-      "type": "tool",
-      "url": "https://www.onlinegdb.com/online_c_compiler"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -67,8 +37,8 @@
     "BACKES, A. Linguagem C: Completa e Descomplicada. Elsevier, 2019."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Desenvolvimento de um menu de operações com relatório de testes cobrindo todos os cases e o default."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -78,19 +48,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Seleção múltipla com switch-case. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 11."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -119,14 +86,51 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h50)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Revisão das decisões binárias vistas na aula anterior.",
-        "(20 min) Anatomia do switch-case e exemplos básicos.",
-        "(20 min) Refatoração de if-else encadeado para switch-case.",
-        "(25 min) Oficina em duplas: menu de operações.",
-        "(20 min) Discussão sobre fall-through e agrupamento.",
-        "(15 min) TED e preparação para combinações avançadas (Aula 12)."
+        "(9 min) Revisão das decisões binárias vistas na aula anterior.",
+        "(18 min) Anatomia do switch-case e exemplos básicos.",
+        "(18 min) Refatoração de if-else encadeado para switch-case.",
+        "(23 min) Oficina em duplas: menu de operações.",
+        "(18 min) Discussão sobre fall-through e agrupamento.",
+        "(14 min) TED e preparação para combinações avançadas (Aula 12)."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Seleção múltipla com switch-case\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Seleção múltipla com switch-case\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Seleção múltipla com switch-case",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 11: Seleção múltipla com switch-case. Contexto da aula: Simplifica decisões com muitas alternativas ao agrupar lógicas repetitivas em rótulos claros de switch-case, mantendo o fluxo organizado. Objetivo central: Selecionar um entre vários blocos de código com base em uma única expressão usando switch-case de forma segura. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "condicionais", "controle-de-fluxo", "switch-case"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem identificar quando cadeias longas de if-else podem ser substituídas por switch-case.",
+        "Solicite exemplos adicionais relacionados a condicionais, switch-case para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a configurar cases, break e default para controlar exatamente quais blocos executam."
       ]
     },
     {
@@ -443,43 +447,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 11' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Entregue aula11_calculadora.c com menu de operações, tratamento de divisão por zero e laço de repetição opcional."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe relatório com tabela de testes (valores positivos, negativos e zero)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
@@ -559,12 +538,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: preco, desconto -> final\nimport random\nfor _ in range(5):\n    p = round(random.uniform(10, 500), 2)\n    d = random.choice([5, 10, 12.5, 20])\n    final = p - (p*d/100.0)\n    print(f\"{p} {d} -> {final:.2f}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *descricaoPlano(int codigo) {\n  switch (codigo) {\n    case 1: return \"Consulta medica\";\n    case 2: return \"Exame laboratorial\";\n    case 3: return \"Reavaliacao nutricional\";\n    case 4: return \"Vacina\";\n    default: return \"Opcao invalida\";\n  }\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n  int codigo = rand() % 6;\n\n  printf(\"Entrada (codigo_menu):\\n%d\\n\", codigo);\n  printf(\"Saida esperada: %s\\n\", descricaoPlano(codigo));\n\n  return 0;\n}"
         }
       ]
     }

@@ -221,6 +221,7 @@
         { "$ref": "#/$defs/knowledgeCheckBlock" },
         { "$ref": "#/$defs/interactiveDemoBlock" },
         { "$ref": "#/$defs/pedagogicalNoteBlock" },
+        { "$ref": "#/$defs/promptTipBlock" },
         { "$ref": "#/$defs/codeSubmissionBlock" },
         { "$ref": "#/$defs/dragAndDropBlock" },
         { "$ref": "#/$defs/conceptMapperBlock" },
@@ -230,8 +231,35 @@
         { "$ref": "#/$defs/peerReviewTaskBlock" },
         { "$ref": "#/$defs/testGeneratorBlock" },
         { "$ref": "#/$defs/rubricDisplayBlock" },
-        { "$ref": "#/$defs/selfAssessmentBlock" }
+        { "$ref": "#/$defs/selfAssessmentBlock" },
+        { "$ref": "#/$defs/dualAssessmentBlock" }
       ]
+    },
+    "dualAssessmentBlock": {
+      "if": {
+        "properties": { "type": { "const": "dualAssessment" } }
+      },
+      "then": {
+        "required": ["theory", "practice"],
+        "properties": {
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "theory": {
+            "type": "object",
+            "allOf": [{ "$ref": "#/$defs/knowledgeCheckBlock/then" }],
+            "properties": {
+              "type": { "const": "knowledgeCheck" }
+            }
+          },
+          "practice": {
+            "type": "object",
+            "allOf": [{ "$ref": "#/$defs/codeSubmissionBlock/then" }],
+            "properties": {
+              "type": { "const": "codeSubmission" }
+            }
+          }
+        }
+      }
     },
     "definitionCardBlock": {
       "if": {
@@ -481,6 +509,29 @@
           "title": { "type": "string" },
           "content": { "type": "string", "minLength": 1 },
           "audience": { "type": "string", "enum": ["teacher", "student", "team"] }
+        }
+      }
+    },
+    "promptTipBlock": {
+      "if": {
+        "properties": { "type": { "const": "promptTip" } }
+      },
+      "then": {
+        "required": ["prompt"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "prompt": { "type": "string", "minLength": 1 },
+          "tips": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "uniqueItems": true
+          },
+          "audience": { "type": "string" }
         }
       }
     },

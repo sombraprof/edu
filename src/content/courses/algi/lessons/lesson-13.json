@@ -22,33 +22,13 @@
   ],
   "prerequisites": ["Revisar if/else, switch-case e cadeias else if das aulas 10-12."],
   "tags": ["condicionais", "operadores-logicos", "controle-de-fluxo"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Referência: Operadores lógicos em C (Programiz)",
-      "type": "article",
-      "url": "https://www.programiz.com/c-programming/c-operators#logical"
-    },
-    {
-      "label": "Planilha colaborativa de combinações",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGICombosLogicos"
-    },
-    {
-      "label": "Projeto OnlineGDB – Condições compostas",
-      "type": "tool",
-      "url": "https://onlinegdb.com/H1CondicoesCompostas"
-    },
-    {
-      "label": "Playlist Condicionais avançadas",
-      "type": "playlist",
-      "url": "https://www.youtube.com/playlist?list=PLHz_AreHm4dm6wYOIwxbG5C0s6ydQIJe7"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -57,8 +37,8 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Lógica de Programação. Pearson, 2020."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Implementação de um validador de acesso com relatório de testes que justifique cada combinação lógica."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -68,19 +48,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Condições compostas e encadeadas. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 13."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -109,15 +86,52 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Aquecimento: revisão das cadeias else if e diagnóstico de dúvidas da NP1.",
-        "(20 min) Operadores &&, || e ! aplicados a intervalos e exclusões.",
-        "(15 min) Construção colaborativa da tabela verdade do caso de acesso.",
-        "(25 min) Estudo guiado: validador de benefícios com múltiplos critérios.",
-        "(25 min) Oficina em duplas para mapear cenários e implementar cadeias.",
-        "(20 min) Revisão coletiva dos testes criados pelas duplas.",
-        "(15 min) TED e planejamento dos estudos para a NP1."
+        "(8 min) Aquecimento: revisão das cadeias else if e diagnóstico de dúvidas da NP1.",
+        "(15 min) Operadores &&, || e ! aplicados a intervalos e exclusões.",
+        "(12 min) Construção colaborativa da tabela verdade do caso de acesso.",
+        "(19 min) Estudo guiado: validador de benefícios com múltiplos critérios.",
+        "(19 min) Oficina em duplas para mapear cenários e implementar cadeias.",
+        "(15 min) Revisão coletiva dos testes criados pelas duplas.",
+        "(12 min) TED e planejamento dos estudos para a NP1."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Condições compostas e encadeadas\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Condições compostas e encadeadas\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Condições compostas e encadeadas",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 13: Condições compostas e encadeadas. Contexto da aula: Combina operadores lógicos e cadeias else if para tratar cenários complexos sem deixar lacunas ou sobreposições. Objetivo central: Aplicar &&, || e ! em cadeias de decisão planejadas que cobrem todas as regras do problema. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "condicionais", "controle-de-fluxo", "operadores-logicos"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem compor expressões lógicas combinando operadores relacionais e lógicos.",
+        "Solicite exemplos adicionais relacionados a condicionais, operadores-logicos para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a planejar cadeias else if para atender múltiplos cenários de decisão."
       ]
     },
     {
@@ -523,23 +537,20 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "TED 13 – Relatório de validação lógica",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Submeta até 23h59 do dia seguinte: código em C, planilha de combinações preenchida e relatório em PDF (1 página) com análise dos casos limites."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Arquivo aula13_validacao.c com condições compostas."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Planilha 'Mapa_Combos.xlsx' exportada ou linkada."
-            },
-            {
-              "text": "Relatório 'TED13_relatorio.pdf' seguindo o template fornecido."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
         }
@@ -548,28 +559,22 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Critérios de avaliação TED 13",
+      "title": "TED pós-aula",
       "content": [
+        {
+          "type": "paragraph",
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
+        },
         {
           "type": "list",
           "items": [
             {
-              "text": "Expressões lógicas corretas e sem redundâncias (35%)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Cobertura dos cenários na tabela verdade e planilha (30%)."
-            },
-            {
-              "text": "Relatório com justificativa textual clara (25%)."
-            },
-            {
-              "text": "Organização dos arquivos e envio no prazo (10%)."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Submissões sem justificativa textual no Moodle serão devolvidas para revisão."
         }
       ]
     },
@@ -643,12 +648,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *classificarCredito(int score, float renda, float divida) {\n  float comprometimento = divida / renda;\n\n  if (score >= 800 && comprometimento <= 0.2f) {\n    return \"LIMITE MAXIMO\";\n  } else if (score >= 650 && comprometimento <= 0.35f) {\n    return \"LIMITE MEDIO\";\n  } else if (score >= 500 && comprometimento <= 0.45f) {\n    return \"LIMITE BAIXO\";\n  }\n  return \"CREDITO NEGADO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int score = rand() % 551 + 400;\n  float renda = (float)(rand() % 7001 + 2000);\n  float divida = (float)(rand() % 4001 + 200);\n\n  printf(\"Entrada (score renda divida):\\n%d %.2f %.2f\\n\", score, renda, divida);\n  printf(\"Saida esperada: %s\\n\", classificarCredito(score, renda, divida));\n\n  return 0;\n}"
         }
       ]
     }

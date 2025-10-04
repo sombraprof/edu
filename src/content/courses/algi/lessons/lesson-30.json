@@ -26,49 +26,13 @@
     "Conhecimento de variáveis e tipos numéricos em C."
   ],
   "tags": ["vetores", "arrays", "estatistica-basica"],
-  "duration": 110,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Dataset de notas (CSV)",
-      "type": "dataset",
-      "file": "courses/algi/vetores-notas.csv",
-      "url": "https://static.md3.education/courses/algi/vetores-notas.csv"
-    },
-    {
-      "label": "CS50 2023 - Arrays",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=q5uM4VKywbA"
-    },
-    {
-      "label": "Khan Academy - Introdução a arrays",
-      "type": "course",
-      "url": "https://pt.khanacademy.org/computing/ap-computer-science-principles/computers-101/arrays-intro/a/intro-to-arrays"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -76,10 +40,47 @@
     "FORBELLONE, A. L. V.; EBERSPÄCHER, H. F. Algoritmos. Prentice Hall, 2021."
   ],
   "assessment": {
-    "type": "formative",
-    "description": "Entrega de script em C que calcula média, mínimo e máximo das notas fornecidas no dataset."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Introdução a Vetores\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Introdução a Vetores\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "1/100 | Exercício de Algoritmo Visualg",
+          "src": "https://www.youtube.com/embed/3z61fZSAzFs"
+        },
+        {
+          "title": "Review do livro Entendendo Algoritmos",
+          "src": "https://www.youtube.com/embed/4-veptcn3iU"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -87,19 +88,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Introdução a Vetores. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 30."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -137,37 +135,51 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Introdução a Vetores",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Introdução a Vetores. Contexto da aula: Apresenta o conceito de vetores (arrays) em C, destacando sua utilidade na organização de dados homogêneos e no cálculo de estatísticas básicas. Objetivo central: Reconhecer vetores como estruturas de dados fundamentais, compreender sua sintaxe em C e aplicar percursos lineares para obter estatísticas simples. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "arrays", "estatistica-basica", "vetores"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem declarar e inicializar vetores em c respeitando tipos e tamanhos.",
+        "Solicite exemplos adicionais relacionados a vetores, arrays para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a percorrer vetores com loops for para calcular média, mínimo e máximo."
+      ]
+    },
+    {
       "type": "lessonPlan",
-      "title": "Plano de voo (1h50)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "(10 min) Icebreaker",
+          "title": "(9 min) Icebreaker",
           "content": "cole o post-it com a palavra que associa a 'vetor'."
         },
         {
           "icon": "check-circle",
-          "title": "(20 min) Mini-aula",
+          "title": "(18 min) Mini-aula",
           "content": "anatomia de um vetor em C."
         },
         {
           "icon": "check-circle",
-          "title": "(25 min) Demonstração no projetor",
+          "title": "(23 min) Demonstração no projetor",
           "content": "percorrendo o vetor e imprimindo índices."
         },
         {
           "icon": "check-circle",
-          "title": "(35 min) Oficina prática",
+          "title": "(32 min) Oficina prática",
           "content": "cálculo de média/mínimo/máximo usando o CSV."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "9 min",
           "content": "Compartilhamento de resultados no quadro."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
+          "title": "9 min",
           "content": "Atividade pós-aula orientada."
         }
       ]
@@ -346,43 +358,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 30' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente aula30_vetores.c lendo 10 valores e calculando média, mínimo e máximo."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Anexe planilha com os vetores utilizados, resultados esperados e prints do console."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
@@ -473,12 +460,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tamanho = rand() % 6 + 5;\n  int valores[16];\n  int soma = 0;\n\n  printf(\"Vetor gerado (%d elementos):\\n\", tamanho);\n  for (int i = 0; i < tamanho; ++i) {\n    valores[i] = rand() % 51 + 10;\n    soma += valores[i];\n    printf(\"%d \", valores[i]);\n  }\n  printf(\"\\nSaida esperada (media): %.2f\\n\", (double)soma / tamanho);\n\n  return 0;\n}"
         }
       ]
     }

@@ -22,48 +22,13 @@
   ],
   "prerequisites": ["Revisar operadores, scanf e printf consolidados nas aulas 6, 7 e 8."],
   "tags": ["sequencial", "problemas", "pratica"],
-  "duration": 115,
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Lista de exercícios sequenciais (MC102 - Unicamp)",
-      "type": "handout",
-      "url": "https://www.ic.unicamp.br/~wainer/cursos/1s2013/mc102/lista1.pdf"
-    },
-    {
-      "label": "Planilha de dados de teste compartilhada",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGI_testeSequencial"
-    },
-    {
-      "label": "Repositório: Aulas de lógica de programação (Ermogenes)",
-      "type": "repository",
-      "url": "https://github.com/ermogenes/aulas-logica-programacao"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -72,8 +37,8 @@
     "PERRY, G. C Completo e Total. Novatec, 2021."
   ],
   "assessment": {
-    "type": "practice",
-    "description": "Implementação individual de um problema sequencial inédito com relatório de testes."
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior."
   },
   "content": [
     {
@@ -83,19 +48,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Problemas sequenciais aplicados em C. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise os materiais desta aula aqui no site e anote os pontos-chave que precisam de atenção. Identifique dúvidas ou conceitos que merecem ser revisitados durante o encontro."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Reserve alguns minutos para tentar resolver mentalmente um exemplo relacionado ao tema da aula."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 09."
+              "text": "Garanta acesso ao OnlineGDB ou ao Dev-C++ para experimentar os códigos durante a aula."
             }
           ]
         }
@@ -124,15 +86,52 @@
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h55)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Check-in colaborativo reforçando Entrada → Processamento → Saída.",
-        "(25 min) Estudo de caso 1 — Salário líquido (usa planilha de dados de teste e valida descontos).",
-        "(20 min) Estudo de caso 2 — IMC comentado (interpretação + mensagens ao usuário).",
-        "(15 min) Estudo de caso 3 — Desconto cumulativo (explora encadeamento de cálculos).",
-        "(15 min) Debate guiado: padrões encontrados e ajustes necessários.",
-        "(30 min) Oficina em duplas: escolher caso da planilha e registrar validações.",
-        "(10 min) Apresentações rápidas, checklist e registro da TED."
+        "(8 min) Check-in colaborativo reforçando Entrada → Processamento → Saída.",
+        "(20 min) Estudo de caso 1 — Salário líquido (usa planilha de dados de teste e valida descontos).",
+        "(16 min) Estudo de caso 2 — IMC comentado (interpretação + mensagens ao usuário).",
+        "(12 min) Estudo de caso 3 — Desconto cumulativo (explora encadeamento de cálculos).",
+        "(12 min) Debate guiado: padrões encontrados e ajustes necessários.",
+        "(24 min) Oficina em duplas: escolher caso da planilha e registrar validações.",
+        "(8 min) Apresentações rápidas, checklist e registro da TED."
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, resolvam as questões a seguir para reforçar o aprendizado durante a aula."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique com suas palavras os principais conceitos abordados em \"Problemas sequenciais aplicados em C\" e destaque por que eles são importantes para a resolução de problemas."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Implemente ou descreva um exemplo curto relacionado a \"Problemas sequenciais aplicados em C\" utilizando OnlineGDB ou Dev-C++ e compartilhe o resultado com o grupo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para planejar Problemas sequenciais aplicados em C",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Aula 9: Problemas sequenciais aplicados em C. Contexto da aula: Aplica o fluxo Entrada → Processamento → Saída em estudos de caso reais, combinando leitura estruturada, cálculos encadeados e comunicação de resultados. Objetivo central: Resolver problemas cotidianos com programas sequenciais em C documentando cada etapa do processo. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
+      "tags": ["algoritmos", "pratica", "problemas", "sequencial"],
+      "tips": [
+        "Peça ao assistente variações de exercícios que reforcem planejar a solução identificando entradas, processamento e saídas de cada caso.",
+        "Solicite exemplos adicionais relacionados a sequencial, problemas para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a implementar programas sequenciais com validações simples e formatação clara."
       ]
     },
     {
@@ -278,43 +277,18 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 09' para anexar o artefato solicitado."
+          "text": "Reserve um momento após a aula para concluir a atividade descrita a seguir. Ela complementa os estudos e ajuda a consolidar o que foi trabalhado em sala."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente solução inédita em C para um processo sequencial do seu contexto (ex.: cálculo de comissão)."
+              "text": "Desenvolva a prática proposta na aula registrando os passos e resultados no caderno ou no editor de sua preferência."
             },
             {
-              "text": "Submeta mini-relatório descrevendo entradas, processamento, testes realizados e aprendizados."
+              "text": "Anote dúvidas e insights que surgirem para discutirmos na próxima aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Entrega dentro do prazo indicado no Moodle (20%)."
-            },
-            {
-              "text": "Código ou artefato atende integralmente ao enunciado proposto (40%)."
-            },
-            {
-              "text": "Testes e evidências documentadas na planilha ou relatório (25%)."
-            },
-            {
-              "text": "Reflexão ou justificativa clara anexada na submissão (15%)."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação."
         }
       ]
     },
@@ -421,12 +395,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: preco, desconto -> final\nimport random\nfor _ in range(5):\n    p = round(random.uniform(10, 500), 2)\n    d = random.choice([5, 10, 12.5, 20])\n    final = p - (p*d/100.0)\n    print(f\"{p} {d} -> {final:.2f}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int consumo = rand() % 251 + 150;\n  double tarifa = (double)(rand() % 51 + 30) / 100.0;\n  double bandeira = (double)(rand() % 6) / 10.0;\n\n  double valorConta = consumo * tarifa + bandeira * consumo;\n\n  printf(\"Entrada (kwh_consumidos tarifa_base bandeira_adicional):\\n%d %.2f %.2f\\n\", consumo, tarifa, bandeira);\n  printf(\"Saida esperada (valor_total):\\n%.2f\\n\", valorConta);\n\n  return 0;\n}"
         }
       ]
     }

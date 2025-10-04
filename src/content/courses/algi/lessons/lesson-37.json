@@ -1,84 +1,38 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-37",
-  "title": "Busca e Atualização em Vetores de Structs",
-  "summary": "Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria.",
-  "description": "Aprofunda operações de busca, atualização e remoção em vetores de structs com foco em integridade.",
-  "objective": "Desenvolver habilidades para localizar, atualizar e remover registros em vetores de structs, garantindo integridade dos dados.",
+  "title": "Busca e Atualização — Estoque TechParts",
+  "summary": "Refina o CRUD do estoque TechParts com buscas flexíveis, atualizações de preço e controle de auditoria.",
+  "description": "Aprofunda operações de busca, atualização e remoção no vetor de produtos TechParts garantindo integridade e rastreabilidade.",
+  "objective": "Desenvolver habilidades para localizar, atualizar e remover produtos no vetor de estoque TechParts garantindo integridade dos dados e histórico.",
   "objectives": [
-    "Implementar buscas lineares e por chave composta.",
-    "Atualizar campos selecionados mantendo histórico mínimo.",
-    "Realizar remoção lógica e física comparando abordagens."
+    "Implementar buscas lineares e por chave composta em produtos do estoque.",
+    "Atualizar campos selecionados (preço, estoque mínimo, status) mantendo histórico.",
+    "Realizar remoção lógica e física comparando impactos no relatório da TechParts."
   ],
   "competencies": ["05", "12"],
   "skills": [
-    "Implementar buscas flexíveis em vetores de structs utilizando filtros variados.",
-    "Aplicar auditoria registrando histórico de alterações e validações.",
-    "Facilitar revisão coletiva alinhando critérios de atualização e rollback."
+    "Implementar buscas flexíveis com filtros por SKU, categoria e status de reposição.",
+    "Aplicar auditoria registrando histórico de alterações, inclusive ajustes de preço.",
+    "Facilitar revisão coletiva alinhando critérios de atualização, rollback e políticas da TechParts."
   ],
   "outcomes": [
-    "Disponibiliza módulo que localiza e atualiza registros com base em múltiplos campos.",
-    "Entrega log de auditoria descrevendo cada alteração realizada e testes associados.",
-    "Coordena reunião de alinhamento documentando decisões sobre políticas de atualização."
+    "Disponibiliza módulo que localiza e atualiza produtos com base em múltiplos campos.",
+    "Entrega log de auditoria descrevendo cada alteração e testes associados.",
+    "Coordena reunião de alinhamento documentando decisões sobre políticas de atualização do estoque."
   ],
   "prerequisites": [
     "Vetores de structs com ordenação básica (Aula 36).",
     "Entendimento de CRUD sequencial."
   ],
-  "tags": ["structs", "crud", "revisao"],
-  "duration": 125,
+  "tags": ["structs", "crud", "revisao", "estoque"],
+  "duration": 100,
   "modality": "in-person",
   "resources": [
     {
       "label": "Moodle — AVA (Unichristus)",
-      "type": "platform",
-      "url": "https://eadsp.unichristus.edu.br/"
-    },
-    {
-      "label": "Dataset IBGE - Cadastro Central de Empresas (Tabela 6463)",
-      "type": "dataset",
-      "url": "https://sidra.ibge.gov.br/tabela/6463"
-    },
-    {
-      "label": "Rubrica CRUD em memória",
-      "type": "rubric",
-      "file": "courses/algi/crud-lab-rubrica.md",
-      "url": "https://static.md3.education/courses/algi/crud-lab-rubrica.md"
-    },
-    {
-      "label": "Guia SEBRAE - Boas práticas de atendimento",
-      "type": "article",
-      "url": "https://www.sebrae.com.br/sites/PortalSebrae/artigos/boas-praticas-de-atendimento"
-    },
-    {
-      "label": "OnlineGDB - Projeto C pré-configurado",
-      "type": "tool",
-      "url": "https://onlinegdb.com/7JwALg8qH"
-    },
-    {
-      "label": "Replit - Workspace Algoritmos I",
-      "type": "tool",
-      "url": "https://replit.com/@md3-education/algi-template"
-    },
-    {
-      "label": "VS Code - Template C com CMake",
-      "type": "repository",
-      "url": "https://github.com/md3-education/algi-c-template"
-    },
-    {
-      "label": "Planilha de preparação pré-aula",
-      "type": "spreadsheet",
-      "url": "https://docs.google.com/spreadsheets/d/1ALGIprepTemplate"
-    },
-    {
-      "label": "Artigo: Registros e arquivos sequenciais (Unicesumar)",
-      "type": "article",
-      "url": "https://www.unicesumar.edu.br/wp-content/uploads/sites/65/2017/12/registros-e-arquivos.pdf"
-    },
-    {
-      "label": "Planilha de controle de clientes (Sebrae)",
-      "type": "spreadsheet",
-      "url": "https://sebrae.com.br/Sebrae/Portal%20Sebrae/Anexos/planilha-controle-clientes.xlsx"
+      "type": "plataforma",
+      "url": "https://ava.unichristus.edu.br/"
     }
   ],
   "bibliography": [
@@ -89,11 +43,48 @@
     "ASCENCIO, A. F. G.; CAMPOS, E. A. V. Fundamentos da Programação de Computadores. 3. ed. Pearson, 2012. Cap. 10, Registros, arquivos e estudos de caso de atendimento."
   ],
   "assessment": {
-    "type": "project",
-    "description": "Estudo de caso SEBRAE: construir rotinas de busca, atualização e remoção registrando logs e justificativas alinhadas às métricas de atendimento.",
+    "type": "prática",
+    "description": "Prática orientada para fortalecer os conceitos trabalhados em aula. Registre suas soluções e dúvidas para acompanhamento posterior.",
     "rubric": "Pensamento crítico (40%): define critérios de busca e atualização inspirados em Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12). Confiabilidade de software (35%): registra logs e valida integraidade conforme Backes (Cap. 12) e Santos (Cap. 11). Comunicação técnica (25%): documenta histórico e decisões seguindo o formato de casos apresentado por Ascencio & Campos (Cap. 10)."
   },
   "content": [
+    {
+      "type": "contentBlock",
+      "title": "Atividade em sala",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Em duplas ou trios, finalize o módulo de estoque TechParts com as buscas e atualizações abaixo."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica — Políticas de atualização",
+              "text": "Explique como chaves compostas (SKU + lote) evitam inconsistências no estoque TechParts e como registrar histórico de alterações."
+            },
+            {
+              "title": "Questão prática — Atualização guiada",
+              "text": "Implemente uma função que atualiza preço e estoque mínimo de um produto encontrado por SKU, registrando o log correspondente."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos de apoio",
+      "videos": [
+        {
+          "title": "Linguagem C - Aula 6.1 - Domine vetores (arrays) em linguagem C (2022)",
+          "src": "https://www.youtube.com/embed/5fSf9xSJK7c"
+        },
+        {
+          "title": "Conditional Structures ✏️ | IF ELSE | Introduction to Algorithms and Programming #7",
+          "src": "https://www.youtube.com/embed/5m9xSRVfEYM"
+        }
+      ]
+    },
     {
       "type": "callout",
       "variant": "info",
@@ -101,19 +92,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise o plano de ensino e leia o trecho recomendado em Forbellone & Eberspächer relacionado a Busca e Atualização em Vetores de Structs. Assista ao vídeo indicado na playlist do Curso em Vídeo e anote dúvidas sobre o conteúdo descrito no sumário."
+          "text": "Revise o relatório da Aula 36 e identifique produtos que exigem atualização imediata (preço ou estoque mínimo)."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Verifique acesso ao OnlineGDB, Replit ou VS Code template para executar exemplos antes da aula."
+              "text": "Liste os campos que precisarão de validação cruzada antes da atualização (ex.: SKU, lote, fornecedor)."
             },
             {
-              "text": "Preencha a planilha de preparação pré-aula com expectativas e dúvidas prioritárias."
-            },
-            {
-              "text": "Confirme no Moodle a leitura das instruções da Aula 37."
+              "text": "Sincronize o log de auditoria iniciado na Aula 36 para continuar registrando alterações."
             }
           ]
         }
@@ -126,63 +114,77 @@
         {
           "icon": "clock",
           "title": "Kick-off",
-          "content": "Desafio relâmpago com buscas sobre vetor já ordenado (10 min)."
+          "content": "Kick-off: revisar métricas da Aula 36 e mapear necessidades de atualização (10 min)."
         },
         {
           "icon": "target",
           "title": "Estratégias de busca",
-          "content": "Busca linear, sentinela e comparação com busca binária (30 min)."
+          "content": "Explorar estratégias de busca (linear, sentinela, filtros compostos) para localizar produtos (30 min)."
         },
         {
           "icon": "code",
           "title": "Atualizações seguras",
-          "content": "Validação de domínio e campos derivados (30 min)."
+          "content": "Atualizar campos críticos (preço, estoque mínimo) com validações e logs (30 min)."
         },
         {
           "icon": "tasks",
           "title": "Remoções",
-          "content": "Remoção lógica vs física e implicações no ranking (25 min)."
+          "content": "Comparar remoção lógica e física simulando impactos no relatório TechParts (25 min)."
         },
         {
           "icon": "check-circle",
           "title": "Debriefing",
-          "content": "Retro coletiva com métricas de cobertura das operações (20 min)."
+          "content": "Debriefing: consolidar plano de monitoramento contínuo e checklist de auditoria (20 min)."
         }
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar buscas e atualizações do estoque",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I finalizando módulo de structs",
+      "prompt": "Você é estudante de Algoritmos I responsável por finalizar o módulo de estoque da TechParts com buscas flexíveis, atualizações e auditoria. Contexto da aula: Refina o CRUD em memória adicionando buscas flexíveis, atualização de campos e estratégias de auditoria. Objetivo central: Desenvolver habilidades para localizar, atualizar e remover produtos no vetor de structs garantindo integridade. Monte um plano de estudo com revisão teórica, prática guiada e autoavaliação incluindo exercícios em C, registros de auditoria e perguntas para validação de políticas.",
+      "tags": ["algoritmos", "crud", "structs", "estoque"],
+      "tips": [
+        "Peça ao assistente exemplos de logs de auditoria detalhados para atualizações de estoque.",
+        "Solicite checklists para testar buscas com múltiplos filtros (SKU, categoria, status).",
+        "Peça sugestões de perguntas para a reunião de alinhamento com a gerência TechParts.",
+        "Peça estratégias para organizar rollback e versionamento das alterações."
+      ]
+    },
+    {
       "type": "lessonPlan",
-      "title": "Plano de voo (2h05)",
+      "title": "Plano de voo (1h40)",
       "cards": [
         {
           "icon": "check-circle",
-          "title": "(15 min) Estudo de caso",
-          "content": "empresas que cresceram segundo IBGE."
+          "title": "(12 min) Estudo de caso",
+          "content": "(12 min) Estudo de caso — produtos com reajuste urgente."
         },
         {
           "icon": "check-circle",
-          "title": "(25 min) Live coding",
-          "content": "busca por id com retorno de ponteiro."
+          "title": "(20 min) Live coding",
+          "content": "(20 min) Live coding — busca por SKU retornando ponteiro para Produto."
         },
         {
           "icon": "check-circle",
-          "title": "(30 min) Oficina",
-          "content": "atualização de faturamento com logs de alterações."
+          "title": "(24 min) Oficina",
+          "content": "(24 min) Oficina — atualização de preço/estoque mínimo com logs detalhados."
         },
         {
           "icon": "check-circle",
-          "title": "(25 min) Laboratório",
-          "content": "remoção e compactação do vetor com relatório automático."
+          "title": "(20 min) Laboratório",
+          "content": "(20 min) Laboratório — remoção lógica, compactação e relatório automático do estoque."
         },
         {
           "icon": "check-circle",
-          "title": "20 min",
-          "content": "Testes cruzados entre squads (pair review)."
+          "title": "16 min",
+          "content": "16 min — Testes cruzados entre squads avaliando consistência das operações."
         },
         {
           "icon": "check-circle",
-          "title": "10 min",
-          "content": "Reflexão escrita sobre integridade e auditoria."
+          "title": "8 min",
+          "content": "8 min — Reflexão escrita sobre integridade, auditoria e próximos passos."
         }
       ]
     },
@@ -222,19 +224,19 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Operação: create | Retorno sugerido: int (novo tamanho) | Descrição: Incrementa contador e retorna total de registros. | Quando aplicar: Ao inserir no fim do vetor."
+              "text": "Operação: create | Retorno sugerido: int (novo tamanho) | Descrição: Incrementa contador de produtos e retorna total. | Quando aplicar: Ao inserir novo SKU no fim do vetor."
             },
             {
-              "text": "Operação: read | Retorno sugerido: int (índice) ou ponteiro | Descrição: Localiza registro e permite inspeção. | Quando aplicar: Quando busca por id ou prefixo."
+              "text": "Operação: read | Retorno sugerido: int (índice) ou ponteiro | Descrição: Localiza produto e permite inspeção. | Quando aplicar: Busca por SKU ou categoria."
             },
             {
-              "text": "Operação: update | Retorno sugerido: bool | Descrição: Indica sucesso/falha após validações. | Quando aplicar: Atualização de campos sensíveis."
+              "text": "Operação: update | Retorno sugerido: bool | Descrição: Indica sucesso/falha após validar preço e estoque mínimo. | Quando aplicar: Ajuste de políticas de reposição."
             },
             {
-              "text": "Operação: delete | Retorno sugerido: bool | Descrição: Retorna sucesso após compactação. | Quando aplicar: Remoção física movendo elementos."
+              "text": "Operação: delete | Retorno sugerido: bool | Descrição: Retorna sucesso após compactação do vetor. | Quando aplicar: Remover SKU descontinuado."
             },
             {
-              "text": "Operação: auditLog | Retorno sugerido: void | Descrição: Gera linha de log com contexto da alteração. | Quando aplicar: Chamar após operações críticas."
+              "text": "Operação: auditLog | Retorno sugerido: void | Descrição: Gera linha de log com contexto da alteração (SKU, campo, usuário). | Quando aplicar: Após atualizações críticas."
             }
           ]
         }
@@ -243,23 +245,40 @@
     {
       "type": "callout",
       "variant": "good-practice",
-      "title": "Estudo de caso: Atendimento SEBRAE",
+      "title": "Estudo de caso: Auditoria TechParts",
       "content": [
         {
           "type": "paragraph",
-          "text": "Use o dataset do Cadastro Central de Empresas e a planilha de logs para simular a triagem de atendimentos. Forbellone & Eberspächer (Cap. 8) recomendam registrar motivo de cada alteração antes de persistir os dados."
+          "text": "Use o dataset do estoque TechParts e a planilha de logs para simular auditoria de alterações. Forbellone & Eberspächer (Cap. 8) recomendam registrar motivo de cada alteração antes de persistir os dados."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente atualizações condicionais com validações de domínio inspiradas em Santos (Cap. 11)."
+              "text": "Implemente atualizações condicionais com validações de domínio inspiradas em Santos (Cap. 11) para preços e estoques."
             },
             {
-              "text": "Gere logs estruturados destacando id, campo alterado e responsável conforme Backes (Cap. 12)."
+              "text": "Gere logs estruturados destacando SKU, campo alterado e responsável conforme Backes (Cap. 12)."
             },
             {
-              "text": "Explique na retro como as métricas de atendimento se conectam ao modelo de Ascencio & Campos (Cap. 10)."
+              "text": "Explique na retro como os indicadores de reposição se conectam ao modelo de Ascencio & Campos (Cap. 10)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Materiais para estações e slides",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Cartaz Estação Auditoria TechParts — /courses/algi/estacao-estoque-auditoria.md"
+            },
+            {
+              "text": "Diagrama de memória — vetor pós-atualização — /courses/algi/memory-diagrama-estoque.md"
             }
           ]
         }
@@ -273,9 +292,9 @@
         {
           "type": "list",
           "items": [
-            "Busca inexistente retorna NULL/índice -1?",
-            "Atualização rejeita valores negativos?",
-            "Remoção mantém coleção ordenada após compactação?"
+            "Busca por SKU inexistente retorna NULL/índice -1?",
+            "Atualização rejeita valores negativos e registra log?",
+            "Remoção mantém coleção ordenada e atualiza contador de estoque?"
           ]
         }
       ]
@@ -287,58 +306,33 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Prazo: submeta no Moodle até 23h59 do dia seguinte à aula. Formato: utilize a tarefa 'TED Aula 37' para anexar o artefato solicitado, relatando como cada busca e atualização atende ao protocolo descrito por Forbellone & Eberspächer (Cap. 8)."
+          "text": "Finalize o módulo de estoque entregando a narrativa textual exigida pela gerência TechParts."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Implemente aula37_structs_auditoria.c registrando buscas, atualizações e logs de auditoria conforme Manzano & Oliveira (Cap. 12) e Backes (Cap. 12)."
+              "text": "Elabore relatório (3-4 páginas) contendo logs de atualização, políticas adotadas (preço, estoque mínimo) e próximos passos para automação."
             },
             {
-              "text": "Anexe tabela de logs destacando data/hora, operação executada e responsável, alinhada às orientações de Santos (Cap. 11) e Ascencio & Campos (Cap. 10)."
+              "text": "Liste dúvidas ou riscos pendentes e indique como serão acompanhados no pós-aula."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Rubrica de avaliação"
-        },
-        {
-          "type": "list",
-          "items": [
-            {
-              "text": "Pensamento crítico (40%): define critérios de busca e atualização seguindo Forbellone & Eberspächer (Cap. 8) e Manzano & Oliveira (Cap. 12)."
-            },
-            {
-              "text": "Confiabilidade de software (35%): código atende ao enunciado, registra logs e valida integridade conforme Backes (Cap. 12) e Santos (Cap. 11)."
-            },
-            {
-              "text": "Evidências documentadas (15%): testes e tabela de logs descrevem cenários e resultados conforme Ascencio & Campos (Cap. 10)."
-            },
-            {
-              "text": "Integração com competências (10%): reflexão explica como o estudo de caso reforça Pensamento crítico e Confiabilidade de software."
-            }
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Registre dúvidas no fórum do Moodle antes do prazo final para receber orientação e indique qual autor embasa a solução proposta."
         }
       ]
     },
     {
       "type": "tabs",
-      "title": "Atualização de registros",
+      "title": "Atualização de produto",
       "tabs": [
         {
           "label": "Buscar",
-          "code": "int idx = buscaCPF(clientes, n, cpf);",
+          "code": "int idx = buscarProdutoPorSku(estoque, total, sku);",
           "language": "c"
         },
         {
           "label": "Atualizar",
-          "code": "clientes[idx].saldo += valor;",
+          "code": "if (idx >= 0) {\n  estoque[idx].preco += ajuste;\n  registrarLog(estoque[idx], \"preco\");\n}",
           "language": "c"
         }
       ]
@@ -365,7 +359,7 @@
       "content": [
         {
           "type": "code",
-          "code": "# Busca/atualização\nCPF=123 atualiza saldo +100 -> novo saldo esperado",
+          "code": "# Busca/atualização\nSKU=5001 atualiza preço +10% e estoque mínimo 20 -> verificar log e valores.",
           "language": "plaintext"
         }
       ]
@@ -416,12 +410,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ntypedef struct {\n  int id;\n  int pressao;\n  int ativo;\n} Paciente;\n\nint buscarPaciente(Paciente vetor[], int tamanho, int id) {\n  for (int i = 0; i < tamanho; ++i) {\n    if (vetor[i].id == id) {\n      return i;\n    }\n  }\n  return -1;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tamanho = 6;\n  Paciente pacientes[6];\n\n  for (int i = 0; i < tamanho; ++i) {\n    pacientes[i].id = rand() % 900 + 100;\n    pacientes[i].pressao = rand() % 61 + 90;\n    pacientes[i].ativo = 1;\n  }\n\n  int alvo = pacientes[rand() % tamanho].id;\n\n  printf(\"Pacientes cadastrados:\\n\");\n  for (int i = 0; i < tamanho; ++i) {\n    printf(\"id=%d pressao=%d\\n\", pacientes[i].id, pacientes[i].pressao);\n  }\n\n  int posicao = buscarPaciente(pacientes, tamanho, alvo);\n\n  printf(\"\\nEntrada (id_busca): %d\\nSaida esperada: indice=%d nova_pressao=%d\\n\", alvo, posicao, pacientes[posicao].pressao + 5);\n  printf(\"Simule a atualizacao somando 5 mmHg ao registro encontrado.\\n\");\n\n  return 0;\n}"
         }
       ]
     }
