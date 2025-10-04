@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:teacher": "node scripts/dev-teacher.mjs",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --base /edu/",
     "test": "vitest",

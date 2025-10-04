@@ -48,13 +48,17 @@
         class="layout--split__aside"
         :exercise-model="exerciseEditor.lessonModel"
         :tags-field="exerciseEditor.tagsField"
+        :error-message="exerciseAuthoringError"
+        :success-message="exerciseAuthoringSuccess"
+        :can-revert="exerciseCanRevert"
+        :on-revert="exerciseContentSync.revertChanges"
       />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, watch } from 'vue';
+import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
@@ -62,53 +66,70 @@ import ExerciseAuthoringPanel from '@/components/exercise/ExerciseAuthoringPanel
 import { useLessonEditorModel, type LessonEditorModel } from '@/composables/useLessonEditorModel';
 import { useTeacherMode } from '@/composables/useTeacherMode';
 import { useExerciseViewController } from './ExerciseView.logic';
+import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
+import type { LessonBlock } from '@/components/lesson/blockRegistry';
+
+function cloneDeep<T>(value: T): T {
+  try {
+    return structuredClone(value);
+  } catch (_error) {
+    return JSON.parse(JSON.stringify(value)) as T;
+  }
+}
+
+type ExerciseFilePayload = Record<string, unknown> & { content?: LessonBlock[] };
+
+function toExerciseEditorModel(raw: ExerciseFilePayload): LessonEditorModel {
+  const { content, ...rest } = raw;
+  return {
+    ...(rest as LessonEditorModel),
+    blocks: Array.isArray(content) ? cloneDeep(content) : [],
+  };
+}
+
+function toExerciseFilePayload(
+  model: LessonEditorModel,
+  base: ExerciseFilePayload | null
+): ExerciseFilePayload {
+  const target = base ? cloneDeep(base) : ({} as ExerciseFilePayload);
+  const { blocks, ...rest } = model;
+  Object.assign(target, rest);
+  if (Array.isArray(blocks)) {
+    target.content = cloneDeep(blocks);
+  } else {
+    target.content = [];
+  }
+  delete (target as ExerciseFilePayload & { blocks?: unknown }).blocks;
+  return target;
+}
 
 const controller = useExerciseViewController();
 
 const exerciseEditor = useLessonEditorModel();
 const { teacherMode } = useTeacherMode();
 
-const exerciseJsonModules = import.meta.glob('../content/courses/*/exercises/*.json');
+const exerciseContentPath = computed(() => {
+  const file = controller.exerciseFile.value;
+  if (!file) {
+    return null;
+  }
+  const jsonName = file.replace(/\.vue$/, '.json');
+  return `courses/${controller.courseId.value}/exercises/${jsonName}`;
+});
 
-let currentRequestId = 0;
+const exerciseContentSync = useTeacherContentEditor<LessonEditorModel, ExerciseFilePayload>({
+  path: exerciseContentPath,
+  model: exerciseEditor.lessonModel,
+  setModel: exerciseEditor.setLessonModel,
+  fromRaw: (raw) => toExerciseEditorModel(raw),
+  toRaw: (model, base) => toExerciseFilePayload(model, base ?? null),
+});
 
-watch(
-  [() => controller.courseId.value, () => controller.exerciseFile.value],
-  ([course, file]) => {
-    currentRequestId += 1;
-    const requestId = currentRequestId;
-
-    if (!file) {
-      exerciseEditor.setLessonModel(null);
-      return;
-    }
-
-    const jsonName = file.replace(/\.vue$/, '.json');
-    const jsonPath = `../content/courses/${course}/exercises/${jsonName}`;
-    const loader = exerciseJsonModules[jsonPath];
-    if (!loader) {
-      exerciseEditor.setLessonModel(null);
-      return;
-    }
-
-    loader()
-      .then((mod: any) => {
-        if (requestId !== currentRequestId) return;
-        const payload = (mod.default ?? mod) as LessonEditorModel;
-        const { content, ...rest } = payload;
-        exerciseEditor.setLessonModel({
-          ...(rest as LessonEditorModel),
-          blocks: Array.isArray(content) ? [...content] : [],
-        });
-      })
-      .catch((error) => {
-        console.error('[ExerciseView] Failed to load exercise JSON:', error);
-        if (requestId !== currentRequestId) return;
-        exerciseEditor.setLessonModel(null);
-      });
-  },
-  { immediate: true }
+const exerciseAuthoringError = computed(
+  () => exerciseContentSync.loadError.value ?? exerciseContentSync.saveError.value
 );
+const exerciseAuthoringSuccess = computed(() => exerciseContentSync.successMessage.value);
+const exerciseCanRevert = computed(() => exerciseContentSync.hasPendingChanges.value);
 
 const authoringExercise = computed(() => exerciseEditor.lessonModel.value);
 const showAuthoringPanel = computed(

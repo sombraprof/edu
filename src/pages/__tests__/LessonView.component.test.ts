@@ -42,6 +42,22 @@ vi.mock('../LessonView.logic', () => ({
   useLessonViewController: () => controllerMock,
 }));
 
+const contentSyncMock = {
+  loading: ref(false),
+  saving: ref(false),
+  loadError: ref<string | null>(null),
+  saveError: ref<string | null>(null),
+  successMessage: ref<string | null>(null),
+  hasPendingChanges: ref(false),
+  revertChanges: vi.fn(),
+  refresh: vi.fn(),
+  serviceAvailable: true,
+};
+
+vi.mock('@/services/useTeacherContentEditor', () => ({
+  useTeacherContentEditor: () => contentSyncMock,
+}));
+
 const ButtonStub = {
   props: ['to'],
   template: '<button><slot /></button>',
@@ -54,6 +70,11 @@ const StubComponent = {
 describe('LessonView component', () => {
   beforeEach(() => {
     controllerMock = createController();
+    contentSyncMock.loadError.value = null;
+    contentSyncMock.saveError.value = null;
+    contentSyncMock.successMessage.value = null;
+    contentSyncMock.hasPendingChanges.value = false;
+    contentSyncMock.revertChanges.mockReset();
   });
 
   it('renderiza dados da lição quando disponíveis', () => {
