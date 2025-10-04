@@ -40,6 +40,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Avaliação NP2",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 29: Avaliação NP2. Contexto da aula: Avaliação escrita que sintetiza estruturas condicionais, laços de repetição e modularização com funções em problemas contextualizados. Objetivo central: Avaliar a capacidade de aplicar if/else encadeados, operadores lógicos e estruturas de repetição (while, for, do-while), bem como a modularização com funções (parâmetros, retorno e boas práticas de escopo/protótipos) em problemas práticos de pequena escala. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "avaliacao", "estruturas-de-controle"],
+      "tips": [
+        "Peça variações de atividades que reforcem aplicar condicionais encadeadas em algoritmos de tomada de decisão.",
+        "Solicite exemplos adicionais relacionados a avaliacao, algoritmos.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem combinar laços de repetição com contadores e acumuladores."
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Domínios avaliados",
       "cards": [

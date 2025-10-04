@@ -107,6 +107,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Variáveis, Constantes e Tipos de Dados",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 6: Variáveis, Constantes e Tipos de Dados. Contexto da aula: Apresenta como armazenar dados em C, declarando variáveis, utilizando constantes e escolhendo tipos adequados. Objetivo central: Dominar a sintaxe de declaração e atribuição em C para preparar programas que manipulem dados com segurança. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "constantes", "tipos", "variaveis"],
+      "tips": [
+        "Peça variações de atividades que reforcem diferenciar variáveis de constantes e aplicar boas práticas de nomeação.",
+        "Solicite exemplos adicionais relacionados a variaveis, tipos.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem selecionar tipos primitivos apropriados para cada informação."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Variáveis: caixas nomeadas",
       "content": [

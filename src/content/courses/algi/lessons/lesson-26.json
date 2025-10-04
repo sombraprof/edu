@@ -140,6 +140,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Funções com Parâmetros e Retorno",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 26: Funções com Parâmetros e Retorno. Contexto da aula: Explora assinatura completa de funções em C, analisando passagem de parâmetros por valor e por referência com foco em testes. Objetivo central: Aplicar parâmetros e valores de retorno para construir funções reutilizáveis que tratam entradas variadas com segurança. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "funcoes", "parametros", "ponteiros"],
+      "tips": [
+        "Peça variações de atividades que reforcem comparar passagem por valor e por referência em c.",
+        "Solicite exemplos adicionais relacionados a funcoes, parametros.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem projetar funções que retornam códigos de erro ou resultados numéricos."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Quando usar ponteiros?",
       "content": [

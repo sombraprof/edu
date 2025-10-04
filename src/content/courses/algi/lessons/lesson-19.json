@@ -100,6 +100,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Comparação entre for e while",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Comparação entre for e while. Contexto da aula: Discute critérios práticos para escolher entre for e while e como refatorar algoritmos sem alterar resultados. Objetivo central: Decidir com segurança entre for e while e justificar a refatoração escolhida para cada problema. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "boas-praticas", "comparacao", "loops"],
+      "tips": [
+        "Peça variações de atividades que reforcem distinguir cenários ideais para laços controlados por contador e por condição.",
+        "Solicite exemplos adicionais relacionados a loops, comparacao.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem refatorar algoritmos simples convertendo entre for e while sem alterar resultados."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Perguntas para decidir entre for e while",
       "content": [

@@ -140,6 +140,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Programas Modulares com Múltiplas Funções",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 27: Programas Modulares com Múltiplas Funções. Contexto da aula: Integra funções em arquitetura modular com arquivos separados, headers e fluxo de compilação incremental. Objetivo central: Projetar um mini-sistema em C dividindo responsabilidades entre múltiplas funções e arquivos com headers dedicados. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "headers", "makefile", "modularizacao"],
+      "tips": [
+        "Peça variações de atividades que reforcem planejar módulos e dependências utilizando canvas de design.",
+        "Solicite exemplos adicionais relacionados a modularizacao, headers.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem criar e incluir arquivos header com protótipos organizados."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Estratégias de separação",
       "content": [

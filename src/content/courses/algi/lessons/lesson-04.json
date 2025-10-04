@@ -107,6 +107,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Do Pseudocódigo ao Primeiro Programa em C",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 4: Do Pseudocódigo ao Primeiro Programa em C. Contexto da aula: Mostra como traduzir algoritmos escritos em Portugol para um programa funcional em C, destacando sintaxe e boas práticas. Objetivo central: Conectar o planejamento em linguagem natural/pseudocódigo com a implementação inicial em C. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "implementacao", "linguagem-c", "pseudocodigo"],
+      "tips": [
+        "Peça variações de atividades que reforcem relembrar a estrutura padrão de um algoritmo em portugol.",
+        "Solicite exemplos adicionais relacionados a pseudocodigo, linguagem-c.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem mapear cada parte do pseudocódigo para a sintaxe equivalente em c."
+      ]
+    },
+    {
       "type": "callout",
       "variant": "good-practice",
       "title": "Prepare o ambiente antes de codar",

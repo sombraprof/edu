@@ -63,6 +63,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Avaliação NP3",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 39: Avaliação NP3. Contexto da aula: Avaliação integradora que cobre todo o percurso da disciplina, exigindo aplicação articulada de lógica, estruturas de dados básicas e modularização. Objetivo central: Avaliar de forma global o domínio dos conteúdos trabalhados ao longo do semestre, testando a capacidade do aluno de analisar problemas e implementar soluções completas em C, com estruturas de dados básicas. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "avaliacao", "integrador"],
+      "tips": [
+        "Peça variações de atividades que reforcem avaliar domínio de algoritmos sequenciais, condicionais e iterativos.",
+        "Solicite exemplos adicionais relacionados a avaliacao, algoritmos.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem verificar a manipulação correta de vetores, matrizes e registros."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Roteiro operacional da NP3",
       "cards": [

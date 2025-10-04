@@ -141,6 +141,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Introdução a Funções e Modularização",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 25: Introdução a Funções e Modularização. Contexto da aula: Motiva a decomposição de programas em funções, introduzindo protótipos, escopo e primeiros padrões de modularização. Objetivo central: Compreender por que dividir o código em funções torna programas mais legíveis, testáveis e sustentáveis. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "c-basico", "funcoes", "modularizacao"],
+      "tips": [
+        "Peça variações de atividades que reforcem identificar sinais de que um algoritmo deve ser quebrado em funções.",
+        "Solicite exemplos adicionais relacionados a funcoes, modularizacao.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem escrever protótipos simples com parâmetros e retorno."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Por que modularizar?",
       "content": [

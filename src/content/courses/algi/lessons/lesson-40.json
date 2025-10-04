@@ -125,6 +125,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Encerramento e Devolutiva",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 40: Encerramento e Devolutiva. Contexto da aula: Celebra entregas finais, devolve resultados das NPs e orienta trilhas futuras (Git e estruturas de dados) com recursos para estudo contínuo. Objetivo central: Encerrar o semestre consolidando aprendizados, oferecendo devolutivas personalizadas e mapeando próximos passos de desenvolvimento. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "encerramento", "feedback", "planejamento"],
+      "tips": [
+        "Peça variações de atividades que reforcem apresentar síntese dos resultados das avaliações (nps) e destacar evidências de evolução.",
+        "Solicite exemplos adicionais relacionados a encerramento, feedback.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem promover showcase dos projetos finais com feedback estruturado e celebração da turma."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Roteiro detalhado da devolutiva",
       "cards": [

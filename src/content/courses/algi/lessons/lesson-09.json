@@ -136,6 +136,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Problemas sequenciais aplicados em C",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 9: Problemas sequenciais aplicados em C. Contexto da aula: Aplica o fluxo Entrada → Processamento → Saída em estudos de caso reais, combinando leitura estruturada, cálculos encadeados e comunicação de resultados. Objetivo central: Resolver problemas cotidianos com programas sequenciais em C documentando cada etapa do processo. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "pratica", "problemas", "sequencial"],
+      "tips": [
+        "Peça variações de atividades que reforcem planejar a solução identificando entradas, processamento e saídas de cada caso.",
+        "Solicite exemplos adicionais relacionados a sequencial, problemas.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem implementar programas sequenciais com validações simples e formatação clara."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Estudo de caso: salário líquido",
       "content": [

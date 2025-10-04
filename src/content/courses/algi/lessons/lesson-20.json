@@ -106,6 +106,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Estrutura de repetição do-while",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Estrutura de repetição do-while. Contexto da aula: Apresenta o do-while em C para menus e validações que exigem uma execução inicial garantida. Objetivo central: Implementar menus que exigem execução inicial obrigatória usando do-while e validar todas as opções com feedback imediato. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "do-while", "loops", "menus"],
+      "tips": [
+        "Peça variações de atividades que reforcem identificar problemas que exigem execução mínima antes da validação.",
+        "Solicite exemplos adicionais relacionados a loops, do-while.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem implementar menus interativos utilizando a estrutura do-while."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Por que usar do-while?",
       "content": [

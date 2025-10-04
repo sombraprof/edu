@@ -108,6 +108,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Integrando Laços e Condicionais",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Integrando Laços e Condicionais. Contexto da aula: Integra estruturas de repetição com decisões complexas para tratar fluxos completos de processamento. Objetivo central: Construir rotinas robustas que combinem laços e condicionais com validação e relatórios de execução. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "condicionais", "integracao", "loops"],
+      "tips": [
+        "Peça variações de atividades que reforcem mapear pontos de decisão dentro e fora de laços.",
+        "Solicite exemplos adicionais relacionados a loops, condicionais.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem implementar validações de entrada antes de iniciar ciclos."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Pipeline da integração",
       "content": [

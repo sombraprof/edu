@@ -126,6 +126,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Síntese e Retrospectiva dos Laços",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Síntese e Retrospectiva dos Laços. Contexto da aula: Consolida aprendizados das aulas 19-23 com showcase da triagem, retroalimentação e plano de melhoria contínua. Objetivo central: Refletir sobre o ciclo de laços, compartilhar entregas da triagem e definir próximos passos de estudo. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "feedback", "planejamento", "retrospectiva"],
+      "tips": [
+        "Peça variações de atividades que reforcem apresentar resultados da atividade assíncrona de triagem.",
+        "Solicite exemplos adicionais relacionados a retrospectiva, feedback.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem identificar boas práticas e pontos de melhoria nas soluções."
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano de voo (1h40)",
       "cards": [

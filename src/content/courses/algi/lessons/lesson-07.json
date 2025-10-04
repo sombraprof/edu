@@ -130,6 +130,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Operadores e Expressões em C",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 7: Operadores e Expressões em C. Contexto da aula: Apresenta as famílias de operadores da linguagem C, mostra como combinar expressões com precedência correta e conecta os resultados às decisões lógicas do algoritmo. Objetivo central: Construir expressões aritméticas e lógicas corretas em C, respeitando precedência e usando operadores apropriados para cada situação. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "expressoes", "linguagem-c", "operadores"],
+      "tips": [
+        "Peça variações de atividades que reforcem identificar a função das principais categorias de operadores em c.",
+        "Solicite exemplos adicionais relacionados a operadores, expressoes.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem aplicar precedência e agrupamento para evitar ambiguidades em expressões."
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Por que operadores importam",
       "content": [

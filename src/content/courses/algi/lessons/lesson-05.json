@@ -199,6 +199,20 @@
       ]
     },
     {
+      "type": "promptTip",
+      "title": "Prompt para planejar Fluxogramas e Visualização da Lógica",
+      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
+      "audience": "docentes de Algoritmos I",
+      "prompt": "Você é professor(a) de Algoritmos I preparando Aula 5: Fluxogramas e Visualização da Lógica. Contexto da aula: Apresenta a simbologia essencial dos fluxogramas e orienta a tradução de algoritmos textuais para representações visuais. Objetivo central: Representar algoritmos usando fluxogramas claros que facilitem a comunicação entre equipe e stakeholders. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "tags": ["algoritmos", "fluxograma", "processos", "visualizacao"],
+      "tips": [
+        "Peça variações de atividades que reforcem mapear algoritmos simples em fluxogramas legíveis.",
+        "Solicite exemplos adicionais relacionados a fluxograma, visualizacao.",
+        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
+        "Peça sugestões de avaliação formativa que evidenciem relacionar símbolos padronizados a operações de entrada, processamento e decisão."
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Simbologia essencial",
       "cards": [
