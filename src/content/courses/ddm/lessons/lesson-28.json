@@ -86,7 +86,7 @@
         {
           "icon": "check-circle",
           "title": "(30 min) Estudo de caso",
-          "content": "benchmark de apps brasileiros e internacionais."
+          "content": "benchmark de apps brasileiros e internacionais + refatoração com protótipos e escopos."
         },
         {
           "icon": "check-circle",
@@ -97,6 +97,45 @@
           "icon": "check-circle",
           "title": "20 min",
           "content": "Socialização e feedback cruzado + alinhamento da TED da semana."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso de refatoração com protótipos e escopos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Analise um app legado que será migrado para uma arquitetura multiplataforma, observando como os protótipos e os escopos de cada squad orientam a refatoração."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            {
+              "text": "Contexto: marketplace de varejo com telas duplicadas em Android nativo e React Native, sofrendo com inconsistências de layout."
+            },
+            {
+              "text": "Escopo original: squads separados por plataforma, pouca sincronia em componentes compartilhados."
+            },
+            {
+              "text": "Escopo proposto: squad unificado responsável pelo design system e pelas features críticas, com capítulos de plataforma apoiando integrações específicas."
+            }
+          ]
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Slide Antes – Protótipo fragmentado com componentes divergentes entre Android e iOS; responsabilidades difusas entre squads."
+            },
+            {
+              "text": "Slide Depois – Protótipo consolidado em Figma com tokens MD3 reutilizados e escopos revisados destacando owners de cada módulo."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Oriente a turma a comparar os slides antes/depois, mapeando o impacto nos fluxos críticos e na definição de responsabilidades para a refatoração incremental."
         }
       ]
     },

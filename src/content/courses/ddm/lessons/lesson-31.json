@@ -191,15 +191,58 @@
           "type": "unorderedList",
           "items": [
             {
-              "text": "Design do fluxo | Refinar mapa de telas e estados. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Atualizar wireflow | Entregáveis: Wireflow atualizado | Riscos: Fluxo divergente (Validar com o professor orientador antes de codificar.) | Checkpoints: Fluxo aprovado"
+              "text": "Design do fluxo | Refinar mapa de telas e estados. | Responsáveis: Grupo | Duração: 1.5h | Atividades: Atualizar wireflow; Planejar coleta de eventos em vetores | Entregáveis: Wireflow atualizado | Riscos: Fluxo divergente (Validar com o professor orientador antes de codificar.) | Checkpoints: Fluxo aprovado, Vetores planejados"
             },
             {
-              "text": "Implementação | Codificar rotas e componentes. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar Stack principal; Configurar Tabs | Entregáveis: Pull request aberto | Riscos: Conflitos de merge (Sincronizar branches diariamente e usar feature flags.) | Checkpoints: Rotas principais funcionais"
+              "text": "Implementação | Codificar rotas e componentes. | Responsáveis: Grupo | Duração: 4h | Atividades: Criar Stack principal; Configurar Tabs; Registrar arrays de acessos e tempos de tela | Entregáveis: Pull request aberto | Riscos: Conflitos de merge (Sincronizar branches diariamente e usar feature flags.) | Checkpoints: Rotas principais funcionais, Arrays preenchidos"
             },
             {
-              "text": "Validação | Revisar acessibilidade e deep linking. | Responsáveis: Grupo | Duração: 1h | Atividades: Rodar testes; Solicitar revisão | Entregáveis: Checklist de acessibilidade | Riscos: Itens não conformes (Usar leitores de tela e ajustes sugeridos na aula.) | Checkpoints: Deep link ok, Checklist aprovado"
+              "text": "Validação | Revisar acessibilidade e deep linking. | Responsáveis: Grupo | Duração: 1h | Atividades: Rodar testes; Solicitar revisão; Interpretar estatísticas de navegação armazenadas em vetores | Entregáveis: Checklist de acessibilidade | Riscos: Itens não conformes (Usar leitores de tela e ajustes sugeridos na aula.) | Checkpoints: Deep link ok, Checklist aprovado, Estatísticas interpretadas"
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Dataset amostral de navegação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize o conjunto abaixo para praticar leitura manual e popular vetores com dados de navegação coletados via analytics caseiro."
+        },
+        {
+          "type": "codeBlock",
+          "language": "plaintext",
+          "code": "rota,acessos,duracao_media_seg,erros_acessibilidade\n/home,420,48,1\n/catalogo,310,67,3\n/carrinho,185,75,4\n/perfil,260,52,2"
+        },
+        {
+          "type": "paragraph",
+          "text": "Transfira manualmente as colunas para vetores (`const acessos = [420, 310, 185, 260]`) e avalie em qual rota a refatoração de escopo deve priorizar ajustes de navegação."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Exercício guiado: estatísticas de navegação",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "1. Monte vetores com acessos, duração média e erros, conferindo se o índice de cada vetor corresponde à mesma rota."
+            },
+            {
+              "text": "2. Calcule médias, máximo/mínimo e uma taxa de erro (`erros_acessibilidade / acessos`) utilizando apenas métodos nativos de arrays."
+            },
+            {
+              "text": "3. Documente insights (ex.: rotas com tempo acima de 60s) para direcionar a revisão de protótipos e escopos."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Tarefa complementar: replique o dataset em uma planilha, crie um gráfico combinado (colunas para acessos, linha para erros) e compartilhe a visualização na thread da turma."
         }
       ]
     },
