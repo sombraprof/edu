@@ -1,27 +1,47 @@
 {
   "id": "lesson-39",
-  "title": "Aula 39: Síntese Estratégica e Painel Futuro de SI",
-  "objective": "Consolidar aprendizados do ciclo de planejamento estratégico e projetar próximos passos para o PESI.",
+  "title": "Aula 39: Simulado NP3 – Roadmap, Mudança e Comunicação",
+  "objective": "Realizar simulado orientado à NP3 reforçando os pilares praticados no hackathon da aula 38.",
   "content": [
     {
       "type": "cardGrid",
-      "title": "Entregáveis consolidados",
+      "title": "Pilares do simulado NP3",
       "cards": [
         {
-          "title": "Diagnóstico",
-          "content": "SWOT, inventário de capacidades e análise de riscos."
+          "title": "Roadmap priorizado",
+          "content": "Validar ondas 3 e 4 com dependências, valor esperado e decisão do patrocinador."
         },
         {
-          "title": "Mapa estratégico",
-          "content": "Balanced Scorecard, objetivos e indicadores."
+          "title": "Gestão da mudança",
+          "content": "Atualizar planos de adoção, indicadores leading e rituais de acompanhamento."
         },
         {
-          "title": "Roadmap & governança",
-          "content": "Sequenciamento, fóruns e métricas de acompanhamento."
+          "title": "Comunicação executiva",
+          "content": "Construir narrativa de 3 minutos com mensagens segmentadas por stakeholder."
         },
         {
-          "title": "Planos de mudança",
-          "content": "Engajamento, comunicação e monitoramento da adoção."
+          "title": "Evidências e métricas",
+          "content": "Reunir dados de performance, riscos e compromissos assumidos no hackathon."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Conexão com o Hackathon 38",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Tragam os artefatos validados nos checkpoints (canvas de roadmap, plano de mudança e roteiro de comunicação). Eles serão a base para o simulado e para a revisão da NP3."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Cada squad escolhe uma pessoa porta-voz e uma pessoa responsável por atualizar a planilha de rubrica.",
+            "Indiquem no pitch quais ajustes pós-hackathon foram incorporados ao kit executivo.",
+            "Registrem dúvidas para a banca da NP3 na seção específica da planilha de feedback."
+          ]
         }
       ]
     },
@@ -241,6 +261,31 @@
       ]
     },
     {
+      "type": "md3Table",
+      "title": "Rubrica NP3 – pilares do hackathon",
+      "headers": ["Critério", "Excelente", "Adequado", "Em desenvolvimento"],
+      "rows": [
+        [
+          "Roadmap priorizado",
+          "Ondas priorizadas com dependências, ROI e decisões da diretoria documentadas.",
+          "Ondas descritas com riscos apontados, porém sem vínculo explícito a decisões.",
+          "Entregáveis incompletos ou sem atualização pós-hackathon."
+        ],
+        [
+          "Plano de mudança",
+          "Plano de adoção com indicadores leading/lagging, responsáveis e próximos ritos.",
+          "Plano apresenta ações e responsáveis, mas indicadores ou cadências estão superficiais.",
+          "Sem definição de indicadores ou responsáveis para acompanhar a adoção."
+        ],
+        [
+          "Comunicação executiva",
+          "Pitch conecta mensagem, dados e chamada para decisão em 3 minutos.",
+          "Narrativa cobre os pontos principais, mas sem dados de suporte consistentes.",
+          "Mensagem dispersa ou sem direcionamento para a diretoria."
+        ]
+      ]
+    },
+    {
       "type": "timeline",
       "title": "Preparação para o painel futuro",
       "steps": [
@@ -338,28 +383,37 @@
     {
       "type": "callout",
       "variant": "task",
-      "title": "TED 39 — Fórum de síntese",
+      "title": "TED 39 — Simulado NP3 (fórum de síntese)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Prepare um resumo executivo (máx. 2 páginas) com os principais aprendizados, riscos e próximos passos do PESI. Compartilhe no fórum e faça peer review com dois grupos."
+          "text": "Produza um resumo executivo (máx. 2 páginas) evidenciando como cada pilar do hackathon sustenta a entrega da NP3. Publique no fórum ‘Simulado NP3’ e realize peer review com dois squads."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Anexe o checklist atualizado na planilha de rubrica NP3.",
+            "Inclua perguntas direcionadas para a banca oficial da NP3 (aula 40).",
+            "Sugira ações de reforço individual com base no feedback 360° do hackathon."
+          ]
         }
       ]
     }
   ],
   "formatVersion": "md3.lesson.v1",
-  "slug": "aula-39-sintese-estrategica-e-painel-futuro",
-  "summary": "Consolida entregáveis do PESI, prepara painel futuro e alinha próximos passos estratégicos.",
+  "slug": "aula-39-simulado-np3-roadmap-mudanca-comunicacao",
+  "summary": "Simulado da NP3 alinhado aos pilares do hackathon, com foco em roadmap, mudança e comunicação executiva.",
   "objectives": [
-    "Revisitar entregáveis críticos do PESI com visão integrada.",
-    "Planejar painel futuro e critérios de avaliação executiva.",
-    "Sintetizar aprendizados e riscos em resumo executivo."
+    "Reforçar decisões do roadmap utilizando as evidências coletadas no hackathon.",
+    "Ensaiar planos de mudança e comunicação com base na rubrica oficial da NP3.",
+    "Sintetizar aprendizados em resumo executivo e checklist compartilhado."
   ],
-  "competencies": ["Comunicação estratégica", "Gestão de riscos", "Síntese executiva"],
+  "competencies": ["Planejamento de portfólio", "Gestão da mudança", "Comunicação executiva"],
   "outcomes": [
-    "Apresenta checklist final com status dos entregáveis.",
-    "Organiza painel futuro com atores e temas críticos.",
-    "Produz resumo executivo compartilhado para peer review."
+    "Atualiza kit executivo com ajustes pós-hackathon e registra pendências.",
+    "Aplica rubrica NP3 para identificar lacunas de adoção e comunicação.",
+    "Documenta recomendações e próximos passos para a banca da NP3."
   ],
   "prerequisites": [
     "Planos de mudança e indicadores estruturados (aulas 35 e 38).",
@@ -375,9 +429,14 @@
       "type": "template"
     },
     {
-      "label": "Checklist final do PESI",
-      "url": "https://example.edu/tgs/checklists/final-pesi",
-      "type": "checklist"
+      "label": "Planilha de rubrica e feedback NP3",
+      "url": "https://static.md3.education/courses/tgs/planilha-feedback-np3.csv",
+      "type": "template"
+    },
+    {
+      "label": "Modelo de plano de estudo pós-simulado",
+      "url": "https://static.md3.education/courses/tgs/modelo-plano-estudo-pos-np3.md",
+      "type": "guide"
     }
   ],
   "bibliography": [
@@ -386,12 +445,16 @@
   ],
   "assessment": {
     "type": "formative",
-    "description": "Resumo executivo e participação em fórum de síntese."
+    "description": "Simulado NP3 com resumo executivo, checklist validado e registro na planilha de rubrica."
   },
   "metadata": {
-    "status": "draft",
-    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "status": "in-review",
+    "updatedAt": "2025-03-18T00:00:00.000Z",
     "owners": ["Profa. Marina Duarte"],
-    "sources": ["Plano de ensino TGS 2025.1", "Toolkit Painel Futuro 2024"]
+    "sources": [
+      "Plano de ensino TGS 2025.1",
+      "Toolkit Painel Futuro 2024",
+      "Notas do Hackathon 2025"
+    ]
   }
 }
