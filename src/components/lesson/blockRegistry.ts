@@ -192,7 +192,12 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   caseStudy: dataBlock(CaseStudy),
   statCard: dataBlock(StatCard),
   knowledgeCheck: dataBlock(KnowledgeCheck),
-  dualAssessment: dataBlock(DualAssessment),
+  dualAssessment(block) {
+    return {
+      component: DualAssessment,
+      props: { data: block },
+    };
+  },
   interactiveDemo: dataBlock(InteractiveDemo),
   pedagogicalNote: dataBlock(PedagogicalNote),
   promptTip: dataBlock(PromptTip),
