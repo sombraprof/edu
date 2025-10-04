@@ -87,6 +87,26 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Sessão de feedback e continuidade",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "text": "Preencha a planilha de rubrica e feedback NP3 registrando evidências de cada pilar (roadmap, mudança, comunicação, aprendizagem)."
+            },
+            {
+              "text": "Defina, em squad, duas ações coletivas e duas individuais para as próximas semanas utilizando o modelo de plano de estudo."
+            },
+            {
+              "text": "Agende a atualização do fórum no Moodle com o texto padrão e anexos (planilha preenchida + plano de estudo)."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "warning",
       "title": "Procedimentos",
@@ -104,6 +124,17 @@
         "Revisar resumos das unidades e exercícios de loops de feedback.",
         "Organizar referências rápidas de conceitos-chave (glossário pessoal).",
         "Preparar perguntas para a sessão de devolutiva pós-avaliação."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Postagem no Moodle",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Após a prova, publique no tópico 'Plano de continuidade pós-NP3' o texto base disponível no repositório, anexando a planilha de feedback e o plano de estudo atualizado."
+        }
       ]
     }
   ],
@@ -143,6 +174,21 @@
       "label": "Planilha de autoavaliação (checklist NP3)",
       "url": "https://static.md3.education/courses/tgs/autoavaliacao-np3.md",
       "type": "template"
+    },
+    {
+      "label": "Planilha de rubrica e feedback NP3",
+      "url": "https://static.md3.education/courses/tgs/planilha-feedback-np3.csv",
+      "type": "template"
+    },
+    {
+      "label": "Modelo de plano de estudo pós-NP3",
+      "url": "https://static.md3.education/courses/tgs/modelo-plano-estudo-pos-np3.md",
+      "type": "guide"
+    },
+    {
+      "label": "Texto base para postagem no Moodle",
+      "url": "https://static.md3.education/courses/tgs/moodle-continuacao-estudos.md",
+      "type": "guide"
     }
   ],
   "bibliography": [

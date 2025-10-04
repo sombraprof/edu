@@ -1,182 +1,185 @@
 {
   "id": "lesson-38",
-  "title": "Aula 38: Oficina Integrada – Roadmap, Mudança e Comunicação",
-  "objective": "Conectar roadmap estratégico à gestão de mudança e comunicação executiva do PESI.",
+  "title": "Aula 38: Hackathon Integrado – Roadmap, Mudança e Comunicação",
+  "objective": "Conduzir um hackathon curto que conecte roadmap estratégico, gestão de mudança e comunicação executiva do PESI.",
   "content": [
     {
-      "type": "representations",
-      "title": "Alavancas de mudança",
-      "items": [
+      "type": "lessonPlan",
+      "title": "Plano da aula hackathon (110 min)",
+      "cards": [
         {
-          "title": "Patrocínio visível",
-          "content": "Executivos comunicam visão e desbloqueiam recursos.",
-          "language": "plaintext",
-          "code": "Executivos comunicam visão e desbloqueiam recursos."
+          "icon": "bullseye",
+          "title": "Briefing",
+          "content": "Resolver um desafio do PESI consolidando roadmap priorizado, plano de mudança e kit de comunicação executiva em 110 minutos."
         },
         {
-          "title": "Gestão de impactos",
-          "content": "Mapeamento de processos, personas e riscos de adoção.",
-          "language": "plaintext",
-          "code": "Mapeamento de processos, personas e riscos de adoção."
+          "icon": "clock",
+          "title": "Estrutura",
+          "content": "Check-in de contexto (10’), Sprint 1 – ajuste de hipóteses (25’), Checkpoint 1, Sprint 2 – prototipação (30’), Checkpoint 2, Sprint 3 – pitch e feedback rápido (30’), Retrospectiva e próximas ações (15’)."
         },
         {
-          "title": "Capacitação",
-          "content": "Trilhas de aprendizagem e suporte contínuo.",
-          "language": "plaintext",
-          "code": "Trilhas de aprendizagem e suporte contínuo."
-        },
-        {
-          "title": "Comunicação segmentada",
-          "content": "Mensagens personalizadas por stakeholder.",
-          "language": "plaintext",
-          "code": "Mensagens personalizadas por stakeholder."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Plano de comunicação",
-      "content": [
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Stakeholder: Conselho | Mensagem-chave: Status do roadmap e resultados | Canal: Relatório executivo | Frequência: Mensal"
-            },
-            {
-              "text": "Stakeholder: Gestores | Mensagem-chave: Impactos operacionais e decisões | Canal: Reuniões de liderança | Frequência: Quinzenal"
-            },
-            {
-              "text": "Stakeholder: Colaboradores | Mensagem-chave: Benefícios e suporte | Canal: Intranet, newsletters | Frequência: Semanal"
-            },
-            {
-              "text": "Stakeholder: Parceiros | Mensagem-chave: Integrações e mudanças contratuais | Canal: Workshops dedicados | Frequência: Trimestral"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Gestão de mudança integrada",
-      "summary": "Mostra como comunicação, capacitação e suporte sustentam a adoção do roadmap.",
-      "factors": [
-        {
-          "id": "comunicacao",
-          "name": "Comunicação",
-          "summary": "Mensagens direcionadas",
-          "kind": "flow",
-          "indicators": ["alcance_mensagens"]
-        },
-        {
-          "id": "capacitacao",
-          "name": "Capacitação",
-          "summary": "Treinamentos e coaching",
-          "kind": "capability",
-          "indicators": ["horas_treinamento"]
-        },
-        {
-          "id": "suporte",
-          "name": "Suporte",
-          "summary": "Canais e help desk",
-          "kind": "resource",
-          "indicators": ["chamados_resolvidos"]
-        },
-        {
-          "id": "adocao",
-          "name": "Adoção",
-          "summary": "Uso efetivo das novas soluções",
-          "kind": "outcome",
-          "indicators": ["usuarios_ativos"]
-        }
-      ],
-      "connections": [
-        {
-          "from": "comunicacao",
-          "to": "capacitacao",
-          "description": "Comunicação convoca públicos para trilhas de aprendizado."
-        },
-        {
-          "from": "capacitacao",
-          "to": "adocao",
-          "description": "Treinamentos aumentam confiança no uso."
-        },
-        {
-          "from": "suporte",
-          "to": "adocao",
-          "description": "Suporte rápido remove barreiras pós-go-live."
-        },
-        {
-          "from": "capacitacao",
-          "to": "suporte",
-          "description": "Insights dos treinamentos orientam base de conhecimento."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Cronograma da oficina",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "Bloco 1 – Atualização do roadmap e dependências críticas."
-            },
-            {
-              "text": "Bloco 2 – Mapeamento de impactos e stakeholders."
-            },
-            {
-              "text": "Bloco 3 – Definição de mensagens e canais por segmento."
-            },
-            {
-              "text": "Bloco 4 – Plano de capacitação e métricas de adoção."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "videos",
-      "title": "Gestão de mudança em ação",
-      "videos": [
-        {
-          "url": "https://example.edu/tgs/videos/change-management-ti",
-          "title": "Transformação digital orientada à mudança",
-          "caption": "Como comunicar roadmap de TI em escala."
-        },
-        {
-          "url": "https://example.edu/tgs/videos/case-capacitacao-pesi",
-          "title": "Capacitação contínua",
-          "caption": "Case de onboarding digital com academias internas."
+          "icon": "tasks",
+          "title": "Saídas esperadas",
+          "content": "Canvas de roadmap revisado, plano de mudança com indicadores de adoção e roteiro de comunicação segmentado. Todos os entregáveis precisam alimentar o estudo para a NP3."
         }
       ]
     },
     {
       "type": "callout",
-      "variant": "task",
-      "title": "TED 38 — Plano de engajamento",
+      "variant": "info",
+      "title": "Briefing express do desafio",
       "content": [
         {
           "type": "paragraph",
-          "text": "Produza um plano de engajamento resumido com stakeholders críticos, mensagens-chave e indicadores de adoção. Entregue no fórum e responda à banca de perguntas em aula seguinte."
+          "text": "A diretoria do PESI precisa validar se a próxima onda do roadmap está sustentada por evidências de impacto, estratégia de adoção e mensagens claras para cada stakeholder-chave."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Contexto: ondas 3 e 4 priorizadas em aula 37, com dependências críticas com Operações e Customer Success.",
+            "Desafio: montar kit executivo que demonstre prontidão da equipe e antecipe riscos de adoção.",
+            "Formato: squads de 4–5 pessoas com papéis rotativos (líder de roadmap, líder de mudança, líder de comunicação)."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Sprints e checkpoints",
+      "steps": [
+        {
+          "time": "00:00–00:10",
+          "title": "Kick-off",
+          "content": "Contextualização do problema, leitura rápida do briefing e alinhamento dos papéis do squad."
+        },
+        {
+          "time": "00:10–00:35",
+          "title": "Sprint 1 – Hipóteses e riscos",
+          "content": "Mapeamento das lacunas do roadmap, riscos de adoção e indicadores obrigatórios."
+        },
+        {
+          "time": "00:35–00:45",
+          "title": "Checkpoint 1",
+          "content": "Facilitador revisa matriz de riscos e garante alinhamento com expectativas da NP3."
+        },
+        {
+          "time": "00:45–01:15",
+          "title": "Sprint 2 – Prototipação do kit",
+          "content": "Construção dos artefatos: quadro de indicadores, plano de mudança e roteiro de comunicação."
+        },
+        {
+          "time": "01:15–01:25",
+          "title": "Checkpoint 2",
+          "content": "Squads apresentam progresso com foco em métricas e mensagens críticas; feedback 360° em 3 minutos."
+        },
+        {
+          "time": "01:25–01:55",
+          "title": "Sprint 3 – Pitch final",
+          "content": "Refinamento do pitch executivo (3 minutos) e registro das lições para o plano de estudos pré-NP3."
+        },
+        {
+          "time": "01:55–02:05",
+          "title": "Retro & próximos passos",
+          "content": "Síntese coletiva, registro de decisões na planilha de feedback e definição das ações individuais."
+        }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Checkpoints e evidências",
+      "headers": ["Checkpoint", "Foco", "Evidências mínimas", "Ferramentas"],
+      "rows": [
+        [
+          "CP1 – Hipóteses",
+          "Consistência do roadmap",
+          "Mapa de dependências revisado + riscos classificados (alto/médio/baixo)",
+          "Canvas roadmap (Miro/Slides)"
+        ],
+        [
+          "CP2 – Prototipação",
+          "Plano de mudança",
+          "Backlog de ações com owner, indicador leading e próximo checkpoint",
+          "Planilha de mudança (Google Sheets)"
+        ],
+        [
+          "Pitch final",
+          "Comunicação executiva",
+          "Roteiro com mensagem-chave por stakeholder + indicador de sucesso",
+          "Script de pitch + deck 3 slides"
+        ]
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Rubrica formativa do hackathon",
+      "headers": ["Critério", "Excelente", "Adequado", "Em desenvolvimento"],
+      "rows": [
+        [
+          "Integração dos pilares",
+          "Roadmap, mudança e comunicação conectados com métricas cruzadas.",
+          "Pilares citados, mas com indicadores parcialmente alinhados.",
+          "Trata pilares isoladamente sem justificar dependências."
+        ],
+        [
+          "Evidências e dados",
+          "Usa indicadores leading/lagging com fontes e limites definidos.",
+          "Apresenta indicadores, porém sem escala ou fonte explícita.",
+          "Indicadores ausentes ou desconectados do desafio."
+        ],
+        [
+          "Clareza do pitch",
+          "Narrativa executiva objetiva com chamadas para decisão.",
+          "Pitch compreensível, mas com lacunas de priorização.",
+          "Mensagem confusa ou sem direcionamento para o board."
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED 38 — Pitch executivo (3 min)",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Grave o pitch do squad (máx. 3 minutos) apresentando decisão-chave, riscos mitigados e plano de comunicação. Publique no fórum ‘Hackathon Roadmap & Mudança’ no Moodle até 24h após a aula."
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "Nome do arquivo: Squad-XX_Pitch-Hackathon38.mp4.",
+            "Anexe também a planilha de checkpoints atualizada.",
+            "Responda ao menos um feedback de outro squad com sugestões objetivas."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Feedback 360°",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cada integrante deve registrar três aprendizados e duas ações individuais na planilha de feedback compartilhada. Esse registro alimenta o plano de estudos personalizado para a NP3 (aula 40)."
         }
       ]
     }
   ],
   "formatVersion": "md3.lesson.v1",
-  "slug": "aula-38-oficina-integrada-roadmap-mudanca",
-  "summary": "Integra roadmap estratégico com gestão de mudança, comunicação e engajamento de stakeholders.",
+  "slug": "aula-38-hackathon-integrado-roadmap-mudanca",
+  "summary": "Hackathon curto que integra roadmap, mudança e comunicação para preparar os squads para a NP3.",
   "objectives": [
-    "Relacionar roadmap do PESI às necessidades de comunicação e mudança.",
-    "Elaborar plano de comunicação segmentado por stakeholder.",
-    "Definir indicadores de adoção e suporte contínuo."
+    "Aplicar os pilares de roadmap, mudança e comunicação em uma sprint integrada.",
+    "Produzir artefatos executivos com indicadores e mensagens orientados à decisão.",
+    "Registrar aprendizados e próximos passos para o estudo da NP3."
   ],
   "competencies": ["Gestão de mudança", "Comunicação executiva", "Engajamento de stakeholders"],
   "outcomes": [
-    "Entrega plano de engajamento alinhado ao roadmap.",
-    "Mapeia impactos e planos de capacitação por público.",
-    "Define métricas de adoção para monitoramento contínuo."
+    "Entrega kit executivo (roadmap + mudança + comunicação) validado nos checkpoints.",
+    "Evidencia indicadores de adoção e riscos com planos de mitigação.",
+    "Registra ações individuais para continuidade dos estudos."
   ],
   "prerequisites": [
     "Roadmap priorizado (aula 33) e governança definida (aula 34).",
@@ -187,8 +190,13 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Template de plano de engajamento",
-      "url": "https://example.edu/tgs/templates/plano-engajamento",
+      "label": "Briefing oficial do hackathon",
+      "url": "https://static.md3.education/courses/tgs/hackathon-aula38-briefing.md",
+      "type": "guide"
+    },
+    {
+      "label": "Planilha de checkpoints e feedbacks",
+      "url": "https://static.md3.education/courses/tgs/hackathon-aula38-checkpoints.csv",
       "type": "template"
     },
     {
@@ -203,12 +211,16 @@
   ],
   "assessment": {
     "type": "formative",
-    "description": "Plano de engajamento com indicadores de adoção."
+    "description": "Kit executivo validado com feedback 360° e pitch registrado."
   },
   "metadata": {
-    "status": "draft",
-    "updatedAt": "2025-03-10T00:00:00.000Z",
+    "status": "in-review",
+    "updatedAt": "2025-03-18T00:00:00.000Z",
     "owners": ["Profa. Marina Duarte"],
-    "sources": ["Plano de ensino TGS 2025.1", "Playbook Change Management 2024"]
+    "sources": [
+      "Plano de ensino TGS 2025.1",
+      "Playbook Change Management 2024",
+      "Notas do Hackathon 2025"
+    ]
   }
 }
