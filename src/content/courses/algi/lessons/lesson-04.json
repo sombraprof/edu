@@ -380,12 +380,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float temperaturaC = (float)(rand() % 3510) / 10.0f;\n  float temperaturaF = temperaturaC * 9.0f / 5.0f + 32.0f;\n  float temperaturaK = temperaturaC + 273.15f;\n\n  printf(\"Entrada (temperatura_celsius):\\n%.1f\\n\", temperaturaC);\n  printf(\"Saidas esperadas (fahrenheit kelvin):\\n%.2f %.2f\\n\", temperaturaF, temperaturaK);\n\n  return 0;\n}"
         }
       ]
     }

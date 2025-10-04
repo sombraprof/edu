@@ -465,12 +465,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float valorCompra = (float)(rand() % 4501 + 500) / 10.0f;\n  int clienteFrequente = rand() % 2;\n  int possuiCupom = rand() % 2;\n\n  float desconto = 0.0f;\n  if (valorCompra >= 300.0f) {\n    desconto += 0.10f;\n  }\n  if (clienteFrequente) {\n    desconto += 0.05f;\n  }\n  if (possuiCupom) {\n    desconto += 0.03f;\n  }\n  if (desconto > 0.20f) {\n    desconto = 0.20f;\n  }\n\n  float valorFinal = valorCompra * (1.0f - desconto);\n\n  printf(\"Entrada (valor_compra cliente_frequente possui_cupom):\\n%.2f %d %d\\n\", valorCompra, clienteFrequente, possuiCupom);\n  printf(\"Saidas esperadas:\\n- percentual_desconto = %.2f\\n- valor_final = %.2f\\n\", desconto * 100.0f, valorFinal);\n\n  return 0;\n}"
         }
       ]
     }

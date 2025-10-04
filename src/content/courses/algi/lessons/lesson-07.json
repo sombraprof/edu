@@ -745,12 +745,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int a = rand() % 41 + 10;\n  int b = rand() % 21 + 5;\n  int c = rand() % 16 + 1;\n  int d = rand() % 9 + 2;\n\n  int expressao1 = a * b - c;\n  int expressao2 = (a + b) % d;\n  double expressao3 = (a * 1.0 + c) / d + b;\n\n  printf(\"Entrada (a b c d):\\n%d %d %d %d\\n\", a, b, c, d);\n  printf(\"Saidas esperadas:\\n- a*b-c = %d\\n- (a+b)%%d = %d\\n- (a+c)/d + b = %.2f\\n\", expressao1, expressao2, expressao3);\n\n  return 0;\n}"
         }
       ]
     }

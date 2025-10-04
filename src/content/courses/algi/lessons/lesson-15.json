@@ -661,12 +661,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *diagnosticar(float mediaProva, float mediaLista, int faltas) {\n  if (mediaProva >= 7.0f && mediaLista >= 6.0f && faltas <= 5) {\n    return \"MANTER ESTRATEGIA\";\n  } else if (mediaProva >= 5.0f && faltas <= 10) {\n    return \"FOCAR EM LISTAS\";\n  } else if (mediaLista >= 6.0f) {\n    return \"REVISAR PROVAS\";\n  }\n  return \"PLANO DE RECUPERACAO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float mediaProva = (float)(rand() % 401 + 300) / 100.0f;\n  float mediaLista = (float)(rand() % 401 + 300) / 100.0f;\n  int faltas = rand() % 16;\n\n  printf(\"Entrada (media_provas media_listas faltas):\\n%.2f %.2f %d\\n\", mediaProva, mediaLista, faltas);\n  printf(\"Saida esperada: %s\\n\", diagnosticar(mediaProva, mediaLista, faltas));\n\n  return 0;\n}"
         }
       ]
     }

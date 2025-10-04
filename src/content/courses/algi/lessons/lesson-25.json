@@ -369,12 +369,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\ndouble calcularMedia(double valores[], int tamanho) {\n  double soma = 0.0;\n  for (int i = 0; i < tamanho; ++i) {\n    soma += valores[i];\n  }\n  return soma / tamanho;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int quantidade = 5;\n  double notas[5];\n  for (int i = 0; i < quantidade; ++i) {\n    notas[i] = (double)(rand() % 401 + 300) / 100.0;\n  }\n\n  printf(\"Notas geradas:\\n\");\n  for (int i = 0; i < quantidade; ++i) {\n    printf(\"%.2f \", notas[i]);\n  }\n  printf(\"\\nSaida esperada (media): %.2f\\n\", calcularMedia(notas, quantidade));\n\n  return 0;\n}"
         }
       ]
     }

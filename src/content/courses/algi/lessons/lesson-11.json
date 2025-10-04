@@ -538,12 +538,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: preco, desconto -> final\nimport random\nfor _ in range(5):\n    p = round(random.uniform(10, 500), 2)\n    d = random.choice([5, 10, 12.5, 20])\n    final = p - (p*d/100.0)\n    print(f\"{p} {d} -> {final:.2f}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *descricaoPlano(int codigo) {\n  switch (codigo) {\n    case 1: return \"Consulta medica\";\n    case 2: return \"Exame laboratorial\";\n    case 3: return \"Reavaliacao nutricional\";\n    case 4: return \"Vacina\";\n    default: return \"Opcao invalida\";\n  }\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n  int codigo = rand() % 6;\n\n  printf(\"Entrada (codigo_menu):\\n%d\\n\", codigo);\n  printf(\"Saida esperada: %s\\n\", descricaoPlano(codigo));\n\n  return 0;\n}"
         }
       ]
     }

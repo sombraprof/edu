@@ -344,12 +344,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tentativasMenu = rand() % 4 + 2;\n  int opcaoFinal = rand() % 3 + 1;\n\n  printf(\"Sequencia sugerida de entradas:\\n\");\n  for (int i = 0; i < tentativasMenu - 1; ++i) {\n    printf(\"0 \");\n  }\n  printf(\"%d\\n\", opcaoFinal);\n\n  printf(\"Saida esperada:\\n- O menu deve repetir %d vezes antes de aceitar a opcao %d.\\n\", tentativasMenu - 1, opcaoFinal);\n\n  return 0;\n}"
         }
       ]
     }

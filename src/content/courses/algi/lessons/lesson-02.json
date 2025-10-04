@@ -542,12 +542,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *resultado(int condicao) {\n  return condicao ? \"ENTRADA LIBERADA\" : \"ENTRADA NEGADA\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int idade = rand() % 11 + 14;\n  int autorizacao = rand() % 2;\n  int ingresso = rand() % 2;\n  int podeEntrar = ((idade >= 16) || autorizacao) && ingresso;\n\n  printf(\"Entrada (idade possui_autorizacao tem_ingresso):\\n%d %d %d\\n\", idade, autorizacao, ingresso);\n  printf(\"Saida esperada: %s\\n\", resultado(podeEntrar));\n\n  return 0;\n}"
         }
       ]
     }

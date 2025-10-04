@@ -372,12 +372,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tempoDisponivel = rand() % 61 + 70;\n  int pesquisa = rand() % 31 + 20;\n  int prototipacao = rand() % 26 + 15;\n  const int revisao = 15;\n\n  int tempoTotal = pesquisa + prototipacao + revisao;\n  int cabeNaAgenda = tempoTotal <= tempoDisponivel;\n\n  printf(\"Entrada (tempo_disponivel pesquisa prototipacao):\\n%d %d %d\\n\", tempoDisponivel, pesquisa, prototipacao);\n  printf(\"Saidas esperadas:\\n- tempo_total_planejado = %d\\n- cabe_no_dia = %s\\n\", tempoTotal, cabeNaAgenda ? \"SIM\" : \"NAO\");\n\n  return 0;\n}"
         }
       ]
     }

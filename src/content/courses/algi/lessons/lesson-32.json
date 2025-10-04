@@ -473,12 +473,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera vetores e alvos\nimport random\narr = [3,5,7]\nfor x in [3,5,10]:\n    idx = next((i for i,v in enumerate(arr) if v==x), -1)\n    print(f\"{arr}, x={x} -> {idx}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint buscaLinear(int vetor[], int tamanho, int alvo) {\n  for (int i = 0; i < tamanho; ++i) {\n    if (vetor[i] == alvo) {\n      return i;\n    }\n  }\n  return -1;\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int tamanho = 12;\n  int vetor[12];\n\n  for (int i = 0; i < tamanho; ++i) {\n    vetor[i] = rand() % 90 + 10;\n  }\n\n  int alvo = vetor[rand() % tamanho];\n\n  printf(\"Vetor:\\n\");\n  for (int i = 0; i < tamanho; ++i) {\n    printf(\"%d \", vetor[i]);\n  }\n  printf(\"\\nEntrada alvo: %d\\n\", alvo);\n  printf(\"Saida esperada (indice): %d\\n\", buscaLinear(vetor, tamanho, alvo));\n\n  return 0;\n}"
         }
       ]
     },

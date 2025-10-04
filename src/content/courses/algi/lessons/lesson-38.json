@@ -392,12 +392,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *nomeTopico(int indice) {\n  switch (indice) {\n    case 0: return \"Sequencias\";\n    case 1: return \"Condicionais\";\n    case 2: return \"Repeticoes\";\n    case 3: return \"Funcoes\";\n    case 4: return \"Vetores\";\n    default: return \"Structs\";\n  }\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  for (int i = 1; i <= 5; ++i) {\n    int topico = rand() % 6;\n    int dificuldade = rand() % 3 + 1;\n    printf(\"Pergunta %d -> tema=%s dificuldade=%d\\n\", i, nomeTopico(topico), dificuldade);\n  }\n\n  printf(\"Monte desafios combinando os topicos acima.\\n\");\n\n  return 0;\n}"
         }
       ]
     }

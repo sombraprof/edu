@@ -570,12 +570,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: preco, desconto -> final\nimport random\nfor _ in range(5):\n    p = round(random.uniform(10, 500), 2)\n    d = random.choice([5, 10, 12.5, 20])\n    final = p - (p*d/100.0)\n    print(f\"{p} {d} -> {final:.2f}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *classificar(float media, int faltas) {\n  if (media >= 7.0f && faltas <= 10) {\n    return \"APROVADO\";\n  } else if (media >= 5.0f && faltas <= 15) {\n    return \"RECUPERACAO\";\n  }\n  return \"REPROVADO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float media = (float)(rand() % 401 + 300) / 100.0f;\n  int faltas = rand() % 21;\n\n  printf(\"Entrada (media faltas):\\n%.2f %d\\n\", media, faltas);\n  printf(\"Saida esperada: %s\\n\", classificar(media, faltas));\n\n  return 0;\n}"
         }
       ]
     }

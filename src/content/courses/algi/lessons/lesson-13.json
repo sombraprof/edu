@@ -648,12 +648,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nconst char *classificarCredito(int score, float renda, float divida) {\n  float comprometimento = divida / renda;\n\n  if (score >= 800 && comprometimento <= 0.2f) {\n    return \"LIMITE MAXIMO\";\n  } else if (score >= 650 && comprometimento <= 0.35f) {\n    return \"LIMITE MEDIO\";\n  } else if (score >= 500 && comprometimento <= 0.45f) {\n    return \"LIMITE BAIXO\";\n  }\n  return \"CREDITO NEGADO\";\n}\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  int score = rand() % 551 + 400;\n  float renda = (float)(rand() % 7001 + 2000);\n  float divida = (float)(rand() % 4001 + 200);\n\n  printf(\"Entrada (score renda divida):\\n%d %.2f %.2f\\n\", score, renda, divida);\n  printf(\"Saida esperada: %s\\n\", classificarCredito(score, renda, divida));\n\n  return 0;\n}"
         }
       ]
     }

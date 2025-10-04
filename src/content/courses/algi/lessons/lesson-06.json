@@ -682,12 +682,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Adapte para sua atividade: gere entradas aleatórias e imprima a saída esperada.",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  float peso = (float)(rand() % 701 + 500) / 10.0f;\n  float altura = (float)(rand() % 36 + 150) / 100.0f;\n  const int idade = rand() % 43 + 18;\n\n  float imc = peso / (altura * altura);\n\n  printf(\"Entrada (peso altura idade):\\n%.1f %.2f %d\\n\", peso, altura, idade);\n  printf(\"Saida esperada (imc):\\n%.2f\\n\", imc);\n\n  return 0;\n}"
         }
       ]
     },

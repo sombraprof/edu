@@ -512,12 +512,12 @@
     {
       "type": "callout",
       "variant": "info",
-      "title": "Gerador de casos de teste (Python)",
+      "title": "Gerador de casos de teste (C)",
       "content": [
         {
           "type": "code",
-          "code": "# Gera casos: preco, desconto -> final\nimport random\nfor _ in range(5):\n    p = round(random.uniform(10, 500), 2)\n    d = random.choice([5, 10, 12.5, 20])\n    final = p - (p*d/100.0)\n    print(f\"{p} {d} -> {final:.2f}\")",
-          "language": "python"
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n\nint main(void) {\n  srand((unsigned)time(NULL));\n\n  double salarioBase = (double)(rand() % 4001 + 1200);\n  double vendas = (double)(rand() % 8001 + 500);\n  double bonusPercentual = (double)(rand() % 11 + 5) / 100.0;\n\n  double comissao = vendas * bonusPercentual;\n  double salarioFinal = salarioBase + comissao;\n\n  printf(\"Entrada (salario_base vendas percentual_bonus):\\n%.2f %.2f %.2f\\n\", salarioBase, vendas, bonusPercentual * 100.0);\n  printf(\"Saidas esperadas:\\n- comissao = %.2f\\n- salario_final = %.2f\\n\", comissao, salarioFinal);\n\n  return 0;\n}"
         }
       ]
     }
