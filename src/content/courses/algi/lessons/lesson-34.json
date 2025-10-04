@@ -165,15 +165,15 @@
     {
       "type": "promptTip",
       "title": "Prompt para planejar Manipulações com Matrizes",
-      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
-      "audience": "docentes de Algoritmos I",
-      "prompt": "Você é professor(a) de Algoritmos I preparando Manipulações com Matrizes. Contexto da aula: Aprofunda o trabalho com matrizes 2D realizando transposição, somas e multiplicação para resolver problemas de relatórios e transformações. Objetivo central: Aplicar operações clássicas de matrizes para gerar indicadores combinados e preparar o terreno para algoritmos de processamento de imagens e dados. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Manipulações com Matrizes. Contexto da aula: Aprofunda o trabalho com matrizes 2D realizando transposição, somas e multiplicação para resolver problemas de relatórios e transformações. Objetivo central: Aplicar operações clássicas de matrizes para gerar indicadores combinados e preparar o terreno para algoritmos de processamento de imagens e dados. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
       "tags": ["algoritmos", "arrays", "matrizes", "multiplicacao"],
       "tips": [
-        "Peça variações de atividades que reforcem implementar funções para transpor e somar matrizes.",
-        "Solicite exemplos adicionais relacionados a matrizes, arrays.",
-        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
-        "Peça sugestões de avaliação formativa que evidenciem executar multiplicação matricial com três loops."
+        "Peça ao assistente variações de exercícios que reforcem implementar funções para transpor e somar matrizes.",
+        "Solicite exemplos adicionais relacionados a matrizes, arrays para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a executar multiplicação matricial com três loops."
       ]
     },
     {

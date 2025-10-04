@@ -245,8 +245,10 @@ const copyPrompt = async () => {
 }
 
 .prompt-tip__tags {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, max-content));
+  justify-content: flex-start;
+  justify-items: start;
   gap: var(--md-sys-spacing-2, 0.5rem);
   margin: 0;
   padding: 0;

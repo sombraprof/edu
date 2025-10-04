@@ -123,15 +123,15 @@
     {
       "type": "promptTip",
       "title": "Prompt para planejar Atividade Assíncrona de Triagem Clínica",
-      "description": "Use com o assistente para gerar roteiros, exemplos e acompanhamentos alinhados à aula.",
-      "audience": "docentes de Algoritmos I",
-      "prompt": "Você é professor(a) de Algoritmos I preparando Atividade Assíncrona de Triagem Clínica. Contexto da aula: Propõe atividade assíncrona integradora que combina laços, condicionais e registro de testes na simulação de triagem. Objetivo central: Planejar e executar a triagem automatizada cumprindo requisitos funcionais, documentação e entrega assíncrona. Monte um plano dividido em preparação, condução em sala e acompanhamento pós-aula, indicando atividades práticas, exemplos em C ou pseudocódigo e perguntas diagnósticas que ajudem os estudantes a consolidar o conteúdo. Destaque estratégias de diferenciação para apoiar quem avança mais rápido e quem precisa de reforço.",
+      "description": "Use com o assistente para organizar seus estudos, revisar conteúdos e praticar com exercícios.",
+      "audience": "estudantes de Algoritmos I",
+      "prompt": "Você é estudante de Algoritmos I estudando Atividade Assíncrona de Triagem Clínica. Contexto da aula: Propõe atividade assíncrona integradora que combina laços, condicionais e registro de testes na simulação de triagem. Objetivo central: Planejar e executar a triagem automatizada cumprindo requisitos funcionais, documentação e entrega assíncrona. Monte um plano de estudo dividido em revisão teórica, prática guiada e autoavaliação, indicando atividades de leitura, exercícios resolvidos em C ou pseudocódigo e perguntas de checagem que ajudem você a consolidar o conteúdo. Sugira estratégias para aprofundar o aprendizado, reforçar pontos frágeis e buscar ajuda quando necessário.",
       "tags": ["algoritmos", "assincrona", "projeto", "triagem"],
       "tips": [
-        "Peça variações de atividades que reforcem interpretar o briefing de triagem e planejar o fluxo de decisão.",
-        "Solicite exemplos adicionais relacionados a assincrona, projeto.",
-        "Gere um checklist final com orientações para monitores acompanharem dúvidas recorrentes.",
-        "Peça sugestões de avaliação formativa que evidenciem implementar algoritmo que percorre formulários e classifica pacientes."
+        "Peça ao assistente variações de exercícios que reforcem interpretar o briefing de triagem e planejar o fluxo de decisão.",
+        "Solicite exemplos adicionais relacionados a assincrona, projeto para praticar.",
+        "Peça um checklist final para acompanhar suas dúvidas recorrentes e organizar revisões.",
+        "Peça sugestões de autoavaliação que ajudem você a implementar algoritmo que percorre formulários e classifica pacientes."
       ]
     },
     {
