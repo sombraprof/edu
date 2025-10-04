@@ -1,11 +1,13 @@
-import { readonly, ref } from 'vue';
+import { computed, readonly, ref } from 'vue';
 
-const teacherMode = ref(false);
-const ready = ref(false);
+const authoringForced = import.meta.env.DEV;
+
+const teacherMode = ref(authoringForced);
+const ready = ref(authoringForced);
 let initialized = false;
 
 function persist(value: boolean) {
-  if (typeof window === 'undefined') {
+  if (authoringForced || typeof window === 'undefined') {
     return;
   }
   try {
@@ -16,12 +18,18 @@ function persist(value: boolean) {
 }
 
 function setTeacherMode(value: boolean) {
+  if (authoringForced) {
+    teacherMode.value = true;
+    ready.value = true;
+    return;
+  }
+
   teacherMode.value = value;
   persist(value);
 }
 
 function syncFromQueryString() {
-  if (typeof window === 'undefined') {
+  if (authoringForced || typeof window === 'undefined') {
     return false;
   }
 
@@ -43,7 +51,8 @@ function syncFromQueryString() {
 }
 
 function syncFromStorage() {
-  if (typeof window === 'undefined') {
+  if (authoringForced || typeof window === 'undefined') {
+    ready.value = true;
     return;
   }
   try {
@@ -59,11 +68,19 @@ function syncFromStorage() {
 export function useTeacherMode() {
   if (!initialized) {
     initialized = true;
-    const handledByQuery = syncFromQueryString();
-    if (!handledByQuery) {
-      syncFromStorage();
+    if (!authoringForced) {
+      const handledByQuery = syncFromQueryString();
+      if (!handledByQuery) {
+        syncFromStorage();
+      }
+    } else {
+      teacherMode.value = true;
+      ready.value = true;
     }
   }
+
+  const isAuthoringForced = computed(() => authoringForced);
+  const isAuthoringEnabled = computed(() => authoringForced || teacherMode.value);
 
   return {
     teacherMode: readonly(teacherMode),
@@ -71,5 +88,7 @@ export function useTeacherMode() {
     enableTeacherMode: () => setTeacherMode(true),
     disableTeacherMode: () => setTeacherMode(false),
     toggleTeacherMode: () => setTeacherMode(!teacherMode.value),
+    isAuthoringEnabled,
+    isAuthoringForced,
   } as const;
 }

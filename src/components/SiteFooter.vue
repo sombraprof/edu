@@ -46,10 +46,12 @@
           Contato
         </Md3Button>
         <Md3Button
+          v-if="showTeacherActions"
           variant="text"
           class="app-footer__teacher-button"
           type="button"
           :aria-pressed="teacherMode ? 'true' : 'false'"
+          :disabled="isAuthoringForced"
           @click="handleTeacherAccess"
         >
           <template #leading>
@@ -73,12 +75,22 @@ import { Globe, Github, Mail, UserCog, LogOut } from 'lucide-vue-next';
 import { useTeacherMode } from '../composables/useTeacherMode';
 import Md3Button from './Md3Button.vue';
 
-const { teacherMode, enableTeacherMode, disableTeacherMode } = useTeacherMode();
+const {
+  teacherMode,
+  enableTeacherMode,
+  disableTeacherMode,
+  isAuthoringEnabled,
+  isAuthoringForced,
+} = useTeacherMode();
 
-const teacherPin = computed(() => import.meta.env.VITE_TEACHER_PIN ?? 'TS-2024');
 const teacherActionLabel = computed(() => (teacherMode.value ? 'Professor' : 'Professor'));
+const showTeacherActions = computed(() => isAuthoringEnabled.value);
 
 function handleTeacherAccess() {
+  if (isAuthoringForced.value) {
+    return;
+  }
+
   if (teacherMode.value) {
     const confirmExit = window.confirm('Deseja sair do modo professor?');
     if (confirmExit) {
@@ -87,17 +99,7 @@ function handleTeacherAccess() {
     return;
   }
 
-  const provided = window.prompt('Digite o código do professor para acessar os relatórios:');
-  if (provided === null) {
-    return;
-  }
-
-  if (provided.trim() === teacherPin.value) {
-    enableTeacherMode();
-    window.alert('Modo professor ativado. Relatórios liberados.');
-  } else {
-    window.alert('Código inválido. Tente novamente.');
-  }
+  enableTeacherMode();
 }
 </script>
 

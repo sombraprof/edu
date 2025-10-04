@@ -12,18 +12,20 @@
               {{ description }}
             </p>
           </header>
-          <Md3Button
-            class="w-full md:w-auto"
-            variant="filled"
-            type="button"
-            @click="enableTeacherMode"
-          >
-            {{ ctaLabel }}
-          </Md3Button>
-          <p class="md-typescale-body-small text-on-surface-variant">
-            Também é possível ativar adicionando <code>?teacher=1</code> à URL ou pelo atalho
-            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd>.
-          </p>
+          <template v-if="showCallToAction">
+            <Md3Button
+              class="w-full md:w-auto"
+              variant="filled"
+              type="button"
+              @click="enableTeacherMode"
+            >
+              {{ ctaLabel }}
+            </Md3Button>
+            <p class="md-typescale-body-small text-on-surface-variant">
+              Também é possível ativar adicionando <code>?teacher=1</code> à URL ou pelo atalho
+              <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd>.
+            </p>
+          </template>
         </section>
       </slot>
     </template>
@@ -49,9 +51,11 @@ withDefaults(
   }
 );
 
-const { teacherMode, isTeacherModeReady, enableTeacherMode } = useTeacherMode();
+const { isTeacherModeReady, enableTeacherMode, isAuthoringEnabled, isAuthoringForced } =
+  useTeacherMode();
 
-const isGateOpen = computed(() => isTeacherModeReady.value && teacherMode.value);
+const isGateOpen = computed(() => isTeacherModeReady.value && isAuthoringEnabled.value);
+const showCallToAction = computed(() => !isAuthoringForced.value);
 </script>
 
 <style scoped>
