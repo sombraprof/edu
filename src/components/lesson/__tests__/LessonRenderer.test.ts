@@ -1,7 +1,32 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import LessonRenderer from '../LessonRenderer.vue';
 import ddmLesson01 from '@/content/courses/ddm/lessons/lesson-01.json';
+import { computed, ref } from 'vue';
+
+vi.mock('@/pages/course/LessonRenderer.logic', async () => {
+  const actual = await vi.importActual<typeof import('@/pages/course/LessonRenderer.logic')>(
+    '@/pages/course/LessonRenderer.logic'
+  );
+
+  return {
+    ...actual,
+    useLessonRenderer: vi.fn(actual.useLessonRenderer),
+  };
+});
+
+import { useLessonRenderer } from '@/pages/course/LessonRenderer.logic';
+
+const useLessonRendererMock = vi.mocked(useLessonRenderer);
+const actualLogicModulePromise = vi.importActual<
+  typeof import('@/pages/course/LessonRenderer.logic')
+>('@/pages/course/LessonRenderer.logic');
+
+beforeEach(async () => {
+  const actual = await actualLogicModulePromise;
+  useLessonRendererMock.mockReset();
+  useLessonRendererMock.mockImplementation(actual.useLessonRenderer);
+});
 
 describe('LessonRenderer', () => {
   it('renders metadata summary with resources and assessment', () => {
@@ -87,5 +112,27 @@ describe('LessonRenderer', () => {
     expect(bibliographySections.length).toBe(1);
     expect(wrapper.text()).toContain('Leituras obrigatórias');
     expect(wrapper.text()).not.toContain('Bibliografia');
+  });
+
+  it('shows empty state when controller reports no renderable content', () => {
+    useLessonRendererMock.mockReturnValue({
+      metadataSummary: ref(null),
+      resolvedBlocks: ref([]),
+      bibliographyFallback: ref(null),
+      hasRenderableContent: computed(() => false),
+    });
+
+    const wrapper = mount(LessonRenderer, {
+      props: {
+        data: {
+          id: 'empty',
+          title: 'Empty',
+          content: [],
+        },
+      },
+    });
+
+    expect(useLessonRendererMock).toHaveBeenCalled();
+    expect(wrapper.text()).toContain('Nenhum conteúdo disponível para esta aula.');
   });
 });
