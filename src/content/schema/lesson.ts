@@ -187,6 +187,18 @@ export interface CodeSubmissionBlock extends LessonBlock {
   tips?: string[];
 }
 
+export interface DualAssessmentBlock extends LessonBlock {
+  type: 'dualAssessment';
+  title?: string;
+  summary?: string;
+  theory: Omit<KnowledgeCheckBlock, keyof LessonBlock> & {
+    type?: 'knowledgeCheck';
+  };
+  practice: Omit<CodeSubmissionBlock, keyof LessonBlock> & {
+    type?: 'codeSubmission';
+  };
+}
+
 export interface DragAndDropStep {
   id: string;
   label: string;
