@@ -4,207 +4,153 @@
   "objective": "Compreender o conceito de ERP, sua evolução histórica e o valor estratégico da integração de processos empresariais.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Revise o mapa de processos do estudo de caso e identifique quais atividades dependem de dados confiáveis para executar sem retrabalho."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Revise o glossário dos principais módulos (FI, CO, MM, SD, HR)."
+            },
+            {
+              "text": "Traga perguntas sobre licenciamento e modelos de implantação."
+            },
+            {
+              "text": "Liste problemas atuais causados por falta de integração entre áreas."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
       "title": "Plano da aula",
       "cards": [
         {
           "icon": "book-open",
-          "title": "CONTEÚDO",
-          "content": "Conceito de ERP, evolução do mercado, benefícios esperados e limitações comuns."
+          "title": "Visão geral",
+          "content": "Entender componentes centrais de um ERP."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Identificar elementos que caracterizam um ERP.\n- Reconhecer sinais de maturidade em organizações que adotam ERP.\n- Debater impactos sociotécnicos decorrentes da centralização de dados."
+          "icon": "tasks",
+          "title": "Módulos",
+          "content": "Relacionar módulos a processos de negócio."
         },
         {
-          "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Exposição dialogada, análise de vídeo demonstrativo e trabalho em duplas para síntese crítica."
+          "icon": "gears",
+          "title": "Integração",
+          "content": "Explorar como o ERP conecta áreas e sistemas satélites."
+        },
+        {
+          "icon": "check-circle",
+          "title": "Governança",
+          "content": "Debater papéis, perfil de acesso e auditoria."
         }
       ]
     },
     {
-      "type": "timeline",
-      "title": "Evolução dos ERPs",
-      "steps": [
-        {
-          "title": "Anos 1960",
-          "content": "Surgimento do MRP focado em planejamento de materiais na indústria."
-        },
-        {
-          "title": "Anos 1980",
-          "content": "Expansão para MRP II com módulos financeiros e de chão de fábrica integrados."
-        },
-        {
-          "title": "Anos 1990",
-          "content": "Popularização do termo ERP e adoção de módulos corporativos padronizados."
-        },
-        {
-          "title": "Anos 2000",
-          "content": "Integração com web, CRM e SCM, além de arquiteturas orientadas a serviços."
-        },
-        {
-          "title": "Atualidade",
-          "content": "ERPs em nuvem, inteligência artificial embarcada e marketplaces de extensões."
-        }
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
+      "items": [
+        "(10 min) Check-in: expectativas e mitos sobre ERP.",
+        "(20 min) Aula expositiva: arquitetura, banco de dados e módulos.",
+        "(15 min) Análise guiada do fluxo procure-to-pay como exemplo.",
+        "(20 min) Dinâmica: mapear entradas e saídas de dois módulos.",
+        "(15 min) Discussão sobre perfis de usuários e segregação de funções.",
+        "(15 min) Apresentação dos squads com principais aprendizados.",
+        "(15 min) Síntese com próximos passos para prototipar."
       ]
     },
     {
-      "type": "cardGrid",
-      "title": "Benefícios percebidos",
-      "cards": [
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
         {
-          "title": "Visão única",
-          "content": "Dados mestres consolidados para todas as áreas de negócio."
+          "type": "paragraph",
+          "text": "Sistemas ERP consolidam processos corporativos em uma base única, garantindo visão integrada de finanças, logística, produção, recursos humanos e mais. A padronização dos dados permite rastrear transações ponta a ponta."
         },
         {
-          "title": "Padronização",
-          "content": "Processos modelados com melhores práticas incorporadas."
-        },
-        {
-          "title": "Conformidade",
-          "content": "Controles integrados que suportam auditorias internas e externas."
-        },
-        {
-          "title": "Escalabilidade",
-          "content": "Capacidade de crescer incorporando novos módulos e filiais."
+          "type": "paragraph",
+          "text": "O sucesso depende de configuração adequada, governança de acessos, aderência a processos e integração com soluções especializadas. Entender ciclo de vida (from blueprinting to suporte) é fundamental."
         }
-      ]
-    },
-    {
-      "type": "systemMapper",
-      "title": "Panorama sistêmico do ERP",
-      "summary": "Como o ERP conecta fatores críticos para entregar valor organizacional.",
-      "factors": [
-        {
-          "id": "dados-mestres",
-          "name": "Dados mestres",
-          "summary": "Cadastro unificado de clientes, produtos e fornecedores.",
-          "kind": "stock",
-          "indicators": ["acuracia_cadastros", "tempo_atualizacao"]
-        },
-        {
-          "id": "processos-core",
-          "name": "Processos core",
-          "summary": "Fluxos de compras, vendas, produção e finanças.",
-          "kind": "flow",
-          "indicators": ["lead_time_pedidos", "ciclo_fechamento"]
-        },
-        {
-          "id": "usuarios",
-          "name": "Usuários",
-          "summary": "Colaboradores que executam e registram as operações.",
-          "kind": "driver",
-          "indicators": ["treinamentos_realizados", "satisfacao_usuario"]
-        },
-        {
-          "id": "governanca",
-          "name": "Governança",
-          "summary": "Políticas, papéis e controles aplicados ao ERP.",
-          "kind": "constraint",
-          "indicators": ["segregacao_funcoes", "auditorias_realizadas"]
-        },
-        {
-          "id": "valor-negocio",
-          "name": "Valor de negócio",
-          "summary": "Resultados percebidos pela organização.",
-          "kind": "outcome",
-          "indicators": ["otimizaçao_custos", "nivel_servico"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "melhoria-continua",
-          "name": "Loop de melhoria contínua",
-          "polarity": "reinforcing",
-          "summary": "Dados confiáveis alimentam decisões melhores que retroalimentam a adesão ao ERP.",
-          "steps": [
-            {
-              "id": "step-1",
-              "from": "dados-mestres",
-              "to": "processos-core",
-              "effect": "reinforces",
-              "description": "Cadastros corretos reduzem retrabalho nos fluxos operacionais."
-            },
-            {
-              "id": "step-2",
-              "from": "processos-core",
-              "to": "valor-negocio",
-              "effect": "reinforces",
-              "description": "Processos padronizados melhoram produtividade e margens."
-            },
-            {
-              "id": "step-3",
-              "from": "valor-negocio",
-              "to": "usuarios",
-              "effect": "reinforces",
-              "description": "Resultados visíveis elevam engajamento dos usuários."
-            },
-            {
-              "id": "step-4",
-              "from": "usuarios",
-              "to": "dados-mestres",
-              "effect": "reinforces",
-              "description": "Usuários engajados registram dados com mais qualidade."
-            }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "id": "insight-1",
-          "label": "Qualidade dos dados",
-          "description": "É o ponto de partida para aproveitar benefícios do ERP."
-        },
-        {
-          "id": "insight-2",
-          "label": "Governança",
-          "description": "Define limites e responsabilidades que sustentam o ciclo virtuoso."
-        }
-      ]
-    },
-    {
-      "type": "md3Table",
-      "title": "ERP vs. Sistemas departamentais",
-      "headers": ["Aspecto", "ERP", "Sistemas isolados"],
-      "rows": [
-        ["Escopo", "Cobertura corporativa com módulos integrados", "Foco específico em uma área"],
-        ["Banco de dados", "Único e centralizado", "Múltiplos bancos desconectados"],
-        ["Processos", "Melhores práticas pré-configuradas", "Customizações ad-hoc"],
-        [
-          "Custo total",
-          "Elevado investimento inicial, ganhos de escala",
-          "Menor entrada, alto custo de manutenção"
-        ],
-        ["Evolução", "Roadmap do fornecedor e ecossistema de parceiros", "Depende do time local"]
       ]
     },
     {
       "type": "videos",
-      "title": "Demonstração sugerida",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/sap-introducao",
-          "title": "Tour guiado pelo SAP S/4HANA",
-          "caption": "Demonstra navegação pelos módulos Financeiro, Compras e Vendas com foco em integrações básicas."
+          "url": "https://example.edu/tgs/videos/erp-fundamentos",
+          "title": "Fundamentos de ERP",
+          "caption": "Histórico, arquitetura e princípios de modularização."
         },
         {
-          "url": "https://example.edu/tgs/videos/totvs-visao-geral",
-          "title": "Visão geral do TOTVS Protheus",
-          "caption": "Apresenta o conceito de menu por processos e o centro de comandos da solução."
+          "url": "https://example.edu/tgs/videos/case-erp-industria",
+          "title": "Case ERP na indústria",
+          "caption": "Como uma fábrica reduziu retrabalho com ERP e governança de dados."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapa de módulos",
+              "text": "Associe processos do estudo de caso aos módulos ERP correspondentes."
+            },
+            {
+              "title": "Dados críticos",
+              "text": "Liste cadastros mestres e justificativas para manutenção centralizada."
+            },
+            {
+              "title": "Papéis",
+              "text": "Defina perfis de usuário e segregação de funções para um processo sensível."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para analisar aderência de módulos",
+      "description": "Use para planejar o escopo do ERP no case.",
+      "prompt": "Você é consultor de ERP. Recebeu o diagnóstico de processos abaixo. Indique quais módulos devem ser priorizados, dados mestres essenciais e riscos de segregação de funções. Recomende quick wins e iniciativas de médio prazo. Diagnóstico: [cole o resumo do processo].",
+      "tips": [
+        "Inclua volumetria de transações e maturidade da equipe.",
+        "Peça recomendações de indicadores de adoção.",
+        "Solicite alertas sobre dependência de planilhas externas."
+      ],
+      "tags": ["erp", "planejamento"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 19 — Resumo crítico",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Produza um resumo crítico (máx. 400 palavras) relacionando benefícios e riscos da adoção de um ERP em uma organização à sua escolha. Envie no AVA até às 22h de amanhã com título 'Resumo ERP - Aula 19'."
+          "text": "Produza uma matriz que relacione processos do estudo de caso aos módulos ERP correspondentes, apontando riscos de não cobertura e integrações prioritárias."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Descreveu claramente os módulos relevantes e seus responsáveis.",
+        "Mapeou dados mestres e relacionou a fontes confiáveis.",
+        "Registrou riscos operacionais associados ao uso inadequado do ERP."
       ]
     }
   ],

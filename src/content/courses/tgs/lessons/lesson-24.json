@@ -4,236 +4,153 @@
   "objective": "Vivenciar, em regime intensivo, a análise de um caso real de implantação SAP focado em operações industriais.",
   "content": [
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Preparação pré-aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Leia o estudo de caso SAP disponibilizado e destaque decisões críticas que influenciaram operações, finanças e logística."
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "text": "Revise indicadores antes e depois da implantação."
+            },
+            {
+              "text": "Anote perguntas para convidados ou especialistas que participarão ao vivo."
+            },
+            {
+              "text": "Traga insights para comparar com o estudo de caso do seu squad."
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "lessonPlan",
-      "title": "Plano da imersão",
+      "title": "Plano da aula",
       "cards": [
         {
-          "icon": "calendar-days",
-          "title": "CARGA HORÁRIA",
-          "content": "Sábado letivo das 8h às 12h30 com intervalos orientados e atividades guiadas."
+          "icon": "book-open",
+          "title": "Contexto",
+          "content": "Revisar cenário da empresa e objetivos da adoção SAP."
         },
         {
-          "icon": "bullseye",
-          "title": "OBJETIVOS",
-          "content": "- Explorar documentação real de projeto SAP.\n- Mapear interdependências entre módulos de produção e manutenção.\n- Elaborar recomendações para estabilidade pós-go-live."
+          "icon": "monitor",
+          "title": "Demonstração",
+          "content": "Acompanhar walkthrough guiado do ambiente SAP."
         },
         {
-          "icon": "users",
-          "title": "METODOLOGIA",
-          "content": "Trabalho em squads, análise documental, simulação de war room e apresentação final."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Agenda do sábado letivo",
-      "content": [
+          "icon": "gears",
+          "title": "Análise",
+          "content": "Debater impactos operacionais e culturais."
+        },
         {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "08h00 — Kick-off – Briefing do caso, papéis e entregáveis."
-            },
-            {
-              "text": "09h00 — Deep dive – Análise de documentos de blueprint, matriz de integrações e plano de testes."
-            },
-            {
-              "text": "10h30 — Simulação – War room com incidentes simulados envolvendo SAP PP, MM e PM."
-            },
-            {
-              "text": "11h30 — Recomendações – Elaboração de plano de estabilização e lições aprendidas."
-            },
-            {
-              "text": "12h15 — Pitch final – Apresentação de sínteses para banca avaliadora."
-            }
-          ]
+          "icon": "book-open",
+          "title": "Aplicação",
+          "content": "Conectar aprendizados ao estudo de caso da turma."
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Artefatos fornecidos",
-      "content": [
-        {
-          "type": "unorderedList",
-          "items": [
-            {
-              "text": "Documento: Blueprint PP | Descrição: Processos de planejamento e execução da produção | Uso durante a imersão: Identificar dependências com manutenção"
-            },
-            {
-              "text": "Documento: Matriz de integrações | Descrição: Fluxos entre SAP, MES e sensores IoT | Uso durante a imersão: Mapear pontos de falha"
-            },
-            {
-              "text": "Documento: Plano de testes | Descrição: Roteiros de cenários críticos | Uso durante a imersão: Distribuir entre squads e avaliar cobertura"
-            },
-            {
-              "text": "Documento: Dashboard de incidentes | Descrição: Registros pós-go-live | Uso durante a imersão: Priorizar ações de estabilização"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "representations",
-      "title": "Desafios para os squads",
+      "type": "flightPlan",
+      "title": "Plano de voo (1h50)",
       "items": [
-        {
-          "title": "Squad Produção",
-          "content": "Avaliar sincronização PP ↔ MES e gargalos de ordens.",
-          "language": "plaintext",
-          "code": "Avaliar sincronização PP ↔ MES e gargalos de ordens."
-        },
-        {
-          "title": "Squad Manutenção",
-          "content": "Analisar integração PM com sensores e estoque de peças.",
-          "language": "plaintext",
-          "code": "Analisar integração PM com sensores e estoque de peças."
-        },
-        {
-          "title": "Squad Qualidade",
-          "content": "Checar rastreabilidade e registros de não conformidade.",
-          "language": "plaintext",
-          "code": "Checar rastreabilidade e registros de não conformidade."
-        },
-        {
-          "title": "Squad Governança",
-          "content": "Definir indicadores e ritos de acompanhamento pós-go-live.",
-          "language": "plaintext",
-          "code": "Definir indicadores e ritos de acompanhamento pós-go-live."
-        }
+        "(15 min) Abertura e resgate dos objetivos da aula integrada.",
+        "(25 min) Apresentação do case SAP com dados e cronologia.",
+        "(20 min) Demonstração em vídeo com navegação pelos módulos relevantes.",
+        "(20 min) Trabalho em grupos: identificar decisões críticas e lições aprendidas.",
+        "(15 min) Plenária para comparação entre squads.",
+        "(10 min) Síntese dos facilitadores e dos riscos mapeados.",
+        "(10 min) Orientações para a entrega da TED especial."
       ]
     },
     {
-      "type": "systemMapper",
-      "title": "Mapa do caso SAP",
-      "summary": "Fluxos entre produção, manutenção e cadeia de suprimentos na planta industrial.",
-      "factors": [
+      "type": "contentBlock",
+      "title": "Conceitos essenciais",
+      "content": [
         {
-          "id": "planejamento",
-          "name": "Planejamento",
-          "summary": "MPS/MRP atualizados semanalmente.",
-          "kind": "driver",
-          "indicators": ["aderencia_plano"]
+          "type": "paragraph",
+          "text": "O case evidencia como a adoção do SAP reorganizou processos core, exigindo revisão de cadastros, padronização de fluxos e forte governança de dados."
         },
         {
-          "id": "execucao",
-          "name": "Execução",
-          "summary": "Ordens de produção no SAP PP.",
-          "kind": "flow",
-          "indicators": ["oee", "tempo_ciclo"]
-        },
-        {
-          "id": "manutencao",
-          "name": "Manutenção",
-          "summary": "Planos preventivos no SAP PM.",
-          "kind": "flow",
-          "indicators": ["disponibilidade_maquinas"]
-        },
-        {
-          "id": "materiais",
-          "name": "Materiais",
-          "summary": "Peças de reposição e matérias-primas.",
-          "kind": "stock",
-          "indicators": ["estoque_segurança"]
-        },
-        {
-          "id": "performance",
-          "name": "Performance",
-          "summary": "Resultados de produção e qualidade.",
-          "kind": "outcome",
-          "indicators": ["yield", "refugos"]
-        }
-      ],
-      "loops": [
-        {
-          "id": "continuidade-operacional",
-          "name": "Continuidade operacional",
-          "polarity": "reinforcing",
-          "summary": "Planejamento alinhado com manutenção garante estabilidade de produção.",
-          "steps": [
-            {
-              "id": "sap-1",
-              "from": "planejamento",
-              "to": "execucao",
-              "effect": "reinforces",
-              "description": "Planos realistas reduzem ajustes de última hora."
-            },
-            {
-              "id": "sap-2",
-              "from": "execucao",
-              "to": "manutencao",
-              "effect": "reinforces",
-              "description": "Dados de produção alimentam gatilhos de manutenção."
-            },
-            {
-              "id": "sap-3",
-              "from": "manutencao",
-              "to": "materiais",
-              "effect": "reinforces",
-              "description": "Ordens de manutenção consomem peças que precisam ser repostas."
-            },
-            {
-              "id": "sap-4",
-              "from": "materiais",
-              "to": "planejamento",
-              "effect": "balances",
-              "description": "Níveis de estoque ajustam o plano mestre para evitar rupturas."
-            },
-            {
-              "id": "sap-5",
-              "from": "execucao",
-              "to": "performance",
-              "effect": "reinforces",
-              "description": "Execução estável melhora indicadores de performance."
-            },
-            {
-              "id": "sap-6",
-              "from": "performance",
-              "to": "planejamento",
-              "effect": "reinforces",
-              "description": "Resultados alimentam revisão de metas."
-            }
-          ]
-        }
-      ],
-      "insights": [
-        {
-          "id": "insight-sabado-1",
-          "label": "War room disciplinado",
-          "description": "Registro estruturado de incidentes acelera resolução."
-        },
-        {
-          "id": "insight-sabado-2",
-          "label": "Dados IoT",
-          "description": "Integrações com sensores exigem monitoramento contínuo."
+          "type": "paragraph",
+          "text": "Mudanças culturais foram decisivas: patrocínio executivo, capacitação contínua e comunicação transparente sustentaram a transformação."
         }
       ]
     },
     {
       "type": "videos",
-      "title": "Material preparatório",
+      "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/sap-pp-demo",
-          "title": "Demonstração SAP PP",
-          "caption": "Visão geral do planejamento e execução de ordens."
+          "url": "https://example.edu/tgs/videos/sap-case-tour",
+          "title": "Tour guiado SAP",
+          "caption": "Navegação pelos módulos FI, MM e SD conforme o case."
         },
         {
-          "url": "https://example.edu/tgs/videos/sap-pm-dashboard",
-          "title": "Painel SAP PM",
-          "caption": "Monitora ordens preventivas e backlog de manutenção."
+          "url": "https://example.edu/tgs/videos/sap-lessons-learned",
+          "title": "Lições aprendidas",
+          "caption": "Executivos relatam desafios e acertos da jornada SAP."
         }
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Exercício em sala",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Mapa de decisões",
+              "text": "Identifique decisões-chave tomadas durante a implantação e seus efeitos."
+            },
+            {
+              "title": "Impactos",
+              "text": "Liste impactos positivos e negativos percebidos nas áreas analisadas."
+            },
+            {
+              "title": "Aplicação",
+              "text": "Traduza duas lições aprendidas para o contexto do seu estudo de caso."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "promptTip",
+      "title": "Prompt para extrair lições do case",
+      "description": "Use para consolidar aprendizados do estudo de caso.",
+      "prompt": "Você é consultor responsável por documentar lições aprendidas de uma implantação SAP. Com base no resumo abaixo, destaque decisões críticas, impactos por área, riscos e recomendações para futuros projetos. Resumo: [descreva os principais fatos do case].",
+      "tips": [
+        "Peça recomendações específicas para cada área de negócio.",
+        "Solicite indicadores utilizados para medir sucesso.",
+        "Inclua desafios culturais e como foram endereçados."
+      ],
+      "tags": ["sap", "case"],
+      "audience": "teacher"
+    },
+    {
       "type": "callout",
       "variant": "task",
-      "title": "TED 24 — Diário de campo",
+      "title": "TED pós-aula",
       "content": [
         {
           "type": "paragraph",
-          "text": "Registre um diário de campo (mín. 600 palavras) com aprendizados do sábado letivo, destacando evidências analisadas e decisões do squad. Submeta até às 20h do domingo subsequente."
+          "text": "Produza um relatório sintético com as lições aprendidas do case SAP, conectando-as ao plano do seu squad e indicando ajustes necessários."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Ao final, valide se você",
+      "items": [
+        "Registrou decisões críticas e seus impactos.",
+        "Conectou lições aprendidas ao projeto da turma.",
+        "Indicou ações para mitigar riscos semelhantes."
       ]
     }
   ],
