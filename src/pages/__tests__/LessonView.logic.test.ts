@@ -1,7 +1,24 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import { nextTick } from 'vue';
 import { useLessonViewController } from '../LessonView.logic';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
+
+const fallbackHighlightSpy = vi.fn();
+
+vi.mock('prismjs', () => ({
+  default: { highlightAll: fallbackHighlightSpy },
+}));
+
+vi.mock('prismjs/components/prism-markup', () => ({}));
+vi.mock('prismjs/components/prism-javascript', () => ({}));
+vi.mock('prismjs/components/prism-typescript', () => ({}));
+vi.mock('prismjs/components/prism-python', () => ({}));
+vi.mock('prismjs/components/prism-json', () => ({}));
+vi.mock('prismjs/components/prism-java', () => ({}));
+vi.mock('prismjs/components/prism-c', () => ({}));
+vi.mock('prismjs/components/prism-cpp', () => ({}));
+vi.mock('prismjs/components/prism-csharp', () => ({}));
+vi.mock('prismjs/components/prism-kotlin', () => ({}));
 
 const mockRoute = {
   params: { courseId: 'demo', lessonId: 'lesson-01' },
@@ -24,9 +41,12 @@ type LessonContent = {
   prerequisites?: string[];
 };
 
-const highlightSpy = vi.fn();
-
-function createController(customData?: Partial<LessonContent>) {
+function createController(
+  customData?: Partial<LessonContent>,
+  highlight: ((lesson: unknown) => Promise<void> | void) | undefined = vi
+    .fn()
+    .mockResolvedValue(undefined)
+) {
   const indexModules = Object.create(null) as Record<string, () => Promise<unknown>>;
   indexModules['../content/courses/demo/lessons.json'] = async () => ({
     default: {
@@ -62,29 +82,51 @@ function createController(customData?: Partial<LessonContent>) {
   return useLessonViewController({
     lessonIndexModules: indexModules,
     lessonContentModules: lessonModules,
-    highlight: highlightSpy,
+    highlight,
   });
 }
 
-describe('LessonView logic', () => {
-  it('carrega lição e aplica highlight', async () => {
-    const controller = createController();
+async function flushLessonUpdates() {
+  await nextTick();
+  await Promise.resolve();
+  await nextTick();
+  await Promise.resolve();
+  await new Promise((resolve) => setTimeout(resolve, 0));
+}
 
-    await controller.loadLesson();
-    await nextTick();
+describe('LessonView logic', () => {
+  beforeEach(() => {
+    fallbackHighlightSpy.mockClear();
+  });
+
+  beforeAll(() => {
+    vi.stubGlobal('requestAnimationFrame', (cb: any) => {
+      cb(0);
+      return 0;
+    });
+  });
+
+  it('carrega lição e aplica highlight após próxima tick', async () => {
+    const highlightSpy = vi.fn().mockResolvedValue(undefined);
+    const controller = createController(undefined, highlightSpy);
+
+    expect(highlightSpy).not.toHaveBeenCalled();
+
+    await flushLessonUpdates();
 
     expect(controller.lessonTitle.value).toBe('Introdução Aula');
     expect(controller.lessonSummary.value).toBe('Resumo detalhado');
     expect(controller.lessonDuration.value).toBe(45);
     expect(controller.lessonData.value?.content).toHaveLength(1);
-    expect(highlightSpy).toHaveBeenCalled();
+    expect(highlightSpy).toHaveBeenCalledTimes(1);
+    expect(highlightSpy).toHaveBeenCalledWith(controller.lessonData.value);
+    expect(fallbackHighlightSpy).not.toHaveBeenCalled();
   });
 
   it('define fallback quando manifest não é encontrado', async () => {
     const controller = useLessonViewController({
       lessonIndexModules: {},
       lessonContentModules: {},
-      highlight: highlightSpy,
     });
 
     await controller.loadLesson();
@@ -92,5 +134,25 @@ describe('LessonView logic', () => {
 
     expect(controller.lessonTitle.value).toBe('Erro ao carregar aula');
     expect(controller.lessonData.value).toBeNull();
+  });
+
+  it('registra erro e aplica fallback quando highlight falha', async () => {
+    const highlightSpy = vi.fn().mockRejectedValue(new Error('boom'));
+    const controller = createController(undefined, highlightSpy);
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    await flushLessonUpdates();
+
+    expect(highlightSpy).toHaveBeenCalledTimes(1);
+    await flushLessonUpdates();
+    expect(controller.lessonTitle.value).toBe('Introdução Aula');
+    expect(controller.lessonData.value?.content).toHaveLength(1);
+    expect(consoleError).toHaveBeenCalledWith(
+      '[LessonView] Failed to highlight lesson content:',
+      expect.any(Error)
+    );
+    expect(fallbackHighlightSpy).toHaveBeenCalledTimes(1);
+
+    consoleError.mockRestore();
   });
 });
