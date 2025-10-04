@@ -46,28 +46,39 @@ O schema `md3.lesson.v1` garante que todas as disciplinas compartilhem o mesmo c
 
 Os manifests de aulas e exercícios agora contam com vinte blocos inéditos que atendem a cenários de exposição e prática. Todos já estão descritos no schema (`schemas/lesson.schema.json`) e no renderer (`src/components/lesson/blockRegistry.ts`). A tabela abaixo resume os campos mínimos esperados:
 
-| Tipo (`type`)      | Campos obrigatórios                                   | Campos opcionais relevantes                                                    |
-| ------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `definitionCard`   | `term`, `definition`                                  | `source`, `sourceUrl`                                                          |
-| `comparativeTable` | `headers`, `rows[].{label, values[]}`                 | `title`, `description`                                                         |
-| `systemDiagram`    | `nodes[].{id,label}`                                  | `connections[]`, `legend`                                                      |
-| `codeChallenge`    | `prompt`                                              | `code`, `question`, `options[]`, `answerExplanation`                           |
-| `memoryVisualizer` | —                                                     | `stack[]`, `heap[]`, `notes`                                                   |
-| `caseStudy`        | `scenario`                                            | `title`, `dataPoints[]`, `questions[]`, `tasks[]`                              |
-| `statCard`         | `label`, `value`                                      | `context`, `source`, `trend`                                                   |
-| `knowledgeCheck`   | `prompt`, `options[].{id,text}`                       | `title`, `explanation`, `allowMultiple`                                        |
-| `interactiveDemo`  | `url`                                                 | `title`, `description`, `height`                                               |
-| `pedagogicalNote`  | `content`                                             | `title`, `audience`                                                            |
-| `codeSubmission`   | `prompt`                                              | `language`, `boilerplate`, `tests[]`, `tips[]`                                 |
-| `dragAndDrop`      | `steps[].{id,label}`                                  | `title`, `instructions`                                                        |
-| `conceptMapper`    | `nodes[].{id,label}`                                  | `description`, `relationships[]`                                               |
-| `bugFixChallenge`  | `code`                                                | `language`, `hints[]`, `guidance[]`                                            |
-| `dataEntryForm`    | `fields[].{id,label}`                                 | `submitLabel`, `description`, `fields[].{type,required,options[],placeholder}` |
-| `scenarioBuilder`  | `inputs[]`, `processes[]`, `outputs[]`                | `description`, `guidingQuestions[]`                                            |
-| `peerReviewTask`   | `criteria[].{id,label}`                               | `description`, `dueDate`, `steps[]`                                            |
-| `testGenerator`    | `tags[]`                                              | `description`, `difficulties[]`                                                |
-| `rubricDisplay`    | `criteria[].{criterion,levels[].{level,description}}` | `title`, `description`                                                         |
-| `selfAssessment`   | `prompts[].{id,label}`                                | `description`, `prompts[].placeholder`                                         |
+| Tipo (`type`)      | Campos obrigatórios                                   | Campos opcionais relevantes                                                                 |
+| ------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `definitionCard`   | `term`, `definition`                                  | `source`, `sourceUrl`                                                                       |
+| `comparativeTable` | `headers`, `rows[].{label, values[]}`                 | `title`, `description`                                                                      |
+| `systemDiagram`    | `nodes[].{id,label}`                                  | `connections[]`, `legend`                                                                   |
+| `codeChallenge`    | `prompt`                                              | `code`, `question`, `options[]`, `answerExplanation`                                        |
+| `memoryVisualizer` | —                                                     | `stack[]`, `heap[]`, `notes`                                                                |
+| `caseStudy`        | `scenario`                                            | `title`, `dataPoints[]`, `questions[]`, `tasks[]`                                           |
+| `statCard`         | `label`, `value`                                      | `context`, `source`, `trend`                                                                |
+| `knowledgeCheck`   | `prompt`, `options[].{id,text}`                       | `title`, `explanation`, `allowMultiple`                                                     |
+| `dualAssessment`   | `theory`, `practice`                                  | `title`, `summary`; sub-blocos herdam campos opcionais de `knowledgeCheck`/`codeSubmission` |
+| `interactiveDemo`  | `url`                                                 | `title`, `description`, `height`                                                            |
+| `pedagogicalNote`  | `content`                                             | `title`, `audience`                                                                         |
+| `codeSubmission`   | `prompt`                                              | `language`, `boilerplate`, `tests[]`, `tips[]`                                              |
+| `dragAndDrop`      | `steps[].{id,label}`                                  | `title`, `instructions`                                                                     |
+| `conceptMapper`    | `nodes[].{id,label}`                                  | `description`, `relationships[]`                                                            |
+| `bugFixChallenge`  | `code`                                                | `language`, `hints[]`, `guidance[]`                                                         |
+| `dataEntryForm`    | `fields[].{id,label}`                                 | `submitLabel`, `description`, `fields[].{type,required,options[],placeholder}`              |
+| `scenarioBuilder`  | `inputs[]`, `processes[]`, `outputs[]`                | `description`, `guidingQuestions[]`                                                         |
+| `peerReviewTask`   | `criteria[].{id,label}`                               | `description`, `dueDate`, `steps[]`                                                         |
+| `testGenerator`    | `tags[]`                                              | `description`, `difficulties[]`                                                             |
+| `rubricDisplay`    | `criteria[].{criterion,levels[].{level,description}}` | `title`, `description`                                                                      |
+| `selfAssessment`   | `prompts[].{id,label}`                                | `description`, `prompts[].placeholder`                                                      |
+
+### Bloco `dualAssessment`
+
+O bloco combina avaliação teórica e prática em um único item da sequência de conteúdo:
+
+- `theory`: reaproveita integralmente o schema de `knowledgeCheck`, exigindo `prompt` e `options[].{id,text}` e aceitando campos opcionais como `title`, `explanation` e `allowMultiple`.
+- `practice`: reutiliza o schema de `codeSubmission`, com `prompt` obrigatório e suporte opcional a `language`, `boilerplate`, `tests[].{name,input,expectedOutput}` e `tips[]`.
+- Ambos os sub-blocos incluem `type` fixo (`"knowledgeCheck"` e `"codeSubmission"`), garantindo que validadores e renderizadores detectem automaticamente os componentes adequados.
+
+Essa composição permite apresentar um cheque de conhecimento seguido de uma entrega prática sem perder os metadados específicos de cada bloco.
 
 > Os blocos de exercícios reutilizam o mesmo schema das aulas, permitindo que `LessonRenderer` trate ambos os contextos de maneira unificada. 【F:schemas/lesson.schema.json†L1-L431】【F:src/components/lesson/blockRegistry.ts†L1-L305】
 
