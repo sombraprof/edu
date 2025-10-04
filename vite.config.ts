@@ -2,6 +2,7 @@ import { defineConfig, type PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import { mkdir, writeFile } from 'fs/promises';
+import { createHash } from 'crypto';
 import { BASE_COLOR_SCHEMES, FALLBACK_COLOR_TOKENS } from './src/theme/base-palette';
 import {
   ELEVATION_SHADOWS,
@@ -131,10 +132,13 @@ function serviceWorkerPlugin(base: string): PluginOption {
       const staticAssets = ['index.html', 'offline.html', 'manifest.webmanifest', 'favicon.svg'];
       staticAssets.forEach((asset) => precache.add(`${normalizedBase}${asset}`));
 
-      const precacheList = JSON.stringify(Array.from(precache).sort());
+      const sortedPrecache = Array.from(precache).sort();
+      const precacheList = JSON.stringify(sortedPrecache);
+      const cacheVersion = createHash('sha256').update(precacheList).digest('hex').slice(0, 8);
+      const cacheName = `edu-precache-${cacheVersion}`;
       const offlineUrl = `${normalizedBase}offline.html`;
       const swSource = [
-        "const CACHE_NAME = 'edu-precache-v1';",
+        `const CACHE_NAME = '${cacheName}';`,
         `const PRECACHE_URLS = ${precacheList};`,
         `const OFFLINE_URL = '${offlineUrl}';`,
         "self.addEventListener('install', (event) => {",

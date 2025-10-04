@@ -1,5 +1,5 @@
 <template>
-  <section class="course-page page-section">
+  <section class="course-page page-section" :aria-busy="!metaLoaded">
     <header class="course-page__hero card md-stack md-stack-5 p-6 md:p-8">
       <nav class="course-page__breadcrumbs page-breadcrumb" aria-label="Navegação">
         <Md3Button
@@ -41,7 +41,7 @@
 
     <main>
       <router-view v-if="metaLoaded" :key="$route.fullPath" />
-      <div v-else class="course-page__loading" role="status">
+      <div v-else class="course-page__loading" role="status" aria-live="polite">
         Carregando informações da disciplina...
       </div>
     </main>

@@ -1,5 +1,5 @@
 ﻿<template>
-  <section class="md-stack md-stack-8">
+  <section class="md-stack md-stack-8" :aria-busy="isLoading">
     <header class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
       <div class="pill-group" role="group" aria-label="Filtro de conteúdo">
         <button
@@ -55,7 +55,14 @@
     </header>
 
     <div
-      v-if="displayItems.length"
+      v-if="isLoading"
+      class="card p-8 text-center text-body-medium text-on-surface-variant"
+      role="status"
+    >
+      Carregando conteúdos da disciplina...
+    </div>
+    <div
+      v-else-if="displayItems.length"
       :class="[viewMode === 'grid' ? 'grid gap-4 md:grid-cols-2' : 'md-stack md-stack-4']"
     >
       <component
@@ -166,6 +173,7 @@ const lessons = ref<LessonRef[]>([]);
 const exercises = ref<ExerciseRef[]>([]);
 const contentFilter = ref<'all' | 'lesson' | 'exercise'>('all');
 const viewMode = ref<'grid' | 'list'>('grid');
+const isLoading = ref(true);
 
 const rawSearchQuery = computed(() => (typeof route.query.q === 'string' ? route.query.q : ''));
 const searchTerm = computed(() => rawSearchQuery.value.toLowerCase());
@@ -243,7 +251,7 @@ const combinedItems = computed<ContentItem[]>(() => {
       attrs = {
         href: exercise.link,
         target: external ? '_blank' : undefined,
-        rel: external ? 'noreferrer' : undefined,
+        rel: external ? 'noopener noreferrer' : undefined,
       };
     }
 
@@ -274,16 +282,26 @@ const displayItems = computed(() =>
     })
 );
 
+async function refreshCourseContent(id: string) {
+  if (!id) {
+    lessons.value = [];
+    exercises.value = [];
+    isLoading.value = false;
+    return;
+  }
+
+  isLoading.value = true;
+  try {
+    await Promise.all([loadLessons(id), loadExercises(id)]);
+  } finally {
+    isLoading.value = false;
+  }
+}
+
 watch(
   courseId,
   (id) => {
-    if (!id) {
-      lessons.value = [];
-      exercises.value = [];
-      return;
-    }
-    loadLessons(id);
-    loadExercises(id);
+    void refreshCourseContent(id);
   },
   { immediate: true }
 );
