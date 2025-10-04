@@ -15,8 +15,14 @@ export default defineConfig({
     testTimeout: 10000,
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'html'],
+      reporter: ['text', 'html', 'json-summary'],
       reportsDirectory: 'coverage',
+      thresholds: {
+        lines: 30,
+        statements: 30,
+        branches: 20,
+        functions: 20,
+      },
     },
   },
 });
