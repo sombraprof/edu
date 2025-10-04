@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 async function importAutomationModule() {
-  const module = await import('../automation');
+  const module = await import('../teacherAutomation');
   return module;
 }
 

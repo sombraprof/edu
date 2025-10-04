@@ -44,17 +44,7 @@ import { RouterLink, useRoute, type RouteLocationRaw } from 'vue-router';
 import Md3TopAppBar from './layout/Md3TopAppBar.vue';
 import ThemeToggle from './ThemeToggle.vue';
 import Md3Button from './Md3Button.vue';
-import {
-  GraduationCap,
-  Grid3x3,
-  ArrowLeft,
-  ClipboardList,
-  PenSquare,
-  School,
-  UploadCloud,
-  ListChecks,
-  GitPullRequest,
-} from 'lucide-vue-next';
+import { GraduationCap, Grid3x3, ArrowLeft, ClipboardList, School } from 'lucide-vue-next';
 import { useTeacherMode } from '../composables/useTeacherMode';
 
 const route = useRoute();
@@ -94,40 +84,12 @@ const navLinks = computed<NavAction[]>(() => {
   }
 
   if (teacherMode.value) {
-    const toFaculty: RouteLocationRaw = { name: 'faculty-dashboard' };
+    const toTeacherGuide: RouteLocationRaw = { name: 'teacher-guide' };
     actions.push({
       label: 'Painel docente',
-      to: toFaculty,
+      to: toTeacherGuide,
       icon: School,
-      targetName: 'faculty-dashboard',
-    });
-    const toIngestion: RouteLocationRaw = { name: 'faculty-ingestion' };
-    actions.push({
-      label: 'Ingestão de JSON',
-      to: toIngestion,
-      icon: UploadCloud,
-      targetName: 'faculty-ingestion',
-    });
-    const toEditor: RouteLocationRaw = { name: 'faculty-editor' };
-    actions.push({
-      label: 'Editor visual',
-      to: toEditor,
-      icon: PenSquare,
-      targetName: 'faculty-editor',
-    });
-    const toValidation: RouteLocationRaw = { name: 'faculty-validation' };
-    actions.push({
-      label: 'Validações & relatórios',
-      to: toValidation,
-      icon: ListChecks,
-      targetName: 'faculty-validation',
-    });
-    const toPublication: RouteLocationRaw = { name: 'faculty-publication' };
-    actions.push({
-      label: 'Publicação & Git',
-      to: toPublication,
-      icon: GitPullRequest,
-      targetName: 'faculty-publication',
+      targetName: 'teacher-guide',
     });
     const toReport: RouteLocationRaw = { name: 'validation-report' };
     actions.push({
