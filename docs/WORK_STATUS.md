@@ -179,6 +179,11 @@ Esses materiais dão visibilidade sobre o estado atual do projeto e aceleram a c
 - `docs/material-redesign-plan.md` consolida os novos marcos (semanas 11-13), responsáveis, dependências de QA/Implantação e o checkpoint de revisão NP2+APS. 【F:docs/material-redesign-plan.md†L118-L133】
 - Resumo compartilhado com QA e implantação por meio deste relatório e da notificação no canal operacional, antecipando preparação de testes, legendas e gatilhos de CI antes da APS.
 
+37. **Padrão de controllers documentado para squads de front-end**
+
+- `docs/architecture.md` consolida convenções de criação de controllers (interfaces públicas, factories únicas e overrides via `options`), boas práticas de injeção de manifests e exemplos mínimos de uso em componentes Vue e testes Vitest. 【F:docs/architecture.md†L1-L123】
+- Orientação divulgada aqui para alinhamento imediato e posterior distribuição nos canais internos.
+
 ## O que ainda pode ser feito
 
 A partir das recomendações listadas na revisão de arquitetura, seguem frentes prioritárias:
