@@ -84,7 +84,13 @@
             para revisão ou publicação.
           </p>
         </div>
-        <div class="md3-stack-lg grid md3-gap-md md:grid-cols-2 xl:grid-cols-3">
+        <p v-if="dashboardError" class="rounded-xl border border-error text-sm text-error">
+          {{ dashboardError }}
+        </p>
+        <p v-else-if="dashboardLoading" class="text-sm text-on-surface-variant">
+          Carregando disciplinas…
+        </p>
+        <div v-else class="md3-stack-lg grid md3-gap-md md:grid-cols-2 xl:grid-cols-3">
           <RouterLink
             v-for="course in courses"
             :key="course.id"
@@ -139,182 +145,23 @@
 </template>
 
 <script setup lang="ts">
-import { RouterLink, type RouteLocationRaw } from 'vue-router';
-import {
-  ClipboardList,
-  FileJson,
-  GitBranch,
-  ListChecks,
-  PenSquare,
-  Workflow,
-  ExternalLink,
-} from 'lucide-vue-next';
-import { courses as courseCatalog } from '../../data/courses';
+import { RouterLink } from 'vue-router';
+import { ExternalLink } from 'lucide-vue-next';
+
 import TeacherModeGate from '../../components/TeacherModeGate.vue';
 import Md3Button from '@/components/Md3Button.vue';
 
-const courses = courseCatalog;
+import { useFacultyDashboard } from './controllers/useFacultyDashboard';
 
-type PlanLink =
-  | { label: string; to: RouteLocationRaw }
-  | { label: string; href: string; external?: boolean };
+const {
+  filteredCourses,
+  planSections,
+  resources,
+  loading: dashboardLoading,
+  error: dashboardError,
+} = useFacultyDashboard();
 
-const planSections: Array<{
-  title: string;
-  subtitle: string;
-  icon: unknown;
-  actions: string[];
-  links: PlanLink[];
-}> = [
-  {
-    title: 'Mapear requisitos e workflows',
-    subtitle: 'Inventariar schemas, papéis e validações obrigatórias.',
-    icon: Workflow,
-    actions: [
-      'Listar blocos suportados e campos obrigatórios do schema.',
-      'Identificar papéis (autor, revisor) e permissões necessárias.',
-      'Consolidar checklist de validação antes do commit.',
-    ],
-    links: [
-      {
-        label: 'Guia de autoria',
-        href: 'https://github.com/tiagosombra/edu/blob/main/docs/CONTENT_AUTHORING_GUIDE.md',
-      },
-      {
-        label: 'Playbook de prompts',
-        href: 'https://github.com/tiagosombra/edu/blob/main/docs/LLM_PROMPT_PLAYBOOK.md',
-      },
-    ],
-  },
-  {
-    title: 'Desenhar arquitetura do módulo',
-    subtitle: 'Planejar SPA, backend auxiliar e integrações CLI.',
-    icon: ClipboardList,
-    actions: [
-      'Definir sub-rotas e componentes principais do hub.',
-      'Mapear chamadas aos scripts de validação existentes.',
-      'Esboçar estratégia de workspace para edição antes do commit.',
-    ],
-    links: [
-      {
-        label: 'Plano detalhado',
-        href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/README.md',
-      },
-    ],
-  },
-  {
-    title: 'Ferramentas de ingestão',
-    subtitle: 'Validar JSONs e manter o checklist de governança atualizado.',
-    icon: FileJson,
-    actions: [
-      'Testar uploads reais e registrar feedbacks na documentação viva.',
-      'Comparar validação via AJV (SPA) e via CLI (`npm run validate:content`).',
-      'Sincronizar checklist operacional com o time de conteúdo.',
-    ],
-    links: [
-      { label: 'Abrir ferramenta de ingestão', to: { name: 'faculty-ingestion' } },
-      {
-        label: 'Registro da Iteração 2',
-        href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-02.md',
-      },
-    ],
-  },
-  {
-    title: 'Editor visual de blocos',
-    subtitle: 'Revisar lessonPlan, callouts, cardGrid e contentBlock pela SPA.',
-    icon: PenSquare,
-    actions: [
-      'Carregar JSON validado e revisar metadados principais.',
-      'Editar blocos suportados e acompanhar pré-visualização textual.',
-      'Exportar o pacote revisado para commit ou nova rodada de ingestão.',
-    ],
-    links: [
-      { label: 'Abrir editor visual', to: { name: 'faculty-editor' } },
-      {
-        label: 'Registro da Iteração 3',
-        href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-03.md',
-      },
-    ],
-  },
-  {
-    title: 'Validações automatizadas',
-    subtitle: 'Centralizar execuções dos scripts e métricas de publicação.',
-    icon: ListChecks,
-    actions: [
-      'Registrar execuções dos comandos oficiais diretamente no painel.',
-      'Importar relatórios gerados para revisar métricas críticas antes do commit.',
-      'Mapear requisitos do backend para acionar scripts remotamente.',
-    ],
-    links: [
-      { label: 'Abrir painel de validações', to: { name: 'faculty-validation' } },
-      {
-        label: 'Registro da Iteração 4',
-        href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-04.md',
-      },
-    ],
-  },
-  {
-    title: 'Pacote de publicação',
-    subtitle: 'Organizar branches, commits, validações e PRs.',
-    icon: GitBranch,
-    actions: [
-      'Planejar branch, mensagem de commit e descrição do PR.',
-      'Listar conteúdos incluídos na rodada para revisão cruzada.',
-      'Gerar comandos padronizados com checklist de validações.',
-    ],
-    links: [
-      { label: 'Abrir pacote de publicação', to: { name: 'faculty-publication' } },
-      {
-        label: 'Registro da Iteração 5',
-        href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-05.md',
-      },
-    ],
-  },
-];
-
-const resources = [
-  {
-    title: 'Plano de implementação do módulo',
-    description: 'Documento vivo com decisões, iterações e governança do painel administrativo.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/README.md',
-  },
-  {
-    title: 'Guia de autoria de conteúdo',
-    description:
-      'Passo a passo para criar lições, exercícios e suplementos alinhados ao schema oficial.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/docs/CONTENT_AUTHORING_GUIDE.md',
-  },
-  {
-    title: 'Playbook de prompts para LLM',
-    description: 'Sugestões de prompts e checklist de revisão para conteúdos assistidos por IA.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/docs/LLM_PROMPT_PLAYBOOK.md',
-  },
-  {
-    title: 'Relatório de validação mais recente',
-    description: 'Painel público com status dos cursos, problemas e avisos em aberto.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/reports/validation-report.md',
-  },
-  {
-    title: 'Registro vivo da Iteração 5',
-    description: 'Planejamento do pacote de publicação e integração com Git.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-05.md',
-  },
-  {
-    title: 'Registro vivo da Iteração 3',
-    description: 'Diário da construção do editor visual e próximos aprimoramentos.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-03.md',
-  },
-  {
-    title: 'Registro vivo da Iteração 4',
-    description: 'Acompanhamento da centralização dos scripts e importação de relatórios.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-04.md',
-  },
-  {
-    title: 'Registro vivo da Iteração 2',
-    description: 'Atualizações contínuas sobre ingestão de JSON, feedbacks e próximos ajustes.',
-    href: 'https://github.com/tiagosombra/edu/blob/main/docs/professor-module/iteration-02.md',
-  },
-] as const;
+const courses = filteredCourses;
 </script>
 
 <style scoped>
