@@ -35,6 +35,10 @@ const createController = () => {
   const exerciseSummary = ref('Resumo');
   const exerciseComponent = shallowRef<any | null>({ render: () => null });
   const exerciseFile = ref('exercise.vue');
+  const exerciseAvailable = ref(true);
+  const exerciseLink = ref('');
+  const exerciseType = ref('worksheet');
+  const exerciseMetadata = shallowRef<Record<string, unknown> | null>(null);
 
   return {
     courseId: computed(() => 'demo'),
@@ -44,6 +48,13 @@ const createController = () => {
     exerciseComponent,
     exerciseFile,
     loadExercise: vi.fn(),
+    exerciseAvailable,
+    exerciseLink,
+    exerciseType,
+    exerciseMetadata,
+    setManifestEntry: vi.fn((entry?: Record<string, unknown> | null) => {
+      exerciseAvailable.value = Boolean(entry?.available ?? true);
+    }),
     route: { params: { courseId: 'demo', exerciseId: 'exercise-01' }, query: {} } as any,
   } satisfies Controller;
 };
@@ -96,12 +107,27 @@ const contentSyncMock = {
   serviceAvailable: true,
 };
 
-let lastContentEditorOptions: {
-  setModel: (model: unknown) => void;
-} | null = null;
+const manifestSyncMock = {
+  loading: ref(false),
+  saving: ref(false),
+  loadError: ref<string | null>(null),
+  saveError: ref<string | null>(null),
+  successMessage: ref<string | null>(null),
+  hasPendingChanges: ref(false),
+  revertChanges: vi.fn(),
+  refresh: vi.fn(),
+  serviceAvailable: true,
+};
+
+let lastManifestEditorOptions: { setModel: (model: unknown) => void } | null = null;
+let lastContentEditorOptions: { setModel: (model: unknown) => void } | null = null;
 
 vi.mock('@/services/useTeacherContentEditor', () => ({
   useTeacherContentEditor: (options: { setModel: (model: unknown) => void }) => {
+    if (!lastManifestEditorOptions) {
+      lastManifestEditorOptions = options;
+      return manifestSyncMock;
+    }
     lastContentEditorOptions = options;
     return contentSyncMock;
   },
@@ -170,9 +196,16 @@ describe('ExerciseView component', () => {
     contentSyncMock.hasPendingChanges.value = false;
     contentSyncMock.revertChanges.mockReset();
     contentSyncMock.serviceAvailable = true;
+    manifestSyncMock.loadError.value = null;
+    manifestSyncMock.saveError.value = null;
+    manifestSyncMock.successMessage.value = null;
+    manifestSyncMock.hasPendingChanges.value = false;
+    manifestSyncMock.revertChanges.mockReset();
+    manifestSyncMock.serviceAvailable = true;
     teacherModeMock.value = true;
     vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'true');
     toggleTeacherModeMock.mockReset();
+    lastManifestEditorOptions = null;
     lastContentEditorOptions = null;
     if (typeof HTMLElement !== 'undefined') {
       Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
@@ -289,6 +322,51 @@ describe('ExerciseView component', () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.get('.block-editor-stub').text()).toContain('Passo 2');
+  });
+
+  it('atualiza disponibilidade do exercício após salvar o manifesto', async () => {
+    const wrapper = mount(ExerciseView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          MetadataListEditor: MetadataListEditorStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
+        },
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+    lastContentEditorOptions?.setModel?.({ title: 'Título', blocks: [] });
+    await wrapper.vm.$nextTick();
+
+    expect(lastManifestEditorOptions).toBeTruthy();
+    lastManifestEditorOptions?.setModel?.({ id: 'exercise-01', available: true });
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+
+    manifestSyncMock.hasPendingChanges.value = true;
+    await wrapper.vm.$nextTick();
+    manifestSyncMock.saving.value = true;
+    await wrapper.vm.$nextTick();
+    manifestSyncMock.saving.value = false;
+    manifestSyncMock.hasPendingChanges.value = false;
+    await wrapper.vm.$nextTick();
+    lastManifestEditorOptions?.setModel?.({ id: 'exercise-01', available: false });
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+
+    expect(controllerMock.setManifestEntry).toHaveBeenCalled();
+    expect(controllerMock.exerciseAvailable.value).toBe(false);
   });
 
   it('exibe aviso no painel quando exercício não possui componente', async () => {

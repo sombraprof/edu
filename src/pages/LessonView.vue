@@ -26,6 +26,7 @@
         <LessonAuthoringSidebar
           v-if="showAuthoringPanel"
           :lesson-model="lessonEditor.lessonModel"
+          :manifest-entry="lessonManifestEntry"
           :tags-field="lessonEditor.tagsField"
           :create-array-field="lessonEditor.useArrayField"
           :blocks="lessonBlocks"
@@ -40,7 +41,7 @@
           :error-message="lessonAuthoringError"
           :success-message="lessonAuthoringSuccess"
           :can-revert="lessonCanRevert"
-          :on-revert="lessonContentSync.revertChanges"
+          :on-revert="revertLessonAuthoringChanges"
           :on-insert-block="insertBlock"
           :on-select-block="selectBlock"
           :on-move-block="moveBlock"
@@ -158,6 +159,18 @@ function cloneDeep<T>(value: T): T {
 
 type LessonFilePayload = Record<string, unknown> & { content?: LessonBlock[] };
 
+type LessonManifestEntry = Record<string, unknown> & {
+  id: string;
+  available?: boolean;
+  link?: string;
+  type?: string;
+  metadata?: Record<string, unknown> | null;
+};
+
+type LessonManifestFile = Record<string, unknown> & {
+  entries?: LessonManifestEntry[];
+};
+
 function toLessonEditorModel(raw: LessonFilePayload): LessonEditorModel {
   const { content, ...rest } = raw;
   return {
@@ -180,6 +193,137 @@ function toLessonFilePayload(
   }
   delete (target as LessonFilePayload & { blocks?: unknown }).blocks;
   return target;
+}
+
+function extractLessonManifestEntry(
+  raw: LessonManifestFile | null,
+  lessonId: string
+): LessonManifestEntry | null {
+  if (!raw || typeof raw !== 'object') {
+    return null;
+  }
+
+  const entries = Array.isArray(raw.entries) ? raw.entries : [];
+  const entry = entries.find((item) => item && typeof item === 'object' && item.id === lessonId);
+  if (!entry) {
+    return null;
+  }
+
+  return cloneDeep(entry);
+}
+
+function sanitizeManifestString(value: unknown): string | undefined {
+  if (typeof value !== 'string') return undefined;
+  const trimmed = value.trim();
+  return trimmed.length ? trimmed : undefined;
+}
+
+function sanitizeLessonManifestEntry(
+  entry: LessonManifestEntry | null,
+  lessonId: string
+): LessonManifestEntry | null {
+  if (!entry || typeof entry !== 'object') {
+    return null;
+  }
+
+  const sanitized: LessonManifestEntry = { id: lessonId };
+
+  for (const [key, value] of Object.entries(entry)) {
+    if (key === 'metadata') continue;
+    if (key === 'available') {
+      sanitized.available = Boolean(value);
+      continue;
+    }
+    if (key === 'link' || key === 'type') {
+      const normalized = sanitizeManifestString(value);
+      if (normalized) {
+        sanitized[key] = normalized;
+      }
+      continue;
+    }
+    if (key === 'id') {
+      continue;
+    }
+    sanitized[key] = cloneDeep(value);
+  }
+
+  if (entry.metadata && typeof entry.metadata === 'object') {
+    const metadata: Record<string, unknown> = {};
+    for (const [metaKey, metaValue] of Object.entries(entry.metadata)) {
+      const normalized = sanitizeManifestString(metaValue) ?? metaValue;
+      if (normalized !== undefined && normalized !== null && normalized !== '') {
+        metadata[metaKey] = normalized;
+      }
+    }
+    if (Object.keys(metadata).length > 0) {
+      sanitized.metadata = metadata;
+    }
+  }
+
+  return sanitized;
+}
+
+function mergeLessonManifestEntry(
+  base: LessonManifestEntry | null,
+  update: LessonManifestEntry | null,
+  lessonId: string
+): LessonManifestEntry {
+  const target: LessonManifestEntry = base ? cloneDeep(base) : { id: lessonId };
+  const sanitized = sanitizeLessonManifestEntry(update, lessonId);
+
+  if (!sanitized) {
+    return target;
+  }
+
+  const keysToClear: Array<keyof LessonManifestEntry> = ['link', 'type', 'metadata'];
+  for (const key of keysToClear) {
+    if (!(key in sanitized)) {
+      delete target[key];
+    }
+  }
+
+  if ('available' in sanitized) {
+    target.available = Boolean(sanitized.available);
+  }
+
+  for (const [key, value] of Object.entries(sanitized)) {
+    if (key === 'available') continue;
+    if (key === 'id') {
+      target.id = lessonId;
+      continue;
+    }
+    if (value === undefined) {
+      delete (target as Record<string, unknown>)[key];
+    } else {
+      (target as Record<string, unknown>)[key] = cloneDeep(value);
+    }
+  }
+
+  return target;
+}
+
+function toLessonManifestFile(
+  entry: LessonManifestEntry | null,
+  base: LessonManifestFile | null,
+  lessonId: string
+): LessonManifestFile {
+  const manifest = base ? cloneDeep(base) : ({} as LessonManifestFile);
+  const entries = Array.isArray(manifest.entries) ? manifest.entries : [];
+  const index = entries.findIndex(
+    (item) => item && typeof item === 'object' && item.id === lessonId
+  );
+  const current = index >= 0 ? entries[index] : null;
+  const merged = mergeLessonManifestEntry(current, entry, lessonId);
+  const nextEntries = [...entries];
+
+  if (index >= 0) {
+    nextEntries.splice(index, 1, merged);
+  } else {
+    nextEntries.push(merged);
+  }
+
+  manifest.entries = nextEntries;
+  return manifest;
 }
 
 type WorkspaceView = 'editor' | 'preview';
@@ -552,6 +696,21 @@ const lessonContentPath = computed(() => {
   return `courses/${controller.courseId.value}/lessons/${file}`;
 });
 
+const lessonManifestPath = computed(() => `courses/${controller.courseId.value}/lessons.json`);
+
+const lessonManifestEntry = shallowRef<LessonManifestEntry | null>(null);
+
+const lessonManifestSync = useTeacherContentEditor<LessonManifestEntry | null, LessonManifestFile>({
+  path: lessonManifestPath,
+  model: lessonManifestEntry,
+  setModel: (value) => {
+    lessonManifestEntry.value = value ? cloneDeep(value) : null;
+    controller.setManifestEntry(cloneDeep(value ?? null));
+  },
+  fromRaw: (raw) => extractLessonManifestEntry(raw ?? null, controller.lessonId.value),
+  toRaw: (entry, base) => toLessonManifestFile(entry, base ?? null, controller.lessonId.value),
+});
+
 const lessonContentSync = useTeacherContentEditor<LessonEditorModel, LessonFilePayload>({
   path: lessonContentPath,
   model: lessonEditor.lessonModel,
@@ -560,17 +719,60 @@ const lessonContentSync = useTeacherContentEditor<LessonEditorModel, LessonFileP
   toRaw: (model, base) => toLessonFilePayload(model, base ?? null),
 });
 
-const lessonAuthoringError = computed(
-  () => lessonContentSync.loadError.value ?? lessonContentSync.saveError.value
-);
-const lessonAuthoringSuccess = computed(() => lessonContentSync.successMessage.value);
-const lessonCanRevert = computed(() => lessonContentSync.hasPendingChanges.value);
+const authoringState = computed(() => ({
+  lesson: lessonEditor.lessonModel.value,
+  manifest: lessonManifestEntry.value,
+}));
 
-const { status, statusLabel, statusTone } = useAuthoringSaveTracker(lessonEditor.lessonModel, {
-  saving: lessonContentSync.saving,
-  hasPendingChanges: lessonContentSync.hasPendingChanges,
-  saveError: lessonContentSync.saveError,
+const combinedSaving = computed(
+  () => lessonContentSync.saving.value || lessonManifestSync.saving.value
+);
+const combinedPending = computed(
+  () => lessonContentSync.hasPendingChanges.value || lessonManifestSync.hasPendingChanges.value
+);
+const combinedSaveError = computed(
+  () => lessonContentSync.saveError.value ?? lessonManifestSync.saveError.value
+);
+
+const lessonAuthoringError = computed(() => {
+  return (
+    lessonContentSync.loadError.value ??
+    lessonManifestSync.loadError.value ??
+    lessonContentSync.saveError.value ??
+    lessonManifestSync.saveError.value ??
+    null
+  );
 });
+const lessonAuthoringSuccess = computed(
+  () => lessonContentSync.successMessage.value ?? lessonManifestSync.successMessage.value
+);
+const lessonCanRevert = computed(() => combinedPending.value);
+
+const { status, statusLabel, statusTone } = useAuthoringSaveTracker(authoringState, {
+  saving: combinedSaving,
+  hasPendingChanges: combinedPending,
+  saveError: combinedSaveError,
+});
+
+function revertLessonAuthoringChanges() {
+  lessonContentSync.revertChanges();
+  lessonManifestSync.revertChanges();
+}
+
+let previousManifestStatus = { saving: false, pending: false };
+watch(
+  () => ({
+    saving: Boolean(lessonManifestSync.saving.value),
+    pending: Boolean(lessonManifestSync.hasPendingChanges.value),
+  }),
+  ({ saving, pending }) => {
+    if (!saving && !pending && (previousManifestStatus.saving || previousManifestStatus.pending)) {
+      controller.setManifestEntry(cloneDeep(lessonManifestEntry.value ?? null));
+    }
+    previousManifestStatus = { saving, pending };
+  },
+  { immediate: true }
+);
 
 const statusIcon = computed(() => {
   switch (status.value) {
@@ -632,7 +834,10 @@ const lessonContent = computed<LessonRendererContent | null>(() => {
   return normalized;
 });
 
-const showAuthoringPanel = computed(() => teacherMode.value && lessonContentSync.serviceAvailable);
+const showAuthoringPanel = computed(
+  () =>
+    teacherMode.value && lessonContentSync.serviceAvailable && lessonManifestSync.serviceAvailable
+);
 
 watch(lessonBlocks, (current) => {
   if (!current.length) {
