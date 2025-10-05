@@ -16,16 +16,20 @@
 
     <section class="md-stack md-stack-3">
       <h2 class="md-typescale-title-large font-semibold text-on-surface">
-        1. Ative o modo professor
+        1. Inicie o serviço do modo professor
       </h2>
       <ul class="md-stack md-stack-2 list-disc pl-6 text-on-surface-variant">
-        <li>Use o botão “Professor” no rodapé para habilitar o modo docente.</li>
         <li>
-          Em ambientes locais você também pode abrir a URL com
-          <code class="chip chip--filled">?teacher=1</code> para acionar o modo automaticamente.
+          Execute <code class="chip chip--filled">npm run dev:teacher</code> em um terminal para
+          iniciar o serviço que habilita o painel de autoria.
         </li>
         <li>
-          Após ativar, acesse qualquer aula ou exercício para visualizar o painel lateral de edição.
+          Caso utilize uma API hospedada em outro ambiente, defina
+          <code class="chip chip--filled">VITE_TEACHER_API_URL</code> antes de iniciar o front-end.
+        </li>
+        <li>
+          O painel “Professor” aparece automaticamente nas páginas suportadas somente enquanto o
+          serviço estiver ativo.
         </li>
       </ul>
     </section>
@@ -52,16 +56,10 @@
         3. Sincronize com arquivos locais
       </h2>
       <ol class="md-stack md-stack-2 list-decimal pl-6 text-on-surface-variant">
-        <li>
-          Execute <code class="chip chip--filled">npm run dev:teacher</code> em outro terminal.
-        </li>
-        <li>
-          Informe a variável <code class="chip chip--filled">VITE_TEACHER_API_URL</code> caso a API
-          rode em um endereço diferente do padrão.
-        </li>
+        <li>Organize os arquivos na pasta esperada pelo serviço iniciado no passo anterior.</li>
         <li>
           A cada alteração o painel indicará o status de salvamento e enviará o JSON atualizado para
-          o serviço local.
+          o serviço ativo.
         </li>
       </ol>
       <p class="text-sm text-on-surface-variant">
