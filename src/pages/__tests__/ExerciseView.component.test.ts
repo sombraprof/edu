@@ -5,6 +5,7 @@ import type { Ref } from 'vue';
 import type { ExerciseViewController } from '../ExerciseView.logic';
 
 const BlockEditorStub = {
+  name: 'BlockEditorStub',
   props: ['block'],
   emits: ['update:block'],
   template: '<div class="block-editor-stub">{{ block?.title ?? block?.__uiKey }}</div>',
@@ -20,10 +21,11 @@ vi.mock('@/composables/useLessonEditorModel', async () => {
   const actual = (await vi.importActual(
     '@/composables/useLessonEditorModel'
   )) as typeof import('@/composables/useLessonEditorModel');
-
   return {
     ...actual,
-    resolveLessonBlockEditor: () => BlockEditorStub,
+    resolveLessonBlockEditor: (block: { type?: string } | null | undefined) => {
+      return BlockEditorStub;
+    },
   };
 });
 
@@ -122,7 +124,8 @@ const manifestSyncMock = {
 
 let lastManifestEditorOptions: { setModel: ReturnType<typeof vi.fn>; model: Ref<unknown> } | null =
   null;
-let lastContentEditorOptions: { setModel: (model: unknown) => void } | null = null;
+let lastContentEditorOptions: { setModel: (model: unknown) => void; model: Ref<unknown> } | null =
+  null;
 let manifestSetModelSpy: ReturnType<typeof vi.fn> | null = null;
 
 vi.mock('@/services/useTeacherContentEditor', () => ({
@@ -131,7 +134,14 @@ vi.mock('@/services/useTeacherContentEditor', () => ({
     model: Ref<unknown>;
   }) => {
     const originalSetModel = options.setModel;
-    const setModelSpy = vi.fn(originalSetModel);
+    let lastSerialized = JSON.stringify(options.model.value);
+    const setModelSpy = vi.fn((value: unknown) => {
+      originalSetModel(value);
+      lastSerialized = JSON.stringify(options.model.value);
+      if (lastManifestEditorOptions) {
+        contentSyncMock.hasPendingChanges.value = true;
+      }
+    });
     (options as typeof options & { setModel: ReturnType<typeof vi.fn> }).setModel = setModelSpy;
 
     if (!lastManifestEditorOptions) {
@@ -165,7 +175,19 @@ vi.mock('@/services/useTeacherContentEditor', () => ({
       return manifestSyncMock;
     }
 
-    lastContentEditorOptions = options;
+    watch(
+      () => JSON.stringify(options.model.value),
+      (serialized) => {
+        if (serialized === lastSerialized) {
+          return;
+        }
+
+        lastSerialized = serialized;
+        contentSyncMock.hasPendingChanges.value = true;
+      }
+    );
+
+    lastContentEditorOptions = options as typeof options;
     return contentSyncMock;
   },
 }));
@@ -360,6 +382,71 @@ describe('ExerciseView component', () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.get('.block-editor-stub').text()).toContain('Passo 2');
+  });
+
+  it('marca pendências ao editar submissão de código', async () => {
+    const wrapper = mount(ExerciseView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          MetadataListEditor: MetadataListEditorStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
+        },
+      },
+    });
+
+    lastContentEditorOptions?.setModel?.({
+      title: 'Implementação',
+      blocks: [
+        {
+          type: 'codeSubmission',
+          __uiKey: 'exercise-block-1',
+          title: 'Soma',
+          description: 'Implemente a função soma',
+          language: 'python',
+          starterCode: 'def soma(a, b):\n    return 0',
+          tests: ['assert soma(1, 2) == 3'],
+        },
+      ],
+    });
+
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    contentSyncMock.hasPendingChanges.value = false;
+
+    const editor = wrapper.findComponent(BlockEditorStub);
+    expect(editor.exists()).toBe(true);
+    editor.vm.$emit('update:block', {
+      type: 'codeSubmission',
+      title: 'Soma',
+      description: 'Implemente a função soma',
+      language: 'python',
+      starterCode: 'def soma(a, b):\n    return 0',
+      tests: ['assert soma(-1, 1) == 0'],
+    });
+
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    await wrapper.vm.$nextTick();
+
+    expect(contentSyncMock.hasPendingChanges.value).toBe(true);
+    const model = lastContentEditorOptions?.model.value as
+      | { blocks?: Array<Record<string, unknown>> }
+      | undefined;
+    expect(model?.blocks?.[0]?.tests).toEqual(['assert soma(-1, 1) == 0']);
+
+    wrapper.unmount();
   });
 
   it('marca alterações pendentes ao editar manifesto do exercício', async () => {
