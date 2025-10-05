@@ -22,6 +22,10 @@ Documento vivo descrevendo o estado atual do módulo `/professor` e como operá-
 - Permanece bloqueado quando `VITE_TEACHER_API_URL` não está configurada ou o serviço está offline.
 - Workspace desktop dividido em grid 30/70: a barra lateral mantém largura mínima de 20rem e pode ocupar até 30% da tela, deixando 70% para o canvas de edição.
 
+> **Formulários dedicados:** o painel carrega automaticamente editores visuais para `checklist`, `timeline`, `stepper`, `glossary`, `flashcards`, `videos`/`videosBlock`, `bibliography`/`bibliographyBlock`, `interactiveDemo`, `codeSubmission`, `promptTip`, `flightPlan`, `accordion`, `representations`, `parsons` e `parsonsPuzzle`. Os campos seguem os `defaultBlockTemplates` e qualquer alteração dispara `update:block` para o serviço de autosave.
+
+> **Fallback JSON:** blocos avançados (`scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`) permanecem no editor genérico. Clique em **Editar JSON** para ajustá-los mantendo o formato original.
+
 ### Serviço auxiliar simplificado (`npm run teacher:service`)
 
 - Implementado em `scripts/teacher-automation-server.mjs`.

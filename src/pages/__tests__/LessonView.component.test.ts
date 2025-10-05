@@ -5,6 +5,7 @@ import type { Ref } from 'vue';
 import type { LessonViewController } from '../LessonView.logic';
 
 const BlockEditorStub = {
+  name: 'BlockEditorStub',
   props: ['block'],
   emits: ['update:block'],
   template: '<div class="block-editor-stub">{{ block?.title ?? block?.__uiKey }}</div>',
@@ -20,10 +21,11 @@ vi.mock('@/composables/useLessonEditorModel', async () => {
   const actual = (await vi.importActual(
     '@/composables/useLessonEditorModel'
   )) as typeof import('@/composables/useLessonEditorModel');
-
   return {
     ...actual,
-    resolveLessonBlockEditor: () => BlockEditorStub,
+    resolveLessonBlockEditor: (block: { type?: string } | null | undefined) => {
+      return BlockEditorStub;
+    },
   };
 });
 
@@ -136,7 +138,8 @@ const manifestSyncMock = {
 
 let lastManifestEditorOptions: { setModel: ReturnType<typeof vi.fn>; model: Ref<unknown> } | null =
   null;
-let lastContentEditorOptions: { setModel: (model: unknown) => void } | null = null;
+let lastContentEditorOptions: { setModel: (model: unknown) => void; model: Ref<unknown> } | null =
+  null;
 let manifestSetModelSpy: ReturnType<typeof vi.fn> | null = null;
 
 vi.mock('@/services/useTeacherContentEditor', () => ({
@@ -145,7 +148,13 @@ vi.mock('@/services/useTeacherContentEditor', () => ({
     model: Ref<unknown>;
   }) => {
     const originalSetModel = options.setModel;
-    const setModelSpy = vi.fn(originalSetModel);
+    const isManifestEditor = lastManifestEditorOptions === null;
+    const setModelSpy = vi.fn((value: unknown) => {
+      originalSetModel(value);
+      if (!isManifestEditor) {
+        contentSyncMock.hasPendingChanges.value = true;
+      }
+    });
     (options as typeof options & { setModel: ReturnType<typeof vi.fn> }).setModel = setModelSpy;
 
     if (!lastManifestEditorOptions) {
@@ -179,7 +188,27 @@ vi.mock('@/services/useTeacherContentEditor', () => ({
       return manifestSyncMock;
     }
 
-    lastContentEditorOptions = options;
+    const originalContentSetModel = options.setModel;
+    let lastSerialized = JSON.stringify(options.model.value);
+    options.setModel = (value: unknown) => {
+      originalContentSetModel(value);
+      lastSerialized = JSON.stringify(options.model.value);
+      contentSyncMock.hasPendingChanges.value = true;
+    };
+
+    watch(
+      () => JSON.stringify(options.model.value),
+      (serialized) => {
+        if (serialized === lastSerialized) {
+          return;
+        }
+
+        lastSerialized = serialized;
+        contentSyncMock.hasPendingChanges.value = true;
+      }
+    );
+
+    lastContentEditorOptions = options as typeof options;
     return contentSyncMock;
   },
 }));
@@ -459,6 +488,62 @@ describe('LessonView component', () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.get('.block-editor-stub').text()).toContain('Segundo bloco');
+  });
+
+  it('propaga edições de checklist e marca alterações pendentes', async () => {
+    controllerMock.lessonData.value = {
+      content: [
+        {
+          type: 'checklist',
+          __uiKey: 'block-1',
+          title: 'Checklist inicial',
+          description: '',
+          items: ['Revisar roteiro'],
+        },
+      ],
+    } as any;
+
+    const wrapper = mountComponent({
+      lessonModel: {
+        title: 'Introdução',
+        blocks: [
+          {
+            type: 'checklist',
+            __uiKey: 'block-1',
+            title: 'Checklist inicial',
+            description: '',
+            items: ['Revisar roteiro'],
+          },
+        ],
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    expect(lastContentEditorOptions).toBeTruthy();
+    contentSyncMock.hasPendingChanges.value = false;
+
+    const editor = wrapper.findComponent(BlockEditorStub);
+    expect(editor.exists()).toBe(true);
+    editor.vm.$emit('update:block', {
+      type: 'checklist',
+      title: 'Checklist inicial',
+      description: '',
+      items: ['Validar projeções'],
+    });
+
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+
+    expect(contentSyncMock.hasPendingChanges.value).toBe(true);
+    const model = lastContentEditorOptions?.model.value as
+      | { blocks?: Array<Record<string, unknown>> }
+      | undefined;
+    expect(model?.blocks?.[0]?.items).toEqual(['Validar projeções']);
+
+    wrapper.unmount();
   });
 
   it('não executa highlight enquanto a aba de prévia está inativa', async () => {
