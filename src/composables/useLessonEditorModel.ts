@@ -45,6 +45,21 @@ const CardGridEditor = defineAsyncComponent(
 const ContentBlockEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/ContentBlockEditor.vue')
 );
+const QuizBlockEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/QuizBlockEditor.vue')
+);
+const ResourceGalleryEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/ResourceGalleryEditor.vue')
+);
+const TabsBlockEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/TabsBlockEditor.vue')
+);
+const RoadmapEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/RoadmapEditor.vue')
+);
+const KnowledgeCheckEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/KnowledgeCheckEditor.vue')
+);
 const GenericJsonBlockEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/UnsupportedBlockEditor.vue')
 );
@@ -54,6 +69,11 @@ const blockEditorRegistry = Object.freeze({
   callout: CalloutEditor,
   cardGrid: CardGridEditor,
   contentBlock: ContentBlockEditor,
+  quiz: QuizBlockEditor,
+  resourceGallery: ResourceGalleryEditor,
+  tabs: TabsBlockEditor,
+  roadmap: RoadmapEditor,
+  knowledgeCheck: KnowledgeCheckEditor,
 });
 
 type BlockEditorRegistry = typeof blockEditorRegistry;
