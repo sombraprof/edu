@@ -389,11 +389,7 @@ const statusIconClass = computed(() =>
 
 const authoringExercise = computed(() => exerciseEditor.lessonModel.value);
 const showAuthoringPanel = computed(
-  () =>
-    import.meta.env.DEV &&
-    teacherMode.value &&
-    exerciseContentSync.serviceAvailable &&
-    Boolean(authoringExercise.value)
+  () => teacherMode.value && exerciseContentSync.serviceAvailable
 );
 
 watch(exerciseBlocks, (current) => {

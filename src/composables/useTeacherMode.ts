@@ -13,15 +13,21 @@ function resolveEnvFlag(value: unknown): boolean {
   return Boolean(value);
 }
 
+const teacherModeFeatureEnabled = resolveEnvFlag(import.meta.env.VITE_TEACHER_MODE_ENABLED);
 const manualAuthoringEnabled = resolveEnvFlag(import.meta.env.VITE_TEACHER_API_URL);
-const authoringForced = resolveEnvFlag(import.meta.env.DEV) && manualAuthoringEnabled;
+const authoringForced = teacherModeFeatureEnabled && manualAuthoringEnabled;
 
 const teacherMode = ref(authoringForced);
 const ready = ref(authoringForced);
 let initialized = false;
 
 function persist(value: boolean) {
-  if (authoringForced || !manualAuthoringEnabled || typeof window === 'undefined') {
+  if (
+    authoringForced ||
+    !manualAuthoringEnabled ||
+    !teacherModeFeatureEnabled ||
+    typeof window === 'undefined'
+  ) {
     return;
   }
   try {
@@ -38,7 +44,7 @@ function setTeacherMode(value: boolean) {
     return;
   }
 
-  if (!manualAuthoringEnabled) {
+  if (!manualAuthoringEnabled || !teacherModeFeatureEnabled) {
     teacherMode.value = false;
     ready.value = true;
     return;
@@ -49,7 +55,12 @@ function setTeacherMode(value: boolean) {
 }
 
 function syncFromQueryString() {
-  if (authoringForced || !manualAuthoringEnabled || typeof window === 'undefined') {
+  if (
+    authoringForced ||
+    !manualAuthoringEnabled ||
+    !teacherModeFeatureEnabled ||
+    typeof window === 'undefined'
+  ) {
     return false;
   }
 
@@ -71,7 +82,12 @@ function syncFromQueryString() {
 }
 
 function syncFromStorage() {
-  if (authoringForced || !manualAuthoringEnabled || typeof window === 'undefined') {
+  if (
+    authoringForced ||
+    !manualAuthoringEnabled ||
+    !teacherModeFeatureEnabled ||
+    typeof window === 'undefined'
+  ) {
     ready.value = true;
     return;
   }
@@ -100,7 +116,7 @@ export function useTeacherMode() {
   if (!initialized) {
     initialized = true;
     if (!authoringForced) {
-      if (!manualAuthoringEnabled) {
+      if (!manualAuthoringEnabled || !teacherModeFeatureEnabled) {
         teacherMode.value = false;
         ready.value = true;
         clearPersistedState();
@@ -117,7 +133,9 @@ export function useTeacherMode() {
   }
 
   const isAuthoringForced = computed(() => authoringForced);
-  const isAuthoringEnabled = computed(() => authoringForced || teacherMode.value);
+  const isAuthoringEnabled = computed(
+    () => teacherModeFeatureEnabled && (authoringForced || teacherMode.value)
+  );
 
   return {
     teacherMode: readonly(teacherMode),

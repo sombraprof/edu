@@ -71,12 +71,31 @@ vi.mock('../LessonView.logic', () => ({
 const teacherModeMock = ref(true);
 const toggleTeacherModeMock = vi.fn();
 
+function resolveFlag(value: unknown): boolean {
+  if (typeof value === 'string') {
+    const normalized = value.trim().toLowerCase();
+    if (!normalized || normalized === 'false' || normalized === '0' || normalized === 'off') {
+      return false;
+    }
+    if (normalized === 'true') {
+      return true;
+    }
+  }
+  return Boolean(value ?? true);
+}
+
 vi.mock('@/composables/useTeacherMode', () => ({
-  useTeacherMode: () => ({
-    teacherMode: teacherModeMock,
-    toggleTeacherMode: toggleTeacherModeMock,
-    isAuthoringForced: computed(() => false),
-  }),
+  useTeacherMode: () => {
+    const teacherModeEnabled = resolveFlag(import.meta.env.VITE_TEACHER_MODE_ENABLED);
+    const teacherMode = computed(() => (teacherModeEnabled ? teacherModeMock.value : false));
+
+    return {
+      teacherMode,
+      toggleTeacherMode: toggleTeacherModeMock,
+      isAuthoringForced: computed(() => false),
+      isAuthoringEnabled: computed(() => teacherModeEnabled && teacherModeMock.value),
+    };
+  },
 }));
 
 const contentSyncMock = {
@@ -175,6 +194,7 @@ function stubMatchMedia() {
 
 const mountAppWithLessonView = async () => {
   stubMatchMedia();
+  vi.resetModules();
   const { default: App } = await import('@/App.vue');
 
   return mount(App, {
@@ -215,6 +235,7 @@ describe('LessonView component', () => {
     contentSyncMock.revertChanges.mockReset();
     contentSyncMock.serviceAvailable = true;
     teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'true');
     toggleTeacherModeMock.mockReset();
     highlightMock.mockReset();
     lastContentEditorOptions = null;
@@ -308,16 +329,27 @@ describe('LessonView component', () => {
     expect(highlightMock).toHaveBeenCalled();
   });
 
-  it('mostra fallback quando lição não foi carregada', () => {
+  it('exibe aviso no painel quando lição não foi carregada', () => {
     controllerMock.lessonData.value = null;
     const wrapper = mountComponent();
 
-    expect(wrapper.text()).toContain('Não foi possível carregar esta aula');
-    expect(wrapper.find('.lesson-block-editor').exists()).toBe(false);
+    expect(wrapper.text()).toContain('Carregando os dados da aula.');
+    expect(wrapper.text()).toContain('Abra uma aula válida para habilitar o painel de edição.');
+    expect(wrapper.find('.lesson-block-editor').exists()).toBe(true);
   });
 
   it('oculta painel de autoria quando serviço não está disponível', () => {
     contentSyncMock.serviceAvailable = false;
+
+    const wrapper = mountComponent();
+
+    expect(wrapper.find('.lesson-block-editor').exists()).toBe(false);
+    expect(wrapper.find('.lesson-content').exists()).toBe(true);
+  });
+
+  it('oculta painel de autoria quando flag de modo professor está desativado', () => {
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'false');
+    teacherModeMock.value = true;
 
     const wrapper = mountComponent();
 
@@ -421,6 +453,7 @@ describe('LessonView component', () => {
   it('aplica layout expandido de professor quando automação está disponível', async () => {
     teacherModeMock.value = true;
     vi.stubEnv('VITE_TEACHER_API_URL', 'https://automation.local');
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'true');
 
     const wrapper = await mountAppWithLessonView();
 
@@ -432,6 +465,19 @@ describe('LessonView component', () => {
   it('mantém layout padrão quando automação está indisponível', async () => {
     teacherModeMock.value = true;
     vi.stubEnv('VITE_TEACHER_API_URL', '');
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'true');
+
+    const wrapper = await mountAppWithLessonView();
+
+    expect(wrapper.get('main').classes()).not.toContain('md-page--teacher');
+
+    wrapper.unmount();
+  });
+
+  it('mantém layout padrão quando flag de modo professor está desativado', async () => {
+    teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_API_URL', 'https://automation.local');
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'false');
 
     const wrapper = await mountAppWithLessonView();
 
