@@ -1,5 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { computed, ref } from 'vue';
+import { computed, defineComponent, h, ref, type PropType } from 'vue';
 import { describe, expect, it } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
 import type { LessonAuthoringBlock } from '@/composables/useAuthoringBlockKeys';
@@ -17,6 +17,27 @@ const iconStubs = {
   Plus: true,
   Trash2: true,
 };
+
+const AuthoringDraggableListStub = defineComponent({
+  name: 'AuthoringDraggableList',
+  props: {
+    modelValue: {
+      type: Array as PropType<LessonAuthoringBlock[]>,
+      default: () => [],
+    },
+  },
+  emits: ['update:modelValue', 'end'],
+  setup(props, { slots, attrs }) {
+    return () =>
+      h(
+        'div',
+        attrs,
+        props.modelValue.map((element, index) =>
+          slots.item ? slots.item({ element, index }) : slots.default?.({ element, index })
+        )
+      );
+  },
+});
 
 function createTextField(initialValue = '') {
   const state = ref(initialValue);
@@ -48,6 +69,7 @@ describe('ExerciseAuthoringPanel - reordenação e inserção', () => {
         stubs: {
           Md3Button: { template: '<button><slot /></button>' },
           MetadataListEditor: { template: '<div />' },
+          AuthoringDraggableList: AuthoringDraggableListStub,
           ...iconStubs,
         },
       },
@@ -115,5 +137,35 @@ describe('ExerciseAuthoringPanel - reordenação e inserção', () => {
     expect(typeof blocks[1].__uiKey).toBe('string');
     expect(blocks[1].__uiKey).not.toBe(blocks[0].__uiKey);
     expect(blocks[1].__uiKey).not.toBe(blocks[2].__uiKey);
+  });
+
+  it('permite reordenar blocos arrastando cartões', async () => {
+    const initialBlocks: LessonAuthoringBlock[] = [
+      { type: 'contentBlock', title: 'Primeiro', __uiKey: 'exercise-block-1' },
+      { type: 'contentBlock', title: 'Segundo', __uiKey: 'exercise-block-2' },
+      { type: 'contentBlock', title: 'Terceiro', __uiKey: 'exercise-block-3' },
+    ];
+
+    const { wrapper, exerciseModel } = await mountPanel(initialBlocks);
+
+    const draggable = wrapper.findComponent({ name: 'AuthoringDraggableList' });
+    expect(draggable.exists()).toBe(true);
+
+    const reordered = [
+      initialBlocks[2],
+      initialBlocks[0],
+      initialBlocks[1],
+    ] as LessonAuthoringBlock[];
+
+    await draggable.vm.$emit('update:modelValue', reordered);
+    await draggable.vm.$emit('end', { oldIndex: 0, newIndex: 1 });
+    await flushPromises();
+
+    expect(readCardTitles(wrapper)).toEqual(['Terceiro', 'Primeiro', 'Segundo']);
+    const blocks = (exerciseModel.value?.blocks ?? []) as LessonAuthoringBlock[];
+    expect(blocks).toHaveLength(3);
+    expect(blocks[0].__uiKey).toBe('exercise-block-3');
+    expect(blocks[1].__uiKey).toBe('exercise-block-1');
+    expect(blocks[2].__uiKey).toBe('exercise-block-2');
   });
 });

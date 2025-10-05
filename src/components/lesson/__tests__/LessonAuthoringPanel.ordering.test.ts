@@ -1,5 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { computed, ref } from 'vue';
+import { computed, defineComponent, h, ref, type PropType } from 'vue';
 import { describe, expect, it } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
 import type { LessonAuthoringBlock } from '@/composables/useAuthoringBlockKeys';
@@ -19,6 +19,27 @@ const iconStubs = {
   Plus: true,
   Trash2: true,
 };
+
+const AuthoringDraggableListStub = defineComponent({
+  name: 'AuthoringDraggableList',
+  props: {
+    modelValue: {
+      type: Array as PropType<LessonAuthoringBlock[]>,
+      default: () => [],
+    },
+  },
+  emits: ['update:modelValue', 'end'],
+  setup(props, { slots, attrs }) {
+    return () =>
+      h(
+        'div',
+        attrs,
+        props.modelValue.map((element, index) =>
+          slots.item ? slots.item({ element, index }) : slots.default?.({ element, index })
+        )
+      );
+  },
+});
 
 function createTextField(initialValue = '') {
   const state = ref(initialValue);
@@ -51,6 +72,7 @@ describe('LessonAuthoringPanel - reordenação e inserção', () => {
         stubs: {
           Md3Button: { template: '<button><slot /></button>' },
           MetadataListEditor: { template: '<div />' },
+          AuthoringDraggableList: AuthoringDraggableListStub,
           ...iconStubs,
         },
       },
@@ -90,6 +112,36 @@ describe('LessonAuthoringPanel - reordenação e inserção', () => {
     const blocks = lessonModel.value?.blocks as LessonAuthoringBlock[];
     expect(blocks[0].__uiKey).toBe('lesson-block-2');
     expect(blocks[1].__uiKey).toBe('lesson-block-1');
+  });
+
+  it('reordena blocos via arrastar e mantém chaves estáveis', async () => {
+    const initialBlocks: LessonAuthoringBlock[] = [
+      { type: 'contentBlock', title: 'Primeiro', __uiKey: 'lesson-block-1' },
+      { type: 'contentBlock', title: 'Segundo', __uiKey: 'lesson-block-2' },
+      { type: 'contentBlock', title: 'Terceiro', __uiKey: 'lesson-block-3' },
+    ];
+
+    const { wrapper, lessonModel } = await mountPanel(initialBlocks);
+
+    const draggable = wrapper.findComponent({ name: 'AuthoringDraggableList' });
+    expect(draggable.exists()).toBe(true);
+
+    const reordered = [
+      initialBlocks[1],
+      initialBlocks[2],
+      initialBlocks[0],
+    ] as LessonAuthoringBlock[];
+
+    await draggable.vm.$emit('update:modelValue', reordered);
+    await draggable.vm.$emit('end', { oldIndex: 0, newIndex: 2 });
+    await flushPromises();
+
+    expect(readCardTitles(wrapper)).toEqual(['Segundo', 'Terceiro', 'Primeiro']);
+    const blocks = (lessonModel.value?.blocks ?? []) as LessonAuthoringBlock[];
+    expect(blocks).toHaveLength(3);
+    expect(blocks[0].__uiKey).toBe('lesson-block-2');
+    expect(blocks[1].__uiKey).toBe('lesson-block-3');
+    expect(blocks[2].__uiKey).toBe('lesson-block-1');
   });
 
   it('mantém o cartão correto para cada bloco ao inserir um item', async () => {
