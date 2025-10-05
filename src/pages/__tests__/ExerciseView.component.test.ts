@@ -1,8 +1,32 @@
 import { describe, expect, it, beforeEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { computed, shallowRef, ref } from 'vue';
-import ExerciseView from '../ExerciseView.vue';
 import type { ExerciseViewController } from '../ExerciseView.logic';
+
+const BlockEditorStub = {
+  props: ['block'],
+  emits: ['update:block'],
+  template: '<div class="block-editor-stub">{{ block?.title ?? block?.__uiKey }}</div>',
+};
+
+const MetadataListEditorStub = {
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
+  template: '<div class="metadata-list-editor-stub"></div>',
+};
+
+vi.mock('@/composables/useLessonEditorModel', async () => {
+  const actual = await vi.importActual<typeof import('@/composables/useLessonEditorModel')>(
+    '@/composables/useLessonEditorModel'
+  );
+
+  return {
+    ...actual,
+    resolveLessonBlockEditor: () => BlockEditorStub,
+  };
+});
+
+import ExerciseView from '../ExerciseView.vue';
 
 type Controller = ExerciseViewController;
 
@@ -39,26 +63,6 @@ vi.mock('@/composables/useTeacherMode', () => ({
   }),
 }));
 
-const exerciseEditorModel = ref<Record<string, unknown> | null>({});
-
-vi.mock('@/composables/useLessonEditorModel', () => ({
-  useLessonEditorModel: () => ({
-    lessonModel: exerciseEditorModel,
-    setLessonModel: (value: Record<string, unknown> | null) => {
-      exerciseEditorModel.value = value;
-    },
-    tagsField: computed({
-      get: () => '',
-      set: () => undefined,
-    }),
-    useArrayField: () =>
-      computed({
-        get: () => '',
-        set: () => undefined,
-      }),
-  }),
-}));
-
 const contentSyncMock = {
   loading: ref(false),
   saving: ref(false),
@@ -71,28 +75,19 @@ const contentSyncMock = {
   serviceAvailable: true,
 };
 
+let lastContentEditorOptions: {
+  setModel: (model: unknown) => void;
+} | null = null;
+
 vi.mock('@/services/useTeacherContentEditor', () => ({
-  useTeacherContentEditor: () => contentSyncMock,
+  useTeacherContentEditor: (options: { setModel: (model: unknown) => void }) => {
+    lastContentEditorOptions = options;
+    return contentSyncMock;
+  },
 }));
 
 const ButtonStub = {
   template: '<button><slot /></button>',
-};
-
-const ExerciseAuthoringPanelStub = {
-  name: 'ExerciseAuthoringPanel',
-  props: [
-    'exerciseModel',
-    'tagsField',
-    'saving',
-    'hasPendingChanges',
-    'saveError',
-    'errorMessage',
-    'successMessage',
-    'canRevert',
-    'onRevert',
-  ],
-  template: '<div class="exercise-authoring-panel"></div>',
 };
 
 function stubMatchMedia() {
@@ -124,12 +119,17 @@ const mountAppWithExerciseView = async () => {
       stubs: {
         Md3Button: ButtonStub,
         RouterLink: { template: '<a><slot /></a>' },
-        ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+        MetadataListEditor: MetadataListEditorStub,
         ChevronRight: { template: '<span />' },
         ArrowLeft: { template: '<span />' },
+        ArrowDown: { template: '<span />' },
+        ArrowUp: { template: '<span />' },
+        GripVertical: { template: '<span />' },
+        Plus: { template: '<span />' },
+        PenSquare: { template: '<span />' },
+        Trash2: { template: '<span />' },
         SiteHeader: { template: '<header />' },
         SiteFooter: { template: '<footer />' },
-        ArrowUp: { template: '<span />' },
         RouterView: {
           template: '<ExerciseView />',
           components: { ExerciseView },
@@ -150,27 +150,49 @@ describe('ExerciseView component', () => {
     contentSyncMock.serviceAvailable = true;
     teacherModeMock.value = true;
     toggleTeacherModeMock.mockReset();
-    exerciseEditorModel.value = {};
+    lastContentEditorOptions = null;
+    if (typeof HTMLElement !== 'undefined') {
+      Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+        value: vi.fn(),
+        configurable: true,
+        writable: true,
+      });
+    }
   });
 
   afterEach(() => {
     vi.unstubAllEnvs();
   });
 
-  it('exibe painel de autoria como visão padrão', () => {
+  it('exibe painel de autoria como visão padrão', async () => {
     const wrapper = mount(ExerciseView, {
       global: {
         stubs: {
           Md3Button: ButtonStub,
           RouterLink: { template: '<a><slot /></a>' },
-          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+          MetadataListEditor: MetadataListEditorStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
         },
       },
     });
 
-    expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(true);
+    lastContentEditorOptions?.setModel?.({
+      title: 'Título',
+      blocks: [{ type: 'contentBlock', __uiKey: 'exercise-block-1', title: 'Passo 1' }],
+    });
+    await wrapper.vm.$nextTick();
+
+    expect(
+      wrapper.find('.teacher-authoring-workspace__sidebar .exercise-authoring-sidebar').exists()
+    ).toBe(true);
+    expect(wrapper.find('.exercise-block-editor').exists()).toBe(true);
     expect(wrapper.find('.lesson-content').exists()).toBe(false);
   });
 
@@ -180,18 +202,70 @@ describe('ExerciseView component', () => {
         stubs: {
           Md3Button: ButtonStub,
           RouterLink: { template: '<a><slot /></a>' },
-          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+          MetadataListEditor: MetadataListEditorStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
         },
       },
     });
 
+    lastContentEditorOptions?.setModel?.({
+      title: 'Título',
+      blocks: [{ type: 'contentBlock', __uiKey: 'exercise-block-1', title: 'Passo 1' }],
+    });
+    await wrapper.vm.$nextTick();
+
     await wrapper.get('[data-testid="teacher-workspace-tab-preview"]').trigger('click');
 
-    expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.exercise-block-editor').exists()).toBe(false);
     expect(wrapper.find('.teacher-preview-shell').exists()).toBe(true);
     expect(wrapper.text()).toContain('Título');
+  });
+
+  it('mantém a navegação por blocos entre a barra lateral e o editor', async () => {
+    const wrapper = mount(ExerciseView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          MetadataListEditor: MetadataListEditorStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
+        },
+      },
+    });
+
+    lastContentEditorOptions?.setModel?.({
+      blocks: [
+        { type: 'contentBlock', __uiKey: 'exercise-block-1', title: 'Passo 1' },
+        { type: 'contentBlock', __uiKey: 'exercise-block-2', title: 'Passo 2' },
+      ],
+    });
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.get('.block-editor-stub').text()).toContain('Passo 1');
+
+    const sidebar = wrapper.findComponent({ name: 'ExerciseAuthoringSidebar' });
+    const selectBlock = sidebar.props().onSelectBlock as (index: number) => void;
+    expect(typeof selectBlock).toBe('function');
+    selectBlock(1);
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.get('.block-editor-stub').text()).toContain('Passo 2');
   });
 
   it('mostra fallback quando exercício não possui componente', async () => {
@@ -201,14 +275,18 @@ describe('ExerciseView component', () => {
         stubs: {
           Md3Button: ButtonStub,
           RouterLink: { template: '<a><slot /></a>' },
-          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+          MetadataListEditor: MetadataListEditorStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
         },
       },
     });
-
-    await wrapper.get('[data-testid="teacher-workspace-tab-preview"]').trigger('click');
 
     expect(wrapper.text()).toContain('Conteúdo deste exercício ainda não está disponível');
   });
@@ -221,14 +299,20 @@ describe('ExerciseView component', () => {
         stubs: {
           Md3Button: ButtonStub,
           RouterLink: { template: '<a><slot /></a>' },
-          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+          MetadataListEditor: MetadataListEditorStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
         },
       },
     });
 
-    expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.exercise-block-editor').exists()).toBe(false);
     expect(wrapper.text()).toContain('Título');
   });
 
