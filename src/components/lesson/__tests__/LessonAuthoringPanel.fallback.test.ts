@@ -60,12 +60,14 @@ vi.mock('@/composables/useLessonEditorModel', async (importOriginal) => {
 });
 
 const iconStubs = {
+  AlertCircle: true,
   ArrowDown: true,
   ArrowUp: true,
   CheckCircle2: true,
   CircleDashed: true,
   Clock3: true,
   GripVertical: true,
+  LoaderCircle: true,
   PenSquare: true,
   Plus: true,
   Trash2: true,
@@ -94,6 +96,9 @@ describe('LessonAuthoringPanel - generic block editor integration', () => {
         lessonModel,
         tagsField: createTextField(),
         createArrayField: () => createTextField(),
+        saving: ref(false),
+        hasPendingChanges: ref(false),
+        saveError: ref<string | null>(null),
       },
       global: {
         stubs: {
