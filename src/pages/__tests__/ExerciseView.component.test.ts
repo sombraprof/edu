@@ -105,7 +105,7 @@ describe('ExerciseView component', () => {
     exerciseEditorModel.value = {};
   });
 
-  it('renderiza componente de exercício quando disponível', () => {
+  it('exibe painel de autoria como visão padrão', () => {
     const wrapper = mount(ExerciseView, {
       global: {
         stubs: {
@@ -118,10 +118,30 @@ describe('ExerciseView component', () => {
       },
     });
 
+    expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(true);
+    expect(wrapper.find('.lesson-content').exists()).toBe(false);
+  });
+
+  it('permite alternar para visualizar a prévia do exercício', async () => {
+    const wrapper = mount(ExerciseView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+        },
+      },
+    });
+
+    await wrapper.get('[data-testid="teacher-workspace-tab-preview"]').trigger('click');
+
+    expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(false);
     expect(wrapper.text()).toContain('Título');
   });
 
-  it('mostra fallback quando exercício não possui componente', () => {
+  it('mostra fallback quando exercício não possui componente', async () => {
     controllerMock.exerciseComponent.value = null;
     const wrapper = mount(ExerciseView, {
       global: {
@@ -134,6 +154,8 @@ describe('ExerciseView component', () => {
         },
       },
     });
+
+    await wrapper.get('[data-testid="teacher-workspace-tab-preview"]').trigger('click');
 
     expect(wrapper.text()).toContain('Conteúdo deste exercício ainda não está disponível');
   });
@@ -154,5 +176,6 @@ describe('ExerciseView component', () => {
     });
 
     expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(false);
+    expect(wrapper.text()).toContain('Título');
   });
 });
