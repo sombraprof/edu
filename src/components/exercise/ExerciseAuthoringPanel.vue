@@ -91,7 +91,7 @@
         <div v-if="blocks.length" class="md-stack md-stack-2">
           <article
             v-for="(block, index) in blocks"
-            :key="index"
+            :key="block.__uiKey"
             class="md-shape-extra-large border border-outline-variant bg-surface-container-high p-3"
             :class="{ 'border-primary': index === selectedBlockIndex }"
           >
@@ -191,6 +191,11 @@ import {
   type LessonEditorModel,
 } from '@/composables/useLessonEditorModel';
 import { useAuthoringSaveTracker } from '@/composables/useAuthoringSaveTracker';
+import {
+  ensureAuthoringBlockKey,
+  inheritAuthoringBlockKey,
+  type LessonAuthoringBlock,
+} from '@/composables/useAuthoringBlockKeys';
 
 const props = defineProps<{
   exerciseModel: Ref<LessonEditorModel | null>;
@@ -211,7 +216,9 @@ const tagsFieldProxy = computed({
   },
 });
 
-const blocks = computed(() => props.exerciseModel.value?.blocks ?? []);
+const blocks = computed<LessonAuthoringBlock[]>(
+  () => (props.exerciseModel.value?.blocks ?? []) as LessonAuthoringBlock[]
+);
 const selectedBlockIndex = ref(0);
 const newBlockType = ref<string>(supportedBlockTypes[0] ?? 'contentBlock');
 
@@ -233,7 +240,9 @@ watch(blocks, (current) => {
   }
 });
 
-const selectedBlock = computed(() => blocks.value[selectedBlockIndex.value] ?? null);
+const selectedBlock = computed<LessonAuthoringBlock | null>(
+  () => blocks.value[selectedBlockIndex.value] ?? null
+);
 const blockEditorComponent = computed(() =>
   resolveLessonBlockEditor(selectedBlock.value as LessonBlock | null)
 );
@@ -263,11 +272,11 @@ const statusIconClass = computed(() =>
   status.value === 'saving' ? 'md-icon md-icon--sm animate-spin' : 'md-icon md-icon--sm'
 );
 
-function createBlockPayload(type: string): LessonBlock {
-  return { type } as LessonBlock;
+function createBlockPayload(type: string): LessonAuthoringBlock {
+  return ensureAuthoringBlockKey({ type } as LessonBlock);
 }
 
-function updateBlocks(next: LessonBlock[]) {
+function updateBlocks(next: LessonAuthoringBlock[]) {
   if (!props.exerciseModel.value) return;
   props.exerciseModel.value.blocks = next;
 }
@@ -297,8 +306,9 @@ function replaceSelectedBlock(nextBlock: LessonBlock) {
   const index = selectedBlockIndex.value;
   if (index < 0 || index >= props.exerciseModel.value.blocks.length) return;
 
-  const nextBlocks = [...props.exerciseModel.value.blocks];
-  nextBlocks.splice(index, 1, nextBlock);
+  const nextBlocks = [...props.exerciseModel.value.blocks] as LessonAuthoringBlock[];
+  const current = nextBlocks[index];
+  nextBlocks.splice(index, 1, inheritAuthoringBlockKey(current, nextBlock));
   updateBlocks(nextBlocks);
 }
 
@@ -312,7 +322,7 @@ function removeBlock(index: number) {
   }
 }
 
-function formatBlockTitle(block: LessonBlock, index: number) {
+function formatBlockTitle(block: LessonAuthoringBlock, index: number) {
   if (typeof block !== 'object' || !block) return `Bloco ${index + 1}`;
   const maybeTitle = (block as Record<string, unknown>).title;
   if (typeof maybeTitle === 'string' && maybeTitle.length) {

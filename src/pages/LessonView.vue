@@ -99,6 +99,10 @@ import { useTeacherMode } from '@/composables/useTeacherMode';
 import { useLessonViewController } from './LessonView.logic';
 import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
+import {
+  applyAuthoringBlockKeys,
+  stripAuthoringBlockKeys,
+} from '@/composables/useAuthoringBlockKeys';
 import { createPrismHighlightHandler } from '@/utils/prismHighlight';
 
 function cloneDeep<T>(value: T): T {
@@ -115,7 +119,7 @@ function toLessonEditorModel(raw: LessonFilePayload): LessonEditorModel {
   const { content, ...rest } = raw;
   return {
     ...(rest as LessonEditorModel),
-    blocks: Array.isArray(content) ? cloneDeep(content) : [],
+    blocks: Array.isArray(content) ? applyAuthoringBlockKeys(cloneDeep(content)) : [],
   };
 }
 
@@ -127,7 +131,7 @@ function toLessonFilePayload(
   const { blocks, ...rest } = model;
   Object.assign(target, rest);
   if (Array.isArray(blocks)) {
-    target.content = cloneDeep(blocks);
+    target.content = cloneDeep(stripAuthoringBlockKeys(blocks));
   } else {
     target.content = [];
   }

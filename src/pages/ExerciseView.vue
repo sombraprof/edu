@@ -81,6 +81,10 @@ import { useTeacherMode } from '@/composables/useTeacherMode';
 import { useExerciseViewController } from './ExerciseView.logic';
 import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
+import {
+  applyAuthoringBlockKeys,
+  stripAuthoringBlockKeys,
+} from '@/composables/useAuthoringBlockKeys';
 
 function cloneDeep<T>(value: T): T {
   try {
@@ -96,7 +100,7 @@ function toExerciseEditorModel(raw: ExerciseFilePayload): LessonEditorModel {
   const { content, ...rest } = raw;
   return {
     ...(rest as LessonEditorModel),
-    blocks: Array.isArray(content) ? cloneDeep(content) : [],
+    blocks: Array.isArray(content) ? applyAuthoringBlockKeys(cloneDeep(content)) : [],
   };
 }
 
@@ -108,7 +112,7 @@ function toExerciseFilePayload(
   const { blocks, ...rest } = model;
   Object.assign(target, rest);
   if (Array.isArray(blocks)) {
-    target.content = cloneDeep(blocks);
+    target.content = cloneDeep(stripAuthoringBlockKeys(blocks));
   } else {
     target.content = [];
   }
