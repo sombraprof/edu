@@ -19,13 +19,19 @@ const metaEntry = vi.hoisted(() => ({
 
 const lessonsManifest = vi.hoisted(() => ({
   entries: [
-    { id: 'lesson-01', title: 'Introdução' },
-    { id: 'lesson-02', title: 'Capítulo 2' },
+    { id: 'lesson-01', title: 'Introdução', available: true },
+    { id: 'lesson-02', title: 'Capítulo 2', available: false },
+    { id: 'lesson-03', title: 'Encerramento' },
   ],
 }));
 
 const exercisesManifest = vi.hoisted(() => ({
-  entries: [{ id: 'exercise-01', title: 'Projeto inicial' }],
+  entries: [
+    { id: 'exercise-01', title: 'Projeto inicial', available: true, file: 'exercise-01.md' },
+    { id: 'exercise-02', title: 'Checklist', link: 'https://example.com/checklist' },
+    { id: 'exercise-03', title: 'Rascunho', available: false, file: 'exercise-03.md' },
+    { id: 'exercise-04', title: 'Sem recurso', available: true },
+  ],
 }));
 
 function createController() {
@@ -54,8 +60,16 @@ describe('CourseLayout logic', () => {
 
     expect(controller.metaLoaded.value).toBe(true);
     expect(controller.meta.value?.title).toBe('Curso Demo');
+    expect(controller.lessons.value).toEqual(
+      expect.arrayContaining([expect.objectContaining({ id: 'lesson-02', available: false })])
+    );
+    expect(controller.exercises.value).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: 'exercise-02', link: 'https://example.com/checklist' }),
+      ])
+    );
     expect(controller.lessonsCount.value).toBe(2);
-    expect(controller.exercisesCount.value).toBe(1);
+    expect(controller.exercisesCount.value).toBe(2);
   });
 
   it('reseta estado ao receber id vazio', async () => {
