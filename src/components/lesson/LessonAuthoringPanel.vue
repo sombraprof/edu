@@ -230,17 +230,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  nextTick,
-  ref,
-  toRef,
-  toValue,
-  useId,
-  watch,
-  type Ref,
-  type WritableComputedRef,
-} from 'vue';
+import { computed, nextTick, ref, useId, watch, type Ref, type WritableComputedRef } from 'vue';
 import {
   AlertCircle,
   ArrowDown,
@@ -285,11 +275,10 @@ const props = defineProps<{
 }>();
 
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
-  const target = toRef(field, 'value');
   return computed({
-    get: () => toValue(target),
+    get: () => field.value,
     set: (value: string) => {
-      target.value = value;
+      field.value = value;
     },
   });
 }
@@ -423,7 +412,10 @@ function commitPendingBlockOrder(event?: DragEndEvent) {
 
   pendingReorder.value = null;
 
-  const currentByKey = new Map(current.map((block) => [block.__uiKey, block]));
+  const currentByKey = new Map<string, LessonAuthoringBlock>();
+  for (const block of current) {
+    currentByKey.set(block.__uiKey, block);
+  }
   const normalized = proposed.map((block, index) => {
     const key = typeof block?.__uiKey === 'string' ? block.__uiKey : undefined;
     const source = (key ? currentByKey.get(key) : undefined) ?? current[index];
