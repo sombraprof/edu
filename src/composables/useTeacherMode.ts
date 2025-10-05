@@ -1,13 +1,14 @@
 import { computed, readonly, ref } from 'vue';
 
-const authoringForced = import.meta.env.DEV && Boolean(import.meta.env.VITE_TEACHER_API_URL);
+const manualAuthoringEnabled = Boolean(import.meta.env.VITE_TEACHER_API_URL);
+const authoringForced = Boolean(import.meta.env.DEV) && manualAuthoringEnabled;
 
 const teacherMode = ref(authoringForced);
 const ready = ref(authoringForced);
 let initialized = false;
 
 function persist(value: boolean) {
-  if (authoringForced || typeof window === 'undefined') {
+  if (authoringForced || !manualAuthoringEnabled || typeof window === 'undefined') {
     return;
   }
   try {
@@ -24,12 +25,18 @@ function setTeacherMode(value: boolean) {
     return;
   }
 
+  if (!manualAuthoringEnabled) {
+    teacherMode.value = false;
+    ready.value = true;
+    return;
+  }
+
   teacherMode.value = value;
   persist(value);
 }
 
 function syncFromQueryString() {
-  if (authoringForced || typeof window === 'undefined') {
+  if (authoringForced || !manualAuthoringEnabled || typeof window === 'undefined') {
     return false;
   }
 
@@ -51,7 +58,7 @@ function syncFromQueryString() {
 }
 
 function syncFromStorage() {
-  if (authoringForced || typeof window === 'undefined') {
+  if (authoringForced || !manualAuthoringEnabled || typeof window === 'undefined') {
     ready.value = true;
     return;
   }
@@ -65,13 +72,30 @@ function syncFromStorage() {
   }
 }
 
+function clearPersistedState() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  try {
+    window.localStorage.removeItem('teacherMode');
+  } catch (error) {
+    console.warn('[useTeacherMode] Failed to clear teacher mode from storage', error);
+  }
+}
+
 export function useTeacherMode() {
   if (!initialized) {
     initialized = true;
     if (!authoringForced) {
-      const handledByQuery = syncFromQueryString();
-      if (!handledByQuery) {
-        syncFromStorage();
+      if (!manualAuthoringEnabled) {
+        teacherMode.value = false;
+        ready.value = true;
+        clearPersistedState();
+      } else {
+        const handledByQuery = syncFromQueryString();
+        if (!handledByQuery) {
+          syncFromStorage();
+        }
       }
     } else {
       teacherMode.value = true;
