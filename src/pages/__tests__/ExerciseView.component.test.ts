@@ -638,8 +638,9 @@ describe('ExerciseView component', () => {
       },
     });
 
+    expect(wrapper.find('.teacher-authoring-workspace').exists()).toBe(false);
     expect(wrapper.find('.exercise-block-editor').exists()).toBe(false);
-    expect(wrapper.find('.lesson-content').exists()).toBe(false);
+    expect(wrapper.text()).toContain('Título');
   });
 
   it('aplica layout expandido de professor quando automação está disponível', async () => {
