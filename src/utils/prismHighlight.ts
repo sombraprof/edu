@@ -67,18 +67,27 @@ function toElementList(
   return list;
 }
 
-function parseContext(context: unknown): PrismHighlightContext {
+function parseContext(context: unknown): {
+  root: Element | null;
+  targets: Element | Iterable<Element | null | undefined> | null;
+} {
   if (!context || typeof context !== 'object') {
-    return {};
+    return { root: null, targets: null };
   }
 
   const candidate = context as PrismHighlightContext;
   const root = candidate.root instanceof Element ? candidate.root : null;
-  const targets = toElementList(candidate.targets ?? null);
-  return {
-    root,
-    targets,
-  };
+
+  const rawTargets = candidate.targets ?? null;
+  if (rawTargets instanceof Element) {
+    return { root, targets: rawTargets };
+  }
+
+  if (rawTargets && typeof (rawTargets as Iterable<unknown>)[Symbol.iterator] === 'function') {
+    return { root, targets: rawTargets as Iterable<Element | null | undefined> };
+  }
+
+  return { root, targets: null };
 }
 
 export function createPrismHighlightHandler(): PrismHighlightHandler {
@@ -93,7 +102,7 @@ export function createPrismHighlightHandler(): PrismHighlightHandler {
     }
 
     const highlightRoot = root ?? lastRoot;
-    const highlightTargets = targets;
+    const highlightTargets = toElementList(targets);
 
     requestAnimationFrame(() => {
       if (highlightTargets.length > 0) {
