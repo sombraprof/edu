@@ -6,6 +6,7 @@ Guia operacional para gerar e manter conteúdo do EDU com apoio de modelos de li
 
 - Sempre produza JSON estruturado compatível com os blocos descritos na documentação (evitar HTML cru / `legacySection`).【F:docs/CONTENT_AUTHORING_GUIDE.md†L9-L53】
 - Referencie os utilitários MD3 existentes (`.md-typescale-*`, `.md-surface*`, `.md-elevation-*`, `.text-on-*`, `.md-icon--*`) e evite inventar classes CSS novas sem justificativa.【F:src/assets/styles.css†L1-L200】
+- Utilize o editor inline em `/professor/editor` com o serviço simplificado (`GET/PUT /api/teacher/content`). Antes de editar, execute `npm run teacher:service` e configure `VITE_TEACHER_API_URL`; automações de scripts/Git não estão mais disponíveis no backend.【F:docs/professor-module/automation-backend.md†L1-L68】【F:docs/professor-module/README.md†L5-L63】
 - Responder em português para o conteúdo e em inglês para comentários no código.
 - Após gerar, execute `npm run validate:content` (ou `npm run validate:report` para guardar o relatório consolidado com os metadados) e revise manualmente antes de publicar.
 - Gere `npm run report:observability` para confirmar quantas lições ainda dependem de blocos legados e se os metadados de exercícios/suplementos continuam completos.
