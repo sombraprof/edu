@@ -134,7 +134,7 @@ import {
   type LessonEditorModel,
 } from '@/composables/useLessonEditorModel';
 import { useTeacherMode } from '@/composables/useTeacherMode';
-import { useLessonViewController } from './LessonView.logic';
+import { useLessonViewController, type LessonManifest } from './LessonView.logic';
 import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
 import { supportedBlockTypes, type LessonBlock } from '@/components/lesson/blockRegistry';
 import {
@@ -159,13 +159,7 @@ function cloneDeep<T>(value: T): T {
 
 type LessonFilePayload = Record<string, unknown> & { content?: LessonBlock[] };
 
-type LessonManifestEntry = Record<string, unknown> & {
-  id: string;
-  available?: boolean;
-  link?: string;
-  type?: string;
-  metadata?: Record<string, unknown> | null;
-};
+type LessonManifestEntry = LessonManifest & Record<string, unknown>;
 
 type LessonManifestFile = Record<string, unknown> & {
   entries?: LessonManifestEntry[];

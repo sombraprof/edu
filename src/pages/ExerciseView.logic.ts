@@ -1,26 +1,23 @@
 import { computed, defineAsyncComponent, ref, shallowRef, watch, type ComputedRef } from 'vue';
 import { useRoute, type RouteLocationNormalizedLoaded } from 'vue-router';
 import { normalizeManifest } from '@/content/loaders';
+import type { GenerationMetadata } from '@/content/schema/lesson';
+
+export type { GenerationMetadata } from '@/content/schema/lesson';
 
 type ManifestLoaderMap = Record<string, () => Promise<unknown>>;
 
 type ExerciseWrapperMap = Record<string, () => Promise<unknown>>;
 
-type GenerationMetadata = {
-  generatedBy: string;
-  model: string;
-  timestamp: string;
-};
-
-type ExerciseManifest = {
+export type ExerciseManifest = {
   id: string;
-  title: string;
+  title?: string;
   file?: string;
   link?: string;
   available?: boolean;
   description?: string;
   summary?: string;
-  metadata?: GenerationMetadata;
+  metadata?: GenerationMetadata | null;
   type?: string;
 };
 
@@ -105,7 +102,7 @@ export function useExerciseViewController(
 
     const snapshot: ExerciseManifest = {
       ...entry,
-      metadata: entry.metadata ? { ...entry.metadata } : undefined,
+      metadata: entry.metadata ? { ...entry.metadata } : null,
     };
 
     applyManifestEntry(snapshot);
@@ -134,7 +131,7 @@ export function useExerciseViewController(
 
       setManifestEntry(entry);
 
-      exerciseTitle.value = entry.title;
+      exerciseTitle.value = entry.title ?? '';
       exerciseSummary.value = entry.summary ?? entry.description ?? '';
       exerciseFile.value = entry.file ?? '';
 
