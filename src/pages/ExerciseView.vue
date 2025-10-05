@@ -16,56 +16,66 @@
       <span class="page-breadcrumb__current">{{ exerciseTitle }}</span>
     </nav>
 
-    <div class="layout layout--split">
-      <article class="card layout--split__main max-w-none md-stack md-stack-6 p-8">
-        <header class="md-stack md-stack-3">
-          <div class="md-stack md-stack-2">
-            <p
-              class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
-            >
-              Exercício
-            </p>
-            <h2 class="text-headline-medium font-semibold text-on-surface">
-              {{ exerciseTitle }}
-            </h2>
-            <p v-if="exerciseSummary" class="text-body-large !mt-4">{{ exerciseSummary }}</p>
-          </div>
-        </header>
-        <div class="divider" role="presentation"></div>
-
-        <component
-          v-if="exerciseComponent"
-          :is="exerciseComponent"
-          class="lesson-content prose max-w-none dark:prose-invert"
+    <TeacherAuthoringWorkspace
+      v-model:view="workspaceView"
+      class="exercise-view__workspace"
+      :editor-enabled="showAuthoringPanel"
+      :default-view="showAuthoringPanel ? 'editor' : 'preview'"
+    >
+      <template #editor>
+        <ExerciseAuthoringPanel
+          v-if="showAuthoringPanel"
+          class="exercise-view__authoring-panel"
+          :exercise-model="exerciseEditor.lessonModel"
+          :tags-field="exerciseEditor.tagsField"
+          :saving="exerciseContentSync.saving"
+          :has-pending-changes="exerciseContentSync.hasPendingChanges"
+          :save-error="exerciseContentSync.saveError"
+          :error-message="exerciseAuthoringError"
+          :success-message="exerciseAuthoringSuccess"
+          :can-revert="exerciseCanRevert"
+          :on-revert="exerciseContentSync.revertChanges"
         />
-        <p v-else class="text-body-medium text-on-surface-variant">
-          Conteúdo deste exercício ainda não está disponível.
-        </p>
-      </article>
+      </template>
 
-      <ExerciseAuthoringPanel
-        v-if="showAuthoringPanel"
-        class="layout--split__aside"
-        :exercise-model="exerciseEditor.lessonModel"
-        :tags-field="exerciseEditor.tagsField"
-        :saving="exerciseContentSync.saving"
-        :has-pending-changes="exerciseContentSync.hasPendingChanges"
-        :save-error="exerciseContentSync.saveError"
-        :error-message="exerciseAuthoringError"
-        :success-message="exerciseAuthoringSuccess"
-        :can-revert="exerciseCanRevert"
-        :on-revert="exerciseContentSync.revertChanges"
-      />
-    </div>
+      <template #preview>
+        <article class="card max-w-none md-stack md-stack-6 p-8">
+          <header class="md-stack md-stack-3">
+            <div class="md-stack md-stack-2">
+              <p
+                class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
+              >
+                Exercício
+              </p>
+              <h2 class="text-headline-medium font-semibold text-on-surface">
+                {{ exerciseTitle }}
+              </h2>
+              <p v-if="exerciseSummary" class="text-body-large !mt-4">{{ exerciseSummary }}</p>
+            </div>
+          </header>
+          <div class="divider" role="presentation"></div>
+
+          <component
+            v-if="exerciseComponent"
+            :is="exerciseComponent"
+            class="lesson-content prose max-w-none dark:prose-invert"
+          />
+          <p v-else class="text-body-medium text-on-surface-variant">
+            Conteúdo deste exercício ainda não está disponível.
+          </p>
+        </article>
+      </template>
+    </TeacherAuthoringWorkspace>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { RouterLink } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 import ExerciseAuthoringPanel from '@/components/exercise/ExerciseAuthoringPanel.vue';
+import TeacherAuthoringWorkspace from '@/components/teacher/TeacherAuthoringWorkspace.vue';
 import { useLessonEditorModel, type LessonEditorModel } from '@/composables/useLessonEditorModel';
 import { useTeacherMode } from '@/composables/useTeacherMode';
 import { useExerciseViewController } from './ExerciseView.logic';
@@ -106,6 +116,10 @@ function toExerciseFilePayload(
   return target;
 }
 
+type WorkspaceView = 'editor' | 'preview';
+
+const workspaceView = ref<WorkspaceView>('editor');
+
 const controller = useExerciseViewController();
 
 const exerciseEditor = useLessonEditorModel();
@@ -141,6 +155,18 @@ const showAuthoringPanel = computed(
     teacherMode.value &&
     exerciseContentSync.serviceAvailable &&
     Boolean(authoringExercise.value)
+);
+
+watch(
+  showAuthoringPanel,
+  (available, previous) => {
+    if (!available) {
+      workspaceView.value = 'preview';
+    } else if (!previous && available) {
+      workspaceView.value = 'editor';
+    }
+  },
+  { immediate: true }
 );
 
 const courseId = computed(() => controller.courseId.value);

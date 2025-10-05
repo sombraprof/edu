@@ -66,6 +66,12 @@ vi.mock('@/services/useTeacherContentEditor', () => ({
   useTeacherContentEditor: () => contentSyncMock,
 }));
 
+const highlightMock = vi.fn();
+
+vi.mock('@/utils/prismHighlight', () => ({
+  createPrismHighlightHandler: () => highlightMock,
+}));
+
 const ButtonStub = {
   props: ['to'],
   template: '<button><slot /></button>',
@@ -102,9 +108,10 @@ describe('LessonView component', () => {
     contentSyncMock.revertChanges.mockReset();
     contentSyncMock.serviceAvailable = true;
     teacherModeMock.value = true;
+    highlightMock.mockReset();
   });
 
-  it('renderiza dados da lição quando disponíveis', () => {
+  it('exibe painel de autoria como visão padrão', () => {
     const wrapper = mount(LessonView, {
       global: {
         stubs: {
@@ -120,8 +127,32 @@ describe('LessonView component', () => {
       },
     });
 
-    expect(wrapper.text()).toContain('Introdução');
-    expect(wrapper.text()).toContain('Objetivo');
+    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(true);
+    expect(wrapper.find('.lesson-content').exists()).toBe(false);
+    expect(highlightMock).not.toHaveBeenCalled();
+  });
+
+  it('permite alternar para visualizar a prévia da lição', async () => {
+    const wrapper = mount(LessonView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          LessonReadiness: StubComponent,
+          LessonOverview: StubComponent,
+          LessonRenderer: StubComponent,
+          LessonAuthoringPanel: LessonAuthoringPanelStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+        },
+      },
+    });
+
+    await wrapper.get('[data-testid="teacher-workspace-tab-preview"]').trigger('click');
+
+    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.lesson-content').exists()).toBe(true);
+    expect(highlightMock).toHaveBeenCalled();
   });
 
   it('mostra fallback quando lição não foi carregada', () => {
@@ -142,6 +173,7 @@ describe('LessonView component', () => {
     });
 
     expect(wrapper.text()).toContain('Não foi possível carregar esta aula');
+    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
   });
 
   it('oculta painel de autoria quando serviço não está disponível', () => {
@@ -163,5 +195,6 @@ describe('LessonView component', () => {
     });
 
     expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.lesson-content').exists()).toBe(true);
   });
 });

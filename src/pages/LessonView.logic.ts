@@ -3,6 +3,7 @@ import { useRoute, type RouteLocationNormalizedLoaded } from 'vue-router';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
 import type { NormalizedLesson } from '@/content/schema/lesson';
 import { normalizeManifest } from '@/content/loaders';
+import { createPrismHighlightHandler } from '@/utils/prismHighlight';
 
 type LessonManifest = {
   id: string;
@@ -50,54 +51,6 @@ export interface LessonViewController {
 const defaultLessonIndexes = import.meta.glob('../content/courses/*/lessons.json');
 const defaultLessonModules = import.meta.glob('../content/courses/*/lessons/*.json');
 
-function createHighlightHandler(): HighlightHandler {
-  type PrismModule = typeof import('prismjs');
-  let prismInstance: PrismModule | null = null;
-  let prismLoader: Promise<PrismModule> | null = null;
-
-  async function ensurePrism(): Promise<PrismModule> {
-    if (prismInstance) {
-      return prismInstance;
-    }
-
-    if (!prismLoader) {
-      prismLoader = (async () => {
-        const core = await import('prismjs');
-        const Prism = (core as { default?: PrismModule }).default ?? (core as PrismModule);
-        const globalWithPrism = globalThis as typeof globalThis & { Prism?: PrismModule };
-        if (!globalWithPrism.Prism) {
-          globalWithPrism.Prism = Prism;
-        }
-
-        await Promise.all([
-          import('prismjs/components/prism-markup'),
-          import('prismjs/components/prism-javascript'),
-          import('prismjs/components/prism-typescript'),
-          import('prismjs/components/prism-python'),
-          import('prismjs/components/prism-json'),
-          import('prismjs/components/prism-java'),
-          import('prismjs/components/prism-c'),
-          import('prismjs/components/prism-cpp'),
-          import('prismjs/components/prism-csharp'),
-          import('prismjs/components/prism-kotlin'),
-        ]);
-
-        return Prism;
-      })();
-    }
-
-    prismInstance = await prismLoader;
-    return prismInstance;
-  }
-
-  return async () => {
-    const Prism = await ensurePrism();
-    requestAnimationFrame(() => {
-      Prism.highlightAll();
-    });
-  };
-}
-
 export function useLessonViewController(
   options: LessonViewControllerOptions = {}
 ): LessonViewController {
@@ -107,7 +60,7 @@ export function useLessonViewController(
 
   const lessonIndexes = options.lessonIndexModules ?? defaultLessonIndexes;
   const lessonModules = options.lessonContentModules ?? defaultLessonModules;
-  const defaultHighlight = createHighlightHandler();
+  const defaultHighlight = createPrismHighlightHandler();
   const highlight = options.highlight ?? defaultHighlight;
 
   const lessonTitle = ref('');
