@@ -22,20 +22,43 @@
       :editor-enabled="showAuthoringPanel"
       :default-view="showAuthoringPanel ? 'editor' : 'preview'"
     >
-      <template #editor>
-        <LessonAuthoringPanel
+      <template #sidebar>
+        <LessonAuthoringSidebar
           v-if="showAuthoringPanel"
-          class="lesson-view__authoring-panel"
           :lesson-model="lessonEditor.lessonModel"
           :tags-field="lessonEditor.tagsField"
           :create-array-field="lessonEditor.useArrayField"
-          :saving="lessonContentSync.saving"
-          :has-pending-changes="lessonContentSync.hasPendingChanges"
-          :save-error="lessonContentSync.saveError"
+          :blocks="lessonBlocks"
+          :draggable-blocks="displayedBlocks"
+          :selected-block-index="selectedBlockIndex"
+          :supported-block-types="supportedBlockTypes"
+          :new-block-type="newBlockType"
+          :status-label="statusLabel"
+          :status-tone="statusTone"
+          :status-icon="statusIcon"
+          :status-icon-class="statusIconClass"
           :error-message="lessonAuthoringError"
           :success-message="lessonAuthoringSuccess"
           :can-revert="lessonCanRevert"
           :on-revert="lessonContentSync.revertChanges"
+          :on-insert-block="insertBlock"
+          :on-select-block="selectBlock"
+          :on-move-block="moveBlock"
+          :on-remove-block="removeBlock"
+          :on-update-new-block-type="updateNewBlockType"
+          :on-update-draggable-blocks="updateDraggableBlocks"
+          :on-drag-end="handleBlockDragEnd"
+          :editor-section-id="editorSectionId"
+        />
+      </template>
+
+      <template #editor>
+        <LessonBlockEditorPanel
+          v-if="showAuthoringPanel"
+          :selected-block="selectedBlock"
+          :block-editor-component="blockEditorComponent"
+          :editor-section-id="editorSectionId"
+          :on-update-block="replaceSelectedBlock"
         />
       </template>
 
@@ -86,25 +109,43 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onBeforeUnmount, ref, shallowRef, watch } from 'vue';
+import { computed, nextTick, onBeforeUnmount, ref, shallowRef, watch, useId } from 'vue';
 import { RouterLink } from 'vue-router';
-import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
+import {
+  AlertCircle,
+  ArrowLeft,
+  CheckCircle2,
+  ChevronRight,
+  CircleDashed,
+  Clock3,
+  LoaderCircle,
+} from 'lucide-vue-next';
 import LessonReadiness from '@/components/lesson/LessonReadiness.vue';
 import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 import LessonOverview from '@/components/lesson/LessonOverview.vue';
 import Md3Button from '@/components/Md3Button.vue';
-import LessonAuthoringPanel from '@/components/lesson/LessonAuthoringPanel.vue';
+import LessonAuthoringSidebar from '@/components/lesson/LessonAuthoringSidebar.vue';
+import LessonBlockEditorPanel from '@/components/lesson/LessonBlockEditorPanel.vue';
 import TeacherAuthoringWorkspace from '@/components/teacher/TeacherAuthoringWorkspace.vue';
-import { useLessonEditorModel, type LessonEditorModel } from '@/composables/useLessonEditorModel';
+import {
+  useLessonEditorModel,
+  resolveLessonBlockEditor,
+  type LessonEditorModel,
+} from '@/composables/useLessonEditorModel';
 import { useTeacherMode } from '@/composables/useTeacherMode';
 import { useLessonViewController } from './LessonView.logic';
 import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
-import type { LessonBlock } from '@/components/lesson/blockRegistry';
+import { supportedBlockTypes, type LessonBlock } from '@/components/lesson/blockRegistry';
 import {
   applyAuthoringBlockKeys,
   stripAuthoringBlockKeys,
+  ensureAuthoringBlockKey,
+  inheritAuthoringBlockKey,
+  type LessonAuthoringBlock,
 } from '@/composables/useAuthoringBlockKeys';
 import { createPrismHighlightHandler } from '@/utils/prismHighlight';
+import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTemplates';
+import { useAuthoringSaveTracker } from '@/composables/useAuthoringSaveTracker';
 
 function cloneDeep<T>(value: T): T {
   try {
@@ -157,6 +198,173 @@ const blockSnapshots = shallowRef<BlockSnapshot[]>([]);
 let highlightTimer: ReturnType<typeof setTimeout> | null = null;
 let highlightPendingForce = false;
 const highlightPendingKeys = new Set<string>();
+
+const lessonBlocks = computed<LessonAuthoringBlock[]>(
+  () => (lessonEditor.lessonModel.value?.blocks ?? []) as LessonAuthoringBlock[]
+);
+const selectedBlockIndex = ref(0);
+const editorSectionId = `lesson-authoring-selected-block-${useId()}`;
+const newBlockType = ref<string>(supportedBlockTypes[0] ?? 'contentBlock');
+const pendingReorder = ref<LessonAuthoringBlock[] | null>(null);
+const displayedBlocks = computed<LessonAuthoringBlock[]>(
+  () => pendingReorder.value ?? lessonBlocks.value
+);
+
+const selectedBlock = computed<LessonAuthoringBlock | null>(
+  () => lessonBlocks.value[selectedBlockIndex.value] ?? null
+);
+
+const blockEditorComponent = computed(() =>
+  resolveLessonBlockEditor(selectedBlock.value as LessonBlock | null)
+);
+
+type DragEndEvent = { oldIndex?: number | null; newIndex?: number | null };
+
+function updateNewBlockType(value: string) {
+  if (!value) {
+    return;
+  }
+  newBlockType.value = value;
+}
+
+function updateDraggableBlocks(value: LessonAuthoringBlock[]) {
+  pendingReorder.value = [...value];
+}
+
+function createBlockPayload(type: string): LessonAuthoringBlock {
+  const template = defaultBlockTemplates[type];
+  const baseBlock = template ? structuredClone(template) : ({ type } as LessonBlock);
+  return ensureAuthoringBlockKey(baseBlock);
+}
+
+function updateBlocks(next: LessonAuthoringBlock[]) {
+  if (!lessonEditor.lessonModel.value) return;
+  lessonEditor.lessonModel.value.blocks = next;
+}
+
+function insertBlock(index?: number) {
+  if (!lessonEditor.lessonModel.value) return;
+  const targetIndex = typeof index === 'number' ? index + 1 : lessonBlocks.value.length;
+  const nextBlocks = [...lessonBlocks.value];
+  nextBlocks.splice(targetIndex, 0, createBlockPayload(newBlockType.value));
+  updateBlocks(nextBlocks);
+  selectBlock(targetIndex);
+}
+
+function moveBlock(index: number, direction: 1 | -1) {
+  const nextIndex = index + direction;
+  if (nextIndex < 0 || nextIndex >= lessonBlocks.value.length) return;
+  const nextBlocks = [...lessonBlocks.value];
+  const [item] = nextBlocks.splice(index, 1);
+  if (!item) return;
+  nextBlocks.splice(nextIndex, 0, item);
+  pendingReorder.value = nextBlocks;
+  commitPendingBlockOrder({ oldIndex: index, newIndex: nextIndex });
+}
+
+function commitPendingBlockOrder(event?: DragEndEvent) {
+  if (!lessonEditor.lessonModel.value) return;
+  const current = (lessonEditor.lessonModel.value.blocks ?? []) as LessonAuthoringBlock[];
+  let proposed = pendingReorder.value;
+
+  if (
+    !proposed &&
+    event &&
+    typeof event.oldIndex === 'number' &&
+    typeof event.newIndex === 'number'
+  ) {
+    const copy = [...current];
+    const [moved] = copy.splice(event.oldIndex, 1);
+    if (moved) {
+      copy.splice(event.newIndex, 0, moved);
+      proposed = copy;
+    }
+  }
+
+  if (!proposed) {
+    return;
+  }
+
+  pendingReorder.value = null;
+
+  const currentByKey = new Map(current.map((block) => [block.__uiKey, block]));
+  const normalized = proposed.map((block, index) => {
+    const key = typeof block?.__uiKey === 'string' ? block.__uiKey : undefined;
+    const source = (key ? currentByKey.get(key) : undefined) ?? current[index];
+    return inheritAuthoringBlockKey(source, block);
+  }) as LessonAuthoringBlock[];
+
+  updateBlocks(normalized);
+
+  if (!event) {
+    return;
+  }
+
+  const movedKey =
+    typeof event.oldIndex === 'number' ? current[event.oldIndex]?.__uiKey : undefined;
+  let targetIndex =
+    typeof movedKey === 'string' ? normalized.findIndex((block) => block.__uiKey === movedKey) : -1;
+
+  if (targetIndex < 0) {
+    if (typeof event.newIndex === 'number') {
+      targetIndex = event.newIndex;
+    } else if (typeof event.oldIndex === 'number') {
+      targetIndex = event.oldIndex;
+    }
+  }
+
+  if (targetIndex >= 0) {
+    selectBlock(targetIndex);
+  }
+}
+
+function handleBlockDragEnd(event: DragEndEvent) {
+  commitPendingBlockOrder(event);
+}
+
+function replaceSelectedBlock(nextBlock: LessonBlock) {
+  if (!lessonEditor.lessonModel.value) return;
+  if (!Array.isArray(lessonEditor.lessonModel.value.blocks)) return;
+  const index = selectedBlockIndex.value;
+  if (index < 0 || index >= lessonEditor.lessonModel.value.blocks.length) return;
+
+  const nextBlocks = [...(lessonEditor.lessonModel.value.blocks as LessonAuthoringBlock[])];
+  const current = nextBlocks[index];
+  nextBlocks.splice(index, 1, inheritAuthoringBlockKey(current, nextBlock));
+  updateBlocks(nextBlocks);
+}
+
+function removeBlock(index: number) {
+  const previousSelection = selectedBlockIndex.value;
+  const nextBlocks = lessonBlocks.value.filter((_, blockIndex) => blockIndex !== index);
+  updateBlocks(nextBlocks);
+  if (!nextBlocks.length) {
+    selectedBlockIndex.value = 0;
+    return;
+  }
+
+  if (previousSelection > index) {
+    selectBlock(previousSelection - 1);
+    return;
+  }
+
+  if (previousSelection === index) {
+    selectBlock(Math.min(index, nextBlocks.length - 1));
+    return;
+  }
+
+  if (previousSelection >= nextBlocks.length) {
+    selectBlock(nextBlocks.length - 1);
+  }
+}
+
+function selectBlock(index: number) {
+  if (index < 0) {
+    selectedBlockIndex.value = 0;
+    return;
+  }
+  selectedBlockIndex.value = Math.min(index, Math.max(lessonBlocks.value.length - 1, 0));
+}
 
 function cancelHighlightTimer() {
   if (highlightTimer) {
@@ -333,6 +541,31 @@ const lessonAuthoringError = computed(
 const lessonAuthoringSuccess = computed(() => lessonContentSync.successMessage.value);
 const lessonCanRevert = computed(() => lessonContentSync.hasPendingChanges.value);
 
+const { status, statusLabel, statusTone } = useAuthoringSaveTracker(lessonEditor.lessonModel, {
+  saving: lessonContentSync.saving,
+  hasPendingChanges: lessonContentSync.hasPendingChanges,
+  saveError: lessonContentSync.saveError,
+});
+
+const statusIcon = computed(() => {
+  switch (status.value) {
+    case 'saving':
+      return LoaderCircle;
+    case 'error':
+      return AlertCircle;
+    case 'pending':
+      return Clock3;
+    case 'saved':
+      return CheckCircle2;
+    default:
+      return CircleDashed;
+  }
+});
+
+const statusIconClass = computed(() =>
+  status.value === 'saving' ? 'md-icon md-icon--sm animate-spin' : 'md-icon md-icon--sm'
+);
+
 const authoringLesson = computed(() => lessonEditor.lessonModel.value);
 const lessonContent = computed(() => {
   const base = controller.lessonData.value;
@@ -353,6 +586,16 @@ const showAuthoringPanel = computed(
     lessonContentSync.serviceAvailable &&
     Boolean(lessonContent.value)
 );
+
+watch(lessonBlocks, (current) => {
+  if (!current.length) {
+    selectedBlockIndex.value = 0;
+    return;
+  }
+  if (selectedBlockIndex.value > current.length - 1) {
+    selectBlock(current.length - 1);
+  }
+});
 
 watch(
   showAuthoringPanel,
