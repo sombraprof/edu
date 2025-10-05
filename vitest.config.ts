@@ -7,6 +7,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      vuedraggable: fileURLToPath(new URL('./tests/stubs/vuedraggable.ts', import.meta.url)),
     },
   },
   test: {

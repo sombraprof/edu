@@ -40,12 +40,74 @@ async function ensurePrism(): Promise<typeof import('prismjs')> {
   return prismInstance;
 }
 
+export interface PrismHighlightContext {
+  root?: Element | null;
+  targets?: Element | Iterable<Element | null | undefined> | null;
+}
+
 export type PrismHighlightHandler = (context?: unknown) => Promise<void> | void;
 
+function toElementList(
+  targets: Element | Iterable<Element | null | undefined> | null | undefined
+): Element[] {
+  if (!targets) {
+    return [];
+  }
+
+  if (targets instanceof Element) {
+    return [targets];
+  }
+
+  const list: Element[] = [];
+  for (const entry of targets) {
+    if (entry instanceof Element) {
+      list.push(entry);
+    }
+  }
+  return list;
+}
+
+function parseContext(context: unknown): PrismHighlightContext {
+  if (!context || typeof context !== 'object') {
+    return {};
+  }
+
+  const candidate = context as PrismHighlightContext;
+  const root = candidate.root instanceof Element ? candidate.root : null;
+  const targets = toElementList(candidate.targets ?? null);
+  return {
+    root,
+    targets,
+  };
+}
+
 export function createPrismHighlightHandler(): PrismHighlightHandler {
-  return async () => {
+  let lastRoot: Element | null = null;
+
+  return async (context?: unknown) => {
     const Prism = await ensurePrism();
+    const { root, targets } = parseContext(context);
+
+    if (root) {
+      lastRoot = root;
+    }
+
+    const highlightRoot = root ?? lastRoot;
+    const highlightTargets = targets;
+
     requestAnimationFrame(() => {
+      if (highlightTargets.length > 0) {
+        highlightTargets.forEach((element) => {
+          Prism.highlightElement(element);
+        });
+        return;
+      }
+
+      if (highlightRoot && typeof Prism.highlightAllUnder === 'function') {
+        Prism.highlightAllUnder(highlightRoot);
+        return;
+      }
+
       Prism.highlightAll();
     });
   };
