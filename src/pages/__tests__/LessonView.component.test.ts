@@ -16,9 +16,9 @@ const MetadataListEditorStub = {
 };
 
 vi.mock('@/composables/useLessonEditorModel', async () => {
-  const actual = await vi.importActual<typeof import('@/composables/useLessonEditorModel')>(
+  const actual = (await vi.importActual(
     '@/composables/useLessonEditorModel'
-  );
+  )) as typeof import('@/composables/useLessonEditorModel');
 
   return {
     ...actual,
