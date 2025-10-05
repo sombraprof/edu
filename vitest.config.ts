@@ -13,6 +13,9 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     testTimeout: 10000,
+    env: {
+      VITE_TEACHER_API_URL: 'https://teacher.local',
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'json-summary'],
