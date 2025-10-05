@@ -155,7 +155,11 @@
         <h3 class="md-typescale-title-medium font-semibold text-on-surface">
           Editor do bloco selecionado
         </h3>
-        <component :is="blockEditorComponent" :block="selectedBlock" />
+        <component
+          :is="blockEditorComponent"
+          :block="selectedBlock"
+          @update:block="replaceSelectedBlock"
+        />
       </section>
     </template>
     <p v-else class="text-sm text-on-surface-variant">
@@ -285,6 +289,17 @@ function moveBlock(index: number, direction: 1 | -1) {
   nextBlocks.splice(nextIndex, 0, item);
   updateBlocks(nextBlocks);
   selectedBlockIndex.value = nextIndex;
+}
+
+function replaceSelectedBlock(nextBlock: LessonBlock) {
+  if (!props.exerciseModel.value) return;
+  if (!Array.isArray(props.exerciseModel.value.blocks)) return;
+  const index = selectedBlockIndex.value;
+  if (index < 0 || index >= props.exerciseModel.value.blocks.length) return;
+
+  const nextBlocks = [...props.exerciseModel.value.blocks];
+  nextBlocks.splice(index, 1, nextBlock);
+  updateBlocks(nextBlocks);
 }
 
 function removeBlock(index: number) {
