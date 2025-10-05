@@ -146,6 +146,7 @@ import {
 import { createPrismHighlightHandler } from '@/utils/prismHighlight';
 import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTemplates';
 import { useAuthoringSaveTracker } from '@/composables/useAuthoringSaveTracker';
+import type { LessonContent as LessonRendererContent } from '@/pages/course/LessonRenderer.logic';
 
 function cloneDeep<T>(value: T): T {
   try {
@@ -198,6 +199,30 @@ const blockSnapshots = shallowRef<BlockSnapshot[]>([]);
 let highlightTimer: ReturnType<typeof setTimeout> | null = null;
 let highlightPendingForce = false;
 const highlightPendingKeys = new Set<string>();
+
+function sanitizeOptionalString(value: unknown): string | null {
+  if (typeof value !== 'string') {
+    return null;
+  }
+  return value;
+}
+
+function sanitizeOptionalNumber(value: unknown): number | null {
+  if (typeof value !== 'number' || Number.isNaN(value)) {
+    return null;
+  }
+  return value;
+}
+
+function sanitizeStringArray(value: unknown): string[] | null {
+  if (!Array.isArray(value)) {
+    return null;
+  }
+
+  return value
+    .map((entry) => (typeof entry === 'string' ? entry.trim() : ''))
+    .filter((entry) => entry.length > 0);
+}
 
 const lessonBlocks = computed<LessonAuthoringBlock[]>(
   () => (lessonEditor.lessonModel.value?.blocks ?? []) as LessonAuthoringBlock[]
@@ -567,16 +592,44 @@ const statusIconClass = computed(() =>
 );
 
 const authoringLesson = computed(() => lessonEditor.lessonModel.value);
-const lessonContent = computed(() => {
+const lessonContent = computed<LessonRendererContent | null>(() => {
   const base = controller.lessonData.value;
-  if (!base) return null;
+  if (!base) {
+    return null;
+  }
+
   const edited = authoringLesson.value;
-  const content = edited?.blocks ?? base.content;
-  return {
+  const { blocks: editedBlocks, ...editedRest } = edited ?? {};
+
+  const normalizedContent = Array.isArray(editedBlocks) ? editedBlocks : base.content;
+  const baseTags = sanitizeStringArray(base.tags) ?? [];
+  const baseObjectives = sanitizeStringArray(base.objectives) ?? [];
+  const baseCompetencies = sanitizeStringArray(base.competencies) ?? [];
+  const baseSkills = sanitizeStringArray(base.skills) ?? [];
+  const baseOutcomes = sanitizeStringArray(base.outcomes) ?? [];
+  const basePrerequisites = sanitizeStringArray(base.prerequisites) ?? [];
+
+  const normalized: LessonRendererContent = {
     ...base,
-    ...edited,
-    content,
+    ...editedRest,
+    title: sanitizeOptionalString(editedRest.title) ?? base.title,
+    summary: sanitizeOptionalString(editedRest.summary) ?? base.summary,
+    objective: sanitizeOptionalString(editedRest.objective) ?? base.objective,
+    modality: sanitizeOptionalString(editedRest.modality) ?? base.modality,
+    duration:
+      sanitizeOptionalNumber(editedRest.duration) ??
+      sanitizeOptionalNumber(base.duration) ??
+      undefined,
+    tags: sanitizeStringArray(editedRest.tags) ?? baseTags,
+    objectives: sanitizeStringArray(editedRest.objectives) ?? baseObjectives,
+    competencies: sanitizeStringArray(editedRest.competencies) ?? baseCompetencies,
+    skills: sanitizeStringArray(editedRest.skills) ?? baseSkills,
+    outcomes: sanitizeStringArray(editedRest.outcomes) ?? baseOutcomes,
+    prerequisites: sanitizeStringArray(editedRest.prerequisites) ?? basePrerequisites,
+    content: Array.isArray(normalizedContent) ? normalizedContent : [],
   };
+
+  return normalized;
 });
 
 const showAuthoringPanel = computed(

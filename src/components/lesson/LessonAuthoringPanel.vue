@@ -225,7 +225,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, ref, useId, watch, type ComputedRef, type Ref } from 'vue';
+import { computed, nextTick, ref, useId, watch, type Ref, type WritableComputedRef } from 'vue';
 import {
   AlertCircle,
   ArrowDown,
@@ -258,8 +258,8 @@ import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTempla
 
 const props = defineProps<{
   lessonModel: Ref<LessonEditorModel | null>;
-  tagsField: ComputedRef<string>;
-  createArrayField: (field: LessonArrayField) => ComputedRef<string>;
+  tagsField: WritableComputedRef<string>;
+  createArrayField: (field: LessonArrayField) => WritableComputedRef<string>;
   saving: Ref<boolean>;
   hasPendingChanges: Ref<boolean>;
   saveError: Ref<string | null>;
