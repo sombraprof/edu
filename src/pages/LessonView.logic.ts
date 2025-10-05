@@ -25,7 +25,7 @@ type LessonModuleLoaderMap = Record<string, () => Promise<unknown>>;
 
 type HighlightHandler = (lesson: LessonContent) => Promise<void> | void;
 
-interface LessonViewControllerOptions {
+export interface LessonViewControllerOptions {
   lessonIndexModules?: ManifestLoaderMap;
   lessonContentModules?: LessonModuleLoaderMap;
   highlight?: HighlightHandler;
@@ -44,6 +44,7 @@ export interface LessonViewController {
   lessonOutcomes: ReturnType<typeof ref<string[]>>;
   lessonPrerequisites: ReturnType<typeof ref<string[]>>;
   lessonData: ReturnType<typeof shallowRef<LessonContent | null>>;
+  lessonContentFile: ReturnType<typeof ref<string>>;
   loadLesson: () => Promise<void>;
   route: RouteLocationNormalizedLoaded;
 }

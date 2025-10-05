@@ -34,6 +34,7 @@ const createController = () => {
   const exerciseTitle = ref('Título');
   const exerciseSummary = ref('Resumo');
   const exerciseComponent = shallowRef<any | null>({ render: () => null });
+  const exerciseFile = ref('exercise.vue');
 
   return {
     courseId: computed(() => 'demo'),
@@ -41,6 +42,7 @@ const createController = () => {
     exerciseTitle,
     exerciseSummary,
     exerciseComponent,
+    exerciseFile,
     loadExercise: vi.fn(),
     route: { params: { courseId: 'demo', exerciseId: 'exercise-01' }, query: {} } as any,
   } satisfies Controller;
