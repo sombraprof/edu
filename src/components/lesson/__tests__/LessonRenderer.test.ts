@@ -3,11 +3,6 @@ import { mount } from '@vue/test-utils';
 import LessonRenderer from '../LessonRenderer.vue';
 import ddmLesson01 from '@/content/courses/ddm/lessons/lesson-01.json';
 import { computed } from 'vue';
-import type {
-  BibliographyFallbackData,
-  ResolvedLessonBlock,
-} from '@/pages/course/LessonRenderer.logic';
-import type { LessonMetadataSummaryProps } from '@/components/lesson/LessonMetadataSummary.vue';
 
 vi.mock('@/pages/course/LessonRenderer.logic', async () => {
   const actual = (await vi.importActual(
@@ -121,9 +116,9 @@ describe('LessonRenderer', () => {
 
   it('shows empty state when controller reports no renderable content', () => {
     useLessonRendererMock.mockReturnValue({
-      metadataSummary: computed<LessonMetadataSummaryProps | null>(() => null),
-      resolvedBlocks: computed<ResolvedLessonBlock[]>(() => []),
-      bibliographyFallback: computed<BibliographyFallbackData | null>(() => null),
+      metadataSummary: computed(() => null),
+      resolvedBlocks: computed(() => []),
+      bibliographyFallback: computed(() => null),
       hasRenderableContent: computed(() => false),
     });
 
