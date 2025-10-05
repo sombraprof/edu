@@ -188,7 +188,17 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, ref, useId, watch, type Ref, type WritableComputedRef } from 'vue';
+import {
+  computed,
+  nextTick,
+  ref,
+  toRef,
+  toValue,
+  useId,
+  watch,
+  type Ref,
+  type WritableComputedRef,
+} from 'vue';
 import {
   AlertCircle,
   ArrowDown,
@@ -230,12 +240,17 @@ const props = defineProps<{
   onRevert?: () => void;
 }>();
 
-const tagsFieldProxy = computed({
-  get: () => props.tagsField.value,
-  set: (value: string) => {
-    props.tagsField.value = value;
-  },
-});
+function useWritableFieldProxy(field: WritableComputedRef<string>) {
+  const target = toRef(field, 'value');
+  return computed({
+    get: () => toValue(target),
+    set: (value: string) => {
+      target.value = value;
+    },
+  });
+}
+
+const tagsFieldProxy = useWritableFieldProxy(props.tagsField);
 
 const blocks = computed<LessonAuthoringBlock[]>(
   () => (props.exerciseModel.value?.blocks ?? []) as LessonAuthoringBlock[]

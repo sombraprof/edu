@@ -168,7 +168,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type Component, type Ref, type WritableComputedRef } from 'vue';
+import { computed, toRef, toValue, type Component, type Ref, type WritableComputedRef } from 'vue';
 import { ArrowDown, ArrowUp, GripVertical, PenSquare, Plus, Trash2 } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 import AuthoringDraggableList from '@/components/authoring/AuthoringDraggableList.vue';
@@ -205,12 +205,17 @@ const props = defineProps<{
 
 const exerciseModel = props.exerciseModel;
 
-const tagsFieldProxy = computed({
-  get: () => props.tagsField.value,
-  set: (value: string) => {
-    props.tagsField.value = value;
-  },
-});
+function useWritableFieldProxy(field: WritableComputedRef<string>) {
+  const target = toRef(field, 'value');
+  return computed({
+    get: () => toValue(target),
+    set: (value: string) => {
+      target.value = value;
+    },
+  });
+}
+
+const tagsFieldProxy = useWritableFieldProxy(props.tagsField);
 
 const showRevertButton = computed(
   () => Boolean(props.canRevert) && typeof props.onRevert === 'function'
