@@ -40,7 +40,7 @@
       {{ props.successMessage }}
     </div>
 
-    <template v-if="exerciseModel.value">
+    <template v-if="hasExerciseModel">
       <section class="md-stack md-stack-3">
         <h3 class="md-typescale-title-medium font-semibold text-on-surface">
           Metadados do exercício
@@ -168,7 +168,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRef, toValue, type Component, type Ref, type WritableComputedRef } from 'vue';
+import { computed, type Component, type Ref, type WritableComputedRef } from 'vue';
 import { ArrowDown, ArrowUp, GripVertical, PenSquare, Plus, Trash2 } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 import AuthoringDraggableList from '@/components/authoring/AuthoringDraggableList.vue';
@@ -204,6 +204,7 @@ const props = defineProps<{
 }>();
 
 const exerciseModel = props.exerciseModel;
+const hasExerciseModel = computed(() => exerciseModel.value !== null);
 
 type NormalizedLessonEditorModel = LessonEditorModel & {
   title: string;
@@ -241,11 +242,10 @@ const currentExercise = computed<NormalizedLessonEditorModel>(() => {
 });
 
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
-  const target = toRef(field, 'value');
   return computed({
-    get: () => toValue(target),
+    get: () => field.value,
     set: (value: string) => {
-      target.value = value;
+      field.value = value;
     },
   });
 }
