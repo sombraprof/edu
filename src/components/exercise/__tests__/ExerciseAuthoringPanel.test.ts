@@ -53,7 +53,7 @@ const AuthoringDraggableListStub = defineComponent({
 });
 
 vi.mock('@/components/authoring/blocks/UnsupportedBlockEditor.vue', async (importOriginal) => {
-  const actual = await importOriginal();
+  const actual = await importOriginal<Record<string, unknown>>();
 
   const Stub = defineComponent({
     name: 'UnsupportedBlockEditorStub',
@@ -95,7 +95,7 @@ vi.mock('@/composables/useLessonEditorModel', async (importOriginal) => {
   return {
     __esModule: true,
     ...actual,
-    resolveLessonBlockEditor(block) {
+    resolveLessonBlockEditor(block: LessonBlock | null) {
       if (
         block &&
         typeof block === 'object' &&
