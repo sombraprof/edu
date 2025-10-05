@@ -10,9 +10,9 @@ const createController = () => {
   const contentFilter = ref<'all' | 'lesson' | 'exercise'>('all');
   const viewMode = ref<'grid' | 'list'>('grid');
   const isLoading = ref(false);
-  const displayItems = ref<CourseHomeItem[]>([]);
+  const displayItemsState = ref<CourseHomeItem[]>([]);
 
-  return {
+  const controller = {
     lessons,
     exercises,
     contentFilter,
@@ -20,17 +20,24 @@ const createController = () => {
     isLoading,
     rawSearchQuery: computed(() => ''),
     searchTerm: computed(() => ''),
-    combinedItems: computed(() => displayItems.value),
-    displayItems,
+    combinedItems: computed(() => displayItemsState.value),
+    displayItems: computed(() => displayItemsState.value),
     refreshCourseContent: vi.fn(),
     resetFilters: vi.fn(),
     updateSection: vi.fn(),
     courseId: computed(() => 'demo'),
     route: { params: {}, query: {} } as any,
   } satisfies CourseHomeController;
+
+  const setDisplayItems = (items: CourseHomeItem[]) => {
+    displayItemsState.value = items;
+  };
+
+  return { controller, setDisplayItems };
 };
 
 let controllerMock: CourseHomeController;
+let setDisplayItems: (items: CourseHomeItem[]) => void;
 
 vi.mock('../CourseHome.logic', () => ({
   useCourseHomeController: () => controllerMock,
@@ -45,7 +52,9 @@ const ButtonStub = {
 
 describe('CourseHome component', () => {
   beforeEach(() => {
-    controllerMock = createController();
+    const controllerSetup = createController();
+    controllerMock = controllerSetup.controller;
+    setDisplayItems = controllerSetup.setDisplayItems;
   });
 
   it('exibe estado de carregamento', () => {
@@ -67,7 +76,7 @@ describe('CourseHome component', () => {
 
   it('renderiza itens disponíveis com classes corretas', () => {
     controllerMock.isLoading.value = false;
-    controllerMock.displayItems.value = [
+    setDisplayItems([
       {
         key: 'lesson-01',
         type: 'lesson',
@@ -84,7 +93,7 @@ describe('CourseHome component', () => {
         wrapper: 'div',
         attrs: {},
       },
-    ];
+    ]);
 
     const wrapper = mount(CourseHome, {
       global: {
@@ -106,7 +115,7 @@ describe('CourseHome component', () => {
 
   it('aciona reset ao clicar em "Limpar filtros"', async () => {
     controllerMock.isLoading.value = false;
-    controllerMock.displayItems.value = [];
+    setDisplayItems([]);
     controllerMock.resetFilters.mockClear();
 
     const wrapper = mount(CourseHome, {

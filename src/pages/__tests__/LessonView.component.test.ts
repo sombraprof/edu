@@ -41,6 +41,7 @@ const createController = () => {
   const lessonOutcomes = ref(['outcome']);
   const lessonPrerequisites = ref(['pre']);
   const lessonData = shallowRef({ content: [] } as any);
+  const lessonContentFile = ref('lesson.json');
 
   return {
     courseId: computed(() => 'demo'),
@@ -55,6 +56,7 @@ const createController = () => {
     lessonOutcomes,
     lessonPrerequisites,
     lessonData,
+    lessonContentFile,
     loadLesson: vi.fn(),
     route: { params: { courseId: 'demo', lessonId: 'lesson-01' }, query: {} } as any,
   } satisfies Controller;
