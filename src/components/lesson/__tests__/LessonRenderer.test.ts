@@ -5,9 +5,9 @@ import ddmLesson01 from '@/content/courses/ddm/lessons/lesson-01.json';
 import { computed, ref } from 'vue';
 
 vi.mock('@/pages/course/LessonRenderer.logic', async () => {
-  const actual = await vi.importActual<typeof import('@/pages/course/LessonRenderer.logic')>(
+  const actual = (await vi.importActual(
     '@/pages/course/LessonRenderer.logic'
-  );
+  )) as typeof import('@/pages/course/LessonRenderer.logic');
 
   return {
     ...actual,
@@ -18,9 +18,9 @@ vi.mock('@/pages/course/LessonRenderer.logic', async () => {
 import { useLessonRenderer } from '@/pages/course/LessonRenderer.logic';
 
 const useLessonRendererMock = vi.mocked(useLessonRenderer);
-const actualLogicModulePromise = vi.importActual<
+const actualLogicModulePromise = vi.importActual('@/pages/course/LessonRenderer.logic') as Promise<
   typeof import('@/pages/course/LessonRenderer.logic')
->('@/pages/course/LessonRenderer.logic');
+>;
 
 beforeEach(async () => {
   const actual = await actualLogicModulePromise;
