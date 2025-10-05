@@ -3,6 +3,8 @@ import { computed, ref } from 'vue';
 import { describe, expect, it } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
 import type { LessonAuthoringBlock } from '@/composables/useAuthoringBlockKeys';
+import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTemplates';
+import { resolveBlock, type LessonBlock } from '@/components/lesson/blockRegistry';
 
 const iconStubs = {
   AlertCircle: true,
@@ -117,4 +119,34 @@ describe('LessonAuthoringPanel - reordenação e inserção', () => {
     expect(blocks[1].__uiKey).not.toBe(blocks[0].__uiKey);
     expect(blocks[1].__uiKey).not.toBe(blocks[2].__uiKey);
   });
+
+  it.each(Object.entries(defaultBlockTemplates) as Array<[string, LessonBlock]>)(
+    'usa template padrão ao inserir bloco %s',
+    async (type, template) => {
+      const { wrapper, lessonModel } = await mountPanel([]);
+
+      const selector = wrapper.find('select');
+      await selector.setValue(type);
+
+      const insertButton = wrapper
+        .findAll('button')
+        .find((button) => button.text().trim() === 'Inserir');
+      expect(insertButton).toBeTruthy();
+
+      await insertButton!.trigger('click');
+      await flushPromises();
+
+      const blocks = (lessonModel.value?.blocks ?? []) as LessonAuthoringBlock[];
+      expect(blocks).toHaveLength(1);
+
+      const block = blocks[0];
+      expect(block.type).toBe(type);
+      expect(block).toMatchObject(template);
+      expect(block).not.toBe(template);
+
+      const resolution = resolveBlock(block);
+      expect(resolution.error).toBeUndefined();
+      expect(resolution.component).not.toBeNull();
+    }
+  );
 });
