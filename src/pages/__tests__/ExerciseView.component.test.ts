@@ -1,6 +1,7 @@
 import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { computed, shallowRef, ref } from 'vue';
+import { computed, shallowRef, ref, watch } from 'vue';
+import type { Ref } from 'vue';
 import type { ExerciseViewController } from '../ExerciseView.logic';
 
 const BlockEditorStub = {
@@ -119,15 +120,51 @@ const manifestSyncMock = {
   serviceAvailable: true,
 };
 
-let lastManifestEditorOptions: { setModel: (model: unknown) => void } | null = null;
+let lastManifestEditorOptions: { setModel: ReturnType<typeof vi.fn>; model: Ref<unknown> } | null =
+  null;
 let lastContentEditorOptions: { setModel: (model: unknown) => void } | null = null;
+let manifestSetModelSpy: ReturnType<typeof vi.fn> | null = null;
 
 vi.mock('@/services/useTeacherContentEditor', () => ({
-  useTeacherContentEditor: (options: { setModel: (model: unknown) => void }) => {
+  useTeacherContentEditor: (options: {
+    setModel: (model: unknown) => void;
+    model: Ref<unknown>;
+  }) => {
+    const originalSetModel = options.setModel;
+    const setModelSpy = vi.fn(originalSetModel);
+    (options as typeof options & { setModel: ReturnType<typeof vi.fn> }).setModel = setModelSpy;
+
     if (!lastManifestEditorOptions) {
-      lastManifestEditorOptions = options;
+      lastManifestEditorOptions = options as typeof options & {
+        setModel: ReturnType<typeof vi.fn>;
+      };
+      manifestSetModelSpy = setModelSpy;
+
+      let initialized = false;
+      let skipNextUpdate = false;
+      watch(
+        () => options.model.value,
+        (value) => {
+          if (!initialized) {
+            initialized = true;
+            return;
+          }
+
+          if (skipNextUpdate) {
+            skipNextUpdate = false;
+            return;
+          }
+
+          manifestSyncMock.hasPendingChanges.value = true;
+          skipNextUpdate = true;
+          setModelSpy(value);
+        },
+        { deep: true }
+      );
+
       return manifestSyncMock;
     }
+
     lastContentEditorOptions = options;
     return contentSyncMock;
   },
@@ -207,6 +244,7 @@ describe('ExerciseView component', () => {
     toggleTeacherModeMock.mockReset();
     lastManifestEditorOptions = null;
     lastContentEditorOptions = null;
+    manifestSetModelSpy = null;
     if (typeof HTMLElement !== 'undefined') {
       Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
         value: vi.fn(),
@@ -322,6 +360,73 @@ describe('ExerciseView component', () => {
     await wrapper.vm.$nextTick();
 
     expect(wrapper.get('.block-editor-stub').text()).toContain('Passo 2');
+  });
+
+  it('marca alterações pendentes ao editar manifesto do exercício', async () => {
+    const wrapper = mount(ExerciseView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          MetadataListEditor: MetadataListEditorStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
+        },
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+    lastContentEditorOptions?.setModel?.({ title: 'Título', blocks: [] });
+    await wrapper.vm.$nextTick();
+    expect(lastManifestEditorOptions).toBeTruthy();
+    expect(manifestSetModelSpy).toBeTruthy();
+
+    lastManifestEditorOptions?.setModel?.({ id: 'exercise-01', available: true, link: '' });
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+    manifestSyncMock.hasPendingChanges.value = false;
+    manifestSetModelSpy?.mockClear();
+
+    await expect
+      .poll(() => wrapper.find('[data-testid="exercise-availability-toggle"]').exists())
+      .toBe(true);
+
+    await wrapper.get('[data-testid="exercise-availability-toggle"]').setValue(false);
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+
+    expect(manifestSyncMock.hasPendingChanges.value).toBe(true);
+    expect(manifestSetModelSpy).toHaveBeenCalled();
+    expect(manifestSetModelSpy?.mock.calls.at(-1)?.[0]).toMatchObject({
+      id: 'exercise-01',
+      available: false,
+    });
+
+    manifestSyncMock.hasPendingChanges.value = false;
+    manifestSetModelSpy?.mockClear();
+
+    const linkInput = wrapper.get('input[placeholder="https://exemplo.com/exercicio"]');
+    await linkInput.setValue(' https://exemplo.com/prova ');
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+
+    expect(manifestSyncMock.hasPendingChanges.value).toBe(true);
+    expect(manifestSetModelSpy).toHaveBeenCalled();
+    expect(manifestSetModelSpy?.mock.calls.at(-1)?.[0]).toMatchObject({
+      id: 'exercise-01',
+      link: 'https://exemplo.com/prova',
+    });
+
+    wrapper.unmount();
   });
 
   it('atualiza disponibilidade do exercício após salvar o manifesto', async () => {
