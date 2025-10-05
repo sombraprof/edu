@@ -1,7 +1,20 @@
 import { computed, readonly, ref } from 'vue';
 
-const manualAuthoringEnabled = Boolean(import.meta.env.VITE_TEACHER_API_URL);
-const authoringForced = Boolean(import.meta.env.DEV) && manualAuthoringEnabled;
+function resolveEnvFlag(value: unknown): boolean {
+  if (typeof value === 'string') {
+    const normalized = value.trim().toLowerCase();
+    if (normalized === '' || normalized === 'false' || normalized === '0' || normalized === 'off') {
+      return false;
+    }
+    if (normalized === 'true') {
+      return true;
+    }
+  }
+  return Boolean(value);
+}
+
+const manualAuthoringEnabled = resolveEnvFlag(import.meta.env.VITE_TEACHER_API_URL);
+const authoringForced = resolveEnvFlag(import.meta.env.DEV) && manualAuthoringEnabled;
 
 const teacherMode = ref(authoringForced);
 const ready = ref(authoringForced);
