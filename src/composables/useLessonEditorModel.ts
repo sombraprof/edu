@@ -45,7 +45,7 @@ const CardGridEditor = defineAsyncComponent(
 const ContentBlockEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/ContentBlockEditor.vue')
 );
-const UnsupportedBlockEditor = defineAsyncComponent(
+const GenericJsonBlockEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/UnsupportedBlockEditor.vue')
 );
 
@@ -124,7 +124,7 @@ export function useLessonEditorModel(
 
 export function resolveLessonBlockEditor(block: LessonBlock | null | undefined): Component {
   if (!block || typeof block !== 'object') {
-    return UnsupportedBlockEditor;
+    return GenericJsonBlockEditor;
   }
 
   const type = block.type;
@@ -132,7 +132,7 @@ export function resolveLessonBlockEditor(block: LessonBlock | null | undefined):
     return blockEditorRegistry[type as keyof BlockEditorRegistry];
   }
 
-  return UnsupportedBlockEditor;
+  return GenericJsonBlockEditor;
 }
 
 export {
@@ -141,6 +141,6 @@ export {
   CalloutEditor,
   CardGridEditor,
   ContentBlockEditor,
-  UnsupportedBlockEditor,
+  GenericJsonBlockEditor as UnsupportedBlockEditor,
 };
 export type { LessonBlock };
