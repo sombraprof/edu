@@ -1,8 +1,8 @@
-import { computed, onBeforeUnmount, ref, watch, type ShallowRef } from 'vue';
+import { computed, onBeforeUnmount, ref, watch, type Ref } from 'vue';
 
 type SaveStatus = 'idle' | 'pending' | 'saved';
 
-export function useAuthoringSaveTracker(target: ShallowRef<unknown>) {
+export function useAuthoringSaveTracker(target: Ref<unknown>) {
   const status = ref<SaveStatus>('idle');
   const lastSavedAt = ref<string>('');
   let skipNextChange = true;
