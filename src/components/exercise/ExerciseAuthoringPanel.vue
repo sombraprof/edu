@@ -88,66 +88,73 @@
           </div>
         </div>
 
-        <div v-if="blocks.length" class="md-stack md-stack-2">
-          <article
-            v-for="(block, index) in blocks"
-            :key="block.__uiKey"
-            class="authoring-block-card md-shape-extra-large border border-outline-variant bg-surface-container-high p-3"
-            :class="{ 'is-selected': index === selectedBlockIndex }"
-            :aria-expanded="index === selectedBlockIndex"
-            :aria-controls="editorSectionId"
-          >
-            <header class="flex items-start justify-between gap-2">
-              <div class="flex items-center gap-2">
-                <GripVertical
-                  class="md-icon md-icon--sm text-on-surface-variant"
-                  aria-hidden="true"
-                />
-                <div>
-                  <p class="md-typescale-label-large text-on-surface">
-                    {{ formatBlockTitle(block, index) }}
-                  </p>
-                  <p class="text-xs text-on-surface-variant">{{ block.type ?? 'bloco' }}</p>
+        <AuthoringDraggableList
+          v-if="blocks.length"
+          v-model="draggableBlocks"
+          item-key="__uiKey"
+          class="md-stack md-stack-2"
+          @end="handleBlockDragEnd"
+        >
+          <template #item="{ element: block, index }">
+            <article
+              :key="block.__uiKey"
+              class="authoring-block-card md-shape-extra-large border border-outline-variant bg-surface-container-high p-3"
+              :class="{ 'is-selected': index === selectedBlockIndex }"
+              :aria-expanded="index === selectedBlockIndex"
+              :aria-controls="editorSectionId"
+            >
+              <header class="flex items-start justify-between gap-2">
+                <div class="grabbable flex items-center gap-2">
+                  <GripVertical
+                    class="md-icon md-icon--sm text-on-surface-variant"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <p class="md-typescale-label-large text-on-surface">
+                      {{ formatBlockTitle(block, index) }}
+                    </p>
+                    <p class="text-xs text-on-surface-variant">{{ block.type ?? 'bloco' }}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="flex items-center gap-1">
-                <button
-                  type="button"
-                  class="icon-button"
-                  :disabled="index === 0"
-                  @click="moveBlock(index, -1)"
-                >
-                  <ArrowUp class="md-icon md-icon--sm" aria-hidden="true" />
-                  <span class="sr-only">Mover para cima</span>
-                </button>
-                <button
-                  type="button"
-                  class="icon-button"
-                  :disabled="index === blocks.length - 1"
-                  @click="moveBlock(index, 1)"
-                >
-                  <ArrowDown class="md-icon md-icon--sm" aria-hidden="true" />
-                  <span class="sr-only">Mover para baixo</span>
-                </button>
-                <button type="button" class="icon-button" @click="removeBlock(index)">
-                  <Trash2 class="md-icon md-icon--sm text-error" aria-hidden="true" />
-                  <span class="sr-only">Remover bloco</span>
-                </button>
-              </div>
-            </header>
-            <footer class="mt-3 flex items-center justify-between gap-2">
-              <Md3Button type="button" variant="text" @click="selectBlock(index)">
-                <template #leading>
-                  <PenSquare class="md-icon md-icon--sm" aria-hidden="true" />
-                </template>
-                Editar detalhes
-              </Md3Button>
-              <Md3Button type="button" variant="outlined" @click="insertBlock(index)">
-                Inserir abaixo
-              </Md3Button>
-            </footer>
-          </article>
-        </div>
+                <div class="flex items-center gap-1">
+                  <button
+                    type="button"
+                    class="icon-button"
+                    :disabled="index === 0"
+                    @click="moveBlock(index, -1)"
+                  >
+                    <ArrowUp class="md-icon md-icon--sm" aria-hidden="true" />
+                    <span class="sr-only">Mover para cima</span>
+                  </button>
+                  <button
+                    type="button"
+                    class="icon-button"
+                    :disabled="index === blocks.length - 1"
+                    @click="moveBlock(index, 1)"
+                  >
+                    <ArrowDown class="md-icon md-icon--sm" aria-hidden="true" />
+                    <span class="sr-only">Mover para baixo</span>
+                  </button>
+                  <button type="button" class="icon-button" @click="removeBlock(index)">
+                    <Trash2 class="md-icon md-icon--sm text-error" aria-hidden="true" />
+                    <span class="sr-only">Remover bloco</span>
+                  </button>
+                </div>
+              </header>
+              <footer class="mt-3 flex items-center justify-between gap-2">
+                <Md3Button type="button" variant="text" @click="selectBlock(index)">
+                  <template #leading>
+                    <PenSquare class="md-icon md-icon--sm" aria-hidden="true" />
+                  </template>
+                  Editar detalhes
+                </Md3Button>
+                <Md3Button type="button" variant="outlined" @click="insertBlock(index)">
+                  Inserir abaixo
+                </Md3Button>
+              </footer>
+            </article>
+          </template>
+        </AuthoringDraggableList>
         <p v-else class="text-sm text-on-surface-variant">
           Adicione blocos para descrever o passo a passo ou a rubrica deste exercício.
         </p>
@@ -191,6 +198,7 @@ import {
   Trash2,
 } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
+import AuthoringDraggableList from '@/components/authoring/AuthoringDraggableList.vue';
 import { supportedBlockTypes, type LessonBlock } from '@/components/lesson/blockRegistry';
 import {
   MetadataListEditor,
@@ -227,6 +235,14 @@ const tagsFieldProxy = computed({
 const blocks = computed<LessonAuthoringBlock[]>(
   () => (props.exerciseModel.value?.blocks ?? []) as LessonAuthoringBlock[]
 );
+type DragEndEvent = { oldIndex?: number | null; newIndex?: number | null };
+const pendingReorder = ref<LessonAuthoringBlock[] | null>(null);
+const draggableBlocks = computed<LessonAuthoringBlock[]>({
+  get: () => blocks.value,
+  set: (next: LessonAuthoringBlock[]) => {
+    pendingReorder.value = [...next];
+  },
+});
 const selectedBlockIndex = ref(0);
 const selectedEditorEl = ref<HTMLElement | null>(null);
 const editorSectionId = `exercise-authoring-selected-block-${useId()}`;
@@ -307,9 +323,70 @@ function moveBlock(index: number, direction: 1 | -1) {
   if (nextIndex < 0 || nextIndex >= blocks.value.length) return;
   const nextBlocks = [...blocks.value];
   const [item] = nextBlocks.splice(index, 1);
+  if (!item) return;
   nextBlocks.splice(nextIndex, 0, item);
-  updateBlocks(nextBlocks);
-  selectBlock(nextIndex);
+  pendingReorder.value = nextBlocks;
+  commitPendingBlockOrder({ oldIndex: index, newIndex: nextIndex });
+}
+
+function commitPendingBlockOrder(event?: DragEndEvent) {
+  if (!props.exerciseModel.value) return;
+  const current = (props.exerciseModel.value.blocks ?? []) as LessonAuthoringBlock[];
+  let proposed = pendingReorder.value;
+
+  if (
+    !proposed &&
+    event &&
+    typeof event.oldIndex === 'number' &&
+    typeof event.newIndex === 'number'
+  ) {
+    const copy = [...current];
+    const [moved] = copy.splice(event.oldIndex, 1);
+    if (moved) {
+      copy.splice(event.newIndex, 0, moved);
+      proposed = copy;
+    }
+  }
+
+  if (!proposed) {
+    return;
+  }
+
+  pendingReorder.value = null;
+
+  const currentByKey = new Map(current.map((block) => [block.__uiKey, block]));
+  const normalized = proposed.map((block, index) => {
+    const key = typeof block?.__uiKey === 'string' ? block.__uiKey : undefined;
+    const source = (key ? currentByKey.get(key) : undefined) ?? current[index];
+    return inheritAuthoringBlockKey(source, block);
+  }) as LessonAuthoringBlock[];
+
+  updateBlocks(normalized);
+
+  if (!event) {
+    return;
+  }
+
+  const movedKey =
+    typeof event.oldIndex === 'number' ? current[event.oldIndex]?.__uiKey : undefined;
+  let targetIndex =
+    typeof movedKey === 'string' ? normalized.findIndex((block) => block.__uiKey === movedKey) : -1;
+
+  if (targetIndex < 0) {
+    if (typeof event.newIndex === 'number') {
+      targetIndex = event.newIndex;
+    } else if (typeof event.oldIndex === 'number') {
+      targetIndex = event.oldIndex;
+    }
+  }
+
+  if (targetIndex >= 0) {
+    selectBlock(targetIndex);
+  }
+}
+
+function handleBlockDragEnd(event: DragEndEvent) {
+  commitPendingBlockOrder(event);
 }
 
 function replaceSelectedBlock(nextBlock: LessonBlock) {
@@ -366,7 +443,9 @@ function selectBlock(index: number) {
   nextTick(() => {
     const sectionEl = selectedEditorEl.value;
     if (!sectionEl) return;
-    sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (typeof sectionEl.scrollIntoView === 'function') {
+      sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     const focusTarget =
       sectionEl.querySelector<HTMLElement>('[autofocus]') ??
       sectionEl.querySelector<HTMLElement>(
@@ -395,6 +474,14 @@ function selectBlock(index: number) {
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
+}
+
+.grabbable {
+  cursor: grab;
+}
+
+.grabbable:active {
+  cursor: grabbing;
 }
 
 .icon-button:disabled {
