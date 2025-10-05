@@ -11,10 +11,13 @@ type LessonManifest = {
   file: string;
   description?: string;
   available?: boolean;
+  link?: string;
   summary?: string;
   duration?: number;
   tags?: string[];
   modality?: string;
+  type?: string;
+  metadata?: Record<string, unknown> | null;
 };
 
 type LessonContent = NormalizedLesson & { content: LessonBlock[] };
@@ -45,7 +48,12 @@ export interface LessonViewController {
   lessonPrerequisites: ReturnType<typeof ref<string[]>>;
   lessonData: ReturnType<typeof shallowRef<LessonContent | null>>;
   lessonContentFile: ReturnType<typeof ref<string>>;
+  lessonAvailable: ReturnType<typeof ref<boolean>>;
+  lessonLink: ReturnType<typeof ref<string>>;
+  lessonManifestType: ReturnType<typeof ref<string>>;
+  lessonManifestMetadata: ReturnType<typeof shallowRef<Record<string, unknown> | null>>;
   loadLesson: () => Promise<void>;
+  setManifestEntry: (entry: LessonManifest | null) => void;
   route: RouteLocationNormalizedLoaded;
 }
 
@@ -75,6 +83,61 @@ export function useLessonViewController(
   const lessonPrerequisites = ref<string[]>([]);
   const lessonData = shallowRef<LessonContent | null>(null);
   const lessonContentFile = ref('');
+  const lessonAvailable = ref(true);
+  const lessonLink = ref('');
+  const lessonManifestType = ref('');
+  const lessonManifestMetadata = shallowRef<Record<string, unknown> | null>(null);
+
+  function applyManifestEntry(entry: LessonManifest | null) {
+    if (!entry) {
+      lessonAvailable.value = true;
+      lessonLink.value = '';
+      lessonManifestType.value = '';
+      lessonManifestMetadata.value = null;
+      return;
+    }
+
+    lessonAvailable.value = entry.available !== false;
+    lessonLink.value = typeof entry.link === 'string' ? entry.link : '';
+    lessonManifestType.value = typeof entry.type === 'string' ? entry.type : '';
+    lessonManifestMetadata.value =
+      entry.metadata && typeof entry.metadata === 'object'
+        ? { ...(entry.metadata as Record<string, unknown>) }
+        : null;
+
+    if (typeof entry.title === 'string' && entry.title.length) {
+      lessonTitle.value = entry.title;
+    }
+    if (typeof entry.summary === 'string' && entry.summary.length) {
+      lessonSummary.value = entry.summary;
+    }
+    if (typeof entry.duration === 'number' && Number.isFinite(entry.duration)) {
+      lessonDuration.value = entry.duration;
+    }
+    if (typeof entry.modality === 'string' && entry.modality.length) {
+      lessonModality.value = entry.modality;
+    }
+    if (Array.isArray(entry.tags) && entry.tags.length) {
+      lessonTags.value = [...entry.tags];
+    }
+  }
+
+  function setManifestEntry(entry: LessonManifest | null) {
+    if (!entry) {
+      applyManifestEntry(null);
+      return;
+    }
+
+    const snapshot: LessonManifest = {
+      ...entry,
+      metadata:
+        entry.metadata && typeof entry.metadata === 'object'
+          ? { ...(entry.metadata as Record<string, unknown>) }
+          : null,
+    };
+
+    applyManifestEntry(snapshot);
+  }
 
   async function loadLesson() {
     lessonData.value = null;
@@ -108,6 +171,8 @@ export function useLessonViewController(
       const lessonPath = `../content/courses/${currentCourse}/lessons/${entry.file}`;
       const lessonImporter = lessonModules[lessonPath];
       if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
+
+      setManifestEntry(entry);
 
       lessonContentFile.value = entry.file ?? '';
 
@@ -175,6 +240,7 @@ export function useLessonViewController(
       lessonOutcomes.value = [];
       lessonPrerequisites.value = [];
       lessonContentFile.value = '';
+      setManifestEntry(null);
     }
   }
 
@@ -200,7 +266,12 @@ export function useLessonViewController(
     lessonPrerequisites,
     lessonData,
     lessonContentFile,
+    lessonAvailable,
+    lessonLink,
+    lessonManifestType,
+    lessonManifestMetadata,
     loadLesson,
+    setManifestEntry,
     route,
   };
 }

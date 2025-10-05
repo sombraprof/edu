@@ -153,6 +153,92 @@
         </div>
       </section>
 
+      <section
+        v-if="hasManifestEntry"
+        class="lesson-authoring-sidebar__section lesson-authoring-sidebar__section--manifest"
+      >
+        <header class="lesson-authoring-sidebar__section-header">
+          <h3 class="md-typescale-title-medium font-semibold text-on-surface">
+            Configurações de publicação
+          </h3>
+        </header>
+
+        <label
+          class="flex items-center gap-2 rounded-xl border border-outline/60 bg-surface-container p-3"
+        >
+          <input
+            id="lesson-manifest-available"
+            data-testid="lesson-availability-toggle"
+            type="checkbox"
+            class="h-4 w-4 rounded border border-outline"
+            v-model="manifestAvailable"
+          />
+          <span class="text-sm text-on-surface">Disponibilizar aos estudantes</span>
+        </label>
+
+        <label class="flex flex-col gap-1">
+          <span class="md-typescale-label-large text-on-surface">Link alternativo</span>
+          <input
+            v-model="manifestLink"
+            type="url"
+            inputmode="url"
+            autocomplete="off"
+            placeholder="https://exemplo.com/material"
+            class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          />
+        </label>
+
+        <label class="flex flex-col gap-1">
+          <span class="md-typescale-label-large text-on-surface">Tipo do conteúdo</span>
+          <select
+            v-model="manifestType"
+            class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            <option
+              v-for="option in lessonManifestTypeOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </select>
+        </label>
+
+        <fieldset
+          class="md-stack md-stack-2 rounded-xl border border-outline/60 bg-surface-container p-3"
+        >
+          <legend class="px-1 text-sm font-semibold text-on-surface">Metadados de geração</legend>
+          <label class="flex flex-col gap-1">
+            <span class="md-typescale-label-large text-on-surface">Gerado por</span>
+            <input
+              v-model="manifestGeneratedBy"
+              type="text"
+              autocomplete="off"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            />
+          </label>
+          <label class="flex flex-col gap-1">
+            <span class="md-typescale-label-large text-on-surface">Modelo</span>
+            <input
+              v-model="manifestModel"
+              type="text"
+              autocomplete="off"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            />
+          </label>
+          <label class="flex flex-col gap-1">
+            <span class="md-typescale-label-large text-on-surface">Timestamp</span>
+            <input
+              v-model="manifestTimestamp"
+              type="text"
+              autocomplete="off"
+              placeholder="2025-01-31T12:00:00Z"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            />
+          </label>
+        </fieldset>
+      </section>
+
       <section class="md-stack md-stack-3">
         <div class="flex items-center justify-between">
           <h3 class="md-typescale-title-medium font-semibold text-on-surface">
@@ -276,8 +362,16 @@ import type { LessonAuthoringBlock } from '@/composables/useAuthoringBlockKeys';
 
 type DragEndEvent = { oldIndex?: number | null; newIndex?: number | null };
 
+type LessonManifestEntry = Record<string, unknown> & {
+  available?: boolean;
+  link?: string;
+  type?: string;
+  metadata?: Record<string, unknown> | null;
+};
+
 const props = defineProps<{
   lessonModel: Ref<LessonEditorModel | null>;
+  manifestEntry?: Ref<LessonManifestEntry | null>;
   tagsField: WritableComputedRef<string>;
   createArrayField: (field: LessonArrayField) => WritableComputedRef<string>;
   blocks: LessonAuthoringBlock[];
@@ -307,6 +401,8 @@ const lessonModel = props.lessonModel;
 const hasLessonModel = computed(() => lessonModel.value !== null);
 const isMetadataEditing = ref(false);
 const metadataSectionId = 'lesson-metadata-editor';
+
+const hasManifestEntry = computed(() => Boolean(props.manifestEntry?.value));
 
 watch(lessonModel, (value) => {
   if (!value) {
@@ -467,6 +563,116 @@ const metadataSummaryItems = computed<MetadataSummaryItem[]>(() => {
 const metadataActionLabel = computed(() =>
   isMetadataEditing.value ? 'Fechar metadados' : 'Editar metadados'
 );
+
+const lessonManifestTypeOptions = [
+  { value: '', label: 'Sem classificação' },
+  { value: 'lesson', label: 'Aula' },
+  { value: 'assessment', label: 'Avaliação' },
+  { value: 'supplement', label: 'Material complementar' },
+] as const;
+
+function ensureManifestEntry(): LessonManifestEntry | null {
+  return props.manifestEntry?.value ?? null;
+}
+
+function sanitizeManifestInput(value: string): string {
+  return value.trim();
+}
+
+function updateManifestMetadataField(key: string, value: string) {
+  const entry = ensureManifestEntry();
+  if (!entry) return;
+  const normalized = sanitizeManifestInput(value);
+  const metadata =
+    entry.metadata && typeof entry.metadata === 'object'
+      ? (entry.metadata as Record<string, unknown>)
+      : {};
+
+  if (normalized) {
+    metadata[key] = normalized;
+    entry.metadata = { ...metadata };
+  } else {
+    if (metadata[key] !== undefined) {
+      delete metadata[key];
+    }
+    entry.metadata = Object.keys(metadata).length ? { ...metadata } : undefined;
+  }
+}
+
+function readManifestMetadataField(key: string): string {
+  const entry = ensureManifestEntry();
+  if (!entry || !entry.metadata || typeof entry.metadata !== 'object') {
+    return '';
+  }
+  const value = (entry.metadata as Record<string, unknown>)[key];
+  return typeof value === 'string' ? value : '';
+}
+
+const manifestAvailable = computed({
+  get: () => {
+    const entry = ensureManifestEntry();
+    if (!entry) {
+      return true;
+    }
+    return entry.available !== false;
+  },
+  set: (value: boolean) => {
+    const entry = ensureManifestEntry();
+    if (!entry) return;
+    entry.available = Boolean(value);
+  },
+});
+
+const manifestLink = computed({
+  get: () => {
+    const entry = ensureManifestEntry();
+    if (!entry) return '';
+    return typeof entry.link === 'string' ? entry.link : '';
+  },
+  set: (value: string) => {
+    const entry = ensureManifestEntry();
+    if (!entry) return;
+    const normalized = sanitizeManifestInput(value);
+    if (normalized) {
+      entry.link = normalized;
+    } else {
+      delete entry.link;
+    }
+  },
+});
+
+const manifestType = computed({
+  get: () => {
+    const entry = ensureManifestEntry();
+    if (!entry) return '';
+    return typeof entry.type === 'string' ? entry.type : '';
+  },
+  set: (value: string) => {
+    const entry = ensureManifestEntry();
+    if (!entry) return;
+    const normalized = sanitizeManifestInput(value);
+    if (normalized) {
+      entry.type = normalized;
+    } else {
+      delete entry.type;
+    }
+  },
+});
+
+const manifestGeneratedBy = computed({
+  get: () => readManifestMetadataField('generatedBy'),
+  set: (value: string) => updateManifestMetadataField('generatedBy', value),
+});
+
+const manifestModel = computed({
+  get: () => readManifestMetadataField('model'),
+  set: (value: string) => updateManifestMetadataField('model', value),
+});
+
+const manifestTimestamp = computed({
+  get: () => readManifestMetadataField('timestamp'),
+  set: (value: string) => updateManifestMetadataField('timestamp', value),
+});
 
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
   return computed({
