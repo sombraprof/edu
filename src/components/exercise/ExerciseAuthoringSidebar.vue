@@ -48,7 +48,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Título</span>
           <input
-            v-model="exerciseModel.value.title"
+            v-model="currentExercise.title"
             type="text"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
@@ -56,7 +56,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Resumo</span>
           <textarea
-            v-model="exerciseModel.value.summary"
+            v-model="currentExercise.summary"
             rows="3"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           ></textarea>
@@ -204,6 +204,41 @@ const props = defineProps<{
 }>();
 
 const exerciseModel = props.exerciseModel;
+
+type NormalizedLessonEditorModel = LessonEditorModel & {
+  title: string;
+  summary: string;
+  tags: string[];
+};
+
+const defaultExerciseModel: NormalizedLessonEditorModel = {
+  title: '',
+  summary: '',
+  tags: [],
+};
+
+function ensureExerciseModelDefaults(
+  model: LessonEditorModel
+): asserts model is NormalizedLessonEditorModel {
+  if (typeof model.title !== 'string') {
+    model.title = '';
+  }
+  if (typeof model.summary !== 'string') {
+    model.summary = '';
+  }
+  if (!Array.isArray(model.tags)) {
+    model.tags = [];
+  }
+}
+
+const currentExercise = computed<NormalizedLessonEditorModel>(() => {
+  const model = exerciseModel.value;
+  if (!model) {
+    return defaultExerciseModel;
+  }
+  ensureExerciseModelDefaults(model);
+  return model;
+});
 
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
   const target = toRef(field, 'value');

@@ -160,6 +160,67 @@ function findField(wrapper: ReturnType<typeof mount>, label: string, selector: s
 }
 
 describe('ExerciseAuthoringPanel - edição de metadados', () => {
+  it('mantém estado seguro quando o modelo começa nulo e é definido depois', async () => {
+    const exerciseModel = ref<LessonEditorModel | null>(null);
+
+    const tagsField = computed({
+      get: () => (exerciseModel.value?.tags ?? []).join('\n'),
+      set: (value: string) => {
+        if (!exerciseModel.value) return;
+        exerciseModel.value.tags = value
+          .split('\n')
+          .map((entry) => entry.trim())
+          .filter(Boolean);
+      },
+    });
+
+    const { default: ExerciseAuthoringPanel } = await import('../ExerciseAuthoringPanel.vue');
+
+    const wrapper = mount(ExerciseAuthoringPanel, {
+      props: {
+        exerciseModel,
+        tagsField,
+        saving: ref(false),
+        hasPendingChanges: ref(false),
+        saveError: ref<string | null>(null),
+      },
+      global: {
+        stubs: {
+          Md3Button: { template: '<button><slot /></button>' },
+          MetadataListEditor: MetadataListEditorStub,
+          AuthoringDraggableList: AuthoringDraggableListStub,
+          ...iconStubs,
+        },
+      },
+    });
+
+    await flushPromises();
+
+    expect(wrapper.text()).toContain(
+      'Carregue o JSON correspondente para habilitar o painel de edição.'
+    );
+    expect(wrapper.findAll('label')).toHaveLength(0);
+
+    exerciseModel.value = { blocks: [] };
+
+    await nextTick();
+    await flushPromises();
+
+    const titleInput = findField(wrapper, 'Título', 'input');
+    await titleInput.setValue('Título carregado');
+
+    const summaryField = findField(wrapper, 'Resumo', 'textarea');
+    await summaryField.setValue('Resumo carregado');
+
+    const tagsEditor = wrapper.findComponent({ name: 'MetadataListEditor' });
+    expect(tagsEditor.exists()).toBe(true);
+    await tagsEditor.vm.$emit('update:modelValue', 'tag-1\ntag-2');
+
+    expect(exerciseModel.value?.title).toBe('Título carregado');
+    expect(exerciseModel.value?.summary).toBe('Resumo carregado');
+    expect(exerciseModel.value?.tags).toEqual(['tag-1', 'tag-2']);
+  });
+
   it('sincroniza título, resumo e tags com o modelo reativo', async () => {
     const exerciseModel = ref<LessonEditorModel>({
       title: 'Exercício 1',
