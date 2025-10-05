@@ -21,7 +21,7 @@ npm run preview
 O fluxo de edição inline do modo professor precisa do Vite e do serviço auxiliar `teacher:service` rodando juntos.
 
 1. Execute `npm run dev:teacher` em um terminal. O script sobe o Vite e o serviço de automação na porta `4178`, já com o proxy configurado para `VITE_TEACHER_API_URL=/teacher-api`.
-2. Acesse `http://localhost:5173/?teacher=1` (ou ative o modo pelo botão **Professor** no rodapé) para revelar o painel lateral "Editar aula"/"Editar exercício".
+2. Acesse `http://localhost:5173/`. O painel lateral "Editar aula"/"Editar exercício" aparece automaticamente quando o serviço do modo professor estiver ativo.
 3. Abra uma aula ou exercício. O painel exibe metadados, a lista de blocos e o editor contextual do bloco selecionado. As alterações são salvas automaticamente após alguns segundos de inatividade; mensagens como "Salvando alterações…" e "Alterações salvas" confirmam o status.
 
 > ⚠️ O `teacher:service` foi projetado para desenvolvimento local. Não exponha o serviço publicamente sem autenticação via `TEACHER_SERVICE_TOKEN` e VPN/reverse proxy controlados.
@@ -109,4 +109,4 @@ Before opening a pull request:
 - [ ] Use canonical tokens for `callout.variant` (`info`, `good-practice`, `academic`, `warning`, `task`, `error`) and lesson plan icons (`target`, `bullseye`, `graduation-cap`, `calendar-days`, `users`, etc.).
 - [ ] Confirm that lessons/exercises reference the correct JSON wrapper and appear in `lessons.json` / `exercises.json` indexes.
 - [ ] Update documentation when the architecture or authoring workflow changes.
-- [ ] Ao tocar no modo professor, execute `npm run dev:teacher`, confirme o autosave do painel (status "Alterações salvas") e mantenha o `teacher:service` restrito ao ambiente local.
+- [ ] Para validar o modo professor, execute `npm run dev:teacher`, confirme o autosave do painel (status "Alterações salvas") e mantenha o `teacher:service` restrito ao ambiente local.

@@ -8,7 +8,7 @@ This document explains how to produce new lessons and exercises that integrate s
 
 - Run `npm run dev:teacher` to launch Vite and the automation service (`teacher:service`) with the proxy already pointing to `/teacher-api`.
 - Keep the service bound to `127.0.0.1` unless you configure `TEACHER_SERVICE_TOKEN`, VPN/reverse proxy and the allowlists described in [`automation-backend.md`](professor-module/automation-backend.md). The API is designed for local authoring sessions.
-- Access `http://localhost:5173/?teacher=1` or toggle the **Professor** button in the footer to unlock the restricted pages.
+- Open `http://localhost:5173/`. The **Professor** panel appears automatically when the automation service is reachable (locally or via `VITE_TEACHER_API_URL`).
 
 ### Use the block panel
 
