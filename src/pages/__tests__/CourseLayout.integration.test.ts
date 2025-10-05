@@ -27,16 +27,28 @@ function createController(): CourseLayoutController {
     institution: 'Unichristus',
     description: 'Descrição',
   });
-  const lessons = ref([{ id: 'lesson-01', title: 'Aula 1' }]);
-  const exercises = ref([{ id: 'exercise-01', title: 'Atividade' }]);
+  const lessons = ref([
+    { id: 'lesson-01', title: 'Aula 1', available: true },
+    { id: 'lesson-02', title: 'Aula 2', available: false },
+  ]);
+  const exercises = ref([
+    { id: 'exercise-01', title: 'Atividade', available: true, file: 'atividade.pdf' },
+    { id: 'exercise-02', title: 'Rascunho', available: false, file: 'rascunho.pdf' },
+    { id: 'exercise-03', title: 'Quiz remoto', link: 'https://example.com/quiz' },
+  ]);
 
   return {
     meta,
     lessons,
     exercises,
     metaLoaded,
-    lessonsCount: computed(() => lessons.value.length),
-    exercisesCount: computed(() => exercises.value.length),
+    lessonsCount: computed(() => lessons.value.filter((item) => item.available !== false).length),
+    exercisesCount: computed(
+      () =>
+        exercises.value.filter(
+          (item) => item.available !== false && Boolean(item.file || item.link)
+        ).length
+    ),
     refreshCourse: vi.fn(),
     courseId: computed(() => 'demo'),
     route: router.currentRoute.value,
@@ -68,7 +80,9 @@ describe('CourseLayout integration', () => {
 
     expect(wrapper.attributes('aria-busy')).toBe('false');
     expect(wrapper.text()).toContain('Curso Demo');
-    expect(wrapper.text()).toContain('1');
+    const stats = wrapper.findAll('.course-page__stats dd');
+    expect(stats[1].text()).toBe('1');
+    expect(stats[2].text()).toBe('2');
   });
 
   it('exibe loading quando meta não carregou', () => {

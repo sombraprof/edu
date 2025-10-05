@@ -6,12 +6,25 @@ import type { CourseLayoutController } from '../CourseLayout.logic';
 type Controller = CourseLayoutController;
 
 const controllerMock: Controller = {
-  meta: { value: { id: 'demo', title: 'Curso Demo', institution: 'Unichristus' } } as any,
-  lessons: { value: [] } as any,
-  exercises: { value: [] } as any,
+  meta: {
+    value: { id: 'demo', title: 'Curso Demo', institution: 'Unichristus' },
+  } as any,
+  lessons: {
+    value: [
+      { id: 'lesson-01', title: 'Aula 1', available: true },
+      { id: 'lesson-02', title: 'Aula 2', available: false },
+    ],
+  } as any,
+  exercises: {
+    value: [
+      { id: 'exercise-01', title: 'Atividade', available: true, file: 'atividade.pdf' },
+      { id: 'exercise-02', title: 'Quiz remoto', link: 'https://example.com/quiz' },
+      { id: 'exercise-03', title: 'Rascunho', available: false, file: 'rascunho.pdf' },
+    ],
+  } as any,
   metaLoaded: { value: true } as any,
-  lessonsCount: { value: 2 } as any,
-  exercisesCount: { value: 1 } as any,
+  lessonsCount: { value: 1 } as any,
+  exercisesCount: { value: 2 } as any,
   refreshCourse: vi.fn(),
   courseId: { value: 'demo' } as any,
   route: { params: {}, query: {}, fullPath: '/demo' } as any,
@@ -45,8 +58,9 @@ describe('CourseLayout component', () => {
 
     expect(wrapper.attributes('aria-busy')).toBe('false');
     expect(wrapper.text()).toContain('Curso Demo');
-    expect(wrapper.text()).toContain('2');
-    expect(wrapper.text()).toContain('1');
+    const stats = wrapper.findAll('.course-page__stats dd');
+    expect(stats[1].text()).toBe('1');
+    expect(stats[2].text()).toBe('2');
   });
 
   it('exibe skeleton quando meta ainda não carregou', () => {
