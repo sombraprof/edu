@@ -371,7 +371,7 @@ type LessonManifestEntry = Record<string, unknown> & {
 
 const props = defineProps<{
   lessonModel: Ref<LessonEditorModel | null>;
-  manifestEntry?: Ref<LessonManifestEntry | null>;
+  manifestEntry?: LessonManifestEntry | null;
   tagsField: WritableComputedRef<string>;
   createArrayField: (field: LessonArrayField) => WritableComputedRef<string>;
   blocks: LessonAuthoringBlock[];
@@ -397,12 +397,23 @@ const props = defineProps<{
   editorSectionId?: string;
 }>();
 
+const emit = defineEmits<{
+  (event: 'update:manifestEntry', value: LessonManifestEntry | null): void;
+}>();
+
 const lessonModel = props.lessonModel;
 const hasLessonModel = computed(() => lessonModel.value !== null);
 const isMetadataEditing = ref(false);
 const metadataSectionId = 'lesson-metadata-editor';
 
-const hasManifestEntry = computed(() => Boolean(props.manifestEntry?.value));
+const manifestEntry = computed<LessonManifestEntry | null>({
+  get: () => props.manifestEntry ?? null,
+  set: (value) => {
+    emit('update:manifestEntry', value ?? null);
+  },
+});
+
+const hasManifestEntry = computed(() => Boolean(manifestEntry.value));
 
 watch(lessonModel, (value) => {
   if (!value) {
@@ -572,7 +583,14 @@ const lessonManifestTypeOptions = [
 ] as const;
 
 function ensureManifestEntry(): LessonManifestEntry | null {
-  return props.manifestEntry?.value ?? null;
+  return manifestEntry.value;
+}
+
+function updateManifestEntry(updater: (entry: LessonManifestEntry) => LessonManifestEntry) {
+  const current = manifestEntry.value;
+  if (!current) return;
+  const next = updater({ ...current });
+  manifestEntry.value = { ...next };
 }
 
 function sanitizeManifestInput(value: string): string {
@@ -583,20 +601,29 @@ function updateManifestMetadataField(key: string, value: string) {
   const entry = ensureManifestEntry();
   if (!entry) return;
   const normalized = sanitizeManifestInput(value);
-  const metadata =
-    entry.metadata && typeof entry.metadata === 'object'
-      ? (entry.metadata as Record<string, unknown>)
-      : {};
 
-  if (normalized) {
-    metadata[key] = normalized;
-    entry.metadata = { ...metadata };
-  } else {
+  updateManifestEntry((current) => {
+    const metadata =
+      current.metadata && typeof current.metadata === 'object'
+        ? { ...(current.metadata as Record<string, unknown>) }
+        : {};
+
+    if (normalized) {
+      metadata[key] = normalized;
+      return { ...current, metadata };
+    }
+
     if (metadata[key] !== undefined) {
       delete metadata[key];
     }
-    entry.metadata = Object.keys(metadata).length ? { ...metadata } : undefined;
-  }
+
+    if (Object.keys(metadata).length) {
+      return { ...current, metadata };
+    }
+
+    const { metadata: _omit, ...rest } = current;
+    return { ...rest } as LessonManifestEntry;
+  });
 }
 
 function readManifestMetadataField(key: string): string {
@@ -619,7 +646,7 @@ const manifestAvailable = computed({
   set: (value: boolean) => {
     const entry = ensureManifestEntry();
     if (!entry) return;
-    entry.available = Boolean(value);
+    updateManifestEntry((current) => ({ ...current, available: Boolean(value) }));
   },
 });
 
@@ -633,11 +660,13 @@ const manifestLink = computed({
     const entry = ensureManifestEntry();
     if (!entry) return;
     const normalized = sanitizeManifestInput(value);
-    if (normalized) {
-      entry.link = normalized;
-    } else {
-      delete entry.link;
-    }
+    updateManifestEntry((current) => {
+      if (normalized) {
+        return { ...current, link: normalized };
+      }
+      const { link: _omit, ...rest } = current;
+      return { ...rest } as LessonManifestEntry;
+    });
   },
 });
 
@@ -651,11 +680,13 @@ const manifestType = computed({
     const entry = ensureManifestEntry();
     if (!entry) return;
     const normalized = sanitizeManifestInput(value);
-    if (normalized) {
-      entry.type = normalized;
-    } else {
-      delete entry.type;
-    }
+    updateManifestEntry((current) => {
+      if (normalized) {
+        return { ...current, type: normalized };
+      }
+      const { type: _omit, ...rest } = current;
+      return { ...rest } as LessonManifestEntry;
+    });
   },
 });
 
