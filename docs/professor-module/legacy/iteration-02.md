@@ -1,6 +1,8 @@
-# Iteração 2 — Ingestão e validação de JSON
+# Iteração 2 — Ingestão e validação de JSON (Legado)
 
-> Documento vivo. Atualize sempre que novos fluxos forem testados ou surgirem pendências relevantes.
+> **Documento legado:** As rotas, painéis e automações descritos abaixo foram aposentados. O fluxo vigente utiliza o editor inline do modo professor e o serviço `teacher:service` limitado a `GET/PUT`. Consulte o [estado atual](../status-overview.md#estado-atual) para fontes de verdade atualizadas.
+>
+> Registro histórico preservado apenas para consulta. Não representa o fluxo atual.
 
 ## Objetivo da iteração
 

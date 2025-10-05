@@ -1,6 +1,8 @@
-# Iteração 3 — Editor visual de blocos
+# Iteração 3 — Editor visual de blocos (Legado)
 
-> Documento vivo. Atualize a cada rodada de ajustes, feedbacks e decisões sobre o editor.
+> **Documento legado:** As rotas, painéis e automações descritos abaixo foram aposentados. O fluxo vigente utiliza o editor inline do modo professor e o serviço `teacher:service` limitado a `GET/PUT`. Consulte o [estado atual](../status-overview.md#estado-atual) para fontes de verdade atualizadas.
+>
+> Registro histórico preservado apenas para consulta. Não representa o fluxo atual.
 
 ## Objetivo da iteração
 
