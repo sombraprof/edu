@@ -184,6 +184,7 @@ function setView(view: WorkspaceView) {
 
 .teacher-authoring-workspace__sidebar {
   position: relative;
+  min-width: 0;
 }
 
 .teacher-authoring-workspace__canvas {
@@ -222,7 +223,7 @@ function setView(view: WorkspaceView) {
   }
 
   .teacher-authoring-workspace__layout--with-sidebar {
-    grid-template-columns: 20rem minmax(0, 1fr);
+    grid-template-columns: minmax(20rem, 30%) minmax(0, 70%);
     align-items: flex-start;
   }
 
@@ -231,6 +232,8 @@ function setView(view: WorkspaceView) {
     top: 5.5rem;
     max-height: calc(100vh - 6rem);
     overflow: auto;
+    align-self: start;
+    width: 100%;
   }
 
   .teacher-authoring-workspace__canvas {

@@ -20,6 +20,7 @@ Documento vivo descrevendo o estado atual do módulo `/professor` e como operá-
 - Salva alterações por meio de `PUT /api/teacher/content` com autosave (conteúdo formatado com `JSON.stringify(..., 2)`).
 - Mostra feedback de sucesso/erro baseado nas respostas JSON do serviço auxiliar.
 - Permanece bloqueado quando `VITE_TEACHER_API_URL` não está configurada ou o serviço está offline.
+- Workspace desktop dividido em grid 30/70: a barra lateral mantém largura mínima de 20rem e pode ocupar até 30% da tela, deixando 70% para o canvas de edição.
 
 ### Serviço auxiliar simplificado (`npm run teacher:service`)
 
