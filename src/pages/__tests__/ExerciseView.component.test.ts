@@ -29,10 +29,13 @@ vi.mock('../ExerciseView.logic', () => ({
 }));
 
 const teacherModeMock = ref(true);
+const toggleTeacherModeMock = vi.fn();
 
 vi.mock('@/composables/useTeacherMode', () => ({
   useTeacherMode: () => ({
     teacherMode: teacherModeMock,
+    toggleTeacherMode: toggleTeacherModeMock,
+    isAuthoringForced: computed(() => false),
   }),
 }));
 
@@ -92,6 +95,50 @@ const ExerciseAuthoringPanelStub = {
   template: '<div class="exercise-authoring-panel"></div>',
 };
 
+function stubMatchMedia() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  const matchMediaMock = vi.fn().mockReturnValue({
+    matches: false,
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  });
+
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: matchMediaMock,
+  });
+}
+
+const mountAppWithExerciseView = async () => {
+  stubMatchMedia();
+  const { default: App } = await import('@/App.vue');
+
+  return mount(App, {
+    global: {
+      stubs: {
+        Md3Button: ButtonStub,
+        RouterLink: { template: '<a><slot /></a>' },
+        ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+        ChevronRight: { template: '<span />' },
+        ArrowLeft: { template: '<span />' },
+        SiteHeader: { template: '<header />' },
+        SiteFooter: { template: '<footer />' },
+        ArrowUp: { template: '<span />' },
+        RouterView: {
+          template: '<ExerciseView />',
+          components: { ExerciseView },
+        },
+      },
+    },
+  });
+};
+
 describe('ExerciseView component', () => {
   beforeEach(() => {
     controllerMock = createController();
@@ -102,7 +149,12 @@ describe('ExerciseView component', () => {
     contentSyncMock.revertChanges.mockReset();
     contentSyncMock.serviceAvailable = true;
     teacherModeMock.value = true;
+    toggleTeacherModeMock.mockReset();
     exerciseEditorModel.value = {};
+  });
+
+  afterEach(() => {
+    vi.unstubAllEnvs();
   });
 
   it('exibe painel de autoria como visão padrão', () => {
@@ -138,6 +190,7 @@ describe('ExerciseView component', () => {
     await wrapper.get('[data-testid="teacher-workspace-tab-preview"]').trigger('click');
 
     expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.teacher-preview-shell').exists()).toBe(true);
     expect(wrapper.text()).toContain('Título');
   });
 
@@ -177,5 +230,27 @@ describe('ExerciseView component', () => {
 
     expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(false);
     expect(wrapper.text()).toContain('Título');
+  });
+
+  it('aplica layout expandido de professor quando automação está disponível', async () => {
+    teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_API_URL', 'https://automation.local');
+
+    const wrapper = await mountAppWithExerciseView();
+
+    expect(wrapper.get('main').classes()).toContain('md-page--teacher');
+
+    wrapper.unmount();
+  });
+
+  it('mantém layout padrão quando automação está indisponível', async () => {
+    teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_API_URL', '');
+
+    const wrapper = await mountAppWithExerciseView();
+
+    expect(wrapper.get('main').classes()).not.toContain('md-page--teacher');
+
+    wrapper.unmount();
   });
 });
