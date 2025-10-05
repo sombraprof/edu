@@ -40,7 +40,7 @@
       {{ props.successMessage }}
     </div>
 
-    <template v-if="lessonModel.value">
+    <template v-if="hasLessonModel">
       <section class="md-stack md-stack-3">
         <h3 class="md-typescale-title-medium font-semibold text-on-surface">
           Metadados principais
@@ -48,7 +48,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Título</span>
           <input
-            v-model="lessonModel.value.title"
+            v-model="currentLesson.title"
             type="text"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
@@ -56,7 +56,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Resumo</span>
           <textarea
-            v-model="lessonModel.value.summary"
+            v-model="currentLesson.summary"
             rows="3"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           ></textarea>
@@ -64,7 +64,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Objetivo geral</span>
           <textarea
-            v-model="lessonModel.value.objective"
+            v-model="currentLesson.objective"
             rows="3"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           ></textarea>
@@ -73,7 +73,7 @@
           <label class="flex flex-col gap-1">
             <span class="md-typescale-label-large text-on-surface">Modalidade</span>
             <input
-              v-model="lessonModel.value.modality"
+              v-model="currentLesson.modality"
               type="text"
               class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="in-person, remoto, híbrido..."
@@ -82,7 +82,7 @@
           <label class="flex flex-col gap-1">
             <span class="md-typescale-label-large text-on-surface">Duração (min)</span>
             <input
-              v-model.number="lessonModel.value.duration"
+              v-model.number="currentLesson.duration"
               type="number"
               min="0"
               class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -211,7 +211,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, toRef, toValue, type Component, type Ref, type WritableComputedRef } from 'vue';
+import { computed, type Component, type Ref, type WritableComputedRef } from 'vue';
 import { ArrowDown, ArrowUp, GripVertical, PenSquare, Plus, Trash2 } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 import AuthoringDraggableList from '@/components/authoring/AuthoringDraggableList.vue';
@@ -251,12 +251,89 @@ const props = defineProps<{
   editorSectionId?: string;
 }>();
 
+const lessonModel = props.lessonModel;
+const hasLessonModel = computed(() => lessonModel.value !== null);
+
+type NormalizedLessonEditorModel = LessonEditorModel & {
+  title: string;
+  summary: string;
+  objective: string;
+  modality: string;
+  duration: number | null;
+  tags: string[];
+  objectives: string[];
+  competencies: string[];
+  skills: string[];
+  outcomes: string[];
+  prerequisites: string[];
+};
+
+const defaultLessonModel: NormalizedLessonEditorModel = {
+  title: '',
+  summary: '',
+  objective: '',
+  modality: '',
+  duration: null,
+  tags: [],
+  objectives: [],
+  competencies: [],
+  skills: [],
+  outcomes: [],
+  prerequisites: [],
+};
+
+function ensureLessonModelDefaults(
+  model: LessonEditorModel
+): asserts model is NormalizedLessonEditorModel {
+  if (typeof model.title !== 'string') {
+    model.title = '';
+  }
+  if (typeof model.summary !== 'string') {
+    model.summary = '';
+  }
+  if (typeof model.objective !== 'string') {
+    model.objective = '';
+  }
+  if (typeof model.modality !== 'string') {
+    model.modality = '';
+  }
+  if (typeof model.duration !== 'number' && model.duration !== null) {
+    model.duration = null;
+  }
+  if (!Array.isArray(model.tags)) {
+    model.tags = [];
+  }
+  if (!Array.isArray(model.objectives)) {
+    model.objectives = [];
+  }
+  if (!Array.isArray(model.competencies)) {
+    model.competencies = [];
+  }
+  if (!Array.isArray(model.skills)) {
+    model.skills = [];
+  }
+  if (!Array.isArray(model.outcomes)) {
+    model.outcomes = [];
+  }
+  if (!Array.isArray(model.prerequisites)) {
+    model.prerequisites = [];
+  }
+}
+
+const currentLesson = computed<NormalizedLessonEditorModel>(() => {
+  const model = lessonModel.value;
+  if (!model) {
+    return defaultLessonModel;
+  }
+  ensureLessonModelDefaults(model);
+  return model;
+});
+
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
-  const target = toRef(field, 'value');
   return computed({
-    get: () => toValue(target),
+    get: () => field.value,
     set: (value: string) => {
-      target.value = value;
+      field.value = value;
     },
   });
 }

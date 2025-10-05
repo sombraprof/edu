@@ -3,9 +3,9 @@ import { computed, ref, watch, type Ref } from 'vue';
 type SaveStatus = 'idle' | 'pending' | 'saving' | 'saved' | 'error';
 
 type SaveSignals = {
-  saving: Ref<boolean>;
-  hasPendingChanges: Ref<boolean>;
-  saveError: Ref<string | null>;
+  saving: Ref<boolean | undefined>;
+  hasPendingChanges: Ref<boolean | undefined>;
+  saveError: Ref<string | null | undefined>;
 };
 
 export function useAuthoringSaveTracker(target: Ref<unknown>, signals: SaveSignals) {
@@ -22,9 +22,9 @@ export function useAuthoringSaveTracker(target: Ref<unknown>, signals: SaveSigna
 
   watch(
     () => ({
-      saving: signals.saving.value,
-      pending: signals.hasPendingChanges.value,
-      error: signals.saveError.value,
+      saving: Boolean(signals.saving.value),
+      pending: Boolean(signals.hasPendingChanges.value),
+      error: signals.saveError.value ?? null,
     }),
     ({ saving, pending, error }) => {
       if (pending && !previous.pending) {
