@@ -1,26 +1,41 @@
 # Status do módulo administrativo "Professor"
 
-Este resumo rápido compila o estado atual das entregas documentadas no plano incremental e sinaliza os próximos passos em aberto.
+Este resumo apresenta exclusivamente as funcionalidades que permanecem ativas após a simplificação do modo professor. O foco atual é o editor inline nas páginas de aula/exercício e o serviço auxiliar mínimo que apenas lê e grava JSON.
 
-## O que já foi entregue
+## Estado atual
 
-- Rota protegida `/professor` com dashboard e navegação dedicados.
-- Workbench de ingestão `/professor/ingestao` com validação client-side e checklist operacional.
-- Editor visual `/professor/editor` com suporte aos blocos principais e validação inline.
-- Exportação do editor condicionada aos scripts oficiais registrados no painel de validações.
-- Painel `/professor/validacao` para consolidar execuções, notas e relatórios oficiais.
-- Pacote `/professor/publicacao` com checklist de validações, status Git em tempo real, geração de comandos e preparo de resumo de PR.
-  - Botão "Buscar atualizações da main" sincroniza o workspace via `git fetch` controlado.
-  - Botão "Criar branch automaticamente" usa o backend para preparar a branch de trabalho diretamente da SPA.
-  - Painel executa `git add`, `git commit` e `git push` com feedback reaproveitando a API auxiliar.
-- Serviço auxiliar `npm run teacher:service` para disparo de scripts e sincronização de relatórios diretamente da SPA.
+- [Plano de implementação do módulo](./README.md) — fonte principal com instruções de operação, passos de setup e decisões recentes.
+- [Guia dentro da SPA](../../src/pages/TeacherGuide.vue) — interface que orienta professores a ativarem o modo professor e trabalharem inline.
+- [Serviço auxiliar documentado](./automation-backend.md) — referência sobre o `npm run teacher:service`, seus endpoints (`GET/PUT`) e parâmetros de execução.
 
-## O que falta fazer
+Consulte estes materiais ao comunicar o estado do módulo; qualquer funcionalidade além do editor inline e do serviço simplificado é considerada fora de escopo.
 
-- Evoluir o serviço backend para oferecer autorização multiusuário, filas de execução e auditoria detalhada.
-- Automatizar abertura de PRs a partir do pacote de publicação na SPA.
-- Definir política de permissões, auditoria e governança para expor a API em ambientes compartilhados.
-- Ampliar o editor visual para cobrir blocos avançados e oferecer pré-visualização renderizada.
-- Consolidar suíte de testes (unitários e e2e) cobrindo ingestão, edição, validação e publicação.
+## Fluxo atual de autoria
 
-> Consulte o [plano completo](./README.md) e os registros por iteração para mais detalhes sobre contexto, decisões e próximos passos.
+1. **Iniciar o modo professor**
+   - Suba o front-end com `npm run dev:teacher`.
+   - Garanta que `VITE_TEACHER_API_URL` aponte para o serviço auxiliar ativo (por padrão `http://127.0.0.1:4178`).
+2. **Editar conteúdo inline**
+   - Acesse `/professor/editor` ou navegue para uma aula/exercício com o modo professor habilitado.
+   - Use os painéis "Editar aula" ou "Editar exercício" para ajustar campos, com pré-visualização em tempo real.
+   - Utilize "Reverter alterações" sempre que quiser descartar modificações locais.
+3. **Persistir alterações**
+   - Cada ajuste válido aciona `PUT /api/teacher/content`, gravando o JSON no arquivo correspondente em `src/content`.
+   - Erros de escrita ou validação de JSON são exibidos imediatamente para correção.
+4. **Publicar manualmente**
+   - Execute os scripts CLI (`npm run validate:content`, relatórios) conforme a governança vigente.
+   - Utilize Git manualmente para `status`, `add`, `commit`, `push` e criação de PRs.
+
+## Serviço auxiliar simplificado (`teacher:service`)
+
+- Executado via `npm run teacher:service`, ouvindo na porta `4178` (configurável).
+- Endpoints disponíveis:
+  - `GET /health` para diagnóstico.
+  - `GET /api/teacher/content` para carregar JSON existente.
+  - `PUT /api/teacher/content` para sobrescrever conteúdo já versionado.
+- Opcionalmente exige `X-Teacher-Token` quando configurado.
+- Não executa scripts, não manipula Git, não agenda automações.
+
+## Itens fora de escopo
+
+Painéis de ingestão, dashboards de validação, automações Git, criação de PRs e qualquer outro fluxo descrito nas iterações anteriores foram aposentados. Os registros completos permanecem em [`docs/professor-module/legacy/`](./legacy/) apenas como histórico.

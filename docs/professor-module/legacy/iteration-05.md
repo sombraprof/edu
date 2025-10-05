@@ -1,6 +1,8 @@
-# Iteração 5 — Pacote de publicação e integração com Git
+# Iteração 5 — Pacote de publicação e integração com Git (Legado)
 
-> Documento vivo. Use-o para registrar aprendizados enquanto o módulo caminha para automações de branches e PRs.
+> **Documento legado:** As rotas, painéis e automações descritos abaixo foram aposentados. O fluxo vigente utiliza o editor inline do modo professor e o serviço `teacher:service` limitado a `GET/PUT`. Consulte o [estado atual](../status-overview.md#estado-atual) para fontes de verdade atualizadas.
+>
+> Registro histórico preservado apenas para consulta. Não representa o fluxo atual.
 
 ## Objetivo da iteração
 
