@@ -26,7 +26,7 @@
         <ExerciseAuthoringSidebar
           v-if="showAuthoringPanel"
           :exercise-model="exerciseEditor.lessonModel"
-          :manifest-entry="exerciseManifestEntry"
+          v-model:manifest-entry="exerciseManifestEntry"
           :tags-field="exerciseEditor.tagsField"
           :blocks="exerciseBlocks"
           :draggable-blocks="displayedBlocks"
@@ -96,7 +96,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, shallowRef, watch, useId } from 'vue';
+import { computed, ref, watch, useId } from 'vue';
 import { RouterLink } from 'vue-router';
 import {
   AlertCircle,
@@ -315,7 +315,7 @@ const controller = useExerciseViewController();
 const exerciseEditor = useLessonEditorModel();
 const { teacherMode } = useTeacherMode();
 
-const exerciseManifestEntry = shallowRef<ExerciseManifestEntry | null>(null);
+const exerciseManifestEntry = ref<ExerciseManifestEntry | null>(null);
 
 const exerciseManifestPath = computed(() => `courses/${controller.courseId.value}/exercises.json`);
 

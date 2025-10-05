@@ -1,6 +1,7 @@
 import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
-import { ref, shallowRef, computed } from 'vue';
+import { ref, shallowRef, computed, watch } from 'vue';
+import type { Ref } from 'vue';
 import type { LessonViewController } from '../LessonView.logic';
 
 const BlockEditorStub = {
@@ -133,15 +134,51 @@ const manifestSyncMock = {
   serviceAvailable: true,
 };
 
-let lastManifestEditorOptions: { setModel: (model: unknown) => void } | null = null;
+let lastManifestEditorOptions: { setModel: ReturnType<typeof vi.fn>; model: Ref<unknown> } | null =
+  null;
 let lastContentEditorOptions: { setModel: (model: unknown) => void } | null = null;
+let manifestSetModelSpy: ReturnType<typeof vi.fn> | null = null;
 
 vi.mock('@/services/useTeacherContentEditor', () => ({
-  useTeacherContentEditor: (options: { setModel: (model: unknown) => void }) => {
+  useTeacherContentEditor: (options: {
+    setModel: (model: unknown) => void;
+    model: Ref<unknown>;
+  }) => {
+    const originalSetModel = options.setModel;
+    const setModelSpy = vi.fn(originalSetModel);
+    (options as typeof options & { setModel: ReturnType<typeof vi.fn> }).setModel = setModelSpy;
+
     if (!lastManifestEditorOptions) {
-      lastManifestEditorOptions = options;
+      lastManifestEditorOptions = options as typeof options & {
+        setModel: ReturnType<typeof vi.fn>;
+      };
+      manifestSetModelSpy = setModelSpy;
+
+      let initialized = false;
+      let skipNextUpdate = false;
+      watch(
+        () => options.model.value,
+        (value) => {
+          if (!initialized) {
+            initialized = true;
+            return;
+          }
+
+          if (skipNextUpdate) {
+            skipNextUpdate = false;
+            return;
+          }
+
+          manifestSyncMock.hasPendingChanges.value = true;
+          skipNextUpdate = true;
+          setModelSpy(value);
+        },
+        { deep: true }
+      );
+
       return manifestSyncMock;
     }
+
     lastContentEditorOptions = options;
     return contentSyncMock;
   },
@@ -272,6 +309,7 @@ describe('LessonView component', () => {
     highlightMock.mockReset();
     lastManifestEditorOptions = null;
     lastContentEditorOptions = null;
+    manifestSetModelSpy = null;
     if (typeof HTMLElement !== 'undefined') {
       Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
         value: vi.fn(),
@@ -515,6 +553,59 @@ describe('LessonView component', () => {
     const wrapper = await mountAppWithLessonView();
 
     expect(wrapper.get('main').classes()).not.toContain('md-page--teacher');
+
+    wrapper.unmount();
+  });
+
+  it('marca alterações pendentes ao editar manifesto da lição', async () => {
+    controllerMock.lessonData.value = { content: [] } as any;
+
+    const wrapper = mountComponent({
+      lessonModel: { title: 'Introdução', blocks: [] },
+    });
+
+    await wrapper.vm.$nextTick();
+    expect(lastManifestEditorOptions).toBeTruthy();
+    expect(manifestSetModelSpy).toBeTruthy();
+
+    lastManifestEditorOptions?.setModel?.({ id: 'lesson-01', available: true, link: '' });
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+    manifestSyncMock.hasPendingChanges.value = false;
+    manifestSetModelSpy?.mockClear();
+
+    await expect
+      .poll(() => wrapper.find('[data-testid="lesson-availability-toggle"]').exists())
+      .toBe(true);
+
+    await wrapper.get('[data-testid="lesson-availability-toggle"]').setValue(false);
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+
+    expect(manifestSyncMock.hasPendingChanges.value).toBe(true);
+    expect(manifestSetModelSpy).toHaveBeenCalled();
+    expect(manifestSetModelSpy?.mock.calls.at(-1)?.[0]).toMatchObject({
+      id: 'lesson-01',
+      available: false,
+    });
+
+    manifestSyncMock.hasPendingChanges.value = false;
+    manifestSetModelSpy?.mockClear();
+
+    const linkInput = wrapper.get('input[placeholder="https://exemplo.com/material"]');
+    await linkInput.setValue(' https://conteudo.com/aula ');
+    await wrapper.vm.$nextTick();
+    await Promise.resolve();
+    await wrapper.vm.$nextTick();
+
+    expect(manifestSyncMock.hasPendingChanges.value).toBe(true);
+    expect(manifestSetModelSpy).toHaveBeenCalled();
+    expect(manifestSetModelSpy?.mock.calls.at(-1)?.[0]).toMatchObject({
+      id: 'lesson-01',
+      link: 'https://conteudo.com/aula',
+    });
 
     wrapper.unmount();
   });

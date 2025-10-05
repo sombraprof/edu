@@ -26,7 +26,7 @@
         <LessonAuthoringSidebar
           v-if="showAuthoringPanel"
           :lesson-model="lessonEditor.lessonModel"
-          :manifest-entry="lessonManifestEntry"
+          v-model:manifest-entry="lessonManifestEntry"
           :tags-field="lessonEditor.tagsField"
           :create-array-field="lessonEditor.useArrayField"
           :blocks="lessonBlocks"
@@ -698,7 +698,7 @@ const lessonContentPath = computed(() => {
 
 const lessonManifestPath = computed(() => `courses/${controller.courseId.value}/lessons.json`);
 
-const lessonManifestEntry = shallowRef<LessonManifestEntry | null>(null);
+const lessonManifestEntry = ref<LessonManifestEntry | null>(null);
 
 const lessonManifestSync = useTeacherContentEditor<LessonManifestEntry | null, LessonManifestFile>({
   path: lessonManifestPath,

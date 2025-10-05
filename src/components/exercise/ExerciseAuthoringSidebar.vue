@@ -317,7 +317,7 @@ type ExerciseManifestEntry = Record<string, unknown> & {
 
 const props = defineProps<{
   exerciseModel: Ref<LessonEditorModel | null>;
-  manifestEntry?: Ref<ExerciseManifestEntry | null>;
+  manifestEntry?: ExerciseManifestEntry | null;
   tagsField: WritableComputedRef<string>;
   blocks: LessonAuthoringBlock[];
   draggableBlocks: LessonAuthoringBlock[];
@@ -342,12 +342,23 @@ const props = defineProps<{
   editorSectionId?: string;
 }>();
 
+const emit = defineEmits<{
+  (event: 'update:manifestEntry', value: ExerciseManifestEntry | null): void;
+}>();
+
 const exerciseModel = props.exerciseModel;
 const hasExerciseModel = computed(() => exerciseModel.value !== null);
 const isMetadataEditing = ref(false);
 const metadataSectionId = 'exercise-metadata-editor';
 
-const hasManifestEntry = computed(() => Boolean(props.manifestEntry?.value));
+const manifestEntry = computed<ExerciseManifestEntry | null>({
+  get: () => props.manifestEntry ?? null,
+  set: (value) => {
+    emit('update:manifestEntry', value ?? null);
+  },
+});
+
+const hasManifestEntry = computed(() => Boolean(manifestEntry.value));
 
 watch(exerciseModel, (value) => {
   if (!value) {
@@ -432,7 +443,14 @@ const exerciseManifestTypeOptions = [
 ] as const;
 
 function ensureManifestEntry(): ExerciseManifestEntry | null {
-  return props.manifestEntry?.value ?? null;
+  return manifestEntry.value;
+}
+
+function updateManifestEntry(updater: (entry: ExerciseManifestEntry) => ExerciseManifestEntry) {
+  const current = manifestEntry.value;
+  if (!current) return;
+  const next = updater({ ...current });
+  manifestEntry.value = { ...next };
 }
 
 function sanitizeManifestInput(value: string): string {
@@ -443,20 +461,29 @@ function updateManifestMetadataField(key: string, value: string) {
   const entry = ensureManifestEntry();
   if (!entry) return;
   const normalized = sanitizeManifestInput(value);
-  const metadata =
-    entry.metadata && typeof entry.metadata === 'object'
-      ? (entry.metadata as Record<string, unknown>)
-      : {};
 
-  if (normalized) {
-    metadata[key] = normalized;
-    entry.metadata = { ...metadata };
-  } else {
+  updateManifestEntry((current) => {
+    const metadata =
+      current.metadata && typeof current.metadata === 'object'
+        ? { ...(current.metadata as Record<string, unknown>) }
+        : {};
+
+    if (normalized) {
+      metadata[key] = normalized;
+      return { ...current, metadata };
+    }
+
     if (metadata[key] !== undefined) {
       delete metadata[key];
     }
-    entry.metadata = Object.keys(metadata).length ? { ...metadata } : undefined;
-  }
+
+    if (Object.keys(metadata).length) {
+      return { ...current, metadata };
+    }
+
+    const { metadata: _omit, ...rest } = current;
+    return { ...rest } as ExerciseManifestEntry;
+  });
 }
 
 function readManifestMetadataField(key: string): string {
@@ -477,7 +504,7 @@ const manifestAvailable = computed({
   set: (value: boolean) => {
     const entry = ensureManifestEntry();
     if (!entry) return;
-    entry.available = Boolean(value);
+    updateManifestEntry((current) => ({ ...current, available: Boolean(value) }));
   },
 });
 
@@ -491,11 +518,13 @@ const manifestLink = computed({
     const entry = ensureManifestEntry();
     if (!entry) return;
     const normalized = sanitizeManifestInput(value);
-    if (normalized) {
-      entry.link = normalized;
-    } else {
-      delete entry.link;
-    }
+    updateManifestEntry((current) => {
+      if (normalized) {
+        return { ...current, link: normalized };
+      }
+      const { link: _omit, ...rest } = current;
+      return { ...rest } as ExerciseManifestEntry;
+    });
   },
 });
 
@@ -509,11 +538,13 @@ const manifestType = computed({
     const entry = ensureManifestEntry();
     if (!entry) return;
     const normalized = sanitizeManifestInput(value);
-    if (normalized) {
-      entry.type = normalized;
-    } else {
-      delete entry.type;
-    }
+    updateManifestEntry((current) => {
+      if (normalized) {
+        return { ...current, type: normalized };
+      }
+      const { type: _omit, ...rest } = current;
+      return { ...rest } as ExerciseManifestEntry;
+    });
   },
 });
 
