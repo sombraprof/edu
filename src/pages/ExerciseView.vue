@@ -133,7 +133,11 @@ const exerciseCanRevert = computed(() => exerciseContentSync.hasPendingChanges.v
 
 const authoringExercise = computed(() => exerciseEditor.lessonModel.value);
 const showAuthoringPanel = computed(
-  () => import.meta.env.DEV && teacherMode.value && Boolean(authoringExercise.value)
+  () =>
+    import.meta.env.DEV &&
+    teacherMode.value &&
+    exerciseContentSync.serviceAvailable &&
+    Boolean(authoringExercise.value)
 );
 
 const courseId = computed(() => controller.courseId.value);

@@ -165,7 +165,11 @@ const lessonContent = computed(() => {
 });
 
 const showAuthoringPanel = computed(
-  () => import.meta.env.DEV && teacherMode.value && Boolean(lessonContent.value)
+  () =>
+    import.meta.env.DEV &&
+    teacherMode.value &&
+    lessonContentSync.serviceAvailable &&
+    Boolean(lessonContent.value)
 );
 
 const courseId = computed(() => controller.courseId.value);

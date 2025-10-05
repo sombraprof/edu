@@ -23,9 +23,7 @@ function serialize(value: unknown): string {
   return JSON.stringify(value, null, 2);
 }
 
-const explicitBaseUrl = teacherAutomationBaseUrl;
-const fallbackBaseUrl = import.meta.env.DEV ? '/teacher-api' : '';
-const teacherContentBaseUrl = (explicitBaseUrl || fallbackBaseUrl).replace(/\/$/, '');
+const teacherContentBaseUrl = teacherAutomationBaseUrl;
 export const teacherContentServiceEnabled = teacherContentBaseUrl.length > 0;
 
 async function teacherContentRequest<T>(path: string, init?: RequestInit): Promise<T> {
