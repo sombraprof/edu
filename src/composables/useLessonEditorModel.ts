@@ -60,6 +60,57 @@ const RoadmapEditor = defineAsyncComponent(
 const KnowledgeCheckEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/KnowledgeCheckEditor.vue')
 );
+const ChecklistEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/ChecklistEditor.vue')
+);
+const TimelineEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/TimelineEditor.vue')
+);
+const StepperEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/StepperEditor.vue')
+);
+const GlossaryEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/GlossaryEditor.vue')
+);
+const FlashcardsEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/FlashcardsEditor.vue')
+);
+const VideosEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/VideosEditor.vue')
+);
+const VideosBlockEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/VideosBlockEditor.vue')
+);
+const BibliographyEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/BibliographyEditor.vue')
+);
+const BibliographyBlockEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/BibliographyBlockEditor.vue')
+);
+const InteractiveDemoEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/InteractiveDemoEditor.vue')
+);
+const CodeSubmissionEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/CodeSubmissionEditor.vue')
+);
+const PromptTipEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/PromptTipEditor.vue')
+);
+const FlightPlanEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/FlightPlanEditor.vue')
+);
+const AccordionEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/AccordionEditor.vue')
+);
+const RepresentationsEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/RepresentationsEditor.vue')
+);
+const ParsonsEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/ParsonsEditor.vue')
+);
+const ParsonsPuzzleEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/ParsonsPuzzleEditor.vue')
+);
 const GenericJsonBlockEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/UnsupportedBlockEditor.vue')
 );
@@ -74,6 +125,24 @@ const blockEditorRegistry = Object.freeze({
   tabs: TabsBlockEditor,
   roadmap: RoadmapEditor,
   knowledgeCheck: KnowledgeCheckEditor,
+  multipleChoice: QuizBlockEditor,
+  checklist: ChecklistEditor,
+  timeline: TimelineEditor,
+  stepper: StepperEditor,
+  glossary: GlossaryEditor,
+  flashcards: FlashcardsEditor,
+  videos: VideosEditor,
+  videosBlock: VideosBlockEditor,
+  bibliography: BibliographyEditor,
+  bibliographyBlock: BibliographyBlockEditor,
+  interactiveDemo: InteractiveDemoEditor,
+  codeSubmission: CodeSubmissionEditor,
+  promptTip: PromptTipEditor,
+  flightPlan: FlightPlanEditor,
+  accordion: AccordionEditor,
+  representations: RepresentationsEditor,
+  parsons: ParsonsEditor,
+  parsonsPuzzle: ParsonsPuzzleEditor,
 });
 
 type BlockEditorRegistry = typeof blockEditorRegistry;
