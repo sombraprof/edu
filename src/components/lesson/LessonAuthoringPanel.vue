@@ -134,8 +134,10 @@
           <article
             v-for="(block, index) in blocks"
             :key="block.__uiKey"
-            class="md-shape-extra-large border border-outline-variant bg-surface-container-high p-3"
-            :class="{ 'border-primary': index === selectedBlockIndex }"
+            class="authoring-block-card md-shape-extra-large border border-outline-variant bg-surface-container-high p-3"
+            :class="{ 'is-selected': index === selectedBlockIndex }"
+            :aria-expanded="index === selectedBlockIndex"
+            :aria-controls="editorSectionId"
           >
             <header class="flex items-start justify-between gap-2">
               <div class="flex items-center gap-2">
@@ -176,7 +178,7 @@
               </div>
             </header>
             <footer class="mt-3 flex items-center justify-between gap-2">
-              <Md3Button type="button" variant="text" @click="selectedBlockIndex = index">
+              <Md3Button type="button" variant="text" @click="selectBlock(index)">
                 <template #leading>
                   <PenSquare class="md-icon md-icon--sm" aria-hidden="true" />
                 </template>
@@ -193,7 +195,12 @@
         </p>
       </section>
 
-      <section v-if="selectedBlock" class="md-stack md-stack-3">
+      <section
+        v-if="selectedBlock"
+        ref="selectedEditorEl"
+        :id="editorSectionId"
+        class="md-stack md-stack-3"
+      >
         <h3 class="md-typescale-title-medium font-semibold text-on-surface">
           Editor do bloco selecionado
         </h3>
@@ -211,7 +218,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, type ComputedRef, type Ref } from 'vue';
+import { computed, nextTick, ref, useId, watch, type ComputedRef, type Ref } from 'vue';
 import {
   AlertCircle,
   ArrowDown,
@@ -271,6 +278,8 @@ const blocks = computed<LessonAuthoringBlock[]>(
   () => (props.lessonModel.value?.blocks ?? []) as LessonAuthoringBlock[]
 );
 const selectedBlockIndex = ref(0);
+const selectedEditorEl = ref<HTMLElement | null>(null);
+const editorSectionId = `lesson-authoring-selected-block-${useId()}`;
 const newBlockType = ref<string>(supportedBlockTypes[0] ?? 'contentBlock');
 
 const showRevertButton = computed(
@@ -287,7 +296,7 @@ watch(blocks, (current) => {
     return;
   }
   if (selectedBlockIndex.value > current.length - 1) {
-    selectedBlockIndex.value = current.length - 1;
+    selectBlock(current.length - 1);
   }
 });
 
@@ -340,7 +349,7 @@ function insertBlock(index?: number) {
   const nextBlocks = [...blocks.value];
   nextBlocks.splice(targetIndex, 0, createBlockPayload(newBlockType.value));
   updateBlocks(nextBlocks);
-  selectedBlockIndex.value = targetIndex;
+  selectBlock(targetIndex);
 }
 
 function moveBlock(index: number, direction: 1 | -1) {
@@ -350,7 +359,7 @@ function moveBlock(index: number, direction: 1 | -1) {
   const [item] = nextBlocks.splice(index, 1);
   nextBlocks.splice(nextIndex, 0, item);
   updateBlocks(nextBlocks);
-  selectedBlockIndex.value = nextIndex;
+  selectBlock(nextIndex);
 }
 
 function replaceSelectedBlock(nextBlock: LessonBlock) {
@@ -366,12 +375,26 @@ function replaceSelectedBlock(nextBlock: LessonBlock) {
 }
 
 function removeBlock(index: number) {
+  const previousSelection = selectedBlockIndex.value;
   const nextBlocks = blocks.value.filter((_, blockIndex) => blockIndex !== index);
   updateBlocks(nextBlocks);
   if (!nextBlocks.length) {
     selectedBlockIndex.value = 0;
-  } else if (selectedBlockIndex.value >= nextBlocks.length) {
-    selectedBlockIndex.value = nextBlocks.length - 1;
+    return;
+  }
+
+  if (previousSelection > index) {
+    selectBlock(previousSelection - 1);
+    return;
+  }
+
+  if (previousSelection === index) {
+    selectBlock(Math.min(index, nextBlocks.length - 1));
+    return;
+  }
+
+  if (previousSelection >= nextBlocks.length) {
+    selectBlock(nextBlocks.length - 1);
   }
 }
 
@@ -386,6 +409,21 @@ function formatBlockTitle(block: LessonAuthoringBlock, index: number) {
     return unit.title;
   }
   return `Bloco ${index + 1}`;
+}
+
+function selectBlock(index: number) {
+  selectedBlockIndex.value = index;
+  nextTick(() => {
+    const sectionEl = selectedEditorEl.value;
+    if (!sectionEl) return;
+    sectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const focusTarget =
+      sectionEl.querySelector<HTMLElement>('[autofocus]') ??
+      sectionEl.querySelector<HTMLElement>(
+        'input, textarea, select, [contenteditable="true"], [tabindex]:not([tabindex="-1"])'
+      );
+    focusTarget?.focus();
+  });
 }
 </script>
 
@@ -416,5 +454,22 @@ function formatBlockTitle(block: LessonAuthoringBlock, index: number) {
 
 .icon-button:not(:disabled):hover {
   background-color: color-mix(in srgb, var(--md-sys-color-on-surface-variant) 12%, transparent);
+}
+
+.authoring-block-card {
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.authoring-block-card.is-selected {
+  border-color: var(--md-sys-color-primary);
+  background-color: color-mix(
+    in srgb,
+    var(--md-sys-color-primary) 12%,
+    var(--md-sys-color-surface-container-high)
+  );
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--md-sys-color-primary) 18%, transparent);
 }
 </style>

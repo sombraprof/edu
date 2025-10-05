@@ -1,6 +1,6 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { computed, defineComponent, ref } from 'vue';
-import { describe, expect, it, vi } from 'vitest';
+import { computed, defineComponent, nextTick, ref } from 'vue';
+import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
 
 vi.mock('@/components/authoring/blocks/UnsupportedBlockEditor.vue', async (importOriginal) => {
@@ -27,7 +27,7 @@ vi.mock('@/components/authoring/blocks/UnsupportedBlockEditor.vue', async (impor
 
       return { handleInput };
     },
-    template: '<textarea data-test="raw-json" @input="handleInput"></textarea>',
+    template: '<textarea data-test="raw-json" autofocus @input="handleInput"></textarea>',
   });
 
   return {
@@ -72,6 +72,18 @@ const iconStubs = {
   Plus: true,
   Trash2: true,
 };
+
+const originalScrollIntoView = HTMLElement.prototype.scrollIntoView;
+const scrollIntoViewSpy = vi.fn();
+
+beforeAll(() => {
+  HTMLElement.prototype.scrollIntoView =
+    scrollIntoViewSpy as typeof HTMLElement.prototype.scrollIntoView;
+});
+
+afterAll(() => {
+  HTMLElement.prototype.scrollIntoView = originalScrollIntoView;
+});
 
 function createTextField(initialValue = '') {
   const state = ref(initialValue);
@@ -120,5 +132,71 @@ describe('LessonAuthoringPanel - generic block editor integration', () => {
     await textarea.setValue(nextValue);
 
     expect(lessonModel.value?.blocks?.[0]?.foo).toBe('baz');
+  });
+});
+
+describe('LessonAuthoringPanel - gerenciamento de foco', () => {
+  let lastFocused: Element | null = null;
+  const originalFocus = HTMLElement.prototype.focus;
+
+  beforeAll(() => {
+    HTMLElement.prototype.focus = function focusOverride(this: HTMLElement) {
+      lastFocused = this;
+      return originalFocus?.call(this);
+    } as typeof HTMLElement.prototype.focus;
+  });
+
+  afterAll(() => {
+    HTMLElement.prototype.focus = originalFocus;
+  });
+
+  beforeEach(() => {
+    scrollIntoViewSpy.mockClear();
+    lastFocused = null;
+  });
+
+  it('desloca o foco para o primeiro campo editável ao selecionar um bloco', async () => {
+    const lessonModel = ref<LessonEditorModel>({
+      blocks: [{ type: 'customBlock', foo: 'bar' }],
+    });
+
+    const { default: LessonAuthoringPanel } = await import('../LessonAuthoringPanel.vue');
+
+    const wrapper = mount(LessonAuthoringPanel, {
+      props: {
+        lessonModel,
+        tagsField: createTextField(),
+        createArrayField: () => createTextField(),
+        saving: ref(false),
+        hasPendingChanges: ref(false),
+        saveError: ref<string | null>(null),
+      },
+      global: {
+        stubs: {
+          Md3Button: { template: '<button type="button"><slot /></button>' },
+          MetadataListEditor: { template: '<div />' },
+          ...iconStubs,
+        },
+      },
+    });
+
+    await flushPromises();
+
+    const editorField = wrapper.find('[data-test="raw-json"]');
+    expect(editorField.exists()).toBe(true);
+
+    document.body.focus();
+
+    const editButton = wrapper
+      .findAll('button')
+      .find((button) => button.text().includes('Editar detalhes'));
+    expect(editButton).toBeTruthy();
+
+    await editButton!.trigger('click');
+    await flushPromises();
+    await nextTick();
+
+    expect(lastFocused).toBe(editorField.element);
+    expect(scrollIntoViewSpy).toHaveBeenCalled();
   });
 });
