@@ -43,10 +43,13 @@ vi.mock('../LessonView.logic', () => ({
 }));
 
 const teacherModeMock = ref(true);
+const toggleTeacherModeMock = vi.fn();
 
 vi.mock('@/composables/useTeacherMode', () => ({
   useTeacherMode: () => ({
     teacherMode: teacherModeMock,
+    toggleTeacherMode: toggleTeacherModeMock,
+    isAuthoringForced: computed(() => false),
   }),
 }));
 
@@ -117,6 +120,53 @@ const LessonAuthoringPanelStub = {
   template: '<div class="lesson-authoring-panel"></div>',
 };
 
+function stubMatchMedia() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  const matchMediaMock = vi.fn().mockReturnValue({
+    matches: false,
+    addEventListener: vi.fn(),
+    removeEventListener: vi.fn(),
+    addListener: vi.fn(),
+    removeListener: vi.fn(),
+    dispatchEvent: vi.fn(),
+  });
+
+  Object.defineProperty(window, 'matchMedia', {
+    writable: true,
+    value: matchMediaMock,
+  });
+}
+
+const mountAppWithLessonView = async () => {
+  stubMatchMedia();
+  const { default: App } = await import('@/App.vue');
+
+  return mount(App, {
+    global: {
+      stubs: {
+        Md3Button: ButtonStub,
+        RouterLink: { template: '<a><slot /></a>' },
+        LessonReadiness: StubComponent,
+        LessonOverview: StubComponent,
+        LessonRenderer: LessonRendererStub,
+        LessonAuthoringPanel: LessonAuthoringPanelStub,
+        ChevronRight: { template: '<span />' },
+        ArrowLeft: { template: '<span />' },
+        SiteHeader: { template: '<header />' },
+        SiteFooter: { template: '<footer />' },
+        ArrowUp: { template: '<span />' },
+        RouterView: {
+          template: '<LessonView />',
+          components: { LessonView },
+        },
+      },
+    },
+  });
+};
+
 describe('LessonView component', () => {
   beforeEach(() => {
     controllerMock = createController();
@@ -127,12 +177,14 @@ describe('LessonView component', () => {
     contentSyncMock.revertChanges.mockReset();
     contentSyncMock.serviceAvailable = true;
     teacherModeMock.value = true;
+    toggleTeacherModeMock.mockReset();
     highlightMock.mockReset();
     vi.useRealTimers();
   });
 
   afterEach(() => {
     vi.useRealTimers();
+    vi.unstubAllEnvs();
   });
 
   const mountComponent = () =>
@@ -167,6 +219,7 @@ describe('LessonView component', () => {
     await Promise.resolve();
 
     expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.teacher-preview-shell').exists()).toBe(true);
     expect(wrapper.find('.lesson-content').exists()).toBe(true);
     expect(highlightMock).toHaveBeenCalled();
   });
@@ -246,5 +299,27 @@ describe('LessonView component', () => {
     expect(context?.root).toBeInstanceOf(HTMLElement);
     expect(Array.isArray(context?.targets)).toBe(true);
     expect(context?.targets?.length ?? 0).toBeGreaterThanOrEqual(1);
+  });
+
+  it('aplica layout expandido de professor quando automação está disponível', async () => {
+    teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_API_URL', 'https://automation.local');
+
+    const wrapper = await mountAppWithLessonView();
+
+    expect(wrapper.get('main').classes()).toContain('md-page--teacher');
+
+    wrapper.unmount();
+  });
+
+  it('mantém layout padrão quando automação está indisponível', async () => {
+    teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_API_URL', '');
+
+    const wrapper = await mountAppWithLessonView();
+
+    expect(wrapper.get('main').classes()).not.toContain('md-page--teacher');
+
+    wrapper.unmount();
   });
 });
