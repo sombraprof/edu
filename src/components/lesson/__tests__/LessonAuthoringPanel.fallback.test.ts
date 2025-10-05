@@ -1,10 +1,11 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { computed, defineComponent, nextTick, ref } from 'vue';
+import { computed, defineComponent, h, nextTick, ref, type PropType } from 'vue';
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
+import type { LessonBlock } from '@/components/lesson/blockRegistry';
 
 vi.mock('@/components/authoring/blocks/UnsupportedBlockEditor.vue', async (importOriginal) => {
-  const actual = await importOriginal();
+  const actual = await importOriginal<Record<string, unknown>>();
 
   const Stub = defineComponent({
     name: 'UnsupportedBlockEditorStub',
@@ -46,7 +47,7 @@ vi.mock('@/composables/useLessonEditorModel', async (importOriginal) => {
   return {
     __esModule: true,
     ...actual,
-    resolveLessonBlockEditor(block) {
+    resolveLessonBlockEditor(block: LessonBlock | null) {
       if (
         block &&
         typeof block === 'object' &&
@@ -72,6 +73,27 @@ const iconStubs = {
   Plus: true,
   Trash2: true,
 };
+
+const AuthoringDraggableListStub = defineComponent({
+  name: 'AuthoringDraggableList',
+  props: {
+    modelValue: {
+      type: Array as PropType<unknown[]>,
+      default: () => [],
+    },
+  },
+  emits: ['update:modelValue', 'end'],
+  setup(props, { slots }) {
+    return () =>
+      h(
+        'div',
+        {},
+        (props.modelValue as unknown[]).map((element, index) =>
+          slots.item ? slots.item({ element, index }) : null
+        )
+      );
+  },
+});
 
 const originalScrollIntoView = HTMLElement.prototype.scrollIntoView;
 const scrollIntoViewSpy = vi.fn();
@@ -117,11 +139,13 @@ describe('LessonAuthoringPanel - generic block editor integration', () => {
           Md3Button: {
             template: '<button><slot /></button>',
           },
+          AuthoringDraggableList: AuthoringDraggableListStub,
           ...iconStubs,
         },
       },
     });
 
+    await flushPromises();
     await flushPromises();
     await flushPromises();
 
@@ -175,6 +199,7 @@ describe('LessonAuthoringPanel - gerenciamento de foco', () => {
         stubs: {
           Md3Button: { template: '<button type="button"><slot /></button>' },
           MetadataListEditor: { template: '<div />' },
+          AuthoringDraggableList: AuthoringDraggableListStub,
           ...iconStubs,
         },
       },
