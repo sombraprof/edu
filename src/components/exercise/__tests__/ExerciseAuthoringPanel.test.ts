@@ -2,6 +2,9 @@ import { flushPromises, mount } from '@vue/test-utils';
 import { computed, defineComponent, ref } from 'vue';
 import { describe, expect, it, vi } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
+import type { LessonAuthoringBlock } from '@/composables/useAuthoringBlockKeys';
+import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTemplates';
+import { resolveBlock, type LessonBlock } from '@/components/lesson/blockRegistry';
 
 vi.mock('@/components/authoring/blocks/UnsupportedBlockEditor.vue', async (importOriginal) => {
   const actual = await importOriginal();
@@ -118,5 +121,82 @@ describe('ExerciseAuthoringPanel - generic block editor integration', () => {
     await textarea.setValue(nextValue);
 
     expect(exerciseModel.value?.blocks?.[0]?.foo).toBe('baz');
+  });
+});
+
+describe('ExerciseAuthoringPanel - templates padrão', () => {
+  const exerciseSpecificTypes = [
+    'codeSubmission',
+    'dragAndDrop',
+    'conceptMapper',
+    'bugFixChallenge',
+    'dataEntryForm',
+    'scenarioBuilder',
+    'peerReviewTask',
+    'testGenerator',
+    'rubricDisplay',
+    'selfAssessment',
+  ] as const;
+
+  const templateEntries = (
+    Object.entries(defaultBlockTemplates) as Array<[string, LessonBlock]>
+  ).filter(([type]) =>
+    exerciseSpecificTypes.includes(type as (typeof exerciseSpecificTypes)[number])
+  );
+
+  async function mountPanel(initialBlocks: LessonAuthoringBlock[] = []) {
+    const exerciseModel = ref<LessonEditorModel | null>({
+      blocks: initialBlocks,
+    });
+
+    const { default: ExerciseAuthoringPanel } = await import('../ExerciseAuthoringPanel.vue');
+
+    const wrapper = mount(ExerciseAuthoringPanel, {
+      props: {
+        exerciseModel,
+        tagsField: createTextField(),
+        saving: ref(false),
+        hasPendingChanges: ref(false),
+        saveError: ref<string | null>(null),
+      },
+      global: {
+        stubs: {
+          Md3Button: { template: '<button><slot /></button>' },
+          MetadataListEditor: { template: '<div />' },
+          ...iconStubs,
+        },
+      },
+    });
+
+    await flushPromises();
+
+    return { wrapper, exerciseModel };
+  }
+
+  it.each(templateEntries)('usa template padrão ao inserir bloco %s', async (type, template) => {
+    const { wrapper, exerciseModel } = await mountPanel();
+
+    const selector = wrapper.find('select');
+    await selector.setValue(type);
+
+    const insertButton = wrapper
+      .findAll('button')
+      .find((button) => button.text().trim() === 'Inserir');
+    expect(insertButton).toBeTruthy();
+
+    await insertButton!.trigger('click');
+    await flushPromises();
+
+    const blocks = (exerciseModel.value?.blocks ?? []) as LessonAuthoringBlock[];
+    expect(blocks).toHaveLength(1);
+
+    const block = blocks[0];
+    expect(block.type).toBe(type);
+    expect(block).toMatchObject(template);
+    expect(block).not.toBe(template);
+
+    const resolution = resolveBlock(block);
+    expect(resolution.error).toBeUndefined();
+    expect(resolution.component).not.toBeNull();
   });
 });

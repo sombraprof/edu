@@ -196,6 +196,7 @@ import {
   inheritAuthoringBlockKey,
   type LessonAuthoringBlock,
 } from '@/composables/useAuthoringBlockKeys';
+import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTemplates';
 
 const props = defineProps<{
   exerciseModel: Ref<LessonEditorModel | null>;
@@ -273,7 +274,9 @@ const statusIconClass = computed(() =>
 );
 
 function createBlockPayload(type: string): LessonAuthoringBlock {
-  return ensureAuthoringBlockKey({ type } as LessonBlock);
+  const template = defaultBlockTemplates[type];
+  const baseBlock = template ? structuredClone(template) : ({ type } as LessonBlock);
+  return ensureAuthoringBlockKey(baseBlock);
 }
 
 function updateBlocks(next: LessonAuthoringBlock[]) {
