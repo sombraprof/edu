@@ -40,44 +40,46 @@
       </template>
 
       <template #preview>
-        <article v-if="lessonContent" class="card max-w-none md-stack md-stack-6 p-8">
-          <header class="md-stack md-stack-2">
-            <p
-              class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
-            >
-              Conteúdo da aula
-            </p>
-            <h2 class="text-headline-medium font-semibold text-on-surface">
-              {{ lessonTitle }}
-            </h2>
-            <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
-            <LessonOverview
-              :summary="lessonSummary"
-              :duration="lessonDuration"
-              :modality="lessonModality"
-              :tags="lessonTags"
+        <div class="teacher-preview-shell">
+          <article v-if="lessonContent" class="card max-w-none md-stack md-stack-6 p-8">
+            <header class="md-stack md-stack-2">
+              <p
+                class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
+              >
+                Conteúdo da aula
+              </p>
+              <h2 class="text-headline-medium font-semibold text-on-surface">
+                {{ lessonTitle }}
+              </h2>
+              <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
+              <LessonOverview
+                :summary="lessonSummary"
+                :duration="lessonDuration"
+                :modality="lessonModality"
+                :tags="lessonTags"
+              />
+            </header>
+
+            <LessonReadiness
+              :skills="lessonSkills"
+              :outcomes="lessonOutcomes"
+              :prerequisites="lessonPrerequisites"
             />
-          </header>
 
-          <LessonReadiness
-            :skills="lessonSkills"
-            :outcomes="lessonOutcomes"
-            :prerequisites="lessonPrerequisites"
-          />
+            <div class="divider" role="presentation"></div>
 
-          <div class="divider" role="presentation"></div>
+            <div ref="lessonContentRoot" class="lesson-content prose max-w-none dark:prose-invert">
+              <LessonRenderer :data="lessonContent" />
+            </div>
+          </article>
 
-          <div ref="lessonContentRoot" class="lesson-content prose max-w-none dark:prose-invert">
-            <LessonRenderer :data="lessonContent" />
-          </div>
-        </article>
-
-        <article
-          v-else
-          class="card max-w-none md-stack md-stack-3 p-8 text-center text-body-medium text-on-surface-variant"
-        >
-          Não foi possível carregar esta aula.
-        </article>
+          <article
+            v-else
+            class="card max-w-none md-stack md-stack-3 p-8 text-center text-body-medium text-on-surface-variant"
+          >
+            Não foi possível carregar esta aula.
+          </article>
+        </div>
       </template>
     </TeacherAuthoringWorkspace>
   </section>

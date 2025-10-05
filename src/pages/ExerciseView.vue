@@ -39,31 +39,33 @@
       </template>
 
       <template #preview>
-        <article class="card max-w-none md-stack md-stack-6 p-8">
-          <header class="md-stack md-stack-3">
-            <div class="md-stack md-stack-2">
-              <p
-                class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
-              >
-                Exercício
-              </p>
-              <h2 class="text-headline-medium font-semibold text-on-surface">
-                {{ exerciseTitle }}
-              </h2>
-              <p v-if="exerciseSummary" class="text-body-large !mt-4">{{ exerciseSummary }}</p>
-            </div>
-          </header>
-          <div class="divider" role="presentation"></div>
+        <div class="teacher-preview-shell">
+          <article class="card max-w-none md-stack md-stack-6 p-8">
+            <header class="md-stack md-stack-3">
+              <div class="md-stack md-stack-2">
+                <p
+                  class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
+                >
+                  Exercício
+                </p>
+                <h2 class="text-headline-medium font-semibold text-on-surface">
+                  {{ exerciseTitle }}
+                </h2>
+                <p v-if="exerciseSummary" class="text-body-large !mt-4">{{ exerciseSummary }}</p>
+              </div>
+            </header>
+            <div class="divider" role="presentation"></div>
 
-          <component
-            v-if="exerciseComponent"
-            :is="exerciseComponent"
-            class="lesson-content prose max-w-none dark:prose-invert"
-          />
-          <p v-else class="text-body-medium text-on-surface-variant">
-            Conteúdo deste exercício ainda não está disponível.
-          </p>
-        </article>
+            <component
+              v-if="exerciseComponent"
+              :is="exerciseComponent"
+              class="lesson-content prose max-w-none dark:prose-invert"
+            />
+            <p v-else class="text-body-medium text-on-surface-variant">
+              Conteúdo deste exercício ainda não está disponível.
+            </p>
+          </article>
+        </div>
       </template>
     </TeacherAuthoringWorkspace>
   </section>
