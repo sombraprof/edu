@@ -1,6 +1,6 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { computed, defineComponent, ref } from 'vue';
-import { describe, expect, it, vi } from 'vitest';
+import { computed, defineComponent, nextTick, ref } from 'vue';
+import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
 import type { LessonAuthoringBlock } from '@/composables/useAuthoringBlockKeys';
 import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTemplates';
@@ -30,7 +30,7 @@ vi.mock('@/components/authoring/blocks/UnsupportedBlockEditor.vue', async (impor
 
       return { handleInput };
     },
-    template: '<textarea data-test="raw-json" @input="handleInput"></textarea>',
+    template: '<textarea data-test="raw-json" autofocus @input="handleInput"></textarea>',
   });
 
   return {
@@ -75,6 +75,18 @@ const iconStubs = {
   Plus: true,
   Trash2: true,
 };
+
+const originalScrollIntoView = HTMLElement.prototype.scrollIntoView;
+const scrollIntoViewSpy = vi.fn();
+
+beforeAll(() => {
+  HTMLElement.prototype.scrollIntoView =
+    scrollIntoViewSpy as typeof HTMLElement.prototype.scrollIntoView;
+});
+
+afterAll(() => {
+  HTMLElement.prototype.scrollIntoView = originalScrollIntoView;
+});
 
 function createTextField(initialValue = '') {
   const state = ref(initialValue);
@@ -198,5 +210,70 @@ describe('ExerciseAuthoringPanel - templates padrão', () => {
     const resolution = resolveBlock(block);
     expect(resolution.error).toBeUndefined();
     expect(resolution.component).not.toBeNull();
+  });
+});
+
+describe('ExerciseAuthoringPanel - gerenciamento de foco', () => {
+  let lastFocused: Element | null = null;
+  const originalFocus = HTMLElement.prototype.focus;
+
+  beforeAll(() => {
+    HTMLElement.prototype.focus = function focusOverride(this: HTMLElement) {
+      lastFocused = this;
+      return originalFocus?.call(this);
+    } as typeof HTMLElement.prototype.focus;
+  });
+
+  afterAll(() => {
+    HTMLElement.prototype.focus = originalFocus;
+  });
+
+  beforeEach(() => {
+    scrollIntoViewSpy.mockClear();
+    lastFocused = null;
+  });
+
+  it('move o foco para o editor do bloco selecionado', async () => {
+    const exerciseModel = ref<LessonEditorModel>({
+      blocks: [{ type: 'customBlock', foo: 'bar' }],
+    });
+
+    const { default: ExerciseAuthoringPanel } = await import('../ExerciseAuthoringPanel.vue');
+
+    const wrapper = mount(ExerciseAuthoringPanel, {
+      props: {
+        exerciseModel,
+        tagsField: createTextField(),
+        saving: ref(false),
+        hasPendingChanges: ref(false),
+        saveError: ref<string | null>(null),
+      },
+      global: {
+        stubs: {
+          Md3Button: { template: '<button type="button"><slot /></button>' },
+          MetadataListEditor: { template: '<div />' },
+          ...iconStubs,
+        },
+      },
+    });
+
+    await flushPromises();
+
+    const editorField = wrapper.find('[data-test="raw-json"]');
+    expect(editorField.exists()).toBe(true);
+
+    document.body.focus();
+
+    const editButton = wrapper
+      .findAll('button')
+      .find((button) => button.text().includes('Editar detalhes'));
+    expect(editButton).toBeTruthy();
+
+    await editButton!.trigger('click');
+    await flushPromises();
+    await nextTick();
+
+    expect(lastFocused).toBe(editorField.element);
+    expect(scrollIntoViewSpy).toHaveBeenCalled();
   });
 });
