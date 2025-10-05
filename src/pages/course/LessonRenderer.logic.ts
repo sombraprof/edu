@@ -13,6 +13,7 @@ export type LessonContent = NormalizedLesson & { content: LessonBlock[] };
 export interface ResolvedLessonBlock {
   component: Component | null;
   props: Record<string, unknown>;
+  uiKey?: string | null;
   error?: string;
 }
 
@@ -55,9 +56,12 @@ export function useLessonRenderer(
 export function resolveBlocks(blocks: LessonBlock[]): ResolvedLessonBlock[] {
   return blocks.map((block) => {
     const resolution = resolveLessonBlock(block);
+    const blockRecord = (block ?? {}) as Record<string, unknown>;
+    const uiKey = typeof blockRecord?.__uiKey === 'string' ? (blockRecord.__uiKey as string) : null;
     return {
       component: resolution.component,
       props: { ...(resolution.props ?? {}) },
+      uiKey,
       error:
         resolution.error ?? `Bloco com tipo desconhecido: ${String(block.type ?? '(sem tipo)')}.`,
     };
