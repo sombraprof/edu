@@ -12,7 +12,7 @@
         </div>
         <div class="flex items-center gap-2">
           <div class="flex items-center gap-2 text-sm" :class="statusTone">
-            <component :is="statusIcon" class="md-icon md-icon--sm" aria-hidden="true" />
+            <component :is="statusIcon" :class="statusIconClass" aria-hidden="true" />
             <span>{{ statusLabel }}</span>
           </div>
           <Md3Button
@@ -167,12 +167,14 @@
 <script setup lang="ts">
 import { computed, ref, watch, type ComputedRef, type Ref } from 'vue';
 import {
+  AlertCircle,
   ArrowDown,
   ArrowUp,
   CheckCircle2,
   CircleDashed,
   Clock3,
   GripVertical,
+  LoaderCircle,
   PenSquare,
   Plus,
   Trash2,
@@ -189,6 +191,9 @@ import { useAuthoringSaveTracker } from '@/composables/useAuthoringSaveTracker';
 const props = defineProps<{
   exerciseModel: Ref<LessonEditorModel | null>;
   tagsField: ComputedRef<string>;
+  saving: Ref<boolean>;
+  hasPendingChanges: Ref<boolean>;
+  saveError: Ref<string | null>;
   errorMessage?: string | null;
   successMessage?: string | null;
   canRevert?: boolean;
@@ -229,10 +234,18 @@ const blockEditorComponent = computed(() =>
   resolveLessonBlockEditor(selectedBlock.value as LessonBlock | null)
 );
 
-const { status, statusLabel, statusTone } = useAuthoringSaveTracker(props.exerciseModel);
+const { status, statusLabel, statusTone } = useAuthoringSaveTracker(props.exerciseModel, {
+  saving: props.saving,
+  hasPendingChanges: props.hasPendingChanges,
+  saveError: props.saveError,
+});
 
 const statusIcon = computed(() => {
   switch (status.value) {
+    case 'saving':
+      return LoaderCircle;
+    case 'error':
+      return AlertCircle;
     case 'pending':
       return Clock3;
     case 'saved':
@@ -241,6 +254,10 @@ const statusIcon = computed(() => {
       return CircleDashed;
   }
 });
+
+const statusIconClass = computed(() =>
+  status.value === 'saving' ? 'md-icon md-icon--sm animate-spin' : 'md-icon md-icon--sm'
+);
 
 function createBlockPayload(type: string): LessonBlock {
   return { type } as LessonBlock;

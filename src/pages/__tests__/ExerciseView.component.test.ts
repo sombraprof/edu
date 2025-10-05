@@ -78,7 +78,17 @@ const ButtonStub = {
 
 const ExerciseAuthoringPanelStub = {
   name: 'ExerciseAuthoringPanel',
-  props: ['exerciseModel', 'tagsField', 'errorMessage', 'successMessage', 'canRevert', 'onRevert'],
+  props: [
+    'exerciseModel',
+    'tagsField',
+    'saving',
+    'hasPendingChanges',
+    'saveError',
+    'errorMessage',
+    'successMessage',
+    'canRevert',
+    'onRevert',
+  ],
   template: '<div class="exercise-authoring-panel"></div>',
 };
 
