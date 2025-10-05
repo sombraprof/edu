@@ -13,17 +13,10 @@
             </p>
           </header>
           <template v-if="showCallToAction">
-            <Md3Button
-              class="w-full md:w-auto"
-              variant="filled"
-              type="button"
-              @click="enableTeacherMode"
-            >
-              {{ ctaLabel }}
-            </Md3Button>
-            <p class="md-typescale-body-small text-on-surface-variant">
-              Também é possível ativar adicionando <code>?teacher=1</code> à URL ou pelo atalho
-              <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>P</kbd>.
+            <p class="md-typescale-body-medium text-on-surface-variant">
+              Execute <code>npm run dev:teacher</code> para iniciar o serviço de autoria local e
+              habilitar o painel do modo professor. Caso utilize um backend remoto, configure a
+              variável <code>VITE_TEACHER_API_URL</code> com a URL do serviço disponível.
             </p>
           </template>
         </section>
@@ -35,24 +28,20 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useTeacherMode } from '../composables/useTeacherMode';
-import Md3Button from './Md3Button.vue';
 
 withDefaults(
   defineProps<{
     title?: string;
     description?: string;
-    ctaLabel?: string;
   }>(),
   {
     title: 'Ative o modo professor para continuar',
     description:
       'Utilize o modo professor para acessar ferramentas restritas e conteúdos de governança.',
-    ctaLabel: 'Ativar modo professor',
   }
 );
 
-const { isTeacherModeReady, enableTeacherMode, isAuthoringEnabled, isAuthoringForced } =
-  useTeacherMode();
+const { isTeacherModeReady, isAuthoringEnabled, isAuthoringForced } = useTeacherMode();
 
 const isGateOpen = computed(() => isTeacherModeReady.value && isAuthoringEnabled.value);
 const showCallToAction = computed(() => !isAuthoringForced.value);
