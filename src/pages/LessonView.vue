@@ -17,6 +17,7 @@
     </nav>
 
     <TeacherAuthoringWorkspace
+      v-if="showTeacherWorkspace"
       v-model:view="workspaceView"
       class="lesson-view__workspace"
       :editor-enabled="showAuthoringPanel"
@@ -106,6 +107,47 @@
         </div>
       </template>
     </TeacherAuthoringWorkspace>
+
+    <div v-else class="teacher-preview-shell">
+      <article v-if="lessonContent" class="card max-w-none md-stack md-stack-6 p-8">
+        <header class="md-stack md-stack-2">
+          <p
+            class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
+          >
+            Conteúdo da aula
+          </p>
+          <h2 class="text-headline-medium font-semibold text-on-surface">
+            {{ lessonTitle }}
+          </h2>
+          <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
+          <LessonOverview
+            :summary="lessonSummary"
+            :duration="lessonDuration"
+            :modality="lessonModality"
+            :tags="lessonTags"
+          />
+        </header>
+
+        <LessonReadiness
+          :skills="lessonSkills"
+          :outcomes="lessonOutcomes"
+          :prerequisites="lessonPrerequisites"
+        />
+
+        <div class="divider" role="presentation"></div>
+
+        <div ref="lessonContentRoot" class="lesson-content prose max-w-none dark:prose-invert">
+          <LessonRenderer :data="lessonContent" />
+        </div>
+      </article>
+
+      <article
+        v-else
+        class="card max-w-none md-stack md-stack-3 p-8 text-center text-body-medium text-on-surface-variant"
+      >
+        Não foi possível carregar esta aula.
+      </article>
+    </div>
   </section>
 </template>
 
@@ -680,7 +722,7 @@ const controller = useLessonViewController({
 });
 
 const lessonEditor = useLessonEditorModel();
-const { teacherMode } = useTeacherMode();
+const { isAuthoringEnabled } = useTeacherMode();
 
 const lessonContentPath = computed(() => {
   const file = controller.lessonContentFile.value;
@@ -828,9 +870,13 @@ const lessonContent = computed<LessonRendererContent | null>(() => {
   return normalized;
 });
 
+const showTeacherWorkspace = computed(() => isAuthoringEnabled.value);
+
 const showAuthoringPanel = computed(
   () =>
-    teacherMode.value && lessonContentSync.serviceAvailable && lessonManifestSync.serviceAvailable
+    isAuthoringEnabled.value &&
+    lessonContentSync.serviceAvailable &&
+    lessonManifestSync.serviceAvailable
 );
 
 watch(lessonBlocks, (current) => {

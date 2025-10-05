@@ -453,6 +453,7 @@ describe('LessonView component', () => {
 
     const wrapper = mountComponent();
 
+    expect(wrapper.find('.teacher-authoring-workspace').exists()).toBe(false);
     expect(wrapper.find('.lesson-block-editor').exists()).toBe(false);
     expect(wrapper.find('.lesson-content').exists()).toBe(true);
   });
