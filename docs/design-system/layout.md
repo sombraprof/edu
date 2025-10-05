@@ -38,6 +38,7 @@ Os layouts principais foram atualizados com variantes e componentes alinhados ao
 - **Slots adicionais**: `brand`, `actions`, `top-supporting`, `drawer-header/footer`, `rail-header/footer` e `secondary` para conteúdos contextuais do painel docente.
 - **Acessibilidade**: encerra o drawer modal com scrim, propaga labels ARIA e mantém o `aria-current` sincronizado entre rail, drawer e bottom bar.
 - **Integração**: já alimenta o layout de cursos (`CourseLayout.vue`) com breadcrumbs, busca contextual e contagens dinâmicas de aulas/exercícios.
+- **Indicadores publicados**: as contagens exibidas no cabeçalho do curso consideram apenas aulas e exercícios com `available !== false`. No caso dos exercícios, o item também precisa expor um `file` ou `link` válido para ser computado, garantindo que o total reflita somente materiais liberados aos estudantes.
 
 ## Storybook
 
