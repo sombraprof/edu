@@ -2,7 +2,11 @@ import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { computed, shallowRef, ref, watch } from 'vue';
 import type { Ref } from 'vue';
-import type { ExerciseViewController } from '../ExerciseView.logic';
+import type {
+  ExerciseViewController,
+  ExerciseManifest,
+  GenerationMetadata,
+} from '../ExerciseView.logic';
 
 const BlockEditorStub = {
   name: 'BlockEditorStub',
@@ -41,7 +45,7 @@ const createController = () => {
   const exerciseAvailable = ref(true);
   const exerciseLink = ref('');
   const exerciseType = ref('worksheet');
-  const exerciseMetadata = shallowRef<Record<string, unknown> | null>(null);
+  const exerciseMetadata = shallowRef<GenerationMetadata | null>(null);
 
   return {
     courseId: computed(() => 'demo'),
@@ -55,7 +59,7 @@ const createController = () => {
     exerciseLink,
     exerciseType,
     exerciseMetadata,
-    setManifestEntry: vi.fn((entry?: Record<string, unknown> | null) => {
+    setManifestEntry: vi.fn((entry?: ExerciseManifest | null) => {
       exerciseAvailable.value = Boolean(entry?.available ?? true);
     }),
     route: { params: { courseId: 'demo', exerciseId: 'exercise-01' }, query: {} } as any,
