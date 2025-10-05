@@ -99,11 +99,11 @@
           ></textarea>
         </label>
         <div class="grid gap-3 md:grid-cols-2">
-          <MetadataListEditor label="Objetivos específicos" v-model="objectivesField" />
-          <MetadataListEditor label="Competências" v-model="competenciesField" />
-          <MetadataListEditor label="Habilidades" v-model="skillsField" />
-          <MetadataListEditor label="Resultados esperados" v-model="outcomesField" />
-          <MetadataListEditor label="Pré-requisitos" v-model="prerequisitesField" />
+          <MetadataListEditor label="Objetivos específicos" v-model="objectivesFieldProxy" />
+          <MetadataListEditor label="Competências" v-model="competenciesFieldProxy" />
+          <MetadataListEditor label="Habilidades" v-model="skillsFieldProxy" />
+          <MetadataListEditor label="Resultados esperados" v-model="outcomesFieldProxy" />
+          <MetadataListEditor label="Pré-requisitos" v-model="prerequisitesFieldProxy" />
         </div>
       </section>
 
@@ -211,7 +211,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type Component, type Ref, type WritableComputedRef } from 'vue';
+import { computed, toRef, toValue, type Component, type Ref, type WritableComputedRef } from 'vue';
 import { ArrowDown, ArrowUp, GripVertical, PenSquare, Plus, Trash2 } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 import AuthoringDraggableList from '@/components/authoring/AuthoringDraggableList.vue';
@@ -251,18 +251,22 @@ const props = defineProps<{
   editorSectionId?: string;
 }>();
 
-const tagsFieldProxy = computed({
-  get: () => props.tagsField.value,
-  set: (value: string) => {
-    props.tagsField.value = value;
-  },
-});
+function useWritableFieldProxy(field: WritableComputedRef<string>) {
+  const target = toRef(field, 'value');
+  return computed({
+    get: () => toValue(target),
+    set: (value: string) => {
+      target.value = value;
+    },
+  });
+}
 
-const objectivesField = props.createArrayField('objectives');
-const competenciesField = props.createArrayField('competencies');
-const skillsField = props.createArrayField('skills');
-const outcomesField = props.createArrayField('outcomes');
-const prerequisitesField = props.createArrayField('prerequisites');
+const tagsFieldProxy = useWritableFieldProxy(props.tagsField);
+const objectivesFieldProxy = useWritableFieldProxy(props.createArrayField('objectives'));
+const competenciesFieldProxy = useWritableFieldProxy(props.createArrayField('competencies'));
+const skillsFieldProxy = useWritableFieldProxy(props.createArrayField('skills'));
+const outcomesFieldProxy = useWritableFieldProxy(props.createArrayField('outcomes'));
+const prerequisitesFieldProxy = useWritableFieldProxy(props.createArrayField('prerequisites'));
 
 const showRevertButton = computed(
   () => Boolean(props.canRevert) && typeof props.onRevert === 'function'
