@@ -67,10 +67,9 @@
 
           <div class="divider" role="presentation"></div>
 
-          <LessonRenderer
-            :data="lessonContent"
-            class="lesson-content prose max-w-none dark:prose-invert"
-          />
+          <div ref="lessonContentRoot" class="lesson-content prose max-w-none dark:prose-invert">
+            <LessonRenderer :data="lessonContent" />
+          </div>
         </article>
 
         <article
@@ -85,7 +84,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, nextTick, onBeforeUnmount, ref, shallowRef, watch } from 'vue';
 import { RouterLink } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import LessonReadiness from '@/components/lesson/LessonReadiness.vue';
@@ -143,12 +142,167 @@ type WorkspaceView = 'editor' | 'preview';
 
 const workspaceView = ref<WorkspaceView>('editor');
 const highlightLessonContent = createPrismHighlightHandler();
+const lessonContentRoot = ref<HTMLElement | null>(null);
+
+const HIGHLIGHT_DEBOUNCE_MS = 300;
+
+type BlockSnapshot = {
+  key: string | null;
+  fingerprint: string;
+};
+
+const blockSnapshots = shallowRef<BlockSnapshot[]>([]);
+let highlightTimer: ReturnType<typeof setTimeout> | null = null;
+let highlightPendingForce = false;
+const highlightPendingKeys = new Set<string>();
+
+function cancelHighlightTimer() {
+  if (highlightTimer) {
+    clearTimeout(highlightTimer);
+    highlightTimer = null;
+  }
+}
+
+function escapeSelector(value: string): string {
+  if (typeof CSS !== 'undefined' && typeof CSS.escape === 'function') {
+    return CSS.escape(value);
+  }
+  return value.replace(/['"\\]/g, '\\$&');
+}
+
+function fingerprintBlock(block: LessonBlock): string {
+  if (!block || typeof block !== 'object') {
+    return '';
+  }
+  const blockRecord = block as Record<string, unknown>;
+  const { __uiKey: _removed, ...rest } = blockRecord;
+  try {
+    return JSON.stringify(rest);
+  } catch (_error) {
+    return '';
+  }
+}
+
+function collectBlockChanges(blocks: LessonBlock[]): { keys: string[]; force: boolean } {
+  const previousSnapshots = blockSnapshots.value;
+  const previousMap = new Map<string, string>();
+  const remaining = new Set<string>();
+
+  previousSnapshots.forEach((snapshot) => {
+    if (snapshot.key) {
+      previousMap.set(snapshot.key, snapshot.fingerprint);
+      remaining.add(snapshot.key);
+    }
+  });
+
+  const nextSnapshots: BlockSnapshot[] = [];
+  const changedKeys: string[] = [];
+  let force = false;
+
+  blocks.forEach((block) => {
+    const blockRecord = block as Record<string, unknown>;
+    const key = typeof blockRecord?.__uiKey === 'string' ? (blockRecord.__uiKey as string) : null;
+    if (!key) {
+      force = true;
+    }
+    const fingerprint = fingerprintBlock(block);
+    nextSnapshots.push({ key, fingerprint });
+
+    if (key) {
+      const previousFingerprint = previousMap.get(key);
+      if (!previousFingerprint || previousFingerprint !== fingerprint) {
+        changedKeys.push(key);
+      }
+      remaining.delete(key);
+    }
+  });
+
+  if (remaining.size > 0) {
+    force = true;
+  }
+
+  blockSnapshots.value = nextSnapshots;
+  return { keys: changedKeys, force };
+}
+
+function scheduleHighlight(
+  options: { force?: boolean; keys?: string[]; immediate?: boolean } = {}
+) {
+  const { force = false, keys = [], immediate = false } = options;
+
+  if (force) {
+    highlightPendingForce = true;
+    highlightPendingKeys.clear();
+  } else if (!highlightPendingForce) {
+    keys.forEach((key) => {
+      if (key) {
+        highlightPendingKeys.add(key);
+      }
+    });
+  }
+
+  cancelHighlightTimer();
+
+  if (workspaceView.value !== 'preview') {
+    return;
+  }
+
+  const runHighlight = () => {
+    highlightTimer = null;
+    void applyHighlight();
+  };
+
+  if (immediate) {
+    runHighlight();
+  } else {
+    highlightTimer = setTimeout(runHighlight, HIGHLIGHT_DEBOUNCE_MS);
+  }
+}
+
+async function applyHighlight() {
+  if (workspaceView.value !== 'preview') {
+    return;
+  }
+
+  const forceFull = highlightPendingForce;
+  const pendingKeys = Array.from(highlightPendingKeys);
+  highlightPendingForce = false;
+  highlightPendingKeys.clear();
+
+  await nextTick();
+
+  const root = lessonContentRoot.value;
+  if (!root) {
+    return;
+  }
+
+  const targetElements = new Set<Element>();
+
+  if (!forceFull) {
+    pendingKeys.forEach((key) => {
+      if (!key) return;
+      const blockSelector = `[data-authoring-block="${escapeSelector(key)}"]`;
+      const blockElement = root.querySelector(blockSelector);
+      if (!blockElement) return;
+      blockElement.querySelectorAll('pre code').forEach((element) => {
+        if (element instanceof Element) {
+          targetElements.add(element);
+        }
+      });
+    });
+  }
+
+  const context: Record<string, unknown> = { root };
+  if (!forceFull && targetElements.size > 0) {
+    context.targets = Array.from(targetElements);
+  }
+
+  await highlightLessonContent(context);
+}
 
 const controller = useLessonViewController({
-  highlight: async (lesson) => {
-    if (workspaceView.value === 'preview') {
-      await highlightLessonContent(lesson);
-    }
+  highlight: async () => {
+    scheduleHighlight({ force: true });
   },
 });
 
@@ -213,20 +367,39 @@ watch(
 watch(
   () => workspaceView.value,
   (view) => {
-    if (view === 'preview' && lessonContent.value) {
-      void highlightLessonContent(lessonContent.value);
+    if (view === 'preview') {
+      scheduleHighlight({ force: true, immediate: true });
+    } else {
+      cancelHighlightTimer();
     }
-  }
+  },
+  { immediate: true }
 );
 
 watch(
-  () => lessonContent.value,
-  (content) => {
-    if (workspaceView.value === 'preview' && content) {
-      void highlightLessonContent(content);
+  () => lessonContent.value?.content ?? null,
+  (blocks) => {
+    if (!Array.isArray(blocks)) {
+      blockSnapshots.value = [];
+      highlightPendingKeys.clear();
+      highlightPendingForce = false;
+      cancelHighlightTimer();
+      return;
     }
-  }
+
+    const { keys, force } = collectBlockChanges(blocks as LessonBlock[]);
+    if (force) {
+      scheduleHighlight({ force: true });
+    } else if (keys.length) {
+      scheduleHighlight({ keys });
+    }
+  },
+  { deep: true }
 );
+
+onBeforeUnmount(() => {
+  cancelHighlightTimer();
+});
 
 const courseId = computed(() => controller.courseId.value);
 const lessonTitle = computed(() => authoringLesson.value?.title ?? controller.lessonTitle.value);
