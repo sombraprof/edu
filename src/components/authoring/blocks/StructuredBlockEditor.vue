@@ -14,7 +14,7 @@
             {{ field.label }}<span v-if="field.required" class="text-error">*</span>
           </span>
           <input
-            v-model="state[field.key]"
+            v-model="stringFieldModel(field.key).value"
             :type="field.type === 'url' ? 'url' : 'text'"
             class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             :placeholder="field.placeholder"
@@ -31,7 +31,7 @@
             {{ field.label }}<span v-if="field.required" class="text-error">*</span>
           </span>
           <textarea
-            v-model="state[field.key]"
+            v-model="stringFieldModel(field.key).value"
             :rows="field.rows ?? (field.type === 'code' ? 8 : 4)"
             class="rounded-3xl border border-outline bg-surface p-3 font-inherit text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             :placeholder="field.placeholder"
@@ -44,7 +44,7 @@
             {{ field.label }}<span v-if="field.required" class="text-error">*</span>
           </span>
           <select
-            v-model="state[field.key]"
+            v-model="stringFieldModel(field.key).value"
             class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <option value="">{{ field.placeholder ?? 'Selecione uma opção' }}</option>
@@ -159,7 +159,7 @@
                   >
                     <span class="md-typescale-label-large text-on-surface">{{ child.label }}</span>
                     <input
-                      v-model="item[child.key]"
+                      v-model="objectItemStringModel(item, child.key).value"
                       :type="child.type === 'url' ? 'url' : 'text'"
                       class="rounded-3xl border border-outline bg-surface p-3 text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                       :placeholder="child.placeholder"
@@ -174,7 +174,7 @@
                   >
                     <span class="md-typescale-label-large text-on-surface">{{ child.label }}</span>
                     <textarea
-                      v-model="item[child.key]"
+                      v-model="objectItemStringModel(item, child.key).value"
                       :rows="child.rows ?? (child.type === 'code' ? 8 : 4)"
                       class="rounded-3xl border border-outline bg-surface p-3 font-inherit text-on-surface shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                       :placeholder="child.placeholder"
@@ -258,7 +258,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, watch } from 'vue';
+import { computed, reactive, watch } from 'vue';
 import { Plus, Trash2 } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 
@@ -315,12 +315,60 @@ export interface BlockSchema {
 }
 
 type StringListItem = { __key: string; value: string };
-type ObjectListItem = Record<string, unknown> & { __key: string };
+type ObjectListItem = {
+  __key: string;
+  [key: string]: string | StringListItem[] | undefined;
+};
+
+type BlockStateValue = string | StringListItem[] | ObjectListItem[];
 
 const props = defineProps<{ block: Record<string, unknown>; schema: BlockSchema }>();
 const emit = defineEmits<{ (event: 'update:block', value: Record<string, unknown>): void }>();
 
-const state = reactive<Record<string, any>>({ type: props.schema.type });
+const state = reactive<Record<string, BlockStateValue>>({ type: props.schema.type });
+
+function createStringModel(target: Record<string, any>, key: string) {
+  return computed<string>({
+    get: () => {
+      const value = target[key];
+      return typeof value === 'string' ? value : '';
+    },
+    set: (value) => {
+      target[key] = value;
+    },
+  });
+}
+
+const stateStringModels = new Map<string, ReturnType<typeof createStringModel>>();
+const objectItemStringModels = new WeakMap<
+  ObjectListItem,
+  Map<string, ReturnType<typeof createStringModel>>
+>();
+
+function stringFieldModel(key: string) {
+  let model = stateStringModels.get(key);
+  if (!model) {
+    model = createStringModel(state as Record<string, any>, key);
+    stateStringModels.set(key, model);
+  }
+  return model;
+}
+
+function objectItemStringModel(item: ObjectListItem, key: string) {
+  let models = objectItemStringModels.get(item);
+  if (!models) {
+    models = new Map();
+    objectItemStringModels.set(item, models);
+  }
+
+  let model = models.get(key);
+  if (!model) {
+    model = createStringModel(item as Record<string, any>, key);
+    models.set(key, model);
+  }
+
+  return model;
+}
 let syncing = false;
 
 function createKey() {

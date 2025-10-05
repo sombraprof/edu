@@ -5,10 +5,10 @@ import type { NormalizedLesson } from '@/content/schema/lesson';
 import { normalizeManifest } from '@/content/loaders';
 import { createPrismHighlightHandler } from '@/utils/prismHighlight';
 
-type LessonManifest = {
+export type LessonManifest = {
   id: string;
-  title: string;
-  file: string;
+  title?: string;
+  file?: string;
   description?: string;
   available?: boolean;
   link?: string;
@@ -168,13 +168,18 @@ export function useLessonViewController(
       const entry = index.find((item) => item.id === currentLesson);
       if (!entry) throw new Error(`Lesson ${currentLesson} not found`);
 
-      const lessonPath = `../content/courses/${currentCourse}/lessons/${entry.file}`;
-      const lessonImporter = lessonModules[lessonPath];
-      if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
-
       setManifestEntry(entry);
 
-      lessonContentFile.value = entry.file ?? '';
+      const lessonFile = entry.file ?? '';
+      lessonContentFile.value = lessonFile;
+
+      if (!lessonFile) {
+        throw new Error(`Lesson ${currentLesson} is missing a content file.`);
+      }
+
+      const lessonPath = `../content/courses/${currentCourse}/lessons/${lessonFile}`;
+      const lessonImporter = lessonModules[lessonPath];
+      if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
 
       const mod: any = await lessonImporter();
       const data = (mod.default ?? mod) as LessonContent | null;
@@ -192,7 +197,11 @@ export function useLessonViewController(
       const prerequisites = pickStringList(data.prerequisites);
 
       lessonTitle.value =
-        typeof data.title === 'string' && data.title.length ? data.title : entry.title;
+        typeof data.title === 'string' && data.title.length
+          ? data.title
+          : typeof entry.title === 'string'
+            ? entry.title
+            : lessonTitle.value;
       lessonObjective.value = pickString(data.objective, entry.description);
       lessonSummary.value = summary;
       lessonDuration.value = duration;

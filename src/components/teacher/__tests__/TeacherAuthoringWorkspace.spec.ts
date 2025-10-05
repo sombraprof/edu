@@ -67,6 +67,7 @@ describe('TeacherAuthoringWorkspace', () => {
     });
 
     const layout = wrapper.get('.teacher-authoring-workspace__layout');
+    const layoutElement = layout.element as HTMLElement;
     const scopeId = (TeacherAuthoringWorkspace as unknown as { __scopeId?: string }).__scopeId;
     const scopeSelector = scopeId ? `[${scopeId}]` : '';
     const styleElement = document.createElement('style');
@@ -95,11 +96,11 @@ describe('TeacherAuthoringWorkspace', () => {
 
     document.head.appendChild(styleElement);
 
-    layout.element.style.width = '1600px';
+    layoutElement.style.width = '1600px';
 
     await nextTick();
 
-    const layoutStyles = getComputedStyle(layout.element);
+    const layoutStyles = getComputedStyle(layoutElement);
     const sidebarStyles = getComputedStyle(
       wrapper.get('.teacher-authoring-workspace__sidebar').element
     );

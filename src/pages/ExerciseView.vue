@@ -117,7 +117,11 @@ import {
   type LessonEditorModel,
 } from '@/composables/useLessonEditorModel';
 import { useTeacherMode } from '@/composables/useTeacherMode';
-import { useExerciseViewController } from './ExerciseView.logic';
+import {
+  useExerciseViewController,
+  type ExerciseManifest,
+  type GenerationMetadata,
+} from './ExerciseView.logic';
 import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
 import { supportedBlockTypes, type LessonBlock } from '@/components/lesson/blockRegistry';
 import {
@@ -140,13 +144,7 @@ function cloneDeep<T>(value: T): T {
 
 type ExerciseFilePayload = Record<string, unknown> & { content?: LessonBlock[] };
 
-type ExerciseManifestEntry = Record<string, unknown> & {
-  id: string;
-  available?: boolean;
-  link?: string;
-  type?: string;
-  metadata?: Record<string, unknown> | null;
-};
+type ExerciseManifestEntry = ExerciseManifest & Record<string, unknown>;
 
 type ExerciseManifestFile = Record<string, unknown> & {
   entries?: ExerciseManifestEntry[];
@@ -223,19 +221,14 @@ function sanitizeExerciseManifestEntry(
   }
 
   if (entry.metadata && typeof entry.metadata === 'object') {
-    const metadata: Record<string, unknown> = {};
-    for (const [metaKey, metaValue] of Object.entries(entry.metadata)) {
-      if (metaValue === undefined || metaValue === null) continue;
-      if (typeof metaValue === 'string') {
-        const trimmed = metaValue.trim();
-        if (trimmed) {
-          metadata[metaKey] = trimmed;
-        }
-      } else {
-        metadata[metaKey] = metaValue;
-      }
-    }
-    if (Object.keys(metadata).length > 0) {
+    const { generatedBy, model, timestamp } = entry.metadata as Partial<GenerationMetadata>;
+    const metadata: GenerationMetadata = {
+      generatedBy: typeof generatedBy === 'string' ? generatedBy.trim() : '',
+      model: typeof model === 'string' ? model.trim() : '',
+      timestamp: typeof timestamp === 'string' ? timestamp.trim() : '',
+    };
+
+    if (metadata.generatedBy && metadata.model && metadata.timestamp) {
       sanitized.metadata = metadata;
     }
   }
