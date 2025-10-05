@@ -3,8 +3,8 @@ import {
   defineAsyncComponent,
   ref,
   type Component,
-  type ComputedRef,
   type Ref,
+  type WritableComputedRef,
 } from 'vue';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
 
@@ -68,8 +68,8 @@ function cloneModel(model: LessonEditorModel): LessonEditorModel {
 export interface LessonEditorContext {
   lessonModel: Ref<LessonEditorModel | null>;
   setLessonModel: (value: LessonEditorModel | null) => void;
-  tagsField: ComputedRef<string>;
-  useArrayField: (field: LessonArrayField) => ComputedRef<string>;
+  tagsField: WritableComputedRef<string>;
+  useArrayField: (field: LessonArrayField) => WritableComputedRef<string>;
 }
 
 export function useLessonEditorModel(
