@@ -10,7 +10,12 @@
           </p>
         </div>
         <div class="flex items-center gap-2">
-          <div class="flex items-center gap-2 text-sm" :class="statusTone">
+          <div
+            class="flex items-center gap-2 text-sm"
+            :class="statusTone"
+            data-test="authoring-status"
+            :data-status="status"
+          >
             <component :is="statusIcon" :class="statusIconClass" aria-hidden="true" />
             <span>{{ statusLabel }}</span>
           </div>

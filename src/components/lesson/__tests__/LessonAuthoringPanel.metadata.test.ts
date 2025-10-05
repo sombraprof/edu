@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils';
-import { computed, ref } from 'vue';
-import { describe, expect, it } from 'vitest';
+import { computed, nextTick, ref } from 'vue';
+import { describe, expect, it, vi } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
 
 const iconStubs = {
@@ -94,5 +94,84 @@ describe('LessonAuthoringPanel - edição de metadados', () => {
     expect(lessonModel.value?.title).toBe('Nova aula');
     expect(lessonModel.value?.summary).toBe('Resumo atualizado');
     expect(lessonModel.value?.tags).toEqual(['tag-1', 'tag-2']);
+  });
+
+  it('exibe transições de status conforme o salvamento progride', async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2024-01-01T09:00:00Z'));
+
+    const lessonModel = ref<LessonEditorModel>({
+      title: 'Aula teste',
+      summary: 'Resumo inicial',
+      blocks: [],
+    });
+
+    const tagsField = computed({
+      get: () => '',
+      set: () => {
+        /* noop */
+      },
+    });
+
+    const saving = ref(false);
+    const hasPendingChanges = ref(false);
+    const saveError = ref<string | null>(null);
+
+    const { default: LessonAuthoringPanel } = await import('../LessonAuthoringPanel.vue');
+
+    const wrapper = mount(LessonAuthoringPanel, {
+      props: {
+        lessonModel,
+        tagsField,
+        createArrayField,
+        saving,
+        hasPendingChanges,
+        saveError,
+      },
+      global: {
+        stubs: {
+          Md3Button: { template: '<button><slot /></button>' },
+          MetadataListEditor: { template: '<div />' },
+          AuthoringDraggableList: { template: '<div><slot /></div>' },
+          ...iconStubs,
+        },
+      },
+    });
+
+    try {
+      await nextTick();
+
+      const status = wrapper.get('[data-test="authoring-status"]');
+
+      expect(status.attributes('data-status')).toBe('idle');
+      expect(status.text()).toBe('Sem alterações pendentes');
+
+      hasPendingChanges.value = true;
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('pending');
+      expect(status.text()).toBe('Alterações pendentes');
+
+      saving.value = true;
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('saving');
+      expect(status.text()).toBe('Salvando alterações…');
+
+      hasPendingChanges.value = false;
+      saving.value = false;
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('saved');
+      expect(status.text()).toContain('Alterações salvas');
+
+      saveError.value = 'Erro ao salvar alterações.';
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('error');
+      expect(status.text()).toBe('Erro ao salvar alterações.');
+    } finally {
+      vi.useRealTimers();
+    }
   });
 });
