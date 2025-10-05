@@ -48,7 +48,10 @@ const viteBinary = resolve(projectRoot, 'node_modules/vite/bin/vite.js');
 const viteProcess = spawnProcess(
   process.execPath,
   [viteBinary, ...viteArgs],
-  createSpawnOptions({ VITE_TEACHER_API_URL: process.env.VITE_TEACHER_API_URL || '/teacher-api' })
+  createSpawnOptions({
+    VITE_TEACHER_API_URL: process.env.VITE_TEACHER_API_URL || '/teacher-api',
+    VITE_TEACHER_MODE_ENABLED: process.env.VITE_TEACHER_MODE_ENABLED || 'true',
+  })
 );
 children.add(viteProcess);
 

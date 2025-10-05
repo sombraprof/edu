@@ -57,12 +57,31 @@ vi.mock('../ExerciseView.logic', () => ({
 const teacherModeMock = ref(true);
 const toggleTeacherModeMock = vi.fn();
 
+function resolveFlag(value: unknown): boolean {
+  if (typeof value === 'string') {
+    const normalized = value.trim().toLowerCase();
+    if (!normalized || normalized === 'false' || normalized === '0' || normalized === 'off') {
+      return false;
+    }
+    if (normalized === 'true') {
+      return true;
+    }
+  }
+  return Boolean(value ?? true);
+}
+
 vi.mock('@/composables/useTeacherMode', () => ({
-  useTeacherMode: () => ({
-    teacherMode: teacherModeMock,
-    toggleTeacherMode: toggleTeacherModeMock,
-    isAuthoringForced: computed(() => false),
-  }),
+  useTeacherMode: () => {
+    const teacherModeEnabled = resolveFlag(import.meta.env.VITE_TEACHER_MODE_ENABLED);
+    const teacherMode = computed(() => (teacherModeEnabled ? teacherModeMock.value : false));
+
+    return {
+      teacherMode,
+      toggleTeacherMode: toggleTeacherModeMock,
+      isAuthoringForced: computed(() => false),
+      isAuthoringEnabled: computed(() => teacherModeEnabled && teacherModeMock.value),
+    };
+  },
 }));
 
 const contentSyncMock = {
@@ -114,6 +133,7 @@ function stubMatchMedia() {
 
 const mountAppWithExerciseView = async () => {
   stubMatchMedia();
+  vi.resetModules();
   const { default: App } = await import('@/App.vue');
 
   return mount(App, {
@@ -151,6 +171,7 @@ describe('ExerciseView component', () => {
     contentSyncMock.revertChanges.mockReset();
     contentSyncMock.serviceAvailable = true;
     teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'true');
     toggleTeacherModeMock.mockReset();
     lastContentEditorOptions = null;
     if (typeof HTMLElement !== 'undefined') {
@@ -270,7 +291,7 @@ describe('ExerciseView component', () => {
     expect(wrapper.get('.block-editor-stub').text()).toContain('Passo 2');
   });
 
-  it('mostra fallback quando exercício não possui componente', async () => {
+  it('exibe aviso no painel quando exercício não possui componente', async () => {
     controllerMock.exerciseComponent.value = null;
     const wrapper = mount(ExerciseView, {
       global: {
@@ -290,7 +311,10 @@ describe('ExerciseView component', () => {
       },
     });
 
-    expect(wrapper.text()).toContain('Conteúdo deste exercício ainda não está disponível');
+    expect(wrapper.text()).toContain(
+      'Carregue o JSON correspondente para habilitar o painel de edição.'
+    );
+    expect(wrapper.find('.exercise-block-editor').exists()).toBe(true);
   });
 
   it('oculta painel de autoria quando serviço não está disponível', () => {
@@ -318,9 +342,36 @@ describe('ExerciseView component', () => {
     expect(wrapper.text()).toContain('Título');
   });
 
+  it('oculta painel de autoria quando flag de modo professor está desativado', () => {
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'false');
+    teacherModeMock.value = true;
+
+    const wrapper = mount(ExerciseView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          MetadataListEditor: MetadataListEditorStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
+        },
+      },
+    });
+
+    expect(wrapper.find('.exercise-block-editor').exists()).toBe(false);
+    expect(wrapper.find('.lesson-content').exists()).toBe(false);
+  });
+
   it('aplica layout expandido de professor quando automação está disponível', async () => {
     teacherModeMock.value = true;
     vi.stubEnv('VITE_TEACHER_API_URL', 'https://automation.local');
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'true');
 
     const wrapper = await mountAppWithExerciseView();
 
@@ -332,6 +383,19 @@ describe('ExerciseView component', () => {
   it('mantém layout padrão quando automação está indisponível', async () => {
     teacherModeMock.value = true;
     vi.stubEnv('VITE_TEACHER_API_URL', '');
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'true');
+
+    const wrapper = await mountAppWithExerciseView();
+
+    expect(wrapper.get('main').classes()).not.toContain('md-page--teacher');
+
+    wrapper.unmount();
+  });
+
+  it('mantém layout padrão quando flag de modo professor está desativado', async () => {
+    teacherModeMock.value = true;
+    vi.stubEnv('VITE_TEACHER_API_URL', 'https://automation.local');
+    vi.stubEnv('VITE_TEACHER_MODE_ENABLED', 'false');
 
     const wrapper = await mountAppWithExerciseView();
 

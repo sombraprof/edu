@@ -632,13 +632,7 @@ const lessonContent = computed<LessonRendererContent | null>(() => {
   return normalized;
 });
 
-const showAuthoringPanel = computed(
-  () =>
-    import.meta.env.DEV &&
-    teacherMode.value &&
-    lessonContentSync.serviceAvailable &&
-    Boolean(lessonContent.value)
-);
+const showAuthoringPanel = computed(() => teacherMode.value && lessonContentSync.serviceAvailable);
 
 watch(lessonBlocks, (current) => {
   if (!current.length) {
