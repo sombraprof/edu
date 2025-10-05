@@ -46,7 +46,7 @@
       {{ props.successMessage }}
     </div>
 
-    <template v-if="exerciseModel.value">
+    <template v-if="props.exerciseModel.value">
       <section class="md-stack md-stack-3">
         <h3 class="md-typescale-title-medium font-semibold text-on-surface">
           Metadados do exercício
@@ -54,7 +54,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Título</span>
           <input
-            v-model="exerciseModel.value.title"
+            v-model="currentExercise.title"
             type="text"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
@@ -62,7 +62,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Resumo</span>
           <textarea
-            v-model="exerciseModel.value.summary"
+            v-model="currentExercise.summary"
             rows="3"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           ></textarea>
@@ -250,11 +250,51 @@ function useWritableFieldProxy(field: WritableComputedRef<string>) {
   });
 }
 
+type NormalizedLessonEditorModel = LessonEditorModel & {
+  title: string;
+  summary: string;
+  tags: string[];
+  blocks: LessonAuthoringBlock[];
+};
+
+const defaultExerciseModel: NormalizedLessonEditorModel = {
+  title: '',
+  summary: '',
+  tags: [],
+  blocks: [],
+};
+
+function ensureExerciseModelDefaults(
+  model: LessonEditorModel
+): asserts model is NormalizedLessonEditorModel {
+  if (typeof model.title !== 'string') {
+    model.title = '';
+  }
+  if (typeof model.summary !== 'string') {
+    model.summary = '';
+  }
+  if (!Array.isArray(model.tags)) {
+    model.tags = [];
+  }
+  if (!Array.isArray(model.blocks)) {
+    model.blocks = [] as LessonAuthoringBlock[];
+  } else {
+    model.blocks = model.blocks as LessonAuthoringBlock[];
+  }
+}
+
+const currentExercise = computed<NormalizedLessonEditorModel>(() => {
+  const model = props.exerciseModel.value;
+  if (!model) {
+    return defaultExerciseModel;
+  }
+  ensureExerciseModelDefaults(model);
+  return model;
+});
+
 const tagsFieldProxy = useWritableFieldProxy(props.tagsField);
 
-const blocks = computed<LessonAuthoringBlock[]>(
-  () => (props.exerciseModel.value?.blocks ?? []) as LessonAuthoringBlock[]
-);
+const blocks = computed<LessonAuthoringBlock[]>(() => currentExercise.value.blocks);
 type DragEndEvent = { oldIndex?: number | null; newIndex?: number | null };
 const pendingReorder = ref<LessonAuthoringBlock[] | null>(null);
 const draggableBlocks = computed<LessonAuthoringBlock[]>({
@@ -351,7 +391,7 @@ function moveBlock(index: number, direction: 1 | -1) {
 
 function commitPendingBlockOrder(event?: DragEndEvent) {
   if (!props.exerciseModel.value) return;
-  const current = (props.exerciseModel.value.blocks ?? []) as LessonAuthoringBlock[];
+  const current = currentExercise.value.blocks;
   let proposed = pendingReorder.value;
 
   if (
@@ -410,12 +450,13 @@ function handleBlockDragEnd(event: DragEndEvent) {
 }
 
 function replaceSelectedBlock(nextBlock: LessonBlock) {
-  if (!props.exerciseModel.value) return;
-  if (!Array.isArray(props.exerciseModel.value.blocks)) return;
+  const model = props.exerciseModel.value;
+  if (!model) return;
+  ensureExerciseModelDefaults(model);
   const index = selectedBlockIndex.value;
-  if (index < 0 || index >= props.exerciseModel.value.blocks.length) return;
+  if (index < 0 || index >= model.blocks.length) return;
 
-  const nextBlocks = [...props.exerciseModel.value.blocks] as LessonAuthoringBlock[];
+  const nextBlocks = [...model.blocks];
   const current = nextBlocks[index];
   nextBlocks.splice(index, 1, inheritAuthoringBlockKey(current, nextBlock));
   updateBlocks(nextBlocks);
