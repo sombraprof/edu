@@ -102,7 +102,7 @@ export function createPrismHighlightHandler(): PrismHighlightHandler {
     }
 
     const highlightRoot = root ?? lastRoot;
-    const highlightTargets = toElementList(targets);
+    const highlightTargets = targets ? toElementList(targets) : [];
 
     requestAnimationFrame(() => {
       if (highlightTargets.length > 0) {
