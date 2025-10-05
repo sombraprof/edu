@@ -1,10 +1,56 @@
 import { flushPromises, mount } from '@vue/test-utils';
-import { computed, defineComponent, nextTick, ref } from 'vue';
+import { computed, defineComponent, h, nextTick, ref, type PropType } from 'vue';
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
 import type { LessonEditorModel } from '@/composables/useLessonEditorModel';
 import type { LessonAuthoringBlock } from '@/composables/useAuthoringBlockKeys';
 import { defaultBlockTemplates } from '@/components/authoring/defaultBlockTemplates';
 import { resolveBlock, type LessonBlock } from '@/components/lesson/blockRegistry';
+
+const MetadataListEditorStub = defineComponent({
+  name: 'MetadataListEditor',
+  props: {
+    modelValue: {
+      type: String,
+      default: '',
+    },
+  },
+  emits: ['update:modelValue'],
+  setup(_props, { emit }) {
+    function handleInput(event: Event) {
+      emit('update:modelValue', (event.target as HTMLTextAreaElement).value);
+    }
+
+    return { handleInput };
+  },
+  template:
+    '<textarea class="metadata-editor" :value="modelValue" @input="handleInput"></textarea>',
+});
+
+vi.mock('@/components/authoring/MetadataListEditor.vue', () => ({
+  __esModule: true,
+  default: MetadataListEditorStub,
+}));
+
+const AuthoringDraggableListStub = defineComponent({
+  name: 'AuthoringDraggableList',
+  props: {
+    modelValue: {
+      type: Array as PropType<unknown[]>,
+      default: () => [],
+    },
+  },
+  emits: ['update:modelValue', 'end'],
+  setup(props, { slots }) {
+    return () =>
+      h(
+        'div',
+        {},
+        (props.modelValue as unknown[]).map((element, index) =>
+          slots.item ? slots.item({ element, index }) : null
+        )
+      );
+  },
+});
 
 vi.mock('@/components/authoring/blocks/UnsupportedBlockEditor.vue', async (importOriginal) => {
   const actual = await importOriginal();
@@ -97,6 +143,80 @@ function createTextField(initialValue = '') {
     },
   });
 }
+
+function findField(wrapper: ReturnType<typeof mount>, label: string, selector: string) {
+  const targetLabel = wrapper.findAll('label').find((node) => node.text().includes(label));
+
+  if (!targetLabel) {
+    throw new Error(`Could not find label containing: ${label}`);
+  }
+
+  const field = targetLabel.find(selector);
+  if (!field.exists()) {
+    throw new Error(`Could not find ${selector} inside label ${label}`);
+  }
+
+  return field;
+}
+
+describe('ExerciseAuthoringPanel - edição de metadados', () => {
+  it('sincroniza título, resumo e tags com o modelo reativo', async () => {
+    const exerciseModel = ref<LessonEditorModel>({
+      title: 'Exercício 1',
+      summary: 'Resumo original',
+      tags: ['algebra'],
+      blocks: [],
+    });
+
+    const tagsField = computed({
+      get: () => (exerciseModel.value?.tags ?? []).join('\n'),
+      set: (value: string) => {
+        if (!exerciseModel.value) return;
+        exerciseModel.value.tags = value
+          .split('\n')
+          .map((entry) => entry.trim())
+          .filter(Boolean);
+      },
+    });
+
+    const { default: ExerciseAuthoringPanel } = await import('../ExerciseAuthoringPanel.vue');
+
+    const wrapper = mount(ExerciseAuthoringPanel, {
+      props: {
+        exerciseModel,
+        tagsField,
+        saving: ref(false),
+        hasPendingChanges: ref(false),
+        saveError: ref<string | null>(null),
+      },
+      global: {
+        stubs: {
+          Md3Button: { template: '<button><slot /></button>' },
+          MetadataListEditor: MetadataListEditorStub,
+          AuthoringDraggableList: AuthoringDraggableListStub,
+          ...iconStubs,
+        },
+      },
+    });
+
+    await flushPromises();
+    await flushPromises();
+
+    const titleInput = findField(wrapper, 'Título', 'input');
+    await titleInput.setValue('Exercício atualizado');
+
+    const summaryField = findField(wrapper, 'Resumo', 'textarea');
+    await summaryField.setValue('Resumo revisado');
+
+    const tagsEditor = wrapper.findComponent({ name: 'MetadataListEditor' });
+    expect(tagsEditor.exists()).toBe(true);
+    await tagsEditor.vm.$emit('update:modelValue', 'tag-a\ntag-b');
+
+    expect(exerciseModel.value?.title).toBe('Exercício atualizado');
+    expect(exerciseModel.value?.summary).toBe('Resumo revisado');
+    expect(exerciseModel.value?.tags).toEqual(['tag-a', 'tag-b']);
+  });
+});
 
 describe('ExerciseAuthoringPanel - generic block editor integration', () => {
   it('atualiza exerciseModel quando o editor genérico emite update:block', async () => {
@@ -252,6 +372,7 @@ describe('ExerciseAuthoringPanel - gerenciamento de foco', () => {
         stubs: {
           Md3Button: { template: '<button type="button"><slot /></button>' },
           MetadataListEditor: { template: '<div />' },
+          AuthoringDraggableList: AuthoringDraggableListStub,
           ...iconStubs,
         },
       },
