@@ -42,6 +42,14 @@ vi.mock('../LessonView.logic', () => ({
   useLessonViewController: () => controllerMock,
 }));
 
+const teacherModeMock = ref(true);
+
+vi.mock('@/composables/useTeacherMode', () => ({
+  useTeacherMode: () => ({
+    teacherMode: teacherModeMock,
+  }),
+}));
+
 const contentSyncMock = {
   loading: ref(false),
   saving: ref(false),
@@ -67,6 +75,20 @@ const StubComponent = {
   template: '<div><slot /></div>',
 };
 
+const LessonAuthoringPanelStub = {
+  name: 'LessonAuthoringPanel',
+  props: [
+    'lessonModel',
+    'tagsField',
+    'createArrayField',
+    'errorMessage',
+    'successMessage',
+    'canRevert',
+    'onRevert',
+  ],
+  template: '<div class="lesson-authoring-panel"></div>',
+};
+
 describe('LessonView component', () => {
   beforeEach(() => {
     controllerMock = createController();
@@ -75,6 +97,8 @@ describe('LessonView component', () => {
     contentSyncMock.successMessage.value = null;
     contentSyncMock.hasPendingChanges.value = false;
     contentSyncMock.revertChanges.mockReset();
+    contentSyncMock.serviceAvailable = true;
+    teacherModeMock.value = true;
   });
 
   it('renderiza dados da lição quando disponíveis', () => {
@@ -86,6 +110,7 @@ describe('LessonView component', () => {
           LessonReadiness: StubComponent,
           LessonOverview: StubComponent,
           LessonRenderer: StubComponent,
+          LessonAuthoringPanel: LessonAuthoringPanelStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
         },
@@ -106,6 +131,7 @@ describe('LessonView component', () => {
           LessonReadiness: StubComponent,
           LessonOverview: StubComponent,
           LessonRenderer: StubComponent,
+          LessonAuthoringPanel: LessonAuthoringPanelStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
         },
@@ -113,5 +139,26 @@ describe('LessonView component', () => {
     });
 
     expect(wrapper.text()).toContain('Não foi possível carregar esta aula');
+  });
+
+  it('oculta painel de autoria quando serviço não está disponível', () => {
+    contentSyncMock.serviceAvailable = false;
+
+    const wrapper = mount(LessonView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          LessonReadiness: StubComponent,
+          LessonOverview: StubComponent,
+          LessonRenderer: StubComponent,
+          LessonAuthoringPanel: LessonAuthoringPanelStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+        },
+      },
+    });
+
+    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
   });
 });
