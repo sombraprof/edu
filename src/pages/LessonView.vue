@@ -16,70 +16,76 @@
       <span class="page-breadcrumb__current">{{ lessonTitle }}</span>
     </nav>
 
-    <div class="layout layout--split">
-      <article
-        v-if="lessonContent"
-        class="card layout--split__main max-w-none md-stack md-stack-6 p-8"
-      >
-        <header class="md-stack md-stack-2">
-          <p
-            class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
-          >
-            Conteúdo da aula
-          </p>
-          <h2 class="text-headline-medium font-semibold text-on-surface">
-            {{ lessonTitle }}
-          </h2>
-          <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
-          <LessonOverview
-            :summary="lessonSummary"
-            :duration="lessonDuration"
-            :modality="lessonModality"
-            :tags="lessonTags"
+    <TeacherAuthoringWorkspace
+      v-model:view="workspaceView"
+      class="lesson-view__workspace"
+      :editor-enabled="showAuthoringPanel"
+      :default-view="showAuthoringPanel ? 'editor' : 'preview'"
+    >
+      <template #editor>
+        <LessonAuthoringPanel
+          v-if="showAuthoringPanel"
+          class="lesson-view__authoring-panel"
+          :lesson-model="lessonEditor.lessonModel"
+          :tags-field="lessonEditor.tagsField"
+          :create-array-field="lessonEditor.useArrayField"
+          :saving="lessonContentSync.saving"
+          :has-pending-changes="lessonContentSync.hasPendingChanges"
+          :save-error="lessonContentSync.saveError"
+          :error-message="lessonAuthoringError"
+          :success-message="lessonAuthoringSuccess"
+          :can-revert="lessonCanRevert"
+          :on-revert="lessonContentSync.revertChanges"
+        />
+      </template>
+
+      <template #preview>
+        <article v-if="lessonContent" class="card max-w-none md-stack md-stack-6 p-8">
+          <header class="md-stack md-stack-2">
+            <p
+              class="text-label-medium uppercase tracking-[0.2em] text-on-surface-variant opacity-80"
+            >
+              Conteúdo da aula
+            </p>
+            <h2 class="text-headline-medium font-semibold text-on-surface">
+              {{ lessonTitle }}
+            </h2>
+            <p v-if="lessonObjective" class="text-body-large !mt-4">{{ lessonObjective }}</p>
+            <LessonOverview
+              :summary="lessonSummary"
+              :duration="lessonDuration"
+              :modality="lessonModality"
+              :tags="lessonTags"
+            />
+          </header>
+
+          <LessonReadiness
+            :skills="lessonSkills"
+            :outcomes="lessonOutcomes"
+            :prerequisites="lessonPrerequisites"
           />
-        </header>
 
-        <LessonReadiness
-          :skills="lessonSkills"
-          :outcomes="lessonOutcomes"
-          :prerequisites="lessonPrerequisites"
-        />
+          <div class="divider" role="presentation"></div>
 
-        <div class="divider" role="presentation"></div>
+          <LessonRenderer
+            :data="lessonContent"
+            class="lesson-content prose max-w-none dark:prose-invert"
+          />
+        </article>
 
-        <LessonRenderer
-          :data="lessonContent"
-          class="lesson-content prose max-w-none dark:prose-invert"
-        />
-      </article>
-
-      <article
-        v-else
-        class="card layout--split__main max-w-none md-stack md-stack-3 p-8 text-center text-body-medium text-on-surface-variant"
-      >
-        Não foi possível carregar esta aula.
-      </article>
-
-      <LessonAuthoringPanel
-        v-if="showAuthoringPanel"
-        class="layout--split__aside"
-        :lesson-model="lessonEditor.lessonModel"
-        :tags-field="lessonEditor.tagsField"
-        :create-array-field="lessonEditor.useArrayField"
-        :saving="lessonContentSync.saving"
-        :has-pending-changes="lessonContentSync.hasPendingChanges"
-        :save-error="lessonContentSync.saveError"
-        :error-message="lessonAuthoringError"
-        :success-message="lessonAuthoringSuccess"
-        :can-revert="lessonCanRevert"
-        :on-revert="lessonContentSync.revertChanges"
-      />
-    </div>
+        <article
+          v-else
+          class="card max-w-none md-stack md-stack-3 p-8 text-center text-body-medium text-on-surface-variant"
+        >
+          Não foi possível carregar esta aula.
+        </article>
+      </template>
+    </TeacherAuthoringWorkspace>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { RouterLink } from 'vue-router';
 import { ArrowLeft, ChevronRight } from 'lucide-vue-next';
 import LessonReadiness from '@/components/lesson/LessonReadiness.vue';
@@ -87,11 +93,13 @@ import LessonRenderer from '@/components/lesson/LessonRenderer.vue';
 import LessonOverview from '@/components/lesson/LessonOverview.vue';
 import Md3Button from '@/components/Md3Button.vue';
 import LessonAuthoringPanel from '@/components/lesson/LessonAuthoringPanel.vue';
+import TeacherAuthoringWorkspace from '@/components/teacher/TeacherAuthoringWorkspace.vue';
 import { useLessonEditorModel, type LessonEditorModel } from '@/composables/useLessonEditorModel';
 import { useTeacherMode } from '@/composables/useTeacherMode';
 import { useLessonViewController } from './LessonView.logic';
 import { useTeacherContentEditor } from '@/services/useTeacherContentEditor';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
+import { createPrismHighlightHandler } from '@/utils/prismHighlight';
 
 function cloneDeep<T>(value: T): T {
   try {
@@ -127,7 +135,18 @@ function toLessonFilePayload(
   return target;
 }
 
-const controller = useLessonViewController();
+type WorkspaceView = 'editor' | 'preview';
+
+const workspaceView = ref<WorkspaceView>('editor');
+const highlightLessonContent = createPrismHighlightHandler();
+
+const controller = useLessonViewController({
+  highlight: async (lesson) => {
+    if (workspaceView.value === 'preview') {
+      await highlightLessonContent(lesson);
+    }
+  },
+});
 
 const lessonEditor = useLessonEditorModel();
 const { teacherMode } = useTeacherMode();
@@ -173,6 +192,36 @@ const showAuthoringPanel = computed(
     teacherMode.value &&
     lessonContentSync.serviceAvailable &&
     Boolean(lessonContent.value)
+);
+
+watch(
+  showAuthoringPanel,
+  (available, previous) => {
+    if (!available) {
+      workspaceView.value = 'preview';
+    } else if (!previous && available) {
+      workspaceView.value = 'editor';
+    }
+  },
+  { immediate: true }
+);
+
+watch(
+  () => workspaceView.value,
+  (view) => {
+    if (view === 'preview' && lessonContent.value) {
+      void highlightLessonContent(lessonContent.value);
+    }
+  }
+);
+
+watch(
+  () => lessonContent.value,
+  (content) => {
+    if (workspaceView.value === 'preview' && content) {
+      void highlightLessonContent(content);
+    }
+  }
 );
 
 const courseId = computed(() => controller.courseId.value);
