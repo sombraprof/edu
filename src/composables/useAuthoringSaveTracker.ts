@@ -18,25 +18,29 @@ export function useAuthoringSaveTracker(target: Ref<unknown>, signals: SaveSigna
     }
   );
 
-  watch(
-    () => signals.hasPendingChanges.value,
-    (pending, previousPending) => {
-      if (pending && !previousPending) {
-        lastSavedAt.value = '';
-      }
-    }
-  );
+  const previous = { saving: false, pending: false };
 
   watch(
-    () => [signals.saving.value, signals.hasPendingChanges.value, signals.saveError.value] as const,
-    ([saving, hasPendingChanges, saveError], [prevSaving, prevPending] = [false, false]) => {
-      const completedSave =
-        !saving && !hasPendingChanges && !saveError && (prevSaving || prevPending);
+    () => ({
+      saving: signals.saving.value,
+      pending: signals.hasPendingChanges.value,
+      error: signals.saveError.value,
+    }),
+    ({ saving, pending, error }) => {
+      if (pending && !previous.pending) {
+        lastSavedAt.value = '';
+      }
+
+      const completedSave = !saving && !pending && !error && (previous.saving || previous.pending);
 
       if (completedSave) {
         lastSavedAt.value = new Date().toLocaleTimeString();
       }
-    }
+
+      previous.saving = saving;
+      previous.pending = pending;
+    },
+    { immediate: true }
   );
 
   const status = computed<SaveStatus>(() => {

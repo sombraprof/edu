@@ -216,6 +216,78 @@ describe('ExerciseAuthoringPanel - edição de metadados', () => {
     expect(exerciseModel.value?.summary).toBe('Resumo revisado');
     expect(exerciseModel.value?.tags).toEqual(['tag-a', 'tag-b']);
   });
+
+  it('expõe as transições de status do salvamento na interface', async () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2024-01-01T09:00:00Z'));
+
+    const exerciseModel = ref<LessonEditorModel>({
+      title: 'Exercício 1',
+      summary: 'Resumo',
+      blocks: [],
+    });
+
+    const tagsField = createTextField();
+    const saving = ref(false);
+    const hasPendingChanges = ref(false);
+    const saveError = ref<string | null>(null);
+
+    const { default: ExerciseAuthoringPanel } = await import('../ExerciseAuthoringPanel.vue');
+
+    const wrapper = mount(ExerciseAuthoringPanel, {
+      props: {
+        exerciseModel,
+        tagsField,
+        saving,
+        hasPendingChanges,
+        saveError,
+      },
+      global: {
+        stubs: {
+          Md3Button: { template: '<button><slot /></button>' },
+          MetadataListEditor: MetadataListEditorStub,
+          AuthoringDraggableList: AuthoringDraggableListStub,
+          ...iconStubs,
+        },
+      },
+    });
+
+    try {
+      await nextTick();
+
+      const status = wrapper.get('[data-test="authoring-status"]');
+
+      expect(status.attributes('data-status')).toBe('idle');
+      expect(status.text()).toBe('Sem alterações pendentes');
+
+      hasPendingChanges.value = true;
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('pending');
+      expect(status.text()).toBe('Alterações pendentes');
+
+      saving.value = true;
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('saving');
+      expect(status.text()).toBe('Salvando alterações…');
+
+      hasPendingChanges.value = false;
+      saving.value = false;
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('saved');
+      expect(status.text()).toContain('Alterações salvas');
+
+      saveError.value = 'Erro ao salvar alterações.';
+      await nextTick();
+
+      expect(status.attributes('data-status')).toBe('error');
+      expect(status.text()).toBe('Erro ao salvar alterações.');
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 });
 
 describe('ExerciseAuthoringPanel - generic block editor integration', () => {

@@ -1,4 +1,4 @@
-import { computed, nextTick, ref, shallowRef, watch, type ComputedRef, type Ref } from 'vue';
+import { nextTick, ref, shallowRef, watch, type ComputedRef, type Ref } from 'vue';
 import { teacherAutomationBaseUrl, teacherAutomationToken } from './teacherAutomation';
 
 class TeacherContentServiceError extends Error {
@@ -109,7 +109,7 @@ export interface TeacherContentEditorState {
   loadError: ReturnType<typeof ref<string | null>>;
   saveError: ReturnType<typeof ref<string | null>>;
   successMessage: ReturnType<typeof ref<string | null>>;
-  hasPendingChanges: ReturnType<typeof computed<boolean>>;
+  hasPendingChanges: Ref<boolean>;
   revertChanges: () => void;
   refresh: () => Promise<void>;
   serviceAvailable: boolean;
@@ -130,7 +130,7 @@ export function useTeacherContentEditor<TModel, TRaw>(
   const pendingRaw = shallowRef<TRaw | null>(null);
   const pendingSerialized = ref<string | null>(null);
 
-  const dirty = ref(false);
+  const hasPendingChanges = ref(false);
   let currentPath: string | null = null;
   let ignoreNextChange = false;
   let debounceTimer: ReturnType<typeof setTimeout> | null = null;
@@ -150,7 +150,7 @@ export function useTeacherContentEditor<TModel, TRaw>(
     });
     snapshotRaw.value = raw ? cloneJson(raw) : null;
     snapshotSerialized.value = raw ? serialize(raw) : '';
-    dirty.value = false;
+    hasPendingChanges.value = false;
   }
 
   async function loadContent(path: string | null) {
@@ -228,7 +228,7 @@ export function useTeacherContentEditor<TModel, TRaw>(
       const snapshot = cloneJson(rawToSave);
       snapshotRaw.value = snapshot;
       snapshotSerialized.value = serializedToSave;
-      dirty.value = false;
+      hasPendingChanges.value = false;
 
       const savedAt = typeof response?.savedAt === 'string' ? response.savedAt : null;
       if (savedAt) {
@@ -249,7 +249,7 @@ export function useTeacherContentEditor<TModel, TRaw>(
           : 'Não foi possível salvar o arquivo solicitado.';
       console.error('[useTeacherContentEditor] Falha ao salvar conteúdo:', error);
       saveError.value = message;
-      dirty.value = true;
+      hasPendingChanges.value = true;
       pendingRaw.value = rawToSave;
       pendingSerialized.value = serializedToSave;
     } finally {
@@ -293,7 +293,7 @@ export function useTeacherContentEditor<TModel, TRaw>(
       }
       if (!currentPath || !value || !snapshotRaw.value) {
         clearTimer();
-        dirty.value = false;
+        hasPendingChanges.value = false;
         return;
       }
 
@@ -301,7 +301,7 @@ export function useTeacherContentEditor<TModel, TRaw>(
       const raw = options.toRaw(cloneJson(value), base);
       const serialized = serialize(raw);
       const hasChanged = serialized !== snapshotSerialized.value;
-      dirty.value = hasChanged;
+      hasPendingChanges.value = hasChanged;
       if (!hasChanged) {
         clearTimer();
         return;
@@ -326,8 +326,6 @@ export function useTeacherContentEditor<TModel, TRaw>(
   async function refresh() {
     await loadContent(currentPath);
   }
-
-  const hasPendingChanges = computed(() => dirty.value);
 
   return {
     loading,

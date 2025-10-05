@@ -3,7 +3,7 @@ import { nextTick, ref } from 'vue';
 import { useAuthoringSaveTracker } from '../useAuthoringSaveTracker';
 
 describe('useAuthoringSaveTracker', () => {
-  it('indica estado de salvamento em andamento', async () => {
+  it('acompanha as transições de idle até saved', async () => {
     const target = ref({});
     const saving = ref(false);
     const hasPendingChanges = ref(false);
@@ -14,6 +14,14 @@ describe('useAuthoringSaveTracker', () => {
       hasPendingChanges,
       saveError,
     });
+
+    expect(tracker.status.value).toBe('idle');
+
+    hasPendingChanges.value = true;
+    await nextTick();
+
+    expect(tracker.status.value).toBe('pending');
+    expect(tracker.statusLabel.value).toBe('Alterações pendentes');
 
     saving.value = true;
     await nextTick();
@@ -21,29 +29,24 @@ describe('useAuthoringSaveTracker', () => {
     expect(tracker.status.value).toBe('saving');
     expect(tracker.statusLabel.value).toBe('Salvando alterações…');
     expect(tracker.statusTone.value).toBe('text-warning');
-  });
 
-  it('expõe erro de salvamento quando presente', async () => {
-    const target = ref({});
-    const saving = ref(false);
-    const hasPendingChanges = ref(false);
-    const saveError = ref<string | null>(null);
-
-    const tracker = useAuthoringSaveTracker(target, {
-      saving,
-      hasPendingChanges,
-      saveError,
-    });
-
-    saveError.value = 'Não foi possível salvar o arquivo solicitado.';
+    hasPendingChanges.value = false;
+    saving.value = false;
     await nextTick();
 
-    expect(tracker.status.value).toBe('error');
-    expect(tracker.statusLabel.value).toBe('Não foi possível salvar o arquivo solicitado.');
-    expect(tracker.statusTone.value).toBe('text-error');
+    expect(tracker.status.value).toBe('saved');
+    expect(tracker.statusLabel.value).toContain('Alterações salvas');
+    expect(tracker.lastSavedAt.value).not.toBe('');
+    expect(tracker.statusTone.value).toBe('text-success');
+
+    hasPendingChanges.value = true;
+    await nextTick();
+
+    expect(tracker.status.value).toBe('pending');
+    expect(tracker.lastSavedAt.value).toBe('');
   });
 
-  it('marca como salvo após concluir o salvamento sem erros', async () => {
+  it('prioriza o estado de erro quando o salvamento falha', async () => {
     const target = ref({});
     const saving = ref(false);
     const hasPendingChanges = ref(false);
@@ -61,13 +64,13 @@ describe('useAuthoringSaveTracker', () => {
     saving.value = true;
     await nextTick();
 
-    hasPendingChanges.value = false;
+    saveError.value = 'Não foi possível salvar o arquivo solicitado.';
     saving.value = false;
     await nextTick();
 
-    expect(tracker.status.value).toBe('saved');
-    expect(tracker.statusLabel.value).toContain('Alterações salvas');
-    expect(tracker.lastSavedAt.value).not.toBe('');
-    expect(tracker.statusTone.value).toBe('text-success');
+    expect(tracker.status.value).toBe('error');
+    expect(tracker.statusLabel.value).toBe('Não foi possível salvar o arquivo solicitado.');
+    expect(tracker.statusTone.value).toBe('text-error');
+    expect(tracker.lastSavedAt.value).toBe('');
   });
 });
