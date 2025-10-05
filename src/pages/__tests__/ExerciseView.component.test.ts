@@ -28,6 +28,34 @@ vi.mock('../ExerciseView.logic', () => ({
   useExerciseViewController: () => controllerMock,
 }));
 
+const teacherModeMock = ref(true);
+
+vi.mock('@/composables/useTeacherMode', () => ({
+  useTeacherMode: () => ({
+    teacherMode: teacherModeMock,
+  }),
+}));
+
+const exerciseEditorModel = shallowRef<Record<string, unknown> | null>({});
+
+vi.mock('@/composables/useLessonEditorModel', () => ({
+  useLessonEditorModel: () => ({
+    lessonModel: exerciseEditorModel,
+    setLessonModel: (value: Record<string, unknown> | null) => {
+      exerciseEditorModel.value = value;
+    },
+    tagsField: computed({
+      get: () => '',
+      set: () => undefined,
+    }),
+    useArrayField: () =>
+      computed({
+        get: () => '',
+        set: () => undefined,
+      }),
+  }),
+}));
+
 const contentSyncMock = {
   loading: ref(false),
   saving: ref(false),
@@ -48,6 +76,12 @@ const ButtonStub = {
   template: '<button><slot /></button>',
 };
 
+const ExerciseAuthoringPanelStub = {
+  name: 'ExerciseAuthoringPanel',
+  props: ['exerciseModel', 'tagsField', 'errorMessage', 'successMessage', 'canRevert', 'onRevert'],
+  template: '<div class="exercise-authoring-panel"></div>',
+};
+
 describe('ExerciseView component', () => {
   beforeEach(() => {
     controllerMock = createController();
@@ -56,6 +90,9 @@ describe('ExerciseView component', () => {
     contentSyncMock.successMessage.value = null;
     contentSyncMock.hasPendingChanges.value = false;
     contentSyncMock.revertChanges.mockReset();
+    contentSyncMock.serviceAvailable = true;
+    teacherModeMock.value = true;
+    exerciseEditorModel.value = {};
   });
 
   it('renderiza componente de exercício quando disponível', () => {
@@ -64,6 +101,7 @@ describe('ExerciseView component', () => {
         stubs: {
           Md3Button: ButtonStub,
           RouterLink: { template: '<a><slot /></a>' },
+          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
         },
@@ -80,6 +118,7 @@ describe('ExerciseView component', () => {
         stubs: {
           Md3Button: ButtonStub,
           RouterLink: { template: '<a><slot /></a>' },
+          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
         },
@@ -87,5 +126,23 @@ describe('ExerciseView component', () => {
     });
 
     expect(wrapper.text()).toContain('Conteúdo deste exercício ainda não está disponível');
+  });
+
+  it('oculta painel de autoria quando serviço não está disponível', () => {
+    contentSyncMock.serviceAvailable = false;
+
+    const wrapper = mount(ExerciseView, {
+      global: {
+        stubs: {
+          Md3Button: ButtonStub,
+          RouterLink: { template: '<a><slot /></a>' },
+          ExerciseAuthoringPanel: ExerciseAuthoringPanelStub,
+          ChevronRight: { template: '<span />' },
+          ArrowLeft: { template: '<span />' },
+        },
+      },
+    });
+
+    expect(wrapper.find('.exercise-authoring-panel').exists()).toBe(false);
   });
 });
