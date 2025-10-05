@@ -19,6 +19,9 @@ const createController = (): ControllerHarness => {
   const viewMode = ref<'grid' | 'list'>('grid');
   const isLoading = ref(false);
   const displayItemsState = ref<CourseHomeItem[]>([]);
+  const combinedItems = computed(() => displayItemsState.value);
+  const displayItems = computed(() => displayItemsState.value);
+  const resetFiltersSpy = vi.fn();
 
   const controller = {
     lessons,
@@ -28,10 +31,10 @@ const createController = (): ControllerHarness => {
     isLoading,
     rawSearchQuery: computed(() => ''),
     searchTerm: computed(() => ''),
-    combinedItems: computed(() => displayItemsState.value),
-    displayItems: computed(() => displayItemsState.value),
+    combinedItems,
+    displayItems,
     refreshCourseContent: vi.fn(),
-    resetFilters: vi.fn(),
+    resetFilters: resetFiltersSpy,
     updateSection: vi.fn(),
     courseId: computed(() => 'demo'),
     route: { params: {}, query: {} } as any,
@@ -41,12 +44,18 @@ const createController = (): ControllerHarness => {
     displayItemsState.value = items;
   };
 
-  return { controller, setDisplayItems };
+  const clearFiltersSpy = () => {
+    resetFiltersSpy.mockClear();
+  };
+
+  return { controller, setDisplayItems, resetFiltersSpy, clearFiltersSpy };
 };
 
 let controllerHarness: ControllerHarness;
 let controllerMock: CourseHomeController;
 let setDisplayItems: (items: CourseHomeItem[]) => void;
+let resetFiltersSpy: ReturnType<typeof vi.fn>;
+let clearFiltersSpy: () => void;
 
 vi.mock('../CourseHome.logic', () => ({
   useCourseHomeController: () => controllerMock,
@@ -64,6 +73,9 @@ describe('CourseHome component', () => {
     const controllerSetup = createController();
     controllerMock = controllerSetup.controller;
     setDisplayItems = controllerSetup.setDisplayItems;
+    resetFiltersSpy = controllerSetup.resetFiltersSpy;
+    clearFiltersSpy = controllerSetup.clearFiltersSpy;
+    clearFiltersSpy();
   });
 
   it('exibe estado de carregamento', () => {
@@ -125,7 +137,7 @@ describe('CourseHome component', () => {
   it('aciona reset ao clicar em "Limpar filtros"', async () => {
     controllerMock.isLoading.value = false;
     setDisplayItems([]);
-    controllerMock.resetFilters.mockClear();
+    resetFiltersSpy.mockClear();
 
     const wrapper = mount(CourseHome, {
       global: {
@@ -144,6 +156,6 @@ describe('CourseHome component', () => {
       .find((btn) => btn.text().includes('Limpar filtros'));
     expect(resetButton).toBeTruthy();
     await resetButton!.trigger('click');
-    expect(controllerMock.resetFilters).toHaveBeenCalled();
+    expect(resetFiltersSpy).toHaveBeenCalled();
   });
 });
