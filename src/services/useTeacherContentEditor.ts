@@ -1,4 +1,4 @@
-import { computed, nextTick, ref, shallowRef, watch, type ComputedRef, type ShallowRef } from 'vue';
+import { computed, nextTick, ref, shallowRef, watch, type ComputedRef, type Ref } from 'vue';
 import { teacherAutomationBaseUrl, teacherAutomationToken } from './teacherAutomation';
 
 class TeacherContentServiceError extends Error {
@@ -96,7 +96,7 @@ interface TeacherContentResponse<TRaw> {
 
 export interface TeacherContentEditorOptions<TModel, TRaw> {
   path: ComputedRef<string | null>;
-  model: ShallowRef<TModel | null>;
+  model: Ref<TModel | null>;
   setModel: (value: TModel | null) => void;
   fromRaw: (raw: TRaw) => TModel;
   toRaw: (model: TModel, base: TRaw | null) => TRaw;

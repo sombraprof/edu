@@ -207,7 +207,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, type ComputedRef, type ShallowRef } from 'vue';
+import { computed, ref, watch, type ComputedRef, type Ref } from 'vue';
 import {
   ArrowDown,
   ArrowUp,
@@ -230,7 +230,7 @@ import {
 import { useAuthoringSaveTracker } from '@/composables/useAuthoringSaveTracker';
 
 const props = defineProps<{
-  lessonModel: ShallowRef<LessonEditorModel | null>;
+  lessonModel: Ref<LessonEditorModel | null>;
   tagsField: ComputedRef<string>;
   createArrayField: (field: LessonArrayField) => ComputedRef<string>;
   errorMessage?: string | null;

@@ -1,10 +1,10 @@
 import {
   computed,
   defineAsyncComponent,
-  shallowRef,
+  ref,
   type Component,
   type ComputedRef,
-  type ShallowRef,
+  type Ref,
 } from 'vue';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
 
@@ -66,7 +66,7 @@ function cloneModel(model: LessonEditorModel): LessonEditorModel {
 }
 
 export interface LessonEditorContext {
-  lessonModel: ShallowRef<LessonEditorModel | null>;
+  lessonModel: Ref<LessonEditorModel | null>;
   setLessonModel: (value: LessonEditorModel | null) => void;
   tagsField: ComputedRef<string>;
   useArrayField: (field: LessonArrayField) => ComputedRef<string>;
@@ -75,9 +75,7 @@ export interface LessonEditorContext {
 export function useLessonEditorModel(
   initialValue: LessonEditorModel | null = null
 ): LessonEditorContext {
-  const lessonModel = shallowRef<LessonEditorModel | null>(
-    initialValue ? cloneModel(initialValue) : null
-  );
+  const lessonModel = ref<LessonEditorModel | null>(initialValue ? cloneModel(initialValue) : null);
 
   function setLessonModel(value: LessonEditorModel | null) {
     lessonModel.value = value ? cloneModel(value) : null;

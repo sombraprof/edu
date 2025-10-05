@@ -36,7 +36,7 @@ vi.mock('@/composables/useTeacherMode', () => ({
   }),
 }));
 
-const exerciseEditorModel = shallowRef<Record<string, unknown> | null>({});
+const exerciseEditorModel = ref<Record<string, unknown> | null>({});
 
 vi.mock('@/composables/useLessonEditorModel', () => ({
   useLessonEditorModel: () => ({

@@ -165,7 +165,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, type ComputedRef, type ShallowRef } from 'vue';
+import { computed, ref, watch, type ComputedRef, type Ref } from 'vue';
 import {
   ArrowDown,
   ArrowUp,
@@ -187,7 +187,7 @@ import {
 import { useAuthoringSaveTracker } from '@/composables/useAuthoringSaveTracker';
 
 const props = defineProps<{
-  exerciseModel: ShallowRef<LessonEditorModel | null>;
+  exerciseModel: Ref<LessonEditorModel | null>;
   tagsField: ComputedRef<string>;
   errorMessage?: string | null;
   successMessage?: string | null;
