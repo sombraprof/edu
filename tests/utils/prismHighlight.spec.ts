@@ -78,4 +78,23 @@ describe('createPrismHighlightHandler', () => {
     expect(highlightElementMock).toHaveBeenNthCalledWith(2, second);
     expect(highlightAllMock).not.toHaveBeenCalled();
   });
+
+  it.each([
+    {
+      name: 'null targets',
+      context: { targets: null },
+    },
+    {
+      name: 'single element',
+      context: { targets: document.createElement('code') },
+    },
+    {
+      name: 'iterable targets',
+      context: { targets: new Set([document.createElement('code')]) },
+    },
+  ])('does not throw when called with $name', async ({ context }) => {
+    const handler = createPrismHighlightHandler();
+
+    await expect(handler(context)).resolves.toBeUndefined();
+  });
 });
