@@ -19,29 +19,29 @@
       <div class="teacher-authoring-workspace__canvas">
         <div
           v-if="showViewSelector"
-          class="teacher-authoring-workspace__tabs"
+          class="teacher-authoring-workspace__tabs pill-group"
           role="tablist"
           aria-label="Alternar entre editor e prévia"
         >
           <button
             type="button"
-            class="teacher-authoring-workspace__tab"
-            :class="{ 'teacher-authoring-workspace__tab--active': currentView === 'editor' }"
+            class="pill-item"
+            :class="{ 'pill-item--active': currentView === 'editor' }"
             :aria-pressed="currentView === 'editor'"
             data-testid="teacher-workspace-tab-editor"
             @click="setView('editor')"
           >
-            <span class="teacher-authoring-workspace__tab-label">Editor</span>
+            Editor
           </button>
           <button
             type="button"
-            class="teacher-authoring-workspace__tab"
-            :class="{ 'teacher-authoring-workspace__tab--active': currentView === 'preview' }"
+            class="pill-item"
+            :class="{ 'pill-item--active': currentView === 'preview' }"
             :aria-pressed="currentView === 'preview'"
             data-testid="teacher-workspace-tab-preview"
             @click="setView('preview')"
           >
-            <span class="teacher-authoring-workspace__tab-label">Prévia</span>
+            Prévia
           </button>
         </div>
 
@@ -200,43 +200,7 @@ function setView(view: WorkspaceView) {
 }
 
 .teacher-authoring-workspace__tabs {
-  display: inline-flex;
-  background: var(--md-sys-color-surface-container-high, #f3edf7);
-  border-radius: 9999px;
-  padding: 0.25rem;
-  gap: 0.25rem;
-}
-
-.teacher-authoring-workspace__tab {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.35rem 1rem;
-  border-radius: 9999px;
-  border: none;
-  background: transparent;
-  color: var(--md-sys-color-on-surface-variant, #49454f);
-  font-weight: 600;
-  cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
-}
-
-.teacher-authoring-workspace__tab:focus-visible {
-  outline: 2px solid var(--md-sys-color-primary, #6750a4);
-  outline-offset: 2px;
-}
-
-.teacher-authoring-workspace__tab--active {
-  background: var(--md-sys-color-primary, #6750a4);
-  color: var(--md-sys-color-on-primary, #ffffff);
-}
-
-.teacher-authoring-workspace__tab-label {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  align-self: flex-start;
 }
 
 .teacher-authoring-workspace__pane {
