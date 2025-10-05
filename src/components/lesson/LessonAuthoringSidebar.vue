@@ -41,69 +41,115 @@
     </div>
 
     <template v-if="hasLessonModel">
-      <section class="md-stack md-stack-3">
-        <h3 class="md-typescale-title-medium font-semibold text-on-surface">
-          Metadados principais
-        </h3>
-        <label class="flex flex-col gap-1">
-          <span class="md-typescale-label-large text-on-surface">Título</span>
-          <input
-            v-model="currentLesson.title"
-            type="text"
-            class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          />
-        </label>
-        <label class="flex flex-col gap-1">
-          <span class="md-typescale-label-large text-on-surface">Resumo</span>
-          <textarea
-            v-model="currentLesson.summary"
-            rows="3"
-            class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          ></textarea>
-        </label>
-        <label class="flex flex-col gap-1">
-          <span class="md-typescale-label-large text-on-surface">Objetivo geral</span>
-          <textarea
-            v-model="currentLesson.objective"
-            rows="3"
-            class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          ></textarea>
-        </label>
-        <div class="grid gap-3 md:grid-cols-2">
+      <section class="lesson-authoring-sidebar__section">
+        <header class="lesson-authoring-sidebar__section-header">
+          <h3 class="md-typescale-title-medium font-semibold text-on-surface">
+            Metadados principais
+          </h3>
+          <Md3Button
+            type="button"
+            variant="text"
+            :disabled="!hasLessonModel"
+            @click="toggleMetadataEditing"
+          >
+            <template #leading>
+              <PenSquare class="md-icon md-icon--sm" aria-hidden="true" />
+            </template>
+            {{ metadataActionLabel }}
+          </Md3Button>
+        </header>
+
+        <div v-if="!isMetadataEditing" class="lesson-authoring-sidebar__metadata-preview">
+          <dl v-if="metadataSummaryItems.length" class="lesson-authoring-sidebar__metadata-grid">
+            <div
+              v-for="item in metadataSummaryItems"
+              :key="item.label"
+              class="lesson-authoring-sidebar__metadata-item"
+            >
+              <dt class="metadata-label">{{ item.label }}</dt>
+              <dd v-if="item.type === 'chips'" class="metadata-value metadata-value--chips">
+                <span v-for="chip in item.values" :key="chip" class="chip chip--outlined">{{
+                  chip
+                }}</span>
+              </dd>
+              <dd v-else class="metadata-value">{{ item.value }}</dd>
+            </div>
+          </dl>
+          <p v-else class="text-sm text-on-surface-variant">
+            Nenhuma informação preenchida ainda. Clique em “Editar metadados” para começar.
+          </p>
+        </div>
+
+        <div v-else class="md-stack md-stack-3" :id="metadataSectionId">
           <label class="flex flex-col gap-1">
-            <span class="md-typescale-label-large text-on-surface">Modalidade</span>
+            <span class="md-typescale-label-large text-on-surface">Título</span>
             <input
-              v-model="currentLesson.modality"
+              v-model="currentLesson.title"
               type="text"
               class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-              placeholder="in-person, remoto, híbrido..."
+              autofocus
             />
           </label>
           <label class="flex flex-col gap-1">
-            <span class="md-typescale-label-large text-on-surface">Duração (min)</span>
-            <input
-              v-model.number="currentLesson.duration"
-              type="number"
-              min="0"
+            <span class="md-typescale-label-large text-on-surface">Resumo</span>
+            <textarea
+              v-model="currentLesson.summary"
+              rows="3"
               class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            />
+            ></textarea>
           </label>
-        </div>
-        <label class="flex flex-col gap-1">
-          <span class="md-typescale-label-large text-on-surface">Tags</span>
-          <textarea
-            v-model="tagsFieldProxy"
-            rows="2"
-            class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-            placeholder="Uma tag por linha"
-          ></textarea>
-        </label>
-        <div class="grid gap-3 md:grid-cols-2">
-          <MetadataListEditor label="Objetivos específicos" v-model="objectivesFieldProxy" />
-          <MetadataListEditor label="Competências" v-model="competenciesFieldProxy" />
-          <MetadataListEditor label="Habilidades" v-model="skillsFieldProxy" />
-          <MetadataListEditor label="Resultados esperados" v-model="outcomesFieldProxy" />
-          <MetadataListEditor label="Pré-requisitos" v-model="prerequisitesFieldProxy" />
+          <label class="flex flex-col gap-1">
+            <span class="md-typescale-label-large text-on-surface">Objetivo geral</span>
+            <textarea
+              v-model="currentLesson.objective"
+              rows="3"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            ></textarea>
+          </label>
+          <div class="grid gap-3 md:grid-cols-2">
+            <label class="flex flex-col gap-1">
+              <span class="md-typescale-label-large text-on-surface">Modalidade</span>
+              <select
+                v-model="currentLesson.modality"
+                class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              >
+                <option value="">Selecione</option>
+                <option v-for="option in modalityOptions" :key="option.value" :value="option.value">
+                  {{ option.label }}
+                </option>
+              </select>
+            </label>
+            <label class="flex flex-col gap-1">
+              <span class="md-typescale-label-large text-on-surface">Duração (min)</span>
+              <input
+                v-model.number="currentLesson.duration"
+                type="number"
+                min="0"
+                class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              />
+            </label>
+          </div>
+          <label class="flex flex-col gap-1">
+            <span class="md-typescale-label-large text-on-surface">Tags</span>
+            <textarea
+              v-model="tagsFieldProxy"
+              rows="2"
+              class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              placeholder="Uma tag por linha"
+            ></textarea>
+          </label>
+          <div class="grid gap-3 md:grid-cols-2">
+            <MetadataListEditor label="Objetivos específicos" v-model="objectivesFieldProxy" />
+            <MetadataListEditor label="Competências" v-model="competenciesFieldProxy" />
+            <MetadataListEditor label="Habilidades" v-model="skillsFieldProxy" />
+            <MetadataListEditor label="Resultados esperados" v-model="outcomesFieldProxy" />
+            <MetadataListEditor label="Pré-requisitos" v-model="prerequisitesFieldProxy" />
+          </div>
+          <div class="flex justify-end">
+            <Md3Button type="button" variant="tonal" @click="toggleMetadataEditing">
+              Concluir edição
+            </Md3Button>
+          </div>
         </div>
       </section>
 
@@ -185,6 +231,12 @@
                   </button>
                 </div>
               </header>
+              <p
+                v-if="formatBlockSummary(block)"
+                class="mt-2 text-xs leading-5 text-on-surface-variant"
+              >
+                {{ formatBlockSummary(block) }}
+              </p>
               <footer class="mt-3 flex items-center justify-between gap-2">
                 <Md3Button type="button" variant="text" @click="props.onSelectBlock(index)">
                   <template #leading>
@@ -211,7 +263,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, type Component, type Ref, type WritableComputedRef } from 'vue';
+import { computed, ref, watch, type Component, type Ref, type WritableComputedRef } from 'vue';
 import { ArrowDown, ArrowUp, GripVertical, PenSquare, Plus, Trash2 } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
 import AuthoringDraggableList from '@/components/authoring/AuthoringDraggableList.vue';
@@ -253,6 +305,14 @@ const props = defineProps<{
 
 const lessonModel = props.lessonModel;
 const hasLessonModel = computed(() => lessonModel.value !== null);
+const isMetadataEditing = ref(false);
+const metadataSectionId = 'lesson-metadata-editor';
+
+watch(lessonModel, (value) => {
+  if (!value) {
+    isMetadataEditing.value = false;
+  }
+});
 
 type NormalizedLessonEditorModel = LessonEditorModel & {
   title: string;
@@ -329,6 +389,85 @@ const currentLesson = computed<NormalizedLessonEditorModel>(() => {
   return model;
 });
 
+const modalityOptions = [
+  { value: 'in-person', label: 'Presencial' },
+  { value: 'remote', label: 'Remota' },
+  { value: 'hybrid', label: 'Híbrida' },
+  { value: 'async', label: 'Assíncrona' },
+] as const;
+
+type MetadataSummaryItem =
+  | { label: string; value: string; type?: 'text' }
+  | { label: string; values: string[]; type: 'chips' };
+
+function formatModalityLabel(value: string | undefined | null) {
+  const option = modalityOptions.find((item) => item.value === value);
+  return option?.label ?? value ?? '';
+}
+
+function sanitizeSummaryText(value: unknown) {
+  if (typeof value !== 'string') return '';
+  return value.trim();
+}
+
+const metadataSummaryItems = computed<MetadataSummaryItem[]>(() => {
+  const model = lessonModel.value;
+  if (!model) {
+    return [];
+  }
+
+  ensureLessonModelDefaults(model);
+
+  const items: MetadataSummaryItem[] = [];
+  const title = sanitizeSummaryText(model.title);
+  items.push({ label: 'Título', value: title || 'Sem título', type: 'text' });
+
+  const summary = sanitizeSummaryText(model.summary);
+  if (summary) {
+    items.push({ label: 'Resumo', value: summary, type: 'text' });
+  }
+
+  const objective = sanitizeSummaryText(model.objective);
+  if (objective) {
+    items.push({ label: 'Objetivo geral', value: objective, type: 'text' });
+  }
+
+  const duration =
+    typeof model.duration === 'number' && Number.isFinite(model.duration)
+      ? `${model.duration} minuto${model.duration === 1 ? '' : 's'}`
+      : '';
+  if (duration) {
+    items.push({ label: 'Duração', value: duration, type: 'text' });
+  }
+
+  const modalityLabel = formatModalityLabel(model.modality);
+  if (modalityLabel) {
+    items.push({ label: 'Modalidade', value: modalityLabel, type: 'text' });
+  }
+
+  if (model.tags.length) {
+    items.push({ label: 'Tags', values: [...model.tags], type: 'chips' });
+  }
+
+  const addList = (label: string, values: string[] | undefined) => {
+    if (values && values.length) {
+      items.push({ label, values: [...values], type: 'chips' });
+    }
+  };
+
+  addList('Objetivos específicos', model.objectives);
+  addList('Competências', model.competencies);
+  addList('Habilidades', model.skills);
+  addList('Resultados esperados', model.outcomes);
+  addList('Pré-requisitos', model.prerequisites);
+
+  return items;
+});
+
+const metadataActionLabel = computed(() =>
+  isMetadataEditing.value ? 'Fechar metadados' : 'Editar metadados'
+);
+
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
   return computed({
     get: () => field.value,
@@ -373,11 +512,135 @@ function formatBlockTitle(block: LessonAuthoringBlock, index: number) {
   }
   return `Bloco ${index + 1}`;
 }
+
+function extractFirstText(value: unknown): string {
+  if (!value) return '';
+  if (typeof value === 'string') {
+    return value;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      const text = extractFirstText(item);
+      if (text) return text;
+    }
+    return '';
+  }
+  if (typeof value === 'object') {
+    const record = value as Record<string, unknown>;
+    if (typeof record.text === 'string') {
+      return record.text;
+    }
+    if (Array.isArray(record.items)) {
+      return extractFirstText(record.items);
+    }
+    if (typeof record.description === 'string') {
+      return record.description;
+    }
+    if (typeof record.content === 'string' || Array.isArray(record.content)) {
+      return extractFirstText(record.content);
+    }
+    if (typeof record.prompt === 'string') {
+      return record.prompt;
+    }
+  }
+  return '';
+}
+
+function formatBlockSummary(block: LessonAuthoringBlock) {
+  if (!block || typeof block !== 'object') {
+    return '';
+  }
+  const record = block as Record<string, unknown>;
+  if (typeof record.summary === 'string') {
+    return record.summary;
+  }
+  if (typeof record.description === 'string') {
+    return record.description;
+  }
+  if (typeof record.prompt === 'string') {
+    return record.prompt;
+  }
+  const text = extractFirstText(record.content ?? record.richContent ?? record.body);
+  if (typeof text === 'string' && text.trim().length) {
+    const trimmed = text.trim();
+    return trimmed.length > 140 ? `${trimmed.slice(0, 137)}…` : trimmed;
+  }
+  return '';
+}
+
+function toggleMetadataEditing() {
+  if (!hasLessonModel.value) {
+    return;
+  }
+  isMetadataEditing.value = !isMetadataEditing.value;
+  if (isMetadataEditing.value) {
+    if (typeof window !== 'undefined') {
+      window.requestAnimationFrame(() => {
+        const section = document.getElementById(metadataSectionId);
+        section?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  }
+}
 </script>
 
 <style scoped>
 .lesson-authoring-sidebar {
   width: 100%;
+}
+
+.lesson-authoring-sidebar__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline) 60%, transparent);
+  background: color-mix(in srgb, var(--md-sys-color-surface) 86%, transparent 14%);
+}
+
+.lesson-authoring-sidebar__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.lesson-authoring-sidebar__metadata-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lesson-authoring-sidebar__metadata-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.lesson-authoring-sidebar__metadata-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metadata-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--md-sys-color-on-surface-variant);
+  text-transform: uppercase;
+}
+
+.metadata-value {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--md-sys-color-on-surface);
+}
+
+.metadata-value--chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .icon-button {
