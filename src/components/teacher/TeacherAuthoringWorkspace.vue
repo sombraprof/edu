@@ -70,7 +70,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, useSlots } from 'vue';
+import { Comment, computed, ref, watch, useSlots } from 'vue';
 
 type WorkspaceView = 'editor' | 'preview';
 
@@ -103,7 +103,14 @@ const previewEnabled = computed(() => props.previewEnabled);
 
 const showViewSelector = computed(() => editorEnabled.value && previewEnabled.value);
 const slots = useSlots();
-const hasSidebar = computed(() => Boolean(slots.sidebar));
+const hasSidebar = computed(() => {
+  const sidebarSlot = slots.sidebar?.();
+  if (!sidebarSlot) {
+    return false;
+  }
+
+  return sidebarSlot.some((node) => node.type !== Comment);
+});
 
 watch(
   () => props.view,
