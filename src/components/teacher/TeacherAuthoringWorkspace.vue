@@ -6,59 +6,71 @@
           <h2 class="teacher-authoring-workspace__title">Área de autoria</h2>
         </slot>
       </div>
-      <div
-        v-if="showViewSelector"
-        class="teacher-authoring-workspace__tabs"
-        role="tablist"
-        aria-label="Alternar entre editor e prévia"
-      >
-        <button
-          type="button"
-          class="teacher-authoring-workspace__tab"
-          :class="{ 'teacher-authoring-workspace__tab--active': currentView === 'editor' }"
-          :aria-pressed="currentView === 'editor'"
-          data-testid="teacher-workspace-tab-editor"
-          @click="setView('editor')"
-        >
-          <span class="teacher-authoring-workspace__tab-label">Editor</span>
-        </button>
-        <button
-          type="button"
-          class="teacher-authoring-workspace__tab"
-          :class="{ 'teacher-authoring-workspace__tab--active': currentView === 'preview' }"
-          :aria-pressed="currentView === 'preview'"
-          data-testid="teacher-workspace-tab-preview"
-          @click="setView('preview')"
-        >
-          <span class="teacher-authoring-workspace__tab-label">Prévia</span>
-        </button>
-      </div>
     </header>
 
-    <div class="teacher-authoring-workspace__body">
-      <div
-        v-if="currentView === 'editor' && editorEnabled"
-        key="editor"
-        class="teacher-authoring-workspace__pane teacher-authoring-workspace__pane--editor"
-      >
-        <slot name="editor" />
-      </div>
-      <div
-        v-else-if="currentView === 'preview' && previewEnabled"
-        key="preview"
-        class="teacher-authoring-workspace__pane teacher-authoring-workspace__pane--preview"
-      >
-        <slot name="preview" />
-      </div>
-      <div v-else class="teacher-authoring-workspace__empty" role="status">
-        <slot name="empty">Nenhum conteúdo disponível para esta visão.</slot>
+    <div
+      class="teacher-authoring-workspace__layout"
+      :class="{ 'teacher-authoring-workspace__layout--with-sidebar': hasSidebar }"
+    >
+      <aside v-if="hasSidebar" class="teacher-authoring-workspace__sidebar">
+        <slot name="sidebar" />
+      </aside>
+
+      <div class="teacher-authoring-workspace__canvas">
+        <div
+          v-if="showViewSelector"
+          class="teacher-authoring-workspace__tabs"
+          role="tablist"
+          aria-label="Alternar entre editor e prévia"
+        >
+          <button
+            type="button"
+            class="teacher-authoring-workspace__tab"
+            :class="{ 'teacher-authoring-workspace__tab--active': currentView === 'editor' }"
+            :aria-pressed="currentView === 'editor'"
+            data-testid="teacher-workspace-tab-editor"
+            @click="setView('editor')"
+          >
+            <span class="teacher-authoring-workspace__tab-label">Editor</span>
+          </button>
+          <button
+            type="button"
+            class="teacher-authoring-workspace__tab"
+            :class="{ 'teacher-authoring-workspace__tab--active': currentView === 'preview' }"
+            :aria-pressed="currentView === 'preview'"
+            data-testid="teacher-workspace-tab-preview"
+            @click="setView('preview')"
+          >
+            <span class="teacher-authoring-workspace__tab-label">Prévia</span>
+          </button>
+        </div>
+
+        <div class="teacher-authoring-workspace__body">
+          <div
+            v-if="currentView === 'editor' && editorEnabled"
+            key="editor"
+            class="teacher-authoring-workspace__pane teacher-authoring-workspace__pane--editor"
+          >
+            <slot name="editor" />
+          </div>
+          <div
+            v-else-if="currentView === 'preview' && previewEnabled"
+            key="preview"
+            class="teacher-authoring-workspace__pane teacher-authoring-workspace__pane--preview"
+          >
+            <slot name="preview" />
+          </div>
+          <div v-else class="teacher-authoring-workspace__empty" role="status">
+            <slot name="empty">Nenhum conteúdo disponível para esta visão.</slot>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed, ref, watch, useSlots } from 'vue';
 
 type WorkspaceView = 'editor' | 'preview';
 
@@ -90,6 +102,8 @@ const editorEnabled = computed(() => props.editorEnabled);
 const previewEnabled = computed(() => props.previewEnabled);
 
 const showViewSelector = computed(() => editorEnabled.value && previewEnabled.value);
+const slots = useSlots();
+const hasSidebar = computed(() => Boolean(slots.sidebar));
 
 watch(
   () => props.view,
@@ -158,6 +172,33 @@ function setView(view: WorkspaceView) {
   color: var(--md-sys-color-on-surface, #1d1b20);
 }
 
+.teacher-authoring-workspace__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.teacher-authoring-workspace__layout--with-sidebar {
+  gap: 2rem;
+}
+
+.teacher-authoring-workspace__sidebar {
+  position: relative;
+}
+
+.teacher-authoring-workspace__canvas {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.teacher-authoring-workspace__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .teacher-authoring-workspace__tabs {
   display: inline-flex;
   background: var(--md-sys-color-surface-container-high, #f3edf7);
@@ -198,12 +239,6 @@ function setView(view: WorkspaceView) {
   line-height: 1.25rem;
 }
 
-.teacher-authoring-workspace__body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
 .teacher-authoring-workspace__pane {
   width: 100%;
 }
@@ -214,5 +249,28 @@ function setView(view: WorkspaceView) {
   color: var(--md-sys-color-on-surface-variant, #49454f);
   background: var(--md-sys-color-surface-container, #ece6f0);
   border-radius: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .teacher-authoring-workspace__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .teacher-authoring-workspace__layout--with-sidebar {
+    grid-template-columns: 20rem minmax(0, 1fr);
+    align-items: flex-start;
+  }
+
+  .teacher-authoring-workspace__sidebar {
+    position: sticky;
+    top: 5.5rem;
+    max-height: calc(100vh - 6rem);
+    overflow: auto;
+  }
+
+  .teacher-authoring-workspace__canvas {
+    min-height: 0;
+  }
 }
 </style>

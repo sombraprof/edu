@@ -1,8 +1,32 @@
 import { describe, expect, it, beforeEach, afterEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { ref, shallowRef, computed } from 'vue';
-import LessonView from '../LessonView.vue';
 import type { LessonViewController } from '../LessonView.logic';
+
+const BlockEditorStub = {
+  props: ['block'],
+  emits: ['update:block'],
+  template: '<div class="block-editor-stub">{{ block?.title ?? block?.__uiKey }}</div>',
+};
+
+const MetadataListEditorStub = {
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
+  template: '<div class="metadata-list-editor-stub"></div>',
+};
+
+vi.mock('@/composables/useLessonEditorModel', async () => {
+  const actual = await vi.importActual<typeof import('@/composables/useLessonEditorModel')>(
+    '@/composables/useLessonEditorModel'
+  );
+
+  return {
+    ...actual,
+    resolveLessonBlockEditor: () => BlockEditorStub,
+  };
+});
+
+import LessonView from '../LessonView.vue';
 
 type Controller = LessonViewController;
 
@@ -65,8 +89,15 @@ const contentSyncMock = {
   serviceAvailable: true,
 };
 
+let lastContentEditorOptions: {
+  setModel: (model: unknown) => void;
+} | null = null;
+
 vi.mock('@/services/useTeacherContentEditor', () => ({
-  useTeacherContentEditor: () => contentSyncMock,
+  useTeacherContentEditor: (options: { setModel: (model: unknown) => void }) => {
+    lastContentEditorOptions = options;
+    return contentSyncMock;
+  },
 }));
 
 vi.mock('vuedraggable', () => ({
@@ -152,12 +183,17 @@ const mountAppWithLessonView = async () => {
         LessonReadiness: StubComponent,
         LessonOverview: StubComponent,
         LessonRenderer: LessonRendererStub,
-        LessonAuthoringPanel: LessonAuthoringPanelStub,
+        MetadataListEditor: MetadataListEditorStub,
         ChevronRight: { template: '<span />' },
         ArrowLeft: { template: '<span />' },
+        ArrowDown: { template: '<span />' },
         SiteHeader: { template: '<header />' },
         SiteFooter: { template: '<footer />' },
         ArrowUp: { template: '<span />' },
+        GripVertical: { template: '<span />' },
+        Plus: { template: '<span />' },
+        PenSquare: { template: '<span />' },
+        Trash2: { template: '<span />' },
         RouterView: {
           template: '<LessonView />',
           components: { LessonView },
@@ -179,6 +215,14 @@ describe('LessonView component', () => {
     teacherModeMock.value = true;
     toggleTeacherModeMock.mockReset();
     highlightMock.mockReset();
+    lastContentEditorOptions = null;
+    if (typeof HTMLElement !== 'undefined') {
+      Object.defineProperty(HTMLElement.prototype, 'scrollIntoView', {
+        value: vi.fn(),
+        configurable: true,
+        writable: true,
+      });
+    }
     vi.useRealTimers();
   });
 
@@ -187,8 +231,8 @@ describe('LessonView component', () => {
     vi.unstubAllEnvs();
   });
 
-  const mountComponent = () =>
-    mount(LessonView, {
+  const mountComponent = (options?: { lessonModel?: Record<string, unknown> }) => {
+    const wrapper = mount(LessonView, {
       global: {
         stubs: {
           Md3Button: ButtonStub,
@@ -196,29 +240,67 @@ describe('LessonView component', () => {
           LessonReadiness: StubComponent,
           LessonOverview: StubComponent,
           LessonRenderer: LessonRendererStub,
-          LessonAuthoringPanel: LessonAuthoringPanelStub,
+          MetadataListEditor: MetadataListEditorStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
+          ArrowDown: { template: '<span />' },
+          ArrowUp: { template: '<span />' },
+          GripVertical: { template: '<span />' },
+          Plus: { template: '<span />' },
+          PenSquare: { template: '<span />' },
+          Trash2: { template: '<span />' },
         },
       },
     });
 
-  it('exibe painel de autoria como visão padrão', () => {
-    const wrapper = mountComponent();
+    if (options?.lessonModel && lastContentEditorOptions) {
+      lastContentEditorOptions.setModel(options.lessonModel);
+    }
 
-    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(true);
+    return wrapper;
+  };
+
+  it('exibe painel de autoria como visão padrão', async () => {
+    controllerMock.lessonData.value = {
+      content: [{ type: 'contentBlock', __uiKey: 'block-1', title: 'Primeiro bloco' }],
+    } as any;
+
+    const wrapper = mountComponent({
+      lessonModel: {
+        title: 'Introdução',
+        blocks: [{ type: 'contentBlock', __uiKey: 'block-1', title: 'Primeiro bloco' }],
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+
+    expect(
+      wrapper.find('.teacher-authoring-workspace__sidebar .lesson-authoring-sidebar').exists()
+    ).toBe(true);
+    expect(wrapper.find('.lesson-block-editor').exists()).toBe(true);
     expect(wrapper.find('.lesson-content').exists()).toBe(false);
     expect(highlightMock).not.toHaveBeenCalled();
   });
 
   it('permite alternar para visualizar a prévia da lição', async () => {
-    const wrapper = mountComponent();
+    controllerMock.lessonData.value = {
+      content: [{ type: 'contentBlock', __uiKey: 'block-1', title: 'Primeiro bloco' }],
+    } as any;
+
+    const wrapper = mountComponent({
+      lessonModel: {
+        title: 'Introdução',
+        blocks: [{ type: 'contentBlock', __uiKey: 'block-1', title: 'Primeiro bloco' }],
+      },
+    });
+
+    await wrapper.vm.$nextTick();
 
     await wrapper.get('[data-testid="teacher-workspace-tab-preview"]').trigger('click');
     await Promise.resolve();
     await Promise.resolve();
 
-    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.lesson-block-editor').exists()).toBe(false);
     expect(wrapper.find('.teacher-preview-shell').exists()).toBe(true);
     expect(wrapper.find('.lesson-content').exists()).toBe(true);
     expect(highlightMock).toHaveBeenCalled();
@@ -229,7 +311,7 @@ describe('LessonView component', () => {
     const wrapper = mountComponent();
 
     expect(wrapper.text()).toContain('Não foi possível carregar esta aula');
-    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.lesson-block-editor').exists()).toBe(false);
   });
 
   it('oculta painel de autoria quando serviço não está disponível', () => {
@@ -237,8 +319,41 @@ describe('LessonView component', () => {
 
     const wrapper = mountComponent();
 
-    expect(wrapper.find('.lesson-authoring-panel').exists()).toBe(false);
+    expect(wrapper.find('.lesson-block-editor').exists()).toBe(false);
     expect(wrapper.find('.lesson-content').exists()).toBe(true);
+  });
+
+  it('mantém a navegação por blocos entre a barra lateral e o editor', async () => {
+    controllerMock.lessonData.value = {
+      content: [
+        { type: 'contentBlock', __uiKey: 'block-1', title: 'Primeiro bloco' },
+        { type: 'contentBlock', __uiKey: 'block-2', title: 'Segundo bloco' },
+      ],
+    } as any;
+
+    const wrapper = mountComponent({
+      lessonModel: {
+        title: 'Introdução',
+        blocks: [
+          { type: 'contentBlock', __uiKey: 'block-1', title: 'Primeiro bloco' },
+          { type: 'contentBlock', __uiKey: 'block-2', title: 'Segundo bloco' },
+        ],
+      },
+    });
+
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.get('.block-editor-stub').text()).toContain('Primeiro bloco');
+
+    const sidebar = wrapper.findComponent({ name: 'LessonAuthoringSidebar' });
+    const selectBlock = sidebar.props().onSelectBlock as (index: number) => void;
+    expect(typeof selectBlock).toBe('function');
+    selectBlock(1);
+    await wrapper.vm.$nextTick();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.get('.block-editor-stub').text()).toContain('Segundo bloco');
   });
 
   it('não executa highlight enquanto a aba de prévia está inativa', async () => {
