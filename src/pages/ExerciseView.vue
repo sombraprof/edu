@@ -26,6 +26,7 @@
         <ExerciseAuthoringSidebar
           v-if="showAuthoringPanel"
           :exercise-model="exerciseEditor.lessonModel"
+          :manifest-entry="exerciseManifestEntry"
           :tags-field="exerciseEditor.tagsField"
           :blocks="exerciseBlocks"
           :draggable-blocks="displayedBlocks"
@@ -39,7 +40,7 @@
           :error-message="exerciseAuthoringError"
           :success-message="exerciseAuthoringSuccess"
           :can-revert="exerciseCanRevert"
-          :on-revert="exerciseContentSync.revertChanges"
+          :on-revert="revertExerciseAuthoring"
           :on-insert-block="insertBlock"
           :on-select-block="selectBlock"
           :on-move-block="moveBlock"
@@ -95,7 +96,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch, useId } from 'vue';
+import { computed, ref, shallowRef, watch, useId } from 'vue';
 import { RouterLink } from 'vue-router';
 import {
   AlertCircle,
@@ -139,6 +140,18 @@ function cloneDeep<T>(value: T): T {
 
 type ExerciseFilePayload = Record<string, unknown> & { content?: LessonBlock[] };
 
+type ExerciseManifestEntry = Record<string, unknown> & {
+  id: string;
+  available?: boolean;
+  link?: string;
+  type?: string;
+  metadata?: Record<string, unknown> | null;
+};
+
+type ExerciseManifestFile = Record<string, unknown> & {
+  entries?: ExerciseManifestEntry[];
+};
+
 function toExerciseEditorModel(raw: ExerciseFilePayload): LessonEditorModel {
   const { content, ...rest } = raw;
   return {
@@ -163,6 +176,136 @@ function toExerciseFilePayload(
   return target;
 }
 
+function extractExerciseManifestEntry(
+  raw: ExerciseManifestFile | null,
+  exerciseId: string
+): ExerciseManifestEntry | null {
+  if (!raw || typeof raw !== 'object') {
+    return null;
+  }
+
+  const entries = Array.isArray(raw.entries) ? raw.entries : [];
+  const entry = entries.find((item) => item && typeof item === 'object' && item.id === exerciseId);
+  if (!entry) {
+    return null;
+  }
+
+  return cloneDeep(entry);
+}
+
+function sanitizeExerciseManifestEntry(
+  entry: ExerciseManifestEntry | null,
+  exerciseId: string
+): ExerciseManifestEntry | null {
+  if (!entry || typeof entry !== 'object') {
+    return null;
+  }
+
+  const sanitized: ExerciseManifestEntry = { id: exerciseId };
+
+  for (const [key, value] of Object.entries(entry)) {
+    if (key === 'metadata') continue;
+    if (key === 'available') {
+      sanitized.available = Boolean(value);
+      continue;
+    }
+    if (key === 'link' || key === 'type') {
+      if (typeof value === 'string') {
+        const trimmed = value.trim();
+        if (trimmed) {
+          sanitized[key] = trimmed;
+        }
+      }
+      continue;
+    }
+    if (key === 'id') continue;
+    sanitized[key] = cloneDeep(value);
+  }
+
+  if (entry.metadata && typeof entry.metadata === 'object') {
+    const metadata: Record<string, unknown> = {};
+    for (const [metaKey, metaValue] of Object.entries(entry.metadata)) {
+      if (metaValue === undefined || metaValue === null) continue;
+      if (typeof metaValue === 'string') {
+        const trimmed = metaValue.trim();
+        if (trimmed) {
+          metadata[metaKey] = trimmed;
+        }
+      } else {
+        metadata[metaKey] = metaValue;
+      }
+    }
+    if (Object.keys(metadata).length > 0) {
+      sanitized.metadata = metadata;
+    }
+  }
+
+  return sanitized;
+}
+
+function mergeExerciseManifestEntry(
+  base: ExerciseManifestEntry | null,
+  update: ExerciseManifestEntry | null,
+  exerciseId: string
+): ExerciseManifestEntry {
+  const target: ExerciseManifestEntry = base ? cloneDeep(base) : { id: exerciseId };
+  const sanitized = sanitizeExerciseManifestEntry(update, exerciseId);
+
+  if (!sanitized) {
+    return target;
+  }
+
+  const keysToClear: Array<keyof ExerciseManifestEntry> = ['link', 'type', 'metadata'];
+  for (const key of keysToClear) {
+    if (!(key in sanitized)) {
+      delete target[key];
+    }
+  }
+
+  if ('available' in sanitized) {
+    target.available = Boolean(sanitized.available);
+  }
+
+  for (const [key, value] of Object.entries(sanitized)) {
+    if (key === 'available') continue;
+    if (key === 'id') {
+      target.id = exerciseId;
+      continue;
+    }
+    if (value === undefined) {
+      delete (target as Record<string, unknown>)[key];
+    } else {
+      (target as Record<string, unknown>)[key] = cloneDeep(value);
+    }
+  }
+
+  return target;
+}
+
+function toExerciseManifestFile(
+  entry: ExerciseManifestEntry | null,
+  base: ExerciseManifestFile | null,
+  exerciseId: string
+): ExerciseManifestFile {
+  const manifest = base ? cloneDeep(base) : ({} as ExerciseManifestFile);
+  const entries = Array.isArray(manifest.entries) ? manifest.entries : [];
+  const index = entries.findIndex(
+    (item) => item && typeof item === 'object' && item.id === exerciseId
+  );
+  const current = index >= 0 ? entries[index] : null;
+  const merged = mergeExerciseManifestEntry(current, entry, exerciseId);
+  const nextEntries = [...entries];
+
+  if (index >= 0) {
+    nextEntries.splice(index, 1, merged);
+  } else {
+    nextEntries.push(merged);
+  }
+
+  manifest.entries = nextEntries;
+  return manifest;
+}
+
 type WorkspaceView = 'editor' | 'preview';
 
 const workspaceView = ref<WorkspaceView>('editor');
@@ -171,6 +314,24 @@ const controller = useExerciseViewController();
 
 const exerciseEditor = useLessonEditorModel();
 const { teacherMode } = useTeacherMode();
+
+const exerciseManifestEntry = shallowRef<ExerciseManifestEntry | null>(null);
+
+const exerciseManifestPath = computed(() => `courses/${controller.courseId.value}/exercises.json`);
+
+const exerciseManifestSync = useTeacherContentEditor<
+  ExerciseManifestEntry | null,
+  ExerciseManifestFile
+>({
+  path: exerciseManifestPath,
+  model: exerciseManifestEntry,
+  setModel: (value) => {
+    exerciseManifestEntry.value = value ? cloneDeep(value) : null;
+    controller.setManifestEntry(cloneDeep(value ?? null));
+  },
+  fromRaw: (raw) => extractExerciseManifestEntry(raw ?? null, controller.exerciseId.value),
+  toRaw: (entry, base) => toExerciseManifestFile(entry, base ?? null, controller.exerciseId.value),
+});
 
 const exerciseBlocks = computed<LessonAuthoringBlock[]>(
   () => (exerciseEditor.lessonModel.value?.blocks ?? []) as LessonAuthoringBlock[]
@@ -356,17 +517,64 @@ const exerciseContentSync = useTeacherContentEditor<LessonEditorModel, ExerciseF
   toRaw: (model, base) => toExerciseFilePayload(model, base ?? null),
 });
 
-const exerciseAuthoringError = computed(
-  () => exerciseContentSync.loadError.value ?? exerciseContentSync.saveError.value
-);
-const exerciseAuthoringSuccess = computed(() => exerciseContentSync.successMessage.value);
-const exerciseCanRevert = computed(() => exerciseContentSync.hasPendingChanges.value);
+const authoringExerciseState = computed(() => ({
+  exercise: exerciseEditor.lessonModel.value,
+  manifest: exerciseManifestEntry.value,
+}));
 
-const { status, statusLabel, statusTone } = useAuthoringSaveTracker(exerciseEditor.lessonModel, {
-  saving: exerciseContentSync.saving,
-  hasPendingChanges: exerciseContentSync.hasPendingChanges,
-  saveError: exerciseContentSync.saveError,
+const exerciseCombinedSaving = computed(
+  () => exerciseContentSync.saving.value || exerciseManifestSync.saving.value
+);
+const exerciseCombinedPending = computed(
+  () => exerciseContentSync.hasPendingChanges.value || exerciseManifestSync.hasPendingChanges.value
+);
+const exerciseCombinedSaveError = computed(
+  () => exerciseContentSync.saveError.value ?? exerciseManifestSync.saveError.value
+);
+
+const exerciseAuthoringError = computed(() => {
+  return (
+    exerciseContentSync.loadError.value ??
+    exerciseManifestSync.loadError.value ??
+    exerciseContentSync.saveError.value ??
+    exerciseManifestSync.saveError.value ??
+    null
+  );
 });
+const exerciseAuthoringSuccess = computed(
+  () => exerciseContentSync.successMessage.value ?? exerciseManifestSync.successMessage.value
+);
+const exerciseCanRevert = computed(() => exerciseCombinedPending.value);
+
+const { status, statusLabel, statusTone } = useAuthoringSaveTracker(authoringExerciseState, {
+  saving: exerciseCombinedSaving,
+  hasPendingChanges: exerciseCombinedPending,
+  saveError: exerciseCombinedSaveError,
+});
+
+function revertExerciseAuthoring() {
+  exerciseContentSync.revertChanges();
+  exerciseManifestSync.revertChanges();
+}
+
+let previousExerciseManifestStatus = { saving: false, pending: false };
+watch(
+  () => ({
+    saving: Boolean(exerciseManifestSync.saving.value),
+    pending: Boolean(exerciseManifestSync.hasPendingChanges.value),
+  }),
+  ({ saving, pending }) => {
+    if (
+      !saving &&
+      !pending &&
+      (previousExerciseManifestStatus.saving || previousExerciseManifestStatus.pending)
+    ) {
+      controller.setManifestEntry(cloneDeep(exerciseManifestEntry.value ?? null));
+    }
+    previousExerciseManifestStatus = { saving, pending };
+  },
+  { immediate: true }
+);
 
 const statusIcon = computed(() => {
   switch (status.value) {
@@ -389,7 +597,10 @@ const statusIconClass = computed(() =>
 
 const authoringExercise = computed(() => exerciseEditor.lessonModel.value);
 const showAuthoringPanel = computed(
-  () => teacherMode.value && exerciseContentSync.serviceAvailable
+  () =>
+    teacherMode.value &&
+    exerciseContentSync.serviceAvailable &&
+    exerciseManifestSync.serviceAvailable
 );
 
 watch(exerciseBlocks, (current) => {
