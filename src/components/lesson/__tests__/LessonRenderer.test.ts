@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import LessonRenderer from '../LessonRenderer.vue';
 import ddmLesson01 from '@/content/courses/ddm/lessons/lesson-01.json';
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 
 vi.mock('@/pages/course/LessonRenderer.logic', async () => {
   const actual = (await vi.importActual(
@@ -116,9 +116,9 @@ describe('LessonRenderer', () => {
 
   it('shows empty state when controller reports no renderable content', () => {
     useLessonRendererMock.mockReturnValue({
-      metadataSummary: ref(null),
-      resolvedBlocks: ref([]),
-      bibliographyFallback: ref(null),
+      metadataSummary: computed(() => null),
+      resolvedBlocks: computed(() => []),
+      bibliographyFallback: computed(() => null),
       hasRenderableContent: computed(() => false),
     });
 
