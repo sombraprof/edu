@@ -23,7 +23,7 @@ vi.mock('@/composables/useLessonEditorModel', async () => {
   )) as typeof import('@/composables/useLessonEditorModel');
   return {
     ...actual,
-    resolveLessonBlockEditor: (block: { type?: string } | null | undefined) => {
+    resolveLessonBlockEditor: (_block: { type?: string } | null | undefined) => {
       return BlockEditorStub;
     },
   };
@@ -298,6 +298,7 @@ const mountAppWithLessonView = async () => {
         LessonOverview: StubComponent,
         LessonRenderer: LessonRendererStub,
         MetadataListEditor: MetadataListEditorStub,
+        LessonAuthoringPanel: LessonAuthoringPanelStub,
         ChevronRight: { template: '<span />' },
         ArrowLeft: { template: '<span />' },
         ArrowDown: { template: '<span />' },
@@ -364,6 +365,7 @@ describe('LessonView component', () => {
           LessonOverview: StubComponent,
           LessonRenderer: LessonRendererStub,
           MetadataListEditor: MetadataListEditorStub,
+          LessonAuthoringPanel: LessonAuthoringPanelStub,
           ChevronRight: { template: '<span />' },
           ArrowLeft: { template: '<span />' },
           ArrowDown: { template: '<span />' },

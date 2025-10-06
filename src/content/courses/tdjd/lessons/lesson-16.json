@@ -30,6 +30,32 @@
       ]
     },
     {
+      "type": "timeline",
+      "title": "Estrutura da aula (100 minutos)",
+      "steps": [
+        {
+          "title": "Diagnóstico rápido (10 min)",
+          "content": "Alinhamento com o plano da disciplina e retomada dos aprendizados de prototipagem e GDD."
+        },
+        {
+          "title": "Exposição guiada (20 min)",
+          "content": "Apresentação dos pilares do MDA com apoio de slides impressos e quadro colaborativo para registrar exemplos."
+        },
+        {
+          "title": "Análise coletiva (25 min)",
+          "content": "Visualização de trechos de gameplay (Celeste e Journey) e preenchimento do formulário de análise em duplas."
+        },
+        {
+          "title": "Oficina de aplicação (35 min)",
+          "content": "Grupos mapeiam Estética → Dinâmicas → Mecânicas do próprio protótipo usando o template impresso/digital."
+        },
+        {
+          "title": "Compartilhamento e feedback (10 min)",
+          "content": "Grupos apresentam uma síntese do mapa MDA e recebem comentários estruturados da turma."
+        }
+      ]
+    },
+    {
       "type": "cardGrid",
       "title": "Os 3 pilares do MDA",
       "columns": 3,
@@ -73,6 +99,22 @@
             "Garanta Dinâmicas coerentes com essa Estética.",
             "Implemente Mecânicas que suportem essas Dinâmicas."
           ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Vídeos para contextualizar a experiência do jogador",
+      "videos": [
+        {
+          "youtubeId": "uepAJ-rqJKA",
+          "title": "Aesthetics of Play – Extra Credits",
+          "description": "Conecta objetivos emocionais (Estética) com decisões mecânicas reais."
+        },
+        {
+          "youtubeId": "yorTG9at90g",
+          "title": "Why Does Celeste Feel So Good to Play?",
+          "description": "Estudo de caso sobre como mecânicas refinadas sustentam dinâmicas e estética de superação."
         }
       ]
     },
@@ -171,6 +213,12 @@
       ]
     },
     {
+      "type": "callout",
+      "variant": "info",
+      "title": "Materiais presenciais disponíveis",
+      "content": "Slides impressos com definições-chave, fichas de análise MDA em papel e acesso ao formulário digital via QR Code permitem que a turma trabalhe mesmo sem notebook."
+    },
+    {
       "type": "contentBlock",
       "title": "Estudo de Caso: Celeste",
       "content": [
@@ -226,29 +274,24 @@
       "type": "paper"
     },
     {
+      "label": "Artigo: Introducing the MDA Framework",
+      "url": "https://www.gamedeveloper.com/design/introducing-the-mda-framework",
+      "type": "article"
+    },
+    {
       "label": "Template colaborativo (Miro)",
       "url": "https://miro.com/templates/mda-framework/",
       "type": "template"
     },
     {
-      "label": "Slides presenciais – Estrutura MDA e estudos de caso",
-      "url": "data:application/pdf;base64,JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjEgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iagozIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGQgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YyIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNCAwIG9iago8PAovQ29udGVudHMgMTQgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxMyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNSAwIG9iago8PAovQ29udGVudHMgMTUgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxMyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovQ29udGVudHMgMTYgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxMyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNyAwIG9iago8PAovQ29udGVudHMgMTcgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxMyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKOCAwIG9iago8PAovQ29udGVudHMgMTggMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxMyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKOSAwIG9iago8PAovQ29udGVudHMgMTkgMCBSIC9NZWRpYUJveCBbIDAgMCA2MTIgNzkyIF0gL1BhcmVudCAxMyAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKMTAgMCBvYmoKPDwKL0NvbnRlbnRzIDIwIDAgUiAvTWVkaWFCb3ggWyAwIDAgNjEyIDc5MiBdIC9QYXJlbnQgMTMgMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjExIDAgb2JqCjw8Ci9QYWdlTW9kZSAvVXNlTm9uZSAvUGFnZXMgMTMgMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iagoxMiAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNTEwMDYwMDIxMzMrMDAnMDAnKSAvQ3JlYXRvciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI1MTAwNjAwMjEzMyswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIAogIC9TdWJqZWN0ICh1bnNwZWNpZmllZCkgL1RpdGxlICh1bnRpdGxlZCkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iagoxMyAwIG9iago8PAovQ291bnQgNyAvS2lkcyBbIDQgMCBSIDUgMCBSIDYgMCBSIDcgMCBSIDggMCBSIDkgMCBSIDEwIDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKMTQgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMzAxCj4+CnN0cmVhbQpHYXI/Kl0yJDZ0KGtxXUpgPkpdTTpnYDRYQ2RpMWcuTWZAJTBvO2w3UlEuVF9pOjZVYCtVQ0UjL1ksWyQoUFhkZjJTWCk+NEQ8TGooYDgkVyJkPVhuSWAsUXJCJFM2WWJfN0lwMDUnL1NBT1RSOGxLbWJUWzdxRz5WVTA6YkUhVz5NKyRSP3JcRCg9V1Q6cDFQQFRpXHJsU1xxSCsnV181PWpOMz5YIiQ2RlNGLENvckI4QUxFTktPLGc5cVRWJWpeLWRHJkdDJGNPKEhiMyZSRkAnMWlUUkErNCUnYFNWLUpZLWZlckQ5cFYoOT5NJSNLbjkxQkk8NjAxZDFtXyNqQGkmXFVCcSxnMycwZWpXLG80PDBmREBgUThcQHBLZ2BwbC45OWZJcisqX34+ZW5kc3RyZWFtCmVuZG9iagoxNSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyOTkKPj4Kc3RyZWFtCkdhcnAnXWwoXzEnRiFEWDpOPUNfV25gK1pHLVdEZDNdMFJMa184I2NhSGVMbDBfRm1ebUpdLEcuTzlaV10mLGRaWEVmWUpHOTVCVTQ/WCZYJCQxaHRLbj1UZGRCKUo4NjhoYktRQSw9X2A+O0QlU0VgZyljJDgkV09wZVAkQGkjXHEzcGM5QyMrMS9mTihgZUpaNzRqQVhIcTU1UkEhWzIyLDw1ZDtUWjFmMkpqJmomb0RxX2w7SyRKJyshUTZUSCRqTD5JM0RBV2BYZSxJW2lcJyQrZiZ1K19MJVNBLUNzQj9NSSV0KlVBL09yZFI1MWBVa2I+Imlsa15aNGBSXFtMPD9VbEYsMVc5czpEZi8mZStLamxoIy5rVT1oZF0zPz5XJipaPnIuMH4+ZW5kc3RyZWFtCmVuZG9iagoxNiAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAzMDAKPj4Kc3RyZWFtCkdhczJEOkoxZzYqLzxxWi5HZVFXWVo5bEQ/RTROZUpkcmpiLDVONnQ2KFEidWtpOFNIRCVmMkBGKk0pYWs+ZE9qNS5sPygjOUZUSVQvakUzUl9UbG41ZVowVUcqTkdrVGw7R2BwVlplcWRJcnVPTFM9WStFViRuNDZSYkdUQT41dTBbPmhYbC1gRllYMFNkNFgzXF4pKmZGKWZHOmg6bT9IWjRfW0NiYyxkUDcnInEjYFc9dDgobUlgKTRjJklQST9xWSVXLXBzTDJFMCxpUGVcc2g7Z2NGIkosJkNfQy1BXlpTJXJXM0JIUGlZRys9VDFHKDZCNm5uJiQ5JiZuLDZKaU8ibyNkQkVWPUkqUSxmMkYkYz10TkphSGxwTjFMT0cmbUwvSzhFXEB+PmVuZHN0cmVhbQplbmRvYmoKMTcgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMjY1Cj4+CnN0cmVhbQpHYXMzLzYmV1Q2Ji1fIiheWiQ4PiYoUklpO0dZL11TaWpORUBrWE85VipaKGxXa1tHKj1FYSdhODBFWm1vPVtddTJMSXAsPjdaKmJYOkdBIV9Ibj9hVGpXcjZnSTlDNkEzSyRjPW00YUpIa1ZlKDwsXyk6YGFhOmdmXE0+MSxuKHJXak5ccFtvRHM7bT8yXVQ3VWlZIm5PVC5gb1RpSVlrN01wY100K1ZjbThuRkdoPS1WV14lOixpTlY/XDlsMF9US0ZZQmY0ZldnSkA/Ok0+QnFuVllXYEUoQ2w7Z3InJChVRklqbT9eT2NTM2RyQW0wZyVlZz1AbkFLKDssZjQ0OThgJ0IsVX4+ZW5kc3RyZWFtCmVuZG9iagoxOCAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAzMjEKPj4Kc3RyZWFtCkdhcm88Yj4sci8mNFE/bE1ScyFqTCJeZjE5OyZAb2tASFQ8MU1tUm0qLW4nJzVCXzpaNkhISEQ/InFTJT8lR140QFg2MnU0PUp1TCRPQCZdSjEuXSlsMzA4Vz4manImVWNjdTBsOEtNZExwRSVUWztGQDlKPUBSN1xUP3M/N15IbiM4M0xzYz5Hc0taXSx0WCw8SnRYXmFoUSYnVSsyVWNbaGoxSCNpNFs/I2hKMlQ0QVkmMjR0bDJHRiwsVT5TYU5oImA/Zjd0QS9ESHQ0MnNRSDZsPEI9MV40dWU9YkF1cjN1Qm9sU0IvPz1jQW1IcVVsaTwiYThaT2k4dS0oNSJnO0kiQC9MXlxSU1Y6RUk4PV9pQFxcOytDJVFTUStiJiJJLyUzSlE8PkhCJGI7MzpVUj0yU0dAZUJiTE0wMXV+PmVuZHN0cmVhbQplbmRvYmoKMTkgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggMzE5Cj4+CnN0cmVhbQpHYXJwJzlpJllMKiFZcDA1L2hTQkElTTFjZz9pUkQtXUpxJl1lRWgjLl0jSnRfK3VePD9ZWU5DLS9pUzU0bWVrTFA4QzQxcDp1WytxTXApJmE6ZWh0MzkzNDRFYEkvZmc2SjI1N2Y7Py5QTSE8KCd0XlgobltMUVNCZjYiMzZFOmdvR15RaHBMW10tKS0wLGEjZU1pdWA3JzUzJG9JbnJzI2k4UmUtWitlLnAyIUFLVnB1aCsqLFNZPGopJzZJYUJecUJYTHM0P0VPZy4yN1ElcTJRaDYiayRpSlFiZnFDVWU6SzxJcSVMWUlTLEs9Q3FXbFAubVhXVjFDP2dORXFLY1NKKkFHbUA+SFdNUClsRk1BPzQraCpKUERdKDBFWkMsJDpIP2hvOTFYO3UvYzlGTD9ePjBvIUhfN2FcY34+ZW5kc3RyZWFtCmVuZG9iagoyMCAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAzMDcKPj4Kc3RyZWFtCkdhcj8rNFxyc0wnTGhjcU1FOmwsTG4ya1BYYWddbkFAPSRpbyVMWzRtRHQ7KnEiOzkmIkA6LDdvbE1iQkYiTkxGJyduNFRpMkNWcCxUbkFeJCk1WDlXK1M1bWg5JSRTXUM7UTlsPGMwWCxIP0s0XWwwNXIoLHEiXzFxaT03WkpmKTZPQEBab140ai1iaD5MbGlYJ1QqLzlgRUBTLGpNW0BvL2I4VUdhbHJrNHBYMllVMldrRj83JFtMY0g1OE1PIXRYTnJhSUZoZmpqTTJxLV9bbSpDTVMmMCtXailEaFk7QzA9LVopUHAxcCtKdUUoOnFwUCtfP3JvbV9MTHNPcyRZdHJbXjg8aycjKGlcQ0Q6N3RDVGgiLHFSVGhKZjYjbD1NOSREW2gvVjJfKipCQGs9fj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAyMQowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNzMgMDAwMDAgbiAKMDAwMDAwMDExNCAwMDAwMCBuIAowMDAwMDAwMjIxIDAwMDAwIG4gCjAwMDAwMDAzMzMgMDAwMDAgbiAKMDAwMDAwMDUyOCAwMDAwMCBuIAowMDAwMDAwNzIzIDAwMDAwIG4gCjAwMDAwMDA5MTggMDAwMDAgbiAKMDAwMDAwMTExMyAwMDAwMCBuIAowMDAwMDAxMzA4IDAwMDAwIG4gCjAwMDAwMDE1MDMgMDAwMDAgbiAKMDAwMDAwMTY5OSAwMDAwMCBuIAowMDAwMDAxNzY5IDAwMDAwIG4gCjAwMDAwMDIwNjYgMDAwMDAgbiAKMDAwMDAwMjE2MyAwMDAwMCBuIAowMDAwMDAyNTU1IDAwMDAwIG4gCjAwMDAwMDI5NDUgMDAwMDAgbiAKMDAwMDAwMzMzNiAwMDAwMCBuIAowMDAwMDAzNjkyIDAwMDAwIG4gCjAwMDAwMDQxMDQgMDAwMDAgbiAKMDAwMDAwNDUxNCAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzwzYjEyMWNjZDY1ZDJmMTQwZjM4NzcyYTMxZGExOTBmYT48M2IxMjFjY2Q2NWQyZjE0MGYzODc3MmEzMWRhMTkwZmE+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAoaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tKQoKL0luZm8gMTIgMCBSCi9Sb290IDExIDAgUgovU2l6ZSAyMQo+PgpzdGFydHhyZWYKNDkxMgolJUVPRgo=",
-      "type": "slides"
-    },
-    {
-      "label": "Estudo de caso em vídeo – Celeste e o loop de desafio (Game Maker's Toolkit)",
-      "url": "https://www.youtube.com/watch?v=4RlpMhBKNr0",
-      "type": "video"
-    },
-    {
-      "label": "Estudo de caso em vídeo – Overcooked e cooperação (Extra Credits)",
+      "label": "Vídeo de apoio: Aesthetics of Play",
       "url": "https://www.youtube.com/watch?v=uepAJ-rqJKA",
       "type": "video"
     },
     {
-      "label": "Formulário impresso de análise MDA",
-      "url": "data:application/pdf;base64,JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIgL0Y0IDUgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZCAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjIgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago0IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQmFzZUZvbnQgL1phcGZEaW5nYmF0cyAvTmFtZSAvRjQgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago2IDAgb2JqCjw8Ci9Db250ZW50cyAxMCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDkgMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA5IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKOCAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNTEwMDYwMDIxNDErMDAnMDAnKSAvQ3JlYXRvciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI1MTAwNjAwMjE0MSswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIAogIC9TdWJqZWN0ICh1bnNwZWNpZmllZCkgL1RpdGxlICh1bnRpdGxlZCkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNiAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjEwIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDc5OQo+PgpzdHJlYW0KR2F0JSE7L2IyMyY6WClPXEFyXSsqLnUoTnFwbTRgZTdrMHAvXFgtMFcoZkBKKGpGbitlVUlILEU1OjwjaSRxWHNLYVQhc2gwMGhBRXI2TEtoL2lYaDJtQmtANVVeSD9KWnQqTGpyPCltMClSYTZSXypdJz1YPjluQjJILVAjRSpyWnIiQEBLXENLPmNPaEolNSpuUmxmWWg/a1Q7ZS50PmIoUXQiUkhPSFYlXjVpVUFAb2pQZjMqclthRGt1I1NDXSJCX2lLOj09UkFcb3ArSlE3L01KLWtTbkRPYVokQ19PYykkQTg1R2JXYFhsczBzcD0xUVNTN1RxMWA5P2FrTjReVydqJnVsTiohYFpcajlVImtFLTtmVCRXcSQ2ZmBIMTAlKFdeXltidFttTk8tVUhTUy8xQyhVRUAoNmFcTDwwJ3NCVVdORE8/Qk9RaTplNTokOERlPkI3cksvP3MlYlJXRDZgYkhXNjdDYisuV15oLkwtLzUpSnQ8JSJrJWVVVE9UaHI+Yi1gRFs6cV9TPyM3OUN0PS8jY3QxPV1zRV5uTi9RN0RMWS5LJSRZQmkiVm9gVSxXalJrciRkXm5jR0M5T0hzR25tYDIpPVMzUyh1ZzRMRUEqaDVcLW02cHFpUG5hLHEsVU1CNTFIRVIkLW5eXnBNR2FMTitlRiEoaSJWb2ItTl1sSCEwWHJgbmJtbDgvSy4zJ1VKUHEwQT5NO3RhYEVdaEBcNVQtZj5DSChvbyhhXis/TEZlSCtEWiUwQixSajxAXzhLSkpQR2xVSk1KcihuUlQ6Y19pNyxDKVFsTkEhWCorYk5fSV8wOGhNQl4pT19lYExILj0kWSY6SFt0KyhLMnNMcDZcYlV0NUdua0IvMyRoXm87LTFPXjZxRChObk9NKSpUTDhdLEhARUgzZENmZCUjQk9SK1ZRNSg7RFYlNDliTzxPZ0A3OHFFPCU1NSlEJTkmISFVaHI/XTU4JSRTQmc/a01nSVRCR2dOUjVHR0ZFMUhqZV0mZmFFRUFLMy0lTSRadVZnXmMqZDVQUksyRCFpQmU+WDh+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDExCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA3MyAwMDAwMCBuIAowMDAwMDAwMTM0IDAwMDAwIG4gCjAwMDAwMDAyNDEgMDAwMDAgbiAKMDAwMDAwMDM1MyAwMDAwMCBuIAowMDAwMDAwNDY4IDAwMDAwIG4gCjAwMDAwMDA1NTEgMDAwMDAgbiAKMDAwMDAwMDc0NSAwMDAwMCBuIAowMDAwMDAwODEzIDAwMDAwIG4gCjAwMDAwMDExMDkgMDAwMDAgbiAKMDAwMDAwMTE2OCAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxmZTZkZGMzZDQwYmFiY2JjMWJkZGE0MzA5NzBmN2E3YT48ZmU2ZGRjM2Q0MGJhYmNiYzFiZGRhNDMwOTcwZjdhN2E+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAoaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tKQoKL0luZm8gOCAwIFIKL1Jvb3QgNyAwIFIKL1NpemUgMTEKPj4Kc3RhcnR4cmVmCjIwNTgKJSVFT0YK",
-      "type": "form"
+      "label": "Análise prática de Celeste (Game Maker's Toolkit)",
+      "url": "https://www.youtube.com/watch?v=yorTG9at90g",
+      "type": "video"
     }
   ],
   "competencies": [
