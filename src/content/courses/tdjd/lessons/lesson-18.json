@@ -63,13 +63,35 @@
         {
           "type": "unorderedList",
           "items": [
-            "Livro: consulte o capítulo 16 de 'The Art of Game Design' (Jesse Schell) sobre interface e feedback em jogos, disponível para pré-visualização no Google Books: https://books.google.com/books?id=KzncBQAAQBAJ&pg=PA365.",
-            "Artigo: '10 UX Heuristics for Game UI' (UX Collective) com exemplos de boas práticas e armadilhas comuns: https://uxdesign.cc/10-ux-heuristics-for-game-ui-2bdf98e65ce3.",
-            "Vídeo: 'HUD Design' do canal Extra Credits (YouTube) com análise de interfaces responsivas: https://www.youtube.com/watch?v=2L2lnxIcNmo.",
-            "Vídeo: 'How to Make a Good Game UI' do canal Game Maker's Toolkit (YouTube) com foco em clareza e acessibilidade: https://www.youtube.com/watch?v=QSXwTnyvtHs."
+            "Livro: capítulo 16 de 'The Art of Game Design' (Jesse Schell) sobre interface e feedback em jogos.",
+            "Artigo: '10 UX Heuristics for Game UI' (UX Collective) com exemplos de boas práticas e armadilhas comuns.",
+            "Análise guiada: durante a aula, revisitamos trechos dos vídeos destacados no bloco de vídeos para observar soluções práticas.",
+            "Ficha impressa: checklist de heurísticas e estrutura de HUD para anotações rápidas durante os playtests em sala."
           ]
         }
       ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Vídeos para aprofundar UX/UI em jogos",
+      "videos": [
+        {
+          "youtubeId": "p7SlpT2GFGs",
+          "title": "An Intro to UI/UX in Games (Creative Assembly)",
+          "description": "Apresenta fundamentos de UX aplicados ao desenvolvimento de jogos AAA."
+        },
+        {
+          "youtubeId": "6Bw0n6Jvwxk",
+          "title": "Heuristic Evaluation of User Interfaces",
+          "description": "Demonstra como aplicar heurísticas clássicas a interfaces digitais."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Kit da aula",
+      "content": "Disponibilize tablets com o protótipo aberto, quadros Kanban impressos para priorizar ajustes e marcadores coloridos para mapear feedbacks em tempo real."
     },
     {
       "type": "contentBlock",
@@ -234,22 +256,27 @@
   },
   "resources": [
     {
-      "label": "Checklist UX Collective",
+      "label": "Artigo: 10 UX Heuristics for Game UI",
       "url": "https://uxdesign.cc/10-ux-heuristics-for-game-ui-2bdf98e65ce3",
       "type": "article"
     },
     {
-      "label": "HUD Design – Extra Credits",
-      "url": "https://www.youtube.com/watch?v=2L2lnxIcNmo",
+      "label": "Creative Assembly – Intro to UI/UX in Games",
+      "url": "https://www.youtube.com/watch?v=p7SlpT2GFGs",
       "type": "video"
     },
     {
-      "label": "How to Make a Good Game UI – Game Maker's Toolkit",
-      "url": "https://www.youtube.com/watch?v=QSXwTnyvtHs",
+      "label": "Heuristic Evaluation of User Interfaces",
+      "url": "https://www.youtube.com/watch?v=6Bw0n6Jvwxk",
       "type": "video"
     },
     {
-      "label": "Unity UI Toolkit",
+      "label": "Game UI Database",
+      "url": "https://www.gameuidatabase.com/",
+      "type": "reference"
+    },
+    {
+      "label": "Unity UI Toolkit Manual",
       "url": "https://docs.unity3d.com/Manual/UIToolkit.html",
       "type": "doc"
     }
@@ -263,7 +290,7 @@
     "Implementa melhorias de UI no protótipo e planeja validação com usuários."
   ],
   "metadata": {
-    "status": "draft",
+    "status": "published",
     "updatedAt": "2024-10-05T00:00:00.000Z",
     "owners": ["Prof. Tiago Sombra"],
     "sources": ["Plano de ensino TDJD 2025.2"]

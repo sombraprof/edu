@@ -53,7 +53,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Título</span>
           <input
-            v-model="lessonModel.value.title"
+            v-model="titleField"
             type="text"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
@@ -61,7 +61,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Resumo</span>
           <textarea
-            v-model="lessonModel.value.summary"
+            v-model="summaryField"
             rows="3"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           ></textarea>
@@ -69,7 +69,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Objetivo geral</span>
           <textarea
-            v-model="lessonModel.value.objective"
+            v-model="objectiveField"
             rows="3"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           ></textarea>
@@ -78,7 +78,7 @@
           <label class="flex flex-col gap-1">
             <span class="md-typescale-label-large text-on-surface">Modalidade</span>
             <input
-              v-model="lessonModel.value.modality"
+              v-model="modalityField"
               type="text"
               class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
               placeholder="in-person, remoto, híbrido..."
@@ -87,7 +87,7 @@
           <label class="flex flex-col gap-1">
             <span class="md-typescale-label-large text-on-surface">Duração (min)</span>
             <input
-              v-model.number="lessonModel.value.duration"
+              v-model.number="durationField"
               type="number"
               min="0"
               class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -274,6 +274,8 @@ const props = defineProps<{
   onRevert?: () => void;
 }>();
 
+const lessonModelRef = props.lessonModel;
+
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
   return computed({
     get: () => field.value,
@@ -283,6 +285,105 @@ function useWritableFieldProxy(field: WritableComputedRef<string>) {
   });
 }
 
+type NormalizedLessonEditorModel = LessonEditorModel & {
+  title: string;
+  summary: string;
+  objective: string;
+  modality: string;
+  duration: number | null;
+  tags: string[];
+  blocks: LessonAuthoringBlock[];
+};
+
+const defaultLessonModel: NormalizedLessonEditorModel = {
+  title: '',
+  summary: '',
+  objective: '',
+  modality: '',
+  duration: null,
+  tags: [],
+  blocks: [],
+};
+
+function cloneLessonModel(model: LessonEditorModel): NormalizedLessonEditorModel {
+  const draft = structuredClone(model) as NormalizedLessonEditorModel;
+  draft.title = typeof draft.title === 'string' ? draft.title : '';
+  draft.summary = typeof draft.summary === 'string' ? draft.summary : '';
+  draft.objective = typeof draft.objective === 'string' ? draft.objective : '';
+  draft.modality = typeof draft.modality === 'string' ? draft.modality : '';
+  if (typeof draft.duration !== 'number' || Number.isNaN(draft.duration)) {
+    draft.duration = draft.duration === null ? null : 0;
+  }
+  draft.tags = Array.isArray(draft.tags) ? [...draft.tags] : [];
+  draft.blocks = Array.isArray(draft.blocks)
+    ? (draft.blocks as LessonAuthoringBlock[])
+    : ([] as LessonAuthoringBlock[]);
+  return draft;
+}
+
+function commitLessonModel(mutator: (draft: NormalizedLessonEditorModel) => void) {
+  const source = lessonModelRef.value;
+  if (!source) {
+    return;
+  }
+  const draft = cloneLessonModel(source);
+  mutator(draft);
+  lessonModelRef.value = draft;
+}
+
+const currentLesson = computed<NormalizedLessonEditorModel>(() => {
+  const model = lessonModelRef.value;
+  if (!model) {
+    return defaultLessonModel;
+  }
+  return cloneLessonModel(model);
+});
+
+const titleField = computed({
+  get: () => currentLesson.value.title,
+  set: (value: string) => {
+    commitLessonModel((draft) => {
+      draft.title = value;
+    });
+  },
+});
+
+const summaryField = computed({
+  get: () => currentLesson.value.summary,
+  set: (value: string) => {
+    commitLessonModel((draft) => {
+      draft.summary = value;
+    });
+  },
+});
+
+const objectiveField = computed({
+  get: () => currentLesson.value.objective,
+  set: (value: string) => {
+    commitLessonModel((draft) => {
+      draft.objective = value;
+    });
+  },
+});
+
+const modalityField = computed({
+  get: () => currentLesson.value.modality,
+  set: (value: string) => {
+    commitLessonModel((draft) => {
+      draft.modality = value;
+    });
+  },
+});
+
+const durationField = computed({
+  get: () => currentLesson.value.duration ?? 0,
+  set: (value: number) => {
+    commitLessonModel((draft) => {
+      draft.duration = Number.isFinite(value) ? value : null;
+    });
+  },
+});
+
 const tagsFieldProxy = useWritableFieldProxy(props.tagsField);
 const objectivesFieldProxy = useWritableFieldProxy(props.createArrayField('objectives'));
 const competenciesFieldProxy = useWritableFieldProxy(props.createArrayField('competencies'));
@@ -290,9 +391,7 @@ const skillsFieldProxy = useWritableFieldProxy(props.createArrayField('skills'))
 const outcomesFieldProxy = useWritableFieldProxy(props.createArrayField('outcomes'));
 const prerequisitesFieldProxy = useWritableFieldProxy(props.createArrayField('prerequisites'));
 
-const blocks = computed<LessonAuthoringBlock[]>(
-  () => (props.lessonModel.value?.blocks ?? []) as LessonAuthoringBlock[]
-);
+const blocks = computed<LessonAuthoringBlock[]>(() => currentLesson.value.blocks);
 type DragEndEvent = { oldIndex?: number | null; newIndex?: number | null };
 const pendingReorder = ref<LessonAuthoringBlock[] | null>(null);
 const draggableBlocks = computed<LessonAuthoringBlock[]>({
@@ -363,8 +462,9 @@ function createBlockPayload(type: string): LessonAuthoringBlock {
 }
 
 function updateBlocks(next: LessonAuthoringBlock[]) {
-  if (!props.lessonModel.value) return;
-  props.lessonModel.value.blocks = next;
+  commitLessonModel((draft) => {
+    draft.blocks = next;
+  });
 }
 
 function insertBlock(index?: number) {
@@ -389,7 +489,7 @@ function moveBlock(index: number, direction: 1 | -1) {
 
 function commitPendingBlockOrder(event?: DragEndEvent) {
   if (!props.lessonModel.value) return;
-  const current = (props.lessonModel.value.blocks ?? []) as LessonAuthoringBlock[];
+  const current = blocks.value;
   let proposed = pendingReorder.value;
 
   if (
@@ -451,15 +551,19 @@ function handleBlockDragEnd(event: DragEndEvent) {
 }
 
 function replaceSelectedBlock(nextBlock: LessonBlock) {
-  if (!props.lessonModel.value) return;
-  if (!Array.isArray(props.lessonModel.value.blocks)) return;
-  const index = selectedBlockIndex.value;
-  if (index < 0 || index >= props.lessonModel.value.blocks.length) return;
+  commitLessonModel((draft) => {
+    if (!Array.isArray(draft.blocks)) {
+      draft.blocks = [] as LessonAuthoringBlock[];
+      return;
+    }
+    const index = selectedBlockIndex.value;
+    if (index < 0 || index >= draft.blocks.length) return;
 
-  const nextBlocks = [...props.lessonModel.value.blocks] as LessonAuthoringBlock[];
-  const current = nextBlocks[index];
-  nextBlocks.splice(index, 1, inheritAuthoringBlockKey(current, nextBlock));
-  updateBlocks(nextBlocks);
+    const nextBlocks = [...draft.blocks];
+    const current = nextBlocks[index];
+    nextBlocks.splice(index, 1, inheritAuthoringBlockKey(current, nextBlock));
+    draft.blocks = nextBlocks;
+  });
 }
 
 function removeBlock(index: number) {

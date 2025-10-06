@@ -54,7 +54,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Título</span>
           <input
-            v-model="currentExercise.title"
+            v-model="titleField"
             type="text"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           />
@@ -62,7 +62,7 @@
         <label class="flex flex-col gap-1">
           <span class="md-typescale-label-large text-on-surface">Resumo</span>
           <textarea
-            v-model="currentExercise.summary"
+            v-model="summaryField"
             rows="3"
             class="md-shape-extra-large border border-outline bg-surface p-3 text-sm text-on-surface focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           ></textarea>
@@ -230,6 +230,8 @@ const props = defineProps<{
   onRevert?: () => void;
 }>();
 
+const exerciseModelRef = props.exerciseModel;
+
 function useWritableFieldProxy(field: WritableComputedRef<string>) {
   return computed({
     get: () => field.value,
@@ -253,32 +255,59 @@ const defaultExerciseModel: NormalizedLessonEditorModel = {
   blocks: [],
 };
 
-function ensureExerciseModelDefaults(
-  model: LessonEditorModel
-): asserts model is NormalizedLessonEditorModel {
-  if (typeof model.title !== 'string') {
-    model.title = '';
+function cloneExerciseModel(model: LessonEditorModel): NormalizedLessonEditorModel {
+  const draft = structuredClone(model) as NormalizedLessonEditorModel;
+  if (typeof draft.title !== 'string') {
+    draft.title = '';
   }
-  if (typeof model.summary !== 'string') {
-    model.summary = '';
+  if (typeof draft.summary !== 'string') {
+    draft.summary = '';
   }
-  if (!Array.isArray(model.tags)) {
-    model.tags = [];
+  if (!Array.isArray(draft.tags)) {
+    draft.tags = [];
   }
-  if (!Array.isArray(model.blocks)) {
-    model.blocks = [] as LessonAuthoringBlock[];
+  if (!Array.isArray(draft.blocks)) {
+    draft.blocks = [] as LessonAuthoringBlock[];
   } else {
-    model.blocks = model.blocks as LessonAuthoringBlock[];
+    draft.blocks = draft.blocks as LessonAuthoringBlock[];
   }
+  return draft;
+}
+
+function commitExerciseModel(mutator: (draft: NormalizedLessonEditorModel) => void) {
+  const source = exerciseModelRef.value;
+  if (!source) {
+    return;
+  }
+  const draft = cloneExerciseModel(source);
+  mutator(draft);
+  exerciseModelRef.value = draft;
 }
 
 const currentExercise = computed<NormalizedLessonEditorModel>(() => {
-  const model = props.exerciseModel.value;
+  const model = exerciseModelRef.value;
   if (!model) {
     return defaultExerciseModel;
   }
-  ensureExerciseModelDefaults(model);
-  return model;
+  return cloneExerciseModel(model);
+});
+
+const titleField = computed({
+  get: () => currentExercise.value.title,
+  set: (value: string) => {
+    commitExerciseModel((draft) => {
+      draft.title = value;
+    });
+  },
+});
+
+const summaryField = computed({
+  get: () => currentExercise.value.summary,
+  set: (value: string) => {
+    commitExerciseModel((draft) => {
+      draft.summary = value;
+    });
+  },
 });
 
 const tagsFieldProxy = useWritableFieldProxy(props.tagsField);
@@ -354,8 +383,9 @@ function createBlockPayload(type: string): LessonAuthoringBlock {
 }
 
 function updateBlocks(next: LessonAuthoringBlock[]) {
-  if (!props.exerciseModel.value) return;
-  props.exerciseModel.value.blocks = next;
+  commitExerciseModel((draft) => {
+    draft.blocks = next;
+  });
 }
 
 function insertBlock(index?: number) {
@@ -443,16 +473,15 @@ function handleBlockDragEnd(event: DragEndEvent) {
 }
 
 function replaceSelectedBlock(nextBlock: LessonBlock) {
-  const model = props.exerciseModel.value;
-  if (!model) return;
-  ensureExerciseModelDefaults(model);
-  const index = selectedBlockIndex.value;
-  if (index < 0 || index >= model.blocks.length) return;
+  commitExerciseModel((draft) => {
+    const index = selectedBlockIndex.value;
+    if (index < 0 || index >= draft.blocks.length) return;
 
-  const nextBlocks = [...model.blocks];
-  const current = nextBlocks[index];
-  nextBlocks.splice(index, 1, inheritAuthoringBlockKey(current, nextBlock));
-  updateBlocks(nextBlocks);
+    const nextBlocks = [...draft.blocks];
+    const current = nextBlocks[index];
+    nextBlocks.splice(index, 1, inheritAuthoringBlockKey(current, nextBlock));
+    draft.blocks = nextBlocks;
+  });
 }
 
 function removeBlock(index: number) {
