@@ -7,7 +7,7 @@
         v-if="entry.component"
         :is="entry.component"
         v-bind="entry.props"
-        v-bind:data-authoring-block="entry.uiKey ?? undefined"
+        :data-authoring-block="entry.uiKey ?? undefined"
       />
       <div
         v-else

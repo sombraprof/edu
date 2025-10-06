@@ -27,7 +27,7 @@ vi.mock('@/composables/useLessonEditorModel', async () => {
   )) as typeof import('@/composables/useLessonEditorModel');
   return {
     ...actual,
-    resolveLessonBlockEditor: (block: { type?: string } | null | undefined) => {
+    resolveLessonBlockEditor: (_block: { type?: string } | null | undefined) => {
       return BlockEditorStub;
     },
   };

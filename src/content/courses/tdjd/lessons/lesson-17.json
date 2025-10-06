@@ -30,6 +30,38 @@
       ]
     },
     {
+      "type": "timeline",
+      "title": "Sequência da aula (100 minutos)",
+      "steps": [
+        {
+          "title": "Aquecimento e contexto (10 min)",
+          "content": "Retomada do MDA e conexão com acessibilidade e experiência do jogador."
+        },
+        {
+          "title": "Panorama e princípios (20 min)",
+          "content": "Apresentação dialogada dos pilares de design inclusivo com apoio de slides e fichas impressas."
+        },
+        {
+          "title": "Estudo de casos guiado (25 min)",
+          "content": "Análise coletiva de vídeos e materiais da Microsoft, AbleGamers e Naughty Dog."
+        },
+        {
+          "title": "Laboratório de redesign (35 min)",
+          "content": "Grupos priorizam barreiras do protótipo e elaboram propostas com critérios de aceite."
+        },
+        {
+          "title": "Compartilhamento + plano de ação (10 min)",
+          "content": "Cada grupo apresenta a melhoria escolhida e define próximos testes."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Materiais distribuídos em sala",
+      "content": "Checklist impresso de acessibilidade, cartões com personas com deficiência e tabela resumida das Game Accessibility Guidelines acompanham a aula para consulta rápida."
+    },
+    {
       "type": "cardGrid",
       "title": "Dimensões de acessibilidade",
       "columns": 3,
@@ -54,6 +86,22 @@
           "icon": "Brain",
           "variant": "academic",
           "description": "Linguagem simples, tutorial progressivo, redução de sobrecarga."
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Vídeos para inspirar soluções inclusivas",
+      "videos": [
+        {
+          "youtubeId": "YJENwei2MZI",
+          "title": "Incorporating Accessibility into PVP Multiplayer Games",
+          "description": "Canal Access-Ability analisa decisões de design e métricas de inclusão."
+        },
+        {
+          "youtubeId": "9fcK19CAjWM",
+          "title": "Introducing the Xbox Adaptive Controller",
+          "description": "Estudo de caso de hardware inclusivo e impacto em UX de jogos."
         }
       ]
     },
@@ -310,10 +358,10 @@
       "type": "bibliographyBlock",
       "title": "Bibliografia e referências",
       "references": [
-        "SALEN, K.; ZIMMERMAN, E. Regras do jogo. Blucher, 2012.",
-        "Game Accessibility Guidelines: https://www.gameaccessibilityguidelines.com/",
-        "AbleGamers: https://ablegamers.org/",
-        "DOS SANTOS, Marcelo Henrique. Fundamentos de jogos digitais e acessibilidade."
+        "SALEN, K.; ZIMMERMAN, E. Regras do jogo: fundamentos do design de jogos. São Paulo: Blucher, 2012.",
+        "Game Accessibility Guidelines. Disponível em: https://www.gameaccessibilityguidelines.com/",
+        "AbleGamers. Iniciativas e pesquisas sobre acessibilidade em jogos: https://ablegamers.org/",
+        "DOS SANTOS, Marcelo Henrique. Fundamentos de jogos digitais: game design, game engine e level design. São Paulo: Saraiva, 2021."
       ]
     }
   ],
@@ -323,34 +371,29 @@
   },
   "resources": [
     {
-      "label": "Input System — rebinds",
-      "url": "https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/manual/Rebinding.html",
-      "type": "doc"
+      "label": "Game Accessibility Guidelines",
+      "url": "https://www.gameaccessibilityguidelines.com/",
+      "type": "guide"
     },
     {
-      "label": "Audio Mixer — canais e parâmetros",
-      "url": "https://docs.unity3d.com/Manual/AudioMixer.html",
-      "type": "doc"
-    },
-    {
-      "label": "Toolkit de Design Inclusivo (Microsoft)",
-      "url": "https://inclusive.microsoft.design/",
+      "label": "AbleGamers – Inclusive Game Design",
+      "url": "https://ablegamers.org/resources/",
       "type": "article"
     },
     {
-      "label": "Xbox Accessibility Guidelines — Sessão técnica",
-      "url": "https://www.youtube.com/watch?v=4n4klxL3cCI",
+      "label": "Microsoft Inclusive Design Toolkit",
+      "url": "https://inclusive.microsoft.design/",
+      "type": "toolkit"
+    },
+    {
+      "label": "Vídeo: Incorporating Accessibility into PVP Multiplayer Games",
+      "url": "https://www.youtube.com/watch?v=YJENwei2MZI",
       "type": "video"
     },
     {
-      "label": "Forza Horizon 5 — Case de acessibilidade",
-      "url": "https://news.microsoft.com/source/features/in-the-community/how-turn-10-built-forza-horizon-5s-american-sign-language-and-british-sign-language-support/",
-      "type": "article"
-    },
-    {
-      "label": "The Last of Us Part II — Visão geral de acessibilidade",
-      "url": "https://blog.playstation.com/2020/06/12/the-last-of-us-part-ii-accessibility-features-detailed/",
-      "type": "article"
+      "label": "Vídeo: Xbox Adaptive Controller",
+      "url": "https://www.youtube.com/watch?v=9fcK19CAjWM",
+      "type": "video"
     }
   ],
   "competencies": [

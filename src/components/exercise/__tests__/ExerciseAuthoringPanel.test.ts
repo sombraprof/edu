@@ -1,3 +1,4 @@
+/* eslint-disable vue/one-component-per-file */
 import { flushPromises, mount } from '@vue/test-utils';
 import { computed, defineComponent, h, nextTick, ref, type PropType } from 'vue';
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -471,9 +472,12 @@ describe('ExerciseAuthoringPanel - gerenciamento de foco', () => {
   const originalFocus = HTMLElement.prototype.focus;
 
   beforeAll(() => {
-    HTMLElement.prototype.focus = function focusOverride(this: HTMLElement) {
-      lastFocused = this;
-      return originalFocus?.call(this);
+    HTMLElement.prototype.focus = function focusOverride(
+      this: HTMLElement,
+      ...args: Parameters<HTMLElement['focus']>
+    ) {
+      originalFocus?.apply(this, args);
+      lastFocused = document.activeElement;
     } as typeof HTMLElement.prototype.focus;
   });
 
