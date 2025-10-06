@@ -5,7 +5,7 @@
   "summary": "Princípios, barreiras e boas práticas de acessibilidade (física, cognitiva, sensorial) com estudo de caso e proposta de melhoria.",
   "formatVersion": "md3.lesson.v1",
   "slug": "design-inclusivo-e-acessibilidade",
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "content": [
     {
@@ -84,9 +84,29 @@
           "caption": "Materiais e advocacy em acessibilidade."
         },
         {
-          "url": "https://www.playstation.com/pt-br/accessibility/",
-          "title": "Recursos de acessibilidade (Sony)",
-          "caption": "Configurações e cases de first‑party."
+          "url": "https://inclusive.microsoft.design/toolkit",
+          "title": "Microsoft Inclusive Design Toolkit",
+          "caption": "Princípios, guias e ferramentas de design inclusivo."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=29LJ7f3GQ8Q",
+          "title": "Microsoft Inclusive Design 101",
+          "caption": "Vídeo introdutório sobre design inclusivo."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=4n4klxL3cCI",
+          "title": "Xbox Accessibility Guidelines em prática",
+          "caption": "Sessão da Microsoft Game Dev sobre aplicação das diretrizes."
+        },
+        {
+          "url": "https://news.microsoft.com/source/features/in-the-community/how-turn-10-built-forza-horizon-5s-american-sign-language-and-british-sign-language-support/",
+          "title": "Forza Horizon 5 — Suporte a Libras/ASL",
+          "caption": "Estudo de caso de acessibilidade com intérpretes em vídeo."
+        },
+        {
+          "url": "https://www.playstation.com/en-us/games/the-last-of-us-part-ii/accessibility/",
+          "title": "The Last of Us Part II — Recursos de acessibilidade",
+          "caption": "Exemplo completo de configurações acessíveis em AAA."
         }
       ]
     },
@@ -106,7 +126,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Implemente a sugestão no protótipo (ou faça um mock funcional) e publique no fórum com evidências (print/vídeo curto) e a diretriz que embasa a decisão."
+          "text": "Implemente a sugestão no protótipo (ou elabore um mock funcional) e registre evidências (print/vídeo curto) relacionando-as com a diretriz que embasa a decisão."
+        },
+        {
+          "type": "paragraph",
+          "text": "Reforce com o time a importância de concluir a atividade para evoluir o projeto com foco em acessibilidade."
         }
       ]
     },
@@ -116,7 +140,8 @@
       "references": [
         "SALEN, K.; ZIMMERMAN, E. Regras do jogo. Blucher, 2012.",
         "Game Accessibility Guidelines: https://www.gameaccessibilityguidelines.com/",
-        "AbleGamers: https://ablegamers.org/"
+        "AbleGamers: https://ablegamers.org/",
+        "DOS SANTOS, Marcelo Henrique. Fundamentos de jogos digitais e acessibilidade."
       ]
     }
   ],
@@ -134,6 +159,26 @@
       "label": "Audio Mixer — canais e parâmetros",
       "url": "https://docs.unity3d.com/Manual/AudioMixer.html",
       "type": "doc"
+    },
+    {
+      "label": "Toolkit de Design Inclusivo (Microsoft)",
+      "url": "https://inclusive.microsoft.design/",
+      "type": "article"
+    },
+    {
+      "label": "Xbox Accessibility Guidelines — Sessão técnica",
+      "url": "https://www.youtube.com/watch?v=4n4klxL3cCI",
+      "type": "video"
+    },
+    {
+      "label": "Forza Horizon 5 — Case de acessibilidade",
+      "url": "https://news.microsoft.com/source/features/in-the-community/how-turn-10-built-forza-horizon-5s-american-sign-language-and-british-sign-language-support/",
+      "type": "article"
+    },
+    {
+      "label": "The Last of Us Part II — Visão geral de acessibilidade",
+      "url": "https://blog.playstation.com/2020/06/12/the-last-of-us-part-ii-accessibility-features-detailed/",
+      "type": "article"
     }
   ],
   "competencies": [
