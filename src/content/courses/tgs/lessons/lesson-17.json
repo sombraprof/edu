@@ -1,28 +1,84 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-17",
   "title": "Aula 17: Business Intelligence e Dashboards",
-  "objective": "Explorar conceitos de BI e avaliar dashboards como apoio à decisão.",
+  "slug": "aula-17-business-intelligence-e-dashboards",
+  "summary": "Conecta fundamentos de BI à TGS para criar dashboards que sustentem decisões sistêmicas baseadas em evidências.",
+  "objective": "Planejar, prototipar e avaliar dashboards executivos alinhados ao estudo de caso da disciplina.",
+  "objectives": [
+    "Relacionar arquitetura de BI, governança de dados e indicadores estratégicos previstos no plano de ensino.",
+    "Avaliar dashboards sob critérios de clareza sistêmica, narrativa e acionabilidade.",
+    "Iterar visualizações com base em feedback estruturado e preparar entregáveis para a trilha extensionista."
+  ],
+  "competencies": [
+    "Pensamento analítico",
+    "Comunicação baseada em dados",
+    "Tomada de decisão orientada a evidências"
+  ],
+  "skills": [
+    "Mapear fontes, métricas e responsáveis em uma arquitetura de BI enxuta.",
+    "Diagnosticar ruídos visuais e conceituais em dashboards existentes.",
+    "Documentar próximos passos que transformem indicadores em ações concretas."
+  ],
+  "outcomes": [
+    "Entrega registro crítico do dashboard com recomendações priorizadas no AVA.",
+    "Evidencia conexão entre KPIs e objetivos estratégicos definidos no case.",
+    "Planeja experimentos de acompanhamento para validar hipóteses levantadas na aula."
+  ],
+  "prerequisites": [
+    "Revisar conceitos de integração de sistemas da aula 16.",
+    "Explorar previamente o dataset disponibilizado no AVA."
+  ],
+  "tags": ["tgs", "bi", "dashboards"],
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Dataset de vendas trimestrais",
+      "url": "https://example.edu/tgs/datasets/vendas-trimestre",
+      "type": "dataset"
+    },
+    {
+      "label": "Guia rápido de visualização",
+      "url": "https://example.edu/tgs/guias/design-dashboard",
+      "type": "guide"
+    },
+    {
+      "label": "Template SystemMapper — Indicadores",
+      "url": "https://example.edu/tgs/templates/systemmapper-indicadores",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "BERTALANFFY, Ludwig von. Teoria Geral dos Sistemas. Vozes, 2010.",
+    "STAIR, Ralph; REYNOLDS, George. Princípios de Sistemas de Informação. Cengage, 2022.",
+    "FEW, Stephen. Information Dashboard Design. Analytics Press, 2013."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de análise de dashboard entregue no AVA com evidências visuais e plano de ação curto."
+  },
   "content": [
     {
       "type": "callout",
       "variant": "info",
-      "title": "Preparação pré-aula",
+      "title": "Warm-up (pré-aula)",
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise os indicadores estratégicos da empresa fictícia e fotografe dashboards reais que você utiliza para inspirar o design."
+          "text": "Revise os indicadores estratégicos da empresa fictícia e identifique decisões que dependem de cada um deles."
         },
         {
           "type": "list",
           "items": [
             {
-              "text": "Traga duas referências visuais que considere exemplares."
+              "text": "Traga duas referências de dashboards (prints ou links) para inspirar boas práticas."
             },
             {
-              "text": "Revise definicões de KPI, métrica e metadado no material de apoio."
+              "text": "Atualize o SystemMapper com fluxos de dados, responsáveis e frequência de atualização."
             },
             {
-              "text": "Atualize os dados do case da disciplina para usar na oficina."
+              "text": "Revise definições de KPI, métrica e metadado no material de apoio."
             }
           ]
         }
@@ -33,52 +89,101 @@
       "title": "Plano da aula",
       "cards": [
         {
-          "icon": "target",
-          "title": "Indicadores",
-          "content": "Relembrar conceitos de métricas, dimensões e granularidade."
-        },
-        {
           "icon": "book-open",
-          "title": "Storytelling",
-          "content": "Explorar boas práticas visuais para dashboards executivos."
+          "title": "Diagnóstico",
+          "content": "Mapear dores de decisão do case e alinhar indicadores-chave do plano de ensino."
         },
         {
-          "icon": "tasks",
-          "title": "Demonstração",
-          "content": "Construir visualizações ao vivo na ferramenta BI sugerida."
+          "icon": "gears",
+          "title": "Arquitetura",
+          "content": "Discutir fluxo de dados, governança e responsabilidades na cadeia de BI."
+        },
+        {
+          "icon": "code",
+          "title": "Laboratório de dashboards",
+          "content": "Prototipar visualizações priorizando narrativas sistêmicas e alertas automáticos."
         },
         {
           "icon": "check-circle",
-          "title": "Feedback",
-          "content": "Coletar contribuições cruzadas entre squads."
+          "title": "Feedback & TED",
+          "content": "Consolidar aprendizados, registrar ajustes e orientar a entrega assíncrona."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo (1h50)",
+      "title": "Plano de voo (1h40)",
       "items": [
-        "(10 min) Check-in: quais decisões dependem dos indicadores priorizados?",
-        "(20 min) Explainer: arquitetura BI, data warehouse, dashboards e governança.",
-        "(15 min) Crítica guiada: analisar exemplos ruins e bons de painéis.",
-        "(20 min) Oficina: montar visualizações iniciais a partir do dataset da disciplina.",
-        "(15 min) Rodadas de feedback focadas em clareza e ação.",
-        "(15 min) Ajustes finais com recomendações do professor.",
-        "(15 min) Síntese e plano para finalizar o dashboard assíncrono."
+        "(5 min) Check-in: conectar as decisões críticas do case aos indicadores priorizados.",
+        "(15 min) Diagnóstico guiado: squads mapeiam lacunas de dados usando o SystemMapper.",
+        "(15 min) Explainer: arquitetura BI, pipeline de dados e papéis de governança.",
+        "(20 min) Oficina 1: crítica comparativa de dashboards (identificar ruídos, oportunidades, alertas).",
+        "(5 min) Intervalo curto e reorganização dos pares.",
+        "(20 min) Oficina 2: prototipagem em ferramenta BI ou canvas, com foco em narrativa e acionabilidade.",
+        "(10 min) Rodadas de feedback cruzado com checklist do professor.",
+        "(10 min) Síntese: registrar próximos passos e critérios da TED pós-aula."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Conceitos essenciais",
+      "title": "Atividade em sala",
       "content": [
         {
           "type": "paragraph",
-          "text": "O ciclo de Business Intelligence envolve coleta, modelagem, transformação e apresentação dos dados. Sem uma camada semântica consistente, dashboards viram mosaicos desconexos. Métricas devem responder perguntas de negócio claras e conectar-se aos objetivos estratégicos."
+          "text": "Em duplas, conduzam a oficina estruturada para transformar dados em decisões acionáveis."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Questão teórica",
+              "text": "Explique como a TGS orienta a escolha de indicadores e destaque o impacto de feedbacks no sistema monitorado."
+            },
+            {
+              "title": "Questão prática",
+              "text": "Construa um rascunho de dashboard destacando filtros, alertas e responsáveis pela resposta a desvios."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Por que BI importa para a TGS",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Na perspectiva sistêmica, indicadores conectam subsistemas e garantem homeostase organizacional. Um dashboard eficiente deve revelar padrões, retroalimentar decisões e tornar explícitas interdependências."
         },
         {
           "type": "paragraph",
-          "text": "Storytelling com dados depende de hierarquia visual, cores com propósito, contexto e chamadas à ação. Dashboards eficazes permitem investigar desvios rapidamente, oferecem filtros úteis e deixam claro quem é responsável pelas ações."
+          "text": "Ao relacionar entradas, processamento e saídas, dashboards ajudam a detectar gargalos e orientar intervenções alinhadas à estratégia do case extensionista."
         }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Cola rápida: Métrica x Indicador x KPI",
+      "headers": ["Elemento", "Pergunta que responde", "Quando usar", "Responsável"],
+      "rows": [
+        [
+          { "value": "Métrica" },
+          { "value": "O que está acontecendo?" },
+          { "value": "Monitorar atividades operacionais de curto prazo." },
+          { "value": "Analista operacional" }
+        ],
+        [
+          { "value": "Indicador" },
+          { "value": "Por que está acontecendo?" },
+          { "value": "Acompanhar processos críticos com visão tática." },
+          { "value": "Gestor da área" }
+        ],
+        [
+          { "value": "KPI" },
+          { "value": "Estamos atingindo o objetivo sistêmico?" },
+          { "value": "Guiar decisões estratégicas e ritos executivos." },
+          { "value": "Diretoria / Comitê de governança" }
+        ]
       ]
     },
     {
@@ -98,40 +203,17 @@
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Exercício em sala",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "title": "Pergunta norteadora",
-              "text": "Defina a pergunta de negócio principal e métricas associadas."
-            },
-            {
-              "title": "Protótipo",
-              "text": "Esboce layout do dashboard no papel destacando filtros e alertas."
-            },
-            {
-              "title": "Iteração",
-              "text": "Colete feedback de outro grupo e registre ajustes necessários."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "type": "promptTip",
       "title": "Prompt para revisar o dashboard",
       "description": "Utilize quando tiver uma primeira versão dos gráficos.",
+      "audience": "teacher",
       "prompt": "Você é especialista em storytelling com dados. Analise a descrição do dashboard abaixo e sugira melhorias visuais, indicadores complementares e alertas automáticos. Informe também riscos de interpretação e como mitigá-los. Descrição: [resuma seu dashboard].",
+      "tags": ["bi", "dashboards"],
       "tips": [
         "Peça sugestões de títulos acionáveis e textos de apoio.",
         "Solicite alertas baseados em limites de KPI.",
         "Inclua público-alvo e cadência de uso do painel."
-      ],
-      "tags": ["bi", "dashboards"],
-      "audience": "teacher"
+      ]
     },
     {
       "type": "callout",
@@ -140,7 +222,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Finalize o dashboard iniciado em sala e publique no AVA um vídeo curto (até 3 minutos) demonstrando como responder às três perguntas de negócio prioritárias."
+          "text": "Finalize o dashboard iniciado em sala, grave um vídeo de até 3 minutos demonstrando como responder às três perguntas de negócio prioritárias e publique no AVA com o checklist preenchido."
         }
       ]
     },
@@ -148,62 +230,12 @@
       "type": "checklist",
       "title": "Ao final, valide se você",
       "items": [
-        "Validou métricas e fontes de dados com o time responsável.",
-        "As visualizações possuem títulos descritivos e escala adequada.",
-        "Definiu próximos passos para operacionalizar alertas e revisão periódica."
+        "Validou métricas, fontes de dados e responsáveis com o squad.",
+        "Garantiu títulos descritivos, escalas coerentes e alertas visíveis.",
+        "Definiu próximos passos para operacionalizar alertas e revisões periódicas."
       ]
     }
   ],
-  "formatVersion": "md3.lesson.v1",
-  "slug": "aula-17-business-intelligence-e-dashboards",
-  "summary": "Discute fundamentos de BI, avalia dashboards reais e orienta o uso de indicadores para decisões baseadas em dados.",
-  "objectives": [
-    "Compreender o ciclo de BI da coleta ao insight.",
-    "Analisar dashboards com critérios de design e negócio.",
-    "Planejar ações baseadas em indicadores chave."
-  ],
-  "competencies": [
-    "Pensamento analítico",
-    "Comunicação baseada em dados",
-    "Tomada de decisão orientada a evidências"
-  ],
-  "skills": [
-    "Interpretar KPIs e relacioná-los a objetivos estratégicos.",
-    "Identificar melhorias em dashboards existentes.",
-    "Produzir narrativas visuais claras para stakeholders."
-  ],
-  "outcomes": [
-    "Registra análise crítica de dashboard no AVA.",
-    "Propõe ajustes que elevam maturidade de BI da organização.",
-    "Aplica boas práticas de storytelling com dados em projetos acadêmicos."
-  ],
-  "prerequisites": [
-    "Revisar conceitos de integração da aula 16.",
-    "Explorar previamente o dataset disponibilizado no AVA."
-  ],
-  "tags": ["aula-17-bi"],
-  "duration": 110,
-  "modality": "in-person",
-  "resources": [
-    {
-      "label": "Dataset de vendas trimestrais",
-      "url": "https://example.edu/tgs/datasets/vendas-trimestre",
-      "type": "dataset"
-    },
-    {
-      "label": "Guia rápido de visualização",
-      "url": "https://example.edu/tgs/guias/design-dashboard",
-      "type": "guide"
-    }
-  ],
-  "bibliography": [
-    "FEW, Stephen. Information Dashboard Design. Analytics Press, 2013.",
-    "KNAFLIC, Cole Nussbaumer. Storytelling com Dados. Alta Books, 2021."
-  ],
-  "assessment": {
-    "type": "formative",
-    "description": "Checklist de análise de dashboard entregue no AVA."
-  },
   "metadata": {
     "status": "draft",
     "updatedAt": "2025-02-10T00:00:00.000Z",
