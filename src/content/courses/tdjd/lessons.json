@@ -10,7 +10,7 @@
       "description": "Contextualiza o ciclo de produção de jogos digitais, apresenta os atores da indústria e alinha as expectativas da disciplina.",
       "summary": "Panorama inicial sobre a indústria de jogos, seus atores e expectativas da disciplina, conectando tendências do mercado à atuação do desenvolvedor.",
       "tags": ["mercado", "panorama", "introducao"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -21,7 +21,7 @@
       "description": "Investiga gêneros e subgêneros de jogos, relacionando mecânicas recorrentes às experiências entregues ao jogador.",
       "summary": "Mapeia os principais gêneros e subgêneros de jogos, destacando mecânicas recorrentes e experiências de jogador associadas.",
       "tags": ["gameplay", "generos", "analise"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -32,7 +32,7 @@
       "description": "Analisa estudos de caso de jogos Indie e AAA para identificar padrões de inovação, escopo e impacto cultural.",
       "summary": "Analisa estudos de caso de jogos Indie e AAA para identificar padrões de inovação, escopo e impacto cultural.",
       "tags": ["estudo-de-caso", "inovacao", "analise"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -43,7 +43,7 @@
       "description": "Traça a evolução histórica dos jogos digitais, das primeiras gerações às engines modernas e seus reflexos no mercado.",
       "summary": "Revisa marcos da história dos jogos digitais, a evolução das engines e como essas mudanças influenciaram modelos de negócio.",
       "tags": ["historia", "engines", "mercado"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -54,7 +54,7 @@
       "description": "Apresenta a interface da Unity, configura o projeto base com URP e conduz o primeiro ciclo de prototipagem.",
       "summary": "Introduz a interface da Unity, configura projetos com URP e explora entradas básicas usando o Input System em protótipos simples.",
       "tags": ["unity", "prototipagem", "input-system"],
-      "duration": 150,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -65,7 +65,7 @@
       "description": "Padroniza a importação e a organização de assets na Unity, definindo convenções de pastas, nomenclatura e versionamento.",
       "summary": "Ensina a importar, organizar e otimizar assets na Unity, estabelecendo padrões de pastas, nomenclatura e controle de versão.",
       "tags": ["unity", "assets", "organizacao"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -76,7 +76,7 @@
       "description": "Orienta a prototipagem rápida e a documentação inicial em GDD colaborativo para sustentar o projeto da disciplina.",
       "summary": "Apresenta técnicas de prototipagem rápida e orienta a construção inicial de um Game Design Document alinhado ao escopo do curso.",
       "tags": ["prototipagem", "gdd", "iteracao"],
-      "duration": 150,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -87,7 +87,7 @@
       "description": "Constrói ambientes 3D com ProBuilder aplicando princípios de usabilidade e iteração contínua em level design.",
       "summary": "Explora o ProBuilder para construir ambientes 3D jogáveis, aplicando princípios de usabilidade e iteração em level design.",
       "tags": ["level-design", "probuilder", "usabilidade"],
-      "duration": 150,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -98,7 +98,7 @@
       "description": "Integra cenário, mecânicas e documentação para consolidar o protótipo base antes da avaliação NP1.",
       "summary": "Integra cenário, mecânicas e documentação para consolidar o protótipo base antes da avaliação NP1.",
       "tags": ["prototipo", "gdd", "gestao"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -109,7 +109,7 @@
       "description": "Explora a estrutura de scripts C# na Unity, cobrindo componentes, ciclo de vida e manipulação de GameObjects.",
       "summary": "Apresenta a estrutura de scripts em C# na Unity, cobrindo componentes, ciclo de vida e manipulação básica de GameObjects.",
       "tags": ["unity", "csharp", "programacao"],
-      "duration": 150,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -120,7 +120,7 @@
       "description": "Aprofunda o uso de métodos, eventos e corrotinas na Unity para orquestrar fluxos assíncronos no jogo.",
       "summary": "Aprofunda scripts em C# trabalhando com métodos, eventos Unity e corrotinas para controlar fluxos assíncronos.",
       "tags": ["unity", "corrotinas", "eventos"],
-      "duration": 150,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -131,7 +131,7 @@
       "description": "Configura o Input System em múltiplos dispositivos e conecta ações a scripts C# reutilizáveis.",
       "summary": "Configura mapas de controle com o Input System, conectando ações a scripts C# e permitindo múltiplos dispositivos.",
       "tags": ["unity", "input-system", "controle"],
-      "duration": 150,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -142,7 +142,7 @@
       "description": "Organiza arquitetura baseada em componentes e ScriptableObjects para manter o projeto escalável.",
       "summary": "Discute padrões de arquitetura na Unity, enfatizando composição de componentes, ScriptableObjects e organização escalável do projeto.",
       "tags": ["arquitetura", "componentes", "scriptableobject"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -153,7 +153,7 @@
       "description": "Revê os resultados da NP1, corrige lacunas conceituais e redesenha o plano de continuidade do protótipo.",
       "summary": "Sessão de diagnóstico pós-NP1 para revisar erros recorrentes, reforçar conceitos-chave e planejar retomada do protótipo.",
       "tags": ["avaliacao", "reforco", "planejamento"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -164,14 +164,14 @@
       "description": "Apresenta o framework MDA e orienta a alinhar mecânicas, dinâmicas e estéticas à experiência desejada.",
       "summary": "Explora o framework MDA (Mecânicas, Dinâmicas e Estéticas) para orientar decisões de design focadas na experiência do jogador.",
       "tags": ["mda", "experiencia-do-jogador", "analise"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-16",
       "title": "Aula 16: O Framework MDA – Design da Experiência do Jogador",
       "file": "lesson-16.json",
-      "available": false,
+      "available": true,
       "description": "Introdução ao MDA (Mecânicas, Dinâmicas e Estética) e aplicação prática.",
       "summary": "Uso do MDA para alinhar mecânicas e dinâmicas à experiência desejada.",
       "tags": ["mda", "experiencia-do-jogador", "analise"],
@@ -182,7 +182,7 @@
       "id": "lesson-17",
       "title": "Aula 17: Design Inclusivo e Acessibilidade em Jogos",
       "file": "lesson-17.json",
-      "available": false,
+      "available": true,
       "description": "Princípios, barreiras e boas práticas de acessibilidade com desafio de melhoria.",
       "summary": "Propor melhorias inclusivas com base em diretrizes e casos reais.",
       "tags": ["acessibilidade", "inclusao", "ux"],
@@ -193,7 +193,7 @@
       "id": "lesson-18",
       "title": "Aula 18: UX/UI em Jogos Digitais",
       "file": "lesson-18.json",
-      "available": false,
+      "available": true,
       "description": "Integra análise crítica de UX/UI com aplicação prática de melhorias no protótipo da equipe.",
       "summary": "Revisa heurísticas e padrões de interface, conduz análise colaborativa e orienta ajustes imediatos em protótipos.",
       "tags": ["ux", "ui", "prototipo"],

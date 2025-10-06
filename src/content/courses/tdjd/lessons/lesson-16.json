@@ -77,6 +77,52 @@
       ]
     },
     {
+      "type": "pipelineCanvas",
+      "title": "O Fluxo de Design Orientado pelo MDA",
+      "summary": "O MDA inverte a perspectiva tradicional, começando pela experiência do jogador (Estética) e descendo até as regras (Mecânicas).",
+      "stages": [
+        {
+          "id": "estetica",
+          "title": "1. Estética",
+          "summary": "Qual é a sensação ou emoção que queremos criar? (Ex: desafio, descoberta, fantasia)",
+          "status": "in-progress",
+          "owners": ["Designer"],
+          "deliverables": [
+            {
+              "id": "exp-alvo",
+              "label": "Experiência-alvo definida"
+            }
+          ]
+        },
+        {
+          "id": "dinamicas",
+          "title": "2. Dinâmicas",
+          "summary": "Quais comportamentos e interações do jogador geram essa estética? (Ex: corrida contra o tempo, exploração)",
+          "status": "not-started",
+          "owners": ["Designer", "Programador"],
+          "deliverables": [
+            {
+              "id": "loops",
+              "label": "Loops de gameplay mapeados"
+            }
+          ]
+        },
+        {
+          "id": "mecanicas",
+          "title": "3. Mecânicas",
+          "summary": "Quais regras, componentes e algoritmos implementam essas dinâmicas? (Ex: cronômetro, power-ups, mapa)",
+          "status": "not-started",
+          "owners": ["Programador"],
+          "deliverables": [
+            {
+              "id": "regras",
+              "label": "Regras e sistemas implementados"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "md3Table",
       "title": "Mapa MDA de exemplo",
       "headers": ["Estética", "Dinâmicas desejadas", "Mecânicas de suporte"],
@@ -103,21 +149,59 @@
       "title": "TED: Aplicando MDA ao seu jogo",
       "content": [
         {
-          "type": "orderedList",
+          "type": "paragraph",
+          "text": "Use o protótipo do seu grupo ou um jogo conhecido para fazer a análise. O objetivo é formalizar a relação entre as regras e a experiência."
+        },
+        {
+          "type": "checklist",
+          "title": "Passos da Análise",
           "items": [
-            {
-              "title": "Escolha do jogo",
-              "text": "Use o protótipo do grupo ou um jogo conhecido."
-            },
-            {
-              "title": "Análise MDA",
-              "text": "Em um parágrafo, relacione 2 mecânicas → 2 dinâmicas → 1 estética pretendida, com exemplo observável."
-            },
-            {
-              "title": "Registro reflexivo",
-              "text": "Guarde o texto na pasta do projeto e traga para a próxima aula: vamos usar as conexões MDA para orientar os ajustes do protótipo."
-            }
+            "1. Defina a Estética Principal: Qual é a principal emoção ou sensação que o jogo deve despertar? (Ex: Desafio, Fantasia, Narrativa, Descoberta)",
+            "2. Liste as Dinâmicas: Que comportamentos ou padrões de jogo emergem para criar essa estética? (Ex: Corrida contra o tempo, exploração de mapa, gerenciamento de recursos)",
+            "3. Mapeie as Mecânicas: Quais regras, sistemas e ações concretas do jogador suportam essas dinâmicas? (Ex: Cronômetro, sistema de inventário, habilidades de personagem)",
+            "4. Conecte Tudo: Escreva um parágrafo que conecte os três pilares, mostrando como as mecânicas escolhidas levam às dinâmicas que, por sua vez, criam a estética desejada."
           ]
+        },
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Entregável",
+          "content": "Guarde esta análise em um documento na pasta do projeto. Ela será o ponto de partida para justificar as decisões de design e refinar o protótipo nas próximas aulas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de Caso: Celeste",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos analisar o jogo Celeste usando o framework MDA para entender como seus desenvolvedores criaram uma experiência de desafio recompensadora."
+        },
+        {
+          "type": "md3Table",
+          "title": "Análise MDA de Celeste",
+          "headers": ["Pilar MDA", "Implementação em Celeste"],
+          "rows": [
+            [
+              "Estética",
+              "O jogo foca na estética do Desafio. O jogador deve sentir a superação de obstáculos difíceis, mas justos. Há também uma forte camada de Narrativa sobre ansiedade e autoaceitação."
+            ],
+            [
+              "Dinâmicas",
+              "As dinâmicas que emergem são de aprendizado rápido, tentativa e erro e ritmo preciso. O jogador aprende a dominar os controles e a ler os níveis para avançar."
+            ],
+            [
+              "Mecânicas",
+              "As mecânicas centrais são simples: pulo, escalada e dash. A complexidade vem da combinação dessas mecânicas com o design de nível, como plataformas que se movem, espinhos e ventos."
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Conexão",
+          "content": "As mecânicas simples e responsivas de Celeste permitem que os jogadores experimentem e aprendam rapidamente (Dinâmica), o que torna a superação dos níveis desafiadores (Estética) uma experiência gratificante em vez de frustrante."
         }
       ]
     },
@@ -163,7 +247,7 @@
     },
     {
       "label": "Formulário impresso de análise MDA",
-      "url": "data:application/pdf;base64,JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIgL0Y0IDUgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZCAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjIgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago0IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQmFzZUZvbnQgL1phcGZEaW5nYmF0cyAvTmFtZSAvRjQgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago2IDAgb2JqCjw8Ci9Db250ZW50cyAxMCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDkgMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA5IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKOCAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNTEwMDYwMDIxNDErMDAnMDAnKSAvQ3JlYXRvciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI1MTAwNjAwMjE0MSswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIAogIC9TdWJqZWN0ICh1bnNwZWNpZmllZCkgL1RpdGxlICh1bnRpdGxlZCkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNiAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjEwIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDc5OQo+PgpzdHJlYW0KR2F0JSE7L2IyMyY6WClPXEFyXSsqLnUoTnFwbTRgZTdrMHAvX1gtMFcoZkBKKGpGbitlVUlILEU1OjwjaSRxWHNLYVQhc2gwMGhBRXI2TEtoL2lYaDJtQmtANVVeSD9KWnQqTGpyPCltMClSYTZSXypdJz1YPjluQjJILVAjRSpyWnIiQEBLXENLPmNPaEolNSpuUmxmWWg/a1Q7ZS50PmIoUXQiUkhPSFYlXjVpVUFAb2pQZjMqclthRGt1I1NDXSJCX2lLOj09UkFcb3ArSlE3L01KLWtTbkRPYVokQ19PYykkQTg1R2JXYFhsczBzcD0xUVNTN1RxMWA5P2FrTjReVydqJnVsTiohYFpcajlVImtFLTtmVCRXcSQ2ZmBIMTAlKFdeXltidFttTk8tVUhTUy8xQyhVRUAoNmFcTDwwJ3NCVVdORE8/Qk9RaTplNTokOERlPkI3cksvP3MlYlJXRDZgYkhXNjdDYisuV15oLkwtLzUpSnQ8JSJrJWVVVE9UaHI+Yi1gRFs6cV9TPyM3OUN0PS8jY3QxPV1zRV5uTi9RN0RMWS5LJSRZQmkiVm9gVSxXalJrciRkXm5jR0M5T0hzR25tYDIpPVMzUyh1ZzRMRUEqaDVcLW02cHFpUG5hLHEsVU1CNTFIRVIkLW5eXnBNR2FMTitlRiEoaSJWb2ItTl1sSCEwWHJgbmJtbDgvSy4zJ1VKUHEwQT5NO3RhYEVdaEBcNVQtZj5DSChvbyhhXis/TEZlSCtEWiUwQixSajxAXzhLSkpQR2xVSk1KcihuUlQ6Y19pNyxDKVFsTkEhWCorYk5fSV8wOGhNQl4pT19lYExILj0kWSY6SFt0KyhLMnNMcDZcYlV0NUdua0IvMyRoXm87LTFPXjZxRChObk9NKSpUTDhdLEhARUgzZENmZCUjQk9SK1ZRNSg7RFYlNDliTzxPZ0A3OHFFPCU1NSlEJTkmISFVaHI/XTU4JSRTQmc/a01nSVRCR2dOUjVHR0ZFMUhqZV0mZmFFRUFLMy0lTSRadVZnXmMqZDVQUksyRCFpQmU+WDh+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDExCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA3MyAwMDAwMCBuIAowMDAwMDAwMTM0IDAwMDAwIG4gCjAwMDAwMDAyNDEgMDAwMDAgbiAKMDAwMDAwMDM1MyAwMDAwMCBuIAowMDAwMDAwNDY4IDAwMDAwIG4gCjAwMDAwMDA1NTEgMDAwMDAgbiAKMDAwMDAwMDc0NSAwMDAwMCBuIAowMDAwMDAwODEzIDAwMDAwIG4gCjAwMDAwMDExMDkgMDAwMDAgbiAKMDAwMDAwMTE2OCAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxmZTZkZGMzZDQwYmFiY2JjMWJkZGE0MzA5NzBmN2E3YT48ZmU2ZGRjM2Q0MGJhYmNiYzFiZGRhNDMwOTcwZjdhN2E+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAoaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tKQoKL0luZm8gOCAwIFIKL1Jvb3QgNyAwIFIKL1NpemUgMTEKPj4Kc3RhcnR4cmVmCjIwNTgKJSVFT0YK",
+      "url": "data:application/pdf;base64,JVBERi0xLjMKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIgL0Y0IDUgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZCAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjIgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago0IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQmFzZUZvbnQgL1phcGZEaW5nYmF0cyAvTmFtZSAvRjQgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago2IDAgb2JqCjw8Ci9Db250ZW50cyAxMCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDkgMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA5IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKOCAwIG9iago8PAovQXV0aG9yIChhbm9ueW1vdXMpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNTEwMDYwMDIxNDErMDAnMDAnKSAvQ3JlYXRvciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIC9LZXl3b3JkcyAoKSAvTW9kRGF0ZSAoRDoyMDI1MTAwNjAwMjE0MSswMCcwMCcpIC9Qcm9kdWNlciAoUmVwb3J0TGFiIFBERiBMaWJyYXJ5IC0gd3d3LnJlcG9ydGxhYi5jb20pIAogIC9TdWJqZWN0ICh1bnNwZWNpZmllZCkgL1RpdGxlICh1bnRpdGxlZCkgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9Db3VudCAxIC9LaWRzIFsgNiAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjEwIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDc5OQo+PgpzdHJlYW0KR2F0JSE7L2IyMyY6WClPXEFyXSsqLnUoTnFwbTRgZTdrMHAvXFgtMFcoZkBKKGpGbitlVUlILEU1OjwjaSRxWHNLYVQhc2gwMGhBRXI2TEtoL2lYaDJtQmtANVVeSD9KWnQqTGpyPCltMClSYTZSXypdJz1YPjluQjJILVAjRSpyWnIiQEBLXENLPmNPaEolNSpuUmxmWWg/a1Q7ZS50PmIoUXQiUkhPSFYlXjVpVUFAb2pQZjMqclthRGt1I1NDXSJCX2lLOj09UkFcb3ArSlE3L01KLWtTbkRPYVokQ19PYykkQTg1R2JXYFhsczBzcD0xUVNTN1RxMWA5P2FrTjReVydqJnVsTiohYFpcajlVImtFLTtmVCRXcSQ2ZmBIMTAlKFdeXltidFttTk8tVUhTUy8xQyhVRUAoNmFcTDwwJ3NCVVdORE8/Qk9RaTplNTokOERlPkI3cksvP3MlYlJXRDZgYkhXNjdDYisuV15oLkwtLzUpSnQ8JSJrJWVVVE9UaHI+Yi1gRFs6cV9TPyM3OUN0PS8jY3QxPV1zRV5uTi9RN0RMWS5LJSRZQmkiVm9gVSxXalJrciRkXm5jR0M5T0hzR25tYDIpPVMzUyh1ZzRMRUEqaDVcLW02cHFpUG5hLHEsVU1CNTFIRVIkLW5eXnBNR2FMTitlRiEoaSJWb2ItTl1sSCEwWHJgbmJtbDgvSy4zJ1VKUHEwQT5NO3RhYEVdaEBcNVQtZj5DSChvbyhhXis/TEZlSCtEWiUwQixSajxAXzhLSkpQR2xVSk1KcihuUlQ6Y19pNyxDKVFsTkEhWCorYk5fSV8wOGhNQl4pT19lYExILj0kWSY6SFt0KyhLMnNMcDZcYlV0NUdua0IvMyRoXm87LTFPXjZxRChObk9NKSpUTDhdLEhARUgzZENmZCUjQk9SK1ZRNSg7RFYlNDliTzxPZ0A3OHFFPCU1NSlEJTkmISFVaHI/XTU4JSRTQmc/a01nSVRCR2dOUjVHR0ZFMUhqZV0mZmFFRUFLMy0lTSRadVZnXmMqZDVQUksyRCFpQmU+WDh+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDExCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA3MyAwMDAwMCBuIAowMDAwMDAwMTM0IDAwMDAwIG4gCjAwMDAwMDAyNDEgMDAwMDAgbiAKMDAwMDAwMDM1MyAwMDAwMCBuIAowMDAwMDAwNDY4IDAwMDAwIG4gCjAwMDAwMDA1NTEgMDAwMDAgbiAKMDAwMDAwMDc0NSAwMDAwMCBuIAowMDAwMDAwODEzIDAwMDAwIG4gCjAwMDAwMDExMDkgMDAwMDAgbiAKMDAwMDAwMTE2OCAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxmZTZkZGMzZDQwYmFiY2JjMWJkZGE0MzA5NzBmN2E3YT48ZmU2ZGRjM2Q0MGJhYmNiYzFiZGRhNDMwOTcwZjdhN2E+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAoaHR0cDovL3d3dy5yZXBvcnRsYWIuY29tKQoKL0luZm8gOCAwIFIKL1Jvb3QgNyAwIFIKL1NpemUgMTEKPj4Kc3RhcnR4cmVmCjIwNTgKJSVFT0YK",
       "type": "form"
     }
   ],
