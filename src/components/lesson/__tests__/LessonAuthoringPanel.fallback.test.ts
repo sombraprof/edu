@@ -98,14 +98,29 @@ const AuthoringDraggableListStub = defineComponent({
 
 const originalScrollIntoView = HTMLElement.prototype.scrollIntoView;
 const scrollIntoViewSpy = vi.fn();
+let lastFocused: Element | null = null;
+const originalFocus = HTMLElement.prototype.focus;
 
 beforeAll(() => {
   HTMLElement.prototype.scrollIntoView =
     scrollIntoViewSpy as typeof HTMLElement.prototype.scrollIntoView;
+  Object.defineProperty(document, 'activeElement', {
+    writable: true,
+    value: document.body,
+  });
+  HTMLElement.prototype.focus = function focusOverride(
+    this: HTMLElement,
+    ...args: Parameters<HTMLElement['focus']>
+  ) {
+    originalFocus?.apply(this, args);
+    document.activeElement = this;
+    lastFocused = this;
+  } as typeof HTMLElement.prototype.focus;
 });
 
 afterAll(() => {
   HTMLElement.prototype.scrollIntoView = originalScrollIntoView;
+  HTMLElement.prototype.focus = originalFocus;
 });
 
 function createTextField(initialValue = '') {
@@ -210,9 +225,7 @@ describe('LessonAuthoringPanel - gerenciamento de foco', () => {
     });
 
     await flushPromises();
-
-    const editorField = wrapper.find('[data-test="raw-json"]');
-    expect(editorField.exists()).toBe(true);
+    await flushPromises();
 
     document.body.focus();
 
@@ -225,7 +238,10 @@ describe('LessonAuthoringPanel - gerenciamento de foco', () => {
     await flushPromises();
     await nextTick();
 
-    expect(lastFocused).toBe(editorField.element);
+    const editorField = wrapper.find('[data-test="raw-json"]');
+    expect(editorField.exists()).toBe(true);
+    expect(lastFocused?.tagName).toBe('TEXTAREA');
+    expect((lastFocused as HTMLElement)?.getAttribute('data-test')).toBe('raw-json');
     expect(scrollIntoViewSpy).toHaveBeenCalled();
   });
 });

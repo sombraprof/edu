@@ -256,7 +256,16 @@ const defaultExerciseModel: NormalizedLessonEditorModel = {
 };
 
 function cloneExerciseModel(model: LessonEditorModel): NormalizedLessonEditorModel {
-  const draft = structuredClone(model) as NormalizedLessonEditorModel;
+  let draft: NormalizedLessonEditorModel;
+  try {
+    draft = structuredClone(model) as NormalizedLessonEditorModel;
+  } catch (error) {
+    if (error instanceof Error && error.name === 'DataCloneError') {
+      draft = JSON.parse(JSON.stringify(model)) as NormalizedLessonEditorModel;
+    } else {
+      throw error;
+    }
+  }
   if (typeof draft.title !== 'string') {
     draft.title = '';
   }
@@ -350,6 +359,23 @@ const selectedBlock = computed<LessonAuthoringBlock | null>(
 const blockEditorComponent = computed(() =>
   resolveLessonBlockEditor(selectedBlock.value as LessonBlock | null)
 );
+
+watch(selectedBlock, (newBlock) => {
+  if (newBlock) {
+    nextTick(() => {
+      nextTick(() => {
+        const sectionEl = selectedEditorEl.value;
+        if (!sectionEl) return;
+        const focusTarget =
+          sectionEl.querySelector<HTMLElement>('[autofocus]') ??
+          sectionEl.querySelector<HTMLElement>(
+            'input, textarea, select, [contenteditable="true"], [tabindex]:not([tabindex="-1"])'
+          );
+        focusTarget?.focus();
+      });
+    });
+  }
+});
 
 const { status, statusLabel, statusTone } = useAuthoringSaveTracker(props.exerciseModel, {
   saving: props.saving,
@@ -534,7 +560,7 @@ function selectBlock(index: number) {
       sectionEl.querySelector<HTMLElement>(
         'input, textarea, select, [contenteditable="true"], [tabindex]:not([tabindex="-1"])'
       );
-    focusTarget?.focus();
+    nextTick(() => focusTarget?.focus());
   });
 }
 </script>

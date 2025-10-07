@@ -472,12 +472,17 @@ describe('ExerciseAuthoringPanel - gerenciamento de foco', () => {
   const originalFocus = HTMLElement.prototype.focus;
 
   beforeAll(() => {
+    Object.defineProperty(document, 'activeElement', {
+      writable: true,
+      value: document.body,
+    });
     HTMLElement.prototype.focus = function focusOverride(
       this: HTMLElement,
       ...args: Parameters<HTMLElement['focus']>
     ) {
       originalFocus?.apply(this, args);
-      lastFocused = document.activeElement;
+      document.activeElement = this;
+      lastFocused = this;
     } as typeof HTMLElement.prototype.focus;
   });
 
@@ -516,9 +521,7 @@ describe('ExerciseAuthoringPanel - gerenciamento de foco', () => {
     });
 
     await flushPromises();
-
-    const editorField = wrapper.find('[data-test="raw-json"]');
-    expect(editorField.exists()).toBe(true);
+    await flushPromises();
 
     document.body.focus();
 
@@ -530,7 +533,11 @@ describe('ExerciseAuthoringPanel - gerenciamento de foco', () => {
     await editButton!.trigger('click');
     await flushPromises();
     await nextTick();
+    await flushPromises();
+    await nextTick();
 
+    const editorField = wrapper.find('[data-test="raw-json"]');
+    expect(editorField.exists()).toBe(true);
     expect(lastFocused).toBe(editorField.element);
     expect(scrollIntoViewSpy).toHaveBeenCalled();
   });
