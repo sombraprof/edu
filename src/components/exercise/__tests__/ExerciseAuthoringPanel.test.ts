@@ -477,13 +477,16 @@ describe('ExerciseAuthoringPanel - gerenciamento de foco', () => {
       value: document.body,
     });
     HTMLElement.prototype.focus = function focusOverride(
-      this: HTMLElement,
       ...args: Parameters<HTMLElement['focus']>
     ) {
-      originalFocus?.apply(this, args);
-      document.activeElement = this;
-      lastFocused = this;
-    } as typeof HTMLElement.prototype.focus;
+      const self = this as HTMLElement;
+      originalFocus?.apply(self, args);
+      (document as any).activeElement = self;
+      lastFocused = self;
+    } as (
+      this: HTMLElement,
+      ...args: Parameters<HTMLElement['focus']>
+    ) => void as typeof HTMLElement.prototype.focus;
   });
 
   afterAll(() => {
