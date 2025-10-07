@@ -79,7 +79,7 @@ describe('CourseHome component', () => {
   });
 
   it('exibe estado de carregamento', () => {
-    controllerHarness.isLoading.value = true;
+    controllerMock.isLoading.value = true;
     const wrapper = mount(CourseHome, {
       global: {
         stubs: {
