@@ -98,23 +98,25 @@ const AuthoringDraggableListStub = defineComponent({
 
 const originalScrollIntoView = HTMLElement.prototype.scrollIntoView;
 const scrollIntoViewSpy = vi.fn();
-let lastFocused: Element | null = null;
 const originalFocus = HTMLElement.prototype.focus;
 
 beforeAll(() => {
   HTMLElement.prototype.scrollIntoView =
     scrollIntoViewSpy as typeof HTMLElement.prototype.scrollIntoView;
+  let mockActiveElement = document.body;
   Object.defineProperty(document, 'activeElement', {
-    writable: true,
-    value: document.body,
+    get: () => mockActiveElement,
+    set: (value) => {
+      mockActiveElement = value;
+    },
+    configurable: true,
   });
   HTMLElement.prototype.focus = function focusOverride(
     this: HTMLElement,
     ...args: Parameters<HTMLElement['focus']>
   ) {
     originalFocus?.apply(this, args);
-    document.activeElement = this;
-    lastFocused = this;
+    (document.activeElement as any) = this;
   } as typeof HTMLElement.prototype.focus;
 });
 

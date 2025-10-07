@@ -1,18 +1,10 @@
 import { describe, expect, it, beforeEach, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { ref, computed } from 'vue';
-import type { Ref } from 'vue';
 import CourseHome from '../CourseHome.vue';
 import type { CourseHomeController, CourseHomeItem } from '../CourseHome.logic';
 
-interface ControllerHarness {
-  controller: CourseHomeController;
-  isLoading: Ref<boolean>;
-  displayItemsSource: Ref<CourseHomeItem[]>;
-  resetFiltersMock: ReturnType<typeof vi.fn>;
-}
-
-const createController = (): ControllerHarness => {
+const createController = () => {
   const lessons = ref([]);
   const exercises = ref([]);
   const contentFilter = ref<'all' | 'lesson' | 'exercise'>('all');
@@ -47,11 +39,9 @@ const createController = (): ControllerHarness => {
   const clearFiltersSpy = () => {
     resetFiltersSpy.mockClear();
   };
-
   return { controller, setDisplayItems, resetFiltersSpy, clearFiltersSpy };
 };
 
-let controllerHarness: ControllerHarness;
 let controllerMock: CourseHomeController;
 let setDisplayItems: (items: CourseHomeItem[]) => void;
 let resetFiltersSpy: ReturnType<typeof vi.fn>;
