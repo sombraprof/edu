@@ -1,26 +1,23 @@
 import { computed, defineAsyncComponent, ref, shallowRef, watch, type ComputedRef } from 'vue';
 import { useRoute, type RouteLocationNormalizedLoaded } from 'vue-router';
 import { normalizeManifest } from '@/content/loaders';
+import type { GenerationMetadata } from '@/content/schema/lesson';
+
+export type { GenerationMetadata } from '@/content/schema/lesson';
 
 type ManifestLoaderMap = Record<string, () => Promise<unknown>>;
 
 type ExerciseWrapperMap = Record<string, () => Promise<unknown>>;
 
-type GenerationMetadata = {
-  generatedBy: string;
-  model: string;
-  timestamp: string;
-};
-
-type ExerciseManifest = {
+export type ExerciseManifest = {
   id: string;
-  title: string;
+  title?: string;
   file?: string;
   link?: string;
   available?: boolean;
   description?: string;
   summary?: string;
-  metadata?: GenerationMetadata;
+  metadata?: GenerationMetadata | null;
   type?: string;
 };
 
@@ -30,7 +27,13 @@ export interface ExerciseViewController {
   exerciseTitle: ReturnType<typeof ref<string>>;
   exerciseSummary: ReturnType<typeof ref<string>>;
   exerciseComponent: ReturnType<typeof shallowRef<any | null>>;
+  exerciseFile: ReturnType<typeof ref<string>>;
   loadExercise: () => Promise<void>;
+  exerciseAvailable: ReturnType<typeof ref<boolean>>;
+  exerciseLink: ReturnType<typeof ref<string>>;
+  exerciseType: ReturnType<typeof ref<string>>;
+  exerciseMetadata: ReturnType<typeof shallowRef<GenerationMetadata | null>>;
+  setManifestEntry: (entry: ExerciseManifest | null) => void;
   route: RouteLocationNormalizedLoaded;
 }
 
@@ -63,11 +66,53 @@ export function useExerciseViewController(
   const exerciseTitle = ref('');
   const exerciseSummary = ref('');
   const exerciseComponent = shallowRef<any | null>(null);
+  const exerciseFile = ref('');
+  const exerciseAvailable = ref(false);
+  const exerciseLink = ref('');
+  const exerciseType = ref('');
+  const exerciseMetadata = shallowRef<GenerationMetadata | null>(null);
+
+  function applyManifestEntry(entry: ExerciseManifest | null) {
+    if (!entry) {
+      exerciseAvailable.value = false;
+      exerciseLink.value = '';
+      exerciseType.value = '';
+      exerciseMetadata.value = null;
+      return;
+    }
+
+    exerciseAvailable.value = entry.available ?? false;
+    exerciseLink.value = typeof entry.link === 'string' ? entry.link : '';
+    exerciseType.value = typeof entry.type === 'string' ? entry.type : '';
+    exerciseMetadata.value = entry.metadata ? { ...entry.metadata } : null;
+
+    if (typeof entry.title === 'string' && entry.title.length) {
+      exerciseTitle.value = entry.title;
+    }
+    if (typeof entry.summary === 'string' && entry.summary.length) {
+      exerciseSummary.value = entry.summary;
+    }
+  }
+
+  function setManifestEntry(entry: ExerciseManifest | null) {
+    if (!entry) {
+      applyManifestEntry(null);
+      return;
+    }
+
+    const snapshot: ExerciseManifest = {
+      ...entry,
+      metadata: entry.metadata ? { ...entry.metadata } : null,
+    };
+
+    applyManifestEntry(snapshot);
+  }
 
   async function loadExercise() {
     exerciseComponent.value = null;
     exerciseTitle.value = '';
     exerciseSummary.value = '';
+    exerciseFile.value = '';
 
     try {
       const currentCourse = courseId.value;
@@ -84,8 +129,11 @@ export function useExerciseViewController(
       const entry = index.find((item) => item.id === currentExercise);
       if (!entry) throw new Error(`Exercise ${currentExercise} not found`);
 
-      exerciseTitle.value = entry.title;
+      setManifestEntry(entry);
+
+      exerciseTitle.value = entry.title ?? '';
       exerciseSummary.value = entry.summary ?? entry.description ?? '';
+      exerciseFile.value = entry.file ?? '';
 
       if (entry.file) {
         const exercisePath = `../content/courses/${currentCourse}/exercises/${entry.file}`;
@@ -109,6 +157,8 @@ export function useExerciseViewController(
       console.error('[ExerciseView] Failed to load exercise:', error);
       exerciseTitle.value = 'Erro ao carregar exercício';
       exerciseSummary.value = 'Não foi possível localizar o material solicitado.';
+      exerciseFile.value = '';
+      setManifestEntry(null);
     }
   }
 
@@ -126,7 +176,13 @@ export function useExerciseViewController(
     exerciseTitle,
     exerciseSummary,
     exerciseComponent,
+    exerciseFile,
     loadExercise,
+    exerciseAvailable,
+    exerciseLink,
+    exerciseType,
+    exerciseMetadata,
+    setManifestEntry,
     route,
   };
 }

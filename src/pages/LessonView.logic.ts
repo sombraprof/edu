@@ -3,17 +3,21 @@ import { useRoute, type RouteLocationNormalizedLoaded } from 'vue-router';
 import type { LessonBlock } from '@/components/lesson/blockRegistry';
 import type { NormalizedLesson } from '@/content/schema/lesson';
 import { normalizeManifest } from '@/content/loaders';
+import { createPrismHighlightHandler } from '@/utils/prismHighlight';
 
-type LessonManifest = {
+export type LessonManifest = {
   id: string;
-  title: string;
-  file: string;
+  title?: string;
+  file?: string;
   description?: string;
   available?: boolean;
+  link?: string;
   summary?: string;
   duration?: number;
   tags?: string[];
   modality?: string;
+  type?: string;
+  metadata?: Record<string, unknown> | null;
 };
 
 type LessonContent = NormalizedLesson & { content: LessonBlock[] };
@@ -24,7 +28,7 @@ type LessonModuleLoaderMap = Record<string, () => Promise<unknown>>;
 
 type HighlightHandler = (lesson: LessonContent) => Promise<void> | void;
 
-interface LessonViewControllerOptions {
+export interface LessonViewControllerOptions {
   lessonIndexModules?: ManifestLoaderMap;
   lessonContentModules?: LessonModuleLoaderMap;
   highlight?: HighlightHandler;
@@ -43,60 +47,18 @@ export interface LessonViewController {
   lessonOutcomes: ReturnType<typeof ref<string[]>>;
   lessonPrerequisites: ReturnType<typeof ref<string[]>>;
   lessonData: ReturnType<typeof shallowRef<LessonContent | null>>;
+  lessonContentFile: ReturnType<typeof ref<string>>;
+  lessonAvailable: ReturnType<typeof ref<boolean>>;
+  lessonLink: ReturnType<typeof ref<string>>;
+  lessonManifestType: ReturnType<typeof ref<string>>;
+  lessonManifestMetadata: ReturnType<typeof shallowRef<Record<string, unknown> | null>>;
   loadLesson: () => Promise<void>;
+  setManifestEntry: (entry: LessonManifest | null) => void;
   route: RouteLocationNormalizedLoaded;
 }
 
 const defaultLessonIndexes = import.meta.glob('../content/courses/*/lessons.json');
 const defaultLessonModules = import.meta.glob('../content/courses/*/lessons/*.json');
-
-function createHighlightHandler(): HighlightHandler {
-  type PrismModule = typeof import('prismjs');
-  let prismInstance: PrismModule | null = null;
-  let prismLoader: Promise<PrismModule> | null = null;
-
-  async function ensurePrism(): Promise<PrismModule> {
-    if (prismInstance) {
-      return prismInstance;
-    }
-
-    if (!prismLoader) {
-      prismLoader = (async () => {
-        const core = await import('prismjs');
-        const Prism = (core as { default?: PrismModule }).default ?? (core as PrismModule);
-        const globalWithPrism = globalThis as typeof globalThis & { Prism?: PrismModule };
-        if (!globalWithPrism.Prism) {
-          globalWithPrism.Prism = Prism;
-        }
-
-        await Promise.all([
-          import('prismjs/components/prism-markup'),
-          import('prismjs/components/prism-javascript'),
-          import('prismjs/components/prism-typescript'),
-          import('prismjs/components/prism-python'),
-          import('prismjs/components/prism-json'),
-          import('prismjs/components/prism-java'),
-          import('prismjs/components/prism-c'),
-          import('prismjs/components/prism-cpp'),
-          import('prismjs/components/prism-csharp'),
-          import('prismjs/components/prism-kotlin'),
-        ]);
-
-        return Prism;
-      })();
-    }
-
-    prismInstance = await prismLoader;
-    return prismInstance;
-  }
-
-  return async () => {
-    const Prism = await ensurePrism();
-    requestAnimationFrame(() => {
-      Prism.highlightAll();
-    });
-  };
-}
 
 export function useLessonViewController(
   options: LessonViewControllerOptions = {}
@@ -107,7 +69,7 @@ export function useLessonViewController(
 
   const lessonIndexes = options.lessonIndexModules ?? defaultLessonIndexes;
   const lessonModules = options.lessonContentModules ?? defaultLessonModules;
-  const defaultHighlight = createHighlightHandler();
+  const defaultHighlight = createPrismHighlightHandler();
   const highlight = options.highlight ?? defaultHighlight;
 
   const lessonTitle = ref('');
@@ -120,6 +82,62 @@ export function useLessonViewController(
   const lessonOutcomes = ref<string[]>([]);
   const lessonPrerequisites = ref<string[]>([]);
   const lessonData = shallowRef<LessonContent | null>(null);
+  const lessonContentFile = ref('');
+  const lessonAvailable = ref(true);
+  const lessonLink = ref('');
+  const lessonManifestType = ref('');
+  const lessonManifestMetadata = shallowRef<Record<string, unknown> | null>(null);
+
+  function applyManifestEntry(entry: LessonManifest | null) {
+    if (!entry) {
+      lessonAvailable.value = true;
+      lessonLink.value = '';
+      lessonManifestType.value = '';
+      lessonManifestMetadata.value = null;
+      return;
+    }
+
+    lessonAvailable.value = entry.available !== false;
+    lessonLink.value = typeof entry.link === 'string' ? entry.link : '';
+    lessonManifestType.value = typeof entry.type === 'string' ? entry.type : '';
+    lessonManifestMetadata.value =
+      entry.metadata && typeof entry.metadata === 'object'
+        ? { ...(entry.metadata as Record<string, unknown>) }
+        : null;
+
+    if (typeof entry.title === 'string' && entry.title.length) {
+      lessonTitle.value = entry.title;
+    }
+    if (typeof entry.summary === 'string' && entry.summary.length) {
+      lessonSummary.value = entry.summary;
+    }
+    if (typeof entry.duration === 'number' && Number.isFinite(entry.duration)) {
+      lessonDuration.value = entry.duration;
+    }
+    if (typeof entry.modality === 'string' && entry.modality.length) {
+      lessonModality.value = entry.modality;
+    }
+    if (Array.isArray(entry.tags) && entry.tags.length) {
+      lessonTags.value = [...entry.tags];
+    }
+  }
+
+  function setManifestEntry(entry: LessonManifest | null) {
+    if (!entry) {
+      applyManifestEntry(null);
+      return;
+    }
+
+    const snapshot: LessonManifest = {
+      ...entry,
+      metadata:
+        entry.metadata && typeof entry.metadata === 'object'
+          ? { ...(entry.metadata as Record<string, unknown>) }
+          : null,
+    };
+
+    applyManifestEntry(snapshot);
+  }
 
   async function loadLesson() {
     lessonData.value = null;
@@ -132,6 +150,7 @@ export function useLessonViewController(
     lessonSkills.value = [];
     lessonOutcomes.value = [];
     lessonPrerequisites.value = [];
+    lessonContentFile.value = '';
 
     try {
       const currentCourse = courseId.value;
@@ -149,7 +168,16 @@ export function useLessonViewController(
       const entry = index.find((item) => item.id === currentLesson);
       if (!entry) throw new Error(`Lesson ${currentLesson} not found`);
 
-      const lessonPath = `../content/courses/${currentCourse}/lessons/${entry.file}`;
+      setManifestEntry(entry);
+
+      const lessonFile = entry.file ?? '';
+      lessonContentFile.value = lessonFile;
+
+      if (!lessonFile) {
+        throw new Error(`Lesson ${currentLesson} is missing a content file.`);
+      }
+
+      const lessonPath = `../content/courses/${currentCourse}/lessons/${lessonFile}`;
       const lessonImporter = lessonModules[lessonPath];
       if (!lessonImporter) throw new Error(`Lesson module not found for path: ${lessonPath}`);
 
@@ -169,7 +197,11 @@ export function useLessonViewController(
       const prerequisites = pickStringList(data.prerequisites);
 
       lessonTitle.value =
-        typeof data.title === 'string' && data.title.length ? data.title : entry.title;
+        typeof data.title === 'string' && data.title.length
+          ? data.title
+          : typeof entry.title === 'string'
+            ? entry.title
+            : lessonTitle.value;
       lessonObjective.value = pickString(data.objective, entry.description);
       lessonSummary.value = summary;
       lessonDuration.value = duration;
@@ -216,6 +248,8 @@ export function useLessonViewController(
       lessonSkills.value = [];
       lessonOutcomes.value = [];
       lessonPrerequisites.value = [];
+      lessonContentFile.value = '';
+      setManifestEntry(null);
     }
   }
 
@@ -240,7 +274,13 @@ export function useLessonViewController(
     lessonOutcomes,
     lessonPrerequisites,
     lessonData,
+    lessonContentFile,
+    lessonAvailable,
+    lessonLink,
+    lessonManifestType,
+    lessonManifestMetadata,
     loadLesson,
+    setManifestEntry,
     route,
   };
 }

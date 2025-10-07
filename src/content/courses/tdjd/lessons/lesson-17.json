@@ -5,7 +5,7 @@
   "summary": "Princípios, barreiras e boas práticas de acessibilidade (física, cognitiva, sensorial) com estudo de caso e proposta de melhoria.",
   "formatVersion": "md3.lesson.v1",
   "slug": "design-inclusivo-e-acessibilidade",
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "content": [
     {
@@ -28,6 +28,38 @@
           "content": "Aula dialogada + estudo de caso + desafio de redesign (design crítico + reflexão)."
         }
       ]
+    },
+    {
+      "type": "timeline",
+      "title": "Sequência da aula (100 minutos)",
+      "steps": [
+        {
+          "title": "Aquecimento e contexto (10 min)",
+          "content": "Retomada do MDA e conexão com acessibilidade e experiência do jogador."
+        },
+        {
+          "title": "Panorama e princípios (20 min)",
+          "content": "Apresentação dialogada dos pilares de design inclusivo com apoio de slides e fichas impressas."
+        },
+        {
+          "title": "Estudo de casos guiado (25 min)",
+          "content": "Análise coletiva de vídeos e materiais da Microsoft, AbleGamers e Naughty Dog."
+        },
+        {
+          "title": "Laboratório de redesign (35 min)",
+          "content": "Grupos priorizam barreiras do protótipo e elaboram propostas com critérios de aceite."
+        },
+        {
+          "title": "Compartilhamento + plano de ação (10 min)",
+          "content": "Cada grupo apresenta a melhoria escolhida e define próximos testes."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Materiais distribuídos em sala",
+      "content": "Checklist impresso de acessibilidade, cartões com personas com deficiência e tabela resumida das Game Accessibility Guidelines acompanham a aula para consulta rápida."
     },
     {
       "type": "cardGrid",
@@ -58,15 +90,100 @@
       ]
     },
     {
-      "type": "md3Table",
+      "type": "videosBlock",
+      "title": "Vídeos para inspirar soluções inclusivas",
+      "videos": [
+        {
+          "youtubeId": "YJENwei2MZI",
+          "title": "Incorporating Accessibility into PVP Multiplayer Games",
+          "description": "Canal Access-Ability analisa decisões de design e métricas de inclusão."
+        },
+        {
+          "youtubeId": "9fcK19CAjWM",
+          "title": "Introducing the Xbox Adaptive Controller",
+          "description": "Estudo de caso de hardware inclusivo e impacto em UX de jogos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Guia prático (Game Accessibility Guidelines)",
-      "headers": ["Aspecto", "Boa prática", "Exemplo no Unity"],
-      "rows": [
-        ["Controles", "Remapeamento e sensibilidade", "Input System com rebinds e deadzones"],
-        ["Feedback", "Modos de legenda/CC", "UI com toggles para CC e tamanho de fonte"],
-        ["Cores", "Modos daltônicos/alto contraste", "Material variants + filtros URP (volumes)"],
-        ["Áudio", "Mixers por canal e limites de volume", "Audio Mixer com parâmetros expostos"],
-        ["Dificuldade", "Assistências e modos graduais", "Scriptables de config e escalonamento"]
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "1. Controles: Remapeamento e Sensibilidade",
+          "items": [
+            {
+              "type": "paragraph",
+              "text": "Permitir que os jogadores remapeiem os controles é fundamental. Com o novo Input System do Unity, você pode criar uma ação de remapeamento e salvá-la nas preferências do jogador."
+            },
+            {
+              "type": "code",
+              "language": "csharp",
+              "code": "public InputAction playerAction;\n\npublic void StartRebinding() {\n    playerAction.Disable();\n    var rebindOperation = playerAction.PerformInteractiveRebinding()\n        .WithControlsExcluding(\"<Mouse>/position\")\n        .OnComplete(operation => {\n            playerAction.Enable();\n            // Salve o override do binding\n            string bindingOverride = playerAction.SaveBindingOverridesAsJson();\n            PlayerPrefs.SetString(\"binding\", bindingOverride);\n            PlayerPrefs.Save();\n            operation.Dispose();\n        })\n        .Start();\n}"
+            }
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "2. Feedback: Legendas e Closed Captions (CC)",
+          "items": [
+            {
+              "type": "paragraph",
+              "text": "Oferecer legendas e a opção de customizar seu tamanho é essencial para jogadores com deficiência auditiva ou que jogam sem som. Use um Toggle para habilitar/desabilitar um componente de texto."
+            },
+            {
+              "type": "code",
+              "language": "csharp",
+              "code": "public TextMeshProUGUI subtitleText;\n\npublic void ToggleSubtitles(bool isOn) {\n    subtitleText.gameObject.SetActive(isOn);\n    PlayerPrefs.SetInt(\"subtitles_enabled\", isOn ? 1 : 0);\n}\n\npublic void SetSubtitleSize(float newSize) {\n    subtitleText.fontSize = newSize;\n    PlayerPrefs.SetFloat(\"subtitle_size\", newSize);\n}"
+            }
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "3. Cores: Modos para Daltonismo e Alto Contraste",
+          "items": [
+            {
+              "type": "paragraph",
+              "text": "Para dar suporte a jogadores daltônicos, evite depender apenas de cores para transmitir informação. Ofereça paletas de cores alternativas ou modos de alto contraste. Você pode trocar materiais ou usar post-processing."
+            },
+            {
+              "type": "code",
+              "language": "csharp",
+              "code": "public Material highContrastMaterial;\nprivate MeshRenderer objectRenderer;\n\npublic void SetHighContrast(bool isHighContrast) {\n    if (isHighContrast) {\n        objectRenderer.material = highContrastMaterial;\n    } else {\n        // Retorna ao material original\n    }\n}"
+            }
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "4. Áudio: Mixers por Canal e Limites de Volume",
+          "items": [
+            {
+              "type": "paragraph",
+              "text": "Permita que os jogadores ajustem volumes de diferentes canais (música, efeitos, diálogo) de forma independente. Exponha parâmetros no Audio Mixer e controle-os por script."
+            },
+            {
+              "type": "code",
+              "language": "csharp",
+              "code": "public AudioMixer masterMixer;\n\npublic void SetMusicVolume(float volume) {\n    // 'MusicVolume' deve ser um parâmetro exposto no Audio Mixer\n    // O volume é em dB, então convertemos de um slider (0-1) para uma escala logarítmica\n    masterMixer.SetFloat(\"MusicVolume\", Mathf.Log10(volume) * 20);\n    PlayerPrefs.SetFloat(\"music_volume\", volume);\n}"
+            }
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "5. Dificuldade: Assistências e Modos Graduais",
+          "items": [
+            {
+              "type": "paragraph",
+              "text": "Use ScriptableObjects para criar diferentes presets de dificuldade que podem ser aplicados em tempo de execução, ajustando variáveis como dano do inimigo, tempo de resposta, etc."
+            },
+            {
+              "type": "code",
+              "language": "csharp",
+              "code": "[CreateAssetMenu(fileName = \"DifficultyPreset\", menuName = \"Game/Difficulty Preset\")]\npublic class DifficultyPreset : ScriptableObject {\n    public float enemyDamageMultiplier = 1f;\n    public float playerHealthMultiplier = 1f;\n    public bool aimAssist = false;\n}\n\n// Em outro script, você pode ter uma referência ao preset atual\npublic DifficultyPreset currentDifficulty;\n\nvoid ApplyDifficulty() {\n    float finalDamage = baseDamage * currentDifficulty.enemyDamageMultiplier;\n}"
+            }
+          ]
+        }
       ]
     },
     {
@@ -84,10 +201,42 @@
           "caption": "Materiais e advocacy em acessibilidade."
         },
         {
-          "url": "https://www.playstation.com/pt-br/accessibility/",
-          "title": "Recursos de acessibilidade (Sony)",
-          "caption": "Configurações e cases de first‑party."
+          "url": "https://inclusive.microsoft.design/toolkit",
+          "title": "Microsoft Inclusive Design Toolkit",
+          "caption": "Princípios, guias e ferramentas de design inclusivo."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=29LJ7f3GQ8Q",
+          "title": "Microsoft Inclusive Design 101",
+          "caption": "Vídeo introdutório sobre design inclusivo."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=4n4klxL3cCI",
+          "title": "Xbox Accessibility Guidelines em prática",
+          "caption": "Sessão da Microsoft Game Dev sobre aplicação das diretrizes."
+        },
+        {
+          "url": "https://news.microsoft.com/source/features/in-the-community/how-turn-10-built-forza-horizon-5s-american-sign-language-and-british-sign-language-support/",
+          "title": "Forza Horizon 5 — Suporte a Libras/ASL",
+          "caption": "Estudo de caso de acessibilidade com intérpretes em vídeo."
+        },
+        {
+          "url": "https://www.playstation.com/en-us/games/the-last-of-us-part-ii/accessibility/",
+          "title": "The Last of Us Part II — Recursos de acessibilidade",
+          "caption": "Exemplo completo de configurações acessíveis em AAA."
         }
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Checklist de Autoavaliação Rápida",
+      "items": [
+        "O texto do jogo é legível em diferentes resoluções?",
+        "O jogo pode ser jogado sem som? (Existem alternativas visuais para feedbacks sonoros?)",
+        "As informações importantes são transmitidas por mais de um canal? (Ex: cor + ícone)",
+        "Os controles podem ser remapeados pelo jogador?",
+        "A interface é navegável usando apenas o teclado ou um controle?",
+        "Existe um modo de alto contraste ou opções para daltônicos?"
       ]
     },
     {
@@ -106,17 +255,113 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Implemente a sugestão no protótipo (ou faça um mock funcional) e publique no fórum com evidências (print/vídeo curto) e a diretriz que embasa a decisão."
+          "text": "Implemente a sugestão no protótipo (ou elabore um mock funcional) e registre evidências (print/vídeo curto) relacionando-as com a diretriz que embasa a decisão."
+        },
+        {
+          "type": "paragraph",
+          "text": "Reforce com o time a importância de concluir a atividade para evoluir o projeto com foco em acessibilidade."
         }
       ]
+    },
+    {
+      "type": "component",
+      "component": "Md3BlockDiagram",
+      "props": {
+        "title": "Impacto Sistêmico de uma Feature de Acessibilidade",
+        "summary": "Exemplo de como a funcionalidade de legendas (subtitles) se conecta a diferentes partes do jogo, mostrando que acessibilidade não é um módulo isolado, mas uma responsabilidade compartilhada.",
+        "blocks": [
+          {
+            "id": "audio",
+            "title": "Sistema de Áudio",
+            "summary": "Responsável por tocar os áudios do jogo, incluindo diálogos.",
+            "layer": 1,
+            "kind": "process"
+          },
+          {
+            "id": "events",
+            "title": "Event Bus",
+            "summary": "Canal central que transmite eventos do jogo, como 'diálogo iniciado'.",
+            "layer": 2,
+            "kind": "process"
+          },
+          {
+            "id": "settings",
+            "title": "Configurações do Jogo",
+            "summary": "Armazena as preferências do jogador, como 'legendas ativadas'.",
+            "layer": 2,
+            "kind": "data-store"
+          },
+          {
+            "id": "subtitles",
+            "title": "Gerenciador de Legendas",
+            "summary": "Ouve eventos de diálogo e decide se deve exibir uma legenda.",
+            "layer": 3,
+            "kind": "process"
+          },
+          {
+            "id": "ui",
+            "title": "Sistema de UI",
+            "summary": "Renderiza a interface do usuário, incluindo o texto das legendas.",
+            "layer": 4,
+            "kind": "input-output"
+          }
+        ],
+        "channels": [
+          {
+            "id": "c1",
+            "from": "audio",
+            "to": "events",
+            "description": "Dispara um evento quando um diálogo começa."
+          },
+          {
+            "id": "c2",
+            "from": "events",
+            "to": "subtitles",
+            "description": "Consome o evento de diálogo."
+          },
+          {
+            "id": "c3",
+            "from": "settings",
+            "to": "subtitles",
+            "description": "Consulta se as legendas estão ativadas."
+          },
+          {
+            "id": "c4",
+            "from": "subtitles",
+            "to": "ui",
+            "description": "Envia o texto da legenda para ser exibido."
+          }
+        ],
+        "legend": [
+          {
+            "id": "process",
+            "label": "Processo",
+            "description": "Componentes que executam lógica.",
+            "kind": "process"
+          },
+          {
+            "id": "data",
+            "label": "Dados",
+            "description": "Armazenamento de estado ou configuração.",
+            "kind": "data-store"
+          },
+          {
+            "id": "io",
+            "label": "Entrada/Saída",
+            "description": "Interação com o jogador ou sistemas externos.",
+            "kind": "input-output"
+          }
+        ]
+      }
     },
     {
       "type": "bibliographyBlock",
       "title": "Bibliografia e referências",
       "references": [
-        "SALEN, K.; ZIMMERMAN, E. Regras do jogo. Blucher, 2012.",
-        "Game Accessibility Guidelines: https://www.gameaccessibilityguidelines.com/",
-        "AbleGamers: https://ablegamers.org/"
+        "SALEN, K.; ZIMMERMAN, E. Regras do jogo: fundamentos do design de jogos. São Paulo: Blucher, 2012.",
+        "Game Accessibility Guidelines. Disponível em: https://www.gameaccessibilityguidelines.com/",
+        "AbleGamers. Iniciativas e pesquisas sobre acessibilidade em jogos: https://ablegamers.org/",
+        "DOS SANTOS, Marcelo Henrique. Fundamentos de jogos digitais: game design, game engine e level design. São Paulo: Saraiva, 2021."
       ]
     }
   ],
@@ -126,14 +371,29 @@
   },
   "resources": [
     {
-      "label": "Input System — rebinds",
-      "url": "https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/manual/Rebinding.html",
-      "type": "doc"
+      "label": "Game Accessibility Guidelines",
+      "url": "https://www.gameaccessibilityguidelines.com/",
+      "type": "guide"
     },
     {
-      "label": "Audio Mixer — canais e parâmetros",
-      "url": "https://docs.unity3d.com/Manual/AudioMixer.html",
-      "type": "doc"
+      "label": "AbleGamers – Inclusive Game Design",
+      "url": "https://ablegamers.org/resources/",
+      "type": "article"
+    },
+    {
+      "label": "Microsoft Inclusive Design Toolkit",
+      "url": "https://inclusive.microsoft.design/",
+      "type": "toolkit"
+    },
+    {
+      "label": "Vídeo: Incorporating Accessibility into PVP Multiplayer Games",
+      "url": "https://www.youtube.com/watch?v=YJENwei2MZI",
+      "type": "video"
+    },
+    {
+      "label": "Vídeo: Xbox Adaptive Controller",
+      "url": "https://www.youtube.com/watch?v=9fcK19CAjWM",
+      "type": "video"
     }
   ],
   "competencies": [

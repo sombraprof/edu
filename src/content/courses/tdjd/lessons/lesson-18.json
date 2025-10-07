@@ -1,0 +1,298 @@
+{
+  "id": "lesson-18",
+  "title": "Aula 18: UX/UI em Jogos Digitais",
+  "objective": "Analisar criticamente experiências de UX/UI em jogos e aplicar melhorias concretas a um protótipo em desenvolvimento.",
+  "summary": "Combina revisão de heurísticas e padrões de UI, análise crítica de interfaces de jogos e um sprint de aplicação em protótipos próprios.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "ux-ui-em-jogos-digitais",
+  "duration": 100,
+  "modality": "in-person",
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da Aula",
+      "cards": [
+        {
+          "icon": "book-open",
+          "title": "CONTEÚDO",
+          "content": "Princípios de UX/UI em jogos; heurísticas e feedbacks; HUD e onboarding; aplicação prática no protótipo."
+        },
+        {
+          "icon": "bullseye",
+          "title": "OBJETIVO",
+          "content": "Avaliar criticamente interfaces de jogos e implementar ajustes de UX/UI no protótipo da equipe."
+        },
+        {
+          "icon": "users",
+          "title": "METODOLOGIA",
+          "content": "Aula dialogada, análise crítica colaborativa e sprint de aplicação em protótipo (UX review + hands-on)."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Estrutura da aula (100 minutos)",
+      "steps": [
+        {
+          "title": "Contexto e aquecimento (10 min)",
+          "content": "Relembrar aprendizados de MDA e conectá-los à experiência do usuário na interface do jogo."
+        },
+        {
+          "title": "Referenciais de UX/UI (20 min)",
+          "content": "Apresentar heurísticas específicas para jogos, padrões de HUD e feedbacks responsivos usando trechos dos vídeos do Extra Credits e do Game Maker's Toolkit como exemplos concretos."
+        },
+        {
+          "title": "Análise crítica guiada (25 min)",
+          "content": "Avaliar interfaces de jogos populares em pequenos grupos usando um checklist de UX/UI."
+        },
+        {
+          "title": "Aplicação no protótipo (35 min)",
+          "content": "Equipes priorizam ajustes e implementam melhorias rápidas na UI do próprio projeto."
+        },
+        {
+          "title": "Compartilhamento e próximos passos (10 min)",
+          "content": "Equipes mostram o que mudou, planejam validações com usuários e definem entregáveis da TED."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Material de apoio",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            "Livro: capítulo 16 de 'The Art of Game Design' (Jesse Schell) sobre interface e feedback em jogos.",
+            "Artigo: '10 UX Heuristics for Game UI' (UX Collective) com exemplos de boas práticas e armadilhas comuns.",
+            "Análise guiada: durante a aula, revisitamos trechos dos vídeos destacados no bloco de vídeos para observar soluções práticas.",
+            "Ficha impressa: checklist de heurísticas e estrutura de HUD para anotações rápidas durante os playtests em sala."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Vídeos para aprofundar UX/UI em jogos",
+      "videos": [
+        {
+          "youtubeId": "p7SlpT2GFGs",
+          "title": "An Intro to UI/UX in Games (Creative Assembly)",
+          "description": "Apresenta fundamentos de UX aplicados ao desenvolvimento de jogos AAA."
+        },
+        {
+          "youtubeId": "6Bw0n6Jvwxk",
+          "title": "Heuristic Evaluation of User Interfaces",
+          "description": "Demonstra como aplicar heurísticas clássicas a interfaces digitais."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Kit da aula",
+      "content": "Disponibilize tablets com o protótipo aberto, quadros Kanban impressos para priorizar ajustes e marcadores coloridos para mapear feedbacks em tempo real."
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checklist de UX/UI para jogos",
+      "content": [
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Clareza do objetivo",
+              "text": "O jogador entende rapidamente o que deve fazer a cada tela? Há feedback textual, visual ou sonoro suficiente?"
+            },
+            {
+              "title": "Leitura e hierarquia",
+              "text": "Elementos críticos (vida, energia, objetivos) são fáceis de identificar? Há contraste adequado entre HUD e cenário?"
+            },
+            {
+              "title": "Controles e affordances",
+              "text": "Os elementos interativos parecem clicáveis/tocáveis? O layout respeita padrões do gênero e dispositivos alvo?"
+            },
+            {
+              "title": "Fluxo e onboarding",
+              "text": "O tutorial ou onboarding apresenta as regras no ritmo certo? Há mecanismos para relembrar comandos durante o jogo?"
+            },
+            {
+              "title": "Feedback e estado",
+              "text": "O sistema responde com clareza a cada ação? Mensagens de erro ou sucesso guiam o próximo passo?"
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "tip",
+          "title": "Use na análise crítica",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Distribua o checklist entre os grupos e peça que cada integrante avalie um item, consolidando os achados em um quadro colaborativo."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso em foco",
+      "content": [
+        {
+          "type": "subBlock",
+          "title": "Interface exemplar",
+          "items": [
+            "Analise jogos como Hades ou Overcooked para observar como o HUD comunica informações críticas sem sobrecarregar o jogador.",
+            "Mapeie elementos reutilizáveis (cores para estados, ícones consistentes, animações de feedback) que podem inspirar seu protótipo."
+          ]
+        },
+        {
+          "type": "subBlock",
+          "title": "Problemas recorrentes",
+          "items": [
+            "Identifique falhas comuns: fontes pequenas, ausência de contraste, excesso de texto, feedback tardio.",
+            "Discuta como o gênero e a plataforma impactam as escolhas de UX/UI e quais concessões precisam ser registradas no GDD."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Atividade prática: Sprint de melhoria",
+      "content": [
+        {
+          "type": "unorderedList",
+          "items": [
+            "Selecione duas descobertas da análise crítica para transformar em melhorias imediatas.",
+            "Divida o time entre design (mockups rápidos) e implementação na engine.",
+            "Registre capturas de antes/depois e anote métricas a validar (tempo de leitura, erros evitados, clareza)."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "success",
+          "title": "Critérios de sucesso",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Cada equipe deve sair com pelo menos um ajuste implementado e outro prototipado em baixa fidelidade, prontos para playtest rápido."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Encerramento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Peça que cada equipe compartilhe uma decisão de design tomada e quais evidências vão coletar no próximo playtest."
+        },
+        {
+          "type": "paragraph",
+          "text": "Refaça o link com o framework MDA destacando como ajustes de UI impactam a estética desejada."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "warning",
+      "title": "Dica para o protótipo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Documente as alterações na seção de UX/UI do GDD, incluindo prints, rationale e métricas de validação planejadas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: Relatório de UX/UI aplicado ao protótipo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza um relatório breve (até 2 páginas ou 6 slides) documentando a análise crítica realizada e as melhorias implementadas."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "1. Diagnóstico",
+              "text": "Resuma os principais problemas encontrados com base no checklist da aula. Inclua evidências (prints ou clips)."
+            },
+            {
+              "title": "2. Melhorias aplicadas",
+              "text": "Descreva os ajustes de UI/UX executados, justificando como respondem aos problemas mapeados."
+            },
+            {
+              "title": "3. Próximos testes",
+              "text": "Defina como validarão os resultados (métricas de usabilidade, feedback de jogadores, A/B simples)."
+            }
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "info",
+          "title": "Organização e importância",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Prazo sugerido: até 3 dias após a aula. Garanta que o relatório esteja acessível para todo o time e leve os principais achados para a próxima aula para que possamos evoluir o protótipo."
+            },
+            {
+              "type": "paragraph",
+              "text": "Reforce com a equipe a importância de executar a TED: ela consolida a análise, evidencia a evolução do protótipo e serve de base para futuras validações."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Relatório de UX/UI com evidências e plano de validação (TED)."
+  },
+  "resources": [
+    {
+      "label": "Artigo: 10 UX Heuristics for Game UI",
+      "url": "https://uxdesign.cc/10-ux-heuristics-for-game-ui-2bdf98e65ce3",
+      "type": "article"
+    },
+    {
+      "label": "Creative Assembly – Intro to UI/UX in Games",
+      "url": "https://www.youtube.com/watch?v=p7SlpT2GFGs",
+      "type": "video"
+    },
+    {
+      "label": "Heuristic Evaluation of User Interfaces",
+      "url": "https://www.youtube.com/watch?v=6Bw0n6Jvwxk",
+      "type": "video"
+    },
+    {
+      "label": "Game UI Database",
+      "url": "https://www.gameuidatabase.com/",
+      "type": "reference"
+    },
+    {
+      "label": "Unity UI Toolkit Manual",
+      "url": "https://docs.unity3d.com/Manual/UIToolkit.html",
+      "type": "doc"
+    }
+  ],
+  "competencies": [
+    "10 - Avaliar a qualidade de software e processos.",
+    "14 - Projetar interfaces e especificar requisitos de software."
+  ],
+  "outcomes": [
+    "Aplica heurísticas de UX/UI para diagnosticar interfaces de jogos.",
+    "Implementa melhorias de UI no protótipo e planeja validação com usuários."
+  ],
+  "metadata": {
+    "status": "published",
+    "updatedAt": "2024-10-05T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2"]
+  }
+}

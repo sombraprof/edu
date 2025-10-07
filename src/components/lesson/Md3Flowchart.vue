@@ -13,7 +13,7 @@
       <li
         v-for="(item, index) in nodesWithConnections"
         :key="item.node.id"
-        class="flowchart__step"
+        class="flowchart__step flowchart__item"
         :class="{
           'flowchart__step--first': index === 0,
           'flowchart__step--last': index === nodesWithConnections.length - 1,
@@ -72,7 +72,7 @@
           <div
             v-for="connection in item.connections"
             :key="`${connection.from}->${connection.to}`"
-            class="flowchart__chip"
+            class="flowchart__chip flowchart__connector"
             role="listitem"
             :data-kind="connection.kind ?? 'default'"
           >
@@ -88,7 +88,7 @@
                 />
               </svg>
             </span>
-            <span class="flowchart__chip-text supporting-text">{{
+            <span class="flowchart__chip-text flowchart__connector-label supporting-text">{{
               connectionLabel(connection)
             }}</span>
           </div>

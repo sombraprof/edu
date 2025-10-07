@@ -1,11 +1,33 @@
-import { readonly, ref } from 'vue';
+import { computed, readonly, ref } from 'vue';
 
-const teacherMode = ref(false);
-const ready = ref(false);
+function resolveEnvFlag(value: unknown): boolean {
+  if (typeof value === 'string') {
+    const normalized = value.trim().toLowerCase();
+    if (normalized === '' || normalized === 'false' || normalized === '0' || normalized === 'off') {
+      return false;
+    }
+    if (normalized === 'true') {
+      return true;
+    }
+  }
+  return Boolean(value);
+}
+
+const teacherModeFeatureEnabled = resolveEnvFlag(import.meta.env.VITE_TEACHER_MODE_ENABLED);
+const manualAuthoringEnabled = resolveEnvFlag(import.meta.env.VITE_TEACHER_API_URL);
+const authoringForced = teacherModeFeatureEnabled && manualAuthoringEnabled;
+
+const teacherMode = ref(authoringForced);
+const ready = ref(authoringForced);
 let initialized = false;
 
 function persist(value: boolean) {
-  if (typeof window === 'undefined') {
+  if (
+    authoringForced ||
+    !manualAuthoringEnabled ||
+    !teacherModeFeatureEnabled ||
+    typeof window === 'undefined'
+  ) {
     return;
   }
   try {
@@ -16,12 +38,29 @@ function persist(value: boolean) {
 }
 
 function setTeacherMode(value: boolean) {
+  if (authoringForced) {
+    teacherMode.value = true;
+    ready.value = true;
+    return;
+  }
+
+  if (!manualAuthoringEnabled || !teacherModeFeatureEnabled) {
+    teacherMode.value = false;
+    ready.value = true;
+    return;
+  }
+
   teacherMode.value = value;
   persist(value);
 }
 
 function syncFromQueryString() {
-  if (typeof window === 'undefined') {
+  if (
+    authoringForced ||
+    !manualAuthoringEnabled ||
+    !teacherModeFeatureEnabled ||
+    typeof window === 'undefined'
+  ) {
     return false;
   }
 
@@ -43,7 +82,13 @@ function syncFromQueryString() {
 }
 
 function syncFromStorage() {
-  if (typeof window === 'undefined') {
+  if (
+    authoringForced ||
+    !manualAuthoringEnabled ||
+    !teacherModeFeatureEnabled ||
+    typeof window === 'undefined'
+  ) {
+    ready.value = true;
     return;
   }
   try {
@@ -56,14 +101,41 @@ function syncFromStorage() {
   }
 }
 
+function clearPersistedState() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+  try {
+    window.localStorage.removeItem('teacherMode');
+  } catch (error) {
+    console.warn('[useTeacherMode] Failed to clear teacher mode from storage', error);
+  }
+}
+
 export function useTeacherMode() {
   if (!initialized) {
     initialized = true;
-    const handledByQuery = syncFromQueryString();
-    if (!handledByQuery) {
-      syncFromStorage();
+    if (!authoringForced) {
+      if (!manualAuthoringEnabled || !teacherModeFeatureEnabled) {
+        teacherMode.value = false;
+        ready.value = true;
+        clearPersistedState();
+      } else {
+        const handledByQuery = syncFromQueryString();
+        if (!handledByQuery) {
+          syncFromStorage();
+        }
+      }
+    } else {
+      teacherMode.value = true;
+      ready.value = true;
     }
   }
+
+  const isAuthoringForced = computed(() => authoringForced);
+  const isAuthoringEnabled = computed(
+    () => teacherModeFeatureEnabled && (authoringForced || teacherMode.value)
+  );
 
   return {
     teacherMode: readonly(teacherMode),
@@ -71,5 +143,7 @@ export function useTeacherMode() {
     enableTeacherMode: () => setTeacherMode(true),
     disableTeacherMode: () => setTeacherMode(false),
     toggleTeacherMode: () => setTeacherMode(!teacherMode.value),
+    isAuthoringEnabled,
+    isAuthoringForced,
   } as const;
 }

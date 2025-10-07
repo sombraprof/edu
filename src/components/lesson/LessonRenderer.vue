@@ -3,8 +3,17 @@
     <LessonMetadataSummary v-if="metadataSummary" v-bind="metadataSummary" />
 
     <template v-for="(entry, index) in resolvedBlocks" :key="index">
-      <component v-if="entry.component" :is="entry.component" v-bind="entry.props" />
-      <div v-else class="prose max-w-none text-[var(--md-sys-color-on-surface-variant)]">
+      <component
+        v-if="entry.component"
+        :is="entry.component"
+        v-bind="entry.props"
+        :data-authoring-block="entry.uiKey ?? undefined"
+      />
+      <div
+        v-else
+        class="prose max-w-none text-[var(--md-sys-color-on-surface-variant)]"
+        :data-authoring-block="entry.uiKey ?? undefined"
+      >
         <p>{{ entry.error }}</p>
       </div>
     </template>

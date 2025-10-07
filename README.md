@@ -16,6 +16,26 @@ npm run build
 npm run preview
 ```
 
+## Modo Professor local
+
+O fluxo de edição inline do modo professor precisa do Vite e do serviço auxiliar `teacher:service` rodando juntos.
+
+1. Execute `npm run dev:teacher` em um terminal. O script sobe o Vite e o serviço de automação na porta `4178`, já com o proxy configurado para `VITE_TEACHER_API_URL=/teacher-api`.
+2. Acesse `http://localhost:5173/`. O painel lateral "Editar aula"/"Editar exercício" aparece automaticamente quando o serviço do modo professor estiver ativo.
+3. Abra uma aula ou exercício. O painel exibe metadados, a lista de blocos e o editor contextual do bloco selecionado. As alterações são salvas automaticamente após alguns segundos de inatividade; mensagens como "Salvando alterações…" e "Alterações salvas" confirmam o status.
+
+> ⚠️ O `teacher:service` foi projetado para desenvolvimento local. Não exponha o serviço publicamente sem autenticação via `TEACHER_SERVICE_TOKEN` e VPN/reverse proxy controlados.
+
+### Builds hospedados
+
+Ambientes hospedados não habilitam o modo professor automaticamente. Para disponibilizar o painel de autoria fora do `npm run dev:teacher`, configure as variáveis abaixo durante o build/deploy:
+
+- `VITE_TEACHER_MODE_ENABLED=true`
+- `VITE_TEACHER_API_URL=https://<seu-endereco-do-teacher-service>`
+
+O flag `VITE_TEACHER_MODE_ENABLED` controla a visibilidade do painel e deve ser combinado com um endpoint autenticado do serviço auxiliar (`VITE_TEACHER_API_URL`). Sem ele, o modo professor permanece oculto mesmo que o serviço esteja acessível.
+O atalho `npm run dev:teacher` já exporta `VITE_TEACHER_MODE_ENABLED=true` para reproduzir o fluxo completo em desenvolvimento local.
+
 ## Formatting & Git Hooks
 
 - `npm run format` – applies Prettier to the entire project.
@@ -99,3 +119,4 @@ Before opening a pull request:
 - [ ] Use canonical tokens for `callout.variant` (`info`, `good-practice`, `academic`, `warning`, `task`, `error`) and lesson plan icons (`target`, `bullseye`, `graduation-cap`, `calendar-days`, `users`, etc.).
 - [ ] Confirm that lessons/exercises reference the correct JSON wrapper and appear in `lessons.json` / `exercises.json` indexes.
 - [ ] Update documentation when the architecture or authoring workflow changes.
+- [ ] Para validar o modo professor, execute `npm run dev:teacher`, confirme o autosave do painel (status "Alterações salvas") e mantenha o `teacher:service` restrito ao ambiente local.

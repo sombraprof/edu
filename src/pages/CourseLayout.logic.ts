@@ -12,11 +12,17 @@ interface CourseMeta {
 interface LessonSummary {
   id: string;
   title: string;
+  available?: boolean;
+  file?: string;
+  link?: string;
 }
 
 interface ExerciseSummary {
   id: string;
   title: string;
+  available?: boolean;
+  file?: string;
+  link?: string;
 }
 
 export interface CourseLayoutController {
@@ -58,8 +64,15 @@ export function useCourseLayoutController(
   const exercises = ref<ExerciseSummary[]>([]);
   const metaLoaded = ref(false);
 
-  const lessonsCount = computed(() => lessons.value.length);
-  const exercisesCount = computed(() => exercises.value.length);
+  const lessonsCount = computed(
+    () => lessons.value.filter((lesson) => lesson.available !== false).length
+  );
+  const exercisesCount = computed(
+    () =>
+      exercises.value.filter(
+        (exercise) => exercise.available !== false && Boolean(exercise.file || exercise.link)
+      ).length
+  );
 
   async function loadMeta(id: string) {
     try {
@@ -84,7 +97,13 @@ export function useCourseLayoutController(
       const { entries } = normalizeManifest<LessonSummary>(module, {
         context: `CourseLayout:lessons:${id}`,
       });
-      lessons.value = entries.map((lesson) => ({ id: lesson.id, title: lesson.title }));
+      lessons.value = entries.map((lesson) => ({
+        id: lesson.id,
+        title: lesson.title,
+        available: lesson.available,
+        file: lesson.file,
+        link: lesson.link,
+      }));
     } catch (error) {
       console.error('[CourseLayout] Failed to load lessons.json', error);
       lessons.value = [];
@@ -100,7 +119,13 @@ export function useCourseLayoutController(
       const { entries } = normalizeManifest<ExerciseSummary>(module, {
         context: `CourseLayout:exercises:${id}`,
       });
-      exercises.value = entries.map((exercise) => ({ id: exercise.id, title: exercise.title }));
+      exercises.value = entries.map((exercise) => ({
+        id: exercise.id,
+        title: exercise.title,
+        available: exercise.available,
+        file: exercise.file,
+        link: exercise.link,
+      }));
     } catch (error) {
       exercises.value = [];
     }

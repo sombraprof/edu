@@ -541,6 +541,25 @@ html {
     background-color: var(--md-sys-color-background);
   }
 
+  .md-page--teacher {
+    margin-inline: 0;
+    width: 100%;
+    padding-inline: clamp(0.75rem, 3vw, 2rem);
+    padding-block: clamp(1.75rem, 5vw, 3rem) clamp(2.5rem, 6vw, 4rem);
+    background-color: var(
+      --md-sys-color-surface-container-low,
+      var(--md-sys-color-surface-container, var(--md-sys-color-surface))
+    );
+  }
+
+  .teacher-preview-shell {
+    margin-inline: auto;
+    width: min(100%, var(--md-sys-layout-container-medium, 76rem));
+    display: flex;
+    flex-direction: column;
+    gap: var(--md-sys-spacing-8);
+  }
+
   .md-page--dense {
     gap: var(--md-sys-spacing-8);
   }
@@ -553,6 +572,32 @@ html {
 
   .page-section--roomy {
     gap: var(--md-sys-spacing-10);
+  }
+
+  .layout {
+    display: flex;
+    gap: var(--md-sys-spacing-6);
+    align-items: stretch;
+  }
+
+  .layout--split {
+    flex-direction: column;
+  }
+
+  .layout--split__main {
+    flex: 1 1 auto;
+  }
+
+  .layout--split__aside {
+    flex: 0 0 auto;
+    width: min(100%, 24rem);
+  }
+
+  @media (min-width: 64rem) {
+    .layout--split {
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
 
   .page-breadcrumb {

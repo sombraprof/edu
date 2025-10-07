@@ -5,7 +5,7 @@
   "summary": "Introdução ao MDA e sua aplicação prática na análise e no projeto de experiências desejadas.",
   "formatVersion": "md3.lesson.v1",
   "slug": "framework-mda-design-da-experiencia",
-  "duration": 120,
+  "duration": 100,
   "modality": "in-person",
   "content": [
     {
@@ -25,7 +25,33 @@
         {
           "icon": "users",
           "title": "Metodologia",
-          "content": "Aula teórico‑prática com análise crítica + discussão em grupos."
+          "content": "Aula teórico‑prática com slides guiados, vídeos curtos dos estudos de caso e discussão em grupos preenchendo formulários de análise."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Estrutura da aula (100 minutos)",
+      "steps": [
+        {
+          "title": "Diagnóstico rápido (10 min)",
+          "content": "Alinhamento com o plano da disciplina e retomada dos aprendizados de prototipagem e GDD."
+        },
+        {
+          "title": "Exposição guiada (20 min)",
+          "content": "Apresentação dos pilares do MDA com apoio de slides impressos e quadro colaborativo para registrar exemplos."
+        },
+        {
+          "title": "Análise coletiva (25 min)",
+          "content": "Visualização de trechos de gameplay (Celeste e Journey) e preenchimento do formulário de análise em duplas."
+        },
+        {
+          "title": "Oficina de aplicação (35 min)",
+          "content": "Grupos mapeiam Estética → Dinâmicas → Mecânicas do próprio protótipo usando o template impresso/digital."
+        },
+        {
+          "title": "Compartilhamento e feedback (10 min)",
+          "content": "Grupos apresentam uma síntese do mapa MDA e recebem comentários estruturados da turma."
         }
       ]
     },
@@ -77,6 +103,68 @@
       ]
     },
     {
+      "type": "videosBlock",
+      "title": "Vídeos para contextualizar a experiência do jogador",
+      "videos": [
+        {
+          "youtubeId": "uepAJ-rqJKA",
+          "title": "Aesthetics of Play – Extra Credits",
+          "description": "Conecta objetivos emocionais (Estética) com decisões mecânicas reais."
+        },
+        {
+          "youtubeId": "yorTG9at90g",
+          "title": "Why Does Celeste Feel So Good to Play?",
+          "description": "Estudo de caso sobre como mecânicas refinadas sustentam dinâmicas e estética de superação."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "O Fluxo de Design Orientado pelo MDA",
+      "summary": "O MDA inverte a perspectiva tradicional, começando pela experiência do jogador (Estética) e descendo até as regras (Mecânicas).",
+      "stages": [
+        {
+          "id": "estetica",
+          "title": "1. Estética",
+          "summary": "Qual é a sensação ou emoção que queremos criar? (Ex: desafio, descoberta, fantasia)",
+          "status": "in-progress",
+          "owners": ["Designer"],
+          "deliverables": [
+            {
+              "id": "exp-alvo",
+              "label": "Experiência-alvo definida"
+            }
+          ]
+        },
+        {
+          "id": "dinamicas",
+          "title": "2. Dinâmicas",
+          "summary": "Quais comportamentos e interações do jogador geram essa estética? (Ex: corrida contra o tempo, exploração)",
+          "status": "not-started",
+          "owners": ["Designer", "Programador"],
+          "deliverables": [
+            {
+              "id": "loops",
+              "label": "Loops de gameplay mapeados"
+            }
+          ]
+        },
+        {
+          "id": "mecanicas",
+          "title": "3. Mecânicas",
+          "summary": "Quais regras, componentes e algoritmos implementam essas dinâmicas? (Ex: cronômetro, power-ups, mapa)",
+          "status": "not-started",
+          "owners": ["Programador"],
+          "deliverables": [
+            {
+              "id": "regras",
+              "label": "Regras e sistemas implementados"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "md3Table",
       "title": "Mapa MDA de exemplo",
       "headers": ["Estética", "Dinâmicas desejadas", "Mecânicas de suporte"],
@@ -103,18 +191,65 @@
       "title": "TED: Aplicando MDA ao seu jogo",
       "content": [
         {
-          "type": "orderedList",
+          "type": "paragraph",
+          "text": "Use o protótipo do seu grupo ou um jogo conhecido para fazer a análise. O objetivo é formalizar a relação entre as regras e a experiência."
+        },
+        {
+          "type": "checklist",
+          "title": "Passos da Análise",
           "items": [
-            {
-              "title": "Escolha do jogo",
-              "text": "Use o protótipo do grupo ou um jogo conhecido."
-            },
-            {
-              "title": "Análise MDA",
-              "text": "Em um parágrafo, relacione 2 mecânicas → 2 dinâmicas → 1 estética pretendida, com exemplo observável."
-            },
-            { "title": "Entrega", "text": "Poste no fórum: ‘MDA de [Nome do Jogo]: …’." }
+            "1. Defina a Estética Principal: Qual é a principal emoção ou sensação que o jogo deve despertar? (Ex: Desafio, Fantasia, Narrativa, Descoberta)",
+            "2. Liste as Dinâmicas: Que comportamentos ou padrões de jogo emergem para criar essa estética? (Ex: Corrida contra o tempo, exploração de mapa, gerenciamento de recursos)",
+            "3. Mapeie as Mecânicas: Quais regras, sistemas e ações concretas do jogador suportam essas dinâmicas? (Ex: Cronômetro, sistema de inventário, habilidades de personagem)",
+            "4. Conecte Tudo: Escreva um parágrafo que conecte os três pilares, mostrando como as mecânicas escolhidas levam às dinâmicas que, por sua vez, criam a estética desejada."
           ]
+        },
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Entregável",
+          "content": "Guarde esta análise em um documento na pasta do projeto. Ela será o ponto de partida para justificar as decisões de design e refinar o protótipo nas próximas aulas."
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Materiais presenciais disponíveis",
+      "content": "Slides impressos com definições-chave, fichas de análise MDA em papel e acesso ao formulário digital via QR Code permitem que a turma trabalhe mesmo sem notebook."
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de Caso: Celeste",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Vamos analisar o jogo Celeste usando o framework MDA para entender como seus desenvolvedores criaram uma experiência de desafio recompensadora."
+        },
+        {
+          "type": "md3Table",
+          "title": "Análise MDA de Celeste",
+          "headers": ["Pilar MDA", "Implementação em Celeste"],
+          "rows": [
+            [
+              "Estética",
+              "O jogo foca na estética do Desafio. O jogador deve sentir a superação de obstáculos difíceis, mas justos. Há também uma forte camada de Narrativa sobre ansiedade e autoaceitação."
+            ],
+            [
+              "Dinâmicas",
+              "As dinâmicas que emergem são de aprendizado rápido, tentativa e erro e ritmo preciso. O jogador aprende a dominar os controles e a ler os níveis para avançar."
+            ],
+            [
+              "Mecânicas",
+              "As mecânicas centrais são simples: pulo, escalada e dash. A complexidade vem da combinação dessas mecânicas com o design de nível, como plataformas que se movem, espinhos e ventos."
+            ]
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "good-practice",
+          "title": "Conexão",
+          "content": "As mecânicas simples e responsivas de Celeste permitem que os jogadores experimentem e aprendam rapidamente (Dinâmica), o que torna a superação dos níveis desafiadores (Estética) uma experiência gratificante em vez de frustrante."
         }
       ]
     },
@@ -128,7 +263,10 @@
       ]
     }
   ],
-  "assessment": { "type": "formative", "description": "Matriz MDA do projeto + discussão." },
+  "assessment": {
+    "type": "formative",
+    "description": "Matriz MDA do projeto + discussão."
+  },
   "resources": [
     {
       "label": "Paper MDA (Hunicke et al.)",
@@ -136,9 +274,24 @@
       "type": "paper"
     },
     {
+      "label": "Artigo: Introducing the MDA Framework",
+      "url": "https://www.gamedeveloper.com/design/introducing-the-mda-framework",
+      "type": "article"
+    },
+    {
       "label": "Template colaborativo (Miro)",
       "url": "https://miro.com/templates/mda-framework/",
       "type": "template"
+    },
+    {
+      "label": "Vídeo de apoio: Aesthetics of Play",
+      "url": "https://www.youtube.com/watch?v=uepAJ-rqJKA",
+      "type": "video"
+    },
+    {
+      "label": "Análise prática de Celeste (Game Maker's Toolkit)",
+      "url": "https://www.youtube.com/watch?v=yorTG9at90g",
+      "type": "video"
     }
   ],
   "competencies": [

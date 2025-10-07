@@ -2,6 +2,57 @@
 
 This document explains how to produce new lessons and exercises that integrate seamlessly with the EDU application.
 
+## 0. Authoring with Teacher Mode
+
+### Start the local stack
+
+- Run `npm run dev:teacher` to launch Vite and the automation service (`teacher:service`) with the proxy already pointing to `/teacher-api`.
+- Keep the service bound to `127.0.0.1` unless you configure `TEACHER_SERVICE_TOKEN`, VPN/reverse proxy and the allowlists described in [`automation-backend.md`](professor-module/automation-backend.md). The API is designed for local authoring sessions.
+- Open `http://localhost:5173/`. The **Professor** panel appears automatically when the automation service is reachable (locally or via `VITE_TEACHER_API_URL`).
+
+### Use the block panel
+
+- Open any lesson/exercise. The sidebar "Editar aula"/"Editar exercício" exposes metadata fields, tag/array helpers and the ordered list of blocks rendered by [`LessonAuthoringPanel.vue`](../src/components/lesson/LessonAuthoringPanel.vue).
+- Use the dropdown at the top of the "Blocos de conteúdo" section to insert new blocks. Reorder items with the arrow buttons, remove entries with the trash icon and select **Editar detalhes** to load the contextual form for the chosen block.
+- The **Reverter alterações** button restores the latest snapshot fetched from disk. It becomes available when the panel detects local edits that are still pending.
+- Status chips report "Sem alterações pendentes", "Salvando alterações…" or "Alterações salvas" based on [`useAuthoringSaveTracker`](../src/composables/useAuthoringSaveTracker.ts).
+
+### Autosave workflow
+
+- When you switch lessons/exercises the panel issues `GET /api/teacher/content?path=…` and hydrates the authoring model with the JSON returned by the service (`useTeacherContentEditor`).
+- Every edit is diffed against the last snapshot. After ~800 ms without additional changes the panel sends a `PUT /api/teacher/content` with the updated payload. Success responses surface a toast-style message (`Alterações salvas às HH:MM:SS`). Errors keep the change in the queue until the service recovers.
+- If the service is offline you will see "Serviço de automação não configurado" and the panel remains disabled. Start `npm run dev:teacher` or define `VITE_TEACHER_API_URL` to restore autosave.
+
+### Block type conventions
+
+- Prefer the canonical block types declared in [`supportedBlockTypes`](../src/components/lesson/blockRegistry.ts) – e.g. `lessonPlan`, `flightPlan`, `contentBlock`, `callout`, `cardGrid`, `timeline`, `videos`, `resourceGallery`, `quiz`, `promptTip`.
+- Keep `callout.variant` within the approved list (`info`, `good-practice`, `academic`, `warning`, `task`, `error`). The same enums apply to authoring in the panel and to JSON produced manually.
+- Use `legacySection` only while migrating sanitised HTML. The panel highlights legacy entries so you can plan refactors into MD3-native blocks.
+- The `component` block type allows reusing the custom registry (e.g. `Md3Table`, `InteractiveDemo`, `RubricDisplay`). Set `component` to the key exposed by [`supportedCustomComponents`](../src/components/lesson/blockRegistry.ts) and provide the expected shape inside `props`.
+
+#### Dedicated block editors (teacher panel)
+
+The authoring sidebar now renders specialised forms for the following block types. Every form emulates the data shape produced by [`defaultBlockTemplates`](../src/components/authoring/defaultBlockTemplates.ts) and emits `update:block` automatically when fields change.
+
+| Block type                           | Required fields                               | Authoring notes                                                                                  |
+| ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                             |
+| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                               |
+| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                  |
+| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                      |
+| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.    |
+| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                    |
+| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e o que observar durante a interação.                                    |
+| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos. |
+| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.             |
+| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                              |
+| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                        |
+| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.           |
+
+String lists ignoram entradas em branco e mantêm pelo menos um item vazio para facilitar a digitação. Conteúdos em textarea suportam quebras de linha — não é necessário inserir `\n` manualmente.
+
+> **Blocos ainda no modo genérico:** `scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`. Utilize o botão **Editar JSON** (editor genérico) para esses tipos e mantenha o formato do `defaultBlockTemplates` como referência.
+
 ## 1. High-Level Architecture
 
 - All renderable content lives under `src/content/courses/<courseId>/`.

@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
+import { ref } from 'vue';
 import DefinitionCard from '../DefinitionCard.vue';
 import ComparativeTable from '../ComparativeTable.vue';
 import SystemDiagram from '../SystemDiagram.vue';
@@ -11,6 +12,18 @@ import KnowledgeCheck from '../KnowledgeCheck.vue';
 import InteractiveDemo from '../InteractiveDemo.vue';
 import PedagogicalNote from '../PedagogicalNote.vue';
 import PromptTip from '../PromptTip.vue';
+
+vi.mock('@/composables/useTeacherMode', () => ({
+  useTeacherMode: () => ({
+    teacherMode: ref(true),
+    isTeacherModeReady: ref(true),
+    isAuthoringEnabled: ref(true),
+    isAuthoringForced: ref(false),
+    enableTeacherMode: vi.fn(),
+    disableTeacherMode: vi.fn(),
+    toggleTeacherMode: vi.fn(),
+  }),
+}));
 
 beforeEach(() => {
   window.localStorage.clear();

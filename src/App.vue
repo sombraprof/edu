@@ -2,7 +2,7 @@
   <!-- App root layout -->
   <div class="app-shell">
     <SiteHeader />
-    <main class="md-page">
+    <main :class="pageClass">
       <router-view />
     </main>
     <SiteFooter />
@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 // Root shell with a scroll-to-top action and teacher mode shortcut
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, computed } from 'vue';
 import { ArrowUp } from 'lucide-vue-next';
 import SiteHeader from './components/SiteHeader.vue';
 import SiteFooter from './components/SiteFooter.vue';
@@ -35,7 +35,15 @@ import Md3Button from './components/Md3Button.vue';
 import { useTeacherMode } from './composables/useTeacherMode';
 
 const showScrollTop = ref(false);
-const { teacherMode, enableTeacherMode, toggleTeacherMode } = useTeacherMode();
+const { teacherMode, toggleTeacherMode, isAuthoringForced } = useTeacherMode();
+
+const pageClass = computed(() => ({
+  'md-page': true,
+  'md-page--teacher':
+    Boolean(import.meta.env.DEV) &&
+    Boolean(import.meta.env.VITE_TEACHER_API_URL) &&
+    teacherMode.value,
+}));
 
 function handleScroll() {
   showScrollTop.value = window.scrollY > 320;
@@ -48,6 +56,9 @@ function scrollToTop() {
 function handleTeacherShortcut(event: KeyboardEvent) {
   if (event.ctrlKey && event.altKey && event.key.toLowerCase() === 'p') {
     event.preventDefault();
+    if (isAuthoringForced.value) {
+      return;
+    }
     toggleTeacherMode();
     const message = teacherMode.value ? 'Modo professor ativado.' : 'Modo professor desativado.';
     if (typeof window !== 'undefined' && typeof window.alert === 'function') {
@@ -60,13 +71,6 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true });
   handleScroll();
   window.addEventListener('keydown', handleTeacherShortcut);
-  if (typeof window !== 'undefined') {
-    const params = new URLSearchParams(window.location.search);
-    const teacherParam = params.get('teacher');
-    if (teacherParam === '1' || teacherParam === 'true') {
-      enableTeacherMode();
-    }
-  }
 });
 
 onBeforeUnmount(() => {
