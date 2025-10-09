@@ -21,7 +21,7 @@
       "description": "Guia passo a passo para preparar o Android Studio, emuladores e o primeiro projeto Kotlin.",
       "summary": "Instalação e configuração do Android Studio, SDKs e emuladores para iniciar o desenvolvimento com Kotlin.",
       "tags": ["android-studio", "ambiente", "kotlin"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -65,7 +65,7 @@
       "description": "Consolida o conteúdo inicial com um aplicativo completo de onboarding, do layout ao teste.",
       "summary": "Integração dos fundamentos em um app de boas-vindas completo, reforçando navegação, estado e refinamento visual.",
       "tags": ["projeto", "android", "kotlin"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -76,7 +76,7 @@
       "description": "Mapeia o ciclo de vida das Activities, preservando estado e evitando vazamentos de memória.",
       "summary": "Mapeia os estados da Activity, apresenta estratégias de preservação de estado e introduz componentes Jetpack lifecycle-aware.",
       "tags": ["android", "lifecycle", "jetpack"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -87,7 +87,7 @@
       "description": "Explora Bundles, ViewModel e SavedStateHandle para manter dados entre mudanças de configuração.",
       "summary": "Detalha estratégias para preservar e restaurar dados de interface usando Bundle, onRestoreInstanceState e SavedStateHandle.",
       "tags": ["android", "state", "bundle"],
-      "duration": 105,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -98,7 +98,7 @@
       "description": "Planeja a navegação multi-Activity com Intents explícitas e transferência de dados segura.",
       "summary": "Constrói fluxos de navegação multi-Activity usando Intents explícitas, passando dados e controlando a pilha de telas.",
       "tags": ["android", "intents", "navigation"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -109,7 +109,7 @@
       "description": "Aprofunda o envio de dados com extras, objetos Parcelable e Activity Result API.",
       "summary": "Explora estratégias para enviar diferentes tipos de dados entre Activities, padronizando chaves e validando retornos.",
       "tags": ["android", "intents", "parcelable"],
-      "duration": 105,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -131,7 +131,7 @@
       "description": "Entrega o mini app de contatos consolidando navegação, estado e compartilhamento.",
       "summary": "Integra ciclo de vida, Intents e persistência temporária para construir um mini app de contatos com navegação completa.",
       "tags": ["android", "projeto", "contatos"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -142,25 +142,25 @@
       "description": "Apresenta SharedPreferences como solução de persistência leve, comparando com estado temporário e guiando a implementação de leitura/escrita.",
       "summary": "Explora como persistir preferências e dados leves no Android usando SharedPreferences, comparando vantagens, armadilhas e boas práticas para manter configurações consistentes.",
       "tags": ["android", "persistencia", "shared-preferences"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-14",
       "title": "Aula 14: Unidade III – Introdução ao Room: Entities e DAO",
       "file": "lesson-14.json",
-      "available": false,
+      "available": true,
       "description": "Introduz a biblioteca Room como camada moderna sobre SQLite, destacando entities, DAOs e montagem inicial do banco.",
       "summary": "Apresenta o Room como camada de persistência moderna no Android, guiando a modelagem de entidades e a criação de DAO para operações seguras com banco de dados local.",
       "tags": ["android", "room", "persistencia"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-15",
       "title": "Aula 15: Unidade III – Revisão para NP1 e Checklist de Persistência",
       "file": "lesson-15.json",
-      "available": false,
+      "available": true,
       "description": "Consolida conceitos de persistência local e orienta a preparação para a avaliação NP1 com foco em Room e SharedPreferences.",
       "summary": "Revisa estratégias de persistência, organiza o checklist da NP1 e direciona o trabalho avaliativo com base no app catálogo persistido.",
       "tags": ["android", "room", "shared-preferences", "avaliacao"],
@@ -171,22 +171,22 @@
       "id": "lesson-16",
       "title": "Aula 16: Unidade III – Estruturando o RoomDatabase e Migrações",
       "file": "lesson-16.json",
-      "available": false,
+      "available": true,
       "description": "Aprofunda a implementação da classe RoomDatabase, padrões de instância e migrações para evolução segura do schema.",
       "summary": "Detalha como configurar RoomDatabase, criar migrações e validar persistência com testes instrumentados, preparando a base para um CRUD completo.",
       "tags": ["android", "room", "migracoes", "persistencia"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
       "id": "lesson-17",
       "title": "Aula 17: Unidade III – CRUD com Room (Parte 1)",
       "file": "lesson-17.json",
-      "available": false,
+      "available": true,
       "description": "Implementa operações de criação e leitura usando Room, conectando formulários Kotlin e listagens reativas à base local.",
       "summary": "Constrói o fluxo Create + Read com Room, validando entradas e exibindo dados persistidos em RecyclerView com Flow/LiveData.",
       "tags": ["android", "room", "crud", "persistencia"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -197,7 +197,7 @@
       "description": "Completa o CRUD com operações de atualização e exclusão no Room, enfatizando feedbacks visuais e consistência de dados.",
       "summary": "Finaliza o ciclo CRUD no Room com fluxos de edição e remoção, garantindo UX consistente e testes de manutenção de dados.",
       "tags": ["android", "room", "crud", "persistencia"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -208,7 +208,7 @@
       "description": "Introduz ViewModel e LiveData como camada intermediária entre Room e a UI, garantindo reatividade e sobrevivência a mudanças de configuração.",
       "summary": "Integra Room com ViewModel e LiveData, conectando dados persistidos à interface com observadores reativos e boas práticas de ciclo de vida.",
       "tags": ["android", "viewmodel", "livedata", "persistencia"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -219,7 +219,7 @@
       "description": "Introduz arquitetura REST, contratos JSON e estratégias para lidar com limites de consumo antes de integrar no app.",
       "summary": "Princípios de APIs REST, análise de respostas JSON, planejamento de consumo e mitigação de rate limits.",
       "tags": ["android", "rest", "json", "api"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -230,7 +230,7 @@
       "description": "Configura Retrofit e OkHttp para chamadas síncronas com interceptors, autenticação e tratamento robusto de erros.",
       "summary": "Setup do Retrofit síncrono, interceptors, cabeçalhos dinâmicos e estratégias de tratamento de falhas e limites.",
       "tags": ["android", "retrofit", "okhttp", "api"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -241,7 +241,7 @@
       "description": "Migra o consumo de APIs para corrotinas e Flow, adicionando tratamento reativo e retries alinhados aos limites.",
       "summary": "Refatoração do Retrofit para funções suspensas, exposição com Flow e políticas de retry com backoff controlado.",
       "tags": ["android", "retrofit", "coroutines", "flow"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -252,7 +252,7 @@
       "description": "Integra dados remotos ao RecyclerView com DiffUtil, paginação manual e feedback de estados.",
       "summary": "Lista remota performática com DiffUtil, indicadores de loading, empty e retry respeitando limites da API.",
       "tags": ["android", "recyclerview", "ui", "api"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -263,7 +263,7 @@
       "description": "Prepara o projeto Android para usar Firebase, configurando console, google-services e ambientes seguros.",
       "summary": "Configuração do Firebase, gestão de credenciais, build variants e checklist de segurança inicial.",
       "tags": ["android", "firebase", "setup", "seguranca"],
-      "duration": 110,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -274,7 +274,7 @@
       "description": "Modela dados no Firestore e implementa CRUD seguro com estimativa de limites e custos.",
       "summary": "Coleções Firestore, regras de segurança, listeners reativos e planejamento de limites de leitura e escrita.",
       "tags": ["android", "firebase", "firestore", "nosql"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -285,7 +285,7 @@
       "description": "Implementa fluxos de autenticação com Firebase, segurança reforçada e integração com Firestore.",
       "summary": "Login, cadastro e provedores do Firebase Auth com mitigação de riscos, quotas e UX orientada à segurança.",
       "tags": ["android", "firebase", "authentication", "seguranca"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -307,7 +307,7 @@
       "description": "Compara abordagens nativas, híbridas e multiplataforma para orientar decisões estratégicas do projeto integrador.",
       "summary": "Analisa critérios técnicos, de equipe e de negócio para selecionar a abordagem móvel mais adequada, culminando em matriz de decisão alinhada ao plano de ensino.",
       "tags": ["estrategia", "mobile", "react-native"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -384,7 +384,7 @@
       "description": "Consolida o plano final do projeto integrador, detalhando escopo, riscos e cronograma até a apresentação.",
       "summary": "Planejamento detalhado do projeto integrador com priorização, matriz de riscos e integração ao Moodle.",
       "tags": ["projeto-integrador", "planejamento", "agil"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -395,7 +395,7 @@
       "description": "Acompanha o primeiro ciclo de desenvolvimento com foco em incremento funcional, integração contínua e registros de progresso.",
       "summary": "Entrega de incremento priorizado, revisão técnica e atualização de relatórios do projeto integrador.",
       "tags": ["projeto-integrador", "desenvolvimento", "ciclo-1"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
@@ -406,7 +406,7 @@
       "description": "Foca no segundo ciclo acompanhado, priorizando testes integrados, refinamentos de UX e preparação de métricas para a banca.",
       "summary": "Consolidação de estabilidade, usabilidade e indicadores que embasam a apresentação final.",
       "tags": ["projeto-integrador", "desenvolvimento", "ciclo-2"],
-      "duration": 120,
+      "duration": 100,
       "formatVersion": "md3.lesson.v1"
     },
     {
