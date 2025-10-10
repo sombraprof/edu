@@ -53,6 +53,13 @@
       "url": "https://www.youtube.com/watch?v=fxQ6jF7zpHg",
       "duration": "PT36M27S",
       "studyObjective": "Ver um exemplo completo de hierarquia extensível, com polimorfismo dinâmico aplicado a um caso real."
+    },
+    {
+      "label": "DevDojo Maratona Java – Polimorfismo na prática",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=E9hjYn-D5A0",
+      "duration": "PT25M09S",
+      "studyObjective": "Reforçar o uso de interfaces e classes abstratas em cenários reais de cálculo de imposto e relatórios."
     }
   ],
   "bibliography": [
@@ -135,6 +142,84 @@
           "subtitle": "Generics",
           "tone": "success",
           "content": "Coleções aceitam diferentes tipos mantendo segurança por tipo."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Fluxo mental para escolher o tipo de polimorfismo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Comece avaliando se o comportamento deve variar em tempo de execução. Se sim, use sobrescrita com interfaces ou classes abstratas; se a diferença é apenas na assinatura, sobrecarga é suficiente."
+        },
+        {
+          "type": "paragraph",
+          "text": "Para coleções e APIs genéricas, considere o polimorfismo paramétrico (`List<? extends Pagamento>`), preservando segurança de tipos e flexibilidade."
+        },
+        {
+          "type": "code",
+          "language": "text",
+          "code": "Decisão rápida\n1. A regra muda em runtime? → Sobrescrita + interfaces/abstratas\n2. O método precisa de variações na assinatura? → Sobrecarga\n3. A coleção precisa aceitar múltiplos tipos? → Generics com limites"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Demonstração em código: processando pagamentos",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O exemplo abaixo reduz condicionais usando uma interface `Pagamento`. Cada implementação encapsula sua própria regra de taxa e o serviço depende apenas do contrato."
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "code": "public interface Pagamento {\n    BigDecimal totalComTaxa();\n}\n\npublic class PagamentoCartao implements Pagamento {\n    private final BigDecimal valor;\n\n    public PagamentoCartao(BigDecimal valor) {\n        this.valor = valor;\n    }\n\n    @Override\n    public BigDecimal totalComTaxa() {\n        return valor.multiply(BigDecimal.valueOf(1.035));\n    }\n}\n\npublic class PagamentoPix implements Pagamento {\n    private final BigDecimal valor;\n\n    public PagamentoPix(BigDecimal valor) {\n        this.valor = valor;\n    }\n\n    @Override\n    public BigDecimal totalComTaxa() {\n        return valor;\n    }\n}\n\npublic class ServicoPagamento {\n    public BigDecimal consolidar(List<Pagamento> pagamentos) {\n        return pagamentos.stream()\n            .map(Pagamento::totalComTaxa)\n            .reduce(BigDecimal.ZERO, BigDecimal::add);\n    }\n}"
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Coleções polimórficas em ação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Repare que `ServicoPagamento` recebe `List<Pagamento>` e pode iterar sobre qualquer implementação que siga o contrato. Não é necessário `instanceof`, apenas confiar na mensagem enviada."
+        },
+        {
+          "component": "Callout",
+          "props": {
+            "variant": "info",
+            "title": "Boas práticas",
+            "content": "Prefira declarar coleções com o supertipo (`List<Pagamento>`) e instanciar com classes concretas (`new ArrayList<>()`)."
+          }
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Testes cobrindo comportamento polimórfico",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "JUnit ajuda a provar que diferentes implementações respondem da mesma forma às expectativas do serviço."
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "code": "@Test\nvoid deveSomarPagamentosComTaxasEspecificas() {\n    ServicoPagamento servico = new ServicoPagamento();\n    List<Pagamento> pagamentos = List.of(\n        new PagamentoCartao(new BigDecimal(\"100\")),\n        new PagamentoPix(new BigDecimal(\"200\"))\n    );\n\n    BigDecimal total = servico.consolidar(pagamentos);\n\n    assertEquals(new BigDecimal(\"303.50\"), total);\n}"
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "good-practice",
+      "title": "Conecte com o vídeo da aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Assista ao trecho 12min45s–18min02s do vídeo da Maratona Java para ver o mesmo padrão aplicado na geração de relatórios, reforçando o ciclo: interface → implementação → coleção → teste."
         }
       ]
     },
