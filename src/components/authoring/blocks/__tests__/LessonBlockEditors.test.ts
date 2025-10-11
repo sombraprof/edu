@@ -198,7 +198,7 @@ describe('Lesson block dedicated editors', () => {
       global: { stubs },
     });
 
-    const stepInput = wrapper.findAll('input[type="text"]')[1];
+    const stepInput = wrapper.find('input[placeholder="Kick-off"]');
     await stepInput.setValue('Planejamento');
     await wrapper.vm.$nextTick();
 
@@ -221,7 +221,9 @@ describe('Lesson block dedicated editors', () => {
       global: { stubs },
     });
 
-    const descriptionArea = wrapper.find('textarea');
+    const descriptionArea = wrapper.find(
+      'textarea[placeholder="Explique o objetivo ou ação esperada neste passo"]'
+    );
     await descriptionArea.setValue('Nova descrição do passo.');
     await wrapper.vm.$nextTick();
 
@@ -230,6 +232,33 @@ describe('Lesson block dedicated editors', () => {
     const payload = events?.at(-1)?.[0] as Record<string, unknown>;
     const steps = payload?.steps as Array<Record<string, unknown>>;
     expect(steps?.[0]?.description).toContain('Nova descrição');
+  });
+
+  it('serializa mídia configurada em um passo', async () => {
+    const wrapper = mount(StepperEditor, {
+      props: {
+        block: {
+          type: 'stepper',
+          title: 'Processo',
+          steps: [{ title: 'Imagem' }],
+        },
+      },
+      global: { stubs },
+    });
+
+    await wrapper.find('select').setValue('image');
+    await wrapper.find('input[placeholder="/images/passo-01.png"]').setValue('/img.png');
+    await wrapper.find('input[placeholder="Descrição da imagem"]').setValue('Descrição');
+    await wrapper.find('input[placeholder="Legenda exibida abaixo da imagem"]').setValue('Legenda');
+    await wrapper.vm.$nextTick();
+
+    const events = wrapper.emitted('update:block');
+    expect(events).toBeTruthy();
+    const payload = events?.at(-1)?.[0] as Record<string, any>;
+    const step = payload?.steps?.[0] as Record<string, any>;
+    expect(step?.media?.src).toBe('/img.png');
+    expect(step?.media?.alt).toBe('Descrição');
+    expect(step?.media?.caption).toBe('Legenda');
   });
 
   it('emits update:block when glossary term is ajustado', async () => {

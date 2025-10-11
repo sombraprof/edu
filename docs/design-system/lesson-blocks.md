@@ -136,15 +136,45 @@ Os JSONs gerados têm o formato `{ query, generatedAt, items: ResourceItem[] }` 
 
 Bloco de passos sequenciais com indicadores clicáveis e navegação Anterior/Próximo. Cada passo pode ter descrição em texto, HTML ou um trecho de código.
 
+Cada passo aceita conteúdo textual (`description`, `html`, `code`) e, opcionalmente, mídia enriquecida. A propriedade
+`media` pode apontar para uma imagem única (`src`/`alt`), uma galeria (`images`) ou um vídeo incorporado (`type: "video"`,
+`url`/`src`). Quando necessário, use `caption` para a legenda da mídia e `embed` para HTML seguro adicional (ex.: iframes).
+O componente também pode avançar automaticamente com `autoPlay` e `autoPlayDelay` (em milissegundos).
+
 ```json
 {
   "type": "stepper",
   "title": "Pipeline de implementação",
   "summary": "Siga as etapas na ordem sugerida.",
+  "autoPlay": true,
+  "autoPlayDelay": 6000,
   "steps": [
-    { "title": "Planejamento", "description": "Defina escopo e riscos." },
-    { "title": "Desenvolvimento", "content": "<p>Implemente as funcionalidades centrais.</p>" },
-    { "title": "Teste", "code": "npm test", "language": "bash" }
+    {
+      "title": "Planejamento",
+      "description": "Defina escopo e riscos com a equipe.",
+      "media": {
+        "src": "https://example.com/canvas.png",
+        "alt": "Canvas estratégico preenchido",
+        "caption": "Canvas preenchido durante a oficina de descoberta."
+      }
+    },
+    {
+      "title": "Desenvolvimento",
+      "html": "<p>Implemente as funcionalidades centrais e registre decisões.</p>",
+      "media": {
+        "type": "video",
+        "url": "https://youtu.be/abc123",
+        "title": "Sessão de testes",
+        "caption": "Resumo da rodada de testes com usuários."
+      }
+    },
+    {
+      "title": "Teste",
+      "code": "npm test",
+      "language": "bash",
+      "embed": "<iframe src='https://www.youtube.com/embed/dQw4w9WgXcQ' title='Protótipo interativo' allowfullscreen></iframe>",
+      "caption": "Demonstração interativa para stakeholders."
+    }
   ]
 }
 ```
