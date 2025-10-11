@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { flushPromises, mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import ImageFigure from '../ImageFigure.vue';
 
@@ -29,9 +29,13 @@ describe('ImageFigure', () => {
         src: 'https://example.com/figure.png',
         alt: 'Figura de teste',
         caption: 'Legenda simples',
+        lightbox: true,
       },
       attachTo: document.body,
     });
+
+    await flushPromises();
+    await nextTick();
 
     const trigger = wrapper.find('[data-test="image-figure-trigger"]');
     expect(trigger.exists()).toBe(true);

@@ -8,6 +8,13 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       vuedraggable: fileURLToPath(new URL('./tests/stubs/vuedraggable.ts', import.meta.url)),
+      '@monaco-editor/loader': fileURLToPath(
+        new URL('./tests/stubs/monaco-editor-loader.ts', import.meta.url)
+      ),
+      'monaco-editor/esm/vs/editor/editor.api': fileURLToPath(
+        new URL('./tests/stubs/monaco-editor-api.ts', import.meta.url)
+      ),
+      fabric: fileURLToPath(new URL('./tests/stubs/fabric.ts', import.meta.url)),
     },
   },
   test: {
