@@ -35,22 +35,43 @@ This document explains how to produce new lessons and exercises that integrate s
 
 The authoring sidebar now renders specialised forms for the following block types. Every form emulates the data shape produced by [`defaultBlockTemplates`](../src/components/authoring/defaultBlockTemplates.ts) and emits `update:block` automatically when fields change.
 
-| Block type                           | Required fields                               | Authoring notes                                                                                  |
-| ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                             |
-| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                               |
-| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                  |
-| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                      |
-| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.    |
-| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                    |
-| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e o que observar durante a interação.                                    |
-| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos. |
-| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.             |
-| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                              |
-| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                        |
-| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.           |
+| Block type                           | Required fields                               | Authoring notes                                                                                   |
+| ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                              |
+| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                                |
+| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                   |
+| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                       |
+| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.     |
+| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                     |
+| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e o que observar durante a interação.                                     |
+| `codePlayground`                     | `initialCode`                                 | Forneça um snippet inicial curto e oriente o uso de `print(...)` para registrar saídas no painel. |
+| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos.  |
+| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.              |
+| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                               |
+| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                         |
+| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.            |
 
 String lists ignoram entradas em branco e mantêm pelo menos um item vazio para facilitar a digitação. Conteúdos em textarea suportam quebras de linha — não é necessário inserir `\n` manualmente.
+
+##### Bloco `codePlayground`
+
+- Ideal para demonstrações rápidas em JavaScript ou TypeScript. O editor utiliza o Monaco carregado sob demanda e aplica fallback para `<textarea>` quando o worker não puder ser inicializado.
+- Mantenha o código inicial curto (5–15 linhas) e explique no campo `description` qual comportamento o estudante deve observar ao clicar em **Executar**.
+- Prefira `print(...)` e `console.log(...)` para exibir resultados. O retorno da função também é renderizado no painel de saída.
+
+Exemplo de payload JSON:
+
+```json
+{
+  "type": "codePlayground",
+  "title": "Explorando laços",
+  "description": "Compare os loops while e for imprimindo valores no painel.",
+  "language": "typescript",
+  "initialCode": "for (let i = 1; i <= 3; i++) {\\n  print(`Iteração ${i}`);\\n}\\nprint('Fim.');"
+}
+```
+
+> ⚠️ **Segurança:** o código roda no mesmo contexto da página. Evite expor tokens, manipular DOM diretamente ou acessar APIs externas sensíveis. Limite-se a exemplos determinísticos que não dependam de rede e reforcem conceitos da aula.
 
 > **Blocos ainda no modo genérico:** `scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`. Utilize o botão **Editar JSON** (editor genérico) para esses tipos e mantenha o formato do `defaultBlockTemplates` como referência.
 

@@ -38,6 +38,13 @@ export const defaultBlockTemplates: Readonly<Record<string, LessonBlock>> = Obje
   },
   html: { type: 'html', html: '' },
   code: { type: 'code', language: 'plaintext', code: '' },
+  codePlayground: {
+    type: 'codePlayground',
+    title: 'Experimentando código',
+    description: '',
+    language: 'javascript',
+    initialCode: "const mensagem = 'Olá, playground!';\nprint(mensagem);",
+  },
   videosBlock: {
     type: 'videosBlock',
     title: '',
