@@ -73,6 +73,75 @@ Exemplo de payload JSON:
 
 > ⚠️ **Segurança:** o código roda no mesmo contexto da página. Evite expor tokens, manipular DOM diretamente ou acessar APIs externas sensíveis. Limite-se a exemplos determinísticos que não dependam de rede e reforcem conceitos da aula.
 
+##### Bloco `whiteboard`
+
+- Indicado para replays rápidos de quadros colaborativos exportados de ferramentas como tldraw, Excalidraw ou edições manuais no Fabric. Cada entrada em `snapshots[]` pode apontar para um JSON gerado por `canvas.toJSON()` ou para imagens já renderizadas.
+- Utilize `playback.delayMs` (em milissegundos) para controlar a duração de cada etapa e `playback.loop` quando quiser que o replay reinicie automaticamente. O componente interpreta `commands[]` apenas como cargas completas (`state`) — comandos granulares ainda não são suportados.
+- Ativar `allowOfflineEdit: true` habilita um modo de desenho local. Nada é sincronizado com o servidor; o autor pode exportar o JSON atualizado e colá-lo no conteúdo.
+- Informe `image` ou `snapshots[].image` para garantir um fallback estático quando o Fabric não estiver disponível (modo offline, leitor com JavaScript desativado, etc.).
+- Limitações atuais: sem multiusuário em tempo real, sem suporte a bibliotecas personalizadas do Fabric e sem importação automática de arquivos `.tldr` — converta para JSON antes de anexar.
+
+Exemplo de payload JSON:
+
+```json
+{
+  "type": "whiteboard",
+  "title": "Fluxo de atendimento",
+  "playback": { "delayMs": 1500, "loop": true },
+  "snapshots": [
+    {
+      "label": "Rascunho",
+      "state": {
+        "version": "5.3.0",
+        "objects": [
+          {
+            "type": "rect",
+            "left": 80,
+            "top": 64,
+            "width": 200,
+            "height": 96,
+            "fill": "#E8F0FE",
+            "rx": 12,
+            "ry": 12
+          }
+        ]
+      }
+    },
+    {
+      "label": "Quadro final",
+      "description": "Caixas já conectadas e prontas para captura.",
+      "state": {
+        "version": "5.3.0",
+        "objects": [
+          {
+            "type": "rect",
+            "left": 80,
+            "top": 64,
+            "width": 200,
+            "height": 96,
+            "fill": "#E8F0FE",
+            "rx": 12,
+            "ry": 12
+          },
+          {
+            "type": "textbox",
+            "left": 96,
+            "top": 92,
+            "width": 168,
+            "text": "Iniciar atendimento",
+            "fontSize": 20
+          }
+        ]
+      }
+    }
+  ],
+  "image": {
+    "src": "@/content/courses/demo/media/fluxo-atendimento.png",
+    "alt": "Resumo visual do quadro"
+  }
+}
+```
+
 > **Blocos ainda no modo genérico:** `scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`. Utilize o botão **Editar JSON** (editor genérico) para esses tipos e mantenha o formato do `defaultBlockTemplates` como referência.
 
 #### Bloco `interactiveDemo`

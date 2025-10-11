@@ -233,6 +233,7 @@
         { "$ref": "#/$defs/testGeneratorBlock" },
         { "$ref": "#/$defs/rubricDisplayBlock" },
         { "$ref": "#/$defs/selfAssessmentBlock" },
+        { "$ref": "#/$defs/whiteboardBlock" },
         { "$ref": "#/$defs/dualAssessmentBlock" }
       ]
     },
@@ -250,6 +251,86 @@
         "density": { "type": "number", "exclusiveMinimum": 0 }
       },
       "anyOf": [{ "required": ["src"] }, { "required": ["srcset"] }]
+    },
+    "whiteboardImage": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "src": { "type": "string", "minLength": 1 },
+        "alt": { "type": "string" },
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "required": ["src"]
+    },
+    "whiteboardCommand": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["type"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "delayMs": { "type": "number", "minimum": 0 },
+        "state": { "type": ["object", "string"] },
+        "description": { "type": "string" }
+      }
+    },
+    "whiteboardSnapshot": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "durationMs": { "type": "number", "minimum": 0 },
+        "state": { "type": ["object", "string"] },
+        "json": { "type": ["object", "string"] },
+        "snapshot": { "type": ["object", "string"] },
+        "fabric": { "type": ["object", "string"] },
+        "commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/whiteboardCommand" }
+        },
+        "image": { "$ref": "#/$defs/whiteboardImage" }
+      },
+      "anyOf": [
+        { "required": ["state"] },
+        { "required": ["json"] },
+        { "required": ["snapshot"] },
+        { "required": ["fabric"] },
+        { "required": ["commands"] },
+        { "required": ["image"] }
+      ]
+    },
+    "whiteboardBlock": {
+      "if": {
+        "properties": { "type": { "const": "whiteboard" } }
+      },
+      "then": {
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "height": { "type": "number", "exclusiveMinimum": 0 },
+          "backgroundColor": { "type": "string", "minLength": 1 },
+          "allowOfflineEdit": { "type": "boolean" },
+          "image": { "$ref": "#/$defs/whiteboardImage" },
+          "playback": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "autoplay": { "type": "boolean" },
+              "delayMs": { "type": "number", "minimum": 0 },
+              "loop": { "type": "boolean" }
+            }
+          },
+          "snapshots": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/whiteboardSnapshot" }
+          }
+        },
+        "anyOf": [{ "required": ["snapshots"] }, { "required": ["image"] }]
+      }
     },
     "imageFigureBlock": {
       "if": {
