@@ -250,7 +250,7 @@ const buildRadarOption = () => {
     tooltip: { trigger: 'item' },
     legend: { show: false },
     radar: {
-      indicator: aggregatedSummary.value.map((item, index) => ({
+      indicator: aggregatedSummary.value.map((item) => ({
         name: item.label,
         max: item.weight ?? defaultMax,
       })),
