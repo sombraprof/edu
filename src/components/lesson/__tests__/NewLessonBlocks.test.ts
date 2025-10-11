@@ -156,7 +156,7 @@ describe('New lesson content blocks', () => {
     const wrapper = mount(InteractiveDemo, {
       props: {
         data: {
-          url: 'https://example.com/demo',
+          url: 'https://www.figma.com/file/abc123/Prototype?type=design',
           title: 'Protótipo',
         },
       },
@@ -164,7 +164,25 @@ describe('New lesson content blocks', () => {
 
     const iframe = wrapper.find('iframe');
     expect(iframe.exists()).toBe(true);
-    expect(iframe.attributes('src')).toBe('https://example.com/demo');
+    expect(iframe.attributes('src')).toBe(
+      'https://www.figma.com/embed?embed_host=edu&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fabc123%2FPrototype%3Ftype%3Ddesign&theme=light'
+    );
+  });
+
+  it('renders warning when domain is not supported', () => {
+    const wrapper = mount(InteractiveDemo, {
+      props: {
+        data: {
+          url: 'https://example.com/demo',
+          title: 'Protótipo',
+        },
+      },
+    });
+
+    expect(wrapper.find('iframe').exists()).toBe(false);
+    expect(wrapper.text()).toContain(
+      'O domínio example.com não está na lista de provedores permitidos'
+    );
   });
 
   it('renders PedagogicalNote when teacher mode is enabled', () => {

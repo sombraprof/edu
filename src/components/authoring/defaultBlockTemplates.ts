@@ -38,6 +38,13 @@ export const defaultBlockTemplates: Readonly<Record<string, LessonBlock>> = Obje
   },
   html: { type: 'html', html: '' },
   code: { type: 'code', language: 'plaintext', code: '' },
+  codePlayground: {
+    type: 'codePlayground',
+    title: 'Experimentando código',
+    description: '',
+    language: 'javascript',
+    initialCode: "const mensagem = 'Olá, playground!';\nprint(mensagem);",
+  },
   videosBlock: {
     type: 'videosBlock',
     title: '',
@@ -182,6 +189,16 @@ export const defaultBlockTemplates: Readonly<Record<string, LessonBlock>> = Obje
     url: '',
     description: '',
   },
+  designEmbed: {
+    type: 'designEmbed',
+    title: '',
+    description: '',
+    url: '',
+    provider: 'figma',
+    page: 'embed',
+    theme: 'light',
+    hints: [],
+  },
   pedagogicalNote: {
     type: 'pedagogicalNote',
     title: '',
@@ -195,6 +212,14 @@ export const defaultBlockTemplates: Readonly<Record<string, LessonBlock>> = Obje
     prompt: '',
     tags: [''],
     tips: [''],
+  },
+  imageFigure: {
+    type: 'imageFigure',
+    src: '',
+    alt: '',
+    caption: '',
+    credit: '',
+    images: [],
   },
   codeSubmission: {
     type: 'codeSubmission',

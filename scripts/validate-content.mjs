@@ -59,6 +59,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'quiz',
   'multipleChoice',
   'flashcards',
+  'imageFigure',
   'stepper',
   'tabs',
   'glossary',
@@ -69,6 +70,8 @@ const SUPPORTED_BLOCK_TYPES = [
   'crcCards',
   'apiEndpoints',
   'promptTip',
+  'whiteboard',
+  'interactiveDemo',
 ];
 
 const LEGACY_BLOCK_TYPES = ['dragAndDrop', 'fileTree', 'quiz'];
@@ -101,6 +104,7 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'CRCCards',
   'ApiEndpoints',
   'PromptTip',
+  'WhiteboardBlock',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([
@@ -150,6 +154,17 @@ const ALLOWED_LESSON_PLAN_ICONS = new Set([
 const ALLOWED_INSTITUTIONS = new Set(['Unichristus', 'Unifametro']);
 const MIN_META_DESCRIPTION_LENGTH = 60;
 const MIN_META_TITLE_LENGTH = 8;
+
+const ALLOWED_EMBED_PROVIDERS = new Set([
+  'figma',
+  'miro',
+  'canva',
+  'google-slides',
+  'powerpoint-online',
+]);
+
+const ALLOWED_EMBED_PAGES = new Set(['embed', 'present', 'preview', 'view', 'board']);
+const ALLOWED_EMBED_THEMES = new Set(['light', 'dark', 'auto']);
 
 const blockValidators = {
   html: requireStringField('html', 'Bloco "html" requer o campo "html" com conteúdo.'),
@@ -204,6 +219,9 @@ const blockValidators = {
         'Bloco "contentBlock" requer o array "content" com ao menos um item.'
       );
     }
+  },
+  imageFigure(block, context) {
+    validateImageFigureBlock(block, context);
   },
   videos: validateVideoBlock,
   videosBlock: validateVideoBlock,
@@ -480,6 +498,69 @@ const blockValidators = {
       }
     }
   },
+  interactiveDemo(block, context) {
+    const hasUrl = requireStringField('url', 'Bloco "interactiveDemo" requer o campo "url".')(
+      block,
+      context
+    );
+
+    if (hasUrl && typeof block.url === 'string') {
+      try {
+        new URL(block.url);
+      } catch {
+        pushBlockProblem(context, 'Campo "url" deve ser uma URL válida.');
+      }
+    }
+
+    if (block.height !== undefined && typeof block.height !== 'number') {
+      pushBlockProblem(context, 'Campo "height" deve ser numérico quando presente.');
+    }
+
+    if (block.provider !== undefined) {
+      if (typeof block.provider !== 'string') {
+        pushBlockProblem(context, 'Campo "provider" deve ser uma string quando presente.');
+      } else if (!ALLOWED_EMBED_PROVIDERS.has(block.provider)) {
+        pushBlockProblem(
+          context,
+          `Valor de "provider" inválido ("${block.provider}"). Utilize um dos valores: ${[
+            ...ALLOWED_EMBED_PROVIDERS,
+          ]
+            .map((value) => `"${value}"`)
+            .join(', ')}.`
+        );
+      }
+    }
+
+    if (block.page !== undefined) {
+      if (typeof block.page !== 'string') {
+        pushBlockProblem(context, 'Campo "page" deve ser uma string quando presente.');
+      } else if (!ALLOWED_EMBED_PAGES.has(block.page)) {
+        pushBlockProblem(
+          context,
+          `Valor de "page" inválido ("${block.page}"). Utilize um dos valores: ${[
+            ...ALLOWED_EMBED_PAGES,
+          ]
+            .map((value) => `"${value}"`)
+            .join(', ')}.`
+        );
+      }
+    }
+
+    if (block.theme !== undefined) {
+      if (typeof block.theme !== 'string') {
+        pushBlockProblem(context, 'Campo "theme" deve ser uma string quando presente.');
+      } else if (!ALLOWED_EMBED_THEMES.has(block.theme)) {
+        pushBlockProblem(
+          context,
+          `Valor de "theme" inválido ("${block.theme}"). Utilize um dos valores: ${[
+            ...ALLOWED_EMBED_THEMES,
+          ]
+            .map((value) => `"${value}"`)
+            .join(', ')}.`
+        );
+      }
+    }
+  },
 };
 
 function validateVideoBlock(block, context) {
@@ -533,6 +614,193 @@ function validateAudioBlock(block, context) {
     block,
     context
   );
+}
+
+function validateImageFigureBlock(block, context) {
+  const hasSrc = isNonEmptyString(block.src);
+  const images = normalizeArray(block.images);
+
+  if (!hasSrc && images.length === 0) {
+    pushBlockProblem(
+      context,
+      'Bloco "imageFigure" requer o campo "src" ou pelo menos um item em "images".'
+    );
+  }
+
+  if (block.alt !== undefined && typeof block.alt !== 'string') {
+    pushBlockProblem(
+      context,
+      'Campo "alt" do bloco "imageFigure" deve ser uma string quando presente.'
+    );
+  }
+
+  if (block.caption !== undefined && typeof block.caption !== 'string') {
+    pushBlockProblem(
+      context,
+      'Campo "caption" do bloco "imageFigure" deve ser uma string quando presente.'
+    );
+  }
+
+  if (block.credit !== undefined && typeof block.credit !== 'string') {
+    pushBlockProblem(
+      context,
+      'Campo "credit" do bloco "imageFigure" deve ser uma string quando presente.'
+    );
+  }
+
+  if (block.srcset !== undefined && !isNonEmptyString(block.srcset)) {
+    pushBlockProblem(
+      context,
+      'Campo "srcset" do bloco "imageFigure" deve ser uma string não vazia.'
+    );
+  }
+
+  if (block.sizes !== undefined && typeof block.sizes !== 'string') {
+    pushBlockProblem(
+      context,
+      'Campo "sizes" do bloco "imageFigure" deve ser uma string quando presente.'
+    );
+  }
+
+  if (block.lightbox !== undefined && typeof block.lightbox !== 'boolean') {
+    pushBlockProblem(
+      context,
+      'Campo "lightbox" do bloco "imageFigure" deve ser booleano quando presente.'
+    );
+  }
+
+  validateImageSources(block.sources, 'sources', context);
+
+  images.forEach((entry, index) => {
+    if (!isPlainObject(entry)) {
+      pushBlockProblem(
+        context,
+        `Entrada images[${index}] do bloco "imageFigure" deve ser um objeto com "src" ou "srcset".`
+      );
+      return;
+    }
+
+    const entryHasSrc = isNonEmptyString(entry.src);
+    const entryHasSrcset = isNonEmptyString(entry.srcset);
+    const entrySources = normalizeArray(entry.sources);
+
+    if (!entryHasSrc && !entryHasSrcset && entrySources.length === 0) {
+      pushBlockProblem(
+        context,
+        `Entrada images[${index}] requer "src", "srcset" ou "sources" com pelo menos uma fonte.`
+      );
+    }
+
+    if (entry.alt !== undefined && typeof entry.alt !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "images[${index}].alt" deve ser uma string quando presente.`
+      );
+    }
+
+    if (entry.caption !== undefined && typeof entry.caption !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "images[${index}].caption" deve ser uma string quando presente.`
+      );
+    }
+
+    if (entry.credit !== undefined && typeof entry.credit !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "images[${index}].credit" deve ser uma string quando presente.`
+      );
+    }
+
+    if (entry.lightbox !== undefined && typeof entry.lightbox !== 'boolean') {
+      pushBlockProblem(
+        context,
+        `Campo "images[${index}].lightbox" deve ser booleano quando presente.`
+      );
+    }
+
+    if (entry.sizes !== undefined && typeof entry.sizes !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "images[${index}].sizes" deve ser uma string quando presente.`
+      );
+    }
+
+    validateImageSources(entrySources, `images[${index}].sources`, context);
+  });
+}
+
+function validateImageSources(value, pathLabel, context) {
+  const sources = normalizeArray(value);
+  sources.forEach((source, index) => {
+    if (!isPlainObject(source)) {
+      pushBlockProblem(
+        context,
+        `Entrada ${pathLabel}[${index}] deve ser um objeto com "src" ou "srcset".`
+      );
+      return;
+    }
+
+    const hasSrc = isNonEmptyString(source.src);
+    const hasSrcset = isNonEmptyString(source.srcset);
+
+    if (!hasSrc && !hasSrcset) {
+      pushBlockProblem(
+        context,
+        `Entrada ${pathLabel}[${index}] requer o campo "src" ou "srcset" com conteúdo.`
+      );
+    }
+
+    if (source.type !== undefined && typeof source.type !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "${pathLabel}[${index}].type" deve ser uma string quando presente.`
+      );
+    }
+
+    if (source.media !== undefined && typeof source.media !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "${pathLabel}[${index}].media" deve ser uma string quando presente.`
+      );
+    }
+
+    if (source.sizes !== undefined && typeof source.sizes !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "${pathLabel}[${index}].sizes" deve ser uma string quando presente.`
+      );
+    }
+
+    if (source.descriptor !== undefined && typeof source.descriptor !== 'string') {
+      pushBlockProblem(
+        context,
+        `Campo "${pathLabel}[${index}].descriptor" deve ser uma string quando presente.`
+      );
+    }
+
+    if (source.width !== undefined) {
+      if (typeof source.width !== 'number' || !Number.isFinite(source.width) || source.width <= 0) {
+        pushBlockProblem(
+          context,
+          `Campo "${pathLabel}[${index}].width" deve ser um número maior que zero quando presente.`
+        );
+      }
+    }
+
+    if (source.density !== undefined) {
+      if (
+        typeof source.density !== 'number' ||
+        !Number.isFinite(source.density) ||
+        source.density <= 0
+      ) {
+        pushBlockProblem(
+          context,
+          `Campo "${pathLabel}[${index}].density" deve ser um número maior que zero quando presente.`
+        );
+      }
+    }
+  });
 }
 
 function requireStringField(fieldName, errorMessage) {

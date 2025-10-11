@@ -1,5 +1,6 @@
 import { defineConfig, type PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { imagetools } from 'vite-imagetools';
 import path from 'path';
 import { mkdir, writeFile } from 'fs/promises';
 import { createHash } from 'crypto';
@@ -151,16 +152,29 @@ function serviceWorkerPlugin(base: string): PluginOption {
         '});',
         "self.addEventListener('activate', (event) => {",
         '  event.waitUntil(',
-        '    caches',
-        '      .keys()',
-        '      .then((keys) =>',
-        '        Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))',
-        '      )',
-        '      .then(() => self.clients.claim())',
+        '    (async () => {',
+        '      const keys = await caches.keys();',
+        '      await Promise.all(',
+        '        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))',
+        '      );',
+        '      const cache = await caches.open(CACHE_NAME);',
+        '      const requests = await cache.keys();',
+        '      await Promise.all(',
+        '        requests',
+        "          .filter((request) => new URL(request.url).pathname.endsWith('service-worker.js'))",
+        '          .map((request) => cache.delete(request))',
+        '      );',
+        '      await self.clients.claim();',
+        '    })()',
         '  );',
         '});',
         "self.addEventListener('fetch', (event) => {",
         '  const { request } = event;',
+        '  const url = new URL(request.url);',
+        "  if (url.pathname.endsWith('service-worker.js')) {",
+        '    event.respondWith(fetch(request));',
+        '    return;',
+        '  }',
         "  if (request.method !== 'GET') {",
         '    return;',
         '  }',
@@ -181,7 +195,6 @@ function serviceWorkerPlugin(base: string): PluginOption {
         '    );',
         '    return;',
         '  }',
-        '  const url = new URL(request.url);',
         '  if (url.origin === self.location.origin) {',
         '    event.respondWith(',
         '      (async () => {',
@@ -212,11 +225,14 @@ export default defineConfig(({ command }) => {
 
   return {
     base,
-    plugins: [materialBasePalettePlugin(), vue(), serviceWorkerPlugin(base)],
+    plugins: [materialBasePalettePlugin(), imagetools(), vue(), serviceWorkerPlugin(base)],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
       },
+    },
+    optimizeDeps: {
+      exclude: ['@monaco-editor/loader', 'monaco-editor', 'sucrase', 'fabric'],
     },
     build: {
       chunkSizeWarningLimit: 1500,
@@ -227,6 +243,8 @@ export default defineConfig(({ command }) => {
             head: ['@vueuse/head'],
             prism: ['prismjs'],
             icons: ['lucide-vue-next'],
+            'code-playground': ['@monaco-editor/loader', 'monaco-editor', 'sucrase'],
+            whiteboard: ['fabric'],
           },
         },
       },
@@ -244,5 +262,6 @@ export default defineConfig(({ command }) => {
     preview: {
       base: '/edu/',
     },
+    assetsInclude: ['**/*.avif', '**/*.heic', '**/*.heif', '**/*.webp'],
   };
 });

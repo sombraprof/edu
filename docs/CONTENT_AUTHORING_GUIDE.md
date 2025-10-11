@@ -26,6 +26,7 @@ This document explains how to produce new lessons and exercises that integrate s
 ### Block type conventions
 
 - Prefer the canonical block types declared in [`supportedBlockTypes`](../src/components/lesson/blockRegistry.ts) – e.g. `lessonPlan`, `flightPlan`, `contentBlock`, `callout`, `cardGrid`, `timeline`, `videos`, `resourceGallery`, `quiz`, `promptTip`.
+- Utilize `imageFigure` para imagens com zoom/lightbox. Defina `src`/`alt` quando houver apenas uma figura, `credit` para citar a fonte e `lightbox: false` quando quiser desativar o zoom. Referencie arquivos locais (`@/content/...` ou `@/assets/...`) para que o build gere automaticamente variantes responsivas; use `images[]` (galerias) ou `sources[]` para declarar variações personalizadas. Caminhos apontando para `public/` continuam funcionando, mas sem geração automática de `srcset`.
 - Keep `callout.variant` within the approved list (`info`, `good-practice`, `academic`, `warning`, `task`, `error`). The same enums apply to authoring in the panel and to JSON produced manually.
 - Use `legacySection` only while migrating sanitised HTML. The panel highlights legacy entries so you can plan refactors into MD3-native blocks.
 - The `component` block type allows reusing the custom registry (e.g. `Md3Table`, `InteractiveDemo`, `RubricDisplay`). Set `component` to the key exposed by [`supportedCustomComponents`](../src/components/lesson/blockRegistry.ts) and provide the expected shape inside `props`.
@@ -34,24 +35,131 @@ This document explains how to produce new lessons and exercises that integrate s
 
 The authoring sidebar now renders specialised forms for the following block types. Every form emulates the data shape produced by [`defaultBlockTemplates`](../src/components/authoring/defaultBlockTemplates.ts) and emits `update:block` automatically when fields change.
 
-| Block type                           | Required fields                               | Authoring notes                                                                                  |
-| ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                             |
-| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                               |
-| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                  |
-| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                      |
-| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.    |
-| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                    |
-| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e o que observar durante a interação.                                    |
-| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos. |
-| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.             |
-| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                              |
-| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                        |
-| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.           |
+| Block type                           | Required fields                               | Authoring notes                                                                                                                                                  |
+| ------------------------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                                                                                             |
+| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                                                                                               |
+| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                                                                                  |
+| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                                                                                      |
+| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.                                                                    |
+| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                                                                                    |
+| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e como o estudante deve explorar a demo. Utilize os campos opcionais `provider`, `page`, `theme` para ajustar o embed quando necessário. |
+| `codePlayground`                     | `initialCode`                                 | Forneça um snippet inicial curto e oriente o uso de `print(...)` para registrar saídas no painel.                                                                |
+| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos.                                                                 |
+| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.                                                                             |
+| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                                                                                              |
+| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                                                                                        |
+| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.                                                                           |
 
 String lists ignoram entradas em branco e mantêm pelo menos um item vazio para facilitar a digitação. Conteúdos em textarea suportam quebras de linha — não é necessário inserir `\n` manualmente.
 
+##### Bloco `codePlayground`
+
+- Ideal para demonstrações rápidas em JavaScript ou TypeScript. O editor utiliza o Monaco carregado sob demanda e aplica fallback para `<textarea>` quando o worker não puder ser inicializado.
+- Mantenha o código inicial curto (5–15 linhas) e explique no campo `description` qual comportamento o estudante deve observar ao clicar em **Executar**.
+- Prefira `print(...)` e `console.log(...)` para exibir resultados. O retorno da função também é renderizado no painel de saída.
+
+Exemplo de payload JSON:
+
+```json
+{
+  "type": "codePlayground",
+  "title": "Explorando laços",
+  "description": "Compare os loops while e for imprimindo valores no painel.",
+  "language": "typescript",
+  "initialCode": "for (let i = 1; i <= 3; i++) {\\n  print(`Iteração ${i}`);\\n}\\nprint('Fim.');"
+}
+```
+
+> ⚠️ **Segurança:** o código roda no mesmo contexto da página. Evite expor tokens, manipular DOM diretamente ou acessar APIs externas sensíveis. Limite-se a exemplos determinísticos que não dependam de rede e reforcem conceitos da aula.
+
+##### Bloco `whiteboard`
+
+- Indicado para replays rápidos de quadros colaborativos exportados de ferramentas como tldraw, Excalidraw ou edições manuais no Fabric. Cada entrada em `snapshots[]` pode apontar para um JSON gerado por `canvas.toJSON()` ou para imagens já renderizadas.
+- Utilize `playback.delayMs` (em milissegundos) para controlar a duração de cada etapa e `playback.loop` quando quiser que o replay reinicie automaticamente. O componente interpreta `commands[]` apenas como cargas completas (`state`) — comandos granulares ainda não são suportados.
+- Ativar `allowOfflineEdit: true` habilita um modo de desenho local. Nada é sincronizado com o servidor; o autor pode exportar o JSON atualizado e colá-lo no conteúdo.
+- Informe `image` ou `snapshots[].image` para garantir um fallback estático quando o Fabric não estiver disponível (modo offline, leitor com JavaScript desativado, etc.).
+- Limitações atuais: sem multiusuário em tempo real, sem suporte a bibliotecas personalizadas do Fabric e sem importação automática de arquivos `.tldr` — converta para JSON antes de anexar.
+
+Exemplo de payload JSON:
+
+```json
+{
+  "type": "whiteboard",
+  "title": "Fluxo de atendimento",
+  "playback": { "delayMs": 1500, "loop": true },
+  "snapshots": [
+    {
+      "label": "Rascunho",
+      "state": {
+        "version": "5.3.0",
+        "objects": [
+          {
+            "type": "rect",
+            "left": 80,
+            "top": 64,
+            "width": 200,
+            "height": 96,
+            "fill": "#E8F0FE",
+            "rx": 12,
+            "ry": 12
+          }
+        ]
+      }
+    },
+    {
+      "label": "Quadro final",
+      "description": "Caixas já conectadas e prontas para captura.",
+      "state": {
+        "version": "5.3.0",
+        "objects": [
+          {
+            "type": "rect",
+            "left": 80,
+            "top": 64,
+            "width": 200,
+            "height": 96,
+            "fill": "#E8F0FE",
+            "rx": 12,
+            "ry": 12
+          },
+          {
+            "type": "textbox",
+            "left": 96,
+            "top": 92,
+            "width": 168,
+            "text": "Iniciar atendimento",
+            "fontSize": 20
+          }
+        ]
+      }
+    }
+  ],
+  "image": {
+    "src": "@/content/courses/demo/media/fluxo-atendimento.png",
+    "alt": "Resumo visual do quadro"
+  }
+}
+```
+
 > **Blocos ainda no modo genérico:** `scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`. Utilize o botão **Editar JSON** (editor genérico) para esses tipos e mantenha o formato do `defaultBlockTemplates` como referência.
+
+#### Bloco `interactiveDemo`
+
+- `provider` (opcional) identifica o serviço do embed e aceita apenas os valores descritos na tabela abaixo. A detecção automática pelo domínio continua funcionando; utilize o campo quando precisar documentar o provedor explicitamente.
+- `page` controla o modo de visualização (por exemplo, `embed` ou `present`). Quando omitido, aplicamos o preset recomendado para cada serviço.
+- `theme` alterna entre os temas disponibilizados pelo provedor (quando houver suporte).
+- URLs fora da lista de domínios aprovados exibem um aviso e o iframe deixa de ser renderizado – mantenha os compartilhamentos públicos.
+
+| Provedor            | Domínios aceitos                  | Altura padrão | Modos suportados              | Temas disponíveis | Observações                                                                    |
+| ------------------- | --------------------------------- | ------------- | ----------------------------- | ----------------- | ------------------------------------------------------------------------------ |
+| `figma`             | `figma.com`, `www.figma.com`      | 720 px        | `embed`, `present`            | `light`, `dark`   | O link é encapsulado em `https://www.figma.com/embed?embed_host=edu&url=…`.    |
+| `miro`              | `miro.com`, `www.miro.com`        | 768 px        | `board`                       | —                 | Habilitamos `?embed=1` para manter o iframe no modo colaborativo.              |
+| `canva`             | `canva.com`, `www.canva.com`      | 720 px        | `view`, `present`             | —                 | O preset `view` adiciona `?embed=1`; altere para `present` para exibir slides. |
+| `google-slides`     | `docs.google.com`                 | 540 px        | `embed`, `present`, `preview` | —                 | Reescrevemos o caminho para `/presentation/d/<id>/<modo>` automaticamente.     |
+| `powerpoint-online` | `onedrive.live.com`, `office.com` | 540 px        | `embed`                       | —                 | Forçamos `em=2` quando o parâmetro não estiver presente na URL.                |
+
+> 💡 Combine `height` com os presets acima somente quando a demo exigir uma área diferente da padrão do provedor.
 
 ## 1. High-Level Architecture
 
@@ -64,6 +172,15 @@ String lists ignoram entradas em branco e mantêm pelo menos um item vazio para 
 - In `exercises.json`, keep the `link` prefix as `courses/<courseId>/exercises/...` (ou URL absoluta) e reutilize o mesmo slug para o `id`, `.vue` wrapper e `.json` payload.
 - `supplements.json` (opcional) lista materiais extras (`{ id, title, type, description?, file?/link?, available?, metadata }`). Use `type` ∈ `reading | lab | project | slide | video | reference`.
 - Vue pages (`LessonView.vue`, `ExerciseView.vue`, `CourseHome.vue`) dynamically import these indexes and render the JSON blocks.
+
+### Imagens responsivas e créditos
+
+- Salve a imagem base no próprio diretório de conteúdo (`src/content/courses/<curso>/media/...`) ou em `src/assets/media`. Use nomes descritivos e mantenha a versão em alta qualidade (a pipeline gera recortes menores automaticamente). Imagens em `public/` continuam válidas, porém são entregues apenas na resolução original.
+- Ao preencher um bloco `imageFigure`, aponte `src` para o caminho do arquivo local (`"public/media/figura.jpg"` ou `"@/content/courses/algi/media/figura.png"`). Durante o build o plugin [`vite-imagetools`](https://github.com/JonasKruckenberg/imagetools) cria `srcset` em AVIF/WEBP e mantém um fallback no formato original.
+- Use `credit` para informar autoria/licença (texto simples ou com marcação HTML sanitizada) e `caption` para contextualizar a imagem. Ambos aparecem no `<figcaption>` e são reutilizados na lightbox.
+- Defina `lightbox: false` caso a imagem não deva abrir em modal (por exemplo, infográficos com muito texto). Em galerias (`images[]`), o campo pode ser aplicado individualmente.
+- Quando precisar controlar manualmente as fontes (`<source>`), informe `sources[]` com objetos `{ srcset, type?, media?, sizes?, descriptor?, width?, density? }`. Também é possível gerar pares específicos informando `src` + `width`/`density` — o utilitário monta o `srcset` final preservando caminhos relativos.
+- Após editar imagens, rode `npm run validate:content` para garantir que os novos campos (`credit`, `lightbox`, `sources`) passaram pelas validações de esquema.
 
 ### Metadados do curso (`meta.json`)
 
@@ -81,6 +198,7 @@ String lists ignoram entradas em branco e mantêm pelo menos um item vazio para 
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- | ----------------- | ------------------------------------------------------- |
 | `lessonPlan`        | High level plan with hero cards (object must match the existing AlgI schema). Icons must use the canonical tokens (`bullseye`, `target`, `graduation-cap`, `calendar-days`, `users`, etc.). |
 | `contentBlock`      | Rich paragraphs, optional sub-blocks and callouts.                                                                                                                                          |
+| `imageFigure`       | Single image or gallery with optional caption/credit and lightbox zoom. Use `src`/`alt` para imagens simples ou declare `images[]` (`{ src, alt?, caption?, credit? }`).                    |
 | `callout`           | Highlight box with `variant` (`info`, `good-practice`, `academic`, `warning`, `task`, `error`). Use sempre valores em minúsculas e com hífen quando necessário.                             |
 | `flightPlan`        | Ordered list of key items (timeline of the class).                                                                                                                                          |
 | `timeline`          | Step-by-step timeline.                                                                                                                                                                      |

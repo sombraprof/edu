@@ -154,14 +154,11 @@
           v-bind="castMemoryDiagramProps(item)"
         />
 
-        <div v-else-if="item.type === 'image'" class="content-block__figure">
-          <img :src="item.src" :alt="item.alt ?? ''" />
-          <p
-            v-if="item.caption"
-            class="content-block__figure-caption"
-            v-html="sanitizeContent(item.caption)"
-          ></p>
-        </div>
+        <ImageFigure
+          v-else-if="item.type === 'image'"
+          v-bind="normalizeImageFigure(item)"
+          class="content-block__figure"
+        />
 
         <div v-else-if="item.type === 'video'" class="content-block__video">
           <div class="content-block__video-frame">
@@ -213,6 +210,7 @@ import Md3Flowchart from './Md3Flowchart.vue';
 import Md3LogicOperators from './Md3LogicOperators.vue';
 import Md3Table from './Md3Table.vue';
 import MemoryDiagram from './MemoryDiagram.vue';
+import ImageFigure from './ImageFigure.vue';
 import OrderedList from './OrderedList.vue';
 import Roadmap from './Roadmap.vue';
 import Timeline from './Timeline.vue';
@@ -283,6 +281,7 @@ const componentRegistry = {
   LessonPlan,
   ChecklistBlock,
   TruthTable,
+  ImageFigure,
 } as const;
 
 type RegistryKey = keyof typeof componentRegistry;
@@ -396,6 +395,144 @@ function castChecklistData(item: ContentBlockEntry) {
 
 function castMemoryDiagramProps(item: ContentBlockEntry) {
   return item as ComponentProps<typeof MemoryDiagram>;
+}
+
+type ImageFigureProps = ComponentProps<typeof ImageFigure>;
+
+function normalizeImageFigure(item: ContentBlockEntry): ImageFigureProps {
+  const srcValue = typeof item.src === 'string' ? item.src.trim() : '';
+  const srcsetValue = typeof item.srcset === 'string' ? item.srcset.trim() : '';
+  const sizesValue = typeof item.sizes === 'string' ? item.sizes.trim() : '';
+  const altValue = typeof item.alt === 'string' ? item.alt : '';
+  const captionValue = sanitizeOptionalContent(item.caption);
+  const creditValue = sanitizeOptionalContent(item.credit);
+  const lightboxValue = typeof item.lightbox === 'boolean' ? item.lightbox : undefined;
+  const sourcesValue = sanitizeImageSources(item.sources);
+
+  const images = Array.isArray(item.images)
+    ? item.images
+        .map((entry) => {
+          if (!entry || typeof entry !== 'object') {
+            return undefined;
+          }
+
+          const src = typeof (entry as any).src === 'string' ? (entry as any).src.trim() : '';
+          const srcset =
+            typeof (entry as any).srcset === 'string' ? (entry as any).srcset.trim() : '';
+          const sources = sanitizeImageSources((entry as any).sources);
+          if (!src && !srcset && !sources) {
+            return undefined;
+          }
+
+          const alt = typeof (entry as any).alt === 'string' ? (entry as any).alt : '';
+          const caption = sanitizeOptionalContent((entry as any).caption);
+          const credit = sanitizeOptionalContent((entry as any).credit);
+          const lightbox =
+            typeof (entry as any).lightbox === 'boolean'
+              ? ((entry as any).lightbox as boolean)
+              : undefined;
+          const sizes = typeof (entry as any).sizes === 'string' ? (entry as any).sizes.trim() : '';
+
+          const sanitizedEntry: SanitizedImageEntry = {
+            src: src || undefined,
+            srcset: srcset || undefined,
+            alt: alt || undefined,
+            caption,
+            credit,
+            lightbox,
+            sizes: sizes || undefined,
+            sources,
+          };
+
+          return sanitizedEntry;
+        })
+        .filter((value): value is SanitizedImageEntry => Boolean(value))
+    : [];
+
+  return {
+    src: srcValue || undefined,
+    srcset: srcsetValue || undefined,
+    sizes: sizesValue || undefined,
+    alt: altValue || undefined,
+    caption: captionValue,
+    credit: creditValue,
+    images: images.length ? images : undefined,
+    sources: sourcesValue,
+    lightbox: lightboxValue,
+  };
+}
+
+type SanitizedImageSource = {
+  src?: string;
+  srcset?: string;
+  type?: string;
+  media?: string;
+  sizes?: string;
+  descriptor?: string;
+  width?: number;
+  density?: number;
+};
+
+type SanitizedImageEntry = {
+  src?: string;
+  srcset?: string;
+  alt?: string;
+  caption?: string;
+  credit?: string;
+  lightbox?: boolean;
+  sizes?: string;
+  sources?: SanitizedImageSource[];
+};
+
+function sanitizeImageSources(value: unknown): SanitizedImageSource[] | undefined {
+  if (!Array.isArray(value)) {
+    return undefined;
+  }
+
+  const sanitized = value
+    .map((entry) => {
+      if (!entry || typeof entry !== 'object') {
+        return undefined;
+      }
+
+      const src = typeof (entry as any).src === 'string' ? (entry as any).src.trim() : '';
+      const srcset = typeof (entry as any).srcset === 'string' ? (entry as any).srcset.trim() : '';
+
+      if (!src && !srcset) {
+        return undefined;
+      }
+
+      const result: SanitizedImageSource = {};
+      if (src) {
+        result.src = src;
+      }
+      if (srcset) {
+        result.srcset = srcset;
+      }
+      if (typeof (entry as any).type === 'string') {
+        result.type = (entry as any).type;
+      }
+      if (typeof (entry as any).media === 'string') {
+        result.media = (entry as any).media;
+      }
+      if (typeof (entry as any).sizes === 'string') {
+        result.sizes = (entry as any).sizes;
+      }
+      if (typeof (entry as any).descriptor === 'string') {
+        result.descriptor = (entry as any).descriptor;
+      }
+      if (typeof (entry as any).width === 'number' && Number.isFinite((entry as any).width)) {
+        result.width = (entry as any).width;
+      }
+      if (typeof (entry as any).density === 'number' && Number.isFinite((entry as any).density)) {
+        result.density = (entry as any).density;
+      }
+
+      return result;
+    })
+    .filter((entry): entry is SanitizedImageSource => Boolean(entry));
+
+  return sanitized.length ? sanitized : undefined;
 }
 
 function shouldUsePlainText(language?: string): boolean {
@@ -790,6 +927,14 @@ function normalizeTableRows(rows: unknown): TableCell[][] {
       return cells.length ? cells : undefined;
     })
     .filter((row): row is TableCell[] => Boolean(row));
+}
+
+function sanitizeOptionalContent(value: unknown): string | undefined {
+  if (typeof value !== 'string' || value.trim().length === 0) {
+    return undefined;
+  }
+  const sanitized = sanitizeContent(value);
+  return sanitized.trim().length ? sanitized : undefined;
 }
 
 function normalizeTruthTableHeaders(headers: unknown): any[] {
