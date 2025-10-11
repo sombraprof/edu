@@ -340,11 +340,29 @@ export interface RubricCriterion {
   levels: RubricLevelDescriptor[];
 }
 
+export interface RubricAggregatedScore {
+  criterion?: string;
+  value: number;
+}
+
+export interface RubricLevelDistributionRow {
+  level: string;
+  values: number[];
+}
+
+export interface RubricAggregatedData {
+  chart?: 'auto' | 'radar' | 'heatmap';
+  scores: Array<number | RubricAggregatedScore>;
+  weights?: number[];
+  levelDistribution?: RubricLevelDistributionRow[];
+}
+
 export interface RubricDisplayBlock extends LessonBlock {
   type: 'rubricDisplay';
   criteria: RubricCriterion[];
   title?: string;
   description?: string;
+  aggregated?: RubricAggregatedData;
 }
 
 export interface SelfAssessmentPrompt {
