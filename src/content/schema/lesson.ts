@@ -236,6 +236,10 @@ export interface ConceptMapperNode {
   label: string;
   category?: string;
   details?: string;
+  position?: {
+    x: number;
+    y: number;
+  };
 }
 
 export interface ConceptMapperRelationship {
@@ -244,12 +248,22 @@ export interface ConceptMapperRelationship {
   label?: string;
 }
 
+export interface ConceptMapperLayoutOptions {
+  type?: 'auto' | 'preset';
+  force?: {
+    linkDistance?: number;
+    chargeStrength?: number;
+    collisionRadius?: number;
+  };
+}
+
 export interface ConceptMapperBlock extends LessonBlock {
   type: 'conceptMapper';
   nodes: ConceptMapperNode[];
   description?: string;
   title?: string;
   relationships?: ConceptMapperRelationship[];
+  layout?: ConceptMapperLayoutOptions;
 }
 
 export interface BugFixChallengeBlock extends LessonBlock {

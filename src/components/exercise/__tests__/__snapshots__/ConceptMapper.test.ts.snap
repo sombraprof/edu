@@ -1,0 +1,67 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ConceptMapper > gera snapshot com layout predefinido 1`] = `
+"<article data-v-6060b058="" class="concept-mapper card md-stack md-stack-4">
+  <header data-v-6060b058="" class="md-stack md-stack-2">
+    <h3 data-v-6060b058="" class="text-title-large font-semibold text-on-surface">Mapa de processos</h3>
+    <!--v-if-->
+  </header>
+  <div data-v-6060b058="" class="concept-mapper__content">
+    <div data-v-6060b058="" class="concept-mapper__grid">
+      <section data-v-6060b058="" class="concept-mapper__column">
+        <header data-v-6060b058="" class="concept-mapper__group-header"><button data-v-6060b058="" type="button" class="concept-mapper__group-toggle text-title-small font-semibold text-on-surface" aria-expanded="true" aria-controls="concept-map-v-0-fluxo"><span data-v-6060b058="" aria-hidden="true">Fluxo</span><span data-v-6060b058="" class="sr-only">Recolher grupo</span><svg data-v-6060b058="" class="concept-mapper__group-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path data-v-6060b058="" fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1"></path>
+            </svg></button></header>
+        <ul data-v-6060b058="" id="concept-map-v-0-fluxo" class="concept-mapper__nodes" role="list">
+          <li data-v-6060b058=""><button data-v-6060b058="" type="button" class="concept-mapper__node text-body-medium text-on-surface" aria-pressed="false" data-node-id="input"><span data-v-6060b058="" class="concept-mapper__node-label">Entrada</span>
+              <!--v-if-->
+            </button></li>
+          <li data-v-6060b058=""><button data-v-6060b058="" type="button" class="concept-mapper__node text-body-medium text-on-surface" aria-pressed="false" data-node-id="process"><span data-v-6060b058="" class="concept-mapper__node-label">Processar</span>
+              <!--v-if-->
+            </button></li>
+        </ul>
+      </section>
+      <section data-v-6060b058="" class="concept-mapper__column">
+        <header data-v-6060b058="" class="concept-mapper__group-header"><button data-v-6060b058="" type="button" class="concept-mapper__group-toggle text-title-small font-semibold text-on-surface" aria-expanded="true" aria-controls="concept-map-v-0-resultados"><span data-v-6060b058="" aria-hidden="true">Resultados</span><span data-v-6060b058="" class="sr-only">Recolher grupo</span><svg data-v-6060b058="" class="concept-mapper__group-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path data-v-6060b058="" fill="currentColor" d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1"></path>
+            </svg></button></header>
+        <ul data-v-6060b058="" id="concept-map-v-0-resultados" class="concept-mapper__nodes" role="list">
+          <li data-v-6060b058=""><button data-v-6060b058="" type="button" class="concept-mapper__node text-body-medium text-on-surface" aria-pressed="false" data-node-id="output"><span data-v-6060b058="" class="concept-mapper__node-label">Saída</span>
+              <!--v-if-->
+            </button></li>
+        </ul>
+      </section>
+    </div>
+    <figure data-v-6060b058="" class="concept-mapper__graph" role="group" aria-labelledby="concept-map-title-v-0" aria-describedby="concept-map-description-v-0">
+      <figcaption data-v-6060b058="" id="concept-map-title-v-0" class="text-title-small font-semibold text-on-surface">Mapa de processos</figcaption>
+      <div data-v-6060b058="" class="concept-mapper__graph-surface"><svg data-v-6060b058="" viewBox="0 0 720 480" role="img" aria-labelledby="concept-map-title-v-0" aria-describedby="concept-map-description-v-0">
+          <title data-v-6060b058="">Mapa de processos</title>
+          <desc data-v-6060b058="">3 conceitos conectados por 2 relações.</desc>
+          <g data-v-6060b058="" class="concept-mapper__graph-links" aria-hidden="true">
+            <line data-v-6060b058="" class="concept-mapper__graph-link" data-link-id="input-process" x1="120" y1="140" x2="320" y2="240"></line>
+            <line data-v-6060b058="" class="concept-mapper__graph-link" data-link-id="process-output" x1="320" y1="240" x2="540" y2="160"></line>
+          </g>
+          <g data-v-6060b058="" class="concept-mapper__graph-nodes">
+            <g data-v-6060b058="" class="concept-mapper__graph-node" role="button" tabindex="0" aria-pressed="false" data-graph-node-id="input">
+              <circle data-v-6060b058="" cx="120" cy="140" r="28"></circle><text data-v-6060b058="" x="120" y="140" dominant-baseline="middle" text-anchor="middle">Entrada</text>
+            </g>
+            <g data-v-6060b058="" class="concept-mapper__graph-node" role="button" tabindex="0" aria-pressed="false" data-graph-node-id="process">
+              <circle data-v-6060b058="" cx="320" cy="240" r="28"></circle><text data-v-6060b058="" x="320" y="240" dominant-baseline="middle" text-anchor="middle">Processar</text>
+            </g>
+            <g data-v-6060b058="" class="concept-mapper__graph-node" role="button" tabindex="0" aria-pressed="false" data-graph-node-id="output">
+              <circle data-v-6060b058="" cx="540" cy="160" r="28"></circle><text data-v-6060b058="" x="540" y="160" dominant-baseline="middle" text-anchor="middle">Saída</text>
+            </g>
+          </g>
+        </svg></div>
+    </figure>
+  </div>
+  <p data-v-6060b058="" id="concept-map-description-v-0" class="sr-only">3 conceitos conectados por 2 relações.</p>
+  <section data-v-6060b058="" class="concept-mapper__relationships" aria-label="Relações">
+    <h4 data-v-6060b058="" class="text-title-small font-semibold text-on-surface">Relações</h4>
+    <ul data-v-6060b058="" class="md-stack md-stack-1" role="list">
+      <li data-v-6060b058="" class="text-body-medium text-on-surface"><span data-v-6060b058="" class="font-semibold">Entrada</span><span data-v-6060b058="" class="text-on-surface-variant"> → </span><span data-v-6060b058="" class="font-semibold">Processar</span><span data-v-6060b058="" class="text-on-surface-variant"> — gera</span></li>
+      <li data-v-6060b058="" class="text-body-medium text-on-surface"><span data-v-6060b058="" class="font-semibold">Processar</span><span data-v-6060b058="" class="text-on-surface-variant"> → </span><span data-v-6060b058="" class="font-semibold">Saída</span><span data-v-6060b058="" class="text-on-surface-variant"> — produz</span></li>
+    </ul>
+  </section>
+</article>"
+`;
