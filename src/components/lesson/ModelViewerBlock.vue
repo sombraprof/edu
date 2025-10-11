@@ -75,7 +75,7 @@ import {
   ref,
   watch,
 } from 'vue';
-import { resolveAssetUrl } from '@/utils/imageAssets';
+import { resolveAsset } from '@/utils/mediaAssets';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 type ZoomConfig = {
@@ -186,7 +186,7 @@ async function resolveOptionalAsset(value: unknown): Promise<string | undefined>
   }
 
   try {
-    const resolved = await resolveAssetUrl(trimmed);
+    const resolved = await resolveAsset(trimmed);
     return resolved || undefined;
   } catch (error) {
     console.warn('Falha ao resolver asset 3D', value, error);
@@ -216,7 +216,7 @@ watch(
     }
 
     try {
-      const resolved = await resolveAssetUrl(value);
+      const resolved = await resolveAsset(value);
       if (requestId !== srcRequestId) {
         return;
       }

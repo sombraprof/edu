@@ -131,7 +131,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { buildSrcSet, resolveAssetUrl, type PictureSource } from '@/utils/imageAssets';
+import { buildSrcSet, resolveAsset, type PictureSource } from '@/utils/mediaAssets';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
 type ImageSourceEntry = {
@@ -295,7 +295,7 @@ async function normalizeImage(entry: ImageEntry | undefined, defaultLightbox: bo
   const lightbox = entry.lightbox === false ? false : defaultLightbox;
 
   const responsive = await buildSrcSet(rawSrc);
-  const resolvedSrc = responsive?.src ?? (await resolveAssetUrl(rawSrc));
+  const resolvedSrc = responsive?.src ?? (await resolveAsset(rawSrc));
   if (!resolvedSrc) {
     return null;
   }
@@ -344,7 +344,7 @@ async function normalizeSources(value: unknown): Promise<PictureSource[]> {
     if (typeof (entry as ImageSourceEntry).srcset === 'string') {
       srcset = await normalizeSrcsetString((entry as ImageSourceEntry).srcset);
     } else if (descriptor && typeof (entry as ImageSourceEntry).src === 'string') {
-      const resolved = await resolveAssetUrl((entry as ImageSourceEntry).src as string);
+      const resolved = await resolveAsset((entry as ImageSourceEntry).src as string);
       srcset = `${resolved} ${descriptor}`;
     }
 
@@ -393,7 +393,7 @@ async function normalizeSrcsetString(value: unknown): Promise<string | undefined
     if (!path) {
       continue;
     }
-    const resolved = await resolveAssetUrl(path);
+    const resolved = await resolveAsset(path);
     normalized.push(descriptor ? `${resolved} ${descriptor}` : resolved);
   }
   return normalized.length ? normalized.join(', ') : undefined;
