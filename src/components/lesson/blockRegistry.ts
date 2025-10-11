@@ -53,6 +53,7 @@ import PromptTip from '@/components/lesson/PromptTip.vue';
 import ImageFigure from '@/components/lesson/ImageFigure.vue';
 import WhiteboardBlock from '@/components/lesson/WhiteboardBlock.vue';
 import DesignEmbed from '@/components/lesson/DesignEmbed.vue';
+import SlideDeck from '@/components/lesson/SlideDeck.vue';
 import CodeSubmission from '@/components/exercise/CodeSubmission.vue';
 import DragAndDrop from '@/components/exercise/DragAndDrop.vue';
 import ConceptMapper from '@/components/exercise/ConceptMapper.vue';
@@ -211,6 +212,7 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   promptTip: dataBlock(PromptTip),
   imageFigure: dataBlock(ImageFigure),
   designEmbed: dataBlock(DesignEmbed),
+  slideDeck: dataBlock(SlideDeck),
   codeSubmission: dataBlock(CodeSubmission),
   dragAndDrop: dataBlock(DragAndDrop),
   conceptMapper: dataBlock(ConceptMapper),

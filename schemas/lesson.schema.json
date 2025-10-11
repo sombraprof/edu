@@ -234,6 +234,7 @@
         { "$ref": "#/$defs/rubricDisplayBlock" },
         { "$ref": "#/$defs/selfAssessmentBlock" },
         { "$ref": "#/$defs/whiteboardBlock" },
+        { "$ref": "#/$defs/slideDeckBlock" },
         { "$ref": "#/$defs/dualAssessmentBlock" }
       ]
     },
@@ -330,6 +331,47 @@
           }
         },
         "anyOf": [{ "required": ["snapshots"] }, { "required": ["image"] }]
+      }
+    },
+    "slideDeckBlock": {
+      "if": {
+        "properties": { "type": { "const": "slideDeck" } }
+      },
+      "then": {
+        "required": ["sourceType"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "sourceType": {
+            "type": "string",
+            "enum": ["external", "reveal", "mdx"]
+          },
+          "url": { "type": "string", "format": "uri" },
+          "slidesPath": { "type": "string", "minLength": 1 },
+          "downloadUrl": { "type": "string", "format": "uri" },
+          "notes": { "type": "string" },
+          "height": { "type": "number", "exclusiveMinimum": 0 },
+          "initialSlide": { "type": "number", "minimum": 1 },
+          "allowOpenInNewTab": { "type": "boolean" }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "sourceType": { "const": "external" }
+              }
+            },
+            "then": { "required": ["url"] }
+          },
+          {
+            "if": {
+              "properties": {
+                "sourceType": { "enum": ["reveal", "mdx"] }
+              }
+            },
+            "then": { "required": ["slidesPath"] }
+          }
+        ]
       }
     },
     "imageFigureBlock": {
