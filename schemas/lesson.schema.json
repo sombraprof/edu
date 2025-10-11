@@ -222,6 +222,7 @@
         { "$ref": "#/$defs/interactiveDemoBlock" },
         { "$ref": "#/$defs/pedagogicalNoteBlock" },
         { "$ref": "#/$defs/imageFigureBlock" },
+        { "$ref": "#/$defs/modelViewerBlock" },
         { "$ref": "#/$defs/promptTipBlock" },
         { "$ref": "#/$defs/codeSubmissionBlock" },
         { "$ref": "#/$defs/dragAndDropBlock" },
@@ -539,6 +540,120 @@
           }
         },
         "anyOf": [{ "required": ["src"] }, { "required": ["images"] }]
+      }
+    },
+    "modelViewerBlock": {
+      "if": {
+        "properties": { "type": { "const": "modelViewer" } }
+      },
+      "then": {
+        "required": ["src"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "footnote": { "type": "string" },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "anyOf": [
+              { "format": "uri" },
+              {
+                "pattern": "^(?:\\.{1,2}/)?[A-Za-z0-9@/_\\-.]+\\.(?:gltf|glb)(?:[#?].*)?$"
+              }
+            ]
+          },
+          "poster": { "type": "string", "minLength": 1 },
+          "iosSrc": {
+            "type": "string",
+            "minLength": 1,
+            "anyOf": [
+              { "format": "uri" },
+              { "pattern": "^(?:\\.{1,2}/)?[A-Za-z0-9@/_\\-.]+\\.usdz(?:[#?].*)?$" }
+            ]
+          },
+          "alt": { "type": "string" },
+          "autoRotate": { "type": "boolean" },
+          "autoRotateDelay": { "type": "number", "minimum": 0 },
+          "cameraControls": { "type": "boolean" },
+          "ar": { "type": "boolean" },
+          "arModes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["webxr", "scene-viewer", "quick-look"]
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "shadowIntensity": { "type": "number", "minimum": 0 },
+          "exposure": { "type": "number", "minimum": 0 },
+          "environmentImage": {
+            "type": "string",
+            "minLength": 1,
+            "anyOf": [
+              { "format": "uri" },
+              { "pattern": "^(?:\\.{1,2}/)?[A-Za-z0-9@/_\\-.]+\\.(?:hdr|exr)(?:[#?].*)?$" }
+            ]
+          },
+          "cameraOrbit": { "type": "string", "minLength": 1 },
+          "cameraTarget": { "type": "string", "minLength": 1 },
+          "interactionPrompt": { "type": "string" },
+          "interactionPromptStyle": {
+            "type": "string",
+            "enum": ["auto", "basic", "none"]
+          },
+          "reveal": { "type": "string", "enum": ["auto", "interaction"] },
+          "loading": { "type": "string", "enum": ["auto", "lazy", "eager"] },
+          "touchAction": { "type": "string", "minLength": 1 },
+          "zoom": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "min": {
+                "anyOf": [
+                  { "type": "number", "exclusiveMinimum": 0 },
+                  { "type": "string", "minLength": 1 }
+                ]
+              },
+              "max": {
+                "anyOf": [
+                  { "type": "number", "exclusiveMinimum": 0 },
+                  { "type": "string", "minLength": 1 }
+                ]
+              },
+              "initial": {
+                "anyOf": [
+                  { "type": "number", "exclusiveMinimum": 0 },
+                  { "type": "string", "minLength": 1 }
+                ]
+              },
+              "disable": { "type": "boolean" },
+              "disabled": { "type": "boolean" }
+            }
+          },
+          "height": {
+            "anyOf": [
+              { "type": "number", "exclusiveMinimum": 0 },
+              { "type": "string", "minLength": 1 }
+            ]
+          },
+          "aspectRatio": {
+            "anyOf": [
+              { "type": "number", "exclusiveMinimum": 0 },
+              { "type": "string", "minLength": 1 }
+            ]
+          },
+          "loadingLabel": { "type": "string", "minLength": 1 },
+          "errorLabel": { "type": "string", "minLength": 1 }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "ar": { "const": true } }
+            },
+            "then": { "required": ["arModes"] }
+          }
+        ]
       }
     },
     "dualAssessmentBlock": {

@@ -32,6 +32,7 @@
     "tokens:export": "tsx scripts/export-design-tokens.ts"
   },
   "dependencies": {
+    "@google/model-viewer": "^1.12.1",
     "@material/material-color-utilities": "^0.2.7",
     "@monaco-editor/loader": "^1.4.0",
     "@vueuse/head": "^2.0.0",

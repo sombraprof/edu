@@ -262,6 +262,15 @@ export default defineConfig(({ command }) => {
     preview: {
       base: '/edu/',
     },
-    assetsInclude: ['**/*.avif', '**/*.heic', '**/*.heif', '**/*.webp'],
+    assetsInclude: [
+      '**/*.avif',
+      '**/*.heic',
+      '**/*.heif',
+      '**/*.webp',
+      '**/*.glb',
+      '**/*.gltf',
+      '**/*.usdz',
+      '**/*.hdr',
+    ],
   };
 });
