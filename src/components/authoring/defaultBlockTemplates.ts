@@ -196,6 +196,14 @@ export const defaultBlockTemplates: Readonly<Record<string, LessonBlock>> = Obje
     tags: [''],
     tips: [''],
   },
+  imageFigure: {
+    type: 'imageFigure',
+    src: '',
+    alt: '',
+    caption: '',
+    credit: '',
+    images: [],
+  },
   codeSubmission: {
     type: 'codeSubmission',
     title: '',
