@@ -1,5 +1,6 @@
 import { defineConfig, type PluginOption } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { imagetools } from 'vite-imagetools';
 import path from 'path';
 import { mkdir, writeFile } from 'fs/promises';
 import { createHash } from 'crypto';
@@ -212,7 +213,7 @@ export default defineConfig(({ command }) => {
 
   return {
     base,
-    plugins: [materialBasePalettePlugin(), vue(), serviceWorkerPlugin(base)],
+    plugins: [materialBasePalettePlugin(), imagetools(), vue(), serviceWorkerPlugin(base)],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
@@ -244,5 +245,6 @@ export default defineConfig(({ command }) => {
     preview: {
       base: '/edu/',
     },
+    assetsInclude: ['**/*.avif', '**/*.heic', '**/*.heif', '**/*.webp'],
   };
 });

@@ -221,6 +221,7 @@
         { "$ref": "#/$defs/knowledgeCheckBlock" },
         { "$ref": "#/$defs/interactiveDemoBlock" },
         { "$ref": "#/$defs/pedagogicalNoteBlock" },
+        { "$ref": "#/$defs/imageFigureBlock" },
         { "$ref": "#/$defs/promptTipBlock" },
         { "$ref": "#/$defs/codeSubmissionBlock" },
         { "$ref": "#/$defs/dragAndDropBlock" },
@@ -234,6 +235,67 @@
         { "$ref": "#/$defs/selfAssessmentBlock" },
         { "$ref": "#/$defs/dualAssessmentBlock" }
       ]
+    },
+    "imageSource": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "src": { "type": "string", "minLength": 1 },
+        "srcset": { "type": "string", "minLength": 1 },
+        "type": { "type": "string" },
+        "media": { "type": "string" },
+        "sizes": { "type": "string" },
+        "descriptor": { "type": "string" },
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "density": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "anyOf": [{ "required": ["src"] }, { "required": ["srcset"] }]
+    },
+    "imageFigureBlock": {
+      "if": {
+        "properties": { "type": { "const": "imageFigure" } }
+      },
+      "then": {
+        "properties": {
+          "src": { "type": "string", "minLength": 1 },
+          "srcset": { "type": "string", "minLength": 1 },
+          "sizes": { "type": "string" },
+          "alt": { "type": "string" },
+          "caption": { "type": "string" },
+          "credit": { "type": "string" },
+          "lightbox": { "type": "boolean" },
+          "sources": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/imageSource" }
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true,
+              "properties": {
+                "src": { "type": "string", "minLength": 1 },
+                "srcset": { "type": "string", "minLength": 1 },
+                "sizes": { "type": "string" },
+                "alt": { "type": "string" },
+                "caption": { "type": "string" },
+                "credit": { "type": "string" },
+                "lightbox": { "type": "boolean" },
+                "sources": {
+                  "type": "array",
+                  "items": { "$ref": "#/$defs/imageSource" }
+                }
+              },
+              "anyOf": [
+                { "required": ["src"] },
+                { "required": ["srcset"] },
+                { "required": ["sources"] }
+              ]
+            }
+          }
+        },
+        "anyOf": [{ "required": ["src"] }, { "required": ["images"] }]
+      }
     },
     "dualAssessmentBlock": {
       "if": {

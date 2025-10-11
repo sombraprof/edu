@@ -26,7 +26,7 @@ This document explains how to produce new lessons and exercises that integrate s
 ### Block type conventions
 
 - Prefer the canonical block types declared in [`supportedBlockTypes`](../src/components/lesson/blockRegistry.ts) – e.g. `lessonPlan`, `flightPlan`, `contentBlock`, `callout`, `cardGrid`, `timeline`, `videos`, `resourceGallery`, `quiz`, `promptTip`.
-- Utilize `imageFigure` para imagens com zoom/lightbox. Defina `src`/`alt` quando houver apenas uma figura ou `images[]` com objetos `{ src, alt?, caption?, credit? }` para galerias.
+- Utilize `imageFigure` para imagens com zoom/lightbox. Defina `src`/`alt` quando houver apenas uma figura, `credit` para citar a fonte e `lightbox: false` quando quiser desativar o zoom. Referencie arquivos locais (`@/content/...` ou `@/assets/...`) para que o build gere automaticamente variantes responsivas; use `images[]` (galerias) ou `sources[]` para declarar variações personalizadas. Caminhos apontando para `public/` continuam funcionando, mas sem geração automática de `srcset`.
 - Keep `callout.variant` within the approved list (`info`, `good-practice`, `academic`, `warning`, `task`, `error`). The same enums apply to authoring in the panel and to JSON produced manually.
 - Use `legacySection` only while migrating sanitised HTML. The panel highlights legacy entries so you can plan refactors into MD3-native blocks.
 - The `component` block type allows reusing the custom registry (e.g. `Md3Table`, `InteractiveDemo`, `RubricDisplay`). Set `component` to the key exposed by [`supportedCustomComponents`](../src/components/lesson/blockRegistry.ts) and provide the expected shape inside `props`.
@@ -65,6 +65,15 @@ String lists ignoram entradas em branco e mantêm pelo menos um item vazio para 
 - In `exercises.json`, keep the `link` prefix as `courses/<courseId>/exercises/...` (ou URL absoluta) e reutilize o mesmo slug para o `id`, `.vue` wrapper e `.json` payload.
 - `supplements.json` (opcional) lista materiais extras (`{ id, title, type, description?, file?/link?, available?, metadata }`). Use `type` ∈ `reading | lab | project | slide | video | reference`.
 - Vue pages (`LessonView.vue`, `ExerciseView.vue`, `CourseHome.vue`) dynamically import these indexes and render the JSON blocks.
+
+### Imagens responsivas e créditos
+
+- Salve a imagem base no próprio diretório de conteúdo (`src/content/courses/<curso>/media/...`) ou em `src/assets/media`. Use nomes descritivos e mantenha a versão em alta qualidade (a pipeline gera recortes menores automaticamente). Imagens em `public/` continuam válidas, porém são entregues apenas na resolução original.
+- Ao preencher um bloco `imageFigure`, aponte `src` para o caminho do arquivo local (`"public/media/figura.jpg"` ou `"@/content/courses/algi/media/figura.png"`). Durante o build o plugin [`vite-imagetools`](https://github.com/JonasKruckenberg/imagetools) cria `srcset` em AVIF/WEBP e mantém um fallback no formato original.
+- Use `credit` para informar autoria/licença (texto simples ou com marcação HTML sanitizada) e `caption` para contextualizar a imagem. Ambos aparecem no `<figcaption>` e são reutilizados na lightbox.
+- Defina `lightbox: false` caso a imagem não deva abrir em modal (por exemplo, infográficos com muito texto). Em galerias (`images[]`), o campo pode ser aplicado individualmente.
+- Quando precisar controlar manualmente as fontes (`<source>`), informe `sources[]` com objetos `{ srcset, type?, media?, sizes?, descriptor?, width?, density? }`. Também é possível gerar pares específicos informando `src` + `width`/`density` — o utilitário monta o `srcset` final preservando caminhos relativos.
+- Após editar imagens, rode `npm run validate:content` para garantir que os novos campos (`credit`, `lightbox`, `sources`) passaram pelas validações de esquema.
 
 ### Metadados do curso (`meta.json`)
 
