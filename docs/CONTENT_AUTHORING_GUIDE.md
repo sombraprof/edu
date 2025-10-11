@@ -200,11 +200,13 @@ Exemplo de payload JSON:
 ### Imagens responsivas e créditos
 
 - Salve a imagem base no próprio diretório de conteúdo (`src/content/courses/<curso>/media/...`) ou em `src/assets/media`. Use nomes descritivos e mantenha a versão em alta qualidade (a pipeline gera recortes menores automaticamente). Imagens em `public/` continuam válidas, porém são entregues apenas na resolução original.
+- Ativos interativos (Lottie, sprites animadas, etc.) devem ficar em `public/media/interactive/`. O script `npm run media:process` gera variantes otimizadas em `public/media/interactive/optimized/` e atualiza `metadata.json` com o carimbo `generatedAt`. Rode `npm run media:check` no CI/local para garantir que cada entrada possua `credit` e `license` válidos.
+- Atualize `public/media/interactive/metadata.json` com `file`, `credit`, `license` e, opcionalmente, `title`/`source` sempre que adicionar um novo arquivo. Assets sem metadados bloqueiam o lint automático.
 - Ao preencher um bloco `imageFigure`, aponte `src` para o caminho do arquivo local (`"public/media/figura.jpg"` ou `"@/content/courses/algi/media/figura.png"`). Durante o build o plugin [`vite-imagetools`](https://github.com/JonasKruckenberg/imagetools) cria `srcset` em AVIF/WEBP e mantém um fallback no formato original.
 - Use `credit` para informar autoria/licença (texto simples ou com marcação HTML sanitizada) e `caption` para contextualizar a imagem. Ambos aparecem no `<figcaption>` e são reutilizados na lightbox.
 - Defina `lightbox: false` caso a imagem não deva abrir em modal (por exemplo, infográficos com muito texto). Em galerias (`images[]`), o campo pode ser aplicado individualmente.
 - Quando precisar controlar manualmente as fontes (`<source>`), informe `sources[]` com objetos `{ srcset, type?, media?, sizes?, descriptor?, width?, density? }`. Também é possível gerar pares específicos informando `src` + `width`/`density` — o utilitário monta o `srcset` final preservando caminhos relativos.
-- Após editar imagens, rode `npm run validate:content` para garantir que os novos campos (`credit`, `lightbox`, `sources`) passaram pelas validações de esquema.
+- Após editar imagens, rode `npm run validate:content` para garantir que os novos campos (`credit`, `lightbox`, `sources`) passaram pelas validações de esquema. Para animações use `registerLottie` de `src/utils/mediaAssets.ts`, que já respeita `prefers-reduced-motion` e reutiliza `resolveAsset`/`buildSrcSet` para apontar os arquivos gerados pela pipeline.
 
 ### Metadados do curso (`meta.json`)
 

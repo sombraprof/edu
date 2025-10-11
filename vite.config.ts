@@ -12,6 +12,9 @@ import {
   type ThemeMode,
 } from './src/theme/tokens';
 
+const RESPONSIVE_PRESET_WIDTHS = '360;640;960;1280;1600';
+const PRELOAD_PRESET_WIDTH = '1600';
+
 const GENERATED_CSS_PATH = path.resolve(
   __dirname,
   'src/assets/generated/material-base-palette.css'
@@ -225,7 +228,43 @@ export default defineConfig(({ command }) => {
 
   return {
     base,
-    plugins: [materialBasePalettePlugin(), imagetools(), vue(), serviceWorkerPlugin(base)],
+    plugins: [
+      materialBasePalettePlugin(),
+      imagetools({
+        defaultDirectives(url) {
+          const params = new URLSearchParams(url.searchParams);
+          const preset = params.get('preset');
+          if (preset === 'responsive') {
+            params.delete('preset');
+            if (!params.has('w')) {
+              params.set('w', RESPONSIVE_PRESET_WIDTHS);
+            }
+            if (!params.has('quality')) {
+              params.set('quality', '80');
+            }
+            if (!params.has('as')) {
+              params.set('as', 'srcset');
+            }
+          } else if (preset === 'preload') {
+            params.delete('preset');
+            if (!params.has('w')) {
+              params.set('w', PRELOAD_PRESET_WIDTH);
+            }
+            if (!params.has('quality')) {
+              params.set('quality', '85');
+            }
+            if (!params.has('as')) {
+              params.set('as', 'src');
+            }
+          } else if (preset) {
+            params.delete('preset');
+          }
+          return params;
+        },
+      }),
+      vue(),
+      serviceWorkerPlugin(base),
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
