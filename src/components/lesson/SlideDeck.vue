@@ -99,10 +99,14 @@
 import { computed, onBeforeUnmount, onMounted, reactive, watch } from 'vue';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
 
-const contentSlideLoaders = import.meta.glob('../../content/**/*.{html,md,mdx,json}', {
-  as: 'raw',
+const contentSlideLoaders = import.meta.glob<string>('../../content/**/*.{html,md,mdx,json}', {
+  query: '?raw',
+  import: 'default',
 });
-const assetSlideLoaders = import.meta.glob('../../assets/**/*.{html,md,mdx,json}', { as: 'raw' });
+const assetSlideLoaders = import.meta.glob<string>('../../assets/**/*.{html,md,mdx,json}', {
+  query: '?raw',
+  import: 'default',
+});
 const slideLoaderMap = new Map<string, () => Promise<string>>([
   ...Object.entries(contentSlideLoaders),
   ...Object.entries(assetSlideLoaders),
