@@ -1,3 +1,5 @@
+import type { EmbedProviderId, EmbedTheme, EmbedViewMode } from '@/utils/embedWhitelist';
+
 export const LESSON_FORMAT_VERSION = 'md3.lesson.v1' as const;
 
 export type LessonFormatVersion = typeof LESSON_FORMAT_VERSION;
@@ -144,12 +146,17 @@ export interface KnowledgeCheckBlock extends LessonBlock {
   allowMultiple?: boolean;
 }
 
+import type { EmbedProviderId, EmbedTheme, EmbedViewMode } from '@/utils/embedWhitelist';
+
 export interface InteractiveDemoBlock extends LessonBlock {
   type: 'interactiveDemo';
   url: string;
   title?: string;
   description?: string;
   height?: number;
+  provider?: EmbedProviderId;
+  page?: EmbedViewMode;
+  theme?: EmbedTheme;
 }
 
 export type PedagogicalNoteAudience = 'teacher' | 'student' | 'team';

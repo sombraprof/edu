@@ -23,43 +23,98 @@
     </div>
 
     <p v-else class="text-body-small text-on-surface-variant">
-      Não foi possível carregar o recurso externo informado.
+      {{ warningMessage }}
     </p>
   </article>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import {
+  buildEmbedUrl,
+  normalizeEmbedPage,
+  normalizeEmbedTheme,
+  resolveEmbedProvider,
+  type EmbedProviderId,
+  type EmbedTheme,
+  type EmbedViewMode,
+} from '@/utils/embedWhitelist';
 
 export interface InteractiveDemoBlockData {
   title?: string;
   description?: string;
   url: string;
   height?: number;
+  provider?: EmbedProviderId;
+  page?: EmbedViewMode;
+  theme?: EmbedTheme;
 }
 
 const props = defineProps<{ data: InteractiveDemoBlockData }>();
 
-const safeUrl = computed(() => {
+type EmbedState =
+  | { state: 'ready'; src: string; height?: number }
+  | { state: 'unsupported-domain'; host: string }
+  | { state: 'invalid-protocol'; host: string }
+  | { state: 'invalid-url' };
+
+const embedState = computed<EmbedState>(() => {
+  if (!props.data.url) {
+    return { state: 'invalid-url' };
+  }
+
   try {
     const parsed = new URL(props.data.url);
     if (!['https:', 'http:'].includes(parsed.protocol)) {
-      return '';
+      return { state: 'invalid-protocol', host: parsed.hostname };
     }
-    return parsed.toString();
+
+    const provider = resolveEmbedProvider(parsed);
+    if (!provider) {
+      return { state: 'unsupported-domain', host: parsed.hostname };
+    }
+
+    const page = normalizeEmbedPage(provider, props.data.page);
+    const theme = normalizeEmbedTheme(provider, props.data.theme);
+    const src = buildEmbedUrl(parsed, provider, { page, theme });
+    const height = props.data.height ?? provider.defaultHeight;
+
+    return {
+      state: 'ready',
+      src,
+      height,
+    };
   } catch (error) {
     console.warn('[InteractiveDemo] Invalid URL provided', error);
-    return '';
+    return { state: 'invalid-url' };
   }
 });
 
+const safeUrl = computed(() => (embedState.value.state === 'ready' ? embedState.value.src : ''));
+
 const frameStyle = computed(() => {
-  if (!props.data.height) {
+  if (embedState.value.state !== 'ready') {
+    return {};
+  }
+  const height = embedState.value.height;
+  if (!height || height <= 0) {
     return {};
   }
   return {
-    minHeight: `${props.data.height}px`,
+    minHeight: `${height}px`,
   } as const;
+});
+
+const warningMessage = computed(() => {
+  switch (embedState.value.state) {
+    case 'invalid-protocol':
+      return `O protocolo utilizado por ${embedState.value.host} não é suportado.`;
+    case 'unsupported-domain':
+      return `O domínio ${embedState.value.host} não está na lista de provedores permitidos.`;
+    case 'invalid-url':
+    default:
+      return 'Não foi possível carregar o recurso externo informado.';
+  }
 });
 </script>
 
