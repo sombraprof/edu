@@ -5,6 +5,7 @@ import Callout from '@/components/lesson/Callout.vue';
 import CardGrid from '@/components/lesson/CardGrid.vue';
 import ChecklistBlock from '@/components/lesson/ChecklistBlock.vue';
 import CodeBlock from '@/components/lesson/CodeBlock.vue';
+import CodePlayground from '@/components/lesson/CodePlayground.vue';
 import ContentBlock from '@/components/lesson/ContentBlock.vue';
 import FlightPlan from '@/components/lesson/FlightPlan.vue';
 import ClassDesigner from '@/components/lesson/ClassDesigner.vue';
@@ -143,6 +144,7 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
       },
     };
   },
+  codePlayground: dataBlock(CodePlayground),
   lessonPlan: dataBlock(LessonPlan),
   contentBlock: dataBlock(ContentBlock),
   videos: dataBlock(VideosBlock),

@@ -219,6 +219,9 @@ export default defineConfig(({ command }) => {
         '@': path.resolve(__dirname, './src'),
       },
     },
+    optimizeDeps: {
+      exclude: ['@monaco-editor/loader', 'monaco-editor', 'sucrase'],
+    },
     build: {
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
@@ -228,6 +231,7 @@ export default defineConfig(({ command }) => {
             head: ['@vueuse/head'],
             prism: ['prismjs'],
             icons: ['lucide-vue-next'],
+            'code-playground': ['@monaco-editor/loader', 'monaco-editor', 'sucrase'],
           },
         },
       },
