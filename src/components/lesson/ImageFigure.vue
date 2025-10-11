@@ -1,29 +1,65 @@
 <template>
   <figure class="image-figure">
     <div v-if="figures.length" class="image-figure__media">
-      <button
+      <component
         v-if="figures.length === 1"
-        type="button"
+        :is="figures[0].lightbox ? 'button' : 'div'"
+        :type="figures[0].lightbox ? 'button' : undefined"
         class="image-figure__trigger"
-        @click="openLightbox(0)"
-        :aria-label="ariaLabelFor(figures[0])"
-        data-test="image-figure-trigger"
+        :class="{ 'image-figure__trigger--static': !figures[0].lightbox }"
+        @click="figures[0].lightbox ? openLightbox(0) : undefined"
+        :aria-label="figures[0].lightbox ? ariaLabelFor(figures[0]) : undefined"
+        :data-test="figures[0].lightbox ? 'image-figure-trigger' : undefined"
       >
-        <img :src="figures[0].src" :alt="figures[0].alt" loading="lazy" />
-      </button>
+        <picture class="image-figure__picture">
+          <template v-for="(source, sourceIndex) in figures[0].sources ?? []" :key="sourceIndex">
+            <source
+              :srcset="source.srcset"
+              :type="source.type"
+              :media="source.media"
+              :sizes="source.sizes ?? figures[0].sizes"
+            />
+          </template>
+          <img
+            :src="figures[0].src"
+            :srcset="figures[0].srcset"
+            :sizes="figures[0].sizes"
+            :alt="figures[0].alt"
+            loading="lazy"
+          />
+        </picture>
+      </component>
 
       <div v-else class="image-figure__gallery" role="list">
-        <button
+        <component
           v-for="(entry, index) in figures"
           :key="index"
-          type="button"
+          :is="entry.lightbox ? 'button' : 'div'"
+          :type="entry.lightbox ? 'button' : undefined"
           class="image-figure__trigger image-figure__trigger--gallery"
-          @click="openLightbox(index)"
-          :aria-label="ariaLabelFor(entry, index)"
-          data-test="image-figure-trigger"
+          :class="{ 'image-figure__trigger--static': !entry.lightbox }"
+          @click="entry.lightbox ? openLightbox(index) : undefined"
+          :aria-label="entry.lightbox ? ariaLabelFor(entry, index) : undefined"
+          :data-test="entry.lightbox ? 'image-figure-trigger' : undefined"
         >
-          <img :src="entry.src" :alt="entry.alt" loading="lazy" />
-        </button>
+          <picture class="image-figure__picture">
+            <template v-for="(source, sourceIndex) in entry.sources ?? []" :key="sourceIndex">
+              <source
+                :srcset="source.srcset"
+                :type="source.type"
+                :media="source.media"
+                :sizes="source.sizes ?? entry.sizes"
+              />
+            </template>
+            <img
+              :src="entry.src"
+              :srcset="entry.srcset"
+              :sizes="entry.sizes"
+              :alt="entry.alt"
+              loading="lazy"
+            />
+          </picture>
+        </component>
       </div>
     </div>
 
@@ -60,7 +96,25 @@
         </button>
 
         <figure v-if="activeFigure" class="image-figure__lightbox-figure">
-          <img :src="activeFigure.src" :alt="activeFigure.alt" />
+          <picture class="image-figure__picture">
+            <template
+              v-for="(source, sourceIndex) in activeFigure.sources ?? []"
+              :key="sourceIndex"
+            >
+              <source
+                :srcset="source.srcset"
+                :type="source.type"
+                :media="source.media"
+                :sizes="source.sizes ?? activeFigure.sizes"
+              />
+            </template>
+            <img
+              :src="activeFigure.src"
+              :srcset="activeFigure.srcset"
+              :sizes="activeFigure.sizes"
+              :alt="activeFigure.alt"
+            />
+          </picture>
           <figcaption v-if="activeFigure.caption || activeFigure.credit">
             <div v-if="activeFigure.caption" v-html="activeFigure.caption"></div>
             <p
@@ -77,13 +131,29 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { buildSrcSet, resolveAssetUrl, type PictureSource } from '@/utils/imageAssets';
 import { sanitizeHtml } from '@/utils/sanitizeHtml';
+
+type ImageSourceEntry = {
+  src?: unknown;
+  srcset?: unknown;
+  type?: unknown;
+  media?: unknown;
+  sizes?: unknown;
+  width?: unknown;
+  density?: unknown;
+  descriptor?: unknown;
+};
 
 type ImageEntry = {
   src?: unknown;
+  srcset?: unknown;
   alt?: unknown;
   caption?: unknown;
   credit?: unknown;
+  lightbox?: unknown;
+  sizes?: unknown;
+  sources?: unknown;
 };
 
 type NormalizedImage = {
@@ -91,42 +161,47 @@ type NormalizedImage = {
   alt: string;
   caption?: string;
   credit?: string;
+  srcset?: string;
+  sizes?: string;
+  sources?: PictureSource[];
+  lightbox: boolean;
 };
 
 const props = defineProps<{
   src?: string;
+  srcset?: string;
+  sizes?: string;
   alt?: string;
   caption?: string;
   credit?: string;
+  sources?: Array<ImageSourceEntry | null | undefined>;
+  lightbox?: boolean;
   images?: Array<ImageEntry | null | undefined>;
 }>();
 
 const activeIndex = ref<number | null>(null);
 const closeButtonRef = ref<HTMLButtonElement | null>(null);
 const previousFocus = ref<HTMLElement | null>(null);
+const figures = ref<NormalizedImage[]>([]);
+let refreshToken = 0;
 
-const figures = computed<NormalizedImage[]>(() => {
-  const entries: ImageEntry[] = [];
-
-  if (Array.isArray(props.images) && props.images.length > 0) {
-    props.images.forEach((entry) => {
-      if (entry && typeof entry === 'object') {
-        entries.push(entry);
-      }
-    });
-  } else if (props.src) {
-    entries.push({
-      src: props.src,
-      alt: props.alt,
-      caption: props.caption,
-      credit: props.credit,
-    });
-  }
-
-  return entries
-    .map((entry) => normalizeImage(entry))
-    .filter((entry): entry is NormalizedImage => Boolean(entry) && Boolean(entry.src));
-});
+watch(
+  () => ({
+    src: props.src,
+    srcset: props.srcset,
+    sizes: props.sizes,
+    alt: props.alt,
+    caption: props.caption,
+    credit: props.credit,
+    sources: props.sources,
+    lightbox: props.lightbox,
+    images: props.images,
+  }),
+  () => {
+    void refreshFigures();
+  },
+  { deep: true, immediate: true }
+);
 
 const caption = computed(() => {
   const explicit = sanitizeRichText(props.caption);
@@ -144,7 +219,9 @@ const credit = computed(() => {
   return figures.value[0]?.credit;
 });
 
-const isLightboxOpen = computed(() => activeIndex.value !== null);
+const hasLightbox = computed(() => figures.value.some((figure) => figure.lightbox));
+
+const isLightboxOpen = computed(() => hasLightbox.value && activeIndex.value !== null);
 
 const activeFigure = computed(() =>
   activeIndex.value === null ? undefined : figures.value[activeIndex.value]
@@ -160,34 +237,166 @@ const lightboxAriaLabel = computed(() => {
   return 'Visualização de imagem ampliada';
 });
 
-function normalizeImage(entry: ImageEntry | undefined): NormalizedImage | null {
-  if (!entry || typeof entry !== 'object') {
-    return null;
-  }
-
-  const src = typeof entry.src === 'string' ? entry.src.trim() : '';
-  if (!src) {
-    return null;
-  }
-
-  const alt = typeof entry.alt === 'string' ? entry.alt : '';
-  const caption = sanitizeRichText(entry.caption);
-  const credit = sanitizeRichText(entry.credit);
-
-  return {
-    src,
-    alt,
-    caption,
-    credit,
-  };
-}
-
 function sanitizeRichText(value: unknown): string | undefined {
   if (typeof value !== 'string' || value.trim().length === 0) {
     return undefined;
   }
   const sanitized = sanitizeHtml(value);
   return sanitized.trim().length ? sanitized : undefined;
+}
+
+async function refreshFigures() {
+  const token = ++refreshToken;
+  const entries: ImageEntry[] = [];
+
+  if (Array.isArray(props.images) && props.images.length > 0) {
+    props.images.forEach((entry) => {
+      if (entry && typeof entry === 'object') {
+        entries.push(entry);
+      }
+    });
+  } else if (props.src) {
+    entries.push({
+      src: props.src,
+      srcset: props.srcset,
+      alt: props.alt,
+      caption: props.caption,
+      credit: props.credit,
+      sizes: props.sizes,
+      sources: props.sources,
+      lightbox: props.lightbox,
+    });
+  }
+
+  const defaultLightbox = props.lightbox !== false;
+  const normalized = await Promise.all<NormalizedImage | null>(
+    entries.map((entry) => normalizeImage(entry, defaultLightbox))
+  );
+  if (token !== refreshToken) {
+    return;
+  }
+  figures.value = normalized.filter((entry): entry is NormalizedImage => entry !== null);
+}
+
+async function normalizeImage(entry: ImageEntry | undefined, defaultLightbox: boolean) {
+  if (!entry || typeof entry !== 'object') {
+    return null;
+  }
+
+  const rawSrc = typeof entry.src === 'string' ? entry.src.trim() : '';
+  if (!rawSrc) {
+    return null;
+  }
+
+  const alt = typeof entry.alt === 'string' ? entry.alt : '';
+  const caption = sanitizeRichText(entry.caption);
+  const credit = sanitizeRichText(entry.credit);
+  const sizes = typeof entry.sizes === 'string' ? entry.sizes : undefined;
+  const lightbox = entry.lightbox === false ? false : defaultLightbox;
+
+  const responsive = await buildSrcSet(rawSrc);
+  const resolvedSrc = responsive?.src ?? (await resolveAssetUrl(rawSrc));
+  if (!resolvedSrc) {
+    return null;
+  }
+
+  const explicitSrcset = await normalizeSrcsetString(entry.srcset);
+  const manualSources = await normalizeSources(entry.sources);
+  const generatedSources = responsive?.sources ?? [];
+  const finalSources = manualSources.length
+    ? manualSources
+    : generatedSources.length
+      ? generatedSources
+      : undefined;
+
+  return {
+    src: resolvedSrc,
+    alt,
+    caption,
+    credit,
+    srcset: explicitSrcset ?? responsive?.srcset,
+    sizes: sizes ?? responsive?.sizes,
+    sources: finalSources,
+    lightbox,
+  };
+}
+
+async function normalizeSources(value: unknown): Promise<PictureSource[]> {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  const normalized: PictureSource[] = [];
+  for (const entry of value) {
+    if (!entry || typeof entry !== 'object') {
+      continue;
+    }
+
+    const rawType = (entry as ImageSourceEntry).type;
+    const type = typeof rawType === 'string' ? rawType : undefined;
+    const rawMedia = (entry as ImageSourceEntry).media;
+    const media = typeof rawMedia === 'string' ? rawMedia : undefined;
+    const rawSizes = (entry as ImageSourceEntry).sizes;
+    const sizes = typeof rawSizes === 'string' ? rawSizes : undefined;
+    const descriptor = getDescriptor(entry as ImageSourceEntry);
+
+    let srcset: string | undefined;
+    if (typeof (entry as ImageSourceEntry).srcset === 'string') {
+      srcset = await normalizeSrcsetString((entry as ImageSourceEntry).srcset);
+    } else if (descriptor && typeof (entry as ImageSourceEntry).src === 'string') {
+      const resolved = await resolveAssetUrl((entry as ImageSourceEntry).src as string);
+      srcset = `${resolved} ${descriptor}`;
+    }
+
+    if (!srcset) {
+      continue;
+    }
+
+    normalized.push({
+      srcset,
+      type,
+      media,
+      sizes,
+    });
+  }
+
+  return normalized;
+}
+
+function getDescriptor(entry: ImageSourceEntry): string | undefined {
+  if (typeof entry.descriptor === 'string' && entry.descriptor.trim()) {
+    return entry.descriptor.trim();
+  }
+  if (typeof entry.width === 'number' && Number.isFinite(entry.width) && entry.width > 0) {
+    return `${Math.round(entry.width)}w`;
+  }
+  if (typeof entry.density === 'number' && Number.isFinite(entry.density) && entry.density > 0) {
+    return `${entry.density}x`;
+  }
+  return undefined;
+}
+
+async function normalizeSrcsetString(value: unknown): Promise<string | undefined> {
+  if (typeof value !== 'string') {
+    return undefined;
+  }
+  const entries = value
+    .split(',')
+    .map((chunk) => chunk.trim())
+    .filter((chunk) => chunk.length > 0);
+  if (entries.length === 0) {
+    return undefined;
+  }
+  const normalized: string[] = [];
+  for (const entry of entries) {
+    const [path, descriptor] = entry.split(/\s+/, 2);
+    if (!path) {
+      continue;
+    }
+    const resolved = await resolveAssetUrl(path);
+    normalized.push(descriptor ? `${resolved} ${descriptor}` : resolved);
+  }
+  return normalized.length ? normalized.join(', ') : undefined;
 }
 
 function ariaLabelFor(entry: NormalizedImage, index?: number) {
@@ -201,7 +410,7 @@ function ariaLabelFor(entry: NormalizedImage, index?: number) {
 }
 
 function openLightbox(index: number) {
-  if (!figures.value[index]) {
+  if (!hasLightbox.value || !figures.value[index]?.lightbox) {
     return;
   }
   const activeElement = document.activeElement;
@@ -240,7 +449,16 @@ onBeforeUnmount(() => {
 watch(
   () => figures.value.length,
   (length) => {
-    if (length === 0) {
+    if (length === 0 || !hasLightbox.value) {
+      activeIndex.value = null;
+    }
+  }
+);
+
+watch(
+  () => hasLightbox.value,
+  (value) => {
+    if (!value) {
       activeIndex.value = null;
     }
   }
@@ -270,10 +488,22 @@ watch(
   box-shadow: var(--md-sys-elevation-level1);
 }
 
+.image-figure__trigger--static {
+  cursor: default;
+}
+
+.image-figure__trigger--static img {
+  cursor: default;
+}
+
 .image-figure__trigger img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.image-figure__picture {
+  display: block;
 }
 
 .image-figure__gallery {

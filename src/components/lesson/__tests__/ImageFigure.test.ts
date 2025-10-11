@@ -36,7 +36,7 @@ describe('ImageFigure', () => {
     const trigger = wrapper.find('[data-test="image-figure-trigger"]');
     expect(trigger.exists()).toBe(true);
 
-    trigger.element.focus();
+    (trigger.element as HTMLElement).focus();
     await trigger.trigger('click');
     await nextTick();
 
@@ -52,7 +52,7 @@ describe('ImageFigure', () => {
     await nextTick();
     await nextTick();
 
-    expect(document.activeElement).toBe(trigger.element);
+    expect(document.activeElement).toBe(trigger.element as HTMLElement);
 
     wrapper.unmount();
   });
