@@ -16,7 +16,13 @@ export interface EmbedProviderPreset {
   buildUrl?: (input: URL, options: { page?: EmbedViewMode; theme?: EmbedTheme }) => string;
 }
 
-export type EmbedProviderId = 'figma' | 'miro' | 'canva' | 'google-slides' | 'powerpoint-online';
+export type EmbedProviderId =
+  | 'figma'
+  | 'miro'
+  | 'framer'
+  | 'canva'
+  | 'google-slides'
+  | 'powerpoint-online';
 
 export const EMBED_PROVIDERS: readonly EmbedProviderPreset[] = [
   {
@@ -51,6 +57,26 @@ export const EMBED_PROVIDERS: readonly EmbedProviderPreset[] = [
     buildUrl: (input) => {
       const url = new URL(input.toString());
       if (!url.searchParams.has('embed')) {
+        url.searchParams.set('embed', '1');
+      }
+      return url.toString();
+    },
+  },
+  {
+    id: 'framer',
+    label: 'Framer',
+    domains: ['framer.com', 'www.framer.com'],
+    defaultHeight: 720,
+    defaultPage: 'embed',
+    supportedPages: ['embed', 'present'],
+    buildUrl: (input, options) => {
+      const url = new URL(input.toString());
+      const segments = url.pathname.split('/').filter(Boolean);
+      if (segments[0] === 'share') {
+        segments[0] = options.page === 'present' ? 'present' : 'embed';
+        url.pathname = `/${segments.join('/')}`;
+      }
+      if (!url.searchParams.has('embed') && (options.page ?? 'embed') === 'embed') {
         url.searchParams.set('embed', '1');
       }
       return url.toString();
@@ -130,6 +156,10 @@ export function resolveEmbedProvider(url: URL): EmbedProviderPreset | null {
     ({ domain }) => host === domain || host.endsWith(`.${domain}`)
   );
   return match?.provider ?? null;
+}
+
+export function getEmbedProviderById(id: EmbedProviderId): EmbedProviderPreset | null {
+  return EMBED_PROVIDERS.find((provider) => provider.id === id) ?? null;
 }
 
 export function normalizeEmbedPage(

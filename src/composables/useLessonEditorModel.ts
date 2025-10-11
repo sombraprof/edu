@@ -90,6 +90,9 @@ const BibliographyBlockEditor = defineAsyncComponent(
 const InteractiveDemoEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/InteractiveDemoEditor.vue')
 );
+const DesignEmbedEditor = defineAsyncComponent(
+  () => import('@/components/authoring/blocks/DesignEmbedEditor.vue')
+);
 const CodeSubmissionEditor = defineAsyncComponent(
   () => import('@/components/authoring/blocks/CodeSubmissionEditor.vue')
 );
@@ -139,6 +142,7 @@ const blockEditorRegistry = Object.freeze({
   bibliography: BibliographyEditor,
   bibliographyBlock: BibliographyBlockEditor,
   interactiveDemo: InteractiveDemoEditor,
+  designEmbed: DesignEmbedEditor,
   codePlayground: CodePlaygroundEditor,
   codeSubmission: CodeSubmissionEditor,
   promptTip: PromptTipEditor,
