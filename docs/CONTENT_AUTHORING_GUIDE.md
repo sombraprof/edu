@@ -145,6 +145,16 @@ Exemplo de payload JSON:
 
 > **Blocos ainda no modo genérico:** `scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`. Utilize o botão **Editar JSON** (editor genérico) para esses tipos e mantenha o formato do `defaultBlockTemplates` como referência.
 
+##### Bloco `rubricDisplay`
+
+- Continue descrevendo cada critério em `criteria[].{criterion, levels[].{level, description}}`.
+- Para liberar o gráfico automático, inclua o objeto `aggregated` com os seguintes campos:
+  - `scores`: obrigatórios; aceite uma lista de números (mesma ordem dos critérios) ou objetos `{ criterion?, value }`.
+  - `weights`: opcional; números que definem o peso/pontuação máxima de cada critério no gráfico radar.
+  - `chart`: opcional; escolha `"auto"` (padrão), `"radar"` ou `"heatmap"`.
+  - `levelDistribution`: obrigatório apenas quando `chart` for `"heatmap"`; informe `[ { level, values[] } ]` com a distribuição por critério.
+- O componente carrega o `ECharts` sob demanda e mantém a tabela textual como fallback acessível — sempre revise a leitura dos rótulos para evitar abreviações obscuras.
+
 #### Bloco `interactiveDemo`
 
 - `provider` (opcional) identifica o serviço do embed e aceita apenas os valores descritos na tabela abaixo. A detecção automática pelo domínio continua funcionando; utilize o campo quando precisar documentar o provedor explicitamente.
