@@ -1039,7 +1039,15 @@
                 "id": { "type": "string" },
                 "label": { "type": "string" },
                 "category": { "type": "string" },
-                "details": { "type": "string" }
+                "details": { "type": "string" },
+                "position": {
+                  "type": "object",
+                  "required": ["x", "y"],
+                  "properties": {
+                    "x": { "type": "number" },
+                    "y": { "type": "number" }
+                  }
+                }
               }
             }
           },
@@ -1052,6 +1060,20 @@
                 "from": { "type": "string" },
                 "to": { "type": "string" },
                 "label": { "type": "string" }
+              }
+            }
+          },
+          "layout": {
+            "type": "object",
+            "properties": {
+              "type": { "enum": ["auto", "preset"] },
+              "force": {
+                "type": "object",
+                "properties": {
+                  "linkDistance": { "type": "number" },
+                  "chargeStrength": { "type": "number" },
+                  "collisionRadius": { "type": "number" }
+                }
               }
             }
           }
