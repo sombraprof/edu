@@ -232,7 +232,7 @@ export default defineConfig(({ command }) => {
       },
     },
     optimizeDeps: {
-      exclude: ['@monaco-editor/loader', 'monaco-editor', 'sucrase'],
+      exclude: ['@monaco-editor/loader', 'monaco-editor', 'sucrase', 'fabric'],
     },
     build: {
       chunkSizeWarningLimit: 1500,
@@ -244,6 +244,7 @@ export default defineConfig(({ command }) => {
             prism: ['prismjs'],
             icons: ['lucide-vue-next'],
             'code-playground': ['@monaco-editor/loader', 'monaco-editor', 'sucrase'],
+            whiteboard: ['fabric'],
           },
         },
       },

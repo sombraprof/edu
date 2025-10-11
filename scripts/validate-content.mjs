@@ -70,6 +70,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'crcCards',
   'apiEndpoints',
   'promptTip',
+  'whiteboard',
   'interactiveDemo',
 ];
 
@@ -103,6 +104,7 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'CRCCards',
   'ApiEndpoints',
   'PromptTip',
+  'WhiteboardBlock',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([
