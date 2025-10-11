@@ -222,6 +222,7 @@
         { "$ref": "#/$defs/interactiveDemoBlock" },
         { "$ref": "#/$defs/pedagogicalNoteBlock" },
         { "$ref": "#/$defs/imageFigureBlock" },
+        { "$ref": "#/$defs/modelViewerBlock" },
         { "$ref": "#/$defs/promptTipBlock" },
         { "$ref": "#/$defs/codeSubmissionBlock" },
         { "$ref": "#/$defs/dragAndDropBlock" },
@@ -234,7 +235,9 @@
         { "$ref": "#/$defs/rubricDisplayBlock" },
         { "$ref": "#/$defs/selfAssessmentBlock" },
         { "$ref": "#/$defs/whiteboardBlock" },
-        { "$ref": "#/$defs/dualAssessmentBlock" }
+        { "$ref": "#/$defs/slideDeckBlock" },
+        { "$ref": "#/$defs/dualAssessmentBlock" },
+        { "$ref": "#/$defs/videoAnnotationBlock" }
       ]
     },
     "imageSource": {
@@ -332,6 +335,167 @@
         "anyOf": [{ "required": ["snapshots"] }, { "required": ["image"] }]
       }
     },
+    "slideDeckBlock": {
+      "if": {
+        "properties": { "type": { "const": "slideDeck" } }
+      },
+      "then": {
+        "required": ["sourceType"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "sourceType": {
+            "type": "string",
+            "enum": ["external", "reveal", "mdx"]
+          },
+          "url": { "type": "string", "format": "uri" },
+          "slidesPath": { "type": "string", "minLength": 1 },
+          "downloadUrl": { "type": "string", "format": "uri" },
+          "notes": { "type": "string" },
+          "height": { "type": "number", "exclusiveMinimum": 0 },
+          "initialSlide": { "type": "number", "minimum": 1 },
+          "allowOpenInNewTab": { "type": "boolean" }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "sourceType": { "const": "external" }
+              }
+            },
+            "then": { "required": ["url"] }
+          },
+          {
+            "if": {
+              "properties": {
+                "sourceType": { "enum": ["reveal", "mdx"] }
+              }
+            },
+            "then": { "required": ["slidesPath"] }
+          }
+        ]
+      }
+    },
+    "videoAnnotationCaption": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["src"],
+      "properties": {
+        "src": { "type": "string", "format": "uri" },
+        "label": { "type": "string", "minLength": 1 },
+        "srclang": { "type": "string", "minLength": 2 },
+        "default": { "type": "boolean" }
+      }
+    },
+    "videoAnnotationQuestionOption": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "text"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "text": { "type": "string", "minLength": 1 },
+        "correct": { "type": "boolean" }
+      }
+    },
+    "videoAnnotationQuestion": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["prompt", "options"],
+      "properties": {
+        "prompt": { "type": "string", "minLength": 1 },
+        "explanation": { "type": "string" },
+        "multiple": { "type": "boolean" },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/videoAnnotationQuestionOption" }
+        }
+      }
+    },
+    "videoAnnotationAnnotation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["label", "time"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "time": { "type": "number", "minimum": 0 },
+        "type": { "type": "string", "enum": ["note", "question"] },
+        "body": { "type": "string" },
+        "question": { "$ref": "#/$defs/videoAnnotationQuestion" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "question" } }
+          },
+          "then": { "required": ["question"] }
+        }
+      ]
+    },
+    "videoAnnotationCheckpoint": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["label", "time"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "time": { "type": "number", "minimum": 0 },
+        "description": { "type": "string" }
+      }
+    },
+    "videoAnnotationBlock": {
+      "if": {
+        "properties": { "type": { "const": "videoAnnotation" } }
+      },
+      "then": {
+        "required": ["video"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "video": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["provider"],
+            "properties": {
+              "provider": {
+                "type": "string",
+                "enum": ["youtube", "vimeo", "html5"]
+              },
+              "url": { "type": "string", "format": "uri" },
+              "videoId": { "type": "string", "minLength": 1 },
+              "src": { "type": "string", "format": "uri" },
+              "type": { "type": "string", "minLength": 1 },
+              "poster": { "type": "string", "format": "uri" },
+              "captions": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/videoAnnotationCaption" }
+              }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "provider": { "const": "html5" } } },
+                "then": { "required": ["src"] }
+              },
+              {
+                "if": { "properties": { "provider": { "enum": ["youtube", "vimeo"] } } },
+                "then": {
+                  "anyOf": [{ "required": ["videoId"] }, { "required": ["url"] }]
+                }
+              }
+            ]
+          },
+          "annotations": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/videoAnnotationAnnotation" }
+          },
+          "checkpoints": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/videoAnnotationCheckpoint" }
+          }
+        }
+      }
+    },
     "imageFigureBlock": {
       "if": {
         "properties": { "type": { "const": "imageFigure" } }
@@ -376,6 +540,120 @@
           }
         },
         "anyOf": [{ "required": ["src"] }, { "required": ["images"] }]
+      }
+    },
+    "modelViewerBlock": {
+      "if": {
+        "properties": { "type": { "const": "modelViewer" } }
+      },
+      "then": {
+        "required": ["src"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "footnote": { "type": "string" },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "anyOf": [
+              { "format": "uri" },
+              {
+                "pattern": "^(?:\\.{1,2}/)?[A-Za-z0-9@/_\\-.]+\\.(?:gltf|glb)(?:[#?].*)?$"
+              }
+            ]
+          },
+          "poster": { "type": "string", "minLength": 1 },
+          "iosSrc": {
+            "type": "string",
+            "minLength": 1,
+            "anyOf": [
+              { "format": "uri" },
+              { "pattern": "^(?:\\.{1,2}/)?[A-Za-z0-9@/_\\-.]+\\.usdz(?:[#?].*)?$" }
+            ]
+          },
+          "alt": { "type": "string" },
+          "autoRotate": { "type": "boolean" },
+          "autoRotateDelay": { "type": "number", "minimum": 0 },
+          "cameraControls": { "type": "boolean" },
+          "ar": { "type": "boolean" },
+          "arModes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["webxr", "scene-viewer", "quick-look"]
+            },
+            "uniqueItems": true,
+            "minItems": 1
+          },
+          "shadowIntensity": { "type": "number", "minimum": 0 },
+          "exposure": { "type": "number", "minimum": 0 },
+          "environmentImage": {
+            "type": "string",
+            "minLength": 1,
+            "anyOf": [
+              { "format": "uri" },
+              { "pattern": "^(?:\\.{1,2}/)?[A-Za-z0-9@/_\\-.]+\\.(?:hdr|exr)(?:[#?].*)?$" }
+            ]
+          },
+          "cameraOrbit": { "type": "string", "minLength": 1 },
+          "cameraTarget": { "type": "string", "minLength": 1 },
+          "interactionPrompt": { "type": "string" },
+          "interactionPromptStyle": {
+            "type": "string",
+            "enum": ["auto", "basic", "none"]
+          },
+          "reveal": { "type": "string", "enum": ["auto", "interaction"] },
+          "loading": { "type": "string", "enum": ["auto", "lazy", "eager"] },
+          "touchAction": { "type": "string", "minLength": 1 },
+          "zoom": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "min": {
+                "anyOf": [
+                  { "type": "number", "exclusiveMinimum": 0 },
+                  { "type": "string", "minLength": 1 }
+                ]
+              },
+              "max": {
+                "anyOf": [
+                  { "type": "number", "exclusiveMinimum": 0 },
+                  { "type": "string", "minLength": 1 }
+                ]
+              },
+              "initial": {
+                "anyOf": [
+                  { "type": "number", "exclusiveMinimum": 0 },
+                  { "type": "string", "minLength": 1 }
+                ]
+              },
+              "disable": { "type": "boolean" },
+              "disabled": { "type": "boolean" }
+            }
+          },
+          "height": {
+            "anyOf": [
+              { "type": "number", "exclusiveMinimum": 0 },
+              { "type": "string", "minLength": 1 }
+            ]
+          },
+          "aspectRatio": {
+            "anyOf": [
+              { "type": "number", "exclusiveMinimum": 0 },
+              { "type": "string", "minLength": 1 }
+            ]
+          },
+          "loadingLabel": { "type": "string", "minLength": 1 },
+          "errorLabel": { "type": "string", "minLength": 1 }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "ar": { "const": true } }
+            },
+            "then": { "required": ["arModes"] }
+          }
+        ]
       }
     },
     "dualAssessmentBlock": {
@@ -761,7 +1039,15 @@
                 "id": { "type": "string" },
                 "label": { "type": "string" },
                 "category": { "type": "string" },
-                "details": { "type": "string" }
+                "details": { "type": "string" },
+                "position": {
+                  "type": "object",
+                  "required": ["x", "y"],
+                  "properties": {
+                    "x": { "type": "number" },
+                    "y": { "type": "number" }
+                  }
+                }
               }
             }
           },
@@ -774,6 +1060,20 @@
                 "from": { "type": "string" },
                 "to": { "type": "string" },
                 "label": { "type": "string" }
+              }
+            }
+          },
+          "layout": {
+            "type": "object",
+            "properties": {
+              "type": { "enum": ["auto", "preset"] },
+              "force": {
+                "type": "object",
+                "properties": {
+                  "linkDistance": { "type": "number" },
+                  "chargeStrength": { "type": "number" },
+                  "collisionRadius": { "type": "number" }
+                }
               }
             }
           }
@@ -935,6 +1235,55 @@
                 }
               }
             }
+          },
+          "aggregated": {
+            "type": "object",
+            "required": ["scores"],
+            "properties": {
+              "chart": {
+                "type": "string",
+                "enum": ["auto", "radar", "heatmap"]
+              },
+              "scores": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "anyOf": [
+                    { "type": "number" },
+                    {
+                      "type": "object",
+                      "required": ["value"],
+                      "properties": {
+                        "criterion": { "type": "string" },
+                        "value": { "type": "number" }
+                      },
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "weights": {
+                "type": "array",
+                "items": { "type": "number" }
+              },
+              "levelDistribution": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["level", "values"],
+                  "properties": {
+                    "level": { "type": "string" },
+                    "values": {
+                      "type": "array",
+                      "items": { "type": "number" }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
           }
         }
       }

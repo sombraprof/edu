@@ -35,21 +35,22 @@ This document explains how to produce new lessons and exercises that integrate s
 
 The authoring sidebar now renders specialised forms for the following block types. Every form emulates the data shape produced by [`defaultBlockTemplates`](../src/components/authoring/defaultBlockTemplates.ts) and emits `update:block` automatically when fields change.
 
-| Block type                           | Required fields                               | Authoring notes                                                                                                                                                  |
-| ------------------------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                                                                                             |
-| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                                                                                               |
-| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                                                                                  |
-| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                                                                                      |
-| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.                                                                    |
-| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                                                                                    |
-| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e como o estudante deve explorar a demo. Utilize os campos opcionais `provider`, `page`, `theme` para ajustar o embed quando necessário. |
-| `codePlayground`                     | `initialCode`                                 | Forneça um snippet inicial curto e oriente o uso de `print(...)` para registrar saídas no painel.                                                                |
-| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos.                                                                 |
-| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.                                                                             |
-| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                                                                                              |
-| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                                                                                        |
-| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.                                                                           |
+| Block type                           | Required fields                               | Authoring notes                                                                                                                                                                               |
+| ------------------------------------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                                                                                                                          |
+| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                                                                                                                            |
+| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                                                                                                               |
+| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                                                                                                                   |
+| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.                                                                                                 |
+| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                                                                                                                 |
+| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e como o estudante deve explorar a demo. Utilize os campos opcionais `provider`, `page`, `theme` para ajustar o embed quando necessário.                              |
+| `slideDeck`                          | `sourceType` + (`url` ou `slidesPath`)        | Defina `sourceType: "external"` para iframes seguros (`url`) ou `"reveal"/`"mdx"` para arquivos locais convertidos para HTML (`slidesPath`). Use `downloadUrl` para expor o arquivo original. |
+| `codePlayground`                     | `initialCode`                                 | Forneça um snippet inicial curto e oriente o uso de `print(...)` para registrar saídas no painel.                                                                                             |
+| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos.                                                                                              |
+| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.                                                                                                          |
+| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                                                                                                                           |
+| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                                                                                                                     |
+| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.                                                                                                        |
 
 String lists ignoram entradas em branco e mantêm pelo menos um item vazio para facilitar a digitação. Conteúdos em textarea suportam quebras de linha — não é necessário inserir `\n` manualmente.
 
@@ -144,6 +145,16 @@ Exemplo de payload JSON:
 
 > **Blocos ainda no modo genérico:** `scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`. Utilize o botão **Editar JSON** (editor genérico) para esses tipos e mantenha o formato do `defaultBlockTemplates` como referência.
 
+##### Bloco `rubricDisplay`
+
+- Continue descrevendo cada critério em `criteria[].{criterion, levels[].{level, description}}`.
+- Para liberar o gráfico automático, inclua o objeto `aggregated` com os seguintes campos:
+  - `scores`: obrigatórios; aceite uma lista de números (mesma ordem dos critérios) ou objetos `{ criterion?, value }`.
+  - `weights`: opcional; números que definem o peso/pontuação máxima de cada critério no gráfico radar.
+  - `chart`: opcional; escolha `"auto"` (padrão), `"radar"` ou `"heatmap"`.
+  - `levelDistribution`: obrigatório apenas quando `chart` for `"heatmap"`; informe `[ { level, values[] } ]` com a distribuição por critério.
+- O componente carrega o `ECharts` sob demanda e mantém a tabela textual como fallback acessível — sempre revise a leitura dos rótulos para evitar abreviações obscuras.
+
 #### Bloco `interactiveDemo`
 
 - `provider` (opcional) identifica o serviço do embed e aceita apenas os valores descritos na tabela abaixo. A detecção automática pelo domínio continua funcionando; utilize o campo quando precisar documentar o provedor explicitamente.
@@ -161,6 +172,19 @@ Exemplo de payload JSON:
 
 > 💡 Combine `height` com os presets acima somente quando a demo exigir uma área diferente da padrão do provedor.
 
+#### Bloco `slideDeck`
+
+- Utilize `sourceType: "external"` para incorporar decks hospedados em provedores públicos (Google Slides, Canva, PowerPoint Online). A URL precisa estar em HTTP(S) e o componente aplica `sandbox` automaticamente para manter o iframe seguro.
+- Para exportações locais (`sourceType: "reveal"` ou `"mdx"`), informe `slidesPath` apontando para o HTML gerado pelo pipeline (`public/slides/.../index.html`). Os slides são segmentados automaticamente e contam com navegação por teclado ou botões.
+- Campos opcionais: `initialSlide` (índice inicial começando em 1), `downloadUrl` (link para o arquivo original em `public/…`) e `notes` (observações sobre uso/licença compartilhadas no rodapé).
+
+##### Pipeline opcional (`scripts/convert-slides.mjs`)
+
+1. Organize os arquivos `.pptx`/`.pdf` em um diretório dentro de `src/content` (por exemplo, `src/content/courses/algi/slides/lesson-05-aula.pptx`).
+2. Execute `node scripts/convert-slides.mjs --input src/content/courses/algi/slides --output public/slides/algi` para gerar HTML (`index.html`), PNGs (`png/slide-01.png`, …) e o manifesto `deck.json` para cada arquivo.
+3. Configure o bloco `slideDeck` apontando `slidesPath` para o HTML resultante (`"public/slides/algi/lesson-05-aula/index.html"`) e, opcionalmente, `downloadUrl` para o arquivo bruto (`"public/slides/algi/lesson-05-aula.pptx"`).
+4. Utilize `--clean` ao repetir a conversão para evitar resíduos da execução anterior. O script detecta automaticamente `soffice/libreoffice` (HTML/PNG) e `pdftoppm` (PNG de PDFs), emitindo avisos quando os conversores não estiverem disponíveis.
+
 ## 1. High-Level Architecture
 
 - All renderable content lives under `src/content/courses/<courseId>/`.
@@ -176,11 +200,13 @@ Exemplo de payload JSON:
 ### Imagens responsivas e créditos
 
 - Salve a imagem base no próprio diretório de conteúdo (`src/content/courses/<curso>/media/...`) ou em `src/assets/media`. Use nomes descritivos e mantenha a versão em alta qualidade (a pipeline gera recortes menores automaticamente). Imagens em `public/` continuam válidas, porém são entregues apenas na resolução original.
+- Ativos interativos (Lottie, sprites animadas, etc.) devem ficar em `public/media/interactive/`. O script `npm run media:process` gera variantes otimizadas em `public/media/interactive/optimized/` e atualiza `metadata.json` com o carimbo `generatedAt`. Rode `npm run media:check` no CI/local para garantir que cada entrada possua `credit` e `license` válidos.
+- Atualize `public/media/interactive/metadata.json` com `file`, `credit`, `license` e, opcionalmente, `title`/`source` sempre que adicionar um novo arquivo. Assets sem metadados bloqueiam o lint automático.
 - Ao preencher um bloco `imageFigure`, aponte `src` para o caminho do arquivo local (`"public/media/figura.jpg"` ou `"@/content/courses/algi/media/figura.png"`). Durante o build o plugin [`vite-imagetools`](https://github.com/JonasKruckenberg/imagetools) cria `srcset` em AVIF/WEBP e mantém um fallback no formato original.
 - Use `credit` para informar autoria/licença (texto simples ou com marcação HTML sanitizada) e `caption` para contextualizar a imagem. Ambos aparecem no `<figcaption>` e são reutilizados na lightbox.
 - Defina `lightbox: false` caso a imagem não deva abrir em modal (por exemplo, infográficos com muito texto). Em galerias (`images[]`), o campo pode ser aplicado individualmente.
 - Quando precisar controlar manualmente as fontes (`<source>`), informe `sources[]` com objetos `{ srcset, type?, media?, sizes?, descriptor?, width?, density? }`. Também é possível gerar pares específicos informando `src` + `width`/`density` — o utilitário monta o `srcset` final preservando caminhos relativos.
-- Após editar imagens, rode `npm run validate:content` para garantir que os novos campos (`credit`, `lightbox`, `sources`) passaram pelas validações de esquema.
+- Após editar imagens, rode `npm run validate:content` para garantir que os novos campos (`credit`, `lightbox`, `sources`) passaram pelas validações de esquema. Para animações use `registerLottie` de `src/utils/mediaAssets.ts`, que já respeita `prefers-reduced-motion` e reutiliza `resolveAsset`/`buildSrcSet` para apontar os arquivos gerados pela pipeline.
 
 ### Metadados do curso (`meta.json`)
 

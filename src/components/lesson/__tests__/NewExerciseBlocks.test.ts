@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { flushPromises, mount } from '@vue/test-utils';
 import CodeSubmission from '@/components/exercise/CodeSubmission.vue';
 import DragAndDrop from '@/components/exercise/DragAndDrop.vue';
 import ConceptMapper from '@/components/exercise/ConceptMapper.vue';
@@ -10,6 +10,33 @@ import PeerReviewTask from '@/components/exercise/PeerReviewTask.vue';
 import TestGenerator from '@/components/exercise/TestGenerator.vue';
 import RubricDisplay from '@/components/exercise/RubricDisplay.vue';
 import SelfAssessment from '@/components/exercise/SelfAssessment.vue';
+
+const setOptionMock = vi.fn();
+const resizeMock = vi.fn();
+const disposeMock = vi.fn();
+const initMock = vi.fn(() => ({
+  setOption: setOptionMock,
+  resize: resizeMock,
+  dispose: disposeMock,
+}));
+
+vi.mock('echarts', () => ({
+  default: {
+    init: initMock,
+  },
+}));
+
+beforeEach(() => {
+  setOptionMock.mockReset();
+  resizeMock.mockReset();
+  disposeMock.mockReset();
+  initMock.mockReset();
+  initMock.mockImplementation(() => ({
+    setOption: setOptionMock,
+    resize: resizeMock,
+    dispose: disposeMock,
+  }));
+});
 
 describe('New exercise blocks', () => {
   it('renders CodeSubmission with boilerplate', () => {
@@ -158,6 +185,48 @@ describe('New exercise blocks', () => {
 
     expect(wrapper.text()).toContain('Excelente');
     expect(wrapper.text()).toContain('Explora causas');
+    expect(wrapper.find('.rubric__chart').exists()).toBe(false);
+  });
+
+  it('renderiza gráfico quando dados agregados são fornecidos', async () => {
+    const wrapper = mount(RubricDisplay, {
+      props: {
+        data: {
+          criteria: [
+            {
+              criterion: 'Análise',
+              levels: [
+                { level: 'Excelente', description: 'Explora causas e efeitos.' },
+                { level: 'Suficiente', description: 'Identifica fatores principais.' },
+              ],
+            },
+            {
+              criterion: 'Síntese',
+              levels: [
+                { level: 'Excelente', description: 'Apresenta narrativa coerente.' },
+                { level: 'Suficiente', description: 'Resume pontos principais.' },
+              ],
+            },
+          ],
+          aggregated: {
+            scores: [
+              { criterion: 'Análise', value: 3.5 },
+              { criterion: 'Síntese', value: 2.75 },
+            ],
+            weights: [4, 4],
+          },
+        },
+      },
+    });
+
+    await flushPromises();
+
+    expect(wrapper.find('.rubric__chart').exists()).toBe(true);
+    expect(initMock).toHaveBeenCalledTimes(1);
+    expect(setOptionMock).toHaveBeenCalled();
+    expect(wrapper.find('.rubric__chart-fallback').text()).toContain('Resumo textual');
+    const srSummary = wrapper.findAll('.sr-only li').map((item) => item.text());
+    expect(srSummary).toContain('Análise: 3.5 (peso 4)');
   });
 
   it('renders SelfAssessment prompts', () => {

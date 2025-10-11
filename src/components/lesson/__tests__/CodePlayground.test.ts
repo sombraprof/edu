@@ -1,11 +1,11 @@
 import { flushPromises, mount, type VueWrapper } from '@vue/test-utils';
 import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { loader } from '@monaco-editor/loader';
+import loader from '@monaco-editor/loader';
 import CodePlayground from '../CodePlayground.vue';
 
 vi.mock('@monaco-editor/loader', () => {
   return {
-    loader: {
+    default: {
       init: vi.fn(),
       config: vi.fn(),
     },
@@ -70,7 +70,6 @@ describe('CodePlayground', () => {
     const wrapper = mount(CodePlayground, {
       props: {
         data: {
-          type: 'codePlayground',
           language: 'javascript',
           initialCode: "print('Execução de teste');",
         },
@@ -99,7 +98,6 @@ describe('CodePlayground', () => {
     const wrapper = mount(CodePlayground, {
       props: {
         data: {
-          type: 'codePlayground',
           language: 'typescript',
           initialCode: "const mensagem: string = 'Fallback ok';\nprint(mensagem);",
         },

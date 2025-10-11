@@ -53,6 +53,9 @@ import PromptTip from '@/components/lesson/PromptTip.vue';
 import ImageFigure from '@/components/lesson/ImageFigure.vue';
 import WhiteboardBlock from '@/components/lesson/WhiteboardBlock.vue';
 import DesignEmbed from '@/components/lesson/DesignEmbed.vue';
+import SlideDeck from '@/components/lesson/SlideDeck.vue';
+import VideoAnnotation from '@/components/lesson/VideoAnnotation.vue';
+import ModelViewerBlock from '@/components/lesson/ModelViewerBlock.vue';
 import CodeSubmission from '@/components/exercise/CodeSubmission.vue';
 import DragAndDrop from '@/components/exercise/DragAndDrop.vue';
 import ConceptMapper from '@/components/exercise/ConceptMapper.vue';
@@ -117,6 +120,8 @@ const customComponentRegistry: Record<string, Component> = {
   PromptTip,
   ImageFigure,
   WhiteboardBlock,
+  VideoAnnotation,
+  ModelViewerBlock,
   CodeSubmission,
   DragAndDrop,
   ConceptMapper,
@@ -152,6 +157,7 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   contentBlock: dataBlock(ContentBlock),
   videos: dataBlock(VideosBlock),
   videosBlock: dataBlock(VideosBlock),
+  videoAnnotation: dataBlock(VideoAnnotation),
   checklist: dataBlock(ChecklistBlock),
   bibliography: dataBlock(BibliographyBlock),
   bibliographyBlock: dataBlock(BibliographyBlock),
@@ -210,7 +216,9 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   pedagogicalNote: dataBlock(PedagogicalNote),
   promptTip: dataBlock(PromptTip),
   imageFigure: dataBlock(ImageFigure),
+  modelViewer: dataBlock(ModelViewerBlock),
   designEmbed: dataBlock(DesignEmbed),
+  slideDeck: dataBlock(SlideDeck),
   codeSubmission: dataBlock(CodeSubmission),
   dragAndDrop: dataBlock(DragAndDrop),
   conceptMapper: dataBlock(ConceptMapper),

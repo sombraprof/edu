@@ -46,29 +46,38 @@ O schema `md3.lesson.v1` garante que todas as disciplinas compartilhem o mesmo c
 
 Os manifests de aulas e exercícios agora contam com vinte blocos inéditos que atendem a cenários de exposição e prática. Todos já estão descritos no schema (`schemas/lesson.schema.json`) e no renderer (`src/components/lesson/blockRegistry.ts`). A tabela abaixo resume os campos mínimos esperados:
 
-| Tipo (`type`)      | Campos obrigatórios                                   | Campos opcionais relevantes                                                                 |
-| ------------------ | ----------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `definitionCard`   | `term`, `definition`                                  | `source`, `sourceUrl`                                                                       |
-| `comparativeTable` | `headers`, `rows[].{label, values[]}`                 | `title`, `description`                                                                      |
-| `systemDiagram`    | `nodes[].{id,label}`                                  | `connections[]`, `legend`                                                                   |
-| `codeChallenge`    | `prompt`                                              | `code`, `question`, `options[]`, `answerExplanation`                                        |
-| `memoryVisualizer` | —                                                     | `stack[]`, `heap[]`, `notes`                                                                |
-| `caseStudy`        | `scenario`                                            | `title`, `dataPoints[]`, `questions[]`, `tasks[]`                                           |
-| `statCard`         | `label`, `value`                                      | `context`, `source`, `trend`                                                                |
-| `knowledgeCheck`   | `prompt`, `options[].{id,text}`                       | `title`, `explanation`, `allowMultiple`                                                     |
-| `dualAssessment`   | `theory`, `practice`                                  | `title`, `summary`; sub-blocos herdam campos opcionais de `knowledgeCheck`/`codeSubmission` |
-| `interactiveDemo`  | `url`                                                 | `title`, `description`, `height`                                                            |
-| `pedagogicalNote`  | `content`                                             | `title`, `audience`                                                                         |
-| `codeSubmission`   | `prompt`                                              | `language`, `boilerplate`, `tests[]`, `tips[]`                                              |
-| `dragAndDrop`      | `steps[].{id,label}`                                  | `title`, `instructions`                                                                     |
-| `conceptMapper`    | `nodes[].{id,label}`                                  | `description`, `relationships[]`                                                            |
-| `bugFixChallenge`  | `code`                                                | `language`, `hints[]`, `guidance[]`                                                         |
-| `dataEntryForm`    | `fields[].{id,label}`                                 | `submitLabel`, `description`, `fields[].{type,required,options[],placeholder}`              |
-| `scenarioBuilder`  | `inputs[]`, `processes[]`, `outputs[]`                | `description`, `guidingQuestions[]`                                                         |
-| `peerReviewTask`   | `criteria[].{id,label}`                               | `description`, `dueDate`, `steps[]`                                                         |
-| `testGenerator`    | `tags[]`                                              | `description`, `difficulties[]`                                                             |
-| `rubricDisplay`    | `criteria[].{criterion,levels[].{level,description}}` | `title`, `description`                                                                      |
-| `selfAssessment`   | `prompts[].{id,label}`                                | `description`, `prompts[].placeholder`                                                      |
+| Tipo (`type`)      | Campos obrigatórios                                   | Campos opcionais relevantes                                                                                                                  |
+| ------------------ | ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `definitionCard`   | `term`, `definition`                                  | `source`, `sourceUrl`                                                                                                                        |
+| `comparativeTable` | `headers`, `rows[].{label, values[]}`                 | `title`, `description`                                                                                                                       |
+| `systemDiagram`    | `nodes[].{id,label}`                                  | `connections[]`, `legend`                                                                                                                    |
+| `codeChallenge`    | `prompt`                                              | `code`, `question`, `options[]`, `answerExplanation`                                                                                         |
+| `memoryVisualizer` | —                                                     | `stack[]`, `heap[]`, `notes`                                                                                                                 |
+| `caseStudy`        | `scenario`                                            | `title`, `dataPoints[]`, `questions[]`, `tasks[]`                                                                                            |
+| `statCard`         | `label`, `value`                                      | `context`, `source`, `trend`                                                                                                                 |
+| `knowledgeCheck`   | `prompt`, `options[].{id,text}`                       | `title`, `explanation`, `allowMultiple`                                                                                                      |
+| `dualAssessment`   | `theory`, `practice`                                  | `title`, `summary`; sub-blocos herdam campos opcionais de `knowledgeCheck`/`codeSubmission`                                                  |
+| `interactiveDemo`  | `url`                                                 | `title`, `description`, `height`                                                                                                             |
+| `pedagogicalNote`  | `content`                                             | `title`, `audience`                                                                                                                          |
+| `codeSubmission`   | `prompt`                                              | `language`, `boilerplate`, `tests[]`, `tips[]`                                                                                               |
+| `dragAndDrop`      | `steps[].{id,label}`                                  | `title`, `instructions`                                                                                                                      |
+| `conceptMapper`    | `nodes[].{id,label}`                                  | `description`, `relationships[]`, `nodes[].{category,details,position}`, `layout.{type,force.{linkDistance,chargeStrength,collisionRadius}}` |
+| `dataEntryForm`    | `fields[].{id,label}`                                 | `submitLabel`, `description`, `fields[].{type,required,options[],placeholder}`                                                               |
+| `scenarioBuilder`  | `inputs[]`, `processes[]`, `outputs[]`                | `description`, `guidingQuestions[]`                                                                                                          |
+| `peerReviewTask`   | `criteria[].{id,label}`                               | `description`, `dueDate`, `steps[]`                                                                                                          |
+| `testGenerator`    | `tags[]`                                              | `description`, `difficulties[]`                                                                                                              |
+| `rubricDisplay`    | `criteria[].{criterion,levels[].{level,description}}` | `title`, `description`                                                                                                                       |
+| `selfAssessment`   | `prompts[].{id,label}`                                | `description`, `prompts[].placeholder`                                                                                                       |
+
+| `videoAnnotation` | `video.provider`, `video.src` (quando `html5`) ou `video.url`/`videoId` | `title`, `description`, `annotations[].{label,time}`, `annotations[].question`, `checkpoints[].{label,time}` |
+|
+
+### Bloco `conceptMapper`
+
+- `layout.type` define se o renderer calcula o posicionamento (`"auto"`, padrão) ou respeita coordenadas pré-processadas (`"preset"`).
+- `layout.force` aceita ajustes finos da simulação de força (`linkDistance`, `chargeStrength`, `collisionRadius`) para cenários com muitos nós.
+- `nodes[].position` recebe coordenadas `{x, y}` (compatíveis com a `viewBox` 720×480) quando o time de autoria quiser controlar a malha manualmente ou replicar um layout estático.
+- O renderer mantém a listagem textual para acessibilidade, e os grupos permanecem colapsáveis — descreva relações relevantes no campo `relationships[]` para garantir o contexto completo.
 
 ### Bloco `dualAssessment`
 
