@@ -17,7 +17,7 @@ function createMonacoStub() {
   const model = {};
   const disposables: Array<{ dispose: () => void }> = [];
   const editorInstance = {
-    onDidChangeModelContent: vi.fn((callback: () => void) => {
+    onDidChangeModelContent: vi.fn((_callback: () => void) => {
       disposables.push({ dispose: vi.fn() });
       return disposables[disposables.length - 1];
     }),

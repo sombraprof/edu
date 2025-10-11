@@ -16,7 +16,7 @@ type CodePlaygroundBlock = {
   resetLabel?: string;
 };
 
-const props = defineProps<{ block: CodePlaygroundBlock }>();
+const { block } = defineProps<{ block: CodePlaygroundBlock }>();
 const emit = defineEmits<{ (event: 'update:block', value: CodePlaygroundBlock): void }>();
 
 const schema = computed<BlockSchema>(() => ({
