@@ -557,7 +557,16 @@
           "title": { "type": "string" },
           "description": { "type": "string" },
           "url": { "type": "string", "format": "uri" },
-          "height": { "type": "number", "exclusiveMinimum": 0 }
+          "height": { "type": "number", "exclusiveMinimum": 0 },
+          "provider": {
+            "type": "string",
+            "enum": ["figma", "miro", "canva", "google-slides", "powerpoint-online"]
+          },
+          "page": {
+            "type": "string",
+            "enum": ["embed", "present", "preview", "view", "board"]
+          },
+          "theme": { "type": "string", "enum": ["light", "dark", "auto"] }
         }
       }
     },

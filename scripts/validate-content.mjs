@@ -70,6 +70,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'crcCards',
   'apiEndpoints',
   'promptTip',
+  'interactiveDemo',
 ];
 
 const LEGACY_BLOCK_TYPES = ['dragAndDrop', 'fileTree', 'quiz'];
@@ -151,6 +152,17 @@ const ALLOWED_LESSON_PLAN_ICONS = new Set([
 const ALLOWED_INSTITUTIONS = new Set(['Unichristus', 'Unifametro']);
 const MIN_META_DESCRIPTION_LENGTH = 60;
 const MIN_META_TITLE_LENGTH = 8;
+
+const ALLOWED_EMBED_PROVIDERS = new Set([
+  'figma',
+  'miro',
+  'canva',
+  'google-slides',
+  'powerpoint-online',
+]);
+
+const ALLOWED_EMBED_PAGES = new Set(['embed', 'present', 'preview', 'view', 'board']);
+const ALLOWED_EMBED_THEMES = new Set(['light', 'dark', 'auto']);
 
 const blockValidators = {
   html: requireStringField('html', 'Bloco "html" requer o campo "html" com conteúdo.'),
@@ -481,6 +493,69 @@ const blockValidators = {
             );
           }
         });
+      }
+    }
+  },
+  interactiveDemo(block, context) {
+    const hasUrl = requireStringField('url', 'Bloco "interactiveDemo" requer o campo "url".')(
+      block,
+      context
+    );
+
+    if (hasUrl && typeof block.url === 'string') {
+      try {
+        new URL(block.url);
+      } catch {
+        pushBlockProblem(context, 'Campo "url" deve ser uma URL válida.');
+      }
+    }
+
+    if (block.height !== undefined && typeof block.height !== 'number') {
+      pushBlockProblem(context, 'Campo "height" deve ser numérico quando presente.');
+    }
+
+    if (block.provider !== undefined) {
+      if (typeof block.provider !== 'string') {
+        pushBlockProblem(context, 'Campo "provider" deve ser uma string quando presente.');
+      } else if (!ALLOWED_EMBED_PROVIDERS.has(block.provider)) {
+        pushBlockProblem(
+          context,
+          `Valor de "provider" inválido ("${block.provider}"). Utilize um dos valores: ${[
+            ...ALLOWED_EMBED_PROVIDERS,
+          ]
+            .map((value) => `"${value}"`)
+            .join(', ')}.`
+        );
+      }
+    }
+
+    if (block.page !== undefined) {
+      if (typeof block.page !== 'string') {
+        pushBlockProblem(context, 'Campo "page" deve ser uma string quando presente.');
+      } else if (!ALLOWED_EMBED_PAGES.has(block.page)) {
+        pushBlockProblem(
+          context,
+          `Valor de "page" inválido ("${block.page}"). Utilize um dos valores: ${[
+            ...ALLOWED_EMBED_PAGES,
+          ]
+            .map((value) => `"${value}"`)
+            .join(', ')}.`
+        );
+      }
+    }
+
+    if (block.theme !== undefined) {
+      if (typeof block.theme !== 'string') {
+        pushBlockProblem(context, 'Campo "theme" deve ser uma string quando presente.');
+      } else if (!ALLOWED_EMBED_THEMES.has(block.theme)) {
+        pushBlockProblem(
+          context,
+          `Valor de "theme" inválido ("${block.theme}"). Utilize um dos valores: ${[
+            ...ALLOWED_EMBED_THEMES,
+          ]
+            .map((value) => `"${value}"`)
+            .join(', ')}.`
+        );
       }
     }
   },

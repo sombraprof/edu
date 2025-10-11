@@ -35,21 +35,21 @@ This document explains how to produce new lessons and exercises that integrate s
 
 The authoring sidebar now renders specialised forms for the following block types. Every form emulates the data shape produced by [`defaultBlockTemplates`](../src/components/authoring/defaultBlockTemplates.ts) and emits `update:block` automatically when fields change.
 
-| Block type                           | Required fields                               | Authoring notes                                                                                   |
-| ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                              |
-| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                                |
-| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                   |
-| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                       |
-| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.     |
-| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                     |
-| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e o que observar durante a interação.                                     |
-| `codePlayground`                     | `initialCode`                                 | Forneça um snippet inicial curto e oriente o uso de `print(...)` para registrar saídas no painel. |
-| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos.  |
-| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.              |
-| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                               |
-| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                         |
-| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.            |
+| Block type                           | Required fields                               | Authoring notes                                                                                                                                                  |
+| ------------------------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `checklist`                          | `title`, at least one entry in `items[]`      | Use frases de ação; entradas vazias são descartadas automaticamente.                                                                                             |
+| `timeline` / `stepper`               | `title`, `steps[].title`                      | Combine com descrições curtas (3–4 linhas) para guiar o estudante.                                                                                               |
+| `glossary`                           | `title`, `terms[].term`, `terms[].definition` | Prefira definições no presente e contextualizadas para o curso.                                                                                                  |
+| `flashcards`                         | `title`, `cards[].front`, `cards[].back`      | Pense em perguntas diretas no lado frontal e explicações sucintas no verso.                                                                                      |
+| `videos` / `videosBlock`             | `title`, `videos[].title`, `videos[].url`     | Utilize URLs públicas (YouTube, Vimeo, Stream) com legendas opcionalmente informando duração.                                                                    |
+| `bibliography` / `bibliographyBlock` | `title`, `items[]`                            | Padronize o formato (ABNT/APA) e mantenha a ordem alfabética.                                                                                                    |
+| `interactiveDemo`                    | `title`, `url`                                | Descreva pré-requisitos e como o estudante deve explorar a demo. Utilize os campos opcionais `provider`, `page`, `theme` para ajustar o embed quando necessário. |
+| `codePlayground`                     | `initialCode`                                 | Forneça um snippet inicial curto e oriente o uso de `print(...)` para registrar saídas no painel.                                                                |
+| `codeSubmission`                     | `title`, `language`, `tests[]`                | Os testes são strings executadas pelo avaliador; garanta que cobrem casos positivos e negativos.                                                                 |
+| `promptTip`                          | `title`, `audience`, `prompt`                 | Use `tags[]` para facilitar buscas no painel e `tips[]` para destacar boas práticas.                                                                             |
+| `flightPlan`                         | `title`, `items[]`                            | Ideal para resumir macro etapas em aulas síncronas.                                                                                                              |
+| `accordion` / `representations`      | `items[].title`, `items[].content`            | Reforce o contraste entre tópicos – títulos curtos e conteúdos objetivos.                                                                                        |
+| `parsons` / `parsonsPuzzle`          | `title`, `prompt`, `lines[]`                  | Cada linha representa um bloco rearrastável; evite inserir comentários desnecessários.                                                                           |
 
 String lists ignoram entradas em branco e mantêm pelo menos um item vazio para facilitar a digitação. Conteúdos em textarea suportam quebras de linha — não é necessário inserir `\n` manualmente.
 
@@ -74,6 +74,23 @@ Exemplo de payload JSON:
 > ⚠️ **Segurança:** o código roda no mesmo contexto da página. Evite expor tokens, manipular DOM diretamente ou acessar APIs externas sensíveis. Limite-se a exemplos determinísticos que não dependam de rede e reforcem conceitos da aula.
 
 > **Blocos ainda no modo genérico:** `scenarioMatrix`, `spriteSheet`, `crcCards`, `apiEndpoints`, `definitionCard`, `comparativeTable`, `systemDiagram`, `codeChallenge`, `memoryVisualizer`, `caseStudy`, `statCard`, `dualAssessment`, `pedagogicalNote`, `dragAndDrop`, `conceptMapper`, `bugFixChallenge`, `dataEntryForm`, `scenarioBuilder`, `peerReviewTask`, `testGenerator`, `rubricDisplay`, `selfAssessment`, `truthTable`, `blockDiagram`, `md3Flowchart`, `classDesigner`, `audio`, `md3Table`, `pipelineCanvas`, `systemMapper`, `balancedScorecard`, `component`, `legacySection`. Utilize o botão **Editar JSON** (editor genérico) para esses tipos e mantenha o formato do `defaultBlockTemplates` como referência.
+
+#### Bloco `interactiveDemo`
+
+- `provider` (opcional) identifica o serviço do embed e aceita apenas os valores descritos na tabela abaixo. A detecção automática pelo domínio continua funcionando; utilize o campo quando precisar documentar o provedor explicitamente.
+- `page` controla o modo de visualização (por exemplo, `embed` ou `present`). Quando omitido, aplicamos o preset recomendado para cada serviço.
+- `theme` alterna entre os temas disponibilizados pelo provedor (quando houver suporte).
+- URLs fora da lista de domínios aprovados exibem um aviso e o iframe deixa de ser renderizado – mantenha os compartilhamentos públicos.
+
+| Provedor            | Domínios aceitos                  | Altura padrão | Modos suportados              | Temas disponíveis | Observações                                                                    |
+| ------------------- | --------------------------------- | ------------- | ----------------------------- | ----------------- | ------------------------------------------------------------------------------ |
+| `figma`             | `figma.com`, `www.figma.com`      | 720 px        | `embed`, `present`            | `light`, `dark`   | O link é encapsulado em `https://www.figma.com/embed?embed_host=edu&url=…`.    |
+| `miro`              | `miro.com`, `www.miro.com`        | 768 px        | `board`                       | —                 | Habilitamos `?embed=1` para manter o iframe no modo colaborativo.              |
+| `canva`             | `canva.com`, `www.canva.com`      | 720 px        | `view`, `present`             | —                 | O preset `view` adiciona `?embed=1`; altere para `present` para exibir slides. |
+| `google-slides`     | `docs.google.com`                 | 540 px        | `embed`, `present`, `preview` | —                 | Reescrevemos o caminho para `/presentation/d/<id>/<modo>` automaticamente.     |
+| `powerpoint-online` | `onedrive.live.com`, `office.com` | 540 px        | `embed`                       | —                 | Forçamos `em=2` quando o parâmetro não estiver presente na URL.                |
+
+> 💡 Combine `height` com os presets acima somente quando a demo exigir uma área diferente da padrão do provedor.
 
 ## 1. High-Level Architecture
 
