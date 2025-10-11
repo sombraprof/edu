@@ -180,7 +180,6 @@ import {
   forceLink,
   forceManyBody,
   forceSimulation,
-  type Simulation,
   type SimulationNodeDatum,
 } from 'd3-force';
 
