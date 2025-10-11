@@ -49,6 +49,7 @@ import DualAssessment from '@/components/lesson/DualAssessment.vue';
 import InteractiveDemo from '@/components/lesson/InteractiveDemo.vue';
 import PedagogicalNote from '@/components/lesson/PedagogicalNote.vue';
 import PromptTip from '@/components/lesson/PromptTip.vue';
+import ImageFigure from '@/components/lesson/ImageFigure.vue';
 import CodeSubmission from '@/components/exercise/CodeSubmission.vue';
 import DragAndDrop from '@/components/exercise/DragAndDrop.vue';
 import ConceptMapper from '@/components/exercise/ConceptMapper.vue';
@@ -111,6 +112,7 @@ const customComponentRegistry: Record<string, Component> = {
   InteractiveDemo,
   PedagogicalNote,
   PromptTip,
+  ImageFigure,
   CodeSubmission,
   DragAndDrop,
   ConceptMapper,
@@ -201,6 +203,7 @@ const blockHandlers: Record<string, (block: LessonBlock) => BlockResolution> = {
   interactiveDemo: dataBlock(InteractiveDemo),
   pedagogicalNote: dataBlock(PedagogicalNote),
   promptTip: dataBlock(PromptTip),
+  imageFigure: dataBlock(ImageFigure),
   codeSubmission: dataBlock(CodeSubmission),
   dragAndDrop: dataBlock(DragAndDrop),
   conceptMapper: dataBlock(ConceptMapper),
