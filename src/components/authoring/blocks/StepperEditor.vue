@@ -526,25 +526,34 @@ function resolveMediaType(media?: StepperMedia): StepState['mediaType'] {
   if (!media || typeof media !== 'object') {
     return 'none';
   }
-  const type =
-    typeof (media as StepperMediaVideo).type === 'string'
-      ? (media as StepperMediaVideo).type.toLowerCase()
-      : undefined;
-  if (type === 'video' || typeof (media as StepperMediaVideo).url === 'string') {
+
+  const asVideo = media as StepperMediaVideo;
+  const normalizedType = typeof asVideo.type === 'string' ? asVideo.type.toLowerCase() : undefined;
+
+  if (normalizedType === 'video') {
     return 'video';
   }
-  if (type === 'embed' || typeof (media as StepperMediaEmbed).html === 'string') {
+  if (typeof asVideo.url === 'string' && asVideo.url.trim().length > 0) {
+    return 'video';
+  }
+
+  const asEmbed = media as StepperMediaEmbed;
+  if (normalizedType === 'embed') {
     return 'none';
   }
-  if (
-    Array.isArray((media as StepperMediaImage).images) &&
-    (media as StepperMediaImage).images!.length
-  ) {
+  if (typeof asEmbed.html === 'string' && asEmbed.html.trim().length > 0) {
+    return 'none';
+  }
+
+  const asImage = media as StepperMediaImage;
+  const gallery = Array.isArray(asImage.images) ? asImage.images : undefined;
+  if (gallery && gallery.length > 0) {
     return 'gallery';
   }
-  if (typeof (media as StepperMediaImage).src === 'string') {
+  if (typeof asImage.src === 'string' && asImage.src.trim().length > 0) {
     return 'image';
   }
+
   return 'none';
 }
 
@@ -552,13 +561,16 @@ function resolveGallery(media?: StepperMedia): GalleryImageState[] {
   if (!media || typeof media !== 'object') {
     return [createGalleryImageState()];
   }
-  const images = Array.isArray((media as StepperMediaImage).images)
-    ? (media as StepperMediaImage).images
+
+  const imageEntries = Array.isArray((media as StepperMediaImage).images)
+    ? ((media as StepperMediaImage).images as StepperMediaImage[])
     : [];
-  if (!images.length) {
+
+  if (imageEntries.length === 0) {
     return [createGalleryImageState()];
   }
-  return images.map((image) => ({
+
+  return imageEntries.map((image) => ({
     id: createId('gallery'),
     src: typeof image?.src === 'string' ? image.src : '',
     alt: typeof image?.alt === 'string' ? image.alt : '',

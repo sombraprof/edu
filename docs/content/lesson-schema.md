@@ -70,6 +70,9 @@ Os manifests de aulas e exercícios agora contam com vinte blocos inéditos que 
 | `rubricDisplay`    | `criteria[].{criterion,levels[].{level,description}}` | `title`, `description`                                                                      |
 | `selfAssessment`   | `prompts[].{id,label}`                                | `description`, `prompts[].placeholder`                                                      |
 
+| `videoAnnotation` | `video.provider`, `video.src` (quando `html5`) ou `video.url`/`videoId` | `title`, `description`, `annotations[].{label,time}`, `annotations[].question`, `checkpoints[].{label,time}` |
+|
+
 ### Bloco `dualAssessment`
 
 O bloco combina avaliação teórica e prática em um único item da sequência de conteúdo:

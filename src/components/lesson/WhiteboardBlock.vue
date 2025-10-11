@@ -248,9 +248,10 @@ const normalizedSnapshots = computed<NormalizedSnapshot[]>(() => {
         : undefined;
       const image = normalizeImage(snapshot.image);
       if (!state && !image && !commands?.length) {
-        return null;
+        return undefined;
       }
-      return {
+
+      const normalized: NormalizedSnapshot = {
         id:
           typeof snapshot.id === 'string' && snapshot.id.trim().length > 0
             ? snapshot.id
@@ -259,17 +260,28 @@ const normalizedSnapshots = computed<NormalizedSnapshot[]>(() => {
           typeof snapshot.label === 'string' && snapshot.label.trim().length > 0
             ? snapshot.label
             : `Snapshot ${index + 1}`,
-        description: typeof snapshot.description === 'string' ? snapshot.description : undefined,
         durationMs:
           typeof snapshot.durationMs === 'number' && snapshot.durationMs > 0
             ? snapshot.durationMs
             : defaultDuration.value,
-        state,
-        commands,
-        image,
-      } satisfies NormalizedSnapshot;
+      };
+
+      if (typeof snapshot.description === 'string') {
+        normalized.description = snapshot.description;
+      }
+      if (state) {
+        normalized.state = state;
+      }
+      if (commands && commands.length) {
+        normalized.commands = commands;
+      }
+      if (image) {
+        normalized.image = image;
+      }
+
+      return normalized;
     })
-    .filter((snapshot): snapshot is NormalizedSnapshot => Boolean(snapshot));
+    .filter((snapshot): snapshot is NormalizedSnapshot => snapshot !== undefined);
 });
 
 const hasSnapshots = computed(() => normalizedSnapshots.value.length > 0);
@@ -374,7 +386,7 @@ async function ensureFabric() {
   if (!hasCanvasSnapshots.value) return null;
   try {
     isFabricLoading.value = true;
-    const module = (await import('fabric')) as FabricModule & { fabric?: FabricModule };
+    const module = (await import('fabric')) as unknown as FabricModule & { fabric?: FabricModule };
     const FabricCanvasCtor =
       typeof module.Canvas === 'function'
         ? module.Canvas

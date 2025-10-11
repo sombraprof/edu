@@ -21,6 +21,7 @@ const DESIGN_PROVIDERS: readonly DesignEmbedProviderId[] = ['figma', 'miro', 'fr
 
 interface DesignEmbedAuthoringBlock extends Partial<DesignEmbedBlockData> {
   type?: string;
+  [key: string]: unknown;
 }
 
 const props = defineProps<{ block: DesignEmbedAuthoringBlock }>();

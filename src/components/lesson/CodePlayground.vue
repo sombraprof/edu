@@ -94,7 +94,7 @@
 
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue';
-import { loader } from '@monaco-editor/loader';
+import loader from '@monaco-editor/loader';
 import { transform } from 'sucrase';
 import { AlertCircle, LoaderCircle, Play, RotateCcw } from 'lucide-vue-next';
 import Md3Button from '@/components/Md3Button.vue';
