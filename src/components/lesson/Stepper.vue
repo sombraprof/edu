@@ -216,25 +216,42 @@ const steps = computed<Step[]>(() => {
       if (!entry || typeof entry !== 'object') return undefined;
       const title = String(entry.title ?? entry.label ?? '').trim();
       if (!title) return undefined;
-      const description = sanitizeHtml(entry.description ?? '');
-      const html = sanitizeHtml(entry.html ?? entry.content ?? '');
+
+      const rawDescription = sanitizeHtml(entry.description ?? '');
+      const description = rawDescription.trim().length ? rawDescription : undefined;
+      const rawHtml = sanitizeHtml(entry.html ?? entry.content ?? '');
+      const html = rawHtml.trim().length ? rawHtml : undefined;
       const normalizedCode = normalizeStepCode(entry.code, entry.language);
       const caption = sanitizeRichText(entry.caption);
       const embed = sanitizeRichText(entry.embed);
       const normalizedMedia = normalizeStepMedia(entry.media, caption);
 
-      return {
-        title,
-        description,
-        html,
-        code: normalizedCode,
-        caption,
-        embed,
-        media: normalizedMedia.media,
-        mediaFallback: normalizedMedia.fallback,
-      } satisfies Step;
+      const step: Step = { title };
+      if (description) {
+        step.description = description;
+      }
+      if (html) {
+        step.html = html;
+      }
+      if (normalizedCode) {
+        step.code = normalizedCode;
+      }
+      if (caption) {
+        step.caption = caption;
+      }
+      if (embed) {
+        step.embed = embed;
+      }
+      if (normalizedMedia.media) {
+        step.media = normalizedMedia.media;
+      }
+      if (normalizedMedia.fallback) {
+        step.mediaFallback = normalizedMedia.fallback;
+      }
+
+      return step;
     })
-    .filter((s): s is Step => Boolean(s));
+    .filter((s): s is Step => s !== undefined);
 });
 
 const index = ref(0);
@@ -467,30 +484,26 @@ function normalizeStepMedia(
     return { fallback: 'Mídia indisponível.' };
   }
 
-  const type = typeof value.type === 'string' ? value.type.toLowerCase() : undefined;
-  const hasVideoUrl =
-    typeof (value as StepMediaVideo).url === 'string' &&
-    (value as StepMediaVideo).url?.trim().length;
+  const mediaObject = value as StepMediaVideo & StepMediaEmbed & StepMediaImage;
+  const type = typeof mediaObject.type === 'string' ? mediaObject.type.toLowerCase() : undefined;
+  const videoCandidate = value as StepMediaVideo;
+  const rawVideoUrl = typeof videoCandidate.url === 'string' ? videoCandidate.url : undefined;
+  const hasVideoUrl = Boolean(rawVideoUrl && rawVideoUrl.trim().length);
 
   if (type === 'video' || hasVideoUrl) {
     const candidate: StepMediaVideo = {
       type: 'video',
-      url: hasVideoUrl ? (value as StepMediaVideo).url : undefined,
+      url: hasVideoUrl ? rawVideoUrl : undefined,
       src:
-        type === 'video' && typeof (value as StepMediaVideo).src === 'string'
-          ? (value as StepMediaVideo).src
-          : undefined,
+        type === 'video' && typeof videoCandidate.src === 'string' ? videoCandidate.src : undefined,
     };
     const videoSrc = resolveVideoSrc(candidate);
     if (!videoSrc) {
       return { fallback: 'Vídeo indisponível.' };
     }
-    const videoTitle =
-      typeof (value as StepMediaVideo).title === 'string' &&
-      (value as StepMediaVideo).title.trim().length
-        ? (value as StepMediaVideo).title.trim()
-        : 'Vídeo do passo';
-    const videoCaption = sanitizeRichText((value as StepMediaVideo).caption) ?? caption;
+    const rawTitle = typeof videoCandidate.title === 'string' ? videoCandidate.title.trim() : '';
+    const videoTitle = rawTitle.length ? rawTitle : 'Vídeo do passo';
+    const videoCaption = sanitizeRichText(videoCandidate.caption) ?? caption;
     return {
       media: {
         kind: 'video',
@@ -501,12 +514,16 @@ function normalizeStepMedia(
     };
   }
 
-  if (type === 'embed' || typeof (value as StepMediaEmbed).html === 'string') {
-    const html = sanitizeRichText((value as StepMediaEmbed).html);
+  const embedCandidate = value as StepMediaEmbed;
+  const hasEmbedHtml =
+    typeof embedCandidate.html === 'string' && embedCandidate.html.trim().length > 0;
+
+  if (type === 'embed' || hasEmbedHtml) {
+    const html = sanitizeRichText(embedCandidate.html);
     if (!html) {
       return { fallback: 'Conteúdo incorporado indisponível.' };
     }
-    const embedCaption = sanitizeRichText((value as StepMediaEmbed).caption) ?? caption;
+    const embedCaption = sanitizeRichText(embedCandidate.caption) ?? caption;
     return {
       media: {
         kind: 'embed',
@@ -516,7 +533,7 @@ function normalizeStepMedia(
     };
   }
 
-  const gallery = normalizeGalleryEntries(value as StepMediaImage, caption);
+  const gallery = normalizeGalleryEntries(mediaObject as StepMediaImage, caption);
   if (gallery) {
     return {
       media: {
@@ -526,7 +543,7 @@ function normalizeStepMedia(
     };
   }
 
-  const image = normalizeImageEntry(value as StepMediaImage, caption);
+  const image = normalizeImageEntry(mediaObject as StepMediaImage, caption);
   if (image) {
     return {
       media: {

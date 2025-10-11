@@ -235,7 +235,8 @@
         { "$ref": "#/$defs/selfAssessmentBlock" },
         { "$ref": "#/$defs/whiteboardBlock" },
         { "$ref": "#/$defs/slideDeckBlock" },
-        { "$ref": "#/$defs/dualAssessmentBlock" }
+        { "$ref": "#/$defs/dualAssessmentBlock" },
+        { "$ref": "#/$defs/videoAnnotationBlock" }
       ]
     },
     "imageSource": {
@@ -372,6 +373,126 @@
             "then": { "required": ["slidesPath"] }
           }
         ]
+      }
+    },
+    "videoAnnotationCaption": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["src"],
+      "properties": {
+        "src": { "type": "string", "format": "uri" },
+        "label": { "type": "string", "minLength": 1 },
+        "srclang": { "type": "string", "minLength": 2 },
+        "default": { "type": "boolean" }
+      }
+    },
+    "videoAnnotationQuestionOption": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "text"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "text": { "type": "string", "minLength": 1 },
+        "correct": { "type": "boolean" }
+      }
+    },
+    "videoAnnotationQuestion": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["prompt", "options"],
+      "properties": {
+        "prompt": { "type": "string", "minLength": 1 },
+        "explanation": { "type": "string" },
+        "multiple": { "type": "boolean" },
+        "options": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/videoAnnotationQuestionOption" }
+        }
+      }
+    },
+    "videoAnnotationAnnotation": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["label", "time"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "time": { "type": "number", "minimum": 0 },
+        "type": { "type": "string", "enum": ["note", "question"] },
+        "body": { "type": "string" },
+        "question": { "$ref": "#/$defs/videoAnnotationQuestion" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "type": { "const": "question" } }
+          },
+          "then": { "required": ["question"] }
+        }
+      ]
+    },
+    "videoAnnotationCheckpoint": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["label", "time"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "time": { "type": "number", "minimum": 0 },
+        "description": { "type": "string" }
+      }
+    },
+    "videoAnnotationBlock": {
+      "if": {
+        "properties": { "type": { "const": "videoAnnotation" } }
+      },
+      "then": {
+        "required": ["video"],
+        "properties": {
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "video": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["provider"],
+            "properties": {
+              "provider": {
+                "type": "string",
+                "enum": ["youtube", "vimeo", "html5"]
+              },
+              "url": { "type": "string", "format": "uri" },
+              "videoId": { "type": "string", "minLength": 1 },
+              "src": { "type": "string", "format": "uri" },
+              "type": { "type": "string", "minLength": 1 },
+              "poster": { "type": "string", "format": "uri" },
+              "captions": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/videoAnnotationCaption" }
+              }
+            },
+            "allOf": [
+              {
+                "if": { "properties": { "provider": { "const": "html5" } } },
+                "then": { "required": ["src"] }
+              },
+              {
+                "if": { "properties": { "provider": { "enum": ["youtube", "vimeo"] } } },
+                "then": {
+                  "anyOf": [{ "required": ["videoId"] }, { "required": ["url"] }]
+                }
+              }
+            ]
+          },
+          "annotations": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/videoAnnotationAnnotation" }
+          },
+          "checkpoints": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/videoAnnotationCheckpoint" }
+          }
+        }
       }
     },
     "imageFigureBlock": {

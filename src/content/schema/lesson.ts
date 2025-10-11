@@ -148,8 +148,6 @@ export interface KnowledgeCheckBlock extends LessonBlock {
   allowMultiple?: boolean;
 }
 
-import type { EmbedProviderId, EmbedTheme, EmbedViewMode } from '@/utils/embedWhitelist';
-
 export interface InteractiveDemoBlock extends LessonBlock {
   type: 'interactiveDemo';
   url: string;
