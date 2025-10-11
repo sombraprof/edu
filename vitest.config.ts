@@ -15,6 +15,12 @@ export default defineConfig({
         new URL('./tests/stubs/monaco-editor-api.ts', import.meta.url)
       ),
       fabric: fileURLToPath(new URL('./tests/stubs/fabric.ts', import.meta.url)),
+      'lottie-web': fileURLToPath(new URL('./tests/stubs/lottie-web.ts', import.meta.url)),
+      'd3-force': fileURLToPath(new URL('./tests/stubs/d3-force.ts', import.meta.url)),
+      '@google/model-viewer': fileURLToPath(
+        new URL('./tests/stubs/model-viewer.ts', import.meta.url)
+      ),
+      echarts: fileURLToPath(new URL('./tests/stubs/echarts.ts', import.meta.url)),
     },
   },
   test: {

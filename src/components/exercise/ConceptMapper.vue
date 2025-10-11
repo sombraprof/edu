@@ -20,7 +20,7 @@
             <button
               type="button"
               class="concept-mapper__group-toggle text-title-small font-semibold text-on-surface"
-              :aria-expanded="String(!isGroupCollapsed(group.category))"
+              :aria-expanded="!isGroupCollapsed(group.category)"
               :aria-controls="groupPanelId(group.category)"
               @click="toggleGroup(group.category)"
             >
@@ -55,7 +55,7 @@
                 type="button"
                 class="concept-mapper__node text-body-medium text-on-surface"
                 :class="nodeStateClass(node.id)"
-                :aria-pressed="String(selectedNodeId === node.id)"
+                :aria-pressed="selectedNodeId === node.id"
                 :data-node-id="node.id"
                 @mouseenter="handleHover(node.id)"
                 @mouseleave="handleHover(null)"
@@ -122,7 +122,7 @@
                 }"
                 role="button"
                 tabindex="0"
-                :aria-pressed="String(selectedNodeId === node.id)"
+                :aria-pressed="selectedNodeId === node.id"
                 :data-graph-node-id="node.id"
                 @mouseenter="handleHover(node.id)"
                 @mouseleave="handleHover(null)"
@@ -245,7 +245,7 @@ const collapsedCategories = ref<Set<string>>(new Set());
 const hoveredNodeId = ref<string | null>(null);
 const selectedNodeId = ref<string | null>(null);
 const nodePositions = ref<Record<string, { x: number; y: number }>>({});
-const simulation = ref<Simulation<ForceNode, undefined> | null>(null);
+const simulation = ref<ReturnType<typeof forceSimulation> | null>(null);
 
 const groupedEntries = computed(() => {
   const groups = new Map<string, ConceptMapperNode[]>();
@@ -404,16 +404,23 @@ function runAutoLayout(nodes: ConceptMapperNode[], links: ConceptMapperRelations
     target: link.to,
   }));
 
+  const chargeForce = forceManyBody() as { strength(value: number): unknown };
+  chargeForce.strength(layout.chargeStrength ?? -280);
+
+  const linkForce = forceLink(simLinks) as {
+    id(accessor: (node: ForceNode) => string): { distance(value: number): unknown };
+    distance(value: number): unknown;
+  };
+  linkForce.id((node: ForceNode) => node.id).distance(layout.linkDistance ?? 140);
+
+  const collisionForce = forceCollide() as { radius(value: number): unknown };
+  collisionForce.radius(layout.collisionRadius ?? GRAPH_NODE_RADIUS * 1.4);
+
   const simulationInstance = forceSimulation(simNodes)
-    .force('charge', forceManyBody().strength(layout.chargeStrength ?? -280))
-    .force(
-      'link',
-      forceLink(simLinks)
-        .id((node) => (node as ForceNode).id)
-        .distance(layout.linkDistance ?? 140)
-    )
-    .force('center', forceCenter(GRAPH_WIDTH / 2, GRAPH_HEIGHT / 2))
-    .force('collision', forceCollide().radius(layout.collisionRadius ?? GRAPH_NODE_RADIUS * 1.4))
+    .force('charge', chargeForce as unknown)
+    .force('link', linkForce as unknown)
+    .force('center', forceCenter(GRAPH_WIDTH / 2, GRAPH_HEIGHT / 2) as unknown)
+    .force('collision', collisionForce as unknown)
     .alpha(0.9);
 
   simulationInstance.on('tick', () => {

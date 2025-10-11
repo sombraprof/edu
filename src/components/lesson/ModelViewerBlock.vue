@@ -120,7 +120,7 @@ type ModelViewerBlockData = {
 const props = defineProps<{ data: ModelViewerBlockData }>();
 
 const prefersReducedMotion = ref(false);
-const resolvedSrc = ref<string | undefined>();
+const resolvedSrc = ref('');
 const resolvedPoster = ref<string | undefined>();
 const resolvedEnvironmentImage = ref<string | undefined>();
 const resolvedIosSrc = ref<string | undefined>();
@@ -204,7 +204,7 @@ watch(
   async (value) => {
     const requestId = ++srcRequestId;
     loadState.value = 'loading';
-    resolvedSrc.value = undefined;
+    resolvedSrc.value = '';
     errorMessage.value = '';
 
     if (typeof value !== 'string' || value.trim().length === 0) {
@@ -227,7 +227,7 @@ watch(
         return;
       }
 
-      resolvedSrc.value = resolved;
+      resolvedSrc.value = resolved ?? '';
       loadState.value = 'ready';
     } catch (error) {
       if (requestId !== srcRequestId) {
