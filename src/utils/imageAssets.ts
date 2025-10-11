@@ -20,12 +20,18 @@ export interface BuildSrcSetOptions {
   include?: Array<'avif' | 'webp' | 'original'>;
 }
 
-const contentAssetModules = import.meta.glob('../content/**/*.{png,jpg,jpeg,webp,avif,gif,svg}', {
-  import: 'default',
-});
-const internalAssetModules = import.meta.glob('../assets/**/*.{png,jpg,jpeg,webp,avif,gif,svg}', {
-  import: 'default',
-});
+const contentAssetModules = import.meta.glob(
+  '../content/**/*.{png,jpg,jpeg,webp,avif,gif,svg,glb,gltf,usdz,hdr}',
+  {
+    import: 'default',
+  }
+);
+const internalAssetModules = import.meta.glob(
+  '../assets/**/*.{png,jpg,jpeg,webp,avif,gif,svg,glb,gltf,usdz,hdr}',
+  {
+    import: 'default',
+  }
+);
 
 const contentSrcsetModules = import.meta.glob('../content/**/*.{png,jpg,jpeg}', {
   import: 'default',
