@@ -15,6 +15,7 @@ import BibliographyEditor from '../BibliographyEditor.vue';
 import InteractiveDemoEditor from '../InteractiveDemoEditor.vue';
 import CodeSubmissionEditor from '../CodeSubmissionEditor.vue';
 import PromptTipEditor from '../PromptTipEditor.vue';
+import DesignEmbedEditor from '../DesignEmbedEditor.vue';
 
 const Md3ButtonStub = {
   template:
@@ -344,6 +345,32 @@ describe('Lesson block dedicated editors', () => {
     expect(events).toBeTruthy();
     const payload = events?.at(-1)?.[0] as Record<string, unknown>;
     expect(payload?.url).toBe('https://demo.edu/algoritmo');
+  });
+
+  it('emits update:block when design embed provider muda', async () => {
+    const wrapper = mount(DesignEmbedEditor, {
+      props: {
+        block: {
+          type: 'designEmbed',
+          title: 'Fluxo de onboarding',
+          provider: 'figma',
+          url: 'https://www.figma.com/file/abc123/Projeto?type=design',
+        },
+      },
+      global: { stubs },
+    });
+
+    const [providerSelect] = wrapper.findAll('select');
+    await providerSelect.setValue('miro');
+    const urlInput = wrapper.find('input[type="url"]');
+    await urlInput.setValue('https://miro.com/app/board/uXproj?share_link_id=42');
+    await wrapper.vm.$nextTick();
+
+    const events = wrapper.emitted('update:block');
+    expect(events).toBeTruthy();
+    const payload = events?.at(-1)?.[0] as Record<string, unknown>;
+    expect(payload?.provider).toBe('miro');
+    expect(payload?.url).toContain('miro.com');
   });
 
   it('emits update:block when entrega de código recebe novo teste', async () => {

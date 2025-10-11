@@ -189,6 +189,16 @@ export const defaultBlockTemplates: Readonly<Record<string, LessonBlock>> = Obje
     url: '',
     description: '',
   },
+  designEmbed: {
+    type: 'designEmbed',
+    title: '',
+    description: '',
+    url: '',
+    provider: 'figma',
+    page: 'embed',
+    theme: 'light',
+    hints: [],
+  },
   pedagogicalNote: {
     type: 'pedagogicalNote',
     title: '',

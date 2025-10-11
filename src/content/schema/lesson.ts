@@ -1,5 +1,7 @@
 import type { EmbedProviderId, EmbedTheme, EmbedViewMode } from '@/utils/embedWhitelist';
 
+export type DesignEmbedProviderId = 'figma' | 'miro' | 'framer';
+
 export const LESSON_FORMAT_VERSION = 'md3.lesson.v1' as const;
 
 export type LessonFormatVersion = typeof LESSON_FORMAT_VERSION;
@@ -157,6 +159,18 @@ export interface InteractiveDemoBlock extends LessonBlock {
   provider?: EmbedProviderId;
   page?: EmbedViewMode;
   theme?: EmbedTheme;
+}
+
+export interface DesignEmbedBlock extends LessonBlock {
+  type: 'designEmbed';
+  url: string;
+  title?: string;
+  description?: string;
+  provider?: DesignEmbedProviderId;
+  page?: EmbedViewMode;
+  theme?: EmbedTheme;
+  height?: number;
+  hints?: string[];
 }
 
 export type PedagogicalNoteAudience = 'teacher' | 'student' | 'team';

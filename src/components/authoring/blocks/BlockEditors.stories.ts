@@ -8,6 +8,7 @@ import VideosEditor from './VideosEditor.vue';
 import InteractiveDemoEditor from './InteractiveDemoEditor.vue';
 import CodeSubmissionEditor from './CodeSubmissionEditor.vue';
 import PromptTipEditor from './PromptTipEditor.vue';
+import DesignEmbedEditor from './DesignEmbedEditor.vue';
 
 const meta: Meta = {
   title: 'Authoring/Blocks/Editors',
@@ -131,6 +132,23 @@ export const InteractiveDemo: Story = {
         title: 'Simulador de algoritmos',
         url: 'https://demo.edu/algoritmo',
         description: 'Experimente diferentes entradas e observe os resultados em tempo real.',
+      },
+    }),
+  }),
+};
+
+export const DesignEmbed: Story = {
+  render: () => ({
+    components: { DesignEmbedEditor },
+    template: '<DesignEmbedEditor :block="block" />',
+    data: () => ({
+      block: {
+        type: 'designEmbed',
+        title: 'Fluxo de onboarding',
+        description: 'Teste o protótipo navegando pelos principais caminhos.',
+        provider: 'figma',
+        url: 'https://www.figma.com/file/abc123/Onboarding?type=design',
+        hints: ['Use o zoom para ver detalhes.', 'Registre insights durante a navegação.'],
       },
     }),
   }),
