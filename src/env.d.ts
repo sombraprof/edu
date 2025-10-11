@@ -75,20 +75,20 @@ declare module 'd3-force' {
     [key: string]: unknown;
   }
 
-  export type Simulation<NodeDatum extends SimulationNodeDatum = SimulationNodeDatum> = {
-    force(name: string, force: unknown): Simulation<NodeDatum>;
-    alpha(value: number): Simulation<NodeDatum>;
-    restart(): Simulation<NodeDatum>;
-    stop(): Simulation<NodeDatum>;
-    on(event: 'tick' | 'end', listener: () => void): Simulation<NodeDatum>;
+  export type Simulation<_NodeDatum extends SimulationNodeDatum = SimulationNodeDatum> = {
+    force(name: string, force: unknown): Simulation<_NodeDatum>;
+    alpha(value: number): Simulation<_NodeDatum>;
+    restart(): Simulation<_NodeDatum>;
+    stop(): Simulation<_NodeDatum>;
+    on(event: 'tick' | 'end', listener: () => void): Simulation<_NodeDatum>;
     tick?(): void;
   };
 
-  export function forceSimulation<NodeDatum extends SimulationNodeDatum = SimulationNodeDatum>(
-    nodes?: NodeDatum[]
-  ): Simulation<NodeDatum>;
+  export function forceSimulation<_NodeDatum extends SimulationNodeDatum = SimulationNodeDatum>(
+    nodes?: _NodeDatum[]
+  ): Simulation<_NodeDatum>;
 
-  export function forceManyBody<NodeDatum extends SimulationNodeDatum = SimulationNodeDatum>(): {
+  export function forceManyBody<_NodeDatum extends SimulationNodeDatum = SimulationNodeDatum>(): {
     strength(value: number): unknown;
   };
 
