@@ -1,7 +1,5 @@
 type Loader<T> = () => Promise<T>;
 
-type LoaderRecord<T = unknown> = Record<string, Loader<T>>;
-
 type LoaderMap = Map<string, Loader<string>>;
 
 export type PictureSource = {
