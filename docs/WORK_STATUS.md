@@ -67,8 +67,8 @@ Esses materiais dão visibilidade sobre o estado atual do projeto e aceleram a c
 
 15. **Painel do relatório de validação**
 
-- Página dedicada no site (`/relatorios/validacao-conteudo`) resume totais da última execução do validador e lista lições com problemas/avisos.
-- O cabeçalho ganhou atalho permanente para o painel, permitindo acompanhar os apontamentos sem rodar scripts manualmente.
+- Página dedicada no site (`/reports/content-validation`) resume totais da última execução do validador e lista lições com problemas/avisos.
+- O cabeçalho ganhou atalho permanente para o painel (rota `validation-report`), permitindo acompanhar os apontamentos sem rodar scripts manualmente.
 
 16. **Proveniência no painel de relatório**
 

@@ -12,7 +12,7 @@ Guia operacional para gerar e manter conteúdo do EDU com apoio de modelos de li
 - Gere `npm run report:observability` para confirmar quantas lições ainda dependem de blocos legados e se os metadados de exercícios/suplementos continuam completos.
 - Gere `npm run report:governance` para cruzar validação + observabilidade, atualizar `reports/governance-history.json` e obter um resumo por curso dos blocos legados, avisos/problemas e metadados pendentes (o arquivo `.md` é usado pela automação de governança).
 - Em seguida execute `npm run report:governance:history` para gerar a tabela semanal (`reports/governance-history.md`) anexada automaticamente à issue `governanca-automatica`.
-- Quando salvar o relatório, verifique a seção `generation` (ou a página `/relatorios/validacao-conteudo`) para confirmar autoria, modelo e timestamps de cada exercício/suplemento antes do envio.
+- Quando salvar o relatório, verifique a seção `generation` (ou a página `/reports/content-validation`, acessível pelo atalho "Relatório de validação"/rota `validation-report`) para confirmar autoria, modelo e timestamps de cada exercício/suplemento antes do envio.
 - Preserve `meta.json` com `id` alinhado ao diretório, `institution` dentro da lista canônica e descrições com pelo menos 60 caracteres úteis sempre que ajustar informações do curso.
 - Quando precisar de destaques visuais em grade, use `cardGrid` com `cards[]` (cada item precisa de `title` + `content`/`body`) e variantes canônicas (`info`, `good-practice`, `primary`, etc.).
 - Sempre registre `metadata.generatedBy`, `metadata.model` e `metadata.timestamp` ao atualizar `exercises.json` ou `supplements.json`. Utilize `generatedBy` para sinalizar se o conteúdo veio de IA ou de revisão humana.
