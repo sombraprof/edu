@@ -99,6 +99,91 @@
       ]
     },
     {
+      "type": "timeline",
+      "title": "Marcos históricos da orientação a objetos",
+      "description": "Visão cronológica de tecnologias e padrões que influenciaram o ensino e o mercado brasileiro de Java e POO.",
+      "steps": [
+        {
+          "title": "1967 — Simula 67",
+          "content": "Conceitua classes e objetos, base para pesquisas acadêmicas brasileiras na década de 1970."
+        },
+        {
+          "title": "1980 — Smalltalk-80",
+          "content": "Populariza interfaces gráficas e laboratórios de POO usados em cursos experimentais no país."
+        },
+        {
+          "title": "1995 — Java",
+          "content": "Linguagem multiparadigma que expande a POO em currículos técnicos e universitários brasileiros."
+        },
+        {
+          "title": "1997 — UML",
+          "content": "Padroniza a modelagem orientada a objetos adotada por empresas e disciplinas de engenharia de software."
+        },
+        {
+          "title": "2003 — Spring Framework",
+          "content": "Introduz IoC e DI, reforçando práticas de arquitetura Java em consultorias nacionais."
+        },
+        {
+          "title": "2023 — Java 21",
+          "content": "Consolida recursos modernos usados em microsserviços de fintechs e govtechs brasileiras."
+        }
+      ],
+      "events": [
+        {
+          "id": "simula-67",
+          "title": "Simula 67 introduz classes e objetos",
+          "date": "1967",
+          "summary": "A linguagem norueguesa Simula 67 formaliza o conceito de classe e objeto, inspirando pesquisadores brasileiros em universidades como USP e PUC-Rio a discutir modelagem orientada a objetos na década de 1970.",
+          "resource": {
+            "label": "Simula 67 — Birth of Object-Oriented Programming",
+            "url": "https://dl.acm.org/doi/10.1145/363744.363749"
+          }
+        },
+        {
+          "id": "smalltalk-80",
+          "title": "Smalltalk-80 populariza interfaces gráficas",
+          "date": "1980",
+          "summary": "Smalltalk-80 leva o paradigma orientado a objetos a laboratórios educacionais, influenciando disciplinas pioneiras de POO no Brasil com foco em interação homem-computador."
+        },
+        {
+          "id": "java-1995",
+          "title": "Java é lançado pela Sun Microsystems",
+          "date": "1995",
+          "summary": "O lançamento do Java consolida POO multiplataforma e impulsiona cursos técnicos e universitários brasileiros na virada dos anos 2000.",
+          "resource": {
+            "label": "Histórico oficial do Java",
+            "url": "https://www.oracle.com/java/technologies/java-se-glance.html"
+          }
+        },
+        {
+          "id": "uml-1997",
+          "title": "UML torna-se padrão da OMG",
+          "date": "1997",
+          "summary": "A padronização da UML fortalece a adoção de processos orientados a objetos em empresas brasileiras, guiando disciplinas de análise e projeto de sistemas."
+        },
+        {
+          "id": "spring-2003",
+          "title": "Surge o Spring Framework",
+          "date": "2003",
+          "summary": "O Spring traz inversão de controle e injeção de dependências para o ecossistema Java empresarial, sendo rapidamente adotado por comunidades e consultorias brasileiras.",
+          "resource": {
+            "label": "História do Spring Framework",
+            "url": "https://spring.io/projects/spring-framework"
+          }
+        },
+        {
+          "id": "java-21",
+          "title": "Java 21 e microsserviços modernos",
+          "date": "2023",
+          "summary": "A versão Java 21 consolida melhorias em performance e suporte a microsserviços, alinhada a iniciativas brasileiras de modernização de legado em fintechs e govtechs.",
+          "resource": {
+            "label": "Java 21 Release Highlights",
+            "url": "https://openjdk.org/projects/jdk/21/"
+          }
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Pergunta disparadora",
