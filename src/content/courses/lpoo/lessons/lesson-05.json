@@ -126,6 +126,31 @@
       ]
     },
     {
+      "type": "component",
+      "component": "SelfAssessment",
+      "props": {
+        "title": "Plano de ação pós-AV1",
+        "description": "Registre compromissos individuais com base no feedback formativo: identifique pontos fortes, lacunas prioritárias e estratégias para evoluir até a AV2.",
+        "prompts": [
+          {
+            "id": "diagnostico-pessoal",
+            "label": "Qual é o diagnóstico pessoal sobre seus resultados na AV1?",
+            "placeholder": "Liste evidências dos seus acertos e pontos de melhoria."
+          },
+          {
+            "id": "metas-heranca",
+            "label": "Quais metas específicas você estabelecerá para consolidar os conceitos de herança?",
+            "placeholder": "Defina objetivos mensuráveis para aplicar herança com segurança."
+          },
+          {
+            "id": "apoios-necessarios",
+            "label": "De que apoios (mentor, pares, materiais) você precisa para cumprir o plano?",
+            "placeholder": "Indique recursos, pessoas ou rotinas que ajudarão na execução."
+          }
+        ]
+      }
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Pergunta norteadora",
