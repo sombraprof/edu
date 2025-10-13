@@ -660,6 +660,32 @@
       }
     },
     {
+      "type": "component",
+      "component": "CodeSubmission",
+      "props": {
+        "title": "Entregue sua hierarquia de funcionários",
+        "prompt": "Implemente a hierarquia `Funcionario`, `Analista` e `Estagiario` garantindo reutilização de código e validações consistentes. Cada subclasse deve especializar o cálculo salarial respeitando as regras discutidas em aula.",
+        "language": "java",
+        "boilerplate": "public class Funcionario {\n    private final String nome;\n    private final double salarioBase;\n\n    public Funcionario(String nome, double salarioBase) {\n        // TODO: validar entradas e inicializar campos\n    }\n\n    public String getNome() {\n        // TODO: retornar nome validado\n        return null;\n    }\n\n    public double getSalarioBase() {\n        // TODO: retornar salário base\n        return 0.0;\n    }\n\n    public double calcularSalario() {\n        // TODO: calcular valor base reutilizado pelas subclasses\n        return 0.0;\n    }\n}\n\nclass Analista extends Funcionario {\n    private final double bonusProjeto;\n\n    public Analista(String nome, double salarioBase, double bonusProjeto) {\n        super(nome, salarioBase);\n        // TODO: validar bônus de projeto e atribuir ao campo\n        this.bonusProjeto = 0.0;\n    }\n\n    @Override\n    public double calcularSalario() {\n        // TODO: somar o bônus ao resultado da superclasse\n        return 0.0;\n    }\n}\n\nclass Estagiario extends Funcionario {\n    private final int horasSemana;\n\n    public Estagiario(String nome, double salarioBase, int horasSemana) {\n        super(nome, salarioBase);\n        // TODO: validar horas semanais (1 a 40) e atribuir\n        this.horasSemana = 0;\n    }\n\n    @Override\n    public double calcularSalario() {\n        // TODO: aplicar proporcionalidade ao salário base\n        return 0.0;\n    }\n}\n",
+        "tests": [
+          {
+            "name": "Analista recebe bônus integral",
+            "input": "Analista ana = new Analista(\"Ana\", 4000.0, 500.0);\nSystem.out.println(ana.calcularSalario());",
+            "expectedOutput": "4500.0"
+          },
+          {
+            "name": "Estagiário recebe proporcional de 20h",
+            "input": "Estagiario joao = new Estagiario(\"João\", 2000.0, 20);\nSystem.out.println(joao.calcularSalario());",
+            "expectedOutput": "1000.0"
+          }
+        ],
+        "tips": [
+          "Use a anotação @Override para deixar claro quais métodos estão sendo sobrescritos.",
+          "Aproveite super(...) e super.calcularSalario() para evitar duplicar validações e cálculos compartilhados."
+        ]
+      }
+    },
+    {
       "type": "contentBlock",
       "title": "Tarefa assíncrona: consolidar o plano pós-AV1",
       "content": [
