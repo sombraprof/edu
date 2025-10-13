@@ -54,6 +54,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'balancedScorecard',
   'component',
   'legacySection',
+  'bugFixChallenge',
   // New MD3 blocks
   'resourceGallery',
   'quiz',
@@ -176,6 +177,58 @@ const blockValidators = {
       if (language !== undefined && typeof language !== 'string') {
         pushBlockProblem(context, 'Campo "language" deve ser uma string quando presente.');
       }
+    }
+  },
+  bugFixChallenge(block, context) {
+    requireStringField('title', 'Bloco "bugFixChallenge" requer o campo "title".')(block, context);
+    requireStringField(
+      'description',
+      'Bloco "bugFixChallenge" requer o campo "description" com conteúdo.'
+    )(block, context);
+    requireStringField('code', 'Bloco "bugFixChallenge" requer o campo "code" com conteúdo.')(
+      block,
+      context
+    );
+
+    if (!isNonEmptyString(block.language)) {
+      pushBlockProblem(
+        context,
+        'Campo "language" do bloco "bugFixChallenge" deve ser uma string não vazia.'
+      );
+    }
+
+    const hints = block.hints;
+    if (!Array.isArray(hints) || hints.length === 0) {
+      pushBlockProblem(
+        context,
+        'Bloco "bugFixChallenge" requer "hints" como array com os números de linha problemáticos.'
+      );
+    } else {
+      hints.forEach((hint, index) => {
+        if (typeof hint !== 'number' || !Number.isFinite(hint)) {
+          pushBlockProblem(
+            context,
+            `Valor em "hints[${index}]" deve ser um número indicando a linha com erro.`
+          );
+        }
+      });
+    }
+
+    const guidance = block.guidance;
+    if (!Array.isArray(guidance) || guidance.length === 0) {
+      pushBlockProblem(
+        context,
+        'Bloco "bugFixChallenge" requer "guidance" com pelo menos uma estratégia de diagnóstico.'
+      );
+    } else {
+      guidance.forEach((item, index) => {
+        if (!isNonEmptyString(item)) {
+          pushBlockProblem(
+            context,
+            `Entrada em "guidance[${index}]" deve ser uma string não vazia descrevendo uma estratégia.`
+          );
+        }
+      });
     }
   },
   lessonPlan(block, context) {

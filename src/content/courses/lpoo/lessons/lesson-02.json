@@ -313,6 +313,20 @@
           }
         ]
       }
+    },
+    {
+      "type": "bugFixChallenge",
+      "title": "Depure o HelloWorld que não compila",
+      "description": "O arquivo `HelloWorld.java` foi salvo no diretório `src/main/java/edu/lpoo/intro`, mas a turma reportou que o build falha após copiar esse trecho do mural. Identifique e corrija os erros para alinhar o código ao padrão configurado em aula.",
+      "language": "java",
+      "code": "package edu.lpoo.intro.hello;\n\npublic class helloWorld {\n    public static void main(String[] args) {\n        Scanner entrada = new Scanner(System.in);\n        System.out.print(\"Qual é o seu nome? \");\n        String nome = Entrada.nextLine();\n        System.out.println(\"Olá, \" + nome + \"!\");\n    }\n}",
+      "hints": [1, 3, 5, 7],
+      "guidance": [
+        "Rode `./gradlew clean` seguido de `./gradlew run` para observar mensagens completas do Gradle.",
+        "Compile diretamente com `javac src/main/java/edu/lpoo/intro/HelloWorld.java` para isolar erros de sintaxe.",
+        "Leia o stacktrace/erros na íntegra e acompanhe os números de linha destacados pelo compilador.",
+        "Verifique se o pacote declarado corresponde ao caminho da pasta e se todas as dependências estão importadas."
+      ]
     }
   ],
   "metadata": {
