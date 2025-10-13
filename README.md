@@ -94,7 +94,7 @@ Cards, chips, badges and buttons already consume these tokens internally. When b
 - `npm run report:governance` – gera `reports/governance-alert.{md,json}` cruzando validação e observabilidade, registra a evolução em `reports/governance-history.json` e destaca cursos com problemas/avisos, blocos legados e lacunas de metadados.
 - `npm run report:governance:history` – sintetiza as execuções em `reports/governance-history-summary.json` e publica uma tabela em `reports/governance-history.md` com a evolução semanal.
 - `npm run report:governance -- --history <arquivo>` – opcionalmente escreve o histórico consolidado em outro caminho para acompanhar a tendência em automações externas.
-- O relatório consolidado pode ser consultado diretamente na interface em `/relatorios/validacao-conteudo`, acessível pelo atalho "Relatório de validação" no cabeçalho.
+- O relatório consolidado pode ser consultado diretamente na interface em `/reports/content-validation`, acessível pelo atalho "Relatório de validação" no cabeçalho (rota `validation-report`).
 
 These scripts are optional; new content should be authored directly in the structured JSON format.
 
