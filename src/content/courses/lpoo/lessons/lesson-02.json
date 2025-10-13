@@ -191,6 +191,68 @@
       ]
     },
     {
+      "type": "md3Table",
+      "title": "Checklist de comandos no terminal",
+      "headers": ["Comando", "Quando usar", "Exemplo de saída"],
+      "rows": [
+        [
+          {
+            "value": "`javac -d out src/main/java/edu/lpoo/intro/HelloWorld.java`"
+          },
+          {
+            "value": "Compilar uma classe isolada salvando os `.class` em `out/`."
+          },
+          {
+            "value": "Sem saída quando bem-sucedido; cria `out/edu/lpoo/intro/HelloWorld.class`."
+          }
+        ],
+        [
+          {
+            "value": "`java -cp out edu.lpoo.intro.HelloWorld`"
+          },
+          {
+            "value": "Executar a classe compilada apontando para o classpath gerado."
+          },
+          {
+            "value": "`Olá, Maria!`"
+          }
+        ],
+        [
+          {
+            "value": "`./gradlew run --info`"
+          },
+          {
+            "value": "Rodar o aplicativo com Gradle acompanhando logs adicionais de execução."
+          },
+          {
+            "value": "`> Task :app:run` seguido do console da aplicação."
+          }
+        ],
+        [
+          {
+            "value": "`./gradlew test --info`"
+          },
+          {
+            "value": "Disparar a suíte de testes verificando mensagens detalhadas sobre cada etapa."
+          },
+          {
+            "value": "`> Task :app:test` com relatório de testes no final."
+          }
+        ],
+        [
+          {
+            "value": "`./gradlew tasks -d`"
+          },
+          {
+            "value": "Listar tarefas disponíveis e diagnosticar por que uma task não aparece."
+          },
+          {
+            "value": "Mostra a tabela de tarefas agrupadas e logs adicionais de dependências."
+          }
+        ]
+      ]
+    },
+    {
       "type": "component",
       "component": "Md3Flowchart",
       "props": {
