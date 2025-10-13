@@ -109,6 +109,7 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'PromptTip',
   'WhiteboardBlock',
   'SelfAssessment',
+  'CodeSubmission',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([
