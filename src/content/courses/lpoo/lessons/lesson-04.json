@@ -129,6 +129,19 @@
       ]
     },
     {
+      "type": "bugFixChallenge",
+      "title": "Ficha de matrícula sem encapsulamento",
+      "description": "O time recebeu esta classe legado para coletar dados de matrícula. Ela expõe campos diretamente, não valida entradas e compartilha referências mutáveis. Aplique modificadores e proteções adequadas para alinhar com a checklist da aula.",
+      "language": "java",
+      "code": "package edu.lpoo.legacy;\n\nimport java.time.LocalDate;\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class EnrollmentForm {\n    // PROBLEMA: campos expostos quebram o encapsulamento\n    public String studentName;\n    public LocalDate birthDate;\n    public List<String> selectedModules = new ArrayList<>();\n    public ContactInfo emergencyContact;\n\n    public EnrollmentForm(String studentName, LocalDate birthDate, ContactInfo emergencyContact) {\n        // PROBLEMA: nenhum tipo de validação ou normalização da entrada\n        this.studentName = studentName;\n        this.birthDate = birthDate;\n        this.emergencyContact = emergencyContact;\n    }\n\n    public List<String> getSelectedModules() {\n        // PROBLEMA: devolve referência mutável interna\n        return selectedModules;\n    }\n\n    public void replaceEmergencyContact(ContactInfo emergencyContact) {\n        // PROBLEMA: aceita valores inválidos sem lançar exceções\n        this.emergencyContact = emergencyContact;\n    }\n\n    public void syncFrom(EnrollmentForm other) {\n        // PROBLEMA: cópia rasa quebra invariantes e imutabilidade desejada\n        this.selectedModules = other.selectedModules;\n        this.emergencyContact = other.emergencyContact;\n    }\n}\n\nclass ContactInfo {\n    // PROBLEMA: estrutura auxiliar também expõe estado mutável\n    public String name;\n    public String phone;\n    public List<String> extraPhones = new ArrayList<>();\n}",
+      "hints": [8, 9, 14, 21, 26, 31, 39],
+      "guidance": [
+        "Encapsule atributos com visibilidade adequada e exponha apenas métodos necessários para o contrato público.",
+        "Valide entradas no construtor e nos pontos de mutação, lançando exceções específicas para estados inválidos.",
+        "Aplique cópias defensivas ao compartilhar coleções ou objetos mutáveis, preservando a imutabilidade planejada."
+      ]
+    },
+    {
       "type": "truthTable",
       "title": "Visibilidade dos modificadores",
       "headers": ["Modificador", "Mesma classe", "Mesmo pacote", "Subclasses", "Outros pacotes"],
