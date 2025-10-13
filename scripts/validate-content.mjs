@@ -56,6 +56,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'component',
   'legacySection',
   'bugFixChallenge',
+  'codeChallenge',
   // New MD3 blocks
   'resourceGallery',
   'quiz',
@@ -230,6 +231,85 @@ const blockValidators = {
           );
         }
       });
+    }
+  },
+  codeChallenge(block, context) {
+    requireStringField('prompt', 'Bloco "codeChallenge" requer o campo "prompt" com enunciado.')(
+      block,
+      context
+    );
+
+    if (block.title !== undefined && typeof block.title !== 'string') {
+      pushBlockProblem(
+        context,
+        'Campo "title" do bloco "codeChallenge" deve ser uma string quando presente.'
+      );
+    }
+
+    if (block.code !== undefined && !isNonEmptyString(block.code)) {
+      pushBlockProblem(
+        context,
+        'Campo "code" do bloco "codeChallenge" deve ser uma string não vazia quando presente.'
+      );
+    }
+
+    if (block.language !== undefined && typeof block.language !== 'string') {
+      pushBlockProblem(
+        context,
+        'Campo "language" do bloco "codeChallenge" deve ser uma string quando presente.'
+      );
+    }
+
+    if (block.question !== undefined && !isNonEmptyString(block.question)) {
+      pushBlockProblem(
+        context,
+        'Campo "question" do bloco "codeChallenge" deve ser uma string não vazia quando presente.'
+      );
+    }
+
+    const options = normalizeArray(block.options);
+    if (options.length > 0) {
+      if (!isNonEmptyString(block.question)) {
+        pushBlockProblem(
+          context,
+          'Bloco "codeChallenge" com alternativas deve informar o campo "question" com texto.'
+        );
+      }
+      if (options.length < 2) {
+        pushBlockProblem(
+          context,
+          'Bloco "codeChallenge" requer pelo menos duas opções quando "options" é informado.'
+        );
+      }
+    }
+
+    options.forEach((option, optionIndex) => {
+      if (!isPlainObject(option)) {
+        pushBlockProblem(
+          context,
+          `Entrada options[${optionIndex}] do bloco "codeChallenge" deve ser um objeto com "id" e "text".`
+        );
+        return;
+      }
+      if (!isNonEmptyString(option.id)) {
+        pushBlockProblem(
+          context,
+          `Campo "options[${optionIndex}].id" deve ser uma string não vazia.`
+        );
+      }
+      if (!isNonEmptyString(option.text)) {
+        pushBlockProblem(
+          context,
+          `Campo "options[${optionIndex}].text" deve ser uma string não vazia.`
+        );
+      }
+    });
+
+    if (block.answerExplanation !== undefined && !isNonEmptyString(block.answerExplanation)) {
+      pushBlockProblem(
+        context,
+        'Campo "answerExplanation" do bloco "codeChallenge" deve ser uma string não vazia quando presente.'
+      );
     }
   },
   lessonPlan(block, context) {
