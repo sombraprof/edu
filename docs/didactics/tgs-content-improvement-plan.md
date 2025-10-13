@@ -30,7 +30,9 @@ Garantir que todas as aulas de Teoria Geral de Sistemas (TGS) ofereçam materiai
 ## 5. Fluxo de trabalho recomendado
 
 1. **Varredura por unidade** (I a VI):
-   - Rodar `npm run export:lesson -- --course tgs` para obter visão geral dos blocos.
+   - Rodar `npm run report:courses` para gerar `reports/course-content-summary.json`.
+   - No relatório, localizar a entrada `courses[].id === "tgs"` para revisar totais por lição, exercícios e suplementos, observando `missingFiles`, `orphanFiles` e `duplicatedWrappers`.
+   - Registrar na planilha apenas os pontos críticos encontrados para o curso TGS (ignorar dados de outros cursos).
    - Mapear lacunas em uma planilha (aba "Diagnóstico") com colunas: Aula, Falta vídeo?, Falta exemplo?, Falta exercício?, Observações.
 2. **Curadoria de referências e vídeos:**
    - Utilizar playlist base no YouTube (ex.: canal Cengage, TOTVS Labs, Sebrae, Endeavor) e podcasts curtos (≤10 min).
