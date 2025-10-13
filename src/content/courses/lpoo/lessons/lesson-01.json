@@ -485,6 +485,21 @@
     },
     {
       "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Pilares em ação: serviço de pagamentos",
+        "summary": "Conecta com o domínio do projeto semestral ao ilustrar como o serviço de pagamentos trata meios distintos usando a mesma porta de entrada.",
+        "language": "java",
+        "code": "public interface Pagamento {\n    void processar();\n}\n\npublic class CartaoCredito implements Pagamento {\n    private String numeroCartao;\n    private double valor;\n\n    public CartaoCredito(String numeroCartao, double valor) {\n        this.numeroCartao = numeroCartao;\n        this.valor = valor;\n    }\n\n    public String getNumeroCartao() {\n        return numeroCartao;\n    }\n\n    public void setNumeroCartao(String numeroCartao) {\n        this.numeroCartao = numeroCartao;\n    }\n\n    public double getValor() {\n        return valor;\n    }\n\n    public void setValor(double valor) {\n        this.valor = valor;\n    }\n\n    @Override\n    public void processar() {\n        System.out.println(\"Processando pagamento com cartão de crédito...\");\n    }\n}\n\npublic class Pix implements Pagamento {\n    private String chavePix;\n    private double valor;\n\n    public Pix(String chavePix, double valor) {\n        this.chavePix = chavePix;\n        this.valor = valor;\n    }\n\n    public String getChavePix() {\n        return chavePix;\n    }\n\n    public void setChavePix(String chavePix) {\n        this.chavePix = chavePix;\n    }\n\n    public double getValor() {\n        return valor;\n    }\n\n    public void setValor(double valor) {\n        this.valor = valor;\n    }\n\n    @Override\n    public void processar() {\n        System.out.println(\"Processando pagamento via Pix...\");\n    }\n}",
+        "highlights": [
+          "Encapsulamento: campos privados em cada classe resguardam dados sensíveis do meio de pagamento e expõem acesso controlado por getters/setters.",
+          "Abstração: a interface Pagamento descreve apenas o contrato processar(), permitindo que o serviço de checkout dependa do conceito, não da implementação.",
+          "Herança e polimorfismo: CartaoCredito e Pix implementam Pagamento e podem ser tratadas de forma intercambiável ao registrar novas estratégias de cobrança."
+        ]
+      }
+    },
+    {
+      "type": "component",
       "component": "Md3BlockDiagram",
       "props": {
         "title": "Camadas típicas de um sistema orientado a objetos",
