@@ -149,6 +149,23 @@
       ]
     },
     {
+      "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Hello World anotado",
+        "summary": "Cada anotação conecta o trecho com os elementos da anatomia da classe explorados logo acima.",
+        "language": "java",
+        "code": "package edu.lpoo.intro; // Pacote mantém a classe alinhada à estrutura de diretórios.\n\nimport java.util.Scanner; // Importa utilitário para ler dados do teclado.\n\npublic class HelloWorld { // Declara a classe pública com o mesmo nome do arquivo.\n    public static void main(String[] args) { // Ponto de entrada executado pela JVM.\n        try (Scanner entrada = new Scanner(System.in)) { // Cria Scanner conectado ao console.\n            System.out.print(\"Qual é o seu nome? \"); // Solicita entrada para o usuário.\n            String nome = entrada.nextLine(); // Lê uma linha completa como texto.\n            System.out.println(\"Olá, \" + nome + \"!\"); // Exibe saudação formatada.\n        } // Bloco try-with-resources fecha o Scanner automaticamente.\n    }\n}",
+        "highlights": [
+          "O pacote no topo evita conflitos de nomes e reflete a organização da aplicação.",
+          "O import explicita a dependência do utilitário `Scanner` usado para entrada.",
+          "A classe pública `HelloWorld` encapsula o comportamento demonstrado.",
+          "O método `main` recebe argumentos e sinaliza o ponto de partida da execução.",
+          "O `Scanner` lê o nome digitado e a resposta é impressa de forma amigável."
+        ]
+      }
+    },
+    {
       "type": "cardGrid",
       "title": "Ferramentas essenciais",
       "columns": 3,
