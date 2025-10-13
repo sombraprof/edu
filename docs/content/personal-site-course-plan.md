@@ -69,7 +69,7 @@ Este documento traduz os dados do relatório `reports/course-content-summary.jso
 ### Teoria Geral de Sistemas (TGS)
 
 - Quinze aulas publicadas em duplicidade e sem componentes específicos para mapas de causalidade. 【F:reports/course-content-summary.json†L701-L838】
-- Exercícios (`loop-feedback.json`, `mapa-sistema.json`) aparecem como órfãos no diretório. 【F:reports/course-content-summary.json†L841-L852】
+- Exercícios (`loop-feedback.json`, `system-map.json`) aparecem como órfãos no diretório. 【F:reports/course-content-summary.json†L841-L852】
 
 **Ações imediatas**
 
