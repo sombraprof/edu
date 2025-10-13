@@ -94,7 +94,7 @@ Garantir que todas as aulas de Teoria Geral de Sistemas (TGS) ofereçam materiai
 
 | Tarefa | Descrição                                                      | Saída                                             |
 | ------ | -------------------------------------------------------------- | ------------------------------------------------- |
-| E1     | Revisar `mapa-sistema` e `loop-feedback`                       | Ajustes de enunciado + ativação `available: true` |
+| E1     | Revisar `system-map` e `loop-feedback`                         | Ajustes de enunciado + ativação `available: true` |
 | E2     | Criar novos exercícios leves por unidade (quizzes, flashcards) | 6–8 atividades extras                             |
 | E3     | Publicar template de relatório de extensão                     | Suplemento com guia passo a passo                 |
 
