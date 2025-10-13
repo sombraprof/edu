@@ -269,177 +269,175 @@
           "type": "code",
           "language": "text",
           "code": "Funcionario\n├── Analista (extends Funcionario, implements Avaliavel)\n└── Estagiario (extends Funcionario, implements Treinavel, Avaliavel)"
+        }
+      ]
+    },
+    {
+      "type": "classDesigner",
+      "title": "Mapa da hierarquia `Funcionario`",
+      "summary": "Revise atributos, contratos e responsabilidades antes de propor variações em aula.",
+      "classes": [
+        {
+          "id": "funcionario",
+          "name": "Funcionario",
+          "type": "class",
+          "summary": "Superclasse que concentra estado comum e validações obrigatórias.",
+          "attributes": [
+            {
+              "id": "funcionario-nome",
+              "signature": "protected final String nome",
+              "visibility": "protected",
+              "note": "Compartilhado com subclasses mantendo encapsulamento controlado."
+            },
+            {
+              "id": "funcionario-salario-base",
+              "signature": "protected final double salarioBase",
+              "visibility": "protected",
+              "note": "Base para todos os cálculos específicos."
+            }
+          ],
+          "methods": [
+            {
+              "id": "funcionario-construtor",
+              "signature": "public Funcionario(String nome, double salarioBase)",
+              "visibility": "public",
+              "note": "Valida entradas para garantir invariantes da hierarquia."
+            },
+            {
+              "id": "funcionario-get-nome",
+              "signature": "public String getNome()",
+              "visibility": "public"
+            },
+            {
+              "id": "funcionario-calcular-salario",
+              "signature": "public double calcularSalario()",
+              "visibility": "public",
+              "note": "Retorna o valor base reutilizado por subclasses."
+            }
+          ],
+          "responsibilities": [
+            "Centralizar dados e validações compartilhados pelos colaboradores.",
+            "Oferecer ponto de extensão para cálculos especializados."
+          ]
         },
         {
-          "type": "classDesigner",
-          "title": "Mapa da hierarquia `Funcionario`",
-          "summary": "Revise atributos, contratos e responsabilidades antes de propor variações em aula.",
-          "classes": [
+          "id": "analista",
+          "name": "Analista",
+          "type": "class",
+          "summary": "Especializa o salário com bônus de projeto ao implementar contratos de avaliação.",
+          "attributes": [
             {
-              "id": "funcionario",
-              "name": "Funcionario",
-              "type": "class",
-              "summary": "Superclasse que concentra estado comum e validações obrigatórias.",
-              "attributes": [
-                {
-                  "id": "funcionario-nome",
-                  "signature": "protected final String nome",
-                  "visibility": "protected",
-                  "note": "Compartilhado com subclasses mantendo encapsulamento controlado."
-                },
-                {
-                  "id": "funcionario-salario-base",
-                  "signature": "protected final double salarioBase",
-                  "visibility": "protected",
-                  "note": "Base para todos os cálculos específicos."
-                }
-              ],
-              "methods": [
-                {
-                  "id": "funcionario-construtor",
-                  "signature": "public Funcionario(String nome, double salarioBase)",
-                  "visibility": "public",
-                  "note": "Valida entradas para garantir invariantes da hierarquia."
-                },
-                {
-                  "id": "funcionario-get-nome",
-                  "signature": "public String getNome()",
-                  "visibility": "public"
-                },
-                {
-                  "id": "funcionario-calcular-salario",
-                  "signature": "public double calcularSalario()",
-                  "visibility": "public",
-                  "note": "Retorna o valor base reutilizado por subclasses."
-                }
-              ],
-              "responsibilities": [
-                "Centralizar dados e validações compartilhados pelos colaboradores.",
-                "Oferecer ponto de extensão para cálculos especializados."
-              ]
-            },
-            {
-              "id": "analista",
-              "name": "Analista",
-              "type": "class",
-              "summary": "Especializa o salário com bônus de projeto ao implementar contratos de avaliação.",
-              "attributes": [
-                {
-                  "id": "analista-bonus",
-                  "signature": "private final double bonusProjeto",
-                  "visibility": "private",
-                  "note": "Deve ser validado para manter valores não negativos."
-                }
-              ],
-              "methods": [
-                {
-                  "id": "analista-construtor",
-                  "signature": "public Analista(String nome, double salarioBase, double bonusProjeto)",
-                  "visibility": "public",
-                  "note": "Encadeia validações da superclasse e acrescenta a do bônus."
-                },
-                {
-                  "id": "analista-calcular-salario",
-                  "signature": "@Override public double calcularSalario()",
-                  "visibility": "public",
-                  "note": "Soma o bônus ao resultado de `super.calcularSalario()`."
-                }
-              ],
-              "responsibilities": [
-                "Aplicar regras adicionais de remuneração para analistas.",
-                "Atender aos critérios definidos pelo contrato `Avaliavel`."
-              ]
-            },
-            {
-              "id": "estagiario",
-              "name": "Estagiario",
-              "type": "class",
-              "summary": "Subclasse que calcula remuneração proporcional à carga horária.",
-              "attributes": [
-                {
-                  "id": "estagiario-horas",
-                  "signature": "private final int horasSemana",
-                  "visibility": "private",
-                  "note": "Aceita valores entre 1 e 40 para preservar regras trabalhistas."
-                }
-              ],
-              "methods": [
-                {
-                  "id": "estagiario-construtor",
-                  "signature": "public Estagiario(String nome, double salarioBase, int horasSemana)",
-                  "visibility": "public",
-                  "note": "Invoca `super(...)` antes de validar a jornada semanal."
-                },
-                {
-                  "id": "estagiario-calcular-salario",
-                  "signature": "@Override public double calcularSalario()",
-                  "visibility": "public",
-                  "note": "Aplica a proporção de horas sobre o salário base herdado."
-                }
-              ],
-              "responsibilities": [
-                "Adaptar o cálculo salarial ao regime parcial do estagiário.",
-                "Cumprir contratos `Treinavel` e `Avaliavel` definidos pela turma."
-              ]
-            },
-            {
-              "id": "avaliavel",
-              "name": "Avaliavel",
-              "type": "interface",
-              "stereotype": "interface",
-              "summary": "Contrato que orienta como mensurar desempenho das funções técnicas.",
-              "methods": [
-                {
-                  "id": "avaliavel-medir",
-                  "signature": "double avaliar()",
-                  "note": "Sugestão inicial — ajuste métricas com a turma ao evoluir o exercício."
-                }
-              ],
-              "responsibilities": [
-                "Definir indicadores de avaliação alinhados à política da empresa."
-              ]
-            },
-            {
-              "id": "treinavel",
-              "name": "Treinavel",
-              "type": "interface",
-              "stereotype": "interface",
-              "summary": "Contrato usado para planejar ações de capacitação.",
-              "methods": [
-                {
-                  "id": "treinavel-participar",
-                  "signature": "void participarTreinamento()",
-                  "note": "Permite mapear rituais de aprendizagem contínua."
-                }
-              ],
-              "responsibilities": [
-                "Registrar obrigações de desenvolvimento profissional para estagiários."
-              ]
+              "id": "analista-bonus",
+              "signature": "private final double bonusProjeto",
+              "visibility": "private",
+              "note": "Deve ser validado para manter valores não negativos."
             }
           ],
-          "relationships": [
+          "methods": [
             {
-              "id": "analista-herda-funcionario",
-              "from": "analista",
-              "to": "funcionario",
-              "type": "inheritance",
-              "description": "Analista reutiliza as validações e expande o cálculo salarial."
+              "id": "analista-construtor",
+              "signature": "public Analista(String nome, double salarioBase, double bonusProjeto)",
+              "visibility": "public",
+              "note": "Encadeia validações da superclasse e acrescenta a do bônus."
             },
             {
-              "id": "estagiario-herda-funcionario",
-              "from": "estagiario",
-              "to": "funcionario",
-              "type": "inheritance",
-              "description": "Estagiario mantém invariantes da superclasse e ajusta remuneração."
+              "id": "analista-calcular-salario",
+              "signature": "@Override public double calcularSalario()",
+              "visibility": "public",
+              "note": "Soma o bônus ao resultado de `super.calcularSalario()`."
             }
           ],
-          "legend": [
-            {
-              "id": "heranca",
-              "label": "Seta cheia",
-              "description": "Indica relação de herança (`extends`). Acrescente realizações pontilhadas para interfaces se necessário."
-            }
+          "responsibilities": [
+            "Aplicar regras adicionais de remuneração para analistas.",
+            "Atender aos critérios definidos pelo contrato `Avaliavel`."
           ]
+        },
+        {
+          "id": "estagiario",
+          "name": "Estagiario",
+          "type": "class",
+          "summary": "Subclasse que calcula remuneração proporcional à carga horária.",
+          "attributes": [
+            {
+              "id": "estagiario-horas",
+              "signature": "private final int horasSemana",
+              "visibility": "private",
+              "note": "Aceita valores entre 1 e 40 para preservar regras trabalhistas."
+            }
+          ],
+          "methods": [
+            {
+              "id": "estagiario-construtor",
+              "signature": "public Estagiario(String nome, double salarioBase, int horasSemana)",
+              "visibility": "public",
+              "note": "Invoca `super(...)` antes de validar a jornada semanal."
+            },
+            {
+              "id": "estagiario-calcular-salario",
+              "signature": "@Override public double calcularSalario()",
+              "visibility": "public",
+              "note": "Aplica a proporção de horas sobre o salário base herdado."
+            }
+          ],
+          "responsibilities": [
+            "Adaptar o cálculo salarial ao regime parcial do estagiário.",
+            "Cumprir contratos `Treinavel` e `Avaliavel` definidos pela turma."
+          ]
+        },
+        {
+          "id": "avaliavel",
+          "name": "Avaliavel",
+          "type": "interface",
+          "stereotype": "interface",
+          "summary": "Contrato que orienta como mensurar desempenho das funções técnicas.",
+          "methods": [
+            {
+              "id": "avaliavel-medir",
+              "signature": "double avaliar()",
+              "note": "Sugestão inicial — ajuste métricas com a turma ao evoluir o exercício."
+            }
+          ],
+          "responsibilities": ["Definir indicadores de avaliação alinhados à política da empresa."]
+        },
+        {
+          "id": "treinavel",
+          "name": "Treinavel",
+          "type": "interface",
+          "stereotype": "interface",
+          "summary": "Contrato usado para planejar ações de capacitação.",
+          "methods": [
+            {
+              "id": "treinavel-participar",
+              "signature": "void participarTreinamento()",
+              "note": "Permite mapear rituais de aprendizagem contínua."
+            }
+          ],
+          "responsibilities": [
+            "Registrar obrigações de desenvolvimento profissional para estagiários."
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "analista-herda-funcionario",
+          "from": "analista",
+          "to": "funcionario",
+          "type": "inheritance",
+          "description": "Analista reutiliza as validações e expande o cálculo salarial."
+        },
+        {
+          "id": "estagiario-herda-funcionario",
+          "from": "estagiario",
+          "to": "funcionario",
+          "type": "inheritance",
+          "description": "Estagiario mantém invariantes da superclasse e ajusta remuneração."
+        }
+      ],
+      "legend": [
+        {
+          "id": "heranca",
+          "label": "Seta cheia",
+          "description": "Indica relação de herança (`extends`). Acrescente realizações pontilhadas para interfaces se necessário."
         }
       ]
     },
