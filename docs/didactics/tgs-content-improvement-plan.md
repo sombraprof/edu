@@ -27,6 +27,11 @@ Garantir que todas as aulas de Teoria Geral de Sistemas (TGS) ofereçam materiai
 - **Exercícios:** ao menos um exercício leve (quiz, checklist, mapa, fórum guiado) com critério de entrega.
 - **TEDs:** explicitar data limite, forma de entrega, formato e critério de avaliação.
 
+### 4.1 Template de aula MD3
+
+- O template oficial em `docs/content/tgs-lesson-template.md` organiza cada aula em cinco blocos obrigatórios: contexto (`contentBlock` + `lessonPlan`), exemplos aplicados (`cardGrid`, `systemMapper`, `md3Table`), vídeo curado (`videosBlock`), exercício/TED (`callout` + `checklist`) e referências alinhadas ao Plano de Ensino (`contentBlock` + `md3Table`).
+- Inclui exemplos de preenchimento com foco em casos brasileiros, loops de feedback e rubricas enxutas, servindo como referência direta para transformar indicações como "o professor mostrará" em blocos MD3 estruturados.
+
 ## 5. Fluxo de trabalho recomendado
 
 1. **Varredura por unidade** (I a VI):
