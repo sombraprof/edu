@@ -149,6 +149,60 @@
       ]
     },
     {
+      "type": "comparativeTable",
+      "title": "Comparativo de membros de classe",
+      "caption": "Resumo para orientar a escolha entre atributos e métodos de instância, estáticos e constantes.",
+      "leadingColumnLabel": "Tipo de membro",
+      "headers": ["Escopo", "Vantagens", "Cuidados", "Exemplos"],
+      "rows": [
+        {
+          "label": "Atributo de instância",
+          "values": [
+            "Cada objeto possui sua própria cópia, acessada via `this`.",
+            "Modela o estado específico de cada entidade e permite encapsular regras por objeto.",
+            "Evite expor diretamente; valide no construtor e mantenha privado com `getters/setters` coerentes.",
+            "`Cliente.nome`, `Pedido.valorTotal`"
+          ]
+        },
+        {
+          "label": "Método de instância",
+          "values": [
+            "Executado sobre um objeto concreto e pode acessar atributos de instância.",
+            "Combina estado e comportamento, garantindo invariantes por meio de validações.",
+            "Nomeie com verbos claros e mantenha o tamanho reduzido para preservar a coesão.",
+            "`cliente.atualizarEndereco()`, `pedido.calcularLimite()`"
+          ]
+        },
+        {
+          "label": "Atributo estático",
+          "values": [
+            "Compartilhado por todas as instâncias da classe.",
+            "Centraliza dados comuns como contadores ou configurações cacheadas.",
+            "Sincronize atualizações quando houver acesso concorrente e evite armazenar estado mutável desnecessário.",
+            "`Cliente.totalClientes`, `Pedido.TAXA_PADRAO`"
+          ]
+        },
+        {
+          "label": "Método estático",
+          "values": [
+            "Chamado diretamente pela classe, sem depender de um objeto.",
+            "Útil para fábricas controladas ou utilidades puras que não dependem de estado.",
+            "Não acessar atributos de instância; se precisar de estado, considere mover para um método de instância.",
+            "`Cliente.novoComCpf(...)`, `Math.max(...)`"
+          ]
+        },
+        {
+          "label": "Constante",
+          "values": [
+            "Geralmente `static final`, permanece imutável para toda a aplicação.",
+            "Evita números mágicos e garante consistência para valores invariantes.",
+            "Use nomes em maiúsculas e não derive o valor de lógica complexa em tempo de execução.",
+            "`Cliente.LIMITE_PADRAO`, `LocalDate.MIN`"
+          ]
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Designando responsabilidades",
       "content": [

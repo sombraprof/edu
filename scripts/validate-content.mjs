@@ -42,6 +42,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'flightPlan',
   'accordion',
   'representations',
+  'comparativeTable',
   'truthTable',
   'roadmap',
   'audio',
