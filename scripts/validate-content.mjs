@@ -108,6 +108,7 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'ApiEndpoints',
   'PromptTip',
   'WhiteboardBlock',
+  'SelfAssessment',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([
