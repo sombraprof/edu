@@ -219,8 +219,9 @@ interface FabricModule {
   Canvas: new (element: HTMLCanvasElement, options?: Record<string, unknown>) => FabricCanvas;
 }
 
-const props = defineProps<{ data: WhiteboardBlockData }>();
-const block = computed(() => props.data);
+const props = defineProps<{ data?: WhiteboardBlockData | null }>();
+const emptyBlock: WhiteboardBlockData = { snapshots: [] };
+const block = computed<WhiteboardBlockData>(() => props.data ?? emptyBlock);
 
 interface NormalizedSnapshot {
   id: string;
@@ -300,7 +301,7 @@ const activeImage = computed<WhiteboardImage | undefined>(() => {
 const currentSnapshotLabel = computed(() => activeSnapshot.value?.label ?? 'Sem rótulo');
 
 const currentSnapshotIndex = ref(0);
-const isPlaying = ref(Boolean(block.value.playback?.autoplay));
+const isPlaying = ref(false);
 const loadingSnapshot = ref(false);
 const exportStatus = ref('');
 const lastExport = ref('');
@@ -340,6 +341,14 @@ const fabricCanvas = shallowRef<FabricCanvas | null>(null);
 let loadQueue: Promise<void> = Promise.resolve();
 
 const canEdit = computed(() => typeof window !== 'undefined');
+
+watch(
+  () => block.value.playback?.autoplay,
+  (autoplay) => {
+    isPlaying.value = Boolean(autoplay);
+  },
+  { immediate: true }
+);
 
 function normalizeImage(image: WhiteboardImage | undefined): WhiteboardImage | undefined {
   if (!image || typeof image !== 'object') return undefined;
