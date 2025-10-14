@@ -268,9 +268,14 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
+        '@jridgewell/resolve-uri': path.resolve(
+          __dirname,
+          'node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs'
+        ),
       },
     },
     optimizeDeps: {
+      include: ['ts-interface-checker', 'lines-and-columns'],
       exclude: ['@monaco-editor/loader', 'monaco-editor', 'sucrase', 'fabric'],
     },
     build: {

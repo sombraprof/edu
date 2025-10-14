@@ -149,6 +149,23 @@
       ]
     },
     {
+      "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Hello World anotado",
+        "summary": "Cada anotação conecta o trecho com os elementos da anatomia da classe explorados logo acima.",
+        "language": "java",
+        "code": "package edu.lpoo.intro; // Pacote mantém a classe alinhada à estrutura de diretórios.\n\nimport java.util.Scanner; // Importa utilitário para ler dados do teclado.\n\npublic class HelloWorld { // Declara a classe pública com o mesmo nome do arquivo.\n    public static void main(String[] args) { // Ponto de entrada executado pela JVM.\n        try (Scanner entrada = new Scanner(System.in)) { // Cria Scanner conectado ao console.\n            System.out.print(\"Qual é o seu nome? \"); // Solicita entrada para o usuário.\n            String nome = entrada.nextLine(); // Lê uma linha completa como texto.\n            System.out.println(\"Olá, \" + nome + \"!\"); // Exibe saudação formatada.\n        } // Bloco try-with-resources fecha o Scanner automaticamente.\n    }\n}",
+        "highlights": [
+          "O pacote no topo evita conflitos de nomes e reflete a organização da aplicação.",
+          "O import explicita a dependência do utilitário `Scanner` usado para entrada.",
+          "A classe pública `HelloWorld` encapsula o comportamento demonstrado.",
+          "O método `main` recebe argumentos e sinaliza o ponto de partida da execução.",
+          "O `Scanner` lê o nome digitado e a resposta é impressa de forma amigável."
+        ]
+      }
+    },
+    {
       "type": "cardGrid",
       "title": "Ferramentas essenciais",
       "columns": 3,
@@ -171,6 +188,68 @@
           "tone": "neutral",
           "content": "Gerencia dependências, compilações, empacotamento e testes automatizados."
         }
+      ]
+    },
+    {
+      "type": "md3Table",
+      "title": "Checklist de comandos no terminal",
+      "headers": ["Comando", "Quando usar", "Exemplo de saída"],
+      "rows": [
+        [
+          {
+            "value": "`javac -d out src/main/java/edu/lpoo/intro/HelloWorld.java`"
+          },
+          {
+            "value": "Compilar uma classe isolada salvando os `.class` em `out/`."
+          },
+          {
+            "value": "Sem saída quando bem-sucedido; cria `out/edu/lpoo/intro/HelloWorld.class`."
+          }
+        ],
+        [
+          {
+            "value": "`java -cp out edu.lpoo.intro.HelloWorld`"
+          },
+          {
+            "value": "Executar a classe compilada apontando para o classpath gerado."
+          },
+          {
+            "value": "`Olá, Maria!`"
+          }
+        ],
+        [
+          {
+            "value": "`./gradlew run --info`"
+          },
+          {
+            "value": "Rodar o aplicativo com Gradle acompanhando logs adicionais de execução."
+          },
+          {
+            "value": "`> Task :app:run` seguido do console da aplicação."
+          }
+        ],
+        [
+          {
+            "value": "`./gradlew test --info`"
+          },
+          {
+            "value": "Disparar a suíte de testes verificando mensagens detalhadas sobre cada etapa."
+          },
+          {
+            "value": "`> Task :app:test` com relatório de testes no final."
+          }
+        ],
+        [
+          {
+            "value": "`./gradlew tasks -d`"
+          },
+          {
+            "value": "Listar tarefas disponíveis e diagnosticar por que uma task não aparece."
+          },
+          {
+            "value": "Mostra a tabela de tarefas agrupadas e logs adicionais de dependências."
+          }
+        ]
       ]
     },
     {
@@ -234,6 +313,20 @@
           }
         ]
       }
+    },
+    {
+      "type": "bugFixChallenge",
+      "title": "Depure o HelloWorld que não compila",
+      "description": "O arquivo `HelloWorld.java` foi salvo no diretório `src/main/java/edu/lpoo/intro`, mas a turma reportou que o build falha após copiar esse trecho do mural. Identifique e corrija os erros para alinhar o código ao padrão configurado em aula.",
+      "language": "java",
+      "code": "package edu.lpoo.intro.hello;\n\npublic class helloWorld {\n    public static void main(String[] args) {\n        Scanner entrada = new Scanner(System.in);\n        System.out.print(\"Qual é o seu nome? \");\n        String nome = Entrada.nextLine();\n        System.out.println(\"Olá, \" + nome + \"!\");\n    }\n}",
+      "hints": [1, 3, 5, 7],
+      "guidance": [
+        "Rode `./gradlew clean` seguido de `./gradlew run` para observar mensagens completas do Gradle.",
+        "Compile diretamente com `javac src/main/java/edu/lpoo/intro/HelloWorld.java` para isolar erros de sintaxe.",
+        "Leia o stacktrace/erros na íntegra e acompanhe os números de linha destacados pelo compilador.",
+        "Verifique se o pacote declarado corresponde ao caminho da pasta e se todas as dependências estão importadas."
+      ]
     }
   ],
   "metadata": {

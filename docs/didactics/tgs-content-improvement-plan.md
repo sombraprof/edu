@@ -27,10 +27,17 @@ Garantir que todas as aulas de Teoria Geral de Sistemas (TGS) ofereçam materiai
 - **Exercícios:** ao menos um exercício leve (quiz, checklist, mapa, fórum guiado) com critério de entrega.
 - **TEDs:** explicitar data limite, forma de entrega, formato e critério de avaliação.
 
+### 4.1 Template de aula MD3
+
+- O template oficial em `docs/content/tgs-lesson-template.md` organiza cada aula em cinco blocos obrigatórios: contexto (`contentBlock` + `lessonPlan`), exemplos aplicados (`cardGrid`, `systemMapper`, `md3Table`), vídeo curado (`videosBlock`), exercício/TED (`callout` + `checklist`) e referências alinhadas ao Plano de Ensino (`contentBlock` + `md3Table`).
+- Inclui exemplos de preenchimento com foco em casos brasileiros, loops de feedback e rubricas enxutas, servindo como referência direta para transformar indicações como "o professor mostrará" em blocos MD3 estruturados.
+
 ## 5. Fluxo de trabalho recomendado
 
 1. **Varredura por unidade** (I a VI):
-   - Rodar `npm run export:lesson -- --course tgs` para obter visão geral dos blocos.
+   - Rodar `npm run report:courses` para gerar `reports/course-content-summary.json`.
+   - No relatório, localizar a entrada `courses[].id === "tgs"` para revisar totais por lição, exercícios e suplementos, observando `missingFiles`, `orphanFiles` e `duplicatedWrappers`.
+   - Registrar na planilha apenas os pontos críticos encontrados para o curso TGS (ignorar dados de outros cursos).
    - Mapear lacunas em uma planilha (aba "Diagnóstico") com colunas: Aula, Falta vídeo?, Falta exemplo?, Falta exercício?, Observações.
 2. **Curadoria de referências e vídeos:**
    - Utilizar playlist base no YouTube (ex.: canal Cengage, TOTVS Labs, Sebrae, Endeavor) e podcasts curtos (≤10 min).
@@ -87,7 +94,7 @@ Garantir que todas as aulas de Teoria Geral de Sistemas (TGS) ofereçam materiai
 
 | Tarefa | Descrição                                                      | Saída                                             |
 | ------ | -------------------------------------------------------------- | ------------------------------------------------- |
-| E1     | Revisar `mapa-sistema` e `loop-feedback`                       | Ajustes de enunciado + ativação `available: true` |
+| E1     | Revisar `system-map` e `loop-feedback`                         | Ajustes de enunciado + ativação `available: true` |
 | E2     | Criar novos exercícios leves por unidade (quizzes, flashcards) | 6–8 atividades extras                             |
 | E3     | Publicar template de relatório de extensão                     | Suplemento com guia passo a passo                 |
 

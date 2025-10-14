@@ -149,6 +149,60 @@
       ]
     },
     {
+      "type": "comparativeTable",
+      "title": "Comparativo de membros de classe",
+      "caption": "Resumo para orientar a escolha entre atributos e métodos de instância, estáticos e constantes.",
+      "leadingColumnLabel": "Tipo de membro",
+      "headers": ["Escopo", "Vantagens", "Cuidados", "Exemplos"],
+      "rows": [
+        {
+          "label": "Atributo de instância",
+          "values": [
+            "Cada objeto possui sua própria cópia, acessada via `this`.",
+            "Modela o estado específico de cada entidade e permite encapsular regras por objeto.",
+            "Evite expor diretamente; valide no construtor e mantenha privado com `getters/setters` coerentes.",
+            "`Cliente.nome`, `Pedido.valorTotal`"
+          ]
+        },
+        {
+          "label": "Método de instância",
+          "values": [
+            "Executado sobre um objeto concreto e pode acessar atributos de instância.",
+            "Combina estado e comportamento, garantindo invariantes por meio de validações.",
+            "Nomeie com verbos claros e mantenha o tamanho reduzido para preservar a coesão.",
+            "`cliente.atualizarEndereco()`, `pedido.calcularLimite()`"
+          ]
+        },
+        {
+          "label": "Atributo estático",
+          "values": [
+            "Compartilhado por todas as instâncias da classe.",
+            "Centraliza dados comuns como contadores ou configurações cacheadas.",
+            "Sincronize atualizações quando houver acesso concorrente e evite armazenar estado mutável desnecessário.",
+            "`Cliente.totalClientes`, `Pedido.TAXA_PADRAO`"
+          ]
+        },
+        {
+          "label": "Método estático",
+          "values": [
+            "Chamado diretamente pela classe, sem depender de um objeto.",
+            "Útil para fábricas controladas ou utilidades puras que não dependem de estado.",
+            "Não acessar atributos de instância; se precisar de estado, considere mover para um método de instância.",
+            "`Cliente.novoComCpf(...)`, `Math.max(...)`"
+          ]
+        },
+        {
+          "label": "Constante",
+          "values": [
+            "Geralmente `static final`, permanece imutável para toda a aplicação.",
+            "Evita números mágicos e garante consistência para valores invariantes.",
+            "Use nomes em maiúsculas e não derive o valor de lógica complexa em tempo de execução.",
+            "`Cliente.LIMITE_PADRAO`, `LocalDate.MIN`"
+          ]
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Designando responsabilidades",
       "content": [
@@ -180,6 +234,44 @@
           }
         }
       ]
+    },
+    {
+      "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Classe Cliente validada etapa a etapa",
+        "summary": "Retoma a oficina guiada, mostrando como cada sobrecarga garante os requisitos discutidos em sala enquanto mantém o encapsulamento.",
+        "language": "java",
+        "code": "import java.time.LocalDate;\nimport java.util.Objects;\nimport java.util.regex.Pattern;\n\npublic class Cliente {\n    private static final Pattern EMAIL_PATTERN =\n            Pattern.compile(\"^[\\\\w._%+-]+@[\\\\w.-]+\\\\.[A-Za-z]{2,7}$\");\n    private static final int LIMITE_MINIMO = 0;\n    private static final int LIMITE_PADRAO = 1500;\n\n    private final String documento;\n    private final LocalDate dataCadastro;\n    private String nome;\n    private String email;\n    private String telefone;\n    private int limiteCredito;\n\n    // Etapa 1 da oficina: garantir requisitos mínimos antes de abrir o cadastro.\n    public Cliente(String nome, String documento) {\n        this(nome, documento, null, null, LocalDate.now(), LIMITE_PADRAO);\n    }\n\n    // Etapa 2 da oficina: registrar o contato principal aprovado com o time de marketing.\n    public Cliente(String nome, String documento, String email) {\n        this(nome, documento, email, null, LocalDate.now(), LIMITE_PADRAO);\n    }\n\n    // Etapa 3 da oficina: consolidar regras finais validadas com o time de crédito.\n    public Cliente(String nome,\n                   String documento,\n                   String email,\n                   String telefone,\n                   LocalDate dataCadastro,\n                   int limiteCredito) {\n        this.nome = validarNome(nome);\n        this.documento = validarDocumento(documento);\n        this.email = validarEmail(email);\n        this.telefone = limparTelefone(telefone);\n        this.dataCadastro = Objects.requireNonNullElseGet(dataCadastro, LocalDate::now);\n        this.limiteCredito = validarLimite(limiteCredito);\n    }\n\n    public void atualizarContato(String email, String telefone) {\n        // Etapa 4 da oficina: ajustes pós-revisão mantendo encapsulamento.\n        this.email = validarEmail(email);\n        this.telefone = limparTelefone(telefone);\n    }\n\n    public void ajustarLimite(int novoLimite) {\n        this.limiteCredito = validarLimite(novoLimite);\n    }\n\n    public String resumo() {\n        return String.format(\"%s (%s) - contato: %s - limite: %d\",\n                this.nome,\n                this.documento,\n                this.email == null ? \"pendente\" : this.email,\n                this.limiteCredito);\n    }\n\n    private String validarNome(String nome) {\n        Objects.requireNonNull(nome, \"Nome obrigatório\");\n        String ajustado = nome.trim();\n        if (ajustado.length() < 3) {\n            throw new IllegalArgumentException(\"Nome deve ter ao menos 3 caracteres\");\n        }\n        return ajustado;\n    }\n\n    private String validarDocumento(String documento) {\n        Objects.requireNonNull(documento, \"Documento obrigatório\");\n        String ajustado = documento.replaceAll(\"[^0-9]\", \"\");\n        if (ajustado.length() != 11) {\n            throw new IllegalArgumentException(\"Documento deve conter 11 dígitos\");\n        }\n        return ajustado;\n    }\n\n    private String validarEmail(String email) {\n        if (email == null || email.isBlank()) {\n            return null;\n        }\n        String ajustado = email.trim().toLowerCase();\n        if (!EMAIL_PATTERN.matcher(ajustado).matches()) {\n            throw new IllegalArgumentException(\"E-mail inválido\");\n        }\n        return ajustado;\n    }\n\n    private String limparTelefone(String telefone) {\n        if (telefone == null || telefone.isBlank()) {\n            return null;\n        }\n        return telefone.replaceAll(\"[^0-9]\", \"\");\n    }\n\n    private int validarLimite(int limite) {\n        if (limite < LIMITE_MINIMO) {\n            throw new IllegalArgumentException(\"Limite de crédito não pode ser negativo\");\n        }\n        return limite == 0 ? LIMITE_PADRAO : limite;\n    }\n}\n",
+        "highlights": [
+          "Construtores encadeados usam this(...) para reaproveitar validações e alinhar-se às etapas da oficina.",
+          "Métodos privados reforçam encapsulamento ao centralizar regras de negócio e lançar exceções claras.",
+          "Comentários conectam cada sobrecarga às decisões da dinâmica, mostrando a evolução do modelo."
+        ]
+      }
+    },
+    {
+      "type": "codeChallenge",
+      "title": "Escolha a melhor sobrecarga",
+      "prompt": "A mesma classe `Cliente` da oficina foi incorporada à API de cadastro. Cada construtor representa uma etapa do fluxo: pré-cadastro (nome e documento), validação de contato principal e aprovação de crédito com limite personalizado. Analise o trecho a seguir e avalie qual assinatura traduz melhor o cenário pedido pelo time.",
+      "language": "java",
+      "code": "public class Cliente {\n    private static final int LIMITE_PADRAO = 1500;\n\n    public Cliente(String nome, String documento) {\n        this(nome, documento, null, LIMITE_PADRAO);\n    }\n\n    public Cliente(String nome, String documento, String email) {\n        this(nome, documento, email, LIMITE_PADRAO);\n    }\n\n    public Cliente(String nome, String documento, String email, int limiteCredito) {\n        // Validações detalhadas omitidas\n    }\n}\n",
+      "question": "Durante a etapa final da oficina, o comitê de crédito envia nome, documento, e-mail validado e um limite específico negociado com o cliente. Qual sobrecarga atende melhor a esse cenário sem perder as validações encapsuladas?",
+      "options": [
+        {
+          "id": "a",
+          "text": "new Cliente(nome, documento) — etapa de pré-cadastro apenas com campos mínimos."
+        },
+        {
+          "id": "b",
+          "text": "new Cliente(nome, documento, email) — etapa de confirmação de contato com limite padrão."
+        },
+        {
+          "id": "c",
+          "text": "new Cliente(nome, documento, email, limiteNegociado) — etapa de crédito personalizada."
+        }
+      ],
+      "answerExplanation": "A sobrecarga com quatro parâmetros permite registrar o limite negociado imediatamente, mantendo o reuso das validações internas e honrando o encapsulamento discutido na oficina. As outras versões foram pensadas para etapas anteriores, nas quais o limite ainda é padrão ou inexistente."
     },
     {
       "type": "component",

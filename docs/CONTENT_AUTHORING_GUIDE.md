@@ -379,7 +379,7 @@ Inside legacy sections the renderer automatically wraps blocks with MD3 cards (`
 - Execute `npm run report:governance` para gerar `reports/governance-alert.md`/`.json`, atualizar `reports/governance-history.json` com a série temporal e obter um resumo dos cursos que ainda têm problemas/avisos, blocos legados e lacunas de metadados (combinação direta dos dois relatórios anteriores).
 - Em seguida rode `npm run report:governance:history` para sintetizar os dados em `reports/governance-history-summary.json` e gerar a tabela semanal `reports/governance-history.md`, usada pela issue automática para registrar a evolução.
 - O GitHub Actions atualiza automaticamente uma issue com label `governanca-automatica` a cada execução da pipeline, usando esse resumo para indicar prioridades e acompanhar a redução de blocos legados ao longo do tempo.
-- A página `/relatorios/validacao-conteudo` exibe os mesmos dados com cobertura por curso, autores recorrentes e modelos utilizados, facilitando a conferência visual dos metadados antes do deploy.
+- A página `/reports/content-validation` (rota `validation-report`, disponível no atalho "Relatório de validação" do cabeçalho) exibe os mesmos dados com cobertura por curso, autores recorrentes e modelos utilizados, facilitando a conferência visual dos metadados antes do deploy.
 
 ### Automating HTML-first lessons
 

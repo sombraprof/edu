@@ -69,7 +69,7 @@ Este documento traduz os dados do relatório `reports/course-content-summary.jso
 ### Teoria Geral de Sistemas (TGS)
 
 - Quinze aulas publicadas em duplicidade e sem componentes específicos para mapas de causalidade. 【F:reports/course-content-summary.json†L701-L838】
-- Exercícios (`loop-feedback.json`, `mapa-sistema.json`) aparecem como órfãos no diretório. 【F:reports/course-content-summary.json†L841-L852】
+- Exercícios (`loop-feedback.json`, `system-map.json`) aparecem como órfãos no diretório. 【F:reports/course-content-summary.json†L841-L852】
 
 **Ações imediatas**
 
@@ -80,6 +80,6 @@ Este documento traduz os dados do relatório `reports/course-content-summary.jso
 ## Próximos passos operacionais
 
 1. Executar `npm run report:courses` semanalmente para monitorar a redução de duplicidades e o avanço da publicação das novas aulas.
-2. Integrar o relatório ao painel `/relatorios/validacao-conteudo`, destacando contadores de aulas "publicadas" vs "em produção" para cada disciplina.
+2. Integrar o relatório ao painel `/reports/content-validation` (atalho "Relatório de validação"/rota `validation-report`), destacando contadores de aulas "publicadas" vs "em produção" para cada disciplina.
 3. Atualizar `docs/material-redesign-plan.md` conforme cada curso migrar para JSON MD3, mantendo histórico de entregas na `docs/WORK_STATUS.md`.
 4. Após consolidar o formato JSON, iniciar a documentação em Storybook com exemplos reais das aulas do professor, garantindo consistência visual antes da próxima turma.

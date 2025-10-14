@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-27T23:50:33.197Z",
+  "generatedAt": "2025-10-13T11:46:30.428Z",
   "courses": [
     {
       "id": "algi",
@@ -8,107 +8,14 @@
       "summary": {
         "lessons": {
           "total": 40,
-          "published": 17,
-          "upcoming": 23,
+          "published": 22,
+          "upcoming": 18,
           "directory": {
-            "json": 17,
+            "json": 40,
             "vue": 2,
             "other": []
           },
-          "missingFiles": [
-            {
-              "id": "lesson-16",
-              "file": "lesson-16.json"
-            },
-            {
-              "id": "lesson-17",
-              "file": "lesson-17.json"
-            },
-            {
-              "id": "lesson-18",
-              "file": "lesson-18.json"
-            },
-            {
-              "id": "lesson-19",
-              "file": "lesson-19.json"
-            },
-            {
-              "id": "lesson-20",
-              "file": "lesson-20.json"
-            },
-            {
-              "id": "lesson-21",
-              "file": "lesson-21.json"
-            },
-            {
-              "id": "lesson-22",
-              "file": "lesson-22.json"
-            },
-            {
-              "id": "lesson-23",
-              "file": "lesson-23.json"
-            },
-            {
-              "id": "lesson-24",
-              "file": "lesson-24.json"
-            },
-            {
-              "id": "lesson-25",
-              "file": "lesson-25.json"
-            },
-            {
-              "id": "lesson-26",
-              "file": "lesson-26.json"
-            },
-            {
-              "id": "lesson-27",
-              "file": "lesson-27.json"
-            },
-            {
-              "id": "lesson-28",
-              "file": "lesson-28.json"
-            },
-            {
-              "id": "lesson-30",
-              "file": "lesson-30.json"
-            },
-            {
-              "id": "lesson-31",
-              "file": "lesson-31.json"
-            },
-            {
-              "id": "lesson-32",
-              "file": "lesson-32.json"
-            },
-            {
-              "id": "lesson-33",
-              "file": "lesson-33.json"
-            },
-            {
-              "id": "lesson-34",
-              "file": "lesson-34.json"
-            },
-            {
-              "id": "lesson-35",
-              "file": "lesson-35.json"
-            },
-            {
-              "id": "lesson-36",
-              "file": "lesson-36.json"
-            },
-            {
-              "id": "lesson-37",
-              "file": "lesson-37.json"
-            },
-            {
-              "id": "lesson-38",
-              "file": "lesson-38.json"
-            },
-            {
-              "id": "lesson-40",
-              "file": "lesson-40.json"
-            }
-          ],
+          "missingFiles": [],
           "orphanFiles": [
             {
               "file": "lesson-29.vue"
@@ -131,24 +38,44 @@
           ]
         },
         "exercises": {
-          "total": 2,
+          "total": 7,
           "published": 0,
-          "upcoming": 2,
+          "upcoming": 7,
           "missingFiles": [],
           "orphanFiles": [
+            {
+              "file": "modular-refactoring.json"
+            },
             {
               "file": "worksheet-01.json"
             },
             {
               "file": "worksheet-02.json"
+            },
+            {
+              "file": "worksheet-03.json"
+            },
+            {
+              "file": "worksheet-04.json"
+            },
+            {
+              "file": "worksheet-05.json"
+            },
+            {
+              "file": "worksheet-06.json"
             }
           ]
         },
         "supplements": {
           "total": 1,
-          "published": 0,
-          "upcoming": 1,
-          "missingFiles": [],
+          "published": 1,
+          "upcoming": 0,
+          "missingFiles": [
+            {
+              "id": "guia-estudos",
+              "file": "guia-estudos.pdf"
+            }
+          ],
           "orphanFiles": []
         }
       }
@@ -159,11 +86,11 @@
       "institution": "Unichristus",
       "summary": {
         "lessons": {
-          "total": 14,
-          "published": 14,
-          "upcoming": 0,
+          "total": 40,
+          "published": 17,
+          "upcoming": 23,
           "directory": {
-            "json": 14,
+            "json": 40,
             "vue": 0,
             "other": []
           },
@@ -200,11 +127,11 @@
       "institution": "Unifametro",
       "summary": {
         "lessons": {
-          "total": 8,
-          "published": 8,
+          "total": 14,
+          "published": 14,
           "upcoming": 0,
           "directory": {
-            "json": 8,
+            "json": 14,
             "vue": 0,
             "other": []
           },
@@ -213,23 +140,32 @@
           "duplicatedWrappers": []
         },
         "exercises": {
-          "total": 2,
-          "published": 0,
-          "upcoming": 2,
+          "total": 5,
+          "published": 5,
+          "upcoming": 0,
           "missingFiles": [],
           "orphanFiles": [
             {
-              "file": "uml-modeling.json"
+              "file": "exception-handling.json"
+            },
+            {
+              "file": "junit-quality-lab.json"
             },
             {
               "file": "refactoring.json"
+            },
+            {
+              "file": "tdd-refactor-kata.json"
+            },
+            {
+              "file": "uml-modeling.json"
             }
           ]
         },
         "supplements": {
-          "total": 1,
-          "published": 0,
-          "upcoming": 1,
+          "total": 9,
+          "published": 9,
+          "upcoming": 0,
           "missingFiles": [],
           "orphanFiles": []
         }
@@ -241,12 +177,12 @@
       "institution": "Unichristus",
       "summary": {
         "lessons": {
-          "total": 15,
-          "published": 15,
+          "total": 18,
+          "published": 18,
           "upcoming": 0,
           "directory": {
-            "json": 15,
-            "vue": 15,
+            "json": 18,
+            "vue": 18,
             "other": []
           },
           "missingFiles": [],
@@ -295,6 +231,15 @@
             },
             {
               "file": "lesson-15.vue"
+            },
+            {
+              "file": "lesson-16.vue"
+            },
+            {
+              "file": "lesson-17.vue"
+            },
+            {
+              "file": "lesson-18.vue"
             }
           ],
           "duplicatedWrappers": [
@@ -372,13 +317,28 @@
               "id": "lesson-15",
               "baseFile": "lesson-15",
               "duplicated": true
+            },
+            {
+              "id": "lesson-16",
+              "baseFile": "lesson-16",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-17",
+              "baseFile": "lesson-17",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-18",
+              "baseFile": "lesson-18",
+              "duplicated": true
             }
           ]
         },
         "exercises": {
           "total": 2,
-          "published": 1,
-          "upcoming": 1,
+          "published": 0,
+          "upcoming": 2,
           "missingFiles": [],
           "orphanFiles": [
             {
@@ -404,12 +364,12 @@
       "institution": "Unichristus",
       "summary": {
         "lessons": {
-          "total": 15,
-          "published": 15,
-          "upcoming": 0,
+          "total": 40,
+          "published": 16,
+          "upcoming": 24,
           "directory": {
-            "json": 15,
-            "vue": 15,
+            "json": 40,
+            "vue": 40,
             "other": []
           },
           "missingFiles": [],
@@ -458,6 +418,81 @@
             },
             {
               "file": "lesson-15.vue"
+            },
+            {
+              "file": "lesson-16.vue"
+            },
+            {
+              "file": "lesson-17.vue"
+            },
+            {
+              "file": "lesson-18.vue"
+            },
+            {
+              "file": "lesson-19.vue"
+            },
+            {
+              "file": "lesson-20.vue"
+            },
+            {
+              "file": "lesson-21.vue"
+            },
+            {
+              "file": "lesson-22.vue"
+            },
+            {
+              "file": "lesson-23.vue"
+            },
+            {
+              "file": "lesson-24.vue"
+            },
+            {
+              "file": "lesson-25.vue"
+            },
+            {
+              "file": "lesson-26.vue"
+            },
+            {
+              "file": "lesson-27.vue"
+            },
+            {
+              "file": "lesson-28.vue"
+            },
+            {
+              "file": "lesson-29.vue"
+            },
+            {
+              "file": "lesson-30.vue"
+            },
+            {
+              "file": "lesson-31.vue"
+            },
+            {
+              "file": "lesson-32.vue"
+            },
+            {
+              "file": "lesson-33.vue"
+            },
+            {
+              "file": "lesson-34.vue"
+            },
+            {
+              "file": "lesson-35.vue"
+            },
+            {
+              "file": "lesson-36.vue"
+            },
+            {
+              "file": "lesson-37.vue"
+            },
+            {
+              "file": "lesson-38.vue"
+            },
+            {
+              "file": "lesson-39.vue"
+            },
+            {
+              "file": "lesson-40.vue"
             }
           ],
           "duplicatedWrappers": [
@@ -535,6 +570,131 @@
               "id": "lesson-15",
               "baseFile": "lesson-15",
               "duplicated": true
+            },
+            {
+              "id": "lesson-16",
+              "baseFile": "lesson-16",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-17",
+              "baseFile": "lesson-17",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-18",
+              "baseFile": "lesson-18",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-19",
+              "baseFile": "lesson-19",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-20",
+              "baseFile": "lesson-20",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-21",
+              "baseFile": "lesson-21",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-22",
+              "baseFile": "lesson-22",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-23",
+              "baseFile": "lesson-23",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-24",
+              "baseFile": "lesson-24",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-25",
+              "baseFile": "lesson-25",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-26",
+              "baseFile": "lesson-26",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-27",
+              "baseFile": "lesson-27",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-28",
+              "baseFile": "lesson-28",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-29",
+              "baseFile": "lesson-29",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-30",
+              "baseFile": "lesson-30",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-31",
+              "baseFile": "lesson-31",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-32",
+              "baseFile": "lesson-32",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-33",
+              "baseFile": "lesson-33",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-34",
+              "baseFile": "lesson-34",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-35",
+              "baseFile": "lesson-35",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-36",
+              "baseFile": "lesson-36",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-37",
+              "baseFile": "lesson-37",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-38",
+              "baseFile": "lesson-38",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-39",
+              "baseFile": "lesson-39",
+              "duplicated": true
+            },
+            {
+              "id": "lesson-40",
+              "baseFile": "lesson-40",
+              "duplicated": true
             }
           ]
         },
@@ -554,9 +714,14 @@
         },
         "supplements": {
           "total": 1,
-          "published": 0,
-          "upcoming": 1,
-          "missingFiles": [],
+          "published": 1,
+          "upcoming": 0,
+          "missingFiles": [
+            {
+              "id": "template-relatorio",
+              "file": "template-relatorio.md"
+            }
+          ],
           "orphanFiles": []
         }
       }

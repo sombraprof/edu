@@ -99,6 +99,91 @@
       ]
     },
     {
+      "type": "timeline",
+      "title": "Marcos históricos da orientação a objetos",
+      "description": "Visão cronológica de tecnologias e padrões que influenciaram o ensino e o mercado brasileiro de Java e POO.",
+      "steps": [
+        {
+          "title": "1967 — Simula 67",
+          "content": "Conceitua classes e objetos, base para pesquisas acadêmicas brasileiras na década de 1970."
+        },
+        {
+          "title": "1980 — Smalltalk-80",
+          "content": "Populariza interfaces gráficas e laboratórios de POO usados em cursos experimentais no país."
+        },
+        {
+          "title": "1995 — Java",
+          "content": "Linguagem multiparadigma que expande a POO em currículos técnicos e universitários brasileiros."
+        },
+        {
+          "title": "1997 — UML",
+          "content": "Padroniza a modelagem orientada a objetos adotada por empresas e disciplinas de engenharia de software."
+        },
+        {
+          "title": "2003 — Spring Framework",
+          "content": "Introduz IoC e DI, reforçando práticas de arquitetura Java em consultorias nacionais."
+        },
+        {
+          "title": "2023 — Java 21",
+          "content": "Consolida recursos modernos usados em microsserviços de fintechs e govtechs brasileiras."
+        }
+      ],
+      "events": [
+        {
+          "id": "simula-67",
+          "title": "Simula 67 introduz classes e objetos",
+          "date": "1967",
+          "summary": "A linguagem norueguesa Simula 67 formaliza o conceito de classe e objeto, inspirando pesquisadores brasileiros em universidades como USP e PUC-Rio a discutir modelagem orientada a objetos na década de 1970.",
+          "resource": {
+            "label": "Simula 67 — Birth of Object-Oriented Programming",
+            "url": "https://dl.acm.org/doi/10.1145/363744.363749"
+          }
+        },
+        {
+          "id": "smalltalk-80",
+          "title": "Smalltalk-80 populariza interfaces gráficas",
+          "date": "1980",
+          "summary": "Smalltalk-80 leva o paradigma orientado a objetos a laboratórios educacionais, influenciando disciplinas pioneiras de POO no Brasil com foco em interação homem-computador."
+        },
+        {
+          "id": "java-1995",
+          "title": "Java é lançado pela Sun Microsystems",
+          "date": "1995",
+          "summary": "O lançamento do Java consolida POO multiplataforma e impulsiona cursos técnicos e universitários brasileiros na virada dos anos 2000.",
+          "resource": {
+            "label": "Histórico oficial do Java",
+            "url": "https://www.oracle.com/java/technologies/java-se-glance.html"
+          }
+        },
+        {
+          "id": "uml-1997",
+          "title": "UML torna-se padrão da OMG",
+          "date": "1997",
+          "summary": "A padronização da UML fortalece a adoção de processos orientados a objetos em empresas brasileiras, guiando disciplinas de análise e projeto de sistemas."
+        },
+        {
+          "id": "spring-2003",
+          "title": "Surge o Spring Framework",
+          "date": "2003",
+          "summary": "O Spring traz inversão de controle e injeção de dependências para o ecossistema Java empresarial, sendo rapidamente adotado por comunidades e consultorias brasileiras.",
+          "resource": {
+            "label": "História do Spring Framework",
+            "url": "https://spring.io/projects/spring-framework"
+          }
+        },
+        {
+          "id": "java-21",
+          "title": "Java 21 e microsserviços modernos",
+          "date": "2023",
+          "summary": "A versão Java 21 consolida melhorias em performance e suporte a microsserviços, alinhada a iniciativas brasileiras de modernização de legado em fintechs e govtechs.",
+          "resource": {
+            "label": "Java 21 Release Highlights",
+            "url": "https://openjdk.org/projects/jdk/21/"
+          }
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Pergunta disparadora",
@@ -141,6 +226,224 @@
       ]
     },
     {
+      "type": "whiteboard",
+      "title": "Mapa mental – Paradigmas de programação",
+      "description": "Construa colaborativamente um mapa mental posicionando características, benefícios e riscos de cada paradigma frente ao projeto semestral.",
+      "height": 520,
+      "allowOfflineEdit": true,
+      "snapshots": [
+        {
+          "id": "base-map",
+          "label": "Mapa inicial",
+          "description": "Comece comparando os paradigmas estruturado e orientado a objetos nos eixos principais (acoplamento vs. reuso).",
+          "state": {
+            "version": "5.3.0",
+            "objects": [
+              {
+                "type": "line",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 360,
+                "top": 260,
+                "width": 520,
+                "height": 0,
+                "fill": "#1f2933",
+                "stroke": "#1f2933",
+                "strokeWidth": 2,
+                "strokeLineCap": "round",
+                "strokeLineJoin": "round",
+                "strokeUniform": true,
+                "opacity": 1,
+                "visible": true,
+                "backgroundColor": "",
+                "paintFirst": "stroke",
+                "globalCompositeOperation": "source-over",
+                "scaleX": 1,
+                "scaleY": 1,
+                "angle": 0,
+                "flipX": false,
+                "flipY": false,
+                "skewX": 0,
+                "skewY": 0,
+                "x1": -260,
+                "y1": 0,
+                "x2": 260,
+                "y2": 0
+              },
+              {
+                "type": "line",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 360,
+                "top": 260,
+                "width": 0,
+                "height": 360,
+                "fill": "#1f2933",
+                "stroke": "#1f2933",
+                "strokeWidth": 2,
+                "strokeLineCap": "round",
+                "strokeLineJoin": "round",
+                "strokeUniform": true,
+                "opacity": 1,
+                "visible": true,
+                "backgroundColor": "",
+                "paintFirst": "stroke",
+                "globalCompositeOperation": "source-over",
+                "scaleX": 1,
+                "scaleY": 1,
+                "angle": 0,
+                "flipX": false,
+                "flipY": false,
+                "skewX": 0,
+                "skewY": 0,
+                "x1": 0,
+                "y1": -180,
+                "x2": 0,
+                "y2": 180
+              },
+              {
+                "type": "textbox",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 360,
+                "top": 120,
+                "width": 180,
+                "height": 48,
+                "text": "Paradigma\nestruturado",
+                "fontSize": 24,
+                "fontFamily": "Inter",
+                "fill": "#0f172a",
+                "textAlign": "center",
+                "fontWeight": "bold",
+                "charSpacing": 0,
+                "direction": "ltr",
+                "lineHeight": 1.2
+              },
+              {
+                "type": "textbox",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 360,
+                "top": 400,
+                "width": 200,
+                "height": 48,
+                "text": "Orientado a objetos",
+                "fontSize": 24,
+                "fontFamily": "Inter",
+                "fill": "#0f172a",
+                "textAlign": "center",
+                "fontWeight": "bold",
+                "charSpacing": 0,
+                "direction": "ltr",
+                "lineHeight": 1.2
+              },
+              {
+                "type": "textbox",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 160,
+                "top": 260,
+                "width": 160,
+                "height": 48,
+                "text": "Baixo\nreuso",
+                "fontSize": 22,
+                "fontFamily": "Inter",
+                "fill": "#1d4ed8",
+                "textAlign": "center",
+                "fontWeight": 600,
+                "charSpacing": 0,
+                "direction": "ltr",
+                "lineHeight": 1.2
+              },
+              {
+                "type": "textbox",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 560,
+                "top": 260,
+                "width": 160,
+                "height": 48,
+                "text": "Alto\nreuso",
+                "fontSize": 22,
+                "fontFamily": "Inter",
+                "fill": "#1d4ed8",
+                "textAlign": "center",
+                "fontWeight": 600,
+                "charSpacing": 0,
+                "direction": "ltr",
+                "lineHeight": 1.2
+              },
+              {
+                "type": "textbox",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 360,
+                "top": 40,
+                "width": 240,
+                "height": 40,
+                "text": "Alto acoplamento",
+                "fontSize": 22,
+                "fontFamily": "Inter",
+                "fill": "#ea580c",
+                "textAlign": "center",
+                "fontWeight": 600,
+                "charSpacing": 0,
+                "direction": "ltr",
+                "lineHeight": 1.2
+              },
+              {
+                "type": "textbox",
+                "version": "5.3.0",
+                "originX": "center",
+                "originY": "center",
+                "left": 360,
+                "top": 480,
+                "width": 240,
+                "height": 40,
+                "text": "Baixo acoplamento",
+                "fontSize": 22,
+                "fontFamily": "Inter",
+                "fill": "#16a34a",
+                "textAlign": "center",
+                "fontWeight": 600,
+                "charSpacing": 0,
+                "direction": "ltr",
+                "lineHeight": 1.2
+              }
+            ],
+            "background": "#ffffff"
+          }
+        },
+        {
+          "id": "debate-acoplamento",
+          "label": "Acoplamento",
+          "description": "Discuta como cada paradigma facilita (ou dificulta) reduzir dependências rígidas entre módulos.",
+          "state": {
+            "version": "5.3.0",
+            "objects": [],
+            "background": "#ffffff"
+          }
+        },
+        {
+          "id": "debate-reuso",
+          "label": "Reuso e testes",
+          "description": "Registre exemplos de reuso, padrões de projeto e estratégias de teste automatizado para cada abordagem.",
+          "state": {
+            "version": "5.3.0",
+            "objects": [],
+            "background": "#ffffff"
+          }
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Os quatro pilares aplicados",
       "content": [
@@ -176,6 +479,21 @@
           "items": ["Viabilizam famílias de tipos relacionados e substituição segura entre eles."]
         }
       ]
+    },
+    {
+      "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Pilares em ação: serviço de pagamentos",
+        "summary": "Conecta com o domínio do projeto semestral ao ilustrar como o serviço de pagamentos trata meios distintos usando a mesma porta de entrada.",
+        "language": "java",
+        "code": "public interface Pagamento {\n    void processar();\n}\n\npublic class CartaoCredito implements Pagamento {\n    private String numeroCartao;\n    private double valor;\n\n    public CartaoCredito(String numeroCartao, double valor) {\n        this.numeroCartao = numeroCartao;\n        this.valor = valor;\n    }\n\n    public String getNumeroCartao() {\n        return numeroCartao;\n    }\n\n    public void setNumeroCartao(String numeroCartao) {\n        this.numeroCartao = numeroCartao;\n    }\n\n    public double getValor() {\n        return valor;\n    }\n\n    public void setValor(double valor) {\n        this.valor = valor;\n    }\n\n    @Override\n    public void processar() {\n        System.out.println(\"Processando pagamento com cartão de crédito...\");\n    }\n}\n\npublic class Pix implements Pagamento {\n    private String chavePix;\n    private double valor;\n\n    public Pix(String chavePix, double valor) {\n        this.chavePix = chavePix;\n        this.valor = valor;\n    }\n\n    public String getChavePix() {\n        return chavePix;\n    }\n\n    public void setChavePix(String chavePix) {\n        this.chavePix = chavePix;\n    }\n\n    public double getValor() {\n        return valor;\n    }\n\n    public void setValor(double valor) {\n        this.valor = valor;\n    }\n\n    @Override\n    public void processar() {\n        System.out.println(\"Processando pagamento via Pix...\");\n    }\n}",
+        "highlights": [
+          "Encapsulamento: campos privados em cada classe resguardam dados sensíveis do meio de pagamento e expõem acesso controlado por getters/setters.",
+          "Abstração: a interface Pagamento descreve apenas o contrato processar(), permitindo que o serviço de checkout dependa do conceito, não da implementação.",
+          "Herança e polimorfismo: CartaoCredito e Pix implementam Pagamento e podem ser tratadas de forma intercambiável ao registrar novas estratégias de cobrança."
+        ]
+      }
     },
     {
       "type": "component",

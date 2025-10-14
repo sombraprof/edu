@@ -3,8 +3,8 @@
   "id": "lesson-16",
   "title": "Aula 16: Unidade III – Estruturando o RoomDatabase e Migrações",
   "slug": "roomdatabase-e-migracoes",
-  "summary": "Aprofunda a construção da classe RoomDatabase, configuração de provedores, migrações e testes instrumentados para garantir persistência local confiável.",
-  "objective": "Construir uma base Room robusta com provedores de dependência, migrações controladas e verificações automatizadas.",
+  "summary": "Aprofunda a construção da classe RoomDatabase, configuração de provedores, migrações e testes instrumentados para garantir persistência local confiável, conectando teoria e prática com exemplos comentados.",
+  "objective": "Construir uma base Room robusta com provedores de dependência, migrações controladas e verificações automatizadas, detalhando decisões de projeto para alunos que estão estruturando o primeiro banco local.",
   "objectives": [
     "Configurar a classe RoomDatabase com padrão singleton seguro.",
     "Criar migrações básicas entre versões do banco.",
@@ -81,12 +81,12 @@
       "type": "flightPlan",
       "title": "Plano de voo da aula",
       "items": [
-        "Recapitular componentes Room: Entity, DAO e Database.",
-        "Desenhar o ciclo de inicialização da RoomDatabase.",
-        "Configurar instância singleton com Room.databaseBuilder().",
-        "Criar MIGRATION_1_2 adicionando nova coluna.",
-        "Projeto prático: preparar módulo de persistência reutilizável.",
-        "Testes instrumentados: validar inserção/leitura.",
+        "Recapitular componentes Room: Entity, DAO e Database com mapa mental coletivo.",
+        "Desenhar o ciclo de inicialização da RoomDatabase destacando Application, Providers e Injeção de Dependências.",
+        "Configurar instância singleton com Room.databaseBuilder() explicitando parâmetros obrigatórios e opcionais.",
+        "Criar MIGRATION_1_2 adicionando nova coluna e avaliando impacto em dados legados.",
+        "Projeto prático: preparar módulo de persistência reutilizável com package data bem documentado.",
+        "Testes instrumentados: validar inserção/leitura e erros comuns (como schema desatualizado).",
         "TED e avisos Moodle para consolidação."
       ]
     },
@@ -96,12 +96,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Mostramos o padrão recomendado para expor a instância da base usando o contexto de aplicação e evitando vazamentos."
+          "text": "Mostramos o padrão recomendado para expor a instância da base usando o contexto de aplicação e evitando vazamentos. Antes do código, reforçamos que RoomDatabase deve ser inicializada uma única vez e reaproveitada por toda a aplicação para evitar corrupção de dados e uso excessivo de memória."
+        },
+        {
+          "type": "paragraph",
+          "text": "Explique aos alunos que o padrão singleton seguro em Kotlin utiliza a anotação @Volatile e o bloco synchronized. Esses elementos impedem que duas threads criem instâncias diferentes em cenários de inicialização simultânea (por exemplo, quando o app é restaurado e uma ViewModel demanda dados rapidamente)."
         },
         {
           "type": "code",
           "language": "kotlin",
-          "code": "@Database(entities = [Produto::class], version = 2, exportSchema = true)\nabstract class AppDatabase : RoomDatabase() {\n    abstract fun produtoDao(): ProdutoDao\n\n    companion object {\n        @Volatile\n        private var INSTANCE: AppDatabase? = null\n\n        fun getInstance(context: Context): AppDatabase {\n            return INSTANCE ?: synchronized(this) {\n                val instance = Room.databaseBuilder(\n                    context.applicationContext,\n                    AppDatabase::class.java,\n                    \"catalogo.db\"\n                )\n                    .addMigrations(MIGRATION_1_2)\n                    .fallbackToDestructiveMigrationOnDowngrade()\n                    .build()\n                INSTANCE = instance\n                instance\n            }\n        }\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
+          "code": "@Database(entities = [Produto::class], version = 2, exportSchema = true)\nabstract class AppDatabase : RoomDatabase() {\n    // Exponha o DAO como função abstrata para que Room gere a implementação automaticamente\n    abstract fun produtoDao(): ProdutoDao\n\n    companion object {\n        @Volatile\n        private var INSTANCE: AppDatabase? = null\n\n        fun getInstance(context: Context): AppDatabase {\n            // O operador Elvis (?:) tenta reutilizar a instância; se for nula, entra no bloco synchronized\n            return INSTANCE ?: synchronized(this) {\n                val instance = Room.databaseBuilder(\n                    context.applicationContext,\n                    AppDatabase::class.java,\n                    \"catalogo.db\" // Nome físico do arquivo SQLite\n                )\n                    // Registrar migrações garante que usuários antigos não percam dados ao atualizar o app\n                    .addMigrations(MIGRATION_1_2)\n                    // Em ambientes de laboratório, o fallback ajuda a evitar crashes quando o schema retrocede\n                    .fallbackToDestructiveMigrationOnDowngrade()\n                    .build()\n                INSTANCE = instance\n                instance\n            }\n        }\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "callout",
@@ -116,6 +120,10 @@
                 "Documente as versões do schema no README do projeto.",
                 "ExportSchema=true facilita auditorias e diffs de migração."
               ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Discuta com a turma quais estratégias de injeção (Hilt, Koin ou manual) combinam melhor com projetos acadêmicos e quais adaptações seriam necessárias no código exemplo."
             }
           ]
         }
@@ -147,12 +155,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Criamos uma nova coluna \"favorito\" na tabela Produto para ilustrar migrações incrementais."
+          "text": "Criamos uma nova coluna \"favorito\" na tabela Produto para ilustrar migrações incrementais. Aproveite para contextualizar que migrações são scripts versionados: cada alteração precisa considerar dados antigos e conversões necessárias."
+        },
+        {
+          "type": "paragraph",
+          "text": "Durante a aula, compare uma migração bem-sucedida com um cenário problemático (por exemplo, esquecer DEFAULT em colunas obrigatórias), mostrando como testes instrumentados detectam esses erros antes de chegar ao usuário final."
         },
         {
           "type": "code",
           "language": "kotlin",
-          "code": "val MIGRATION_1_2 = object : Migration(1, 2) {\n    override fun migrate(database: SupportSQLiteDatabase) {\n        database.execSQL(\n            \"ALTER TABLE produto ADD COLUMN favorito INTEGER NOT NULL DEFAULT 0\"\n        )\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
+          "code": "val MIGRATION_1_2 = object : Migration(1, 2) {\n    override fun migrate(database: SupportSQLiteDatabase) {\n        // ALTER TABLE adiciona a coluna sem remover dados existentes\n        database.execSQL(\n            \"ALTER TABLE produto ADD COLUMN favorito INTEGER NOT NULL DEFAULT 0\"\n        )\n        // DEFAULT 0 garante compatibilidade com usuários que já tinham registros salvos\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
         }
       ]
     },
@@ -162,15 +174,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Escreva um documento de 1 página descrevendo o fluxo de inicialização do RoomDatabase e as migrações criadas. Inclua captura do teste instrumentado rodando com sucesso."
+          "text": "Escreva um documento de 1 página descrevendo o fluxo de inicialização do RoomDatabase e as migrações criadas. Inclua captura do teste instrumentado rodando com sucesso e explique qual caso de teste foi automatizado."
         },
         {
           "type": "list",
           "ordered": true,
           "items": [
-            "Detalhar responsabilidades de cada classe do pacote data.",
-            "Explicar como o app garante instância única.",
-            "Registrar próximos passos para migrações 2_3 e 3_4."
+            "Detalhar responsabilidades de cada classe do pacote data (entities, dao, database, repositories).",
+            "Explicar como o app garante instância única usando getInstance() e injeção de dependência.",
+            "Registrar próximos passos para migrações 2_3 e 3_4 incluindo riscos e estratégias de rollback."
           ]
         }
       ]
@@ -196,16 +208,16 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de Estruturando o RoomDatabase e Migrações."
+          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de Estruturando o RoomDatabase e Migrações. Comentários adicionais sinalizam boas práticas de modelagem e integração com Flow."
         },
         {
           "type": "code",
           "language": "kotlin",
-          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
+          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String, // título amigável exibido na UI\n    val atualizadoEm: Long // timestamp usado para ordenação e sincronização\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>> // Flow facilita atualização reativa na camada de apresentação\n}\n// Referência: ANDROID DEVELOPERS (2024)"
         },
         {
           "type": "paragraph",
-          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
+          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024). Aproveite para debater por que Flow e corrotinas favorecem escrita de testes instrumentados e unitários, ao permitir controle preciso do dispatcher."
         },
         {
           "type": "callout",
@@ -226,7 +238,7 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Reforce os conceitos de Estruturando o RoomDatabase e Migrações relacionando SharedPreferences, Room e estratégias de migração."
+          "text": "Reforce os conceitos de Estruturando o RoomDatabase e Migrações relacionando SharedPreferences, Room e estratégias de migração. Sugira uma roda de conversa para comparar quando preferir cache leve (SharedPreferences/DataStore) versus banco relacional."
         },
         {
           "type": "list",
@@ -237,7 +249,7 @@
         },
         {
           "type": "paragraph",
-          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas. Incentive os grupos a compartilharem no fórum Moodle para feedback coletivo."
         },
         {
           "type": "blockquote",

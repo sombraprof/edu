@@ -42,6 +42,7 @@ const SUPPORTED_BLOCK_TYPES = [
   'flightPlan',
   'accordion',
   'representations',
+  'comparativeTable',
   'truthTable',
   'roadmap',
   'audio',
@@ -54,6 +55,8 @@ const SUPPORTED_BLOCK_TYPES = [
   'balancedScorecard',
   'component',
   'legacySection',
+  'bugFixChallenge',
+  'codeChallenge',
   // New MD3 blocks
   'resourceGallery',
   'quiz',
@@ -105,6 +108,8 @@ const SUPPORTED_CUSTOM_COMPONENTS = [
   'ApiEndpoints',
   'PromptTip',
   'WhiteboardBlock',
+  'SelfAssessment',
+  'CodeSubmission',
 ];
 
 const ALLOWED_CALLOUT_VARIANTS = new Set([
@@ -176,6 +181,137 @@ const blockValidators = {
       if (language !== undefined && typeof language !== 'string') {
         pushBlockProblem(context, 'Campo "language" deve ser uma string quando presente.');
       }
+    }
+  },
+  bugFixChallenge(block, context) {
+    requireStringField('title', 'Bloco "bugFixChallenge" requer o campo "title".')(block, context);
+    requireStringField(
+      'description',
+      'Bloco "bugFixChallenge" requer o campo "description" com conteúdo.'
+    )(block, context);
+    requireStringField('code', 'Bloco "bugFixChallenge" requer o campo "code" com conteúdo.')(
+      block,
+      context
+    );
+
+    if (!isNonEmptyString(block.language)) {
+      pushBlockProblem(
+        context,
+        'Campo "language" do bloco "bugFixChallenge" deve ser uma string não vazia.'
+      );
+    }
+
+    const hints = block.hints;
+    if (!Array.isArray(hints) || hints.length === 0) {
+      pushBlockProblem(
+        context,
+        'Bloco "bugFixChallenge" requer "hints" como array com os números de linha problemáticos.'
+      );
+    } else {
+      hints.forEach((hint, index) => {
+        if (typeof hint !== 'number' || !Number.isFinite(hint)) {
+          pushBlockProblem(
+            context,
+            `Valor em "hints[${index}]" deve ser um número indicando a linha com erro.`
+          );
+        }
+      });
+    }
+
+    const guidance = block.guidance;
+    if (!Array.isArray(guidance) || guidance.length === 0) {
+      pushBlockProblem(
+        context,
+        'Bloco "bugFixChallenge" requer "guidance" com pelo menos uma estratégia de diagnóstico.'
+      );
+    } else {
+      guidance.forEach((item, index) => {
+        if (!isNonEmptyString(item)) {
+          pushBlockProblem(
+            context,
+            `Entrada em "guidance[${index}]" deve ser uma string não vazia descrevendo uma estratégia.`
+          );
+        }
+      });
+    }
+  },
+  codeChallenge(block, context) {
+    requireStringField('prompt', 'Bloco "codeChallenge" requer o campo "prompt" com enunciado.')(
+      block,
+      context
+    );
+
+    if (block.title !== undefined && typeof block.title !== 'string') {
+      pushBlockProblem(
+        context,
+        'Campo "title" do bloco "codeChallenge" deve ser uma string quando presente.'
+      );
+    }
+
+    if (block.code !== undefined && !isNonEmptyString(block.code)) {
+      pushBlockProblem(
+        context,
+        'Campo "code" do bloco "codeChallenge" deve ser uma string não vazia quando presente.'
+      );
+    }
+
+    if (block.language !== undefined && typeof block.language !== 'string') {
+      pushBlockProblem(
+        context,
+        'Campo "language" do bloco "codeChallenge" deve ser uma string quando presente.'
+      );
+    }
+
+    if (block.question !== undefined && !isNonEmptyString(block.question)) {
+      pushBlockProblem(
+        context,
+        'Campo "question" do bloco "codeChallenge" deve ser uma string não vazia quando presente.'
+      );
+    }
+
+    const options = normalizeArray(block.options);
+    if (options.length > 0) {
+      if (!isNonEmptyString(block.question)) {
+        pushBlockProblem(
+          context,
+          'Bloco "codeChallenge" com alternativas deve informar o campo "question" com texto.'
+        );
+      }
+      if (options.length < 2) {
+        pushBlockProblem(
+          context,
+          'Bloco "codeChallenge" requer pelo menos duas opções quando "options" é informado.'
+        );
+      }
+    }
+
+    options.forEach((option, optionIndex) => {
+      if (!isPlainObject(option)) {
+        pushBlockProblem(
+          context,
+          `Entrada options[${optionIndex}] do bloco "codeChallenge" deve ser um objeto com "id" e "text".`
+        );
+        return;
+      }
+      if (!isNonEmptyString(option.id)) {
+        pushBlockProblem(
+          context,
+          `Campo "options[${optionIndex}].id" deve ser uma string não vazia.`
+        );
+      }
+      if (!isNonEmptyString(option.text)) {
+        pushBlockProblem(
+          context,
+          `Campo "options[${optionIndex}].text" deve ser uma string não vazia.`
+        );
+      }
+    });
+
+    if (block.answerExplanation !== undefined && !isNonEmptyString(block.answerExplanation)) {
+      pushBlockProblem(
+        context,
+        'Campo "answerExplanation" do bloco "codeChallenge" deve ser uma string não vazia quando presente.'
+      );
     }
   },
   lessonPlan(block, context) {

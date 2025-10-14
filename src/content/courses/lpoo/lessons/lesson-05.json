@@ -126,6 +126,31 @@
       ]
     },
     {
+      "type": "component",
+      "component": "SelfAssessment",
+      "props": {
+        "title": "Plano de ação pós-AV1",
+        "description": "Registre compromissos individuais com base no feedback formativo: identifique pontos fortes, lacunas prioritárias e estratégias para evoluir até a AV2.",
+        "prompts": [
+          {
+            "id": "diagnostico-pessoal",
+            "label": "Qual é o diagnóstico pessoal sobre seus resultados na AV1?",
+            "placeholder": "Liste evidências dos seus acertos e pontos de melhoria."
+          },
+          {
+            "id": "metas-heranca",
+            "label": "Quais metas específicas você estabelecerá para consolidar os conceitos de herança?",
+            "placeholder": "Defina objetivos mensuráveis para aplicar herança com segurança."
+          },
+          {
+            "id": "apoios-necessarios",
+            "label": "De que apoios (mentor, pares, materiais) você precisa para cumprir o plano?",
+            "placeholder": "Indique recursos, pessoas ou rotinas que ajudarão na execução."
+          }
+        ]
+      }
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Pergunta norteadora",
@@ -244,6 +269,175 @@
           "type": "code",
           "language": "text",
           "code": "Funcionario\n├── Analista (extends Funcionario, implements Avaliavel)\n└── Estagiario (extends Funcionario, implements Treinavel, Avaliavel)"
+        }
+      ]
+    },
+    {
+      "type": "classDesigner",
+      "title": "Mapa da hierarquia `Funcionario`",
+      "summary": "Revise atributos, contratos e responsabilidades antes de propor variações em aula.",
+      "classes": [
+        {
+          "id": "funcionario",
+          "name": "Funcionario",
+          "type": "class",
+          "summary": "Superclasse que concentra estado comum e validações obrigatórias.",
+          "attributes": [
+            {
+              "id": "funcionario-nome",
+              "signature": "protected final String nome",
+              "visibility": "protected",
+              "note": "Compartilhado com subclasses mantendo encapsulamento controlado."
+            },
+            {
+              "id": "funcionario-salario-base",
+              "signature": "protected final double salarioBase",
+              "visibility": "protected",
+              "note": "Base para todos os cálculos específicos."
+            }
+          ],
+          "methods": [
+            {
+              "id": "funcionario-construtor",
+              "signature": "public Funcionario(String nome, double salarioBase)",
+              "visibility": "public",
+              "note": "Valida entradas para garantir invariantes da hierarquia."
+            },
+            {
+              "id": "funcionario-get-nome",
+              "signature": "public String getNome()",
+              "visibility": "public"
+            },
+            {
+              "id": "funcionario-calcular-salario",
+              "signature": "public double calcularSalario()",
+              "visibility": "public",
+              "note": "Retorna o valor base reutilizado por subclasses."
+            }
+          ],
+          "responsibilities": [
+            "Centralizar dados e validações compartilhados pelos colaboradores.",
+            "Oferecer ponto de extensão para cálculos especializados."
+          ]
+        },
+        {
+          "id": "analista",
+          "name": "Analista",
+          "type": "class",
+          "summary": "Especializa o salário com bônus de projeto ao implementar contratos de avaliação.",
+          "attributes": [
+            {
+              "id": "analista-bonus",
+              "signature": "private final double bonusProjeto",
+              "visibility": "private",
+              "note": "Deve ser validado para manter valores não negativos."
+            }
+          ],
+          "methods": [
+            {
+              "id": "analista-construtor",
+              "signature": "public Analista(String nome, double salarioBase, double bonusProjeto)",
+              "visibility": "public",
+              "note": "Encadeia validações da superclasse e acrescenta a do bônus."
+            },
+            {
+              "id": "analista-calcular-salario",
+              "signature": "@Override public double calcularSalario()",
+              "visibility": "public",
+              "note": "Soma o bônus ao resultado de `super.calcularSalario()`."
+            }
+          ],
+          "responsibilities": [
+            "Aplicar regras adicionais de remuneração para analistas.",
+            "Atender aos critérios definidos pelo contrato `Avaliavel`."
+          ]
+        },
+        {
+          "id": "estagiario",
+          "name": "Estagiario",
+          "type": "class",
+          "summary": "Subclasse que calcula remuneração proporcional à carga horária.",
+          "attributes": [
+            {
+              "id": "estagiario-horas",
+              "signature": "private final int horasSemana",
+              "visibility": "private",
+              "note": "Aceita valores entre 1 e 40 para preservar regras trabalhistas."
+            }
+          ],
+          "methods": [
+            {
+              "id": "estagiario-construtor",
+              "signature": "public Estagiario(String nome, double salarioBase, int horasSemana)",
+              "visibility": "public",
+              "note": "Invoca `super(...)` antes de validar a jornada semanal."
+            },
+            {
+              "id": "estagiario-calcular-salario",
+              "signature": "@Override public double calcularSalario()",
+              "visibility": "public",
+              "note": "Aplica a proporção de horas sobre o salário base herdado."
+            }
+          ],
+          "responsibilities": [
+            "Adaptar o cálculo salarial ao regime parcial do estagiário.",
+            "Cumprir contratos `Treinavel` e `Avaliavel` definidos pela turma."
+          ]
+        },
+        {
+          "id": "avaliavel",
+          "name": "Avaliavel",
+          "type": "interface",
+          "stereotype": "interface",
+          "summary": "Contrato que orienta como mensurar desempenho das funções técnicas.",
+          "methods": [
+            {
+              "id": "avaliavel-medir",
+              "signature": "double avaliar()",
+              "note": "Sugestão inicial — ajuste métricas com a turma ao evoluir o exercício."
+            }
+          ],
+          "responsibilities": ["Definir indicadores de avaliação alinhados à política da empresa."]
+        },
+        {
+          "id": "treinavel",
+          "name": "Treinavel",
+          "type": "interface",
+          "stereotype": "interface",
+          "summary": "Contrato usado para planejar ações de capacitação.",
+          "methods": [
+            {
+              "id": "treinavel-participar",
+              "signature": "void participarTreinamento()",
+              "note": "Permite mapear rituais de aprendizagem contínua."
+            }
+          ],
+          "responsibilities": [
+            "Registrar obrigações de desenvolvimento profissional para estagiários."
+          ]
+        }
+      ],
+      "relationships": [
+        {
+          "id": "analista-herda-funcionario",
+          "from": "analista",
+          "to": "funcionario",
+          "type": "inheritance",
+          "description": "Analista reutiliza as validações e expande o cálculo salarial."
+        },
+        {
+          "id": "estagiario-herda-funcionario",
+          "from": "estagiario",
+          "to": "funcionario",
+          "type": "inheritance",
+          "description": "Estagiario mantém invariantes da superclasse e ajusta remuneração."
+        }
+      ],
+      "legend": [
+        {
+          "id": "heranca",
+          "label": "Seta cheia",
+          "description": "Indica relação de herança (`extends`). Acrescente realizações pontilhadas para interfaces se necessário."
         }
       ]
     },
@@ -445,6 +639,47 @@
             "from": "usar",
             "to": "end"
           }
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "component": "Md3CodeSample",
+      "props": {
+        "title": "Record para objeto de valor",
+        "summary": "Encapsula o campo com validação no construtor compacto, preservando invariantes e evitando exposição acidental.",
+        "language": "java",
+        "code": "import java.util.Objects;\nimport java.util.regex.Pattern;\n\npublic record EmailAddress(String value) {\n    private static final Pattern SIMPLE_PATTERN = Pattern.compile(\"^[\\\\w.+-]+@[\\\\w.-]+\\\\.[A-Za-z]{2,}$\");\n\n    public EmailAddress {\n        Objects.requireNonNull(value, \"E-mail é obrigatório\");\n        String normalized = value.trim().toLowerCase();\n        if (normalized.isBlank() || !SIMPLE_PATTERN.matcher(normalized).matches()) {\n            throw new IllegalArgumentException(\"Formato de e-mail inválido\");\n        }\n        value = normalized; // Canonical constructor do record atribui o campo após sanitização.\n    }\n\n    public String domain() {\n        return value.substring(value.indexOf('@') + 1);\n    }\n}\n\nfinal class LegacyEmailAddress {\n    private final String value;\n\n    LegacyEmailAddress(String value) {\n        Objects.requireNonNull(value, \"E-mail é obrigatório\");\n        String normalized = value.trim().toLowerCase();\n        if (normalized.isBlank() || !EmailAddress.SIMPLE_PATTERN.matcher(normalized).matches()) {\n            throw new IllegalArgumentException(\"Formato de e-mail inválido\");\n        }\n        this.value = normalized;\n    }\n\n    String domain() {\n        return value.substring(value.indexOf('@') + 1);\n    }\n\n    String value() {\n        return value;\n    }\n\n    @Override\n    public boolean equals(Object o) {\n        if (this == o) return true;\n        if (!(o instanceof LegacyEmailAddress other)) return false;\n        return value.equals(other.value);\n    }\n\n    @Override\n    public int hashCode() {\n        return value.hashCode();\n    }\n}\n",
+        "highlights": [
+          "O record encapsula o campo `value` sem gerar getters extras além dos implícitos, reduzindo a superfície exposta.",
+          "O construtor compacto garante invariantes como formato e normalização antes de concluir a criação do objeto.",
+          "Recorra a uma classe tradicional quando precisar de herança, mutabilidade ou controle fino sobre métodos auxiliares."
+        ]
+      }
+    },
+    {
+      "type": "component",
+      "component": "CodeSubmission",
+      "props": {
+        "title": "Entregue sua hierarquia de funcionários",
+        "prompt": "Implemente a hierarquia `Funcionario`, `Analista` e `Estagiario` garantindo reutilização de código e validações consistentes. Cada subclasse deve especializar o cálculo salarial respeitando as regras discutidas em aula.",
+        "language": "java",
+        "boilerplate": "public class Funcionario {\n    private final String nome;\n    private final double salarioBase;\n\n    public Funcionario(String nome, double salarioBase) {\n        // TODO: validar entradas e inicializar campos\n    }\n\n    public String getNome() {\n        // TODO: retornar nome validado\n        return null;\n    }\n\n    public double getSalarioBase() {\n        // TODO: retornar salário base\n        return 0.0;\n    }\n\n    public double calcularSalario() {\n        // TODO: calcular valor base reutilizado pelas subclasses\n        return 0.0;\n    }\n}\n\nclass Analista extends Funcionario {\n    private final double bonusProjeto;\n\n    public Analista(String nome, double salarioBase, double bonusProjeto) {\n        super(nome, salarioBase);\n        // TODO: validar bônus de projeto e atribuir ao campo\n        this.bonusProjeto = 0.0;\n    }\n\n    @Override\n    public double calcularSalario() {\n        // TODO: somar o bônus ao resultado da superclasse\n        return 0.0;\n    }\n}\n\nclass Estagiario extends Funcionario {\n    private final int horasSemana;\n\n    public Estagiario(String nome, double salarioBase, int horasSemana) {\n        super(nome, salarioBase);\n        // TODO: validar horas semanais (1 a 40) e atribuir\n        this.horasSemana = 0;\n    }\n\n    @Override\n    public double calcularSalario() {\n        // TODO: aplicar proporcionalidade ao salário base\n        return 0.0;\n    }\n}\n",
+        "tests": [
+          {
+            "name": "Analista recebe bônus integral",
+            "input": "Analista ana = new Analista(\"Ana\", 4000.0, 500.0);\nSystem.out.println(ana.calcularSalario());",
+            "expectedOutput": "4500.0"
+          },
+          {
+            "name": "Estagiário recebe proporcional de 20h",
+            "input": "Estagiario joao = new Estagiario(\"João\", 2000.0, 20);\nSystem.out.println(joao.calcularSalario());",
+            "expectedOutput": "1000.0"
+          }
+        ],
+        "tips": [
+          "Use a anotação @Override para deixar claro quais métodos estão sendo sobrescritos.",
+          "Aproveite super(...) e super.calcularSalario() para evitar duplicar validações e cálculos compartilhados."
         ]
       }
     },
