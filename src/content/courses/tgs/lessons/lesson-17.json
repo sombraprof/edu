@@ -29,7 +29,7 @@
     "Revisar conceitos de integração de sistemas da aula 16.",
     "Explorar previamente o dataset disponibilizado no AVA."
   ],
-  "tags": ["tgs", "bi", "dashboards"],
+  "tags": ["tgs", "bi", "dashboards", "dados"],
   "duration": 100,
   "modality": "in-person",
   "resources": [
@@ -47,12 +47,18 @@
       "label": "Template SystemMapper — Indicadores",
       "url": "https://example.edu/tgs/templates/systemmapper-indicadores",
       "type": "template"
+    },
+    {
+      "label": "Coleção de ícones e paletas",
+      "url": "https://example.edu/tgs/recursos/estilo-dashboard",
+      "type": "design"
     }
   ],
   "bibliography": [
     "BERTALANFFY, Ludwig von. Teoria Geral dos Sistemas. Vozes, 2010.",
     "STAIR, Ralph; REYNOLDS, George. Princípios de Sistemas de Informação. Cengage, 2022.",
-    "FEW, Stephen. Information Dashboard Design. Analytics Press, 2013."
+    "FEW, Stephen. Information Dashboard Design. Analytics Press, 2013.",
+    "KNAFLIC, Cole Nussbaumer. Storytelling with Data. Wiley, 2015."
   ],
   "assessment": {
     "type": "formative",
@@ -71,15 +77,9 @@
         {
           "type": "list",
           "items": [
-            {
-              "text": "Traga duas referências de dashboards (prints ou links) para inspirar boas práticas."
-            },
-            {
-              "text": "Atualize o SystemMapper com fluxos de dados, responsáveis e frequência de atualização."
-            },
-            {
-              "text": "Revise definições de KPI, métrica e metadado no material de apoio."
-            }
+            "Traga duas referências de dashboards (prints ou links) para inspirar boas práticas.",
+            "Atualize o SystemMapper com fluxos de dados, responsáveis e frequência de atualização.",
+            "Revise definições de KPI, métrica e metadado no material de apoio."
           ]
         }
       ]
@@ -125,6 +125,62 @@
       ]
     },
     {
+      "type": "cardGrid",
+      "title": "Mapa rápido de entregáveis do squad",
+      "description": "Use as cartas como referência ao construir o dashboard do estudo de caso.",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Perguntas norteadoras",
+          "icon": "search",
+          "body": "<strong>Qual decisão</strong> precisa ser tomada? <br />Que <strong>usuário</strong> acionará o painel? <br />Qual <strong>tempo de resposta</strong> é aceitável?"
+        },
+        {
+          "title": "Sinais de alerta",
+          "icon": "alert-triangle",
+          "tone": "warning",
+          "items": [
+            "Indicadores sem responsável nomeado",
+            "Escalas inconsistentes entre gráficos",
+            "Alertas sem limiares ou contexto"
+          ]
+        },
+        {
+          "title": "Evidências para TED",
+          "icon": "clipboard-check",
+          "tone": "success",
+          "items": [
+            "Capturas com destaque de insights",
+            "Checklist respondido pelo squad",
+            "Plano de próximos experimentos"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Maturidade de BI no case extensionista",
+      "description": "Cada etapa exige ajustes sistêmicos, políticas de dados e ritos de monitoramento.",
+      "steps": [
+        {
+          "title": "Inventário de fontes",
+          "content": "Mapeamento de sistemas transacionais, planilhas paralelas e indicadores existentes. Definição de donos de dado."
+        },
+        {
+          "title": "Modelagem integrada",
+          "content": "Construção do data mart mínimo viável com dicionário de dados e regras de negócio documentadas."
+        },
+        {
+          "title": "Dashboards operacionais",
+          "content": "Visualizações focadas em detecção de anomalias e acompanhamento de processos críticos com cadência diária ou semanal."
+        },
+        {
+          "title": "Painel executivo sistêmico",
+          "content": "Síntese de KPIs, alertas automatizados e narrativas que conectam causa e efeito entre subsistemas."
+        }
+      ]
+    },
+    {
       "type": "contentBlock",
       "title": "Atividade em sala",
       "content": [
@@ -162,6 +218,27 @@
       ]
     },
     {
+      "type": "tabs",
+      "title": "Heurísticas de avaliação rápida",
+      "tabs": [
+        {
+          "id": "claridade",
+          "label": "Clareza",
+          "content": "Use títulos que respondam <em>o que mudou</em>, descreva unidades e destaque insights com linguagem acessível."
+        },
+        {
+          "id": "coesao",
+          "label": "Coesão sistêmica",
+          "content": "Agrupe indicadores por loop causal: entradas → processo → resultado. Evidencie dependências com anotações ou cards resumidos."
+        },
+        {
+          "id": "acao",
+          "label": "Acionabilidade",
+          "content": "Inclua alertas visuais, canais de escalonamento e próximos passos recomendados quando o KPI sair da meta."
+        }
+      ]
+    },
+    {
       "type": "md3Table",
       "title": "Cola rápida: Métrica x Indicador x KPI",
       "headers": ["Elemento", "Pergunta que responde", "Quando usar", "Responsável"],
@@ -187,6 +264,323 @@
       ]
     },
     {
+      "type": "balancedScorecard",
+      "title": "Roteiro de indicadores para o painel executivo",
+      "summary": "Relacione objetivos estratégicos a KPIs e iniciativas que sustentam o ciclo de feedback da organização.",
+      "perspectives": [
+        {
+          "id": "finance",
+          "title": "Financeira",
+          "summary": "Geração de receita com margem sustentável",
+          "badge": "F",
+          "tone": "primary"
+        },
+        {
+          "id": "customer",
+          "title": "Clientes",
+          "summary": "Experiência consistente e fidelização",
+          "badge": "C",
+          "tone": "info"
+        },
+        {
+          "id": "process",
+          "title": "Processos internos",
+          "summary": "Eficiência operacional orientada a dados",
+          "badge": "P",
+          "tone": "success"
+        },
+        {
+          "id": "learning",
+          "title": "Aprendizado e crescimento",
+          "summary": "Cultura analítica e inovação",
+          "badge": "A",
+          "tone": "neutral"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "obj-receita",
+          "perspectiveId": "finance",
+          "title": "Aumentar receita recorrente",
+          "summary": "Priorizar mix de produtos com maior margem e fidelização.",
+          "owner": "Diretoria Comercial",
+          "initiatives": ["Campanhas proativas com base em alertas de churn"],
+          "indicatorIds": ["kpi-ltv", "kpi-ticket"]
+        },
+        {
+          "id": "obj-satisfacao",
+          "perspectiveId": "customer",
+          "title": "Elevar satisfação dos clientes",
+          "summary": "Melhorar tempo de resposta e qualidade do atendimento.",
+          "owner": "Líder de Customer Success",
+          "initiatives": ["Implantar canal de feedback contínuo"],
+          "indicatorIds": ["kpi-nps", "kpi-csat"]
+        },
+        {
+          "id": "obj-dados",
+          "perspectiveId": "process",
+          "title": "Padronizar a captura de dados",
+          "summary": "Garantir confiabilidade das fontes e redução de retrabalho.",
+          "owner": "Equipe de BI",
+          "initiatives": ["Governança de cadastros e automação de ETL"],
+          "indicatorIds": ["kpi-qualidade", "kpi-latencia"]
+        },
+        {
+          "id": "obj-capacitacao",
+          "perspectiveId": "learning",
+          "title": "Desenvolver fluência em dados",
+          "summary": "Capacitar squads para leitura crítica de dashboards.",
+          "owner": "RH + Chapter Analytics",
+          "initiatives": ["Trilha de treinamento e comunidades de prática"],
+          "indicatorIds": ["kpi-treinamentos"]
+        }
+      ],
+      "indicators": [
+        {
+          "id": "kpi-ltv",
+          "title": "Lifetime Value",
+          "summary": "Valor médio de receita gerado por cliente ativo.",
+          "perspectiveId": "finance",
+          "objectiveId": "obj-receita",
+          "target": "R$ 18 mil/ano",
+          "current": "R$ 15 mil/ano",
+          "frequency": "Mensal",
+          "owner": "BI Comercial",
+          "status": "at-risk"
+        },
+        {
+          "id": "kpi-ticket",
+          "title": "Ticket Médio",
+          "summary": "Receita média por pedido fechado.",
+          "perspectiveId": "finance",
+          "objectiveId": "obj-receita",
+          "target": "R$ 1.250",
+          "current": "R$ 1.180",
+          "frequency": "Semanal",
+          "owner": "Comercial",
+          "status": "on-track"
+        },
+        {
+          "id": "kpi-nps",
+          "title": "NPS",
+          "summary": "Índice de promotores - detratores.",
+          "perspectiveId": "customer",
+          "objectiveId": "obj-satisfacao",
+          "target": "+50",
+          "current": "+37",
+          "frequency": "Mensal",
+          "owner": "Sucesso do Cliente",
+          "status": "at-risk"
+        },
+        {
+          "id": "kpi-csat",
+          "title": "CSAT",
+          "summary": "Satisfação em interações de suporte.",
+          "perspectiveId": "customer",
+          "objectiveId": "obj-satisfacao",
+          "target": "92%",
+          "current": "89%",
+          "frequency": "Semanal",
+          "owner": "Central de Atendimento",
+          "status": "on-track"
+        },
+        {
+          "id": "kpi-qualidade",
+          "title": "Qualidade dos dados",
+          "summary": "Percentual de registros sem inconsistências.",
+          "perspectiveId": "process",
+          "objectiveId": "obj-dados",
+          "target": "98%",
+          "current": "93%",
+          "frequency": "Mensal",
+          "owner": "Governança de Dados",
+          "status": "at-risk"
+        },
+        {
+          "id": "kpi-latencia",
+          "title": "Latência do dashboard",
+          "summary": "Tempo entre atualização da fonte e visualização.",
+          "perspectiveId": "process",
+          "objectiveId": "obj-dados",
+          "target": "< 15 min",
+          "current": "28 min",
+          "frequency": "Diária",
+          "owner": "Engenharia de Dados",
+          "status": "off-track"
+        },
+        {
+          "id": "kpi-treinamentos",
+          "title": "Horas de treinamento em dados",
+          "summary": "Carga horária média por colaborador exposto ao dashboard.",
+          "perspectiveId": "learning",
+          "objectiveId": "obj-capacitacao",
+          "target": "12h/semestre",
+          "current": "6h/semestre",
+          "frequency": "Bimestral",
+          "owner": "RH",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Loops de feedback que o dashboard precisa evidenciar",
+      "summary": "Analise como indicadores financeiros, de cliente e de operação se reforçam ou se equilibram.",
+      "factors": [
+        {
+          "id": "lead_qualificado",
+          "name": "Leads qualificados",
+          "summary": "Entradas originadas das campanhas digitais com fit ideal.",
+          "kind": "driver",
+          "indicators": ["Taxa de conversão", "CAC"]
+        },
+        {
+          "id": "experiencia_cliente",
+          "name": "Experiência do cliente",
+          "summary": "Percepção do serviço no pós-venda e suporte.",
+          "kind": "stock",
+          "indicators": ["NPS", "Tempo de resposta"]
+        },
+        {
+          "id": "receita_recorrente",
+          "name": "Receita recorrente",
+          "summary": "Faturamento mensal proveniente de contratos ativos.",
+          "kind": "outcome",
+          "indicators": ["MRR", "Churn"]
+        },
+        {
+          "id": "capacidade_squad",
+          "name": "Capacidade analítica do squad",
+          "summary": "Horas dedicadas à análise crítica e experimentos.",
+          "kind": "constraint",
+          "indicators": ["Horas de treinamento", "Backlog de melhorias"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "loop_reforcador",
+          "name": "Loop de valor recorrente",
+          "polarity": "reinforcing",
+          "summary": "Mais insight → campanhas precisas → clientes satisfeitos → receita cresce.",
+          "steps": [
+            {
+              "id": "step1",
+              "from": "lead_qualificado",
+              "to": "experiencia_cliente",
+              "effect": "reinforces",
+              "description": "Leads mais aderentes recebem onboarding personalizado."
+            },
+            {
+              "id": "step2",
+              "from": "experiencia_cliente",
+              "to": "receita_recorrente",
+              "effect": "reinforces",
+              "description": "Clientes satisfeitos renovam e recomendam a solução."
+            },
+            {
+              "id": "step3",
+              "from": "receita_recorrente",
+              "to": "capacidade_squad",
+              "effect": "reinforces",
+              "description": "Receita adicional financia novos experimentos analíticos."
+            },
+            {
+              "id": "step4",
+              "from": "capacidade_squad",
+              "to": "lead_qualificado",
+              "effect": "reinforces",
+              "description": "Squad analisa dados e entrega campanhas ainda mais segmentadas."
+            }
+          ],
+          "insights": [
+            "Monitorar backlog evita que o loop enfraqueça",
+            "Alertas de churn antecipam queda na capacidade analítica"
+          ]
+        },
+        {
+          "id": "loop_equilibrio",
+          "name": "Loop de equilíbrio de experiência",
+          "polarity": "balancing",
+          "summary": "Excesso de demanda sem suporte reduz satisfação e freia crescimento.",
+          "steps": [
+            {
+              "id": "step5",
+              "from": "lead_qualificado",
+              "to": "capacidade_squad",
+              "effect": "balances",
+              "description": "Campanhas agressivas pressionam a equipe de suporte."
+            },
+            {
+              "id": "step6",
+              "from": "capacidade_squad",
+              "to": "experiencia_cliente",
+              "effect": "balances",
+              "description": "Menos analistas disponíveis degradam o atendimento."
+            },
+            {
+              "id": "step7",
+              "from": "experiencia_cliente",
+              "to": "receita_recorrente",
+              "effect": "balances",
+              "description": "Clientes insatisfeitos cancelam e derrubam o MRR."
+            }
+          ],
+          "insights": [
+            "Dashboards devem sinalizar capacidade operacional antes do colapso",
+            "Definir gatilhos de pausa em campanhas ao atingir limite de atendimento"
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-alertas",
+          "label": "Alertas precisam considerar loops",
+          "description": "Configure alertas que combinem indicadores de capacidade com experiência do cliente para evitar decisões isoladas."
+        },
+        {
+          "id": "insight-feedback",
+          "label": "Feedback contínuo",
+          "description": "Use retrospectivas quinzenais para ajustar métricas e validar hipóteses do painel."
+        }
+      ]
+    },
+    {
+      "type": "resourceGallery",
+      "title": "Kit de referência para a aula",
+      "description": "Seleção de recursos para aprofundar narrativas com dados e prototipagem de dashboards.",
+      "items": [
+        {
+          "id": "res-dashboard",
+          "type": "article",
+          "title": "Guia de boas práticas de storytelling com dados",
+          "url": "https://example.edu/tgs/artigos/storytelling-dados",
+          "author": "Capítulo Analytics",
+          "source": "Blog TGS"
+        },
+        {
+          "id": "res-powerbi",
+          "type": "video",
+          "title": "Live: Automatizando alertas no Power BI",
+          "url": "https://example.edu/tgs/videos/live-alertas-powerbi",
+          "source": "Canal TGS"
+        },
+        {
+          "id": "res-figma",
+          "type": "interactive",
+          "title": "Figma – Biblioteca de componentes para dashboards",
+          "url": "https://example.edu/tgs/design/dashboard-kit",
+          "source": "DesignOps"
+        },
+        {
+          "id": "res-dataset",
+          "type": "dataset",
+          "title": "Dataset de churn anotado",
+          "url": "https://example.edu/tgs/datasets/churn-anotado",
+          "source": "Laboratório de Dados"
+        }
+      ]
+    },
+    {
       "type": "videos",
       "title": "Para aprofundar",
       "videos": [
@@ -199,8 +593,47 @@
           "url": "https://example.edu/tgs/videos/powerbi-dashboard",
           "title": "Construindo dashboard executivo",
           "caption": "Demonstração de boas práticas em Power BI aplicadas ao caso."
+        },
+        {
+          "url": "https://example.edu/tgs/videos/alertas-automatizados",
+          "title": "Configurando alertas inteligentes",
+          "caption": "Passo a passo para definir limites dinâmicos e notificações multicanal."
         }
       ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Checagem de arquitetura",
+          "question": "Quais elementos são indispensáveis para garantir confiabilidade no dashboard executivo?",
+          "multiple": false,
+          "feedback": {
+            "correct": "Dashboard sistêmico combina indicadores claros, limites e responsáveis definidos.",
+            "incorrect": "Revise se o painel deixa explícitos limites, responsáveis e registros de decisão."
+          },
+          "options": [
+            {
+              "id": "op1",
+              "text": "Registrar decisões, definir limites de KPI e nomear responsáveis pelos alertas.",
+              "correct": true,
+              "explanation": "Esses elementos garantem rastreabilidade e acionabilidade."
+            },
+            {
+              "id": "op2",
+              "text": "Usar apenas gráficos com cores vibrantes para chamar atenção.",
+              "correct": false
+            },
+            {
+              "id": "op3",
+              "text": "Exibir dados crus sem contexto para permitir leitura neutra.",
+              "correct": false
+            }
+          ]
+        }
+      }
     },
     {
       "type": "promptTip",
@@ -223,6 +656,10 @@
         {
           "type": "paragraph",
           "text": "Finalize o dashboard iniciado em sala, grave um vídeo de até 3 minutos demonstrando como responder às três perguntas de negócio prioritárias e publique no AVA com o checklist preenchido."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inclua no envio o plano de automações (alertas, responsáveis, cadência) e uma nota explicando como o painel conversa com os loops sistêmicos mapeados."
         }
       ]
     },
@@ -232,13 +669,14 @@
       "items": [
         "Validou métricas, fontes de dados e responsáveis com o squad.",
         "Garantiu títulos descritivos, escalas coerentes e alertas visíveis.",
-        "Definiu próximos passos para operacionalizar alertas e revisões periódicas."
+        "Definiu próximos passos para operacionalizar alertas e revisões periódicas.",
+        "Relacionou indicadores críticos aos loops de reforço e equilíbrio identificados."
       ]
     }
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "updatedAt": "2025-03-15T00:00:00.000Z",
     "owners": ["Profa. Marina Duarte"],
     "sources": ["Plano de ensino TGS 2025.1"]
   }
