@@ -87,6 +87,44 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Estudo de caso – MedTrack: incidentes de API",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O aplicativo MedTrack monitora pacientes crônicos e sofreu quedas na sincronização de exames em horários de pico."
+        },
+        {
+          "type": "paragraph",
+          "text": "A equipe adotou coroutines recentemente, mas não mapeou exceções específicas da API. O suporte registrou 37 tickets em dois dias com falhas silenciosas."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Usuários afetados: 1.240 pacientes",
+            "Janela crítica: 07h às 09h (coleta de exames)",
+            "Requisito: Tempo de recuperação < 5 min e logs auditáveis"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Quais operações devem ser isoladas com supervisores para evitar cancelamentos em cascata?",
+            "Pergunta: Como comunicar ao usuário a falha sem quebrar a confiança no aplicativo?",
+            "Pergunta: Que métricas de observabilidade comprovam que a correção funcionou?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Classifique exceções conhecidas (HTTP, timeouts, parsing) e defina mensagens amigáveis.",
+            "Ação sugerida: Implemente retries com backoff exponencial apenas nas operações idempotentes.",
+            "Ação sugerida: Envie eventos de falha para o Crashlytics e configure alerta no canal do squad."
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Checklist de acessibilidade",
@@ -126,6 +164,28 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Checklist de resiliência em coroutines",
+      "steps": [
+        {
+          "title": "Mapeamento de riscos",
+          "description": "Liste endpoints críticos, SLAs e exceções esperadas; defina responsáveis por cada caso."
+        },
+        {
+          "title": "Proteção",
+          "description": "Configure supervisores, timeouts controlados e política de retry com limites explícitos."
+        },
+        {
+          "title": "Experiência do usuário",
+          "description": "Projete estados de UI com feedback acessível, botão de tentar novamente e fallback offline."
+        },
+        {
+          "title": "Observabilidade",
+          "description": "Envie métricas e logs estruturados, monitore dashboards e compartilhe relatório semanal."
+        }
+      ]
+    },
+    {
       "type": "pipelineCanvas",
       "title": "Fluxo resiliente da feature",
       "summary": "Da chamada remota ao feedback ao usuário com métricas registradas.",
@@ -137,8 +197,14 @@
           "status": "in-progress",
           "owners": ["Backend", "Mobile"],
           "deliverables": [
-            { "id": "schema", "label": "Contrato atualizado" },
-            { "id": "postman", "label": "Coleção Postman" }
+            {
+              "id": "schema",
+              "label": "Contrato atualizado"
+            },
+            {
+              "id": "postman",
+              "label": "Coleção Postman"
+            }
           ]
         },
         {
@@ -148,8 +214,14 @@
           "status": "not-started",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "coverage", "label": "Cobertura > 80%" },
-            { "id": "log", "label": "Logs estruturados" }
+            {
+              "id": "coverage",
+              "label": "Cobertura > 80%"
+            },
+            {
+              "id": "log",
+              "label": "Logs estruturados"
+            }
           ]
         },
         {
@@ -159,11 +231,44 @@
           "status": "not-started",
           "owners": ["Mobile", "QA"],
           "deliverables": [
-            { "id": "dashboard", "label": "Dashboard de erros" },
-            { "id": "playbook", "label": "Playbook de rollback" }
+            {
+              "id": "dashboard",
+              "label": "Dashboard de erros"
+            },
+            {
+              "id": "playbook",
+              "label": "Playbook de rollback"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "`retryWhen` está disparando muitas tentativas em um endpoint que retorna HTTP 400 (erro de validação). Qual ajuste é mais adequado?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Interromper o retry ao detectar erros de regra de negócio e notificar o usuário com a mensagem retornada pela API.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Aumentar o delay entre as tentativas para evitar sobrecarga no servidor.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Encapsular a chamada em `withContext(Dispatchers.Default)` para não travar a UI.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "Erros 400 indicam problema de dados; repetir a requisição não resolve e apenas amplia a carga no backend.",
+        "incorrect": "Erros 400 indicam problema de dados; repetir a requisição não resolve e apenas amplia a carga no backend."
+      }
     },
     {
       "type": "callout",

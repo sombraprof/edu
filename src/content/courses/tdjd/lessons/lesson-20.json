@@ -92,18 +92,74 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
+      "title": "Da referência ao rig testado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os movimentos do vertical slice precisam comunicar impacto sem quebrar a cadência de gameplay. Antes de abrir a timeline de animação, alinhe expectativas com programação e design."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Determine quais ações terão prioridade de polimento (ataque, dash, interação de missão).",
+            "Combine com o time de programação quais eventos precisam disparar lógica (dano, invulnerabilidade, spawn).",
+            "Verifique limitações de plataforma: quantidade máxima de bones, blend shapes permitidos e budget de memória para animação."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
       "title": "Vídeos em português para dominar animação",
       "videos": [
         {
-          "youtubeId": "w0b8uY8nYnc",
+          "url": "https://www.youtube.com/watch?v=w0b8uY8nYnc",
           "title": "Boas práticas de animação para jogos – GDC Brasil",
-          "description": "Palestra em português com técnicas de antecipação, follow through e sincronismo com gameplay."
+          "caption": "Palestra em português com técnicas de antecipação, follow through e sincronismo com gameplay."
         },
         {
-          "youtubeId": "5pGv3gCFeSk",
+          "url": "https://www.youtube.com/watch?v=5pGv3gCFeSk",
           "title": "Blend Trees no Unity explicado em PT-BR (Canal Games na Prática)",
-          "description": "Tutorial passo a passo sobre configuração de blend trees, eventos e ajustes finos para game feel."
+          "caption": "Tutorial passo a passo sobre configuração de blend trees, eventos e ajustes finos para game feel."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Lumen Forge: boss de abertura",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O estúdio Lumen Forge está finalizando a animação do boss inicial para uma demo enviada a publishers."
+        },
+        {
+          "type": "paragraph",
+          "text": "Os playtests mostraram latência perceptível entre input e impacto e transições abruptas quando o boss tomava dano. O squad precisa equilibrar estética e responsividade."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Recursos disponíveis: 3 animações base de Mixamo + 2 ciclos customizados",
+            "Requisitos técnicos: Blend tree 2D, eventos para hitbox e sincronização com VFX",
+            "Meta: Latência input→impacto < 180 ms em build de console"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como adaptar animações pré-prontas sem perder personalidade do personagem?",
+            "Pergunta: Quais dados coletar para provar que a latência caiu após ajustes?",
+            "Pergunta: Que acordos estabelecer com VFX/Áudio para manter o boss sincronizado?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Documente cada animação com frame-chave (antecipação, contato, recuperação) e eventos correspondentes.",
+            "Ação sugerida: Implemente blend tree com parâmetros normalizados e valide transições com a ferramenta de debug da engine.",
+            "Ação sugerida: Gere GIF de comparação antes/depois com métricas de tempo e compartilhe no canal do squad."
+          ]
         }
       ]
     },
@@ -139,8 +195,14 @@
           "status": "in-progress",
           "owners": ["Animador", "Tech Artist"],
           "deliverables": [
-            { "id": "refs", "label": "Referências aprovadas" },
-            { "id": "blocagem", "label": "Blocagem em 30fps" }
+            {
+              "id": "refs",
+              "label": "Referências aprovadas"
+            },
+            {
+              "id": "blocagem",
+              "label": "Blocagem em 30fps"
+            }
           ]
         },
         {
@@ -150,8 +212,14 @@
           "status": "not-started",
           "owners": ["Animador"],
           "deliverables": [
-            { "id": "curvas", "label": "Curvas polidas" },
-            { "id": "eventos", "label": "Eventos configurados" }
+            {
+              "id": "curvas",
+              "label": "Curvas polidas"
+            },
+            {
+              "id": "eventos",
+              "label": "Eventos configurados"
+            }
           ]
         },
         {
@@ -161,11 +229,66 @@
           "status": "not-started",
           "owners": ["Programador", "QA"],
           "deliverables": [
-            { "id": "controller", "label": "Controller atualizado" },
-            { "id": "gif", "label": "GIF e métricas no GDD" }
+            {
+              "id": "controller",
+              "label": "Controller atualizado"
+            },
+            {
+              "id": "gif",
+              "label": "GIF e métricas no GDD"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "stepper",
+      "title": "Roteiro para animação orientada a gameplay",
+      "steps": [
+        {
+          "title": "Briefing cinético",
+          "description": "Colete referências, defina frame de impacto e alinhe intenções com game design."
+        },
+        {
+          "title": "Pré-processamento e rig",
+          "description": "Ajuste pesos, configure constraints leves e prepare controles necessários para correções rápidas."
+        },
+        {
+          "title": "Integração e debug",
+          "description": "Implemente blend trees, root motion e eventos; use o debugger para identificar transições órfãs."
+        },
+        {
+          "title": "Captura e documentação",
+          "description": "Registre GIF, métricas de latência e anexe notas de tuning ao GDD para iterações futuras."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Durante a integração, o dash do personagem está acelerando demais ao sair do blend tree. Qual ajuste resolve o problema com menor retrabalho?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Normalizar o parâmetro de velocidade no blend tree e ajustar o threshold de transição para corresponder ao valor emitido pelo código.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Adicionar keyframes extras na animação de dash para desacelerar manualmente no editor 3D.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Remover o blend tree e voltar a usar transições simples entre estados Idle e Dash.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O problema ocorre no controlador, não na animação fonte; alinhar thresholds evita saltos sem reexportar assets.",
+        "incorrect": "O problema ocorre no controlador, não na animação fonte; alinhar thresholds evita saltos sem reexportar assets."
+      }
     },
     {
       "type": "contentBlock",
