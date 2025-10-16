@@ -34,24 +34,32 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Dataset de vendas trimestrais",
-      "url": "https://example.edu/tgs/datasets/vendas-trimestre",
-      "type": "dataset"
+      "label": "Microsoft Learn — Adventure Works sample dataset",
+      "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/sample-datasets",
+      "type": "dataset",
+      "author": "Equipe Power BI",
+      "source": "Microsoft Learn"
     },
     {
-      "label": "Guia rápido de visualização",
-      "url": "https://example.edu/tgs/guias/design-dashboard",
-      "type": "guide"
+      "label": "The Data Warehouse Toolkit (3rd ed.)",
+      "url": "https://www.wiley.com/en-us/The+Data+Warehouse+Toolkit%2C+3rd+Edition-p-9781118530801",
+      "type": "book",
+      "author": "Ralph Kimball; Margy Ross",
+      "source": "Wiley"
     },
     {
-      "label": "Template SystemMapper — Indicadores",
-      "url": "https://example.edu/tgs/templates/systemmapper-indicadores",
-      "type": "template"
+      "label": "Business Intelligence, Analytics, and Data Science (4th ed.)",
+      "url": "https://www.pearson.com/en-us/subject-catalog/p/business-intelligence-analytics-and-data-science-a-managerial-perspective-4th-edition/P200000002563/9780135192016",
+      "type": "book",
+      "author": "Ramesh Sharda; Dursun Delen; Efraim Turban",
+      "source": "Pearson"
     },
     {
-      "label": "Coleção de ícones e paletas",
-      "url": "https://example.edu/tgs/recursos/estilo-dashboard",
-      "type": "design"
+      "label": "Don't Let Dashboards Make You Complacent",
+      "url": "https://hbr.org/2020/02/dont-let-dashboards-make-you-complacent",
+      "type": "article",
+      "author": "Scott Berinato",
+      "source": "Harvard Business Review"
     }
   ],
   "bibliography": [
@@ -72,14 +80,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise os indicadores estratégicos da empresa fictícia e identifique decisões que dependem de cada um deles."
+          "text": "Revise os indicadores estratégicos da empresa fictícia usando o Adventure Works sample dataset da Microsoft Learn e identifique decisões que dependem de cada um deles."
         },
         {
           "type": "list",
           "items": [
-            "Traga duas referências de dashboards (prints ou links) para inspirar boas práticas.",
+            "Explore o módulo Create dashboards in Power BI (Microsoft Learn) e destaque duas heurísticas aplicáveis ao case.",
+            "Traga duas referências de dashboards (prints ou links) alinhadas às recomendações da Harvard Business Review sobre vigilância contínua.",
             "Atualize o SystemMapper com fluxos de dados, responsáveis e frequência de atualização.",
-            "Revise definições de KPI, métrica e metadado no material de apoio."
+            "Revise definições de KPI, métrica e metadado nos capítulos de Kimball & Ross e de Sharda, Delen e Turban."
           ]
         }
       ]
@@ -91,22 +100,22 @@
         {
           "icon": "book-open",
           "title": "Diagnóstico",
-          "content": "Mapear dores de decisão do case e alinhar indicadores-chave do plano de ensino."
+          "content": "Mapear dores de decisão do case e alinhar indicadores-chave do plano de ensino com os princípios de governança descritos por Sharda, Delen e Turban."
         },
         {
           "icon": "gears",
           "title": "Arquitetura",
-          "content": "Discutir fluxo de dados, governança e responsabilidades na cadeia de BI."
+          "content": "Discutir fluxo de dados, governança e responsabilidades na cadeia de BI a partir da arquitetura dimensional de Kimball & Ross."
         },
         {
           "icon": "code",
           "title": "Laboratório de dashboards",
-          "content": "Prototipar visualizações priorizando narrativas sistêmicas e alertas automáticos."
+          "content": "Prototipar visualizações priorizando narrativas sistêmicas e alertas automáticos inspirados no módulo Create dashboards in Power BI."
         },
         {
           "icon": "check-circle",
           "title": "Feedback & TED",
-          "content": "Consolidar aprendizados, registrar ajustes e orientar a entrega assíncrona."
+          "content": "Consolidar aprendizados, registrar ajustes e orientar a entrega assíncrona com os cuidados críticos destacados pela Harvard Business Review."
         }
       ]
     },
@@ -115,11 +124,11 @@
       "title": "Plano de voo (1h40)",
       "items": [
         "(5 min) Check-in: conectar as decisões críticas do case aos indicadores priorizados.",
-        "(15 min) Diagnóstico guiado: squads mapeiam lacunas de dados usando o SystemMapper.",
-        "(15 min) Explainer: arquitetura BI, pipeline de dados e papéis de governança.",
-        "(20 min) Oficina 1: crítica comparativa de dashboards (identificar ruídos, oportunidades, alertas).",
+        "(15 min) Diagnóstico guiado: squads mapeiam lacunas de dados usando o SystemMapper e o checklist de Sharda, Delen e Turban.",
+        "(15 min) Explainer: arquitetura BI, pipeline de dados e papéis de governança segundo Kimball & Ross.",
+        "(20 min) Oficina 1: crítica comparativa de dashboards à luz dos alertas da Harvard Business Review (identificar ruídos, oportunidades, alertas).",
         "(5 min) Intervalo curto e reorganização dos pares.",
-        "(20 min) Oficina 2: prototipagem em ferramenta BI ou canvas, com foco em narrativa e acionabilidade.",
+        "(20 min) Oficina 2: prototipagem em ferramenta BI ou canvas, com foco em narrativa e acionabilidade sugeridas pelo módulo da Microsoft Learn.",
         "(10 min) Rodadas de feedback cruzado com checklist do professor.",
         "(10 min) Síntese: registrar próximos passos e critérios da TED pós-aula."
       ]
@@ -168,15 +177,15 @@
         },
         {
           "title": "Modelagem integrada",
-          "content": "Construção do data mart mínimo viável com dicionário de dados e regras de negócio documentadas."
+          "content": "Construção do data mart mínimo viável com dicionário de dados e regras de negócio documentadas, seguindo o framework dimensional de Kimball & Ross."
         },
         {
           "title": "Dashboards operacionais",
-          "content": "Visualizações focadas em detecção de anomalias e acompanhamento de processos críticos com cadência diária ou semanal."
+          "content": "Visualizações focadas em detecção de anomalias e acompanhamento de processos críticos com cadência diária ou semanal, incorporando alertas configurados segundo o módulo Create dashboards in Power BI."
         },
         {
           "title": "Painel executivo sistêmico",
-          "content": "Síntese de KPIs, alertas automatizados e narrativas que conectam causa e efeito entre subsistemas."
+          "content": "Síntese de KPIs, alertas automatizados e narrativas que conectam causa e efeito entre subsistemas com a vigilância recomendada pela Harvard Business Review."
         }
       ]
     },
@@ -197,7 +206,7 @@
             },
             {
               "title": "Questão prática",
-              "text": "Construa um rascunho de dashboard destacando filtros, alertas e responsáveis pela resposta a desvios."
+              "text": "Construa um rascunho de dashboard destacando filtros, alertas e responsáveis pela resposta a desvios segundo as recomendações do módulo Create dashboards in Power BI."
             }
           ]
         }
@@ -209,11 +218,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Na perspectiva sistêmica, indicadores conectam subsistemas e garantem homeostase organizacional. Um dashboard eficiente deve revelar padrões, retroalimentar decisões e tornar explícitas interdependências."
+          "text": "Na perspectiva sistêmica, indicadores conectam subsistemas e garantem homeostase organizacional, como destacam Sharda, Delen e Turban ao tratar de governança em BI. Um dashboard eficiente deve revelar padrões, retroalimentar decisões e tornar explícitas interdependências."
         },
         {
           "type": "paragraph",
-          "text": "Ao relacionar entradas, processamento e saídas, dashboards ajudam a detectar gargalos e orientar intervenções alinhadas à estratégia do case extensionista."
+          "text": "Ao relacionar entradas, processamento e saídas, dashboards ajudam a detectar gargalos e orientar intervenções alinhadas à estratégia do case extensionista. Kimball & Ross reforçam que essa arquitetura precisa garantir granularidade coerente, enquanto a Harvard Business Review lembra que alertas e contextos devem evitar complacência executiva."
         }
       ]
     },
@@ -550,33 +559,36 @@
       "description": "Seleção de recursos para aprofundar narrativas com dados e prototipagem de dashboards.",
       "items": [
         {
-          "id": "res-dashboard",
+          "id": "res-ms-module",
+          "type": "module",
+          "title": "Microsoft Learn – Create dashboards in Power BI",
+          "url": "https://learn.microsoft.com/en-us/training/modules/create-dashboards-power-bi/",
+          "author": "Equipe Power BI",
+          "source": "Microsoft Learn"
+        },
+        {
+          "id": "res-ms-dashboards",
+          "type": "guide",
+          "title": "Microsoft Learn – Dashboards in the Power BI service",
+          "url": "https://learn.microsoft.com/en-us/power-bi/create-reports/service-dashboards",
+          "author": "Equipe Power BI",
+          "source": "Microsoft Learn"
+        },
+        {
+          "id": "res-kimball-techniques",
           "type": "article",
-          "title": "Guia de boas práticas de storytelling com dados",
-          "url": "https://example.edu/tgs/artigos/storytelling-dados",
-          "author": "Capítulo Analytics",
-          "source": "Blog TGS"
+          "title": "Kimball Group – Business intelligence and dimensional modeling techniques",
+          "url": "https://www.kimballgroup.com/data-warehouse-business-intelligence-resources/kimball-techniques/",
+          "author": "Ralph Kimball; Margy Ross",
+          "source": "Kimball Group"
         },
         {
-          "id": "res-powerbi",
-          "type": "video",
-          "title": "Live: Automatizando alertas no Power BI",
-          "url": "https://example.edu/tgs/videos/live-alertas-powerbi",
-          "source": "Canal TGS"
-        },
-        {
-          "id": "res-figma",
-          "type": "interactive",
-          "title": "Figma – Biblioteca de componentes para dashboards",
-          "url": "https://example.edu/tgs/design/dashboard-kit",
-          "source": "DesignOps"
-        },
-        {
-          "id": "res-dataset",
-          "type": "dataset",
-          "title": "Dataset de churn anotado",
-          "url": "https://example.edu/tgs/datasets/churn-anotado",
-          "source": "Laboratório de Dados"
+          "id": "res-hbr-dashboards",
+          "type": "article",
+          "title": "Harvard Business Review – Don't Let Dashboards Make You Complacent",
+          "url": "https://hbr.org/2020/02/dont-let-dashboards-make-you-complacent",
+          "author": "Scott Berinato",
+          "source": "Harvard Business Review"
         }
       ]
     },
@@ -585,19 +597,25 @@
       "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/bi-fundamentos",
-          "title": "Fundamentos de BI e storytelling",
-          "caption": "Aula rápida sobre como conectar indicadores a narrativas de decisão."
+          "url": "https://learn.microsoft.com/en-us/training/modules/create-dashboards-power-bi/2-data-alerts",
+          "title": "Configure data alerts",
+          "caption": "Vídeo do módulo da Microsoft Learn que demonstra como parametrizar alertas acionáveis no Power BI.",
+          "author": "Equipe Power BI",
+          "source": "Microsoft Learn"
         },
         {
-          "url": "https://example.edu/tgs/videos/powerbi-dashboard",
-          "title": "Construindo dashboard executivo",
-          "caption": "Demonstração de boas práticas em Power BI aplicadas ao caso."
+          "url": "https://learn.microsoft.com/en-us/training/modules/create-dashboards-power-bi/3-explore-data",
+          "title": "Explore data by asking questions",
+          "caption": "Apresenta o uso de perguntas em linguagem natural para navegar por dashboards e descobrir relações entre KPIs.",
+          "author": "Equipe Power BI",
+          "source": "Microsoft Learn"
         },
         {
-          "url": "https://example.edu/tgs/videos/alertas-automatizados",
-          "title": "Configurando alertas inteligentes",
-          "caption": "Passo a passo para definir limites dinâmicos e notificações multicanal."
+          "url": "https://learn.microsoft.com/en-us/training/modules/create-dashboards-power-bi/5-dashboard-theme",
+          "title": "Add a dashboard theme",
+          "caption": "Orientações audiovisuais para aplicar temas e consistência visual alinhados à governança do case.",
+          "author": "Equipe Power BI",
+          "source": "Microsoft Learn"
         }
       ]
     },
@@ -676,7 +694,7 @@
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-03-15T00:00:00.000Z",
+    "updatedAt": "2025-10-16T00:00:00.000Z",
     "owners": ["Profa. Marina Duarte"],
     "sources": ["Plano de ensino TGS 2025.1"]
   }
