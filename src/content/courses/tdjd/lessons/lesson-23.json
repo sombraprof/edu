@@ -1,0 +1,206 @@
+{
+  "id": "lesson-23",
+  "title": "Aula 23: Profiling e Otimização Multiplataforma",
+  "objective": "Diagnosticar gargalos de performance e aplicar otimizações para garantir builds estáveis em PC e dispositivos móveis.",
+  "summary": "Apresenta ferramentas de profiling, métricas essenciais, estratégias de otimização e checklist de build pipeline contínuo.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "profiling-e-otimizacao-multiplataforma",
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Unity Profiler Overview",
+      "url": "https://docs.unity3d.com/Manual/Profiler.html",
+      "type": "guide"
+    },
+    {
+      "label": "Godot Performance Profiling",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/performance/index.html",
+      "type": "guide"
+    },
+    {
+      "label": "Google Play Performance Class",
+      "url": "https://developer.android.com/games/optimize/performance-class",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "Unity. Performance Optimization Handbook. 2024.",
+    "Nystrom, R. Game Programming Patterns. 2022.",
+    "Google. Android Performance Tuning. 2024."
+  ],
+  "competencies": [
+    "Otimização de performance",
+    "Profiling em engines de jogos",
+    "Planejamento de builds"
+  ],
+  "outcomes": [
+    "Relatório de profiling com métricas antes/depois registrado no GDD.",
+    "Ao menos duas otimizações implementadas com evidências no repositório.",
+    "Checklist de build atualizado com pipeline documentado."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega de relatório de profiling com gráficos e plano de ação priorizado para próxima sprint."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Objetivo",
+          "content": "Reduzir consumo de CPU/GPU, memória e tempo de loading do protótipo."
+        },
+        {
+          "icon": "monitor",
+          "title": "Conteúdos",
+          "content": "Métricas críticas, profiling em Unity/Godot, otimização de scripts, assets e build pipeline."
+        },
+        {
+          "icon": "gears",
+          "title": "Metodologia",
+          "content": "Estudo de caso → diagnóstico guiado → squads otimizando → retro coletiva com plano de ação."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Roteiro (100 minutos)",
+      "steps": [
+        {
+          "title": "Briefing de métricas (15 min)",
+          "content": "Definir metas mínimas: FPS, tempo de loading, uso de memória, tamanho da build e estabilidade."
+        },
+        {
+          "title": "Demonstrando ferramentas (25 min)",
+          "content": "Navegar no Unity Profiler/Godot Monitor, analisar CPU, GPU, Rendering, Memory e Data & Profile Analyzer."
+        },
+        {
+          "title": "Laboratório de otimização (40 min)",
+          "content": "Squads identificam gargalos e aplicam melhorias (batching, pooling, compressão de textures, redução de draw calls)."
+        },
+        {
+          "title": "Checklist de build (10 min)",
+          "content": "Documentar pipeline: plataformas alvo, automação (CI/CD), testes smoke e upload para Itch.io/Google Play testing."
+        },
+        {
+          "title": "Retro e alinhamento (10 min)",
+          "content": "Compartilhar aprendizados, registrar dívidas técnicas e definir responsáveis por monitoramento contínuo."
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Vídeos em português sobre performance",
+      "videos": [
+        {
+          "youtubeId": "z3Pjz0_FGuk",
+          "title": "Otimizando jogos no Unity – Checklist em PT-BR (Shader Forge Brasil)",
+          "description": "Guia prático em português cobrindo profiling, batching e redução de draw calls."
+        },
+        {
+          "youtubeId": "y6g0CcsMEo8",
+          "title": "Boas práticas de performance para jogos mobile (Android Dev BR)",
+          "description": "Apresenta métricas oficiais do Android, ferramentas e estratégias para atingir Performance Class."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Painel de métricas",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://docs.unity3d.com/uploads/Main/ProfilerCPU.png",
+          "alt": "Captura do Unity Profiler com timeline de CPU",
+          "caption": "Use o painel para destacar picos e justificar cada otimização proposta."
+        },
+        {
+          "type": "md3Table",
+          "title": "Metas mínimas",
+          "headers": ["Indicador", "Meta", "Ferramenta de verificação"],
+          "rows": [
+            ["FPS médio", ">= 55 (PC) / >= 45 (Android)", "Unity Profiler / Godot Monitor"],
+            ["Tempo de loading", "<= 8s", "Unity Profiler Loading / Godot Frame Time"],
+            ["Memória", "<= 1,5 GB (PC) / <= 700 MB (Android)", "Memory Profiler"],
+            ["Tamanho da build", "<= 1,2 GB", "Build Report"],
+            ["Crashes", "0", "Logcat / Godot Debugger"]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Ciclo de otimização contínua",
+      "summary": "Integra profiling, ajustes e validação em cada sprint.",
+      "stages": [
+        {
+          "id": "coleta",
+          "title": "1. Coleta",
+          "summary": "Captura de dados em sessões de jogo instrumentadas.",
+          "status": "in-progress",
+          "owners": ["QA"],
+          "deliverables": [
+            { "id": "logs", "label": "Logs e capturas do profiler" },
+            { "id": "planilha", "label": "Planilha de métricas" }
+          ]
+        },
+        {
+          "id": "analise",
+          "title": "2. Análise",
+          "summary": "Priorização de gargalos, definição de hipóteses de otimização.",
+          "status": "not-started",
+          "owners": ["Tech Lead", "Programador"],
+          "deliverables": [
+            { "id": "hipoteses", "label": "Hipóteses registradas" },
+            { "id": "backlog", "label": "Tickets no board" }
+          ]
+        },
+        {
+          "id": "execucao",
+          "title": "3. Execução",
+          "summary": "Aplicação das otimizações e verificação automatizada.",
+          "status": "not-started",
+          "owners": ["Programador", "Artista Técnico"],
+          "deliverables": [
+            { "id": "commits", "label": "Commits com notas de desempenho" },
+            { "id": "relatorio", "label": "Relatório comparativo" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: Relatório de otimização",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Execute uma sessão de profiling de 10 minutos, registre métricas chave e implemente pelo menos duas otimizações documentadas."
+        },
+        {
+          "type": "checklist",
+          "title": "Entregáveis",
+          "items": [
+            "Relatório (PDF ou Notion) com gráficos antes/depois.",
+            "Commit com descrição `OPT_A23` detalhando mudanças.",
+            "Plano de próximos passos com responsáveis e métricas alvo."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Cuidados",
+          "content": "Sempre rode smoke test após otimizar; valide se não surgiram regressões de gameplay ou arte."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2", "Reunião pedagógica TDJD – jan/2025"]
+  }
+}

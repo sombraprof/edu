@@ -1,229 +1,181 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-18",
-  "title": "Aula 18: Unidade III – CRUD com Room (Parte 2)",
-  "slug": "crud-room-parte-2",
-  "summary": "Completa o ciclo CRUD com operações de atualização e remoção no Room, incluindo padrões de UX para edição in-line e confirmações de exclusão.",
-  "objective": "Implementar update e delete na camada Room garantindo consistência visual e transacional do aplicativo.",
+  "title": "Aula 18: Coroutines e Tratamento de Erros em Chamadas Remotas",
+  "slug": "coroutines-tratamento-erros-remotos",
+  "summary": "Aprenda a estruturar coroutines com ViewModelScope, lidar com exceções e exibir feedbacks amigáveis quando a API falhar.",
+  "objective": "Implementar camadas assíncronas resilientes usando Kotlin Coroutines, Result wrappers e padrões de retry exponencial.",
   "objectives": [
-    "Criar fluxos de edição reutilizando formulários e ViewModels.",
-    "Implementar operações delete confirmadas com Snackbar/Diálogo.",
-    "Propagar estados de sucesso/erro para a UI de forma reativa.",
-    "Preparar casos de teste para update/delete."
+    "Configurar ViewModelScope e supervisores para isolar falhas.",
+    "Mapear exceções e estados de carregamento usando sealed classes.",
+    "Implementar políticas de retry com backoff e circuit breaker leve.",
+    "Exibir feedback de erro acessível e coletar logs estruturados."
   ],
   "competencies": [
-    "Arquitetura limpa em Android",
-    "UX writing para fluxos críticos",
-    "Manutenção de dados persistidos"
+    "Programação assíncrona em Kotlin",
+    "Observabilidade e UX resiliente",
+    "Integração segura com APIs"
   ],
   "skills": [
-    "Utilizar transactions ou estratégias de consistência em updates.",
-    "Configurar DiffUtil para refletir mudanças em listas.",
-    "Exibir confirmações amigáveis antes de deletar.",
-    "Criar testes instrumentados de exclusão."
+    "Criar use cases com `withContext` e `Dispatchers.IO`.",
+    "Encadear retries com `retryWhen` e limites configuráveis.",
+    "Emitir estados de UI reativos com `StateFlow`.",
+    "Persistir falhas em `Crashlytics` ou log local para auditoria."
   ],
   "outcomes": [
-    "Entrega tela de edição funcional ligada ao DAO.",
-    "Disponibiliza exclusão com feedback e undo opcional.",
-    "Registra evidências de testes no Moodle."
+    "Entrega ViewModel com fluxo Loading/Success/Error.",
+    "Aplicativo exibe mensagens localizadas e opção de tentar novamente.",
+    "Logs de erro enviados para canal definido no Moodle."
   ],
-  "prerequisites": ["Aula 17 – CRUD com Room (Parte 1)."],
-  "tags": ["android", "room", "crud", "persistencia"],
+  "prerequisites": ["Aula 17 – Consumo de API com Retrofit e Moshi."],
+  "tags": ["android", "coroutines", "resiliencia", "ux"],
   "duration": 120,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Room update/delete",
-      "url": "https://developer.android.com/reference/androidx/room/Dao#update",
-      "type": "reference"
-    },
-    {
-      "label": "Material Design dialogs",
-      "url": "https://m3.material.io/components/dialogs/overview",
+      "label": "Coroutines on Android",
+      "url": "https://developer.android.com/kotlin/coroutines",
       "type": "guide"
     },
     {
-      "label": "Testing flows with Turbine",
-      "url": "https://cashapp.github.io/turbine/",
+      "label": "Retry policies with Kotlin Flow",
+      "url": "https://developer.android.com/kotlin/flow",
       "type": "article"
+    },
+    {
+      "label": "Android Accessibility: Error feedback",
+      "url": "https://developer.android.com/guide/topics/ui/accessibility/custom-views#error-feedback",
+      "type": "guide"
     }
   ],
   "bibliography": [
-    "ANDROID DEVELOPERS. Persist data with Room. 2024.",
-    "JOHNS, R. Android Clean Architecture. Packt, 2023.",
-    "NIELD, J. Kotlin Programming: The Big Nerd Ranch Guide. 3. ed. 2023."
+    "Google. Coroutines on Android. 2024.",
+    "Shekhar, A. Kotlin Coroutines by Tutorials. Razeware, 2023.",
+    "Android Dev BR. Guia de tratamentos de erro para mobile. 2024."
   ],
   "assessment": {
     "type": "formative",
-    "description": "Rubrica de pares avaliando a consistência de update/delete com foco em UX e feedback visual."
+    "description": "Rubrica de par avaliando fluxo Loading/Success/Error, clareza das mensagens e registro de logs."
   },
   "content": [
     {
       "type": "videos",
-      "title": "Referências em vídeo – Unidade III",
+      "title": "Vídeos em português para reforço",
       "videos": [
         {
-          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
-          "title": "Room: arquitetando persistência local",
-          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+          "url": "https://www.youtube.com/watch?v=dqH4Gq5GgGU",
+          "title": "Coroutines no Android na prática (Android Dev BR)",
+          "caption": "Live coding em português mostrando ViewModelScope e tratamento de exceções."
         },
         {
-          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
-          "title": "Android Jetpack Architecture Components",
-          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+          "url": "https://www.youtube.com/watch?v=9xk5Zs7YT1M",
+          "title": "Tratamento de erros elegante com Flow (Kotlin Weekend PT-BR)",
+          "caption": "Apresenta estratégias de retry, sealed classes e mensagens para usuários brasileiros."
         }
       ]
     },
     {
       "type": "flightPlan",
-      "title": "Plano de voo da aula",
+      "title": "Plano de voo da aula (120 min)",
       "items": [
-        "Retomar o fluxo Create + Read da aula anterior.",
-        "Planejar UX para edição e exclusão.",
-        "Implementar @Update e @Delete no DAO.",
-        "Projeto prático: editar e excluir produtos.",
-        "Testes instrumentados e logs.",
-        "TED 18 e avisos Moodle."
+        "(10 min) Check-in: Conte sobre a pior mensagem de erro que já recebeu em um app.",
+        "(20 min) Revisão guiada: estrutura de coroutines, hierarquia e escopos.",
+        "(35 min) Laboratório 1: implementar wrapper Result com sealed class e estados para UI.",
+        "(25 min) Laboratório 2: adicionar retry com exponencial backoff usando `retryWhen`.",
+        "(20 min) Pair testing: validar mensagens, acessibilidade e logging estruturado.",
+        "(10 min) Debrief: registrar métricas de erro e plano de monitoramento em squad."
+      ]
+    },
+    {
+      "type": "callout",
+      "variant": "info",
+      "title": "Checklist de acessibilidade",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mensagens devem ter linguagem clara, cores com contraste 4.5:1 e suporte a TalkBack. Inclua ações alternativas (botão tentar novamente e link para suporte)."
+        }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Update reativo com Room",
+      "title": "Arquitetura recomendada",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Demonstramos como reutilizar o mesmo formulário de cadastro em modo edição, populando campos e persistindo alterações."
+          "type": "image",
+          "src": "https://developer.android.com/static/images/kotlin/coroutines-viewmodel.svg",
+          "alt": "Diagrama de ViewModel emitindo Flow para a UI"
         },
         {
-          "type": "code",
-          "language": "kotlin",
-          "code": "suspend fun atualizar(produto: Produto) = produtoDao.update(produto)\n\nfun carregarProduto(id: Int): LiveData<Produto> =\n    produtoDao.buscarPorId(id).asLiveData()\n\n// Referência: ANDROID DEVELOPERS (2024)"
-        },
-        {
-          "type": "callout",
-          "variant": "info",
-          "title": "Dica de UX",
-          "content": [
+          "type": "orderedList",
+          "items": [
             {
-              "type": "paragraph",
-              "text": "Indique visualmente que o formulário está em modo edição (ex.: título \"Editar produto\" e botão \"Salvar alterações\")."
+              "title": "Use cases",
+              "text": "Encapsule chamadas Retrofit e traduza exceções para o domínio."
+            },
+            {
+              "title": "ViewModel",
+              "text": "Exponha `StateFlow<UiState>` com Loading/Success/Error e cancelamento seguro em `onCleared`."
+            },
+            {
+              "title": "UI Compose/XML",
+              "text": "Renderize estados com componentes acessíveis, Snackbars e CTA de retry."
             }
           ]
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Projeto prático: edição e exclusão com feedback",
-      "content": [
+      "type": "pipelineCanvas",
+      "title": "Fluxo resiliente da feature",
+      "summary": "Da chamada remota ao feedback ao usuário com métricas registradas.",
+      "stages": [
         {
-          "type": "paragraph",
-          "text": "Em duplas, evoluam o app catálogo permitindo editar itens e excluir com confirmação, garantindo undo via Snackbar."
-        },
-        {
-          "type": "subBlock",
-          "title": "Entregáveis",
-          "items": [
-            "Tela de edição com validação e persistência via ViewModel.",
-            "Botão contextual no RecyclerView para editar/excluir (Menu contextual ou Swipe).",
-            "Dialog ou Snackbar confirmando exclusão.",
-            "Teste instrumentado cobrindo update/delete."
+          "id": "contrato",
+          "title": "1. Contrato da API",
+          "summary": "Validar esquema JSON, códigos HTTP e requisitos de autenticação.",
+          "status": "in-progress",
+          "owners": ["Backend", "Mobile"],
+          "deliverables": [
+            { "id": "schema", "label": "Contrato atualizado" },
+            { "id": "postman", "label": "Coleção Postman" }
           ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "TED 18 – Evidências de Update/Delete",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Prepare um relatório curto com prints da edição, exclusão e undo funcionando, além de logs de testes."
         },
         {
-          "type": "list",
-          "ordered": true,
-          "items": [
-            "Explicar como o ViewModel diferencia modo cadastro vs. edição.",
-            "Mostrar configuração do SwipeToDelete/ContextMenu.",
-            "Anexar saída dos testes instrumentados ou Turbine."
+          "id": "implementacao",
+          "title": "2. Implementação e testes",
+          "summary": "Adicionar use case, mapper, Flow e testes unitários/instrumentados.",
+          "status": "not-started",
+          "owners": ["Mobile"],
+          "deliverables": [
+            { "id": "coverage", "label": "Cobertura > 80%" },
+            { "id": "log", "label": "Logs estruturados" }
+          ]
+        },
+        {
+          "id": "monitoramento",
+          "title": "3. Monitoramento",
+          "summary": "Configurar Crashlytics/Logcat remoto e alarmes no Slack/Discord.",
+          "status": "not-started",
+          "owners": ["Mobile", "QA"],
+          "deliverables": [
+            { "id": "dashboard", "label": "Dashboard de erros" },
+            { "id": "playbook", "label": "Playbook de rollback" }
           ]
         }
       ]
     },
     {
       "type": "callout",
-      "variant": "warning",
-      "title": "Avisos Moodle",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Envie o relatório TED 18 e o link do repositório atualizado no Moodle > Unidade III > Aula 18 até 23h59 do próximo dia útil."
-        },
-        {
-          "type": "paragraph",
-          "text": "Participe do fórum \"Melhorias de UX em CRUD\" compartilhando um insight sobre feedback visual."
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Exemplo de código comentado",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de CRUD com Room (Parte 2)."
-        },
-        {
-          "type": "code",
-          "language": "kotlin",
-          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
-        },
-        {
-          "type": "callout",
-          "variant": "academic",
-          "title": "Fundamentação bibliográfica",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "ANDROID DEVELOPERS. Persist data with Room. 2024."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Leitura complementar e estudos de caso",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Reforce os conceitos de CRUD com Room (Parte 2) relacionando SharedPreferences, Room e estratégias de migração."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Releia: ANDROID DEVELOPERS. Persist data with Room. 2024.",
-            "Conecte com o estudo: JOHNS, R. Android Clean Architecture. Packt, 2023."
-          ]
-        },
-        {
-          "type": "paragraph",
-          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
-        },
-        {
-          "type": "blockquote",
-          "text": "JOHNS, R. Android Clean Architecture. Packt, 2023."
-        }
-      ]
+      "variant": "task",
+      "title": "TED – Relatório de Resiliência",
+      "content": "Grave um vídeo de 90 segundos demonstrando a tela reagindo a 3 cenários (sucesso, falha de rede, HTTP 500), anexando log formatado em JSON. Submissão pelo Moodle até domingo."
     }
   ],
   "metadata": {
-    "updatedAt": "2025-10-04T00:00:00.000Z",
-    "owners": ["Equipe de Conteúdo"]
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Equipe de Conteúdo DDM"],
+    "sources": ["Plano de ensino DDM 2025.2", "Revisão docente fev/2025"]
   }
 }
