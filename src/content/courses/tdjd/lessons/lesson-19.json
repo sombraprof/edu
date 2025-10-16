@@ -92,18 +92,74 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
+      "title": "Contextualizando o desafio do squad",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O vertical slice está duas sprints de entrar em playtest aberto e a direção quer ver consistência visual antes de liberar orçamento extra. Esta aula funciona como um mutirão orientado a dados para arrumar a casa do pipeline de arte."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Faça um inventário rápido dos assets já entregues e categorize por estado (aprovado, precisa de ajuste, bloqueado).",
+            "Combine presets de importação e convenções de nomenclatura antes de abrir softwares de modelagem ou pintura.",
+            "Registre todas as decisões no GDD e vincule métricas de performance para justificar priorização."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
       "title": "Vídeos em português para aprofundar o pipeline",
       "videos": [
         {
-          "youtubeId": "yYcS6w2nq5M",
+          "url": "https://www.youtube.com/watch?v=yYcS6w2nq5M",
           "title": "Pipeline de Arte para Jogos: do Concept ao Engine (Unhide School)",
-          "description": "Masterclass em português explicando etapas e boas práticas de integração de assets."
+          "caption": "Masterclass em português explicando etapas e boas práticas de integração de assets."
         },
         {
-          "youtubeId": "4m3S3w7PZb4",
+          "url": "https://www.youtube.com/watch?v=4m3S3w7PZb4",
           "title": "Organização de Assets no Unity – Workflow Profissional (Dev Aprender)",
-          "description": "Demonstração prática de presets, hierarquias de pastas e import settings comentada em português."
+          "caption": "Demonstração prática de presets, hierarquias de pastas e import settings comentada em português."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Estúdio Aurora: vertical slice cooperativo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O estúdio Aurora Games precisa entregar o vertical slice cooperativo 'Nebula Run' em duas semanas para investidores."
+        },
+        {
+          "type": "paragraph",
+          "text": "O playtest da sprint anterior revelou assets desalinhados e quedas de FPS ao carregar a cena de hub. O squad de arte foi acionado para reorganizar produção e integração sem atrasar outras frentes."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Equipe: 2 artistas 2D, 1 artista 3D, 1 tech artist",
+            "Problemas detectados: Texturas 4K sem compressão, LODs ausentes e convenções de pastas divergentes",
+            "Meta da sprint: Integrar 12 assets prioritários mantendo FPS médio acima de 55"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como priorizar correções sem paralisar a produção de novos assets?",
+            "Pergunta: Quais métricas devem ser monitoradas para provar que o pipeline está saudável?",
+            "Pergunta: Que acordos de naming/versionamento evitam retrabalho quando várias frentes mexem no mesmo prefab?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Mapeie responsabilidades e prazos no quadro do Notion usando tags por etapa do pipeline.",
+            "Ação sugerida: Defina presets de importação padronizados (compressão, normal map, mipmaps) e documente no repositório.",
+            "Ação sugerida: Configure uma rotina diária de testes de performance com build automatizada do vertical slice."
+          ]
         }
       ]
     },
@@ -142,8 +198,14 @@
           "status": "in-progress",
           "owners": ["Direção de arte"],
           "deliverables": [
-            { "id": "mood", "label": "Moodboard aprovado" },
-            { "id": "paleta", "label": "Guia de cores e materiais" }
+            {
+              "id": "mood",
+              "label": "Moodboard aprovado"
+            },
+            {
+              "id": "paleta",
+              "label": "Guia de cores e materiais"
+            }
           ]
         },
         {
@@ -153,8 +215,14 @@
           "status": "not-started",
           "owners": ["Artistas 2D", "Artistas 3D"],
           "deliverables": [
-            { "id": "asset", "label": "Asset exportado com preset" },
-            { "id": "qa", "label": "Checklist de QA visual" }
+            {
+              "id": "asset",
+              "label": "Asset exportado com preset"
+            },
+            {
+              "id": "qa",
+              "label": "Checklist de QA visual"
+            }
           ]
         },
         {
@@ -164,11 +232,66 @@
           "status": "not-started",
           "owners": ["Tech Artist", "Programador"],
           "deliverables": [
-            { "id": "scene", "label": "Prefab pronto para uso" },
-            { "id": "metrics", "label": "FPS, draw calls e memória registrados" }
+            {
+              "id": "scene",
+              "label": "Prefab pronto para uso"
+            },
+            {
+              "id": "metrics",
+              "label": "FPS, draw calls e memória registrados"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "stepper",
+      "title": "Passo a passo para estabilizar o pipeline",
+      "steps": [
+        {
+          "title": "Diagnóstico do repositório",
+          "description": "Execute auditoria de pastas, identifique duplicidades e registre assets críticos que precisam de retrabalho imediato."
+        },
+        {
+          "title": "Padronização e presets",
+          "description": "Crie presets de importação, normalize escalas e gere templates de nomeação antes de liberar novas produções."
+        },
+        {
+          "title": "Integração guiada por métricas",
+          "description": "Integre assets em cenas teste medindo FPS, draw calls e uso de memória a cada lote inserido."
+        },
+        {
+          "title": "Revisão colaborativa",
+          "description": "Organize uma rodada de QA visual com checklist de acessibilidade e registre decisões diretamente no GDD."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Ao importar um lote de texturas PBR que veio em 4K sem compressão, qual é a estratégia mais indicada para manter consistência visual e performance?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Criar um preset de importação aplicando compressão adequada, gerar mipmaps e salvar o preset no repositório do projeto.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Reduzir manualmente cada textura em um editor externo e subir os arquivos diretamente para a pasta final.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Manter as texturas originais em 4K para preservar qualidade máxima e confiar no build final para otimizar.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O preset padronizado garante repetibilidade, reduz retrabalho e documenta a configuração aplicada em todo novo asset importado.",
+        "incorrect": "O preset padronizado garante repetibilidade, reduz retrabalho e documenta a configuração aplicada em todo novo asset importado."
+      }
     },
     {
       "type": "systemMapper",

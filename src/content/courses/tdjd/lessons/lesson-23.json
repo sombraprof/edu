@@ -92,18 +92,74 @@
       ]
     },
     {
-      "type": "videosBlock",
+      "type": "contentBlock",
+      "title": "Como transformar dados em ação",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Profiling só gera resultado quando vira plano de ação. Estruture o trabalho para não ficar preso em gráficos sem decisão."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Defina metas claras por plataforma antes de abrir as ferramentas.",
+            "Capture sessões representativas (5-10 minutos) com gravação do jogador para contextualizar picos.",
+            "Registre cada hipótese de otimização com impacto esperado e esforço estimado."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
       "title": "Vídeos em português sobre performance",
       "videos": [
         {
-          "youtubeId": "z3Pjz0_FGuk",
+          "url": "https://www.youtube.com/watch?v=z3Pjz0_FGuk",
           "title": "Otimizando jogos no Unity – Checklist em PT-BR (Shader Forge Brasil)",
-          "description": "Guia prático em português cobrindo profiling, batching e redução de draw calls."
+          "caption": "Guia prático em português cobrindo profiling, batching e redução de draw calls."
         },
         {
-          "youtubeId": "y6g0CcsMEo8",
+          "url": "https://www.youtube.com/watch?v=y6g0CcsMEo8",
           "title": "Boas práticas de performance para jogos mobile (Android Dev BR)",
-          "description": "Apresenta métricas oficiais do Android, ferramentas e estratégias para atingir Performance Class."
+          "caption": "Apresenta métricas oficiais do Android, ferramentas e estratégias para atingir Performance Class."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Hyperloop Dash: build instável",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O protótipo Hyperloop Dash apresentou queda de FPS para 30 em dispositivos Android intermediários durante o vertical slice."
+        },
+        {
+          "type": "paragraph",
+          "text": "O time não possuía rotina de profiling e descobriu gargalos de draw calls e scripts sem pooling na véspera da apresentação. Eles precisam criar um plano de choque sem suspender toda a sprint."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Plataformas: PC mid-range, Android Performance Class 12",
+            "Principais gargalos: Draw calls excessivas, alocação de garbage em habilidades especiais",
+            "Prazo: 5 dias até demo pública"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Quais áreas devem ser priorizadas para recuperar FPS rapidamente?",
+            "Pergunta: Como garantir que a otimização não quebre funcionalidades já aprovadas?",
+            "Pergunta: Que evidências são necessárias para comunicar progresso aos stakeholders?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Monte painel comparando métricas antes/depois para cada ajuste crítico.",
+            "Ação sugerida: Implemente automação que gera build diária com relatório de tamanho e tempo de loading.",
+            "Ação sugerida: Documente rollback plan caso a otimização introduza regressões."
+          ]
         }
       ]
     },
@@ -143,8 +199,14 @@
           "status": "in-progress",
           "owners": ["QA"],
           "deliverables": [
-            { "id": "logs", "label": "Logs e capturas do profiler" },
-            { "id": "planilha", "label": "Planilha de métricas" }
+            {
+              "id": "logs",
+              "label": "Logs e capturas do profiler"
+            },
+            {
+              "id": "planilha",
+              "label": "Planilha de métricas"
+            }
           ]
         },
         {
@@ -154,8 +216,14 @@
           "status": "not-started",
           "owners": ["Tech Lead", "Programador"],
           "deliverables": [
-            { "id": "hipoteses", "label": "Hipóteses registradas" },
-            { "id": "backlog", "label": "Tickets no board" }
+            {
+              "id": "hipoteses",
+              "label": "Hipóteses registradas"
+            },
+            {
+              "id": "backlog",
+              "label": "Tickets no board"
+            }
           ]
         },
         {
@@ -165,11 +233,66 @@
           "status": "not-started",
           "owners": ["Programador", "Artista Técnico"],
           "deliverables": [
-            { "id": "commits", "label": "Commits com notas de desempenho" },
-            { "id": "relatorio", "label": "Relatório comparativo" }
+            {
+              "id": "commits",
+              "label": "Commits com notas de desempenho"
+            },
+            {
+              "id": "relatorio",
+              "label": "Relatório comparativo"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "stepper",
+      "title": "Loop diário de otimização",
+      "steps": [
+        {
+          "title": "Captura",
+          "description": "Grave sessão representativa, exporte dados do profiler e salve no repositório de métricas."
+        },
+        {
+          "title": "Diagnóstico",
+          "description": "Classifique gargalos por impacto e esforço; valide hipóteses com o squad."
+        },
+        {
+          "title": "Implementação",
+          "description": "Execute otimizações priorizadas (batching, pooling, compressão) e registre commits atômicos."
+        },
+        {
+          "title": "Validação",
+          "description": "Rode testes automatizados e build alvo garantindo que as metas foram atingidas."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Após reduzir draw calls com batching estático, o tempo de loading aumentou. Qual próximo passo é mais adequado?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Analisar o relatório de build para identificar assets incluídos desnecessariamente e revisar a estratégia de streaming.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Reverter o batching e aceitar o FPS menor para priorizar loading rápido.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Ignorar o tempo de loading porque ele só afeta a primeira cena do jogo.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O batching pode aumentar tamanho da build; revisar streaming e assets carregados resolve sem perder FPS.",
+        "incorrect": "O batching pode aumentar tamanho da build; revisar streaming e assets carregados resolve sem perder FPS."
+      }
     },
     {
       "type": "contentBlock",

@@ -93,6 +93,44 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Urban Delivery: push que não converte",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O app Urban Delivery envia promoções e atualizações de rota, mas a taxa de abertura caiu para 6%."
+        },
+        {
+          "type": "paragraph",
+          "text": "Os usuários reclamam de notificações em horários ruins e mensagens irrelevantes. Além disso, alguns devices Android não recebem push por falta de renovação do token."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Base ativa: 320 mil entregadores",
+            "KPIs: Abertura > 18%, execução de ação em 30%",
+            "Infra: Firebase Cloud Messaging + WorkManager + BigQuery"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como organizar canais e tópicos para separar alertas operacionais de marketing?",
+            "Pergunta: Qual rotina garante que tokens expirados sejam renovados sem exigir login manual?",
+            "Pergunta: Como medir impacto de notificações em conversão dentro do app?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Criar estratégia de canais com opt-in explícito e mensagens personalizadas.",
+            "Ação sugerida: Agendar worker periódico para sincronizar tokens e atualizar preferências do usuário.",
+            "Ação sugerida: Publicar dashboard com aberturas, cliques e ações pós-notificação."
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "warning",
       "title": "LGPD e consentimento",
@@ -118,6 +156,28 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Operação de mensageria",
+      "steps": [
+        {
+          "title": "Arquitetar canais",
+          "description": "Defina categorias (operacional, marketing, crítica) e permissões LGPD."
+        },
+        {
+          "title": "Implementar serviço",
+          "description": "Gerencie tokens, tópicos e deep links no `FirebaseMessagingService`."
+        },
+        {
+          "title": "Agendar workers",
+          "description": "Use WorkManager para sincronizar preferências, renovar tokens e enviar alertas programados."
+        },
+        {
+          "title": "Mensurar e iterar",
+          "description": "Coleta métricas de entrega/abertura, roda experimentos A/B e ajusta copy e horários."
+        }
+      ]
+    },
+    {
       "type": "pipelineCanvas",
       "title": "Pipeline de mensageria",
       "summary": "Garantir entrega confiável, UX clara e observabilidade.",
@@ -129,8 +189,14 @@
           "status": "in-progress",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "token", "label": "Token registrado" },
-            { "id": "canal", "label": "Canais documentados" }
+            {
+              "id": "token",
+              "label": "Token registrado"
+            },
+            {
+              "id": "canal",
+              "label": "Canais documentados"
+            }
           ]
         },
         {
@@ -140,8 +206,14 @@
           "status": "not-started",
           "owners": ["Mobile", "QA"],
           "deliverables": [
-            { "id": "deep", "label": "Deep link testado" },
-            { "id": "relatorio", "label": "Planilha de métricas" }
+            {
+              "id": "deep",
+              "label": "Deep link testado"
+            },
+            {
+              "id": "relatorio",
+              "label": "Planilha de métricas"
+            }
           ]
         },
         {
@@ -151,11 +223,44 @@
           "status": "not-started",
           "owners": ["Mobile", "Marketing"],
           "deliverables": [
-            { "id": "dashboard", "label": "Dashboard Data Studio" },
-            { "id": "playbook", "label": "Playbook de contingência" }
+            {
+              "id": "dashboard",
+              "label": "Dashboard Data Studio"
+            },
+            {
+              "id": "playbook",
+              "label": "Playbook de contingência"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Um worker periódico está falhando por falta de rede. Qual abordagem mantém o compromisso de entrega sem drenar bateria?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Configurar restrição de rede não medida (`NETWORK_TYPE_UNMETERED`) e permitir reexecução quando a condição for satisfeita.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Executar o worker imediatamente em `Dispatchers.IO` ignorando restrições.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Aumentar o intervalo do worker para 24 horas para evitar conflitos.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "Respeitar restrições garante economia de bateria e o WorkManager reagenda automaticamente ao detectar rede adequada.",
+        "incorrect": "Respeitar restrições garante economia de bateria e o WorkManager reagenda automaticamente ao detectar rede adequada."
+      }
     },
     {
       "type": "callout",

@@ -83,6 +83,44 @@
     },
     {
       "type": "contentBlock",
+      "title": "Estudo de caso – EducaKids: tablets na sala de aula",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O app EducaKids precisa suportar tablets escolares e celulares antigos mantendo a mesma experiência de leitura."
+        },
+        {
+          "type": "paragraph",
+          "text": "O layout atual quebra em telas maiores e o dark mode está incompleto. O contrato com a rede de escolas exige acessibilidade comprovada."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Dispositivos alvo: Android 8 a 14, telas 7'' a 11''",
+            "Critérios: WCAG AA, dark mode completo, tipografia escalável",
+            "Prazo: Entrega em 4 semanas"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Quais breakpoints exigem layout alternativo?",
+            "Pergunta: Como validar contraste e fontes dinâmicas automaticamente?",
+            "Pergunta: Que processos garantem revisão contínua com design?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Implementar WindowSizeClass com variações de navegação.",
+            "Ação sugerida: Configurar testes instrumentados para validar dark mode e tamanho de fonte.",
+            "Ação sugerida: Documentar checklist de acessibilidade e evidências para o cliente."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
       "title": "Tokens e breakpoints",
       "content": [
         {
@@ -104,6 +142,28 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Entregando UI adaptável",
+      "steps": [
+        {
+          "title": "Diagnóstico",
+          "description": "Avalie telas existentes em diferentes breakpoints e identifique pontos críticos."
+        },
+        {
+          "title": "Tokens responsivos",
+          "description": "Defina tamanhos, espaçamentos e hierarquia de componentes para cada classe de janela."
+        },
+        {
+          "title": "Implementação",
+          "description": "Adapte layout com NavigationRail/Drawer, suporte a fontes dinâmicas e dark mode."
+        },
+        {
+          "title": "Validação",
+          "description": "Execute testes de acessibilidade, capture vídeos comparativos e publique relatório."
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Checklist de acessibilidade",
@@ -121,8 +181,14 @@
           "status": "in-progress",
           "owners": ["Designer"],
           "deliverables": [
-            { "id": "tokens", "label": "Tokens Material 3" },
-            { "id": "guideline", "label": "Guia responsivo" }
+            {
+              "id": "tokens",
+              "label": "Tokens Material 3"
+            },
+            {
+              "id": "guideline",
+              "label": "Guia responsivo"
+            }
           ]
         },
         {
@@ -132,8 +198,14 @@
           "status": "not-started",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "layout", "label": "Layouts adaptados" },
-            { "id": "tests", "label": "Testes instrumentados" }
+            {
+              "id": "layout",
+              "label": "Layouts adaptados"
+            },
+            {
+              "id": "tests",
+              "label": "Testes instrumentados"
+            }
           ]
         },
         {
@@ -143,11 +215,44 @@
           "status": "not-started",
           "owners": ["QA"],
           "deliverables": [
-            { "id": "relatorio", "label": "Relatório de acessibilidade" },
-            { "id": "video", "label": "Vídeo demonstração" }
+            {
+              "id": "relatorio",
+              "label": "Relatório de acessibilidade"
+            },
+            {
+              "id": "video",
+              "label": "Vídeo demonstração"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "O layout expanded está sobrecarregando a NavigationRail. Qual ajuste mantém responsividade e acessibilidade?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Migrar para `NavigationDrawer` persistente oferecendo labels e ícones maiores para o modo expanded.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Fixar a NavigationRail no centro da tela para ocupar menos espaço.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Desativar o layout expanded e manter apenas a versão compacta.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O drawer é a recomendação Material 3 para telas amplas, mantendo legibilidade e navegação clara.",
+        "incorrect": "O drawer é a recomendação Material 3 para telas amplas, mantendo legibilidade e navegação clara."
+      }
     },
     {
       "type": "callout",

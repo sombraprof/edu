@@ -82,6 +82,44 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Lista Viva: estado confuso",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O app de compras Lista Viva usa Compose, mas usuários relatam itens duplicados e listas que perdem sincronização após rotacionar o aparelho."
+        },
+        {
+          "type": "paragraph",
+          "text": "Estados locais foram espalhados por vários Composables. A equipe quer consolidar o fluxo com ViewModel e Flow para garantir previsibilidade."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Usuários ativos: 58 mil",
+            "Principais sintomas: Duplicação de itens e inconsistência após restore do processo",
+            "Objetivo: Zero bugs de estado crítico na próxima release"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Quais estados devem ser promovidos ao ViewModel?",
+            "Pergunta: Como estruturar eventos unidirecionais para evitar efeitos colaterais?",
+            "Pergunta: Que ferramentas ajudam a medir recomposição e detectar hotspots?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Mapear estados locais e decidir quais sobem para o ViewModel.",
+            "Ação sugerida: Implementar `UiState` imutável e eventos representados por sealed classes.",
+            "Ação sugerida: Configurar Layout Inspector para monitorar recomposições durante testes."
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Ferramentas de inspeção",
@@ -116,6 +154,28 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Ciclo de refatoração de estado",
+      "steps": [
+        {
+          "title": "Auditoria",
+          "description": "Documente onde o estado vive hoje e identifique fontes de verdade duplicadas."
+        },
+        {
+          "title": "Modelagem",
+          "description": "Defina `UiState`, eventos e use cases responsáveis por atualizar os dados."
+        },
+        {
+          "title": "Integração",
+          "description": "Conecte ViewModel ao Compose com `collectAsStateWithLifecycle` e injete dependências."
+        },
+        {
+          "title": "Monitoramento",
+          "description": "Meça recomposições, ajuste snapshots e registre indicadores no relatório."
+        }
+      ]
+    },
+    {
       "type": "pipelineCanvas",
       "title": "Pipeline de refatoração",
       "summary": "Garantir que a tela Compose esteja pronta para testes e manutenção.",
@@ -127,8 +187,14 @@
           "status": "in-progress",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "mapa", "label": "Mapa de estados" },
-            { "id": "risco", "label": "Riscos identificados" }
+            {
+              "id": "mapa",
+              "label": "Mapa de estados"
+            },
+            {
+              "id": "risco",
+              "label": "Riscos identificados"
+            }
           ]
         },
         {
@@ -138,8 +204,14 @@
           "status": "not-started",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "viewmodel", "label": "ViewModel final" },
-            { "id": "tests", "label": "Testes de recomposição" }
+            {
+              "id": "viewmodel",
+              "label": "ViewModel final"
+            },
+            {
+              "id": "tests",
+              "label": "Testes de recomposição"
+            }
           ]
         },
         {
@@ -149,11 +221,44 @@
           "status": "not-started",
           "owners": ["QA"],
           "deliverables": [
-            { "id": "relatorio", "label": "Relatório com prints" },
-            { "id": "backlog", "label": "Backlog de melhorias" }
+            {
+              "id": "relatorio",
+              "label": "Relatório com prints"
+            },
+            {
+              "id": "backlog",
+              "label": "Backlog de melhorias"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Após mover o estado para o ViewModel, a tela continua atualizando em excesso. Qual ação ajuda a estabilizar as recomposições?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Garantir que `UiState` seja um data class imutável e utilizar `distinctUntilChanged()` antes de expor o Flow.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Adicionar `mutableStateOf` dentro de cada Composable para quebrar a atualização.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Rodar o Flow em `Dispatchers.Default` para não impactar a UI.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "Imutabilidade e filtros evitam recomposições desnecessárias e mantêm o fluxo previsível.",
+        "incorrect": "Imutabilidade e filtros evitam recomposições desnecessárias e mantêm o fluxo previsível."
+      }
     },
     {
       "type": "callout",

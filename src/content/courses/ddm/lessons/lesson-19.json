@@ -93,6 +93,44 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Estudo de caso – FinSaver: onboarding turbulento",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O app financeiro FinSaver lançou login social, mas usuários estão perdendo dados de perfil ao alternar dispositivos."
+        },
+        {
+          "type": "paragraph",
+          "text": "A arquitetura foi migrada para Clean Architecture, porém o repository não trata diferenças entre cache local, Firestore e contas sociais. A retenção de novos usuários caiu 18%."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Fluxos críticos: Cadastro, sincronização de metas, recuperação de senha",
+            "Stack: Firebase Auth + Firestore + emulador local",
+            "SLA: Perfil sincronizado em < 3 s após login"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como garantir consistência entre dados locais e remotos usando Flow?",
+            "Pergunta: Quais regras de segurança precisam ser validadas para evitar exposição de dados?",
+            "Pergunta: Que testes automatizados comprovam que o onboarding foi estabilizado?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Implemente use case que carrega perfil, salva em cache e expõe estado imutável.",
+            "Ação sugerida: Configure regras Firestore restritivas por `uid` e escreva testes com Emulator Suite.",
+            "Ação sugerida: Monte checklist de QA para login social, incluindo fluxos offline."
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "warning",
       "title": "Pré-requisitos técnicos",
@@ -127,6 +165,28 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Fluxo seguro de autenticação",
+      "steps": [
+        {
+          "title": "Setup confiável",
+          "description": "Registrar SHA, configurar providers e validar chaves em ambientes dev/stage."
+        },
+        {
+          "title": "Camada de dados",
+          "description": "Criar abstrações para Auth/Firestore com tratamento de erros e mapeamento para modelos do domínio."
+        },
+        {
+          "title": "Experiência do usuário",
+          "description": "Renderizar estados Loading/Success/Error, oferecer login offline e explicar limites ao jogador."
+        },
+        {
+          "title": "QA e segurança",
+          "description": "Rodar testes com emulador, validar regras, revisar métricas no dashboard e preparar plano de rollback."
+        }
+      ]
+    },
+    {
       "type": "pipelineCanvas",
       "title": "Pipeline de autenticação + Firestore",
       "summary": "Sequência para integrar login seguro, sincronização e testes.",
@@ -138,8 +198,14 @@
           "status": "in-progress",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "googlejson", "label": "google-services.json" },
-            { "id": "bom", "label": "BoM configurado" }
+            {
+              "id": "googlejson",
+              "label": "google-services.json"
+            },
+            {
+              "id": "bom",
+              "label": "BoM configurado"
+            }
           ]
         },
         {
@@ -149,8 +215,14 @@
           "status": "not-started",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "ui", "label": "Tela Compose pronta" },
-            { "id": "rules", "label": "Regras V1" }
+            {
+              "id": "ui",
+              "label": "Tela Compose pronta"
+            },
+            {
+              "id": "rules",
+              "label": "Regras V1"
+            }
           ]
         },
         {
@@ -160,11 +232,44 @@
           "status": "not-started",
           "owners": ["QA"],
           "deliverables": [
-            { "id": "evidencia", "label": "Vídeo QA" },
-            { "id": "doc", "label": "Checklist de segurança" }
+            {
+              "id": "evidencia",
+              "label": "Vídeo QA"
+            },
+            {
+              "id": "doc",
+              "label": "Checklist de segurança"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "O app precisa funcionar offline por até 48h. Qual estratégia mantém o perfil atualizado sem conflitos quando a conexão volta?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Ativar `setPersistenceEnabled(true)`, armazenar última versão local e aplicar `merge` ao reconectar, resolvendo conflitos no use case.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Desabilitar o cache offline do Firestore para evitar dados divergentes.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Criar uma coleção paralela apenas para dados offline e sincronizar manualmente depois.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O cache offline do Firestore cuida da fila local; cabe ao domínio tratar conflitos e expor estado consistente.",
+        "incorrect": "O cache offline do Firestore cuida da fila local; cabe ao domínio tratar conflitos e expor estado consistente."
+      }
     },
     {
       "type": "callout",

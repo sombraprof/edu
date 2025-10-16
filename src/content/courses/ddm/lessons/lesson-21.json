@@ -93,6 +93,44 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Estudo de caso – FitJourney: redesign em Compose",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O app FitJourney precisa migrar telas críticas de XML para Compose mantendo identidade visual e acessibilidade."
+        },
+        {
+          "type": "paragraph",
+          "text": "A equipe de design já entregou tokens Material 3, mas o squad enfrenta inconsistências entre dark mode e componentes herdados. A meta é publicar nova UI no próximo release."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Escopo: Tela inicial + vitrine de treinos",
+            "Prazo: 3 semanas",
+            "Métrica: NPS do fluxo de onboarding + redução de bugs de layout"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como quebrar a tela em Composables reutilizáveis sem perder consistência?",
+            "Pergunta: Quais testes e previews garantem fidelidade ao layout do Figma?",
+            "Pergunta: Como validar acessibilidade em dark mode?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Criar catálogo de componentes com previews multi device.",
+            "Ação sugerida: Integrar tokens Material 3 e validar contraste automaticamente.",
+            "Ação sugerida: Registrar guidelines de uso no repositório do squad."
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Checklist de acessibilidade Compose",
@@ -121,6 +159,28 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Migração orientada a componentes",
+      "steps": [
+        {
+          "title": "Inventariar UI",
+          "description": "Liste componentes da tela legado e priorize equivalentes Compose."
+        },
+        {
+          "title": "Criar fundações",
+          "description": "Configure tema Material 3, tipografia e tokens globais."
+        },
+        {
+          "title": "Construir Composables",
+          "description": "Implemente componentes seguindo princípios de state hoisting e previews parametrizados."
+        },
+        {
+          "title": "Validar experiência",
+          "description": "Teste dark mode, acessibilidade e integrações antes de publicar."
+        }
+      ]
+    },
+    {
       "type": "pipelineCanvas",
       "title": "Pipeline da tela Compose",
       "summary": "Garantir entrega da tela com design tokens e QA.",
@@ -132,8 +192,14 @@
           "status": "in-progress",
           "owners": ["Designer", "Mobile"],
           "deliverables": [
-            { "id": "tokens", "label": "Arquivo tokens.json" },
-            { "id": "paleta", "label": "Paleta claro/escuro" }
+            {
+              "id": "tokens",
+              "label": "Arquivo tokens.json"
+            },
+            {
+              "id": "paleta",
+              "label": "Paleta claro/escuro"
+            }
           ]
         },
         {
@@ -143,8 +209,14 @@
           "status": "not-started",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "screen", "label": "Tela Compose" },
-            { "id": "preview", "label": "Preview multi device" }
+            {
+              "id": "screen",
+              "label": "Tela Compose"
+            },
+            {
+              "id": "preview",
+              "label": "Preview multi device"
+            }
           ]
         },
         {
@@ -154,11 +226,44 @@
           "status": "not-started",
           "owners": ["QA"],
           "deliverables": [
-            { "id": "check", "label": "Checklist de acessibilidade" },
-            { "id": "video", "label": "Vídeo comparativo claro/escuro" }
+            {
+              "id": "check",
+              "label": "Checklist de acessibilidade"
+            },
+            {
+              "id": "video",
+              "label": "Vídeo comparativo claro/escuro"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Ao criar a lista de treinos em Compose, o scroll está resetando ao voltar da tela de detalhes. Qual ajuste resolve o problema?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Promover o estado da lista para o ViewModel e lembrar a posição de scroll com `rememberLazyListState`.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Aumentar o tamanho do `LazyColumn` para ocupar toda a tela.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Adicionar um `LaunchedEffect(Unit)` para rolar sempre para o topo.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "Estado de UI deve ser controlado pelo ViewModel; lembrar a posição mantém consistência ao navegar.",
+        "incorrect": "Estado de UI deve ser controlado pelo ViewModel; lembrar a posição mantém consistência ao navegar."
+      }
     },
     {
       "type": "callout",

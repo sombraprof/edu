@@ -82,6 +82,44 @@
       ]
     },
     {
+      "type": "contentBlock",
+      "title": "Estudo de caso – MarketHub: regressões no checkout",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Uma refatoração recente quebrou o fluxo de checkout e apenas testes manuais detectaram o problema perto do release."
+        },
+        {
+          "type": "paragraph",
+          "text": "A equipe possui testes unitários, mas a suíte de UI ainda é pequena. O gerente exigiu evidências automatizadas para evitar novos incidentes."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Fluxos críticos: Login, catálogo, checkout",
+            "Ferramentas: Espresso, Compose Testing, GitHub Actions",
+            "Objetivo: Cobertura de UI 65% e relatórios publicados a cada PR"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Quais cenários precisam de testes instrumentados prioritários?",
+            "Pergunta: Como garantir dados previsíveis para testes?",
+            "Pergunta: Que automações no CI provam a execução dos testes?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Criar fixtures estáveis para login e catálogo.",
+            "Ação sugerida: Implementar gravação de evidências (screenshots, vídeos) em falhas.",
+            "Ação sugerida: Publicar workflow Actions com matriz de dispositivos e upload de relatórios."
+          ]
+        }
+      ]
+    },
+    {
       "type": "callout",
       "variant": "info",
       "title": "Padrões de testes",
@@ -116,6 +154,28 @@
       ]
     },
     {
+      "type": "stepper",
+      "title": "Pipeline de QA orientado a evidências",
+      "steps": [
+        {
+          "title": "Planejamento",
+          "description": "Defina personas, fluxos críticos e dados mock para cada cenário."
+        },
+        {
+          "title": "Implementação",
+          "description": "Escreva testes Espresso/Compose organizados por features com IDs acessíveis."
+        },
+        {
+          "title": "Automação",
+          "description": "Configure GitHub Actions para rodar em emuladores e publicar relatórios e artefatos."
+        },
+        {
+          "title": "Análise",
+          "description": "Monitore resultados, identifique flakiness e ajuste o backlog de QA continuamente."
+        }
+      ]
+    },
+    {
       "type": "pipelineCanvas",
       "title": "Pipeline de QA automatizado",
       "summary": "Conectar desenvolvimento, testes e evidências em cada sprint.",
@@ -127,8 +187,14 @@
           "status": "in-progress",
           "owners": ["QA", "Mobile"],
           "deliverables": [
-            { "id": "matriz", "label": "Matriz de testes" },
-            { "id": "dados", "label": "Dados mock" }
+            {
+              "id": "matriz",
+              "label": "Matriz de testes"
+            },
+            {
+              "id": "dados",
+              "label": "Dados mock"
+            }
           ]
         },
         {
@@ -138,8 +204,14 @@
           "status": "not-started",
           "owners": ["Mobile"],
           "deliverables": [
-            { "id": "suite", "label": "Suite instrumentada" },
-            { "id": "report", "label": "Relatório JUnit" }
+            {
+              "id": "suite",
+              "label": "Suite instrumentada"
+            },
+            {
+              "id": "report",
+              "label": "Relatório JUnit"
+            }
           ]
         },
         {
@@ -149,11 +221,44 @@
           "status": "not-started",
           "owners": ["DevOps", "QA"],
           "deliverables": [
-            { "id": "workflow", "label": "Workflow YAML" },
-            { "id": "artefatos", "label": "Screenshots e vídeos" }
+            {
+              "id": "workflow",
+              "label": "Workflow YAML"
+            },
+            {
+              "id": "artefatos",
+              "label": "Screenshots e vídeos"
+            }
           ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Um teste Compose intermitente falha por causa de animações assíncronas. Qual solução estabiliza o cenário?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Desabilitar animações usando `composeTestRule.mainClock.autoAdvance = false` e controlar o avanço manualmente.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Rodar o teste no modo release para que as animações sejam mais rápidas.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Executar o teste três vezes seguidas e considerar aprovado se passar em pelo menos uma.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "Controlar o clock garante previsibilidade do Compose Testing sem desativar validações importantes.",
+        "incorrect": "Controlar o clock garante previsibilidade do Compose Testing sem desativar validações importantes."
+      }
     },
     {
       "type": "callout",
