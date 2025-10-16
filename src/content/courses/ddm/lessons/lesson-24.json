@@ -1,254 +1,171 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-24",
-  "title": "Aula 24: Unidade V – Setup do Firebase para Android",
-  "slug": "setup-firebase-android",
-  "summary": "Guia a preparação do projeto Android para usar Firebase, incluindo configuração do console, integração com Gradle e boas práticas de segurança.",
-  "objective": "Configurar o projeto Android para consumir serviços Firebase com segurança, preparando ambientes e chaves corretamente.",
+  "title": "Aula 24: Testes de UI com Espresso e Compose Testing",
+  "slug": "testes-ui-espresso-compose",
+  "summary": "Constrói suíte de testes de interface usando Espresso e Compose Testing, integrando ao pipeline de QA colaborativo.",
+  "objective": "Automatizar fluxos críticos de UI garantindo regressão mínima e evidências para o squad.",
   "objectives": [
-    "Criar projeto no Firebase Console e registrar app Android.",
-    "Integrar o arquivo google-services.json com Gradle.",
-    "Configurar módulos necessários (Analytics, Firestore, Auth) de forma incremental.",
-    "Definir ambientes e variáveis seguras para chaves e IDs sensíveis."
+    "Escrever testes Espresso para telas XML legado.",
+    "Criar testes Compose usando `composeTestRule`.",
+    "Aplicar princípios de acessibilidade e sincronização de idling resources.",
+    "Integrar testes ao CI e registrar métricas de cobertura."
   ],
-  "competencies": [
-    "Configuração de serviços backend",
-    "Gestão de credenciais e ambientes",
-    "Boas práticas de segurança mobile"
-  ],
+  "competencies": ["Qualidade de software mobile", "Automação de testes", "Colaboração QA-dev"],
   "skills": [
-    "Registrar app Android no Firebase Console.",
-    "Aplicar plugin google-services e dependências no Gradle.",
-    "Organizar flavors ou build variants para separar ambientes.",
-    "Configurar Remote Config e Crashlytics opcionalmente."
+    "Localizar elementos com `onView`/`onNodeWithTag`.",
+    "Criar idling resources personalizados.",
+    "Capturar screenshots pós-teste.",
+    "Publicar relatórios no GitHub Actions."
   ],
   "outcomes": [
-    "Projeto Android conectado ao Firebase com módulos essenciais.",
-    "Checklist de segurança preenchido para uso de chaves.",
-    "Ambientes dev e prod separados com chaves distintas.",
-    "Documentação atualizada sobre setup e permissões."
+    "Suite de testes cobrindo fluxo de login e listagem.",
+    "Relatório de cobertura anexado ao Moodle.",
+    "Pipeline CI rodando testes automaticamente."
   ],
-  "prerequisites": [
-    "Projeto Android funcional com Gradle atualizado.",
-    "Conta no Firebase com permissões administrativas.",
-    "Conhecimento básico de gerenciamento de dependências."
-  ],
-  "tags": ["android", "firebase", "setup", "seguranca"],
-  "duration": 110,
+  "prerequisites": ["Aulas 21-23"],
+  "tags": ["android", "tests", "espresso", "compose"],
+  "duration": 120,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Firebase Android Setup",
-      "url": "https://firebase.google.com/docs/android/setup",
-      "type": "reference"
+      "label": "Testing Compose UI",
+      "url": "https://developer.android.com/jetpack/compose/testing",
+      "type": "guide"
     },
     {
-      "label": "Add Firebase to your Android project",
-      "url": "https://developer.android.com/studio/write/firebase",
-      "type": "article"
+      "label": "Espresso Testing",
+      "url": "https://developer.android.com/training/testing/espresso",
+      "type": "guide"
     },
     {
-      "label": "Security checklist",
-      "url": "https://firebase.google.com/support/guides/security-checklist",
-      "type": "reference"
+      "label": "GitHub Actions for Android",
+      "url": "https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-android",
+      "type": "guide"
     }
   ],
   "bibliography": [
-    "GOOGLE. Firebase Documentation. 2024.",
-    "PEREIRA, L. Firebase para Android. Novatec, 2023.",
-    "PONTES, C. Segurança em apps mobile. Casa do Código, 2022."
+    "Google. Testing documentation. 2024.",
+    "Android Dev BR. Guia de testes Espresso/Compose. 2024.",
+    "Testing Google Samples. Now in Android. 2024."
   ],
   "assessment": {
     "type": "formative",
-    "description": "Checklist validando setup, segurança das chaves e documentação dos ambientes."
+    "description": "Rubrica avalia cobertura, clareza dos testes e integração no CI."
   },
   "content": [
     {
       "type": "videos",
-      "title": "Referências em vídeo – Unidade V",
+      "title": "Vídeos em português",
       "videos": [
         {
-          "url": "https://www.youtube.com/watch?v=fgdpvwEWJ9M",
-          "title": "Get to know Cloud Firestore",
-          "caption": "Sessão oficial apresentando recursos do Cloud Firestore. Créditos: Firebase (Google, 2020)."
+          "url": "https://www.youtube.com/watch?v=RgFnE7o_TN0",
+          "title": "Testes de UI com Espresso no Android (Rocketseat Brasil)",
+          "caption": "Demonstra como testar fluxos críticos usando Espresso com dicas em português."
         },
         {
-          "url": "https://www.youtube.com/playlist?list=PLl-K7zZEsYLmnJ_FpMOZgyg6XcIGBu2OX",
-          "title": "Firebase for Android",
-          "caption": "Playlist institucional cobrindo autenticação, Firestore e regras de segurança. Créditos: Firebase (Google, 2024)."
+          "url": "https://www.youtube.com/watch?v=3wkqkl7tYj4",
+          "title": "Compose Testing avançado (Android Dev BR)",
+          "caption": "Apresenta composeTestRule, tags e estratégias de sincronização."
         }
       ]
     },
     {
-      "type": "lessonPlan",
-      "title": "Plano de voo",
-      "cards": [
-        {
-          "icon": "check-circle",
-          "title": "Warm-up",
-          "content": "Mitos e verdades sobre Firebase (10 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Configuração no console (20 min).",
-          "content": "Configuração no console (20 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Laboratório",
-          "content": "Integração do google-services.json (35 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Hands-on",
-          "content": "Estruturando build variants e segurança (35 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "TED",
-          "content": "Checklist de segurança e documentação (10 min)."
-        }
+      "type": "flightPlan",
+      "title": "Plano da aula",
+      "items": [
+        "(15 min) Warm-up: revisar bugs recentes detectados via testes manuais.",
+        "(30 min) Demo: configurar Espresso + Compose Testing no projeto.",
+        "(45 min) Laboratório: escrever testes para login e lista, incluindo idling resources.",
+        "(20 min) Integração CI: configurar workflow GitHub Actions.",
+        "(10 min) Retro: definir próximos fluxos a automatizar."
       ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Warm-up",
-      "content": [
-        {
-          "type": "orderedList",
-          "items": [
-            {
-              "text": "00:05 – Quiz mitos x verdades – Cartões com afirmações sobre Firebase para classificar como mito ou verdade."
-            },
-            {
-              "text": "00:05 – Mapa de serviços – Grupos listam quais serviços pretendem usar no projeto integrador."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "Roteiro prático – laboratório",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Vamos registrar o app no Firebase e configurar ambientes seguros."
-        },
-        {
-          "type": "orderedList",
-          "items": [
-            "Criar projeto Firebase e habilitar Firestore e Authentication.",
-            "Registrar o aplicativo Android informando packageName único.",
-            "Baixar google-services.json e adicionar à pasta app/.",
-            "Aplicar o plugin com.google.gms.google-services no build.gradle (app).",
-            "Adicionar dependências Firebase BOM e módulos necessários.",
-            "Configurar productFlavors dev e prod com applicationIdSuffix e arquivos google-services dedicados."
-          ]
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "variant": "error",
-      "title": "Segurança em destaque",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Nunca versionar google-services.json com credenciais reais em repositórios públicos. Configure .gitignore específico e use secrets no CI."
-        },
-        {
-          "type": "paragraph",
-          "text": "Habilite autenticação multifator para administradores no console Firebase antes de publicar o app."
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "title": "TED / Entregável",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Documento compartilhado com checklist de setup, indicando status de cada etapa (console, google-services, flavors, segurança) e evidências (capturas)."
-        }
-      ],
-      "variant": "info"
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Rubrica de segurança Firebase",
-      "content": [
-        {
-          "type": "list",
-          "ordered": false,
-          "items": [
-            "Configuração correta do console e serviços (30%).",
-            "Gestão de credenciais e .gitignore (30%).",
-            "Documentação das variantes e ambientes (25%).",
-            "Políticas de acesso administrativo (15%)."
-          ]
-        }
-      ]
+      "title": "Padrões de testes",
+      "content": "Nomeie testes como `Given_When_Then`, utilize tags acessíveis (`testTag`) e limpe estado entre execuções."
     },
     {
       "type": "contentBlock",
-      "title": "Exemplo de código comentado",
+      "title": "Arquitetura de testes",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Este trecho demonstra a integração em tempo real discutida em Setup do Firebase para Android, com listeners seguros."
+          "type": "image",
+          "src": "https://developer.android.com/static/images/training/testing/espresso-test-structure.png",
+          "alt": "Estrutura de testes Espresso"
         },
         {
-          "type": "codeBlock",
-          "language": "c",
-          "code": "val db = Firebase.firestore\nval usuarios = db.collection(\"usuarios\")\nusuarios.whereEqualTo(\"ativo\", true)\n    .addSnapshotListener { snapshot, erro ->\n        if (erro != null) {\n            Log.e(\"UnidadeV\", \"Erro ao consultar Setup do Firebase para Android\", erro)\n            return@addSnapshotListener\n        }\n        val ativos = snapshot?.documents?.size ?: 0\n        Log.d(\"UnidadeV\", \"Usuários ativos: $ativos\")\n    }\n// Referência: GOOGLE (2024)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Garanta que os logs e regras sigam as orientações de GOOGLE (2024)."
-        },
-        {
-          "type": "callout",
-          "variant": "academic",
-          "title": "Fundamentação bibliográfica",
-          "content": [
+          "type": "orderedList",
+          "items": [
             {
-              "type": "paragraph",
-              "text": "GOOGLE. Firebase Documentation. 2024."
+              "title": "Arrange",
+              "text": "Configurar ambiente e dados simulados."
+            },
+            {
+              "title": "Act",
+              "text": "Interagir com UI usando Espresso/Compose APIs."
+            },
+            {
+              "title": "Assert",
+              "text": "Validar saída e registrar evidências."
             }
           ]
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Leitura complementar e estudos de caso",
-      "content": [
+      "type": "pipelineCanvas",
+      "title": "Pipeline de QA automatizado",
+      "summary": "Conectar desenvolvimento, testes e evidências em cada sprint.",
+      "stages": [
         {
-          "type": "paragraph",
-          "text": "Revise Setup do Firebase para Android conectando os artefatos do projeto às boas práticas de segurança do Firebase."
-        },
-        {
-          "type": "list",
-          "items": [
-            "Releia: GOOGLE. Firebase Documentation. 2024.",
-            "Conecte com o estudo: PEREIRA, L. Firebase para Android. Novatec, 2023."
+          "id": "planejamento",
+          "title": "1. Planejamento",
+          "summary": "Selecionar fluxos críticos, definir métricas e ambiente.",
+          "status": "in-progress",
+          "owners": ["QA", "Mobile"],
+          "deliverables": [
+            { "id": "matriz", "label": "Matriz de testes" },
+            { "id": "dados", "label": "Dados mock" }
           ]
         },
         {
-          "type": "paragraph",
-          "text": "Modele um cenário de sincronização offline e valide como o Firestore responde às perdas de conexão."
+          "id": "execucao",
+          "title": "2. Execução",
+          "summary": "Escrever testes, rodar localmente e ajustar idling resources.",
+          "status": "not-started",
+          "owners": ["Mobile"],
+          "deliverables": [
+            { "id": "suite", "label": "Suite instrumentada" },
+            { "id": "report", "label": "Relatório JUnit" }
+          ]
         },
         {
-          "type": "blockquote",
-          "text": "PEREIRA, L. Firebase para Android. Novatec, 2023."
+          "id": "ci",
+          "title": "3. CI/CD",
+          "summary": "Integrar pipeline ao GitHub Actions e armazenar evidências.",
+          "status": "not-started",
+          "owners": ["DevOps", "QA"],
+          "deliverables": [
+            { "id": "workflow", "label": "Workflow YAML" },
+            { "id": "artefatos", "label": "Screenshots e vídeos" }
+          ]
         }
       ]
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED – Suite automatizada",
+      "content": "Implemente testes para login e lista, publique relatório no Actions e envie link + commit `QA_A24` no Moodle."
     }
   ],
   "metadata": {
-    "updatedAt": "2024-10-18T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra", "Ana Paula (Governança)"]
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Equipe de Conteúdo DDM"],
+    "sources": ["Plano de ensino DDM 2025.2", "Revisão docente fev/2025"]
   }
 }

@@ -1,0 +1,202 @@
+{
+  "id": "lesson-22",
+  "title": "Aula 22: UI Dinâmica e VFX Reativos",
+  "objective": "Unificar interface, feedbacks visuais e efeitos especiais para reforçar a leitura do gameplay e polimento do vertical slice.",
+  "summary": "Combina design system in-game, VFX contextuais, shaders leves e testes de acessibilidade visual para múltiplas plataformas.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "ui-dinamica-e-vfx-reativos",
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Unity VFX Graph Manual",
+      "url": "https://docs.unity3d.com/Packages/com.unity.visualeffectgraph@14.0/manual/index.html",
+      "type": "guide"
+    },
+    {
+      "label": "Godot Shaders Overview",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/shaders/index.html",
+      "type": "guide"
+    },
+    {
+      "label": "Material Design para Jogos (Google)",
+      "url": "https://developers.google.com/games/services/concepts/ui-guidelines",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "Unity. Game UI Sample – Open Source Project. 2024.",
+    "Blender Foundation. Shader Nodes Manual. 2024.",
+    "Google. Material Design Adaptativo. 2024."
+  ],
+  "competencies": [
+    "Design de interface para jogos",
+    "Produção de efeitos visuais",
+    "Acessibilidade visual"
+  ],
+  "outcomes": [
+    "HUD responsivo implementado e testado em múltiplas resoluções.",
+    "Dois VFX críticos integrados com parâmetros expostos.",
+    "Planilha de contraste e tempo de leitura anexada ao GDD."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de UI/VFX implementados com vídeo demonstrativo e anotação de métricas de legibilidade (contraste, tempo de leitura)."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Objetivo",
+          "content": "Entregar UI diegética/hud polida e VFX coerentes com as estéticas planejadas."
+        },
+        {
+          "icon": "code",
+          "title": "Conteúdos",
+          "content": "Design tokens in-game, feedback instantâneo, shaders otimizados, VFX Graph/Particle2D."
+        },
+        {
+          "icon": "users",
+          "title": "Metodologia",
+          "content": "Revisão de referências + laboratório com estações UI/VFX + teste cruzado em dispositivos."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Percurso (100 minutos)",
+      "steps": [
+        {
+          "title": "Diagnóstico visual (15 min)",
+          "content": "Aplicar checklist rápido em builds atuais para mapear pontos de poluição visual ou ausência de feedback."
+        },
+        {
+          "title": "Design tokens e HUD responsivo (25 min)",
+          "content": "Definir tipografia, escala, animações UI e estados críticos; implementar anchor/pivot para múltiplas resoluções."
+        },
+        {
+          "title": "VFX e shaders leves (30 min)",
+          "content": "Criar VFX orientados a estados (dano, cura, objetivo) e ajustar shaders com parâmetros expostos para balanceamento."
+        },
+        {
+          "title": "Testes de leitura (20 min)",
+          "content": "Rodar testes A/B com filtros de daltonismo, medindo tempo de leitura de mensagens críticas."
+        },
+        {
+          "title": "Retro e backlog (10 min)",
+          "content": "Registrar melhorias, dependências com áudio/animação e definir próximos efeitos prioritários."
+        }
+      ]
+    },
+    {
+      "type": "videosBlock",
+      "title": "Vídeos em português sobre UI e VFX",
+      "videos": [
+        {
+          "youtubeId": "a3VNsR_6rTc",
+          "title": "Construindo HUD responsivo no Unity (PT-BR) – Criando Jogos",
+          "description": "Passo a passo em português para estruturar UI escalável com anchors e animações sutis."
+        },
+        {
+          "youtubeId": "27O0-8FtVdE",
+          "title": "VFX para Jogos 2D e 3D – Workshop em Português (VFX Brasil)",
+          "description": "Demonstração prática de partículas e shaders leves aplicados a feedback instantâneo."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Design tokens do HUD",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/material-you-color-tokens.max-1000x1000.png",
+          "alt": "Painel com tokens de cor e tipografia do Material You",
+          "caption": "Adapte a paleta ao contexto do jogo, garantindo contraste mínimo 4.5:1 para texto."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Tokens básicos: cor primária/secundária, tipografia display/body, espaçamentos.",
+            "Estados de UI: foco, hover, disabled, sucesso, alerta.",
+            "Animações: duração máxima de 200ms para feedback crítico, easing out-quint."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Fluxo UI + VFX integrado",
+      "summary": "Garantir consistência entre design visual, efeitos e implementação técnica.",
+      "stages": [
+        {
+          "id": "planejamento",
+          "title": "1. Planejamento visual",
+          "summary": "Mapeamento de HUD, styleguide e mapa de feedbacks no GDD.",
+          "status": "in-progress",
+          "owners": ["UI Designer"],
+          "deliverables": [
+            { "id": "style", "label": "Styleguide atualizado" },
+            { "id": "mapa", "label": "Mapa de feedbacks" }
+          ]
+        },
+        {
+          "id": "producao",
+          "title": "2. Produção de UI/VFX",
+          "summary": "Implementar telas, animações e efeitos, versionando presets e shaders.",
+          "status": "not-started",
+          "owners": ["UI Designer", "Tech Artist"],
+          "deliverables": [
+            { "id": "prefabs", "label": "Prefabs/UI states" },
+            { "id": "vfx", "label": "Efeitos com parâmetros expostos" }
+          ]
+        },
+        {
+          "id": "qa",
+          "title": "3. QA e otimização",
+          "summary": "Testes de performance, acessibilidade e integração com animação/áudio.",
+          "status": "not-started",
+          "owners": ["QA", "Programador"],
+          "deliverables": [
+            { "id": "relatorio", "label": "Relatório de contraste e FPS" },
+            { "id": "backlog", "label": "Backlog priorizado" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: UI e VFX alinhados à experiência",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Implemente o painel HUD principal e dois VFX críticos (impacto e objetivo alcançado) seguindo o styleguide aprovado."
+        },
+        {
+          "type": "checklist",
+          "title": "Critérios",
+          "items": [
+            "HUD responsivo testado em 16:9 e 18:9.",
+            "VFX com controle de intensidade (parâmetro público).",
+            "Planilha de contraste e tempo de leitura anexada ao GDD."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Envio",
+          "content": "Submeter vídeo 60fps + styleguide atualizado no Moodle. Tag de commit `UI_VFX_A22`."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2", "Reunião pedagógica TDJD – jan/2025"]
+  }
+}
