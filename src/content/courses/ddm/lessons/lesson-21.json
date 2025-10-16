@@ -1,228 +1,281 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-21",
-  "title": "Aula 21: Unidade IV – Retrofit com chamadas síncronas",
-  "slug": "retrofit-chamadas-sincronas",
-  "summary": "Ensina a configurar o Retrofit para consumo síncrono de APIs REST, abordando interceptors, parsing de JSON e tratamento de erros.",
-  "objective": "Construir um cliente Retrofit para consumir endpoints REST de forma síncrona, garantindo segurança e previsibilidade no app.",
+  "title": "Aula 21: Fundamentos do Jetpack Compose",
+  "slug": "fundamentos-jetpack-compose",
+  "summary": "Introduz o paradigma declarativo do Jetpack Compose, comparando com Views e construindo a primeira tela responsiva.",
+  "objective": "Criar interfaces responsivas com Jetpack Compose, organizando estados, previews e acessibilidade básica.",
   "objectives": [
-    "Configurar dependências e instâncias Retrofit com GsonConverterFactory.",
-    "Implementar serviços com chamadas Call<T> síncronas em threads separadas.",
-    "Aplicar interceptors de log e cabeçalhos dinâmicos.",
-    "Tratar erros de rede, HTTP e parsing de maneira amigável ao usuário."
+    "Compreender diferenças entre UI imperativa e declarativa.",
+    "Criar Composables reutilizáveis e aplicar Modifiers.",
+    "Utilizar Preview e dispositivos virtuais para testar múltiplos tamanhos.",
+    "Configurar theming Material 3 e suporte a dark mode."
   ],
   "competencies": [
-    "Integração de APIs REST",
-    "Manipulação de threads em Android",
-    "Tratamento de erros de rede"
+    "UI declarativa em Android",
+    "Design responsivo",
+    "Acessibilidade e internacionalização"
   ],
   "skills": [
-    "Configurar Retrofit e OkHttp com logging interceptor.",
-    "Executar chamadas síncronas em executors ou corrotinas com withContext(Dispatchers.IO).",
-    "Validar responses usando códigos HTTP e corpo de erro.",
-    "Implementar wrappers Result<T> para diferenciar sucesso e falha."
+    "Estruturar função @Composable e gerenciar estado com `remember`/`mutableStateOf`.",
+    "Aplicar `Surface`, `MaterialTheme` e tipografia.",
+    "Usar `LazyColumn` para listas performáticas.",
+    "Configurar `@Preview` com múltiplos dispositivos."
   ],
   "outcomes": [
-    "Entrega uma camada de dados Retrofit funcional com chamadas síncronas.",
-    "Registra logs de requisições e respostas respeitando limites de privacidade.",
-    "Exibe mensagens de erro úteis ao usuário final.",
-    "Documenta requisitos de autenticação e limites por requisição."
+    "Tela Compose replicando layout definido em Figma.",
+    "Dark mode funcional e contraste verificado.",
+    "Checklist de acessibilidade preenchido."
   ],
-  "prerequisites": [
-    "Conclusão da Aula 20 com entendimento de contratos REST.",
-    "Conhecimentos de Threads ou corrotinas em Kotlin.",
-    "Projeto Android configurado com ViewModel e LiveData/StateFlow."
-  ],
-  "tags": ["android", "retrofit", "okhttp", "api"],
+  "prerequisites": ["Aulas 18-20"],
+  "tags": ["android", "compose", "material", "ux"],
   "duration": 120,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Retrofit Official Docs",
-      "url": "https://square.github.io/retrofit/",
-      "type": "reference"
+      "label": "Jetpack Compose Basics",
+      "url": "https://developer.android.com/jetpack/compose",
+      "type": "guide"
     },
     {
-      "label": "OkHttp Interceptors",
-      "url": "https://square.github.io/okhttp/features/interceptors/",
-      "type": "article"
+      "label": "Material 3 for Compose",
+      "url": "https://developer.android.com/jetpack/compose/designsystems/material3",
+      "type": "guide"
     },
     {
-      "label": "Handling Errors with Retrofit",
-      "url": "https://developer.android.com/training/volley/request-custom",
-      "type": "reference"
+      "label": "Accessibility in Compose",
+      "url": "https://developer.android.com/jetpack/compose/accessibility",
+      "type": "guide"
     }
   ],
   "bibliography": [
-    "LEE, B.; KIM, J. Mastering Retrofit. LeanPub, 2023.",
-    "PHILLIPS, B. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2024.",
-    "SOUZA, A. Redes móveis para desenvolvedores Android. Novatec, 2022."
+    "Google. Jetpack Compose by Example. 2024.",
+    "Hudson, A. Jetpack Compose Essentials. 2023.",
+    "Android Dev BR. Guia Material 3 no Compose. 2024."
   ],
   "assessment": {
     "type": "formative",
-    "description": "Rubrica prática aplicada durante o laboratório, avaliando a implementação do cliente Retrofit e o tratamento de erros."
+    "description": "Rubrica avaliando estrutura declarativa, responsividade e dark mode da tela criada."
   },
   "content": [
     {
       "type": "videos",
-      "title": "Referências em vídeo – Unidade IV",
+      "title": "Vídeos em português",
       "videos": [
         {
-          "url": "https://www.youtube.com/watch?v=y3QmE21zBIA",
-          "title": "Networking best practices on Android",
-          "caption": "Sessão do Android Developers sobre consumo de APIs. Créditos: Google I/O (2019)."
+          "url": "https://www.youtube.com/watch?v=gp39Xaqfr6Y",
+          "title": "Jetpack Compose do zero (Android Dev BR)",
+          "caption": "Introdução prática com estado, navegação e dicas em português."
         },
         {
-          "url": "https://www.youtube.com/watch?v=BOHK_w09pVA",
-          "title": "Kotlin Coroutines: fundamentos",
-          "caption": "Apresentação oficial sobre corrotinas para operações assíncronas. Créditos: JetBrains (2019)."
+          "url": "https://www.youtube.com/watch?v=FqR0o9epYMo",
+          "title": "Material Design 3 no Compose (Canal Mobile Summit Brasil)",
+          "caption": "Demonstra como aplicar theming e design tokens em PT-BR."
         }
       ]
     },
     {
-      "type": "flightPlan",
-      "title": "Plano de voo da aula",
-      "items": [
-        "Warm-up: Quiz relâmpago sobre status HTTP (10 min).",
-        "Setup e dependências Retrofit/OkHttp (15 min).",
-        "Laboratório: Criando interface de serviço e modelos (30 min).",
-        "Hands-on: Executando chamadas síncronas e exibindo resultados (40 min).",
-        "Debate: Estratégias para limites de API e autenticação (15 min).",
-        "TED: Documentar fluxo de tratamento de erros no repositório (10 min)."
-      ]
-    },
-    {
-      "type": "timeline",
-      "title": "Warm-up",
-      "steps": [
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
         {
-          "title": "00:05 – Quiz com Mentimeter",
-          "content": "Perguntas de múltipla escolha sobre verbos HTTP e códigos 2xx, 4xx, 5xx."
+          "title": "Check-in",
+          "content": "Qual componente Compose você já usou ou quer entender melhor?"
         },
         {
-          "title": "00:05 – Análise de cabeçalhos",
-          "content": "Interpretar cabeçalhos de uma requisição real capturada pelo professor."
+          "title": "Laboratório",
+          "content": "Construir tela com hero, lista e CTA usando Compose + Material 3."
+        },
+        {
+          "title": "Retro",
+          "content": "Compartilhar desafios de estado e mapear próximos estudos (animacões, navegação)."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Roteiro prático – laboratório",
+      "title": "Estudo de caso – FitJourney: redesign em Compose",
       "content": [
         {
           "type": "paragraph",
-          "text": "A turma implementará um cliente Retrofit para obter dados de uma API de filmes. O objetivo é consumir o endpoint /popular de forma síncrona."
+          "text": "O app FitJourney precisa migrar telas críticas de XML para Compose mantendo identidade visual e acessibilidade."
         },
         {
-          "type": "orderedList",
+          "type": "paragraph",
+          "text": "A equipe de design já entregou tokens Material 3, mas o squad enfrenta inconsistências entre dark mode e componentes herdados. A meta é publicar nova UI no próximo release."
+        },
+        {
+          "type": "unorderedList",
           "items": [
-            "Adicionar as dependências Retrofit, Gson converter e OkHttp logging no Gradle.",
-            "Criar data classes MovieResponse e MovieItem com base no contrato JSON entregue.",
-            "Definir interface MovieService com método getPopularMovies(page: Int): Call<MovieResponse>.",
-            "Configurar RetrofitBuilder com baseUrl, converter e interceptor de log condicional (somente em debug).",
-            "Executar a chamada síncrona usando withContext(Dispatchers.IO) e atualizar um MutableLiveData no ViewModel.",
-            "Tratar erros HTTP exibindo mensagens específicas (401, 404, 500) e fallback para cache local quando disponível."
+            "Escopo: Tela inicial + vitrine de treinos",
+            "Prazo: 3 semanas",
+            "Métrica: NPS do fluxo de onboarding + redução de bugs de layout"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como quebrar a tela em Composables reutilizáveis sem perder consistência?",
+            "Pergunta: Quais testes e previews garantem fidelidade ao layout do Figma?",
+            "Pergunta: Como validar acessibilidade em dark mode?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Criar catálogo de componentes com previews multi device.",
+            "Ação sugerida: Integrar tokens Material 3 e validar contraste automaticamente.",
+            "Ação sugerida: Registrar guidelines de uso no repositório do squad."
           ]
         }
       ]
-    },
-    {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Callout – Limites e custos",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Registre o número máximo de requisições por dia da API e implemente no laboratório um interceptor que rejeite chamadas além do limite configurado no app."
-        }
-      ]
-    },
-    {
-      "type": "callout",
-      "title": "TED / Entregável",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Commit no repositório do projeto com README descrevendo a configuração Retrofit, interceptors utilizados e estratégia de tratamento de erros síncronos."
-        }
-      ],
-      "variant": "info"
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Rubrica prática",
+      "title": "Checklist de acessibilidade Compose",
+      "content": "Defina `contentDescription`, valide contraste com dark mode, teste TalkBack usando atalho no emulador."
+    },
+    {
+      "type": "contentBlock",
+      "title": "Mapeamento UI XML → Compose",
       "content": [
         {
-          "type": "list",
-          "ordered": false,
-          "items": [
-            "Configuração correta do Retrofit (30%).",
-            "Implementação de interceptors e cabeçalhos dinâmicos (25%).",
-            "Tratamento de erros e feedback ao usuário (25%).",
-            "Documentação clara do fluxo (20%)."
+          "type": "image",
+          "src": "https://developer.android.com/static/images/jetpack/compose/lists/lazy-column.png",
+          "alt": "Exemplo de LazyColumn com cartões"
+        },
+        {
+          "type": "md3Table",
+          "headers": ["Views", "Compose"],
+          "rows": [
+            ["ConstraintLayout", "Box/Column/Row + Modifiers"],
+            ["RecyclerView", "LazyColumn/LazyRow"],
+            ["TextView", "Text"],
+            ["Button", "Button/FilledTonalButton"],
+            ["CardView", "Card/Surface"]
           ]
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Exemplo de código comentado",
-      "content": [
+      "type": "stepper",
+      "title": "Migração orientada a componentes",
+      "steps": [
         {
-          "type": "paragraph",
-          "text": "O fragmento resume o padrão de cliente Retrofit aplicado às discussões de Retrofit com chamadas síncronas."
+          "title": "Inventariar UI",
+          "description": "Liste componentes da tela legado e priorize equivalentes Compose."
         },
         {
-          "type": "code",
-          "language": "kotlin",
-          "code": "interface ApiService {\n    @GET(\"/posts\")\n    suspend fun listarPosts(): List<PostResponse>\n}\n\nval retrofit = Retrofit.Builder()\n    .baseUrl(\"https://api.exemplo.dev\")\n    .addConverterFactory(MoshiConverterFactory.create())\n    .build()\n\nval service = retrofit.create(ApiService::class.java)\n// Referência: LEE, B (2023)"
+          "title": "Criar fundações",
+          "description": "Configure tema Material 3, tipografia e tokens globais."
         },
         {
-          "type": "paragraph",
-          "text": "Mantenha a configuração alinhada ao que LEE, B (2023) descreve para serialização e segurança."
+          "title": "Construir Composables",
+          "description": "Implemente componentes seguindo princípios de state hoisting e previews parametrizados."
         },
         {
-          "type": "callout",
-          "variant": "academic",
-          "title": "Fundamentação bibliográfica",
-          "content": [
+          "title": "Validar experiência",
+          "description": "Teste dark mode, acessibilidade e integrações antes de publicar."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline da tela Compose",
+      "summary": "Garantir entrega da tela com design tokens e QA.",
+      "stages": [
+        {
+          "id": "design",
+          "title": "1. Design tokens",
+          "summary": "Mapear cores, tipografia e espaçamentos do Figma.",
+          "status": "in-progress",
+          "owners": ["Designer", "Mobile"],
+          "deliverables": [
             {
-              "type": "paragraph",
-              "text": "LEE, B.; KIM, J. Mastering Retrofit. LeanPub, 2023."
+              "id": "tokens",
+              "label": "Arquivo tokens.json"
+            },
+            {
+              "id": "paleta",
+              "label": "Paleta claro/escuro"
+            }
+          ]
+        },
+        {
+          "id": "implementacao",
+          "title": "2. Implementação",
+          "summary": "Criar Composables, previews e testes visuais.",
+          "status": "not-started",
+          "owners": ["Mobile"],
+          "deliverables": [
+            {
+              "id": "screen",
+              "label": "Tela Compose"
+            },
+            {
+              "id": "preview",
+              "label": "Preview multi device"
+            }
+          ]
+        },
+        {
+          "id": "qa",
+          "title": "3. QA",
+          "summary": "Validar acessibilidade, dark mode e responsividade.",
+          "status": "not-started",
+          "owners": ["QA"],
+          "deliverables": [
+            {
+              "id": "check",
+              "label": "Checklist de acessibilidade"
+            },
+            {
+              "id": "video",
+              "label": "Vídeo comparativo claro/escuro"
             }
           ]
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Leitura complementar e estudos de caso",
-      "content": [
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Ao criar a lista de treinos em Compose, o scroll está resetando ao voltar da tela de detalhes. Qual ajuste resolve o problema?",
+      "options": [
         {
-          "type": "paragraph",
-          "text": "Retome o fluxo de consumo de APIs de Retrofit com chamadas síncronas, considerando políticas de tratamento de erros."
+          "id": "opt-1",
+          "text": "Promover o estado da lista para o ViewModel e lembrar a posição de scroll com `rememberLazyListState`.",
+          "correct": true
         },
         {
-          "type": "list",
-          "items": [
-            "Releia: LEE, B.; KIM, J. Mastering Retrofit. LeanPub, 2023.",
-            "Conecte com o estudo: PHILLIPS, B. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2024."
-          ]
+          "id": "opt-2",
+          "text": "Aumentar o tamanho do `LazyColumn` para ocupar toda a tela.",
+          "correct": false
         },
         {
-          "type": "paragraph",
-          "text": "Documente como o endpoint crítico do seu projeto lida com latência e falhas de rede."
-        },
-        {
-          "type": "blockquote",
-          "text": "PHILLIPS, B. Android Programming: The Big Nerd Ranch Guide. 5. ed. 2024."
+          "id": "opt-3",
+          "text": "Adicionar um `LaunchedEffect(Unit)` para rolar sempre para o topo.",
+          "correct": false
         }
-      ]
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "Estado de UI deve ser controlado pelo ViewModel; lembrar a posição mantém consistência ao navegar.",
+        "incorrect": "Estado de UI deve ser controlado pelo ViewModel; lembrar a posição mantém consistência ao navegar."
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED – Landing page Compose",
+      "content": "Replique a landing page fornecida (arquivo Figma) em Compose, com dark mode, lazy list e CTA navegando para tela de detalhes. Submeta vídeo + link do commit (tag `COMPOSE_A21`)."
     }
   ],
   "metadata": {
-    "updatedAt": "2024-10-18T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra", "Ana Paula (Governança)"]
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Equipe de Conteúdo DDM"],
+    "sources": ["Plano de ensino DDM 2025.2", "Revisão docente fev/2025"]
   }
 }

@@ -1,0 +1,325 @@
+{
+  "id": "lesson-20",
+  "title": "Aula 20: Animação Orientada a Gameplay e Integração Técnica",
+  "objective": "Planejar, produzir e integrar animações responsivas que reforcem o game feel sem comprometer performance ou sincronismo com sistemas de jogo.",
+  "summary": "Explora rigging leve, ciclos responsivos, blend trees e ferramentas de captura para conectar animação e lógica de gameplay.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "animacao-orientada-a-gameplay",
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Unity Manual – Mecanim Animation System",
+      "url": "https://docs.unity3d.com/Manual/MecanimAnimationSystem.html",
+      "type": "guide"
+    },
+    {
+      "label": "Unreal Engine – Animation Blueprint",
+      "url": "https://docs.unrealengine.com/5.3/en-US/animation-blueprint-documentation-in-unreal-engine/",
+      "type": "guide"
+    },
+    {
+      "label": "Mixamo – Biblioteca de animações gratuitas",
+      "url": "https://www.mixamo.com/",
+      "type": "tool"
+    }
+  ],
+  "bibliography": [
+    "Brackey, D. Animation Bootcamp for Games. GDC Vault, 2022.",
+    "Unity Technologies. Animation Rigging Package Manual. 2024.",
+    "Epic Games. Animation Blueprint Best Practices. 2024."
+  ],
+  "competencies": [
+    "Animação aplicada ao gameplay",
+    "Integração técnica em engines",
+    "Colaboração entre arte e programação"
+  ],
+  "outcomes": [
+    "Blend tree configurado e documentado no repositório.",
+    "Eventos de animação sincronizados com feedbacks e hitboxes.",
+    "GIF com métricas de latência anexado ao GDD."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega de um clip integrado ao controlador de estados com GIF curto demonstrando transições e métricas de latência registradas."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Objetivo",
+          "content": "Garantir que cada ação-chave do protótipo tenha animações sincronizadas e testadas."
+        },
+        {
+          "icon": "monitor",
+          "title": "Conteúdos",
+          "content": "Rigging enxuto, ciclos básicos, blend trees, eventos de animação e captura rápida."
+        },
+        {
+          "icon": "gears",
+          "title": "Metodologia",
+          "content": "Discussão guiada + laboratório em duplas com pairing artista/programador + rodada de teste cruzado."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Sequência de 100 minutos",
+      "steps": [
+        {
+          "title": "Warm-up cinético (10 min)",
+          "content": "Comparar vídeos de animações responsivas e travadas para identificar critérios de game feel."
+        },
+        {
+          "title": "Rigging e captura rápida (20 min)",
+          "content": "Demonstração de rig leve com Mixamo, retarget em engine e uso de Animation Rigging para correções locais."
+        },
+        {
+          "title": "Blend trees e eventos (35 min)",
+          "content": "Hands-on: configurar blend trees 2D, adicionar eventos para sincronizar hitboxes e VFX, medir latência."
+        },
+        {
+          "title": "Debug de transições (20 min)",
+          "content": "Uso do Animator Debugger/Anim Blueprint para detectar estados órfãos e loops indevidos."
+        },
+        {
+          "title": "Retro coletivo (15 min)",
+          "content": "Compartilhar GIFs produzidos, registrar ajustes no backlog e alinhar dependências com VFX/UI."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Da referência ao rig testado",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Os movimentos do vertical slice precisam comunicar impacto sem quebrar a cadência de gameplay. Antes de abrir a timeline de animação, alinhe expectativas com programação e design."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Determine quais ações terão prioridade de polimento (ataque, dash, interação de missão).",
+            "Combine com o time de programação quais eventos precisam disparar lógica (dano, invulnerabilidade, spawn).",
+            "Verifique limitações de plataforma: quantidade máxima de bones, blend shapes permitidos e budget de memória para animação."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos em português para dominar animação",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=w0b8uY8nYnc",
+          "title": "Boas práticas de animação para jogos – GDC Brasil",
+          "caption": "Palestra em português com técnicas de antecipação, follow through e sincronismo com gameplay."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=5pGv3gCFeSk",
+          "title": "Blend Trees no Unity explicado em PT-BR (Canal Games na Prática)",
+          "caption": "Tutorial passo a passo sobre configuração de blend trees, eventos e ajustes finos para game feel."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Lumen Forge: boss de abertura",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O estúdio Lumen Forge está finalizando a animação do boss inicial para uma demo enviada a publishers."
+        },
+        {
+          "type": "paragraph",
+          "text": "Os playtests mostraram latência perceptível entre input e impacto e transições abruptas quando o boss tomava dano. O squad precisa equilibrar estética e responsividade."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Recursos disponíveis: 3 animações base de Mixamo + 2 ciclos customizados",
+            "Requisitos técnicos: Blend tree 2D, eventos para hitbox e sincronização com VFX",
+            "Meta: Latência input→impacto < 180 ms em build de console"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como adaptar animações pré-prontas sem perder personalidade do personagem?",
+            "Pergunta: Quais dados coletar para provar que a latência caiu após ajustes?",
+            "Pergunta: Que acordos estabelecer com VFX/Áudio para manter o boss sincronizado?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Documente cada animação com frame-chave (antecipação, contato, recuperação) e eventos correspondentes.",
+            "Ação sugerida: Implemente blend tree com parâmetros normalizados e valide transições com a ferramenta de debug da engine.",
+            "Ação sugerida: Gere GIF de comparação antes/depois com métricas de tempo e compartilhe no canal do squad."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Checklists de preparação",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://docs.unity3d.com/uploads/Main/AnimatorController.png",
+          "alt": "Animator Controller com blend tree configurado",
+          "caption": "Use o diagrama para validar se cada transição possui condição explícita e tempos ajustados."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Padronize convenções de nomes: `ANM_personagem_acao_variante`.",
+            "Defina frame de contato e duração alvo para cada animação crítica.",
+            "Sincronize planilha de dependências entre animação, VFX e áudio."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Fluxo de animação alinhado ao sprint",
+      "summary": "Orienta a produção semanal: da captura à validação em playtest.",
+      "stages": [
+        {
+          "id": "cap_ciclos",
+          "title": "1. Captura & blocagem",
+          "summary": "Selecionar referências, capturar movimentos básicos e criar blocos low-poly.",
+          "status": "in-progress",
+          "owners": ["Animador", "Tech Artist"],
+          "deliverables": [
+            {
+              "id": "refs",
+              "label": "Referências aprovadas"
+            },
+            {
+              "id": "blocagem",
+              "label": "Blocagem em 30fps"
+            }
+          ]
+        },
+        {
+          "id": "refino",
+          "title": "2. Refino e sincronismo",
+          "summary": "Ajustar curvas, adicionar eventos, alinhar root motion e colisões.",
+          "status": "not-started",
+          "owners": ["Animador"],
+          "deliverables": [
+            {
+              "id": "curvas",
+              "label": "Curvas polidas"
+            },
+            {
+              "id": "eventos",
+              "label": "Eventos configurados"
+            }
+          ]
+        },
+        {
+          "id": "integracao",
+          "title": "3. Integração & QA",
+          "summary": "Publicar no repositório, testar em dispositivo alvo e coletar feedback do squad.",
+          "status": "not-started",
+          "owners": ["Programador", "QA"],
+          "deliverables": [
+            {
+              "id": "controller",
+              "label": "Controller atualizado"
+            },
+            {
+              "id": "gif",
+              "label": "GIF e métricas no GDD"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Roteiro para animação orientada a gameplay",
+      "steps": [
+        {
+          "title": "Briefing cinético",
+          "description": "Colete referências, defina frame de impacto e alinhe intenções com game design."
+        },
+        {
+          "title": "Pré-processamento e rig",
+          "description": "Ajuste pesos, configure constraints leves e prepare controles necessários para correções rápidas."
+        },
+        {
+          "title": "Integração e debug",
+          "description": "Implemente blend trees, root motion e eventos; use o debugger para identificar transições órfãs."
+        },
+        {
+          "title": "Captura e documentação",
+          "description": "Registre GIF, métricas de latência e anexe notas de tuning ao GDD para iterações futuras."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Durante a integração, o dash do personagem está acelerando demais ao sair do blend tree. Qual ajuste resolve o problema com menor retrabalho?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Normalizar o parâmetro de velocidade no blend tree e ajustar o threshold de transição para corresponder ao valor emitido pelo código.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Adicionar keyframes extras na animação de dash para desacelerar manualmente no editor 3D.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Remover o blend tree e voltar a usar transições simples entre estados Idle e Dash.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O problema ocorre no controlador, não na animação fonte; alinhar thresholds evita saltos sem reexportar assets.",
+        "incorrect": "O problema ocorre no controlador, não na animação fonte; alinhar thresholds evita saltos sem reexportar assets."
+      }
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: Animação crítica pronta para o vertical slice",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Escolha uma ação fundamental (ataque, dash, salto, interação) e produza o ciclo completo, integrando no controlador principal do projeto."
+        },
+        {
+          "type": "checklist",
+          "title": "Critérios",
+          "items": [
+            "Blend tree com estados \"idle\", \"ação\" e \"recuperação\" sem saltos bruscos.",
+            "Evento disparando hitbox ou trigger de VFX alinhado ao frame correto.",
+            "GIF de até 8 segundos com métricas de latência (start → impacto) registrado no GDD."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "warning",
+          "title": "Boas práticas",
+          "content": "Evite copiar animações sem revisar root motion; sempre normalize e teste em build móvel/PC para detectar drift."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2", "Reunião pedagógica TDJD – jan/2025"]
+  }
+}

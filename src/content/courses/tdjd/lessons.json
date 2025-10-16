@@ -199,6 +199,61 @@
       "tags": ["ux", "ui", "prototipo"],
       "duration": 100,
       "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-19",
+      "title": "Aula 19: Pipeline de Arte 2D/3D para o Vertical Slice",
+      "file": "lesson-19.json",
+      "available": true,
+      "description": "Organiza o fluxo de criação, versionamento e otimização de assets 2D/3D alinhado ao vertical slice do squad.",
+      "summary": "Estabelece um pipeline completo de arte, da pré-produção à integração em engine, com ênfase em controle de versão, otimização e acessibilidade visual.",
+      "tags": ["arte", "pipeline", "vertical-slice"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-20",
+      "title": "Aula 20: Animação Orientada a Gameplay e Integração Técnica",
+      "file": "lesson-20.json",
+      "available": true,
+      "description": "Planeja rigging leve, ciclos responsivos e integra animações com lógica de jogo sem sacrificar performance.",
+      "summary": "Explora rigging leve, ciclos responsivos, blend trees e ferramentas de captura para conectar animação e lógica de gameplay.",
+      "tags": ["animacao", "gameplay", "integracao"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-21",
+      "title": "Aula 21: Áudio Dinâmico e Mixagem Interativa",
+      "file": "lesson-21.json",
+      "available": true,
+      "description": "Implementa paisagens sonoras dinâmicas com middleware e cria lógica reativa para feedback auditivo consistente.",
+      "summary": "Integra FMOD/Wwise ao protótipo, cobre organização de bancos, mixagem adaptativa e testes de acessibilidade sonora.",
+      "tags": ["audio", "middleware", "acessibilidade"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-22",
+      "title": "Aula 22: UI Dinâmica e VFX Reativos",
+      "file": "lesson-22.json",
+      "available": true,
+      "description": "Unifica HUD, efeitos especiais e padrões visuais para reforçar leitura do gameplay e polimento do vertical slice.",
+      "summary": "Combina design system in-game, VFX contextuais, shaders leves e testes de acessibilidade visual para múltiplas plataformas.",
+      "tags": ["ui", "vfx", "polimento"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
+    },
+    {
+      "id": "lesson-23",
+      "title": "Aula 23: Profiling e Otimização Multiplataforma",
+      "file": "lesson-23.json",
+      "available": true,
+      "description": "Diagnostica gargalos de performance e prioriza otimizações para builds estáveis em PC e dispositivos móveis.",
+      "summary": "Apresenta ferramentas de profiling, métricas essenciais, estratégias de otimização e checklist de build pipeline contínuo.",
+      "tags": ["performance", "profiling", "builds"],
+      "duration": 100,
+      "formatVersion": "md3.lesson.v1"
     }
   ]
 }

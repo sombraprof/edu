@@ -1,0 +1,394 @@
+{
+  "id": "lesson-19",
+  "title": "Aula 19: Pipeline de Arte 2D/3D para o Vertical Slice",
+  "objective": "Organizar e integrar fluxos de arte 2D/3D ao protótipo jogável garantindo consistência visual, performance e versionamento colaborativo.",
+  "summary": "Estabelece um pipeline completo de arte, da pré-produção à integração em engine, com ênfase em controle de versão, otimização e acessibilidade visual.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "pipeline-arte-vertical-slice",
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Unity Manual – Artistic Workflow",
+      "url": "https://docs.unity3d.com/Manual/3D-formats.html",
+      "type": "guide"
+    },
+    {
+      "label": "Godot Docs – Importação de Assets 2D e 3D",
+      "url": "https://docs.godotengine.org/en/stable/tutorials/assets_pipeline/importing_3d_scenes.html",
+      "type": "guide"
+    },
+    {
+      "label": "Notion Template – Controle de Assets TDJD",
+      "url": "https://www.notion.so/templates/game-art-assets-tracker",
+      "type": "template"
+    }
+  ],
+  "bibliography": [
+    "Schell, J. The Art of Game Design: A Book of Lenses. 4. ed. CRC Press, 2023.",
+    "Unity Technologies. Unity Manual – Artistic Workflow. 2024.",
+    "Godot Engine. Asset Pipeline Overview. 2024."
+  ],
+  "competencies": [
+    "Produção artística para jogos",
+    "Gestão de pipeline de assets",
+    "Acessibilidade visual aplicada"
+  ],
+  "outcomes": [
+    "Pipeline de arte documentado no GDD com responsáveis definidos.",
+    "Lote de assets integrado com métricas de performance registradas.",
+    "Checklist de acessibilidade visual entregue pelo squad."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Checklist de integração dos novos assets no repositório do projeto com screenshots antes/depois e nota de commit documentada."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Objetivo",
+          "content": "Mapear o pipeline de arte do squad e integrar ao vertical slice em desenvolvimento."
+        },
+        {
+          "icon": "book-open",
+          "title": "Conteúdos",
+          "content": "Briefing visual, controle de versões, otimização de texturas, integração no Unity/Godot e revisão de acessibilidade."
+        },
+        {
+          "icon": "users",
+          "title": "Metodologia",
+          "content": "Aquecimento com análise comparativa, exposição dialogada, laboratório colaborativo e rodada de feedback guiado."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Estrutura (100 minutos)",
+      "steps": [
+        {
+          "title": "Check-in visual (10 min)",
+          "content": "Cada squad apresenta referências visuais atuais em um mural Miro e aponta gargalos na produção de assets."
+        },
+        {
+          "title": "Pipeline de arte moderno (20 min)",
+          "content": "Apresentação guiada do fluxo conceitual → produção → integração, destacando automatizações com import presets e validação em lote."
+        },
+        {
+          "title": "Hands-on: padronizando assets (45 min)",
+          "content": "Times aplicam presets de importação, configuram texturas PBR, nomeiam arquivos conforme convenção e integram em cena jogável."
+        },
+        {
+          "title": "QA visual inclusivo (15 min)",
+          "content": "Checklist de acessibilidade (contraste, legibilidade, daltonismo) aplicado diretamente na engine com apoio de ferramentas como Unity Accessibility Tools."
+        },
+        {
+          "title": "Debrief e TED (10 min)",
+          "content": "Registro de decisões no GDD, atualização do quadro de assets e definição do lote de entregas da semana."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Contextualizando o desafio do squad",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O vertical slice está duas sprints de entrar em playtest aberto e a direção quer ver consistência visual antes de liberar orçamento extra. Esta aula funciona como um mutirão orientado a dados para arrumar a casa do pipeline de arte."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Faça um inventário rápido dos assets já entregues e categorize por estado (aprovado, precisa de ajuste, bloqueado).",
+            "Combine presets de importação e convenções de nomenclatura antes de abrir softwares de modelagem ou pintura.",
+            "Registre todas as decisões no GDD e vincule métricas de performance para justificar priorização."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos em português para aprofundar o pipeline",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=yYcS6w2nq5M",
+          "title": "Pipeline de Arte para Jogos: do Concept ao Engine (Unhide School)",
+          "caption": "Masterclass em português explicando etapas e boas práticas de integração de assets."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=4m3S3w7PZb4",
+          "title": "Organização de Assets no Unity – Workflow Profissional (Dev Aprender)",
+          "caption": "Demonstração prática de presets, hierarquias de pastas e import settings comentada em português."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Estúdio Aurora: vertical slice cooperativo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O estúdio Aurora Games precisa entregar o vertical slice cooperativo 'Nebula Run' em duas semanas para investidores."
+        },
+        {
+          "type": "paragraph",
+          "text": "O playtest da sprint anterior revelou assets desalinhados e quedas de FPS ao carregar a cena de hub. O squad de arte foi acionado para reorganizar produção e integração sem atrasar outras frentes."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Equipe: 2 artistas 2D, 1 artista 3D, 1 tech artist",
+            "Problemas detectados: Texturas 4K sem compressão, LODs ausentes e convenções de pastas divergentes",
+            "Meta da sprint: Integrar 12 assets prioritários mantendo FPS médio acima de 55"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Como priorizar correções sem paralisar a produção de novos assets?",
+            "Pergunta: Quais métricas devem ser monitoradas para provar que o pipeline está saudável?",
+            "Pergunta: Que acordos de naming/versionamento evitam retrabalho quando várias frentes mexem no mesmo prefab?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Mapeie responsabilidades e prazos no quadro do Notion usando tags por etapa do pipeline.",
+            "Ação sugerida: Defina presets de importação padronizados (compressão, normal map, mipmaps) e documente no repositório.",
+            "Ação sugerida: Configure uma rotina diária de testes de performance com build automatizada do vertical slice."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Guia visual do pipeline",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://learn.unity.com/api/v1/media/generic/asset-pipeline-diagram.png",
+          "alt": "Diagrama de pipeline mostrando fluxo de concept, modelagem, texturização e integração",
+          "caption": "Use como referência para customizar o pipeline no quadro do seu squad."
+        },
+        {
+          "type": "callout",
+          "variant": "tip",
+          "title": "Convencione antes de produzir",
+          "content": [
+            {
+              "type": "paragraph",
+              "text": "Padronize nomes, pastas, formatos de exportação (FBX, PNG, EXR) e presets de importação antes de liberar o sprint de arte. Isso evita retrabalho e conflitos de merge."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline de arte alinhado ao vertical slice",
+      "summary": "Etapas e entregáveis mínimos para que cada asset chegue pronto ao jogo sem comprometer performance.",
+      "stages": [
+        {
+          "id": "briefing",
+          "title": "1. Briefing visual",
+          "summary": "Moodboard, referências e critérios de aceitação documentados no GDD.",
+          "status": "in-progress",
+          "owners": ["Direção de arte"],
+          "deliverables": [
+            {
+              "id": "mood",
+              "label": "Moodboard aprovado"
+            },
+            {
+              "id": "paleta",
+              "label": "Guia de cores e materiais"
+            }
+          ]
+        },
+        {
+          "id": "producao",
+          "title": "2. Produção e revisão",
+          "summary": "Modelagem/ilustração, UV, texturização e revisão técnica entre pares.",
+          "status": "not-started",
+          "owners": ["Artistas 2D", "Artistas 3D"],
+          "deliverables": [
+            {
+              "id": "asset",
+              "label": "Asset exportado com preset"
+            },
+            {
+              "id": "qa",
+              "label": "Checklist de QA visual"
+            }
+          ]
+        },
+        {
+          "id": "integracao",
+          "title": "3. Integração na engine",
+          "summary": "Import, setup de materiais, LODs e testes de performance no target device.",
+          "status": "not-started",
+          "owners": ["Tech Artist", "Programador"],
+          "deliverables": [
+            {
+              "id": "scene",
+              "label": "Prefab pronto para uso"
+            },
+            {
+              "id": "metrics",
+              "label": "FPS, draw calls e memória registrados"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Passo a passo para estabilizar o pipeline",
+      "steps": [
+        {
+          "title": "Diagnóstico do repositório",
+          "description": "Execute auditoria de pastas, identifique duplicidades e registre assets críticos que precisam de retrabalho imediato."
+        },
+        {
+          "title": "Padronização e presets",
+          "description": "Crie presets de importação, normalize escalas e gere templates de nomeação antes de liberar novas produções."
+        },
+        {
+          "title": "Integração guiada por métricas",
+          "description": "Integre assets em cenas teste medindo FPS, draw calls e uso de memória a cada lote inserido."
+        },
+        {
+          "title": "Revisão colaborativa",
+          "description": "Organize uma rodada de QA visual com checklist de acessibilidade e registre decisões diretamente no GDD."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Ao importar um lote de texturas PBR que veio em 4K sem compressão, qual é a estratégia mais indicada para manter consistência visual e performance?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Criar um preset de importação aplicando compressão adequada, gerar mipmaps e salvar o preset no repositório do projeto.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Reduzir manualmente cada textura em um editor externo e subir os arquivos diretamente para a pasta final.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Manter as texturas originais em 4K para preservar qualidade máxima e confiar no build final para otimizar.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O preset padronizado garante repetibilidade, reduz retrabalho e documenta a configuração aplicada em todo novo asset importado.",
+        "incorrect": "O preset padronizado garante repetibilidade, reduz retrabalho e documenta a configuração aplicada em todo novo asset importado."
+      }
+    },
+    {
+      "type": "systemMapper",
+      "title": "Mapeando dependências do squad de arte",
+      "summary": "Visualize como decisões de arte impactam performance, narrativa e acessibilidade.",
+      "factors": [
+        {
+          "id": "coerencia_visual",
+          "name": "Coerência visual",
+          "summary": "Alinhamento entre estilo, narrativa e estética planejada.",
+          "kind": "stock",
+          "indicators": ["Checklist do moodboard", "Feedback da direção de arte"]
+        },
+        {
+          "id": "performance",
+          "name": "Performance em runtime",
+          "summary": "FPS estável e tempos de carregamento dentro da meta.",
+          "kind": "outcome",
+          "indicators": ["FPS alvo", "Tempo de loading"]
+        },
+        {
+          "id": "acessibilidade",
+          "name": "Acessibilidade visual",
+          "summary": "Contraste, leitura e clareza para diferentes perfis de jogadores.",
+          "kind": "constraint",
+          "indicators": ["Teste de contraste", "Feedback de playtest inclusivo"]
+        },
+        {
+          "id": "cadencia_sprint",
+          "name": "Cadência de entregas",
+          "summary": "Volume de assets finalizados por sprint e retrabalho registrado.",
+          "kind": "driver",
+          "indicators": ["Assets por sprint", "Percentual de retrabalho"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "loop_performance",
+          "name": "Performance reforça decisões de arte",
+          "polarity": "balancing",
+          "summary": "Quando a performance cai, squad revisa materiais e reduz complexidade para recuperar FPS.",
+          "steps": [
+            {
+              "id": "s1",
+              "from": "performance",
+              "to": "cadencia_sprint",
+              "effect": "balances",
+              "description": "Quedas de FPS exigem ajustes, reduzindo momentaneamente a cadência de entrega."
+            },
+            {
+              "id": "s2",
+              "from": "cadencia_sprint",
+              "to": "coerencia_visual",
+              "effect": "balances",
+              "description": "Sprint mais enxuto permite revisitar referências e reforçar coerência visual."
+            },
+            {
+              "id": "s3",
+              "from": "coerencia_visual",
+              "to": "performance",
+              "effect": "reinforces",
+              "description": "Assets coerentes evitam improvisos pesados e estabilizam performance."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: Lote de assets pronto para playtest",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza ou refaça, em squad, um lote de três assets críticos (personagem, props e cenário modular) seguindo o pipeline padronizado."
+        },
+        {
+          "type": "checklist",
+          "title": "Critérios de aceitação",
+          "items": [
+            "Prefab configurado e versionado com prefixo `ART_A19`.",
+            "Captura antes/depois com métricas de FPS registradas no GDD.",
+            "Checklist de acessibilidade preenchido e anexado na pasta `QA/visual`."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Envio",
+          "content": "Submeta o link do commit no Moodle até domingo, 23h55, com descrição das otimizações aplicadas."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2", "Reunião pedagógica TDJD – jan/2025"]
+  }
+}

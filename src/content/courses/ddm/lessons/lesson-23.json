@@ -1,250 +1,270 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-23",
-  "title": "Aula 23: Unidade IV – RecyclerView com dados remotos",
-  "slug": "recyclerview-dados-remotos",
-  "summary": "Integra dados carregados via Retrofit em uma RecyclerView responsiva, abordando diffing, paginação e estados de carregamento.",
-  "objective": "Construir uma lista dinâmica que consome dados remotos com RecyclerView, aplicando padrões de arquitetura e feedback ao usuário.",
+  "title": "Aula 23: UI Responsiva, Material 3 e Dark Mode",
+  "slug": "ui-responsiva-material3",
+  "summary": "Aprimora a tela Compose com breakpoints responsivos, adaptação a diferentes densidades e suporte completo a Material 3/dark mode.",
+  "objective": "Aplicar tokens Material 3, breakpoints responsivos e testes de acessibilidade para múltiplos dispositivos.",
   "objectives": [
-    "Configurar RecyclerView com ListAdapter e DiffUtil.",
-    "Integrar StateFlow/Livedata com RecyclerView e componentes de UI.",
-    "Implementar paginação manual e indicadores de carregamento.",
-    "Tratar erros exibindo mensagens e ações de retry."
+    "Configurar `MaterialTheme` com esquemas claro/escuro dinâmicos.",
+    "Utilizar `WindowSizeClass` para adaptar layout.",
+    "Implementar suporte a fontes dinâmicas e escalonamento.",
+    "Executar testes de acessibilidade (TalkBack, contraste, tamanho de fonte)."
   ],
-  "competencies": [
-    "Construção de interfaces responsivas",
-    "Integração de dados remotos com UI",
-    "Feedback e estados de carregamento"
-  ],
+  "competencies": ["Design responsivo", "Material Design 3", "Acessibilidade mobile"],
   "skills": [
-    "Criar adapters com ViewBinding.",
-    "Aplicar DiffUtil.ItemCallback para atualizar listas de forma eficiente.",
-    "Implementar paginação incremental com triggers de scroll.",
-    "Exibir estados de carregamento, vazio e erro na UI."
+    "Criar `ColorScheme` dinâmico com `dynamicLightColorScheme`.",
+    "Aplicar `AdaptiveLayout` com `NavigationRail`/`NavigationBar`.",
+    "Testar fontes grandes com `fontScale`.",
+    "Executar checklist de acessibilidade com Accessibility Scanner."
   ],
   "outcomes": [
-    "Apresenta dados remotos em uma lista performática.",
-    "Mantém sincronizados estados de carregamento e empty state.",
-    "Documenta limites de paginação impostos pela API.",
-    "Publica checklist de UX para feedback ao usuário."
+    "Layout adaptável em celular/tablet.",
+    "Dark mode integrado com Material 3.",
+    "Relatório de acessibilidade anexado."
   ],
-  "prerequisites": [
-    "Concluir aulas sobre Retrofit síncrono e assíncrono.",
-    "Conhecer fundamentos de RecyclerView e ViewBinding.",
-    "Projeto com camada de dados implementada."
-  ],
-  "tags": ["android", "recyclerview", "ui", "api"],
+  "prerequisites": ["Aulas 21-22"],
+  "tags": ["android", "compose", "material3", "acessibilidade"],
   "duration": 120,
   "modality": "in-person",
   "resources": [
     {
-      "label": "RecyclerView documentation",
-      "url": "https://developer.android.com/guide/topics/ui/layout/recyclerview",
-      "type": "article"
+      "label": "Material Design Responsiveness",
+      "url": "https://m3.material.io/foundations/layout/overview",
+      "type": "guide"
     },
     {
-      "label": "Guide to app architecture",
-      "url": "https://developer.android.com/topic/architecture",
-      "type": "reference"
+      "label": "Adaptive layouts in Compose",
+      "url": "https://developer.android.com/jetpack/compose/layouts/adaptive",
+      "type": "guide"
     },
     {
-      "label": "Paging basics",
-      "url": "https://developer.android.com/topic/libraries/architecture/paging/v3-overview",
-      "type": "reference"
+      "label": "Compose accessibility",
+      "url": "https://developer.android.com/jetpack/compose/accessibility",
+      "type": "guide"
     }
   ],
   "bibliography": [
-    "GRANDE, A. Dominando RecyclerView. Casa do Código, 2022.",
-    "GOOGLE. RecyclerView best practices. 2024.",
-    "MARTINS, P. UX para feedback de carregamento. Novatec, 2023."
+    "Google. Adaptive Layouts. 2024.",
+    "Android Dev BR. Dark mode e Material 3. 2024.",
+    "UX Collective Brasil. Acessibilidade em apps. 2024."
   ],
   "assessment": {
     "type": "formative",
-    "description": "Rubrica observacional avaliando a qualidade da integração da lista, estados e documentação de limites de API."
+    "description": "Checklist avaliando tokens, responsividade e acessibilidade da tela adaptada."
   },
   "content": [
     {
       "type": "videos",
-      "title": "Referências em vídeo – Unidade IV",
+      "title": "Vídeos em português",
       "videos": [
         {
-          "url": "https://www.youtube.com/watch?v=y3QmE21zBIA",
-          "title": "Networking best practices on Android",
-          "caption": "Sessão do Android Developers sobre consumo de APIs. Créditos: Google I/O (2019)."
+          "url": "https://www.youtube.com/watch?v=U4lH0svBL4I",
+          "title": "Layouts adaptativos no Compose (Mobile Talks BR)",
+          "caption": "Explica WindowSizeClass e padrões responsivos em português."
         },
         {
-          "url": "https://www.youtube.com/watch?v=BOHK_w09pVA",
-          "title": "Kotlin Coroutines: fundamentos",
-          "caption": "Apresentação oficial sobre corrotinas para operações assíncronas. Créditos: JetBrains (2019)."
+          "url": "https://www.youtube.com/watch?v=ty1gnSUZXLM",
+          "title": "Dark mode e acessibilidade no Android (DevMedia)",
+          "caption": "Boas práticas de contraste, fontes dinâmicas e testes acessíveis."
         }
       ]
     },
     {
-      "type": "lessonPlan",
-      "title": "Plano de voo",
-      "cards": [
-        {
-          "icon": "check-circle",
-          "title": "Warm-up",
-          "content": "Lightning talk sobre listas reativas (10 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Setup do adapter com DiffUtil (20 min).",
-          "content": "Setup do adapter com DiffUtil (20 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Laboratório",
-          "content": "Conectando Flow/LiveData à RecyclerView (35 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "Hands-on",
-          "content": "Paginação e estados de carregamento (35 min)."
-        },
-        {
-          "icon": "check-circle",
-          "title": "TED",
-          "content": "Checklist de UX e limites de paginação (10 min)."
-        }
+      "type": "flightPlan",
+      "title": "Plano da aula",
+      "items": [
+        "(15 min) Warm-up: analisar apps referência em telefone/tablet.",
+        "(30 min) Demo: configurar Material 3 dinâmico e tokens personalizados.",
+        "(40 min) Laboratório: adaptar layout com WindowSizeClass e NavigationRail.",
+        "(20 min) Testes de acessibilidade: TalkBack, contraste, fontScale 1.5x.",
+        "(15 min) Retro: consolidar checklist e definir ajustes finais."
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Warm-up",
+      "title": "Estudo de caso – EducaKids: tablets na sala de aula",
       "content": [
         {
-          "type": "orderedList",
+          "type": "paragraph",
+          "text": "O app EducaKids precisa suportar tablets escolares e celulares antigos mantendo a mesma experiência de leitura."
+        },
+        {
+          "type": "paragraph",
+          "text": "O layout atual quebra em telas maiores e o dark mode está incompleto. O contrato com a rede de escolas exige acessibilidade comprovada."
+        },
+        {
+          "type": "unorderedList",
           "items": [
-            {
-              "text": "00:05 – Show and tell – Estudantes apresentam apps que usam listas infinitas e discutem UX."
-            },
-            {
-              "text": "00:05 – Quiz de diffing – Perguntas rápidas sobre como o DiffUtil detecta mudanças e quando usar notifyDataSetChanged."
-            }
+            "Dispositivos alvo: Android 8 a 14, telas 7'' a 11''",
+            "Critérios: WCAG AA, dark mode completo, tipografia escalável",
+            "Prazo: Entrega em 4 semanas"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Quais breakpoints exigem layout alternativo?",
+            "Pergunta: Como validar contraste e fontes dinâmicas automaticamente?",
+            "Pergunta: Que processos garantem revisão contínua com design?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Implementar WindowSizeClass com variações de navegação.",
+            "Ação sugerida: Configurar testes instrumentados para validar dark mode e tamanho de fonte.",
+            "Ação sugerida: Documentar checklist de acessibilidade e evidências para o cliente."
           ]
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Roteiro prático – laboratório",
+      "title": "Tokens e breakpoints",
       "content": [
         {
-          "type": "paragraph",
-          "text": "Vamos exibir a lista de filmes populares obtida na aula anterior. O foco é garantir atualização incremental, loading e empty state."
+          "type": "image",
+          "src": "https://m3.material.io/images/layout/large-screens/adaptive-layout-hero.png",
+          "alt": "Exemplo de layout adaptativo Material 3"
         },
         {
-          "type": "orderedList",
-          "items": [
-            "Criar layout item_movie.xml com ViewBinding e placeholders para imagem, título e avaliação.",
-            "Implementar MovieAdapter estendendo ListAdapter<MovieUiModel, MovieViewHolder> com DiffUtil.",
-            "Conectar a RecyclerView ao adapter e ao StateFlow do ViewModel usando repeatOnLifecycle.",
-            "Exibir barra de progresso e skeleton enquanto o estado for Loading.",
-            "Adicionar listener de scroll para carregar próxima página quando estiver a 5 itens do fim.",
-            "Apresentar mensagem de erro com Snackbar e ação de retry chamando viewModel.retry()."
+          "type": "md3Table",
+          "headers": ["Breakpoint", "Largura", "Layout"],
+          "rows": [
+            ["Compact", "0-599dp", "AppBar + NavigationBar"],
+            ["Medium", "600-839dp", "AppBar + NavigationRail"],
+            ["Expanded", ">= 840dp", "AppBar + NavigationDrawer"],
+            ["Font Scale", "1.0-1.5", "Ajuste de tipografia"],
+            ["Font Scale", ">1.5", "Layout de alta legibilidade"]
           ]
         }
       ]
     },
     {
-      "type": "callout",
-      "variant": "warning",
-      "title": "Limites de paginação da API",
-      "content": [
+      "type": "stepper",
+      "title": "Entregando UI adaptável",
+      "steps": [
         {
-          "type": "paragraph",
-          "text": "Confirme no contrato da API o tamanho máximo de página (ex.: 20 itens). Configure o app para não solicitar além do total permitido e registre esse limite no README do módulo."
+          "title": "Diagnóstico",
+          "description": "Avalie telas existentes em diferentes breakpoints e identifique pontos críticos."
+        },
+        {
+          "title": "Tokens responsivos",
+          "description": "Defina tamanhos, espaçamentos e hierarquia de componentes para cada classe de janela."
+        },
+        {
+          "title": "Implementação",
+          "description": "Adapte layout com NavigationRail/Drawer, suporte a fontes dinâmicas e dark mode."
+        },
+        {
+          "title": "Validação",
+          "description": "Execute testes de acessibilidade, capture vídeos comparativos e publique relatório."
         }
       ]
-    },
-    {
-      "type": "callout",
-      "title": "TED / Entregável",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Checklist no formato Markdown contendo critérios de UX (feedback, empty state, retry) e limites de paginação observados."
-        }
-      ],
-      "variant": "info"
     },
     {
       "type": "callout",
       "variant": "info",
-      "title": "Rubrica do checklist",
-      "content": [
-        {
-          "type": "list",
-          "ordered": false,
-          "items": [
-            "Completude dos estados (35%).",
-            "Aderência aos limites da API (25%).",
-            "Qualidade da experiência do usuário (25%).",
-            "Clareza do documento (15%)."
-          ]
-        }
-      ]
+      "title": "Checklist de acessibilidade",
+      "content": "Verifique contraste (>= 4.5:1), suporte a TalkBack, navegação por teclado e foco visível."
     },
     {
-      "type": "contentBlock",
-      "title": "Exemplo de código comentado",
-      "content": [
+      "type": "pipelineCanvas",
+      "title": "Pipeline responsivo",
+      "summary": "Garantir rollout da tela adaptável com QA e documentação.",
+      "stages": [
         {
-          "type": "paragraph",
-          "text": "O fragmento resume o padrão de cliente Retrofit aplicado às discussões de RecyclerView com dados remotos."
-        },
-        {
-          "type": "codeBlock",
-          "language": "c",
-          "code": "interface ApiService {\n    @GET(\"/posts\")\n    suspend fun listarPosts(): List<PostResponse>\n}\n\nval retrofit = Retrofit.Builder()\n    .baseUrl(\"https://api.exemplo.dev\")\n    .addConverterFactory(MoshiConverterFactory.create())\n    .build()\n\nval service = retrofit.create(ApiService::class.java)\n// Referência: GRANDE, A (2022)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Mantenha a configuração alinhada ao que GRANDE, A (2022) descreve para serialização e segurança."
-        },
-        {
-          "type": "callout",
-          "variant": "academic",
-          "title": "Fundamentação bibliográfica",
-          "content": [
+          "id": "design",
+          "title": "1. Design",
+          "summary": "Tokens, breakpoints e variações documentadas.",
+          "status": "in-progress",
+          "owners": ["Designer"],
+          "deliverables": [
             {
-              "type": "paragraph",
-              "text": "GRANDE, A. Dominando RecyclerView. Casa do Código, 2022."
+              "id": "tokens",
+              "label": "Tokens Material 3"
+            },
+            {
+              "id": "guideline",
+              "label": "Guia responsivo"
+            }
+          ]
+        },
+        {
+          "id": "dev",
+          "title": "2. Implementação",
+          "summary": "Aplicar WindowSizeClass, NavigationRail e dark mode.",
+          "status": "not-started",
+          "owners": ["Mobile"],
+          "deliverables": [
+            {
+              "id": "layout",
+              "label": "Layouts adaptados"
+            },
+            {
+              "id": "tests",
+              "label": "Testes instrumentados"
+            }
+          ]
+        },
+        {
+          "id": "qa",
+          "title": "3. QA",
+          "summary": "Testes em dispositivos reais/emuladores com acessibilidade.",
+          "status": "not-started",
+          "owners": ["QA"],
+          "deliverables": [
+            {
+              "id": "relatorio",
+              "label": "Relatório de acessibilidade"
+            },
+            {
+              "id": "video",
+              "label": "Vídeo demonstração"
             }
           ]
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Leitura complementar e estudos de caso",
-      "content": [
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "O layout expanded está sobrecarregando a NavigationRail. Qual ajuste mantém responsividade e acessibilidade?",
+      "options": [
         {
-          "type": "paragraph",
-          "text": "Retome o fluxo de consumo de APIs de RecyclerView com dados remotos, considerando políticas de tratamento de erros."
+          "id": "opt-1",
+          "text": "Migrar para `NavigationDrawer` persistente oferecendo labels e ícones maiores para o modo expanded.",
+          "correct": true
         },
         {
-          "type": "list",
-          "items": [
-            "Releia: GRANDE, A. Dominando RecyclerView. Casa do Código, 2022.",
-            "Conecte com o estudo: GOOGLE. RecyclerView best practices. 2024."
-          ]
+          "id": "opt-2",
+          "text": "Fixar a NavigationRail no centro da tela para ocupar menos espaço.",
+          "correct": false
         },
         {
-          "type": "paragraph",
-          "text": "Documente como o endpoint crítico do seu projeto lida com latência e falhas de rede."
-        },
-        {
-          "type": "blockquote",
-          "text": "GOOGLE. RecyclerView best practices. 2024."
+          "id": "opt-3",
+          "text": "Desativar o layout expanded e manter apenas a versão compacta.",
+          "correct": false
         }
-      ]
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O drawer é a recomendação Material 3 para telas amplas, mantendo legibilidade e navegação clara.",
+        "incorrect": "O drawer é a recomendação Material 3 para telas amplas, mantendo legibilidade e navegação clara."
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED – UI adaptável",
+      "content": "Disponibilize vídeo mostrando tela em modo claro/escuro, telefone/tablet e fonte 1.5x. Anexe checklist e commit `RESP_A23`."
     }
   ],
   "metadata": {
-    "updatedAt": "2024-10-18T00:00:00.000Z",
-    "owners": ["Prof. Tiago Sombra", "Ana Paula (Governança)"]
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Equipe de Conteúdo DDM"],
+    "sources": ["Plano de ensino DDM 2025.2", "Revisão docente fev/2025"]
   }
 }

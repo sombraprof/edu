@@ -1,152 +1,131 @@
 {
   "formatVersion": "md3.lesson.v1",
   "id": "lesson-19",
-  "title": "Aula 19: Unidade III – ViewModel e LiveData para Persistência Local",
-  "slug": "viewmodel-livedata-persistencia",
-  "summary": "Introduz ViewModel e LiveData como ponte entre a camada Room e a interface, reforçando reatividade e ciclo de vida em aplicativos Android.",
-  "objective": "Implementar ViewModel e LiveData integrados à base Room garantindo atualizações reativas e seguras após mudanças de configuração.",
+  "title": "Aula 19: Autenticação Firebase e Firestore com Arquitetura Limpa",
+  "slug": "firebase-auth-firestore-arquitetura-limpa",
+  "summary": "Configura login com Firebase Authentication, sincroniza dados no Firestore e mantém a arquitetura modular preparada para testes.",
+  "objective": "Integrar autenticação e persistência em nuvem garantindo segurança, consistência offline-first e rastreabilidade de dados.",
   "objectives": [
-    "Explicar o papel do ViewModel no ciclo de vida.",
-    "Conectar LiveData/Flow à UI para refletir mudanças do banco.",
-    "Implementar ViewModelFactory para injeção de dependências.",
-    "Criar observadores que atualizam listas e estados vazios."
+    "Configurar Firebase Authentication (email/senha + provedor externo).",
+    "Sincronizar dados do usuário com Firestore usando flows reativos.",
+    "Implementar camadas repository/use case desacopladas para testes.",
+    "Registrar regras de segurança e estratégias de cache offline."
   ],
   "competencies": [
-    "Arquitetura MVVM",
-    "Reatividade em Android",
-    "Manutenção de estado em aplicativos móveis"
+    "Integração com BaaS",
+    "Arquitetura limpa em mobile",
+    "Segurança de dados em aplicativos"
   ],
   "skills": [
-    "Criar ViewModels que consomem repositórios Room.",
-    "Converter Flow em LiveData ou StateFlow conforme o cenário.",
-    "Gerenciar eventos de UI com LiveData de uso único.",
-    "Documentar o fluxo de dados entre camadas."
+    "Configurar Firebase BoM e dependências gradle.",
+    "Criar `FirebaseAuth` wrapper com `suspend` functions.",
+    "Utilizar `SnapshotListener`/`Flow` para sincronização em tempo real.",
+    "Escrever regras Firestore mínimas e scripts de emulador."
   ],
   "outcomes": [
-    "Disponibiliza ViewModel integrado ao Room com LiveData.",
-    "Implementa observadores que atualizam UI em tempo real.",
-    "Entrega infográfico explicando o fluxo MVVM no Moodle."
+    "Tela de login funcional com validação e feedbacks acessíveis.",
+    "Firestore sincronizando perfil do usuário com cache offline.",
+    "Documentação das regras e estratégias de rollback anexada ao Moodle."
   ],
-  "prerequisites": ["Aulas 17 e 18 – CRUD com Room."],
-  "tags": ["android", "viewmodel", "livedata", "persistencia"],
-  "duration": 110,
+  "prerequisites": ["Aulas 17-18 – Retrofit + Coroutines"],
+  "tags": ["android", "firebase", "firestore", "arquitetura"],
+  "duration": 120,
   "modality": "in-person",
   "resources": [
     {
-      "label": "ViewModel overview",
-      "url": "https://developer.android.com/topic/libraries/architecture/viewmodel",
-      "type": "article"
+      "label": "Firebase Auth for Android",
+      "url": "https://firebase.google.com/docs/auth/android/start",
+      "type": "guide"
     },
     {
-      "label": "LiveData guide",
-      "url": "https://developer.android.com/topic/libraries/architecture/livedata",
-      "type": "article"
+      "label": "Cloud Firestore Android",
+      "url": "https://firebase.google.com/docs/firestore/quickstart",
+      "type": "guide"
     },
     {
-      "label": "Guide to app architecture",
-      "url": "https://developer.android.com/topic/architecture",
+      "label": "Firebase Security Rules",
+      "url": "https://firebase.google.com/docs/rules",
       "type": "guide"
     }
   ],
   "bibliography": [
-    "ANDROID DEVELOPERS. ViewModel overview. 2024.",
-    "GOOGLE. Guide to app architecture. 2024.",
-    "JORDAN, A. MVVM in Android. Packt, 2023."
+    "Google. Firebase Authentication Documentation. 2024.",
+    "Google. Firestore Security Rules Samples. 2024.",
+    "Google. Offline data with Firestore. 2024."
   ],
   "assessment": {
     "type": "formative",
-    "description": "Autoavaliação guiada comparando implementações MVVM com checklist de integração Room + ViewModel."
+    "description": "Checklist de login + Firestore com evidências (vídeo e captura de regras)."
   },
   "content": [
     {
       "type": "videos",
-      "title": "Referências em vídeo – Unidade III",
+      "title": "Vídeos em português para integrar Firebase",
       "videos": [
         {
-          "url": "https://www.youtube.com/watch?v=lwAvI3WDXBY",
-          "title": "Room: arquitetando persistência local",
-          "caption": "Sessão técnica do Google I/O apresentando o Room. Créditos: Android Developers (Google, 2017)."
+          "url": "https://www.youtube.com/watch?v=3I5l-6N6S4w",
+          "title": "Firebase Authentication no Android passo a passo (DevDojo Brasil)",
+          "caption": "Configuração inicial, telas de login e feedback de erros em português."
         },
         {
-          "url": "https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9mxIBd0DRw9gwXuQshgEts",
-          "title": "Android Jetpack Architecture Components",
-          "caption": "Playlist institucional sobre persistência, ViewModel e LiveData. Créditos: Android Developers (Google, 2024)."
+          "url": "https://www.youtube.com/watch?v=vYlGNZZwY5Y",
+          "title": "Firestore na prática com Kotlin (Canal Android Dev BR)",
+          "caption": "Demonstra sincronização em tempo real e boas práticas de cache."
         }
       ]
     },
     {
-      "type": "flightPlan",
-      "title": "Plano de voo da aula",
-      "items": [
-        "Contextualização: porque ViewModel após persistência.",
-        "Ciclo de vida: Activity/Fragment vs. ViewModel.",
-        "LiveData e Flow: diferenças e complementaridade.",
-        "Projeto prático: ViewModel + LiveData para lista de produtos.",
-        "Eventos de UI (Snackbar/toasts) com SingleLiveEvent.",
-        "TED 19 e avisos Moodle."
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "ViewModel na prática",
-      "content": [
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
         {
-          "type": "paragraph",
-          "text": "Construímos um ViewModel que recebe o repositório Room via construtor e mantém estado independente da Activity."
+          "title": "Check-in",
+          "content": "Qual experiência de login mais travou você nos últimos meses?"
         },
         {
-          "type": "code",
-          "language": "kotlin",
-          "code": "class CatalogoViewModel(private val repository: ProdutoRepository) : ViewModel() {\n    val produtos: LiveData<List<Produto>> = repository.todos().asLiveData()\n\n    private val _mensagem = MutableLiveData<Event<String>>()\n    val mensagem: LiveData<Event<String>> = _mensagem\n\n    fun remover(produto: Produto) {\n        viewModelScope.launch {\n            repository.remover(produto)\n            _mensagem.postValue(Event(\"Produto removido com sucesso!\"))\n        }\n    }\n}\n\n// Referência: ANDROID DEVELOPERS (2024)"
+          "title": "Laboratório",
+          "content": "Configurar projeto Firebase, criar tela de login e sincronizar dados com Firestore usando arquitetura modular."
         },
         {
-          "type": "callout",
-          "variant": "info",
-          "title": "ViewModelFactory",
-          "content": [
-            {
-              "type": "paragraph",
-              "text": "Crie uma factory customizada ou use Hilt/Koin para injetar o repositório. Evite instanciar ViewModel com construtor vazio quando houver dependências."
-            }
-          ]
+          "title": "Retro",
+          "content": "Revisar logs, regras de segurança e tarefas assíncronas para o squad."
         }
       ]
     },
     {
       "type": "contentBlock",
-      "title": "Projeto prático: MVVM com Room",
+      "title": "Estudo de caso – FinSaver: onboarding turbulento",
       "content": [
         {
           "type": "paragraph",
-          "text": "Em grupos de três, adaptem o app catálogo para usar ViewModel e LiveData, garantindo que a UI sobreviva a rotações sem perder estado."
+          "text": "O app financeiro FinSaver lançou login social, mas usuários estão perdendo dados de perfil ao alternar dispositivos."
         },
         {
-          "type": "subBlock",
-          "title": "Entregáveis",
+          "type": "paragraph",
+          "text": "A arquitetura foi migrada para Clean Architecture, porém o repository não trata diferenças entre cache local, Firestore e contas sociais. A retenção de novos usuários caiu 18%."
+        },
+        {
+          "type": "unorderedList",
           "items": [
-            "ViewModel com métodos para inserir, listar e remover produtos.",
-            "Fragment/Activity observando LiveData para atualizar RecyclerView.",
-            "SingleLiveEvent ou Channel para mensagens de sucesso/erro.",
-            "Diagrama explicando o fluxo de dados entre camadas."
+            "Fluxos críticos: Cadastro, sincronização de metas, recuperação de senha",
+            "Stack: Firebase Auth + Firestore + emulador local",
+            "SLA: Perfil sincronizado em < 3 s após login"
           ]
-        }
-      ]
-    },
-    {
-      "type": "contentBlock",
-      "title": "TED 19 – Infográfico MVVM Persistência",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Produza um infográfico (imagem ou PDF) mostrando como dados percorrem Repository → ViewModel → LiveData → UI → Room. Utilize exemplos do projeto."
         },
         {
-          "type": "list",
-          "ordered": true,
+          "type": "unorderedList",
           "items": [
-            "Destaque pontos de cache e atualização.",
-            "Liste boas práticas para evitar memory leaks.",
-            "Indique como testes podem validar o fluxo."
+            "Pergunta: Como garantir consistência entre dados locais e remotos usando Flow?",
+            "Pergunta: Quais regras de segurança precisam ser validadas para evitar exposição de dados?",
+            "Pergunta: Que testes automatizados comprovam que o onboarding foi estabilizado?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Implemente use case que carrega perfil, salva em cache e expõe estado imutável.",
+            "Ação sugerida: Configure regras Firestore restritivas por `uid` e escreva testes com Emulator Suite.",
+            "Ação sugerida: Monte checklist de QA para login social, incluindo fluxos offline."
           ]
         }
       ]
@@ -154,76 +133,155 @@
     {
       "type": "callout",
       "variant": "warning",
-      "title": "Avisos Moodle",
-      "content": [
-        {
-          "type": "paragraph",
-          "text": "Submeta o infográfico e o link do branch `mvvm-integration` no Moodle > Unidade III > Aula 19 até 23h59 do dia seguinte."
-        },
-        {
-          "type": "paragraph",
-          "text": "Responda ao questionário \"Check-in MVVM\" disponível no AVA para reforçar conceitos."
-        }
-      ]
+      "title": "Pré-requisitos técnicos",
+      "content": "Conta Firebase configurada, Google Services JSON baixado, emulador atualizado e Play Services habilitado."
     },
     {
       "type": "contentBlock",
-      "title": "Exemplo de código comentado",
+      "title": "Arquitetura",
       "content": [
         {
-          "type": "paragraph",
-          "text": "O exemplo evidencia como estruturar entidades e DAOs coerentes com o conteúdo de ViewModel e LiveData para Persistência Local."
+          "type": "image",
+          "src": "https://firebase.google.com/static/images/firestore/firestore-security-rules.png",
+          "alt": "Fluxo de segurança do Firestore"
         },
         {
-          "type": "code",
-          "language": "kotlin",
-          "code": "@Entity(tableName = \"registros\")\ndata class Registro(\n    @PrimaryKey(autoGenerate = true) val id: Long = 0,\n    val titulo: String,\n    val atualizadoEm: Long\n)\n\n@Dao\ninterface RegistroDao {\n    @Query(\"SELECT * FROM registros ORDER BY atualizadoEm DESC\")\n    fun listar(): Flow<List<Registro>>\n}\n// Referência: ANDROID DEVELOPERS (2024)"
-        },
-        {
-          "type": "paragraph",
-          "text": "Observe que a consulta utiliza Flow para aderir às recomendações de ANDROID DEVELOPERS (2024)."
-        },
-        {
-          "type": "callout",
-          "variant": "academic",
-          "title": "Fundamentação bibliográfica",
-          "content": [
+          "type": "orderedList",
+          "items": [
             {
-              "type": "paragraph",
-              "text": "ANDROID DEVELOPERS. ViewModel overview. 2024."
+              "title": "Camada de dados",
+              "text": "Wrapper para FirebaseAuth + Firestore com mapeamento para DTOs."
+            },
+            {
+              "title": "Domínio",
+              "text": "Use cases `SignInUser`, `ObserveProfile`, `SignOut`."
+            },
+            {
+              "title": "Apresentação",
+              "text": "ViewModel com `StateFlow<LoginUiState>` e Compose exibindo feedbacks acessíveis."
             }
           ]
         }
       ]
     },
     {
-      "type": "contentBlock",
-      "title": "Leitura complementar e estudos de caso",
-      "content": [
+      "type": "stepper",
+      "title": "Fluxo seguro de autenticação",
+      "steps": [
         {
-          "type": "paragraph",
-          "text": "Reforce os conceitos de ViewModel e LiveData para Persistência Local relacionando SharedPreferences, Room e estratégias de migração."
+          "title": "Setup confiável",
+          "description": "Registrar SHA, configurar providers e validar chaves em ambientes dev/stage."
         },
         {
-          "type": "list",
-          "items": [
-            "Releia: ANDROID DEVELOPERS. ViewModel overview. 2024.",
-            "Conecte com o estudo: GOOGLE. Guide to app architecture. 2024."
+          "title": "Camada de dados",
+          "description": "Criar abstrações para Auth/Firestore com tratamento de erros e mapeamento para modelos do domínio."
+        },
+        {
+          "title": "Experiência do usuário",
+          "description": "Renderizar estados Loading/Success/Error, oferecer login offline e explicar limites ao jogador."
+        },
+        {
+          "title": "QA e segurança",
+          "description": "Rodar testes com emulador, validar regras, revisar métricas no dashboard e preparar plano de rollback."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline de autenticação + Firestore",
+      "summary": "Sequência para integrar login seguro, sincronização e testes.",
+      "stages": [
+        {
+          "id": "setup",
+          "title": "1. Setup",
+          "summary": "Criar projeto Firebase, configurar SHA, adicionar JSON e dependências.",
+          "status": "in-progress",
+          "owners": ["Mobile"],
+          "deliverables": [
+            {
+              "id": "googlejson",
+              "label": "google-services.json"
+            },
+            {
+              "id": "bom",
+              "label": "BoM configurado"
+            }
           ]
         },
         {
-          "type": "paragraph",
-          "text": "Descreva um caso de uso real do seu projeto que se beneficie de camadas de persistência bem definidas."
+          "id": "implementacao",
+          "title": "2. Implementação",
+          "summary": "Criar fluxos de login, cadastro e sincronização de perfil.",
+          "status": "not-started",
+          "owners": ["Mobile"],
+          "deliverables": [
+            {
+              "id": "ui",
+              "label": "Tela Compose pronta"
+            },
+            {
+              "id": "rules",
+              "label": "Regras V1"
+            }
+          ]
         },
         {
-          "type": "blockquote",
-          "text": "GOOGLE. Guide to app architecture. 2024."
+          "id": "qa",
+          "title": "3. QA & segurança",
+          "summary": "Testes com Firebase Emulator Suite, validação offline e documentação.",
+          "status": "not-started",
+          "owners": ["QA"],
+          "deliverables": [
+            {
+              "id": "evidencia",
+              "label": "Vídeo QA"
+            },
+            {
+              "id": "doc",
+              "label": "Checklist de segurança"
+            }
+          ]
         }
       ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "O app precisa funcionar offline por até 48h. Qual estratégia mantém o perfil atualizado sem conflitos quando a conexão volta?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Ativar `setPersistenceEnabled(true)`, armazenar última versão local e aplicar `merge` ao reconectar, resolvendo conflitos no use case.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Desabilitar o cache offline do Firestore para evitar dados divergentes.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Criar uma coleção paralela apenas para dados offline e sincronizar manualmente depois.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "O cache offline do Firestore cuida da fila local; cabe ao domínio tratar conflitos e expor estado consistente.",
+        "incorrect": "O cache offline do Firestore cuida da fila local; cabe ao domínio tratar conflitos e expor estado consistente."
+      }
+    },
+    {
+      "type": "callout",
+      "variant": "task",
+      "title": "TED – Login completo",
+      "content": "Submeta vídeo de 2 minutos demonstrando login, cadastro, sincronização de perfil e atualização offline, anexando as regras Firestore e link do commit (tag `FIREBASE_A19`)."
     }
   ],
   "metadata": {
-    "updatedAt": "2025-10-04T00:00:00.000Z",
-    "owners": ["Equipe de Conteúdo"]
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Equipe de Conteúdo DDM"],
+    "sources": ["Plano de ensino DDM 2025.2", "Revisão docente fev/2025"]
   }
 }

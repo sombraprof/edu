@@ -1,0 +1,342 @@
+{
+  "id": "lesson-21",
+  "title": "Aula 21: Áudio Dinâmico e Mixagem Interativa",
+  "objective": "Projetar paisagens sonoras dinâmicas utilizando middleware e implementar lógica reativa para feedback auditivo consistente.",
+  "summary": "Integra FMOD/Wwise ao protótipo, cobre organização de bancos, mixagem adaptativa e testes de acessibilidade sonora.",
+  "formatVersion": "md3.lesson.v1",
+  "slug": "audio-dinamico-e-mixagem",
+  "duration": 100,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "FMOD Studio – Getting Started",
+      "url": "https://www.fmod.com/resources/documentation-studio?version=2.03&page=getting-started.html",
+      "type": "guide"
+    },
+    {
+      "label": "Wwise 2023.1 Documentation",
+      "url": "https://www.audiokinetic.com/library/2023.1/?source=SDK&id=wwise_getting_started.html",
+      "type": "guide"
+    },
+    {
+      "label": "Unity – Audio Spatial Blend",
+      "url": "https://docs.unity3d.com/Manual/AudioSpatialBlend.html",
+      "type": "guide"
+    }
+  ],
+  "bibliography": [
+    "Collins, K. Game Sound. MIT Press, 2023.",
+    "FMOD. Adaptive Music Design Tips. 2024.",
+    "Audiokinetic. Wwise Best Practices for Indie Teams. 2024."
+  ],
+  "competencies": [
+    "Design de áudio para jogos",
+    "Integração de middleware",
+    "Acessibilidade auditiva"
+  ],
+  "outcomes": [
+    "Bancos de áudio configurados e versionados com parâmetros documentados.",
+    "Mixagem dinâmica implementada e validada com checklist de acessibilidade.",
+    "Vídeo demonstrando transições sonoras anexado ao Moodle."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Entrega de cena com mixagem dinâmica e planilha de parâmetros monitorados (volume, pitch, RTPC)."
+  },
+  "content": [
+    {
+      "type": "lessonPlan",
+      "title": "Plano da aula",
+      "cards": [
+        {
+          "icon": "target",
+          "title": "Objetivo",
+          "content": "Conectar eventos de gameplay a trilhas, SFX e feedbacks sonoros adaptativos."
+        },
+        {
+          "icon": "monitor",
+          "title": "Conteúdos",
+          "content": "Bancos de áudio, lógica de eventos, RTPC, mixagem adaptativa e QA inclusivo."
+        },
+        {
+          "icon": "users",
+          "title": "Metodologia",
+          "content": "Estudo de caso + demonstração em FMOD + laboratório integrado com build do squad."
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Estrutura (100 minutos)",
+      "steps": [
+        {
+          "title": "Check-in auditivo (10 min)",
+          "content": "Identificar elementos sonoros de um jogo referência e categorizá-los (UI, gameplay, ambiente)."
+        },
+        {
+          "title": "Modelando eventos (25 min)",
+          "content": "Criar eventos e parâmetros RTPC no FMOD/Wwise, exportar bancos e configurar integração com Unity/Godot."
+        },
+        {
+          "title": "Mixagem reativa (35 min)",
+          "content": "Implementar lógica de mudança de música por intensidade, atenuação 3D e ducking para diálogos."
+        },
+        {
+          "title": "Teste inclusivo (20 min)",
+          "content": "Aplicar checklist de acessibilidade: legendas, indicadores visuais, variação de volume, filtros para daltonismo auditivo."
+        },
+        {
+          "title": "Debrief e próximos passos (10 min)",
+          "content": "Registrar dependências com animação/VFX, ajustar backlog de áudio e planejar captura de foley."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Por que o áudio precisa de sprint dedicada",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Áudio dinâmico reforça feedbacks cruciais e reduz esforço de QA quando bem planejado. Use esta aula para alinhar visão artística e métricas de entrega."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Mapeie interações prioritárias (combate, UI, exploração) e associe gatilhos sonoros.",
+            "Defina parâmetros RTPC e limites de volume antes de abrir o middleware.",
+            "Combine com programação a responsabilidade por carregar/descartar bancos de áudio."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Vídeos em português para mixagem adaptativa",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=kvoXxwEJ1Jw",
+          "title": "Introdução ao FMOD para jogos (PT-BR) – Fmod Brasil",
+          "caption": "Configuração inicial, criação de eventos e integração com Unity comentada em português."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=L6sl1bPnjVw",
+          "title": "Como planejar áudio dinâmico em jogos indie – Música e Mídia",
+          "caption": "Estudo de caso brasileiro sobre camadas dinâmicas, sidechain e parâmetros adaptativos."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Estudo de caso – Sky Harbor: mixagem adaptativa",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O projeto Sky Harbor precisa de uma trilha dinâmica que reaja ao nível de alerta dos inimigos em um vertical slice stealth."
+        },
+        {
+          "type": "paragraph",
+          "text": "Playtests mostraram que os jogadores não percebiam transições de alerta e ficavam perdidos sem feedback sonoro. A equipe quer combinar música adaptativa, SFX e legendas acessíveis."
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Equipe: 1 sound designer, 1 programador de áudio, 1 QA",
+            "Ferramentas: FMOD 2.03, integração com Unity 2022",
+            "Métrica: Tempo médio para reagir a inimigos reduzido de 3,2s para < 2s"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Pergunta: Quais parâmetros de jogo alimentam a música adaptativa sem gerar latência perceptível?",
+            "Pergunta: Como garantir que o mix não estoure quando efeitos e diálogos acontecem juntos?",
+            "Pergunta: Quais entregáveis comprovam acessibilidade sonora no vertical slice?"
+          ]
+        },
+        {
+          "type": "unorderedList",
+          "items": [
+            "Ação sugerida: Projete um mapa de eventos com RTPCs e estados musicais e publique no GDD.",
+            "Ação sugerida: Implemente ducking automático entre diálogos e SFX críticos e registre presets no middleware.",
+            "Ação sugerida: Capture vídeo com indicadores visuais (subtitles/visualizers) para validação de acessibilidade."
+          ]
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Mapa de sinalização sonora",
+      "content": [
+        {
+          "type": "image",
+          "src": "https://developer.android.com/static/images/guide/topics/media/volume-mixer-game.png",
+          "alt": "Diagrama de mixagem com canais de jogo, música e voz",
+          "caption": "Repita a matriz no seu GDD destacando volumes alvo e faixas dinâmicas."
+        },
+        {
+          "type": "orderedList",
+          "items": [
+            {
+              "title": "Eventos críticos",
+              "text": "Vitória, dano, falha e feedback de UI precisam de prioridade no mix."
+            },
+            {
+              "title": "Ambiência",
+              "text": "Camadas loopadas devem ter variação aleatória para evitar fadiga."
+            },
+            {
+              "title": "Música adaptativa",
+              "text": "Use RTPC de intensidade conectado ao estado do jogo (vida, tempo, inimigos)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Dependências entre áudio, gameplay e UI",
+      "summary": "Relaciona feedback auditivo, performance e compreensão do jogador.",
+      "factors": [
+        {
+          "id": "clareza_feedback",
+          "name": "Clareza do feedback",
+          "summary": "Capacidade do jogador de identificar eventos sonoros críticos.",
+          "kind": "outcome",
+          "indicators": ["Tempo de reação", "Erros por falta de áudio"]
+        },
+        {
+          "id": "mixagem",
+          "name": "Mixagem balanceada",
+          "summary": "Níveis relativos entre música, SFX e UI",
+          "kind": "stock",
+          "indicators": ["Headroom", "RMS médio"]
+        },
+        {
+          "id": "performance",
+          "name": "Performance do áudio",
+          "summary": "Uso de CPU/memória pelos bancos carregados.",
+          "kind": "constraint",
+          "indicators": ["Uso de CPU", "Tamanho do banco"]
+        },
+        {
+          "id": "acessibilidade",
+          "name": "Acessibilidade sonora",
+          "summary": "Disponibilidade de legendas, visualizers e modos assistivos.",
+          "kind": "driver",
+          "indicators": ["Legenda presente", "Modo surdez ativa"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "loop_clareza",
+          "name": "Clareza reforça decisão do jogador",
+          "polarity": "reinforcing",
+          "summary": "Feedback claro gera decisões rápidas, reduz frustração e libera espaço para experimentação sonora.",
+          "steps": [
+            {
+              "id": "s1",
+              "from": "clareza_feedback",
+              "to": "acessibilidade",
+              "effect": "reinforces",
+              "description": "Quanto mais claro o áudio, mais fácil justificar investimentos em opções assistivas."
+            },
+            {
+              "id": "s2",
+              "from": "acessibilidade",
+              "to": "mixagem",
+              "effect": "reinforces",
+              "description": "Revisões de acessibilidade ajustam mixagem e ampliam percepção do jogador."
+            },
+            {
+              "id": "s3",
+              "from": "mixagem",
+              "to": "clareza_feedback",
+              "effect": "reinforces",
+              "description": "Mix equilibrada reduz mascaramento e torna cada evento audível."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "stepper",
+      "title": "Trilha de implementação sonora",
+      "steps": [
+        {
+          "title": "Planejamento de bancos",
+          "description": "Inventarie assets, defina hierarquias no middleware e estabeleça convenções de nome."
+        },
+        {
+          "title": "Mapeamento de eventos",
+          "description": "Crie eventos com parâmetros bem documentados e exponha IDs para programação."
+        },
+        {
+          "title": "Integração e testes",
+          "description": "Implemente chamadas na engine, monitore níveis e teste em dispositivos com e sem fones."
+        },
+        {
+          "title": "Ajuste fino",
+          "description": "Aplique automações (ducking, snapshots) e valide acessibilidade com checklist de áudio."
+        }
+      ]
+    },
+    {
+      "type": "quiz",
+      "title": "Checagem rápida",
+      "question": "Ao perceber que a música de alerta entra atrasada em relação aos eventos de gameplay, qual ação é mais eficaz?",
+      "options": [
+        {
+          "id": "opt-1",
+          "text": "Verificar o RTPC e reduzir o tempo de ataque/relax do snapshot responsável pela transição de mixagem.",
+          "correct": true
+        },
+        {
+          "id": "opt-2",
+          "text": "Subir o volume global da música de alerta para torná-la mais perceptível.",
+          "correct": false
+        },
+        {
+          "id": "opt-3",
+          "text": "Duplicar a trilha de alerta e disparar manualmente via script sem usar middleware.",
+          "correct": false
+        }
+      ],
+      "allowRetry": true,
+      "feedback": {
+        "correct": "Atrasos costumam estar relacionados a automações lentas; ajustar o envelope do snapshot mantém o fluxo no middleware.",
+        "incorrect": "Atrasos costumam estar relacionados a automações lentas; ajustar o envelope do snapshot mantém o fluxo no middleware."
+      }
+    },
+    {
+      "type": "contentBlock",
+      "title": "TED: Pacote de áudio adaptativo",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Produza três eventos críticos (ambiente, feedback de ação e música adaptativa) integrados ao protótipo usando FMOD ou Wwise."
+        },
+        {
+          "type": "checklist",
+          "title": "Entregáveis",
+          "items": [
+            "Bancos exportados no repositório (`Audio/A21`).",
+            "Tabela de parâmetros com valores mínimo/máximo e gatilhos.",
+            "Vídeo curto (até 1 min) demonstrando mudança dinâmica entre estados."
+          ]
+        },
+        {
+          "type": "callout",
+          "variant": "task",
+          "title": "Envio",
+          "content": "Submeta o vídeo e a planilha no Moodle e registre o commit com tag `AUDIO_A21`."
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "status": "in-review",
+    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "owners": ["Prof. Tiago Sombra"],
+    "sources": ["Plano de ensino TDJD 2025.2", "Reunião pedagógica TDJD – jan/2025"]
+  }
+}
