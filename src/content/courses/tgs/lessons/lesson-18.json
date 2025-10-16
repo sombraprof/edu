@@ -34,24 +34,32 @@
   "modality": "in-person",
   "resources": [
     {
-      "label": "Template de plano de fidelização",
-      "url": "https://example.edu/tgs/modelos/plano-crm",
-      "type": "template"
+      "label": "Payne & Frow — Strategic Customer Management",
+      "url": "https://books.google.com/books?id=QLh5-i__7eYC",
+      "type": "book",
+      "author": "Adrian Payne; Pennie Frow",
+      "source": "Cambridge University Press / Google Books"
     },
     {
-      "label": "Playbook de atendimento omnichannel",
-      "url": "https://example.edu/tgs/guias/playbook-omnichannel",
-      "type": "guide"
+      "label": "Peppers & Rogers — Managing Customer Relationships",
+      "url": "https://books.google.com/books?id=Dd2jIx-dtCgC",
+      "type": "book",
+      "author": "Don Peppers; Martha Rogers",
+      "source": "Wiley / Google Books"
     },
     {
-      "label": "Checklist LGPD para CRM",
-      "url": "https://example.edu/tgs/checklists/lgpd-crm",
-      "type": "guide"
+      "label": "Forrester Wave™: Customer Success Platforms Q4 2025",
+      "url": "https://www.forrester.com/blogs/from-scattered-tools-to-strategic-systems-three-themes-from-the-forrester-wave-customer-success-platforms-q4-2025/",
+      "type": "article",
+      "author": "Shari Srebnick",
+      "source": "Forrester"
     },
     {
-      "label": "Banco de mensagens automáticas",
-      "url": "https://example.edu/tgs/recursos/copys-crm",
-      "type": "template"
+      "label": "TED Talk — Joseph Pine: What consumers want",
+      "url": "https://www.ted.com/talks/joseph_pine_what_consumers_want",
+      "type": "video",
+      "author": "Joseph Pine",
+      "source": "TED"
     }
   ],
   "bibliography": [
@@ -72,14 +80,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise a jornada do cliente definida nas aulas anteriores e liste pontos de contato que ainda não possuem registro estruturado."
+          "text": "Revise a jornada do cliente definida nas aulas anteriores e conecte-a aos frameworks de Payne & Frow (gestão de valor) e Peppers & Rogers (relacionamentos 1:1) para identificar lacunas de registro."
         },
         {
           "type": "list",
           "items": [
-            "Liste campos que hoje são preenchidos manualmente e causam erro.",
-            "Identifique indicadores chave como LTV, churn, NPS e CAC.",
-            "Traga dúvidas sobre LGPD relacionadas a campanhas e armazenamento."
+            "Liste campos que hoje são preenchidos manualmente e avalie, com Payne & Frow, quais processos de criação de valor ficam comprometidos.",
+            "Compare LTV, churn, NPS e CAC com os três temas destacados por Shari Srebnick no Forrester Wave™ de Customer Success Platforms.",
+            "Traga dúvidas sobre LGPD e experiências autênticas inspiradas no TED de Joseph Pine para discutir impactos nas campanhas e no armazenamento."
           ]
         }
       ]
@@ -120,7 +128,7 @@
         "(20 min) Oficina: desenhar funil e ciclos de relacionamento para o case.",
         "(15 min) Debates rápidos sobre governança e LGPD.",
         "(15 min) Simulação de automações e gatilhos por squad.",
-        "(15 min) Síntese coletiva e encaminhamento da TED."
+        "(15 min) Síntese coletiva conectando insights de Payne & Frow, Peppers & Rogers, Forrester e do TED para a TED."
       ]
     },
     {
@@ -180,11 +188,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Um CRM eficaz centraliza dados de marketing, vendas e atendimento, permitindo visão 360º do cliente. É preciso definir claramente o funil (prospects, oportunidades, clientes ativos) e registrar interações de forma consistente."
+          "text": "Payne e Frow destacam que um CRM eficaz centraliza dados de marketing, vendas e atendimento para gerar visão 360º do cliente. É preciso definir claramente o funil (prospects, oportunidades, clientes ativos) e registrar interações de forma consistente para sustentar a criação de valor."
         },
         {
           "type": "paragraph",
-          "text": "Personalização depende de dados limpos, consentimento e regras de negócio. Integrar CRM com ERP, plataformas digitais e ferramentas de atendimento garante promessas cumpridas e aumenta retenção."
+          "text": "Peppers e Rogers, aliados às tendências mapeadas por Shari Srebnick no Forrester Wave™, lembram que personalização 1:1 depende de dados limpos, consentimento e regras de negócio. Integrar CRM com ERP, plataformas digitais e ferramentas de atendimento garante promessas cumpridas, capacidade de segmentação e aumento de retenção."
         }
       ]
     },
@@ -489,36 +497,39 @@
     {
       "type": "resourceGallery",
       "title": "Ferramentas e referências",
-      "description": "Explore materiais para acelerar o plano de CRM do estudo de caso.",
+      "description": "Conecte frameworks clássicos de CRM a análises recentes de mercado e provocações sobre personalização.",
       "items": [
         {
-          "id": "res-crm-demo",
-          "type": "video",
-          "title": "Demo interativa do CRM utilizado na disciplina",
-          "url": "https://example.edu/tgs/videos/demo-crm",
-          "source": "Laboratório de CRM"
+          "id": "res-payne-frow",
+          "type": "book",
+          "title": "Modelo de valor em CRM (Payne & Frow)",
+          "url": "https://books.google.com/books?id=QLh5-i__7eYC",
+          "author": "Adrian Payne; Pennie Frow",
+          "source": "Cambridge University Press / Google Books"
         },
         {
-          "id": "res-playbook",
+          "id": "res-peppers-rogers",
+          "type": "book",
+          "title": "Gestão 1:1 para fidelização (Peppers & Rogers)",
+          "url": "https://books.google.com/books?id=Dd2jIx-dtCgC",
+          "author": "Don Peppers; Martha Rogers",
+          "source": "Wiley / Google Books"
+        },
+        {
+          "id": "res-forrester-wave",
           "type": "article",
-          "title": "Playbook de retenção para serviços B2B",
-          "url": "https://example.edu/tgs/artigos/playbook-retencao",
-          "author": "Núcleo de Relacionamento",
-          "source": "Blog TGS"
+          "title": "Três temas do Forrester Wave™ para Customer Success",
+          "url": "https://www.forrester.com/blogs/from-scattered-tools-to-strategic-systems-three-themes-from-the-forrester-wave-customer-success-platforms-q4-2025/",
+          "author": "Shari Srebnick",
+          "source": "Forrester"
         },
         {
-          "id": "res-template",
-          "type": "interactive",
-          "title": "Planilha de cálculo de LTV",
-          "url": "https://example.edu/tgs/templates/ltv-calculator",
-          "source": "Analytics Hub"
-        },
-        {
-          "id": "res-lgpd",
-          "type": "guide",
-          "title": "Mini guia LGPD para campanhas",
-          "url": "https://example.edu/tgs/guias/lgpd-campanhas",
-          "source": "Jurídico"
+          "id": "res-ted-pine",
+          "type": "video",
+          "title": "TED — Joseph Pine sobre experiências autênticas",
+          "url": "https://www.ted.com/talks/joseph_pine_what_consumers_want",
+          "author": "Joseph Pine",
+          "source": "TED"
         }
       ]
     },
@@ -527,19 +538,14 @@
       "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/crm-jornada",
-          "title": "Jornada de relacionamento",
-          "caption": "Exemplos de como estruturar funis e cadências de contato."
+          "url": "https://www.ted.com/talks/joseph_pine_what_consumers_want",
+          "title": "Joseph Pine: What consumers want",
+          "caption": "O coautor de \"The Experience Economy\" detalha por que experiências autênticas sustentam fidelização em iniciativas de CRM."
         },
         {
-          "url": "https://example.edu/tgs/videos/case-crm-servicos",
-          "title": "Case CRM em serviços",
-          "caption": "Como uma empresa de serviços reduziu churn com automações personalizadas."
-        },
-        {
-          "url": "https://example.edu/tgs/videos/lgpd-campanhas",
-          "title": "LGPD aplicada ao CRM",
-          "caption": "Boas práticas para campanhas segmentadas com segurança jurídica."
+          "url": "https://www.ted.com/talks/dan_cobley_what_physics_taught_me_about_marketing",
+          "title": "Dan Cobley: What physics taught me about marketing",
+          "caption": "Reflexões sobre dados e percepção que ajudam a conectar os frameworks de Peppers & Rogers a campanhas personalizadas."
         }
       ]
     },
@@ -597,11 +603,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregue um plano de relacionamento com segmentos, cadências, conteúdo e indicadores, anexando captura dos fluxos automatizados desenhados."
+          "text": "Entregue um plano de relacionamento com segmentos, cadências, conteúdo e indicadores, articulando como os processos de criação de valor de Payne & Frow e as estratégias 1:1 de Peppers & Rogers sustentam as escolhas."
         },
         {
           "type": "paragraph",
-          "text": "Inclua análise de riscos (LGPD, saturação de canal) e plano de mitigação alinhado aos loops identificados."
+          "text": "Inclua análise de riscos (LGPD, saturação de canal) e plano de mitigação alinhado aos loops identificados, dialogando com os temas do Forrester Wave™ e as provocações do TED de Joseph Pine."
         }
       ]
     },
@@ -612,7 +618,8 @@
         "Mapeou todos os pontos de contato relevantes.",
         "Documentou dados obrigatórios e mecanismos de consentimento.",
         "Relacionou indicadores a ações táticas específicas.",
-        "Identificou riscos de saturação e planejou limites de contato."
+        "Identificou riscos de saturação e planejou limites de contato.",
+        "Referenciou Payne & Frow, Peppers & Rogers, Forrester e o TED selecionado ao justificar decisões."
       ]
     }
   ],
