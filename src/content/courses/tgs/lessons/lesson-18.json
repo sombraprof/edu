@@ -1,7 +1,77 @@
 {
+  "formatVersion": "md3.lesson.v1",
   "id": "lesson-18",
   "title": "Aula 18: CRM e Relacionamento com Clientes",
+  "slug": "aula-18-crm-e-relacionamento-com-clientes",
+  "summary": "Explora conceitos e práticas de CRM, conectando jornada do cliente, automação e indicadores de fidelização a decisões estratégicas.",
   "objective": "Analisar estratégias de CRM para fortalecer o relacionamento com clientes.",
+  "objectives": [
+    "Mapear jornada do cliente e relacioná-la a funcionalidades de CRM.",
+    "Avaliar impactos éticos e estratégicos de ações de relacionamento.",
+    "Planejar iniciativas de fidelização baseadas em dados."
+  ],
+  "competencies": [
+    "Gestão de relacionamento",
+    "Comunicação orientada ao cliente",
+    "Uso estratégico de dados"
+  ],
+  "skills": [
+    "Configurar fluxos básicos em plataformas CRM.",
+    "Interpretar indicadores de fidelização e satisfação.",
+    "Elaborar planos de ação alinhados à jornada do cliente."
+  ],
+  "outcomes": [
+    "Entrega plano de ação de CRM contextualizado ao estudo de caso.",
+    "Relaciona métricas a objetivos de retenção.",
+    "Compartilha reflexões éticas no AVA."
+  ],
+  "prerequisites": [
+    "Revisar análise de dashboards da aula 17.",
+    "Ler o material introdutório de CRM disponibilizado no AVA."
+  ],
+  "tags": ["crm", "relacionamento", "fidelizacao"],
+  "duration": 110,
+  "modality": "in-person",
+  "resources": [
+    {
+      "label": "Payne & Frow — Strategic Customer Management",
+      "url": "https://books.google.com/books?id=QLh5-i__7eYC",
+      "type": "book",
+      "author": "Adrian Payne; Pennie Frow",
+      "source": "Cambridge University Press / Google Books"
+    },
+    {
+      "label": "Peppers & Rogers — Managing Customer Relationships",
+      "url": "https://books.google.com/books?id=Dd2jIx-dtCgC",
+      "type": "book",
+      "author": "Don Peppers; Martha Rogers",
+      "source": "Wiley / Google Books"
+    },
+    {
+      "label": "Forrester Wave™: Customer Success Platforms Q4 2025",
+      "url": "https://www.forrester.com/blogs/from-scattered-tools-to-strategic-systems-three-themes-from-the-forrester-wave-customer-success-platforms-q4-2025/",
+      "type": "article",
+      "author": "Shari Srebnick",
+      "source": "Forrester"
+    },
+    {
+      "label": "TED Talk — Joseph Pine: What consumers want",
+      "url": "https://www.ted.com/talks/joseph_pine_what_consumers_want",
+      "type": "video",
+      "author": "Joseph Pine",
+      "source": "TED"
+    }
+  ],
+  "bibliography": [
+    "PAYNE, Adrian; FROW, Pennie. Strategic Customer Management. Cambridge University Press, 2017.",
+    "KOTLER, Philip; KARTAJAYA, Hermawan; SETIAWAN, Iwan. Marketing 5.0. Wiley, 2021.",
+    "BUTTLE, Francis; MAKLAN, Stan. Customer Relationship Management. Routledge, 2019.",
+    "PEPPERS, Don; ROGERS, Martha. Managing Customer Relationships. Wiley, 2016."
+  ],
+  "assessment": {
+    "type": "formative",
+    "description": "Plano de ação de CRM publicado com indicadores definidos."
+  },
   "content": [
     {
       "type": "callout",
@@ -10,20 +80,14 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise a jornada do cliente definida nas aulas anteriores e liste pontos de contato que ainda não possuem registro estruturado."
+          "text": "Revise a jornada do cliente definida nas aulas anteriores e conecte-a aos frameworks de Payne & Frow (gestão de valor) e Peppers & Rogers (relacionamentos 1:1) para identificar lacunas de registro."
         },
         {
           "type": "list",
           "items": [
-            {
-              "text": "Liste campos que hoje são preenchidos manualmente e causam erro."
-            },
-            {
-              "text": "Identifique indicadores chave como LTV, churn, NPS e CAC."
-            },
-            {
-              "text": "Traga dúvidas sobre LGPD relacionadas a campanhas e armazenamento."
-            }
+            "Liste campos que hoje são preenchidos manualmente e avalie, com Payne & Frow, quais processos de criação de valor ficam comprometidos.",
+            "Compare LTV, churn, NPS e CAC com os três temas destacados por Shari Srebnick no Forrester Wave™ de Customer Success Platforms.",
+            "Traga dúvidas sobre LGPD e experiências autênticas inspiradas no TED de Joseph Pine para discutir impactos nas campanhas e no armazenamento."
           ]
         }
       ]
@@ -64,7 +128,58 @@
         "(20 min) Oficina: desenhar funil e ciclos de relacionamento para o case.",
         "(15 min) Debates rápidos sobre governança e LGPD.",
         "(15 min) Simulação de automações e gatilhos por squad.",
-        "(15 min) Síntese coletiva e encaminhamento da TED."
+        "(15 min) Síntese coletiva conectando insights de Payne & Frow, Peppers & Rogers, Forrester e do TED para a TED."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Componentes críticos do CRM",
+      "description": "Use os cartões como checklist ao configurar o ambiente piloto.",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Perfil unificado",
+          "icon": "id-card",
+          "items": [
+            "Dados cadastrais validados",
+            "Consentimentos registrados",
+            "Preferências de canal"
+          ]
+        },
+        {
+          "title": "Engajamento",
+          "icon": "message-circle",
+          "body": "Automatize <strong>gatilhos por estágio</strong> e registre respostas com tags padronizadas."
+        },
+        {
+          "title": "Insights",
+          "icon": "trending-up",
+          "tone": "info",
+          "items": ["Alertas de churn", "Pontuação de saúde do cliente", "Recomendações de upsell"]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Jornada de relacionamento do cliente",
+      "description": "Cada fase exige dados diferentes e respostas rápidas do squad.",
+      "steps": [
+        {
+          "title": "Aquisição",
+          "content": "Campanhas digitais capturam leads. Registre origem, campanha e consentimento explicitado."
+        },
+        {
+          "title": "Onboarding",
+          "content": "Primeiras interações com foco em valor percebido. Automatize comunicações educativas e reuniões de ativação."
+        },
+        {
+          "title": "Uso recorrente",
+          "content": "Monitoramento contínuo do comportamento. Dashboards exibem adoção de features e alertas de inatividade."
+        },
+        {
+          "title": "Renovação e advocacy",
+          "content": "Checkpoints periódicos avaliam saúde da conta, coletam depoimentos e oferecem programas de indicação."
+        }
       ]
     },
     {
@@ -73,27 +188,286 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Um CRM eficaz centraliza dados de marketing, vendas e atendimento, permitindo visão 360º do cliente. É preciso definir claramente o funil (prospects, oportunidades, clientes ativos) e registrar interações de forma consistente."
+          "text": "Payne e Frow destacam que um CRM eficaz centraliza dados de marketing, vendas e atendimento para gerar visão 360º do cliente. É preciso definir claramente o funil (prospects, oportunidades, clientes ativos) e registrar interações de forma consistente para sustentar a criação de valor."
         },
         {
           "type": "paragraph",
-          "text": "Personalização depende de dados limpos, consentimento e regras de negócio. Integrar CRM com ERP, plataformas digitais e ferramentas de atendimento garante promessas cumpridas e aumenta retenção."
+          "text": "Peppers e Rogers, aliados às tendências mapeadas por Shari Srebnick no Forrester Wave™, lembram que personalização 1:1 depende de dados limpos, consentimento e regras de negócio. Integrar CRM com ERP, plataformas digitais e ferramentas de atendimento garante promessas cumpridas, capacidade de segmentação e aumento de retenção."
         }
       ]
     },
     {
-      "type": "videos",
-      "title": "Para aprofundar",
-      "videos": [
+      "type": "tabs",
+      "title": "Âncoras para tomada de decisão",
+      "tabs": [
         {
-          "url": "https://example.edu/tgs/videos/crm-jornada",
-          "title": "Jornada de relacionamento",
-          "caption": "Exemplos de como estruturar funis e cadências de contato."
+          "id": "dados",
+          "label": "Governança de dados",
+          "content": "Mantenha <strong>cadastro mestre</strong> com campos obrigatórios, histórico de consentimentos e regras de deduplicação."
         },
         {
-          "url": "https://example.edu/tgs/videos/case-crm-servicos",
-          "title": "Case CRM em serviços",
-          "caption": "Como uma empresa de serviços reduziu churn com automações personalizadas."
+          "id": "automacoes",
+          "label": "Automações",
+          "content": "Configure gatilhos a partir de eventos (cliques, tickets, pagamentos). Documente objetivo, público e métrica de sucesso de cada fluxo."
+        },
+        {
+          "id": "etica",
+          "label": "Ética e LGPD",
+          "content": "Valide bases legais, aplique políticas de retenção de dados e possibilite opt-out facilitado em todos os canais."
+        }
+      ]
+    },
+    {
+      "type": "pipelineCanvas",
+      "title": "Pipeline de relacionamento do case",
+      "summary": "Visualize atividades, riscos e entregáveis por estágio do funil de CRM.",
+      "stages": [
+        {
+          "id": "atracao",
+          "title": "Atração",
+          "summary": "Gerar interesse qualificado",
+          "status": "in-progress",
+          "owners": ["Marketing"],
+          "activities": [
+            {
+              "id": "act1",
+              "label": "Campanhas segmentadas",
+              "description": "Landing pages com oferta contextual.",
+              "role": "Analista de Growth"
+            },
+            {
+              "id": "act2",
+              "label": "Lead scoring",
+              "description": "Regra automática com base em fit e engajamento.",
+              "role": "Squad Analytics"
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "del1",
+              "label": "Relatório de aquisição",
+              "description": "Conversões por campanha com CAC atualizado"
+            }
+          ],
+          "risks": [
+            {
+              "id": "risk1",
+              "label": "Consentimento ausente",
+              "severity": "high",
+              "mitigation": "Validação automática de checkbox em formulários"
+            }
+          ],
+          "checkpoints": ["Taxa de opt-in", "Score médio"]
+        },
+        {
+          "id": "ativacao",
+          "title": "Ativação",
+          "summary": "Garantir uso inicial de valor",
+          "status": "in-progress",
+          "owners": ["Customer Success"],
+          "activities": [
+            {
+              "id": "act3",
+              "label": "Roteiro de onboarding",
+              "description": "Sequência de e-mails + call de kickoff",
+              "role": "CS Onboarding"
+            },
+            {
+              "id": "act4",
+              "label": "Configuração assistida",
+              "description": "Checklist técnico compartilhado",
+              "role": "Consultor de Implantação"
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "del2",
+              "label": "Plano de sucesso",
+              "description": "Metas e métricas combinadas com o cliente"
+            }
+          ],
+          "risks": [
+            {
+              "id": "risk2",
+              "label": "Baixa adoção inicial",
+              "severity": "medium",
+              "mitigation": "Tutoriais e sessões extras conforme comportamento"
+            }
+          ],
+          "checkpoints": ["Feature core ativada", "Tempo para valor"]
+        },
+        {
+          "id": "retencao",
+          "title": "Retenção",
+          "summary": "Expandir uso e evitar churn",
+          "status": "planned",
+          "owners": ["Suporte", "Marketing"],
+          "activities": [
+            {
+              "id": "act5",
+              "label": "Monitoramento de tickets",
+              "description": "Visão 360º no CRM com SLA",
+              "role": "Coordenador de Suporte"
+            },
+            {
+              "id": "act6",
+              "label": "Campanhas de engajamento",
+              "description": "Conteúdo personalizado conforme persona",
+              "role": "Especialista de CRM"
+            }
+          ],
+          "deliverables": [
+            {
+              "id": "del3",
+              "label": "Relatório de saúde",
+              "description": "Score consolidado e alertas de churn"
+            }
+          ],
+          "risks": [
+            {
+              "id": "risk3",
+              "label": "Comunicação massiva",
+              "severity": "medium",
+              "mitigation": "Limites de frequência por segmento"
+            }
+          ],
+          "checkpoints": ["NPS", "Uso de features avançadas"]
+        }
+      ],
+      "milestones": [
+        {
+          "id": "milestone1",
+          "title": "Integração CRM-ERP",
+          "due": "2025-05-10",
+          "description": "Sincronizar faturamento para cálculo automático de LTV"
+        },
+        {
+          "id": "milestone2",
+          "title": "Programa de indicação",
+          "due": "2025-06-20",
+          "description": "Lançar campanha de advocacy com monitoramento no CRM"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Loops do relacionamento",
+      "summary": "Identifique como experiência, receita e capacidade da equipe interagem no CRM.",
+      "factors": [
+        {
+          "id": "qualidade_dados",
+          "name": "Qualidade de dados",
+          "summary": "Completude e atualização do cadastro único.",
+          "kind": "driver",
+          "indicators": ["Campos obrigatórios preenchidos", "Duplicidades"]
+        },
+        {
+          "id": "experiencia",
+          "name": "Experiência do cliente",
+          "summary": "Percepção em interações de suporte e marketing.",
+          "kind": "stock",
+          "indicators": ["NPS", "CSAT"]
+        },
+        {
+          "id": "receita",
+          "name": "Receita recorrente",
+          "summary": "MRR e upsell por segmento.",
+          "kind": "outcome",
+          "indicators": ["MRR", "Expansion MRR"]
+        },
+        {
+          "id": "capacidade_time",
+          "name": "Capacidade do time",
+          "summary": "Horas disponíveis para relacionamento proativo.",
+          "kind": "constraint",
+          "indicators": ["Horas livres CS", "Tickets pendentes"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "loop_advocacy",
+          "name": "Advocacy gera crescimento",
+          "polarity": "reinforcing",
+          "summary": "Clientes satisfeitos indicam novos leads e reduzem CAC.",
+          "steps": [
+            {
+              "id": "s1",
+              "from": "experiencia",
+              "to": "receita",
+              "effect": "reinforces",
+              "description": "Experiência positiva aumenta renovações e compras adicionais."
+            },
+            {
+              "id": "s2",
+              "from": "receita",
+              "to": "capacidade_time",
+              "effect": "reinforces",
+              "description": "Receita incremental libera orçamento para ampliar equipe de CS."
+            },
+            {
+              "id": "s3",
+              "from": "capacidade_time",
+              "to": "qualidade_dados",
+              "effect": "reinforces",
+              "description": "Equipe maior atualiza dados com mais frequência e melhora personalização."
+            },
+            {
+              "id": "s4",
+              "from": "qualidade_dados",
+              "to": "experiencia",
+              "effect": "reinforces",
+              "description": "Dados confiáveis permitem mensagens relevantes, elevando a satisfação."
+            }
+          ],
+          "insights": [
+            "Rituais de limpeza de dados evitam gargalos de personalização",
+            "Programas de indicação dependem de CS com agenda disponível"
+          ]
+        },
+        {
+          "id": "loop_saturacao",
+          "name": "Saturação de canais",
+          "polarity": "balancing",
+          "summary": "Excesso de mensagens reduz engajamento e prejudica reputação.",
+          "steps": [
+            {
+              "id": "s5",
+              "from": "qualidade_dados",
+              "to": "automacoes",
+              "effect": "reinforces",
+              "description": "Quanto mais segmentação, mais fluxos automatizados são criados."
+            },
+            {
+              "id": "s6",
+              "from": "automacoes",
+              "to": "capacidade_time",
+              "effect": "balances",
+              "description": "Fluxos excessivos geram tickets adicionais e sobrecarregam CS."
+            },
+            {
+              "id": "s7",
+              "from": "capacidade_time",
+              "to": "experiencia",
+              "effect": "balances",
+              "description": "Equipe sobrecarregada piora atendimento e reduz satisfação."
+            }
+          ],
+          "insights": [
+            "Defina limites de frequência por segmento",
+            "Use testes A/B para monitorar impacto das campanhas"
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight1",
+          "label": "Priorize cadências sustentáveis",
+          "description": "Combine indicadores de capacidade e satisfação antes de lançar novos fluxos."
+        },
+        {
+          "id": "insight2",
+          "label": "Dados confiáveis geram personalização",
+          "description": "Auditorias mensais no CRM evitam campanhas desalinhadas e melhoram ROI."
         }
       ]
     },
@@ -121,6 +495,95 @@
       ]
     },
     {
+      "type": "resourceGallery",
+      "title": "Ferramentas e referências",
+      "description": "Conecte frameworks clássicos de CRM a análises recentes de mercado e provocações sobre personalização.",
+      "items": [
+        {
+          "id": "res-payne-frow",
+          "type": "book",
+          "title": "Modelo de valor em CRM (Payne & Frow)",
+          "url": "https://books.google.com/books?id=QLh5-i__7eYC",
+          "author": "Adrian Payne; Pennie Frow",
+          "source": "Cambridge University Press / Google Books"
+        },
+        {
+          "id": "res-peppers-rogers",
+          "type": "book",
+          "title": "Gestão 1:1 para fidelização (Peppers & Rogers)",
+          "url": "https://books.google.com/books?id=Dd2jIx-dtCgC",
+          "author": "Don Peppers; Martha Rogers",
+          "source": "Wiley / Google Books"
+        },
+        {
+          "id": "res-forrester-wave",
+          "type": "article",
+          "title": "Três temas do Forrester Wave™ para Customer Success",
+          "url": "https://www.forrester.com/blogs/from-scattered-tools-to-strategic-systems-three-themes-from-the-forrester-wave-customer-success-platforms-q4-2025/",
+          "author": "Shari Srebnick",
+          "source": "Forrester"
+        },
+        {
+          "id": "res-ted-pine",
+          "type": "video",
+          "title": "TED — Joseph Pine sobre experiências autênticas",
+          "url": "https://www.ted.com/talks/joseph_pine_what_consumers_want",
+          "author": "Joseph Pine",
+          "source": "TED"
+        }
+      ]
+    },
+    {
+      "type": "videos",
+      "title": "Para aprofundar",
+      "videos": [
+        {
+          "url": "https://www.ted.com/talks/joseph_pine_what_consumers_want",
+          "title": "Joseph Pine: What consumers want",
+          "caption": "O coautor de \"The Experience Economy\" detalha por que experiências autênticas sustentam fidelização em iniciativas de CRM."
+        },
+        {
+          "url": "https://www.ted.com/talks/dan_cobley_what_physics_taught_me_about_marketing",
+          "title": "Dan Cobley: What physics taught me about marketing",
+          "caption": "Reflexões sobre dados e percepção que ajudam a conectar os frameworks de Peppers & Rogers a campanhas personalizadas."
+        }
+      ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Checagem de prontidão",
+          "question": "Qual combinação de ações reduz churn sem violar LGPD?",
+          "multiple": false,
+          "feedback": {
+            "correct": "Ótimo! Personalização responsável exige consentimento registrado e acompanhamento dos resultados.",
+            "incorrect": "Revise políticas de consentimento e limites de contato antes de disparar fluxos."
+          },
+          "options": [
+            {
+              "id": "kc1",
+              "text": "Segmentar campanhas por perfil, registrar consentimento e monitorar resposta do cliente.",
+              "correct": true,
+              "explanation": "Essa combinação equilibra personalização, evidências e conformidade."
+            },
+            {
+              "id": "kc2",
+              "text": "Enviar a mesma campanha para toda a base semanalmente.",
+              "correct": false
+            },
+            {
+              "id": "kc3",
+              "text": "Adicionar novos campos obrigatórios sem informar o cliente.",
+              "correct": false
+            }
+          ]
+        }
+      }
+    },
+    {
       "type": "promptTip",
       "title": "Prompt para personalização",
       "description": "Use quando estiver definindo fluxos automatizados.",
@@ -140,7 +603,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Entregue um plano de relacionamento com segmentos, cadências, conteúdo e indicadores, anexando captura dos fluxos automatizados desenhados."
+          "text": "Entregue um plano de relacionamento com segmentos, cadências, conteúdo e indicadores, articulando como os processos de criação de valor de Payne & Frow e as estratégias 1:1 de Peppers & Rogers sustentam as escolhas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Inclua análise de riscos (LGPD, saturação de canal) e plano de mitigação alinhado aos loops identificados, dialogando com os temas do Forrester Wave™ e as provocações do TED de Joseph Pine."
         }
       ]
     },
@@ -150,63 +617,15 @@
       "items": [
         "Mapeou todos os pontos de contato relevantes.",
         "Documentou dados obrigatórios e mecanismos de consentimento.",
-        "Relacionou indicadores a ações táticas específicas."
+        "Relacionou indicadores a ações táticas específicas.",
+        "Identificou riscos de saturação e planejou limites de contato.",
+        "Referenciou Payne & Frow, Peppers & Rogers, Forrester e o TED selecionado ao justificar decisões."
       ]
     }
   ],
-  "formatVersion": "md3.lesson.v1",
-  "slug": "aula-18-crm-e-relacionamento-com-clientes",
-  "summary": "Explora conceitos e práticas de CRM, conectando jornada do cliente, automação e indicadores de fidelização a decisões estratégicas.",
-  "objectives": [
-    "Mapear jornada do cliente e relacioná-la a funcionalidades de CRM.",
-    "Avaliar impactos éticos e estratégicos de ações de relacionamento.",
-    "Planejar iniciativas de fidelização baseadas em dados."
-  ],
-  "competencies": [
-    "Gestão de relacionamento",
-    "Comunicação orientada ao cliente",
-    "Uso estratégico de dados"
-  ],
-  "skills": [
-    "Configurar fluxos básicos em plataformas CRM.",
-    "Interpretar indicadores de fidelização e satisfação.",
-    "Elaborar planos de ação alinhados à jornada do cliente."
-  ],
-  "outcomes": [
-    "Entrega plano de ação de CRM contextualizado ao estudo de caso.",
-    "Relaciona métricas a objetivos de retenção.",
-    "Compartilha reflexões éticas no AVA."
-  ],
-  "prerequisites": [
-    "Revisar análise de dashboards da aula 17.",
-    "Ler o material introdutório de CRM disponibilizado no AVA."
-  ],
-  "tags": ["aula-18-crm"],
-  "duration": 110,
-  "modality": "in-person",
-  "resources": [
-    {
-      "label": "Template de plano de fidelização",
-      "url": "https://example.edu/tgs/modelos/plano-crm",
-      "type": "template"
-    },
-    {
-      "label": "Playbook de atendimento omnichannel",
-      "url": "https://example.edu/tgs/guias/playbook-omnichannel",
-      "type": "guide"
-    }
-  ],
-  "bibliography": [
-    "PAYNE, Adrian; FROW, Pennie. Strategic Customer Management. Cambridge University Press, 2017.",
-    "KOTLER, Philip; KARTAJAYA, Hermawan; SETIAWAN, Iwan. Marketing 5.0. Wiley, 2021."
-  ],
-  "assessment": {
-    "type": "formative",
-    "description": "Plano de ação de CRM publicado com indicadores definidos."
-  },
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "updatedAt": "2025-03-15T00:00:00.000Z",
     "owners": ["Profa. Marina Duarte"],
     "sources": ["Plano de ensino TGS 2025.1"]
   }

@@ -2,7 +2,7 @@
 export const meta = {
   id: 'lesson-17',
   title: 'Aula 17: Business Intelligence e Dashboards',
-  objective: 'Explorar conceitos de BI e avaliar dashboards como apoio à decisão.',
+  objective: 'Interpretar dashboards sob a ótica da TGS e orientar decisões sistêmicas.',
   available: true,
 };
 </script>

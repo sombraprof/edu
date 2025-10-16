@@ -3,12 +3,12 @@
   "id": "lesson-17",
   "title": "Aula 17: Business Intelligence e Dashboards",
   "slug": "aula-17-business-intelligence-e-dashboards",
-  "summary": "Conecta fundamentos de BI à TGS para criar dashboards que sustentem decisões sistêmicas baseadas em evidências.",
-  "objective": "Planejar, prototipar e avaliar dashboards executivos alinhados ao estudo de caso da disciplina.",
+  "summary": "Retoma os pilares da Teoria Geral dos Sistemas para interpretar indicadores e dashboards como mapas das interdependências organizacionais.",
+  "objective": "Analisar criticamente painéis de indicadores e estruturar narrativas sistêmicas que orientem decisões de gestão.",
   "objectives": [
-    "Relacionar arquitetura de BI, governança de dados e indicadores estratégicos previstos no plano de ensino.",
-    "Avaliar dashboards sob critérios de clareza sistêmica, narrativa e acionabilidade.",
-    "Iterar visualizações com base em feedback estruturado e preparar entregáveis para a trilha extensionista."
+    "Conectar conceitos de TGS (fronteiras, fluxos e feedbacks) às camadas de Business Intelligence.",
+    "Avaliar dashboards à luz de critérios de clareza, coerência sistêmica e relevância territorial.",
+    "Sintetizar aprendizados em mapas visuais que orientem próximas intervenções no estudo de caso."
   ],
   "competencies": [
     "Pensamento analítico",
@@ -16,43 +16,57 @@
     "Tomada de decisão orientada a evidências"
   ],
   "skills": [
-    "Mapear fontes, métricas e responsáveis em uma arquitetura de BI enxuta.",
-    "Diagnosticar ruídos visuais e conceituais em dashboards existentes.",
-    "Documentar próximos passos que transformem indicadores em ações concretas."
+    "Mapear fronteiras do sistema e relacionar indicadores a subsistemas interdependentes.",
+    "Diagnosticar ruídos conceituais em dashboards e propor ajustes alinhados à TGS.",
+    "Comunicar recomendações ancoradas em evidências locais e ritos de monitoramento."
   ],
   "outcomes": [
-    "Entrega registro crítico do dashboard com recomendações priorizadas no AVA.",
-    "Evidencia conexão entre KPIs e objetivos estratégicos definidos no case.",
-    "Planeja experimentos de acompanhamento para validar hipóteses levantadas na aula."
+    "Entrega síntese crítica do dashboard analisado com mapa de feedbacks.",
+    "Evidencia conexão entre indicadores e objetivos sistêmicos do estudo de caso.",
+    "Planeja próximos passos para atualizar o painel considerando evidências territoriais."
   ],
   "prerequisites": [
     "Revisar conceitos de integração de sistemas da aula 16.",
-    "Explorar previamente o dataset disponibilizado no AVA."
+    "Ler o capítulo introdutório de Teoria Geral dos Sistemas (Bertalanffy)."
   ],
-  "tags": ["tgs", "bi", "dashboards"],
+  "tags": ["tgs", "bi", "dashboards", "sistemas", "indicadores"],
   "duration": 100,
   "modality": "in-person",
   "resources": [
     {
-      "label": "Dataset de vendas trimestrais",
-      "url": "https://example.edu/tgs/datasets/vendas-trimestre",
-      "type": "dataset"
+      "label": "Observatório do Recife — Painel de Indicadores de Desenvolvimento",
+      "url": "https://dados.recife.pe.gov.br/apps/observatorio-qualidade-de-vida/",
+      "type": "dashboard",
+      "author": "Observatório do Recife",
+      "source": "Prefeitura do Recife"
     },
     {
-      "label": "Guia rápido de visualização",
-      "url": "https://example.edu/tgs/guias/design-dashboard",
-      "type": "guide"
+      "label": "Nota Técnica — BI aplicado à gestão pública (UFPE)",
+      "url": "https://repositorio.ufpe.br/handle/123456789/42128",
+      "type": "article",
+      "author": "Laboratório de Cidades Inteligentes UFPE",
+      "source": "UFPE"
     },
     {
-      "label": "Template SystemMapper — Indicadores",
-      "url": "https://example.edu/tgs/templates/systemmapper-indicadores",
-      "type": "template"
+      "label": "BERTALANFFY, Ludwig von. Teoria Geral dos Sistemas",
+      "url": "https://loja.vozes.com.br/teoria-geral-dos-sistemas",
+      "type": "book",
+      "author": "Ludwig von Bertalanffy",
+      "source": "Vozes"
+    },
+    {
+      "label": "SEBRAE — Guia de Indicadores para Pequenos Negócios",
+      "url": "https://www.sebrae.com.br/sites/PortalSebrae/artigos/indicadores-de-desempenho",
+      "type": "article",
+      "author": "SEBRAE",
+      "source": "Sebrae"
     }
   ],
   "bibliography": [
     "BERTALANFFY, Ludwig von. Teoria Geral dos Sistemas. Vozes, 2010.",
     "STAIR, Ralph; REYNOLDS, George. Princípios de Sistemas de Informação. Cengage, 2022.",
-    "FEW, Stephen. Information Dashboard Design. Analytics Press, 2013."
+    "FEW, Stephen. Information Dashboard Design. Analytics Press, 2013.",
+    "KNAFLIC, Cole Nussbaumer. Storytelling with Data. Wiley, 2015."
   ],
   "assessment": {
     "type": "formative",
@@ -66,20 +80,15 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Revise os indicadores estratégicos da empresa fictícia e identifique decisões que dependem de cada um deles."
+          "text": "Revise os conceitos de sistema aberto, fronteiras e retroalimentação para identificar onde os indicadores da organização representam entradas, transformações ou saídas."
         },
         {
           "type": "list",
           "items": [
-            {
-              "text": "Traga duas referências de dashboards (prints ou links) para inspirar boas práticas."
-            },
-            {
-              "text": "Atualize o SystemMapper com fluxos de dados, responsáveis e frequência de atualização."
-            },
-            {
-              "text": "Revise definições de KPI, métrica e metadado no material de apoio."
-            }
+            "Acesse o Painel de Indicadores do Observatório do Recife e identifique pelo menos um indicador social, um econômico e um de infraestrutura relacionados ao case.",
+            "Leia a nota técnica da UFPE (2023) e destaque como a governança de dados fortalece laços de reforço positivos.",
+            "Atualize o SystemMapper com fluxos de dados, responsáveis e frequência de atualização, indicando a fonte local de cada indicador.",
+            "Releia a definição de KPI, métrica e metadado à luz da TGS: qual papel cada elemento desempenha na homeostase do sistema?"
           ]
         }
       ]
@@ -90,23 +99,23 @@
       "cards": [
         {
           "icon": "book-open",
-          "title": "Diagnóstico",
-          "content": "Mapear dores de decisão do case e alinhar indicadores-chave do plano de ensino."
+          "title": "Enquadramento sistêmico",
+          "content": "Conectar macro-objetivos do estudo de caso aos conceitos de fronteira, fluxo e retroalimentação na TGS."
         },
         {
           "icon": "gears",
-          "title": "Arquitetura",
-          "content": "Discutir fluxo de dados, governança e responsabilidades na cadeia de BI."
+          "title": "Cartografia de indicadores",
+          "content": "Identificar subsistemas e responsabilidades usando o painel do Observatório do Recife como referência de governança territorial."
         },
         {
-          "icon": "code",
-          "title": "Laboratório de dashboards",
-          "content": "Prototipar visualizações priorizando narrativas sistêmicas e alertas automáticos."
+          "icon": "monitor",
+          "title": "Leitura guiada de dashboards",
+          "content": "Analisar visualizações existentes destacando feedbacks, atrasos e limitações dos indicadores selecionados."
         },
         {
           "icon": "check-circle",
-          "title": "Feedback & TED",
-          "content": "Consolidar aprendizados, registrar ajustes e orientar a entrega assíncrona."
+          "title": "Síntese e TED",
+          "content": "Documentar aprendizados, priorizar ajustes e orientar a entrega pós-aula com foco em evidências locais."
         }
       ]
     },
@@ -114,14 +123,70 @@
       "type": "flightPlan",
       "title": "Plano de voo (1h40)",
       "items": [
-        "(5 min) Check-in: conectar as decisões críticas do case aos indicadores priorizados.",
-        "(15 min) Diagnóstico guiado: squads mapeiam lacunas de dados usando o SystemMapper.",
-        "(15 min) Explainer: arquitetura BI, pipeline de dados e papéis de governança.",
-        "(20 min) Oficina 1: crítica comparativa de dashboards (identificar ruídos, oportunidades, alertas).",
-        "(5 min) Intervalo curto e reorganização dos pares.",
-        "(20 min) Oficina 2: prototipagem em ferramenta BI ou canvas, com foco em narrativa e acionabilidade.",
-        "(10 min) Rodadas de feedback cruzado com checklist do professor.",
-        "(10 min) Síntese: registrar próximos passos e critérios da TED pós-aula."
+        "(5 min) Check-in sistêmico: relembrar elementos da TGS presentes no case.",
+        "(15 min) Exposição dialogada: camadas de BI e ciclos de feedback segundo Bertalanffy e Stair & Reynolds.",
+        "(20 min) Cartografia: squads relacionam indicadores do Observatório do Recife aos subsistemas do estudo de caso.",
+        "(15 min) Leitura guiada: análise de um dashboard municipal destacando sinais de reforço e equilíbrio.",
+        "(5 min) Pausa rápida para reorganizar pares e registrar perguntas.",
+        "(15 min) Oficina: redesenhar narrativa do painel usando critérios de clareza, coerência sistêmica e relevância territorial.",
+        "(10 min) Compartilhamento em plenária com quadro de feedback estruturado.",
+        "(15 min) Síntese coletiva e planejamento da TED pós-aula."
+      ]
+    },
+    {
+      "type": "cardGrid",
+      "title": "Mapa rápido de entregáveis do squad",
+      "description": "Use as cartas como referência ao interpretar e atualizar o dashboard do estudo de caso.",
+      "columns": 3,
+      "cards": [
+        {
+          "title": "Perguntas norteadoras",
+          "icon": "search",
+          "body": "<strong>Qual decisão</strong> precisa ser tomada? <br />Que <strong>subsistema</strong> é afetado? <br />Qual <strong>tempo de resposta sistêmico</strong> é aceitável?"
+        },
+        {
+          "title": "Sinais de alerta",
+          "icon": "alert-triangle",
+          "tone": "warning",
+          "items": [
+            "Indicadores sem responsável nomeado",
+            "Escalas inconsistentes entre gráficos",
+            "Indicadores que ignoram recortes territoriais relevantes"
+          ]
+        },
+        {
+          "title": "Evidências para TED",
+          "icon": "clipboard-check",
+          "tone": "success",
+          "items": [
+            "Capturas com destaque de feedbacks reforçadores ou equilibradores",
+            "Checklist respondido pelo squad com referências teóricas",
+            "Plano de próximos experimentos ou parcerias locais"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "title": "Maturidade de BI no case extensionista",
+      "description": "Cada etapa exige ajustes sistêmicos, políticas de dados e ritos de monitoramento.",
+      "steps": [
+        {
+          "title": "Inventário de fontes",
+          "content": "Mapear subsistemas, indicadores existentes e responsáveis, identificando laços de reforço ou equilíbrio."
+        },
+        {
+          "title": "Modelagem integrada",
+          "content": "Construir um vocabulário comum (dicionário de dados, periodicidades, recortes territoriais) que preserve a coerência sistêmica."
+        },
+        {
+          "title": "Dashboards diagnósticos",
+          "content": "Elaborar painéis que evidenciem correlações e atrasos entre indicadores locais, com narrativas ancoradas na TGS."
+        },
+        {
+          "title": "Painel executivo sistêmico",
+          "content": "Síntese dos KPIs críticos, hipóteses de intervenção e rotinas de revisão contínua para manter a homeostase do sistema."
+        }
       ]
     },
     {
@@ -141,7 +206,7 @@
             },
             {
               "title": "Questão prática",
-              "text": "Construa um rascunho de dashboard destacando filtros, alertas e responsáveis pela resposta a desvios."
+              "text": "Analise um painel público (Observatório do Recife ou similar) e registre como cada visualização representa entradas, processamentos e saídas do sistema estudado."
             }
           ]
         }
@@ -153,11 +218,62 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Na perspectiva sistêmica, indicadores conectam subsistemas e garantem homeostase organizacional. Um dashboard eficiente deve revelar padrões, retroalimentar decisões e tornar explícitas interdependências."
+          "text": "Na perspectiva sistêmica, indicadores conectam subsistemas e garantem homeostase organizacional. Para Bertalanffy, qualquer intervenção precisa considerar os efeitos circulares entre entradas, processos e resultados — exatamente o que um dashboard bem estruturado evidencia."
         },
         {
           "type": "paragraph",
-          "text": "Ao relacionar entradas, processamento e saídas, dashboards ajudam a detectar gargalos e orientar intervenções alinhadas à estratégia do case extensionista."
+          "text": "Ao relacionar dados socioeconômicos locais, painéis como o do Observatório do Recife permitem visualizar atrasos, laços de reforço e necessidades de coordenação entre secretarias. A interpretação sistêmica evita soluções pontuais e sustenta decisões integradas."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Painel sistêmico inspirado em dados locais",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "O mockup abaixo sintetiza um painel que conecta indicadores de saúde, economia e mobilidade da Região Metropolitana do Recife, destacando como os fluxos se retroalimentam."
+        },
+        {
+          "type": "image",
+          "src": "/images/tgs/lesson-17/painel-sistema-local.svg",
+          "alt": "Dashboard com indicadores locais interligados por setas de feedback."
+        }
+      ]
+    },
+    {
+      "type": "contentBlock",
+      "title": "Mapa de feedbacks do território",
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Utilize o mapa causal para identificar loops reforçadores (crescimento) e loops de equilíbrio (atenção) presentes nos dados territoriais analisados."
+        },
+        {
+          "type": "image",
+          "src": "/images/tgs/lesson-17/mapa-feedback-tgs.svg",
+          "alt": "Diagrama circular com indicadores de saúde, economia, mobilidade e educação conectados por setas."
+        }
+      ]
+    },
+    {
+      "type": "tabs",
+      "title": "Heurísticas de avaliação rápida",
+      "tabs": [
+        {
+          "id": "claridade",
+          "label": "Clareza",
+          "content": "Use títulos que respondam <em>o que mudou</em>, descreva unidades e destaque insights com linguagem acessível."
+        },
+        {
+          "id": "coesao",
+          "label": "Coesão sistêmica",
+          "content": "Agrupe indicadores por loop causal: entradas → processo → resultado. Evidencie dependências com anotações ou cards resumidos."
+        },
+        {
+          "id": "acao",
+          "label": "Acionabilidade",
+          "content": "Inclua alertas visuais, canais de escalonamento e próximos passos recomendados quando o KPI sair da meta."
         }
       ]
     },
@@ -187,32 +303,397 @@
       ]
     },
     {
+      "type": "balancedScorecard",
+      "title": "Roteiro de indicadores para o painel executivo",
+      "summary": "Relacione objetivos estratégicos a KPIs e iniciativas que sustentam o ciclo de feedback da organização.",
+      "perspectives": [
+        {
+          "id": "finance",
+          "title": "Fiscal",
+          "summary": "Equilíbrio entre arrecadação e investimentos prioritários",
+          "badge": "F",
+          "tone": "primary"
+        },
+        {
+          "id": "customer",
+          "title": "Sociedade",
+          "summary": "Bem-estar e confiança da população",
+          "badge": "C",
+          "tone": "info"
+        },
+        {
+          "id": "process",
+          "title": "Processos públicos",
+          "summary": "Entrega integrada de serviços essenciais",
+          "badge": "P",
+          "tone": "success"
+        },
+        {
+          "id": "learning",
+          "title": "Aprendizado e inovação",
+          "summary": "Cultura analítica e engajamento comunitário",
+          "badge": "A",
+          "tone": "neutral"
+        }
+      ],
+      "objectives": [
+        {
+          "id": "obj-fiscal",
+          "perspectiveId": "finance",
+          "title": "Garantir sustentabilidade fiscal",
+          "summary": "Manter investimentos em políticas prioritárias com equilíbrio orçamentário.",
+          "owner": "Secretaria de Finanças",
+          "initiatives": ["Revisão contínua de despesas e monitoramento de arrecadação"],
+          "indicatorIds": ["kpi-arrecadacao", "kpi-investimento_social"]
+        },
+        {
+          "id": "obj-sociedade",
+          "perspectiveId": "customer",
+          "title": "Elevar qualidade de vida urbana",
+          "summary": "Ampliar acesso a serviços essenciais e reduzir desigualdades territoriais.",
+          "owner": "Secretaria de Planejamento Urbano",
+          "initiatives": ["Ritos integrados de acompanhamento com secretarias setoriais"],
+          "indicatorIds": ["kpi-cobertura_saude", "kpi-mobilidade"]
+        },
+        {
+          "id": "obj-processos",
+          "perspectiveId": "process",
+          "title": "Integrar fluxos intersetoriais",
+          "summary": "Harmonizar dados e ritos de decisão entre secretarias.",
+          "owner": "Escritório de Projetos Estruturantes",
+          "initiatives": ["Catálogo único de indicadores e agenda de governança"],
+          "indicatorIds": ["kpi-latencia_dados", "kpi-resposta_chamados"]
+        },
+        {
+          "id": "obj-aprendizado",
+          "perspectiveId": "learning",
+          "title": "Fortalecer cultura analítica",
+          "summary": "Capacitar servidores e atores comunitários para o uso de dados.",
+          "owner": "Escola de Governo",
+          "initiatives": ["Programas de formação contínua e laboratórios de dados"],
+          "indicatorIds": ["kpi-formacao_dados"]
+        }
+      ],
+      "indicators": [
+        {
+          "id": "kpi-arrecadacao",
+          "title": "Arrecadação própria per capita",
+          "summary": "Receita municipal por habitante destinada a investimentos.",
+          "perspectiveId": "finance",
+          "objectiveId": "obj-fiscal",
+          "target": "R$ 1.250",
+          "current": "R$ 1.180",
+          "frequency": "Trimestral",
+          "owner": "Secretaria de Finanças",
+          "status": "at-risk"
+        },
+        {
+          "id": "kpi-investimento_social",
+          "title": "% do orçamento em políticas sociais",
+          "summary": "Proporção do orçamento destinada a saúde, educação e assistência.",
+          "perspectiveId": "finance",
+          "objectiveId": "obj-fiscal",
+          "target": "28%",
+          "current": "24%",
+          "frequency": "Anual",
+          "owner": "Secretaria de Planejamento Urbano",
+          "status": "off-track"
+        },
+        {
+          "id": "kpi-cobertura_saude",
+          "title": "Cobertura ESF",
+          "summary": "Percentual da população coberta pela Estratégia Saúde da Família.",
+          "perspectiveId": "customer",
+          "objectiveId": "obj-sociedade",
+          "target": "90%",
+          "current": "82%",
+          "frequency": "Semestral",
+          "owner": "Secretaria de Saúde",
+          "status": "at-risk"
+        },
+        {
+          "id": "kpi-mobilidade",
+          "title": "Tempo médio de deslocamento",
+          "summary": "Tempo gasto pelos cidadãos no deslocamento casa-trabalho em horário de pico.",
+          "perspectiveId": "customer",
+          "objectiveId": "obj-sociedade",
+          "target": "≤ 35 min",
+          "current": "38 min",
+          "frequency": "Mensal",
+          "owner": "Secretaria de Mobilidade",
+          "status": "off-track"
+        },
+        {
+          "id": "kpi-latencia_dados",
+          "title": "Latência de atualização do painel",
+          "summary": "Tempo entre a geração do dado na secretaria e a publicação no dashboard integrado.",
+          "perspectiveId": "process",
+          "objectiveId": "obj-processos",
+          "target": "< 7 dias",
+          "current": "12 dias",
+          "frequency": "Semanal",
+          "owner": "Agência Municipal de Tecnologia da Informação",
+          "status": "at-risk"
+        },
+        {
+          "id": "kpi-resposta_chamados",
+          "title": "Tempo de resposta da Ouvidoria",
+          "summary": "Tempo médio para responder demandas registradas pela população.",
+          "perspectiveId": "process",
+          "objectiveId": "obj-processos",
+          "target": "48 h",
+          "current": "62 h",
+          "frequency": "Mensal",
+          "owner": "Ouvidoria Geral",
+          "status": "off-track"
+        },
+        {
+          "id": "kpi-formacao_dados",
+          "title": "Horas de formação em dados",
+          "summary": "Carga horária média de capacitação em dados por servidor envolvido no painel.",
+          "perspectiveId": "learning",
+          "objectiveId": "obj-aprendizado",
+          "target": "12h/semestre",
+          "current": "6h/semestre",
+          "frequency": "Semestral",
+          "owner": "Escola de Governo",
+          "status": "not-started"
+        }
+      ]
+    },
+    {
+      "type": "systemMapper",
+      "title": "Loops de feedback que o dashboard precisa evidenciar",
+      "summary": "Analise como indicadores territoriais se influenciam e sinalizam intervenções sistêmicas.",
+      "factors": [
+        {
+          "id": "cobertura_saude",
+          "name": "Cobertura ESF",
+          "summary": "Percentual de famílias acompanhadas pela Estratégia Saúde da Família.",
+          "kind": "stock",
+          "indicators": ["Cobertura ESF", "Consultas preventivas"]
+        },
+        {
+          "id": "emprego_local",
+          "name": "Novas MEIs ativas",
+          "summary": "Empreendimentos formalizados e renda gerada na economia local.",
+          "kind": "driver",
+          "indicators": ["MEIs ativas", "Arrecadação própria per capita"]
+        },
+        {
+          "id": "mobilidade_urbana",
+          "name": "Mobilidade urbana",
+          "summary": "Tempo médio de deslocamento em horários de pico.",
+          "kind": "constraint",
+          "indicators": ["Tempo médio de deslocamento", "Índice de mobilidade sustentável"]
+        },
+        {
+          "id": "engajamento_comunitario",
+          "name": "Engajamento comunitário",
+          "summary": "Participação social e horas de formação em dados.",
+          "kind": "driver",
+          "indicators": ["Horas de formação em dados", "Participações em conselhos"]
+        },
+        {
+          "id": "qualidade_vida",
+          "name": "Qualidade de vida percebida",
+          "summary": "Síntese de indicadores de saúde, mobilidade e renda.",
+          "kind": "outcome",
+          "indicators": ["Índice de qualidade de vida", "Satisfação cidadã"]
+        }
+      ],
+      "loops": [
+        {
+          "id": "loop_bemestar",
+          "name": "Loop de bem-estar e participação",
+          "polarity": "reinforcing",
+          "summary": "Investimentos sociais ampliam qualidade de vida e engajamento comunitário, sustentando novas iniciativas.",
+          "steps": [
+            {
+              "id": "step1",
+              "from": "cobertura_saude",
+              "to": "qualidade_vida",
+              "effect": "reinforces",
+              "description": "Mais famílias acompanhadas reduzem vulnerabilidades e elevam o índice de qualidade de vida."
+            },
+            {
+              "id": "step2",
+              "from": "qualidade_vida",
+              "to": "engajamento_comunitario",
+              "effect": "reinforces",
+              "description": "Melhor percepção dos serviços incentiva participação em conselhos e consultas públicas."
+            },
+            {
+              "id": "step3",
+              "from": "engajamento_comunitario",
+              "to": "emprego_local",
+              "effect": "reinforces",
+              "description": "Comunidades engajadas criam redes de apoio e estimulam novos empreendimentos formais."
+            },
+            {
+              "id": "step4",
+              "from": "emprego_local",
+              "to": "cobertura_saude",
+              "effect": "reinforces",
+              "description": "Maior arrecadação própria amplia investimentos em saúde básica."
+            }
+          ],
+          "insights": [
+            "Monitore se a arrecadação acompanha a expansão dos serviços",
+            "Registre percepções cidadãs para alimentar decisões orçamentárias"
+          ]
+        },
+        {
+          "id": "loop_pressao_mobilidade",
+          "name": "Loop de pressão sobre mobilidade",
+          "polarity": "balancing",
+          "summary": "Crescimento econômico sem infraestrutura de transporte reduz qualidade de vida.",
+          "steps": [
+            {
+              "id": "step5",
+              "from": "emprego_local",
+              "to": "mobilidade_urbana",
+              "effect": "balances",
+              "description": "Mais negócios ativos aumentam deslocamentos e pressionam a infraestrutura."
+            },
+            {
+              "id": "step6",
+              "from": "mobilidade_urbana",
+              "to": "qualidade_vida",
+              "effect": "balances",
+              "description": "Atrasos crescentes reduzem a percepção de bem-estar urbano."
+            },
+            {
+              "id": "step7",
+              "from": "qualidade_vida",
+              "to": "emprego_local",
+              "effect": "balances",
+              "description": "Queda na qualidade de vida desestimula permanência de empreendedores e trabalhadores."
+            }
+          ],
+          "insights": [
+            "Combine indicadores de mobilidade com dados econômicos para antecipar gargalos",
+            "Negocie intervenções intersetoriais quando a pressão sobre transporte se aproximar do limite"
+          ]
+        }
+      ],
+      "insights": [
+        {
+          "id": "insight-alertas",
+          "label": "Alertas integrados",
+          "description": "Configure alertas que combinem mobilidade, arrecadação e indicadores sociais antes de priorizar obras ou políticas."
+        },
+        {
+          "id": "insight-feedback",
+          "label": "Ritos de aprendizagem",
+          "description": "Use conselhos comunitários e reuniões de monitoramento para validar hipóteses e atualizar indicadores."
+        }
+      ]
+    },
+    {
+      "type": "resourceGallery",
+      "title": "Kit de referência para a aula",
+      "description": "Seleção de recursos para aprofundar fundamentos teóricos e leituras territoriais de indicadores.",
+      "items": [
+        {
+          "id": "res-observatorio-metodologia",
+          "type": "guide",
+          "title": "Observatório do Recife – Metodologia dos indicadores",
+          "url": "https://dados.recife.pe.gov.br/dataset/observatorio-qualidade-de-vida",
+          "author": "Observatório do Recife",
+          "source": "Prefeitura do Recife"
+        },
+        {
+          "id": "res-ibge-painel",
+          "type": "dashboard",
+          "title": "IBGE Cidades – Panorama Recife",
+          "url": "https://cidades.ibge.gov.br/brasil/pe/recife/panorama",
+          "author": "IBGE",
+          "source": "IBGE"
+        },
+        {
+          "id": "res-fgv-gestao",
+          "type": "article",
+          "title": "FGV Conhecimento – Dashboards para gestão pública integrada",
+          "url": "https://bibliotecadigital.fgv.br/dspace/handle/10438/32554",
+          "author": "FGV Conhecimento",
+          "source": "FGV"
+        },
+        {
+          "id": "res-sebrae-indicadores",
+          "type": "guide",
+          "title": "Sebrae – Indicadores de desempenho para pequenos negócios",
+          "url": "https://www.sebrae.com.br/sites/PortalSebrae/artigos/indicadores-de-desempenho",
+          "author": "Sebrae",
+          "source": "Sebrae"
+        }
+      ]
+    },
+    {
       "type": "videos",
       "title": "Para aprofundar",
       "videos": [
         {
-          "url": "https://example.edu/tgs/videos/bi-fundamentos",
-          "title": "Fundamentos de BI e storytelling",
-          "caption": "Aula rápida sobre como conectar indicadores a narrativas de decisão."
+          "url": "https://www.youtube.com/watch?v=2zNHdS6Gs6Y",
+          "title": "Webinar FGV – Business Intelligence no setor público",
+          "caption": "Discussão em português sobre fundamentos de BI aplicados à gestão pública e tomada de decisão integrada.",
+          "author": "FGV Conhecimento",
+          "source": "YouTube"
         },
         {
-          "url": "https://example.edu/tgs/videos/powerbi-dashboard",
-          "title": "Construindo dashboard executivo",
-          "caption": "Demonstração de boas práticas em Power BI aplicadas ao caso."
+          "url": "https://www.youtube.com/watch?v=qb4n2ymlk4U",
+          "title": "Sebrae – Como usar Business Intelligence no seu negócio",
+          "caption": "Vídeo em português que apresenta conceitos de BI, indicadores e exemplos de dashboards acessíveis.",
+          "author": "Sebrae",
+          "source": "YouTube"
         }
       ]
+    },
+    {
+      "type": "component",
+      "component": "QuizBlock",
+      "props": {
+        "data": {
+          "type": "quiz",
+          "title": "Checagem de arquitetura",
+          "question": "Quais elementos são indispensáveis para garantir confiabilidade no dashboard executivo?",
+          "multiple": false,
+          "feedback": {
+            "correct": "Dashboard sistêmico combina indicadores claros, limites e responsáveis definidos.",
+            "incorrect": "Revise se o painel deixa explícitos limites, responsáveis e registros de decisão."
+          },
+          "options": [
+            {
+              "id": "op1",
+              "text": "Registrar decisões, definir limites de KPI e nomear responsáveis pelos alertas.",
+              "correct": true,
+              "explanation": "Esses elementos garantem rastreabilidade e acionabilidade."
+            },
+            {
+              "id": "op2",
+              "text": "Usar apenas gráficos com cores vibrantes para chamar atenção.",
+              "correct": false
+            },
+            {
+              "id": "op3",
+              "text": "Exibir dados crus sem contexto para permitir leitura neutra.",
+              "correct": false
+            }
+          ]
+        }
+      }
     },
     {
       "type": "promptTip",
       "title": "Prompt para revisar o dashboard",
       "description": "Utilize quando tiver uma primeira versão dos gráficos.",
       "audience": "teacher",
-      "prompt": "Você é especialista em storytelling com dados. Analise a descrição do dashboard abaixo e sugira melhorias visuais, indicadores complementares e alertas automáticos. Informe também riscos de interpretação e como mitigá-los. Descrição: [resuma seu dashboard].",
-      "tags": ["bi", "dashboards"],
+      "prompt": "Você é especialista em storytelling com dados e Teoria Geral dos Sistemas. Analise a descrição do dashboard abaixo e sugira melhorias visuais, indicadores territoriais complementares e loops de feedback que precisam ser monitorados. Informe também riscos de interpretação e como mitigá-los. Descrição: [resuma seu dashboard].",
+      "tags": ["bi", "dashboards", "tgs"],
       "tips": [
         "Peça sugestões de títulos acionáveis e textos de apoio.",
         "Solicite alertas baseados em limites de KPI.",
-        "Inclua público-alvo e cadência de uso do painel."
+        "Inclua público-alvo, recortes territoriais e cadência de uso do painel."
       ]
     },
     {
@@ -222,7 +703,11 @@
       "content": [
         {
           "type": "paragraph",
-          "text": "Finalize o dashboard iniciado em sala, grave um vídeo de até 3 minutos demonstrando como responder às três perguntas de negócio prioritárias e publique no AVA com o checklist preenchido."
+          "text": "Elabore um dossiê analítico com capturas do painel público escolhido (ou do mockup produzido em sala), destacando entradas, processos, saídas e loops de feedback identificados. Inclua notas sobre limitações de dados e decisões sugeridas."
+        },
+        {
+          "type": "paragraph",
+          "text": "No envio, anexe também um quadro com responsáveis, frequência de atualização e indicadores locais que precisam de monitoramento adicional."
         }
       ]
     },
@@ -231,14 +716,16 @@
       "title": "Ao final, valide se você",
       "items": [
         "Validou métricas, fontes de dados e responsáveis com o squad.",
-        "Garantiu títulos descritivos, escalas coerentes e alertas visíveis.",
-        "Definiu próximos passos para operacionalizar alertas e revisões periódicas."
+        "Garantiu títulos descritivos, escalas coerentes e recortes territoriais explícitos.",
+        "Definiu próximos passos para operacionalizar alertas e revisões periódicas.",
+        "Relacionou indicadores críticos aos loops de reforço e equilíbrio identificados.",
+        "Registrou evidências que conectam decisões às referências teóricas da TGS."
       ]
     }
   ],
   "metadata": {
     "status": "draft",
-    "updatedAt": "2025-02-10T00:00:00.000Z",
+    "updatedAt": "2025-10-16T00:00:00.000Z",
     "owners": ["Profa. Marina Duarte"],
     "sources": ["Plano de ensino TGS 2025.1"]
   }
